@@ -1,0 +1,17 @@
+query Harks($limit: Int!, $offset: Int!) {
+	harks(limit: $limit, offset: $offset) {
+        Harks {
+            id
+            nickName
+            status
+        }
+        Pagination {
+            total
+            totalPages
+            nextPageExists
+            previousPageExists
+        }
+	}
+}
+
+

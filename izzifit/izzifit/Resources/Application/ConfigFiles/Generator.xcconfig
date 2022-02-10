@@ -1,0 +1,15 @@
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+STRING_CONFIGURATION_NAME=\@\"${CONFIGURATION_NAME}\"
+STRING_HOST_NAME=\@\"${HOST_NAME}\"
+STRING_SUPPORT_EMAIL=\@\"${SUPPORT_EMAIL}\"
+STRING_APP_NAME =\@\"${APP_NAME}\"
+STRING_HOST_REST_NAME =\@\"${HOST_REST_NAME}\"
+STRING_WSS_NAME = \@\"${WSS_NAME}\"
+
+// ===============
+// GCC Preprocessor definitions ( to provide ability use this variables values in code. You shouldn`t change this )
+
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) CONFIGURATION_NAME=$(STRING_CONFIGURATION_NAME) HOST_NAME=$(STRING_HOST_NAME) SUPPORT_EMAIL=$(STRING_SUPPORT_EMAIL) APP_NAME=$(STRING_APP_NAME) HOST_REST_NAME=$(STRING_HOST_REST_NAME) WSS_NAME=$(STRING_WSS_NAME)
