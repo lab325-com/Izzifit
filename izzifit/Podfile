@@ -6,5 +6,6 @@ target 'izzifit' do
   use_frameworks!
 
   # Pods for izzifit
+  pod 'R.swift'
   pod 'SpreadsheetView'
 end
