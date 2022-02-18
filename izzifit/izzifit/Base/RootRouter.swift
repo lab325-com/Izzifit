@@ -50,30 +50,35 @@ class RootRouter {
 // MARK: - Change root controller
 //----------------------------------------------
 extension RootRouter {
-//    func loadOnboarding(toWindow window: UIWindow) {
-//        let viewController = OnboardingController()
-//        let navigationController = NavigationController(rootViewController: viewController)
-//        UIApplication.shared.switchRootViewController(window: window,
-//                                                      rootViewController: navigationController,
-//                                                      animated: true,
-//                                                      completion: nil)
-//    }
-//
-    func loadLogin(toWindow window: UIWindow) {
-        let viewController = LoginController()
+    func loadOnboarding(toWindow window: UIWindow) {
+        let viewController = QuizeNameController(isHiddenBackButton: true)
         let navigationController = NavigationController(rootViewController: viewController)
         UIApplication.shared.switchRootViewController(window: window,
                                                       rootViewController: navigationController,
                                                       animated: true,
                                                       completion: nil)
     }
-//
-//    func loadMain(toWindow window: UIWindow) {
-//        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController
-//        UIApplication.shared.switchRootViewController(window: RootRouter.sharedInstance.window!,
-//                                                      rootViewController: viewController,
-//                                                      animated: true,
-//                                                      completion: nil)
-//    }
+
+    func loadStart(toWindow window: UIWindow) {
+        let viewController = StartController()
+        let navigationController = NavigationController(rootViewController: viewController)
+        UIApplication.shared.switchRootViewController(window: window,
+                                                      rootViewController: navigationController,
+                                                      animated: true,
+                                                      completion: nil)
+    }
+
+    func loadMain(toWindow window: UIWindow) {
+        let viewController = MainTabBarController()
+        let navigationController = NavigationController(rootViewController: viewController)
+        UIApplication.shared.switchRootViewController(window: window,
+                                                      rootViewController: navigationController,
+                                                      animated: true,
+                                                      completion: nil)
+    }
+    
+    func logout() {
+        KeychainService.standard.removeAll()
+        loadStart(toWindow: window!)
+    }
 }

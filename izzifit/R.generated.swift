@@ -85,6 +85,7 @@ struct R: Rswift.Validatable {
   }
 
   static func validate() throws {
+    try font.validate()
     try intern.validate()
   }
 
@@ -130,14 +131,36 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 5 files.
+  /// This `R.file` struct is generated, and contains static references to 16 files.
   struct file {
     /// Resource file `Debug.xcconfig`.
     static let debugXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Debug", pathExtension: "xcconfig")
     /// Resource file `Generator.xcconfig`.
     static let generatorXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Generator", pathExtension: "xcconfig")
+    /// Resource file `Inter-Black.ttf`.
+    static let interBlackTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Black", pathExtension: "ttf")
+    /// Resource file `Inter-Bold.ttf`.
+    static let interBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Bold", pathExtension: "ttf")
+    /// Resource file `Inter-ExtraBold.ttf`.
+    static let interExtraBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-ExtraBold", pathExtension: "ttf")
+    /// Resource file `Inter-ExtraLight.ttf`.
+    static let interExtraLightTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-ExtraLight", pathExtension: "ttf")
+    /// Resource file `Inter-Light.ttf`.
+    static let interLightTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Light", pathExtension: "ttf")
+    /// Resource file `Inter-Medium.ttf`.
+    static let interMediumTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Medium", pathExtension: "ttf")
+    /// Resource file `Inter-Regular.ttf`.
+    static let interRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Regular", pathExtension: "ttf")
+    /// Resource file `Inter-SemiBold.ttf`.
+    static let interSemiBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-SemiBold", pathExtension: "ttf")
+    /// Resource file `Inter-Thin.ttf`.
+    static let interThinTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Thin", pathExtension: "ttf")
+    /// Resource file `Login.graphql`.
+    static let loginGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Login", pathExtension: "graphql")
     /// Resource file `Me.graphql`.
     static let meGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Me", pathExtension: "graphql")
+    /// Resource file `ProfileUpdate.graphql`.
+    static let profileUpdateGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ProfileUpdate", pathExtension: "graphql")
     /// Resource file `Release.xcconfig`.
     static let releaseXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Release", pathExtension: "xcconfig")
     /// Resource file `Staging.xcconfig`.
@@ -155,9 +178,75 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "Inter-Black", withExtension: "ttf")`
+    static func interBlackTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.interBlackTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Inter-Bold", withExtension: "ttf")`
+    static func interBoldTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.interBoldTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Inter-ExtraBold", withExtension: "ttf")`
+    static func interExtraBoldTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.interExtraBoldTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Inter-ExtraLight", withExtension: "ttf")`
+    static func interExtraLightTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.interExtraLightTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Inter-Light", withExtension: "ttf")`
+    static func interLightTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.interLightTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Inter-Medium", withExtension: "ttf")`
+    static func interMediumTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.interMediumTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Inter-Regular", withExtension: "ttf")`
+    static func interRegularTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.interRegularTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Inter-SemiBold", withExtension: "ttf")`
+    static func interSemiBoldTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.interSemiBoldTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Inter-Thin", withExtension: "ttf")`
+    static func interThinTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.interThinTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Login", withExtension: "graphql")`
+    static func loginGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.loginGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "Me", withExtension: "graphql")`
     static func meGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.meGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "ProfileUpdate", withExtension: "graphql")`
+    static func profileUpdateGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.profileUpdateGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -176,33 +265,416 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.font` struct is generated, and contains static references to 9 fonts.
+  struct font: Rswift.Validatable {
+    /// Font `Inter-Black`.
+    static let interBlack = Rswift.FontResource(fontName: "Inter-Black")
+    /// Font `Inter-Bold`.
+    static let interBold = Rswift.FontResource(fontName: "Inter-Bold")
+    /// Font `Inter-ExtraBold`.
+    static let interExtraBold = Rswift.FontResource(fontName: "Inter-ExtraBold")
+    /// Font `Inter-ExtraLight`.
+    static let interExtraLight = Rswift.FontResource(fontName: "Inter-ExtraLight")
+    /// Font `Inter-Light`.
+    static let interLight = Rswift.FontResource(fontName: "Inter-Light")
+    /// Font `Inter-Medium`.
+    static let interMedium = Rswift.FontResource(fontName: "Inter-Medium")
+    /// Font `Inter-Regular`.
+    static let interRegular = Rswift.FontResource(fontName: "Inter-Regular")
+    /// Font `Inter-SemiBold`.
+    static let interSemiBold = Rswift.FontResource(fontName: "Inter-SemiBold")
+    /// Font `Inter-Thin`.
+    static let interThin = Rswift.FontResource(fontName: "Inter-Thin")
+
+    /// `UIFont(name: "Inter-Black", size: ...)`
+    static func interBlack(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: interBlack, size: size)
+    }
+
+    /// `UIFont(name: "Inter-Bold", size: ...)`
+    static func interBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: interBold, size: size)
+    }
+
+    /// `UIFont(name: "Inter-ExtraBold", size: ...)`
+    static func interExtraBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: interExtraBold, size: size)
+    }
+
+    /// `UIFont(name: "Inter-ExtraLight", size: ...)`
+    static func interExtraLight(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: interExtraLight, size: size)
+    }
+
+    /// `UIFont(name: "Inter-Light", size: ...)`
+    static func interLight(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: interLight, size: size)
+    }
+
+    /// `UIFont(name: "Inter-Medium", size: ...)`
+    static func interMedium(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: interMedium, size: size)
+    }
+
+    /// `UIFont(name: "Inter-Regular", size: ...)`
+    static func interRegular(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: interRegular, size: size)
+    }
+
+    /// `UIFont(name: "Inter-SemiBold", size: ...)`
+    static func interSemiBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: interSemiBold, size: size)
+    }
+
+    /// `UIFont(name: "Inter-Thin", size: ...)`
+    static func interThin(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: interThin, size: size)
+    }
+
+    static func validate() throws {
+      if R.font.interBlack(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Black' could not be loaded, is 'Inter-Black.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.interBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Bold' could not be loaded, is 'Inter-Bold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.interExtraBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-ExtraBold' could not be loaded, is 'Inter-ExtraBold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.interExtraLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-ExtraLight' could not be loaded, is 'Inter-ExtraLight.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.interLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Light' could not be loaded, is 'Inter-Light.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.interMedium(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Medium' could not be loaded, is 'Inter-Medium.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.interRegular(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Regular' could not be loaded, is 'Inter-Regular.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.interSemiBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-SemiBold' could not be loaded, is 'Inter-SemiBold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.interThin(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Thin' could not be loaded, is 'Inter-Thin.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.image` struct is generated, and contains static references to 21 images.
   struct image {
-    /// Image `image 338`.
-    static let image338 = Rswift.ImageResource(bundle: R.hostingBundle, name: "image 338")
+    /// Image `auth_note_see_pass_ic`.
+    static let auth_note_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_note_see_pass_ic")
+    /// Image `auth_see_pass_ic`.
+    static let auth_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_see_pass_ic")
+    /// Image `onboarding_back_ic`.
+    static let onboarding_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_back_ic")
+    /// Image `onboarding_background_ic`.
+    static let onboarding_background_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_background_ic")
+    /// Image `onboarding_food_classic_ic`.
+    static let onboarding_food_classic_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_food_classic_ic")
+    /// Image `onboarding_food_keto_ic`.
+    static let onboarding_food_keto_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_food_keto_ic")
+    /// Image `onboarding_food_pesca_ic`.
+    static let onboarding_food_pesca_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_food_pesca_ic")
+    /// Image `onboarding_food_vegan_ic`.
+    static let onboarding_food_vegan_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_food_vegan_ic")
+    /// Image `onboarding_food_vegetarian_ic`.
+    static let onboarding_food_vegetarian_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_food_vegetarian_ic")
+    /// Image `onboarding_gender_man_ic`.
+    static let onboarding_gender_man_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_gender_man_ic")
+    /// Image `onboarding_gender_women_ic`.
+    static let onboarding_gender_women_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_gender_women_ic")
+    /// Image `onboarding_selected_ic`.
+    static let onboarding_selected_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_selected_ic")
+    /// Image `onboarding_sport_newbie_ic`.
+    static let onboarding_sport_newbie_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_sport_newbie_ic")
+    /// Image `onboarding_sport_not_all_ic`.
+    static let onboarding_sport_not_all_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_sport_not_all_ic")
+    /// Image `onboarding_sport_professional_ic`.
+    static let onboarding_sport_professional_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_sport_professional_ic")
+    /// Image `onboarding_sport_regulary_ic`.
+    static let onboarding_sport_regulary_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_sport_regulary_ic")
+    /// Image `onboarding_target_flag_ic`.
+    static let onboarding_target_flag_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_target_flag_ic")
+    /// Image `start_back_ic`.
+    static let start_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "start_back_ic")
+    /// Image `start_gradient_ic`.
+    static let start_gradient_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "start_gradient_ic")
+    /// Image `start_login_button_ic`.
+    static let start_login_button_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "start_login_button_ic")
+    /// Image `start_logo_ic`.
+    static let start_logo_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "start_logo_ic")
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "image 338", bundle: ..., traitCollection: ...)`
-    static func image338(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.image338, compatibleWith: traitCollection)
+    /// `UIImage(named: "auth_note_see_pass_ic", bundle: ..., traitCollection: ...)`
+    static func auth_note_see_pass_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.auth_note_see_pass_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "auth_see_pass_ic", bundle: ..., traitCollection: ...)`
+    static func auth_see_pass_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.auth_see_pass_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_back_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_back_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_back_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_background_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_background_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_background_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_food_classic_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_food_classic_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_food_classic_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_food_keto_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_food_keto_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_food_keto_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_food_pesca_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_food_pesca_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_food_pesca_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_food_vegan_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_food_vegan_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_food_vegan_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_food_vegetarian_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_food_vegetarian_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_food_vegetarian_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_gender_man_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_gender_man_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_gender_man_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_gender_women_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_gender_women_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_gender_women_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_selected_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_selected_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_selected_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_sport_newbie_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_sport_newbie_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_sport_newbie_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_sport_not_all_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_sport_not_all_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_sport_not_all_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_sport_professional_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_sport_professional_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_sport_professional_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_sport_regulary_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_sport_regulary_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_sport_regulary_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_target_flag_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_target_flag_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_target_flag_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "start_back_ic", bundle: ..., traitCollection: ...)`
+    static func start_back_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.start_back_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "start_gradient_ic", bundle: ..., traitCollection: ...)`
+    static func start_gradient_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.start_gradient_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "start_login_button_ic", bundle: ..., traitCollection: ...)`
+    static func start_login_button_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.start_login_button_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "start_logo_ic", bundle: ..., traitCollection: ...)`
+    static func start_logo_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.start_logo_ic, compatibleWith: traitCollection)
     }
     #endif
 
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 15 nibs.
   struct nib {
     /// Nib `LoginController`.
     static let loginController = _R.nib._LoginController()
+    /// Nib `MainTabBarController`.
+    static let mainTabBarController = _R.nib._MainTabBarController()
+    /// Nib `QuizeAgeController`.
+    static let quizeAgeController = _R.nib._QuizeAgeController()
+    /// Nib `QuizeEmailController`.
+    static let quizeEmailController = _R.nib._QuizeEmailController()
+    /// Nib `QuizeFoodController`.
+    static let quizeFoodController = _R.nib._QuizeFoodController()
+    /// Nib `QuizeGenderController`.
+    static let quizeGenderController = _R.nib._QuizeGenderController()
+    /// Nib `QuizeGoalController`.
+    static let quizeGoalController = _R.nib._QuizeGoalController()
+    /// Nib `QuizeHeightController`.
+    static let quizeHeightController = _R.nib._QuizeHeightController()
+    /// Nib `QuizeNameController`.
+    static let quizeNameController = _R.nib._QuizeNameController()
+    /// Nib `QuizeProgressController`.
+    static let quizeProgressController = _R.nib._QuizeProgressController()
+    /// Nib `QuizeSportController`.
+    static let quizeSportController = _R.nib._QuizeSportController()
+    /// Nib `QuizeTargetWeightController`.
+    static let quizeTargetWeightController = _R.nib._QuizeTargetWeightController()
+    /// Nib `QuizeWeightController`.
+    static let quizeWeightController = _R.nib._QuizeWeightController()
     /// Nib `SplashViewController`.
     static let splashViewController = _R.nib._SplashViewController()
+    /// Nib `StartController`.
+    static let startController = _R.nib._StartController()
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "LoginController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.loginController) instead")
     static func loginController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.loginController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MainTabBarController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.mainTabBarController) instead")
+    static func mainTabBarController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.mainTabBarController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeAgeController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeAgeController) instead")
+    static func quizeAgeController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeAgeController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeEmailController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeEmailController) instead")
+    static func quizeEmailController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeEmailController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeFoodController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeFoodController) instead")
+    static func quizeFoodController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeFoodController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeGenderController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeGenderController) instead")
+    static func quizeGenderController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeGenderController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeGoalController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeGoalController) instead")
+    static func quizeGoalController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeGoalController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeHeightController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeHeightController) instead")
+    static func quizeHeightController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeHeightController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeNameController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeNameController) instead")
+    static func quizeNameController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeNameController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeProgressController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeProgressController) instead")
+    static func quizeProgressController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeProgressController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeSportController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeSportController) instead")
+    static func quizeSportController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeSportController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeTargetWeightController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeTargetWeightController) instead")
+    static func quizeTargetWeightController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeTargetWeightController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeWeightController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeWeightController) instead")
+    static func quizeWeightController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeWeightController)
     }
     #endif
 
@@ -214,12 +686,72 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "StartController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.startController) instead")
+    static func startController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.startController)
+    }
+    #endif
+
     static func loginController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.loginController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func mainTabBarController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.mainTabBarController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func quizeAgeController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.quizeAgeController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func quizeEmailController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.quizeEmailController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func quizeFoodController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.quizeFoodController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func quizeGenderController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.quizeGenderController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func quizeGoalController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.quizeGoalController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func quizeHeightController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.quizeHeightController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func quizeNameController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.quizeNameController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func quizeProgressController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.quizeProgressController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func quizeSportController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.quizeSportController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func quizeTargetWeightController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.quizeTargetWeightController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func quizeWeightController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.quizeWeightController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func splashViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.splashViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func startController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.startController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     fileprivate init() {}
@@ -227,26 +759,1092 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 1 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 57 localization keys.
     struct localizable {
-      /// en translation: Explore Plants and create the garden of your dreams
+      /// en translation: %d from %d
       ///
       /// Locales: en
-      static let login_info = Rswift.StringResource(key: "login_info", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      static let onboarding_count = Rswift.StringResource(key: "onboarding_count", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Build muscle
+      ///
+      /// Locales: en
+      static let onboarding_goal_muscle = Rswift.StringResource(key: "onboarding_goal_muscle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: By continuing you accept our
+      ///
+      /// Locales: en
+      static let login_by_continue = Rswift.StringResource(key: "login_by_continue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Cancel
+      ///
+      /// Locales: en
+      static let login_forgot_cancel = Rswift.StringResource(key: "login_forgot_cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Classic
+      ///
+      /// Locales: en
+      static let onboarding_food_classic = Rswift.StringResource(key: "onboarding_food_classic", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Do you sports?
+      ///
+      /// Locales: en
+      static let onboarding_sport_title = Rswift.StringResource(key: "onboarding_sport_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Email
+      ///
+      /// Locales: en
+      static let login_email = Rswift.StringResource(key: "login_email", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: FT
+      ///
+      /// Locales: en
+      static let onboarding_height_ft = Rswift.StringResource(key: "onboarding_height_ft", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Female
+      ///
+      /// Locales: en
+      static let onboarding_female = Rswift.StringResource(key: "onboarding_female", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Food preferences
+      ///
+      /// Locales: en
+      static let onboarding_food_title = Rswift.StringResource(key: "onboarding_food_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Forgot your password?
+      ///
+      /// Locales: en
+      static let login_fogot_pass = Rswift.StringResource(key: "login_fogot_pass", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Forgot your password?
+      ///
+      /// Locales: en
+      static let login_forgot_title = Rswift.StringResource(key: "login_forgot_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Get My Plan
+      ///
+      /// Locales: en
+      static let onboarding_email_get_plan = Rswift.StringResource(key: "onboarding_email_get_plan", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Gey my personal plan
+      ///
+      /// Locales: en
+      static let onboarding_get_plan = Rswift.StringResource(key: "onboarding_get_plan", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Go next
+      ///
+      /// Locales: en
+      static let onboarding_go_next = Rswift.StringResource(key: "onboarding_go_next", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: I do it regularly
+      ///
+      /// Locales: en
+      static let onboarding_sport_regulary = Rswift.StringResource(key: "onboarding_sport_regulary", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Just let me play
+      ///
+      /// Locales: en
+      static let onboarding_goal_just_play = Rswift.StringResource(key: "onboarding_goal_just_play", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: KG
+      ///
+      /// Locales: en
+      static let onboarding_weight_kg = Rswift.StringResource(key: "onboarding_weight_kg", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Keep fit
+      ///
+      /// Locales: en
+      static let onboarding_goal_keep_fit = Rswift.StringResource(key: "onboarding_goal_keep_fit", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Keto
+      ///
+      /// Locales: en
+      static let onboarding_food_keto = Rswift.StringResource(key: "onboarding_food_keto", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: LB
+      ///
+      /// Locales: en
+      static let onboarding_weight_lb = Rswift.StringResource(key: "onboarding_weight_lb", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Log In
+      ///
+      /// Locales: en
+      static let login_title = Rswift.StringResource(key: "login_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Login
+      ///
+      /// Locales: en
+      static let login_button = Rswift.StringResource(key: "login_button", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Lose weight
+      ///
+      /// Locales: en
+      static let onboarding_goal_lose_weight = Rswift.StringResource(key: "onboarding_goal_lose_weight", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Male
+      ///
+      /// Locales: en
+      static let onboarding_male = Rswift.StringResource(key: "onboarding_male", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Meals
+      ///
+      /// Locales: en
+      static let login_meals = Rswift.StringResource(key: "login_meals", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Newbie
+      ///
+      /// Locales: en
+      static let onboarding_sport_newbie = Rswift.StringResource(key: "onboarding_sport_newbie", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Not at all
+      ///
+      /// Locales: en
+      static let onboarding_sport_not_all = Rswift.StringResource(key: "onboarding_sport_not_all", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Other
+      ///
+      /// Locales: en
+      static let onboarding_other = Rswift.StringResource(key: "onboarding_other", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Password
+      ///
+      /// Locales: en
+      static let login_password = Rswift.StringResource(key: "login_password", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Pescatarian
+      ///
+      /// Locales: en
+      static let onboarding_food_pesca = Rswift.StringResource(key: "onboarding_food_pesca", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Playing
+      ///
+      /// Locales: en
+      static let login_playing = Rswift.StringResource(key: "login_playing", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Please enter the email address that you used when creating your account.
+      ///
+      /// Locales: en
+      static let login_forgot_subTitle = Rswift.StringResource(key: "login_forgot_subTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Privacy Policy
+      ///
+      /// Locales: en
+      static let login_privacy = Rswift.StringResource(key: "login_privacy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Privacy Policy,
+      ///
+      /// Locales: en
+      static let login_privacy_policy = Rswift.StringResource(key: "login_privacy_policy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Processing
+      ///
+      /// Locales: en
+      static let onboarding_processing_title = Rswift.StringResource(key: "onboarding_processing_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Professional
+      ///
+      /// Locales: en
+      static let onboarding_sport_professional = Rswift.StringResource(key: "onboarding_sport_professional", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: SM
+      ///
+      /// Locales: en
+      static let onboarding_height_sm = Rswift.StringResource(key: "onboarding_height_sm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Skip
+      ///
+      /// Locales: en
+      static let onboarding_food_skip = Rswift.StringResource(key: "onboarding_food_skip", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Start
+      ///
+      /// Locales: en
+      static let login_start = Rswift.StringResource(key: "login_start", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Submit
+      ///
+      /// Locales: en
+      static let login_forgot_submit = Rswift.StringResource(key: "login_forgot_submit", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Target weigth
+      ///
+      /// Locales: en
+      static let onboarding_targe_weight_title = Rswift.StringResource(key: "onboarding_targe_weight_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Terms of Subscribe
+      ///
+      /// Locales: en
+      static let login_terms_of_subscribe = Rswift.StringResource(key: "login_terms_of_subscribe", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Terms of Use
+      ///
+      /// Locales: en
+      static let login_terms = Rswift.StringResource(key: "login_terms", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Terms of Use
+      ///
+      /// Locales: en
+      static let login_terms_use = Rswift.StringResource(key: "login_terms_use", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Vegan
+      ///
+      /// Locales: en
+      static let onboarding_food_vegan = Rswift.StringResource(key: "onboarding_food_vegan", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Vegetarian
+      ///
+      /// Locales: en
+      static let onboarding_food_vegetarian = Rswift.StringResource(key: "onboarding_food_vegetarian", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: We create your personal nutrition and workout plan
+      ///
+      /// Locales: en
+      static let onboarding_processing_subTitle = Rswift.StringResource(key: "onboarding_processing_subTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: What's your goal?
+      ///
+      /// Locales: en
+      static let onboarding_goal_title = Rswift.StringResource(key: "onboarding_goal_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Workouts
+      ///
+      /// Locales: en
+      static let login_workouts = Rswift.StringResource(key: "login_workouts", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Your age
+      ///
+      /// Locales: en
+      static let onboarding_age_title = Rswift.StringResource(key: "onboarding_age_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Your email
+      ///
+      /// Locales: en
+      static let onboarding_email_title = Rswift.StringResource(key: "onboarding_email_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Your gender
+      ///
+      /// Locales: en
+      static let onboarding_gender_title = Rswift.StringResource(key: "onboarding_gender_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Your height
+      ///
+      /// Locales: en
+      static let onboarding_height_title = Rswift.StringResource(key: "onboarding_height_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Your name
+      ///
+      /// Locales: en
+      static let onboarding_name = Rswift.StringResource(key: "onboarding_name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Your weigth
+      ///
+      /// Locales: en
+      static let onboarding_weight_title = Rswift.StringResource(key: "onboarding_weight_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: and
+      ///
+      /// Locales: en
+      static let login_and = Rswift.StringResource(key: "login_and", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
 
-      /// en translation: Explore Plants and create the garden of your dreams
+      /// en translation: %d from %d
       ///
       /// Locales: en
-      static func login_info(preferredLanguages: [String]? = nil) -> String {
+      static func onboarding_count(_ value1: Int, _ value2: Int, preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("login_info", bundle: hostingBundle, comment: "")
+          let format = NSLocalizedString("onboarding_count", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1, value2)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_count"
+        }
+
+        let format = NSLocalizedString("onboarding_count", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1, value2)
+      }
+
+      /// en translation: Build muscle
+      ///
+      /// Locales: en
+      static func onboarding_goal_muscle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_goal_muscle", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "login_info"
+          return "onboarding_goal_muscle"
         }
 
-        return NSLocalizedString("login_info", bundle: bundle, comment: "")
+        return NSLocalizedString("onboarding_goal_muscle", bundle: bundle, comment: "")
+      }
+
+      /// en translation: By continuing you accept our
+      ///
+      /// Locales: en
+      static func login_by_continue(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_by_continue", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_by_continue"
+        }
+
+        return NSLocalizedString("login_by_continue", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Cancel
+      ///
+      /// Locales: en
+      static func login_forgot_cancel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_forgot_cancel", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_forgot_cancel"
+        }
+
+        return NSLocalizedString("login_forgot_cancel", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Classic
+      ///
+      /// Locales: en
+      static func onboarding_food_classic(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_food_classic", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_food_classic"
+        }
+
+        return NSLocalizedString("onboarding_food_classic", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Do you sports?
+      ///
+      /// Locales: en
+      static func onboarding_sport_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_sport_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_sport_title"
+        }
+
+        return NSLocalizedString("onboarding_sport_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Email
+      ///
+      /// Locales: en
+      static func login_email(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_email", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_email"
+        }
+
+        return NSLocalizedString("login_email", bundle: bundle, comment: "")
+      }
+
+      /// en translation: FT
+      ///
+      /// Locales: en
+      static func onboarding_height_ft(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_height_ft", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_height_ft"
+        }
+
+        return NSLocalizedString("onboarding_height_ft", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Female
+      ///
+      /// Locales: en
+      static func onboarding_female(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_female", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_female"
+        }
+
+        return NSLocalizedString("onboarding_female", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Food preferences
+      ///
+      /// Locales: en
+      static func onboarding_food_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_food_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_food_title"
+        }
+
+        return NSLocalizedString("onboarding_food_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Forgot your password?
+      ///
+      /// Locales: en
+      static func login_fogot_pass(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_fogot_pass", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_fogot_pass"
+        }
+
+        return NSLocalizedString("login_fogot_pass", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Forgot your password?
+      ///
+      /// Locales: en
+      static func login_forgot_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_forgot_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_forgot_title"
+        }
+
+        return NSLocalizedString("login_forgot_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Get My Plan
+      ///
+      /// Locales: en
+      static func onboarding_email_get_plan(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_email_get_plan", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_email_get_plan"
+        }
+
+        return NSLocalizedString("onboarding_email_get_plan", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Gey my personal plan
+      ///
+      /// Locales: en
+      static func onboarding_get_plan(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_get_plan", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_get_plan"
+        }
+
+        return NSLocalizedString("onboarding_get_plan", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Go next
+      ///
+      /// Locales: en
+      static func onboarding_go_next(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_go_next", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_go_next"
+        }
+
+        return NSLocalizedString("onboarding_go_next", bundle: bundle, comment: "")
+      }
+
+      /// en translation: I do it regularly
+      ///
+      /// Locales: en
+      static func onboarding_sport_regulary(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_sport_regulary", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_sport_regulary"
+        }
+
+        return NSLocalizedString("onboarding_sport_regulary", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Just let me play
+      ///
+      /// Locales: en
+      static func onboarding_goal_just_play(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_goal_just_play", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_goal_just_play"
+        }
+
+        return NSLocalizedString("onboarding_goal_just_play", bundle: bundle, comment: "")
+      }
+
+      /// en translation: KG
+      ///
+      /// Locales: en
+      static func onboarding_weight_kg(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_weight_kg", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_weight_kg"
+        }
+
+        return NSLocalizedString("onboarding_weight_kg", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Keep fit
+      ///
+      /// Locales: en
+      static func onboarding_goal_keep_fit(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_goal_keep_fit", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_goal_keep_fit"
+        }
+
+        return NSLocalizedString("onboarding_goal_keep_fit", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Keto
+      ///
+      /// Locales: en
+      static func onboarding_food_keto(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_food_keto", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_food_keto"
+        }
+
+        return NSLocalizedString("onboarding_food_keto", bundle: bundle, comment: "")
+      }
+
+      /// en translation: LB
+      ///
+      /// Locales: en
+      static func onboarding_weight_lb(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_weight_lb", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_weight_lb"
+        }
+
+        return NSLocalizedString("onboarding_weight_lb", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Log In
+      ///
+      /// Locales: en
+      static func login_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_title"
+        }
+
+        return NSLocalizedString("login_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Login
+      ///
+      /// Locales: en
+      static func login_button(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_button", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_button"
+        }
+
+        return NSLocalizedString("login_button", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Lose weight
+      ///
+      /// Locales: en
+      static func onboarding_goal_lose_weight(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_goal_lose_weight", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_goal_lose_weight"
+        }
+
+        return NSLocalizedString("onboarding_goal_lose_weight", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Male
+      ///
+      /// Locales: en
+      static func onboarding_male(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_male", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_male"
+        }
+
+        return NSLocalizedString("onboarding_male", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Meals
+      ///
+      /// Locales: en
+      static func login_meals(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_meals", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_meals"
+        }
+
+        return NSLocalizedString("login_meals", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Newbie
+      ///
+      /// Locales: en
+      static func onboarding_sport_newbie(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_sport_newbie", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_sport_newbie"
+        }
+
+        return NSLocalizedString("onboarding_sport_newbie", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Not at all
+      ///
+      /// Locales: en
+      static func onboarding_sport_not_all(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_sport_not_all", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_sport_not_all"
+        }
+
+        return NSLocalizedString("onboarding_sport_not_all", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Other
+      ///
+      /// Locales: en
+      static func onboarding_other(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_other", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_other"
+        }
+
+        return NSLocalizedString("onboarding_other", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Password
+      ///
+      /// Locales: en
+      static func login_password(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_password", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_password"
+        }
+
+        return NSLocalizedString("login_password", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Pescatarian
+      ///
+      /// Locales: en
+      static func onboarding_food_pesca(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_food_pesca", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_food_pesca"
+        }
+
+        return NSLocalizedString("onboarding_food_pesca", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Playing
+      ///
+      /// Locales: en
+      static func login_playing(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_playing", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_playing"
+        }
+
+        return NSLocalizedString("login_playing", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Please enter the email address that you used when creating your account.
+      ///
+      /// Locales: en
+      static func login_forgot_subTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_forgot_subTitle", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_forgot_subTitle"
+        }
+
+        return NSLocalizedString("login_forgot_subTitle", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Privacy Policy
+      ///
+      /// Locales: en
+      static func login_privacy(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_privacy", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_privacy"
+        }
+
+        return NSLocalizedString("login_privacy", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Privacy Policy,
+      ///
+      /// Locales: en
+      static func login_privacy_policy(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_privacy_policy", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_privacy_policy"
+        }
+
+        return NSLocalizedString("login_privacy_policy", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Processing
+      ///
+      /// Locales: en
+      static func onboarding_processing_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_processing_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_processing_title"
+        }
+
+        return NSLocalizedString("onboarding_processing_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Professional
+      ///
+      /// Locales: en
+      static func onboarding_sport_professional(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_sport_professional", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_sport_professional"
+        }
+
+        return NSLocalizedString("onboarding_sport_professional", bundle: bundle, comment: "")
+      }
+
+      /// en translation: SM
+      ///
+      /// Locales: en
+      static func onboarding_height_sm(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_height_sm", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_height_sm"
+        }
+
+        return NSLocalizedString("onboarding_height_sm", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Skip
+      ///
+      /// Locales: en
+      static func onboarding_food_skip(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_food_skip", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_food_skip"
+        }
+
+        return NSLocalizedString("onboarding_food_skip", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Start
+      ///
+      /// Locales: en
+      static func login_start(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_start", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_start"
+        }
+
+        return NSLocalizedString("login_start", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Submit
+      ///
+      /// Locales: en
+      static func login_forgot_submit(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_forgot_submit", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_forgot_submit"
+        }
+
+        return NSLocalizedString("login_forgot_submit", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Target weigth
+      ///
+      /// Locales: en
+      static func onboarding_targe_weight_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_targe_weight_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_targe_weight_title"
+        }
+
+        return NSLocalizedString("onboarding_targe_weight_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Terms of Subscribe
+      ///
+      /// Locales: en
+      static func login_terms_of_subscribe(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_terms_of_subscribe", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_terms_of_subscribe"
+        }
+
+        return NSLocalizedString("login_terms_of_subscribe", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Terms of Use
+      ///
+      /// Locales: en
+      static func login_terms(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_terms", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_terms"
+        }
+
+        return NSLocalizedString("login_terms", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Terms of Use
+      ///
+      /// Locales: en
+      static func login_terms_use(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_terms_use", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_terms_use"
+        }
+
+        return NSLocalizedString("login_terms_use", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Vegan
+      ///
+      /// Locales: en
+      static func onboarding_food_vegan(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_food_vegan", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_food_vegan"
+        }
+
+        return NSLocalizedString("onboarding_food_vegan", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Vegetarian
+      ///
+      /// Locales: en
+      static func onboarding_food_vegetarian(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_food_vegetarian", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_food_vegetarian"
+        }
+
+        return NSLocalizedString("onboarding_food_vegetarian", bundle: bundle, comment: "")
+      }
+
+      /// en translation: We create your personal nutrition and workout plan
+      ///
+      /// Locales: en
+      static func onboarding_processing_subTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_processing_subTitle", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_processing_subTitle"
+        }
+
+        return NSLocalizedString("onboarding_processing_subTitle", bundle: bundle, comment: "")
+      }
+
+      /// en translation: What's your goal?
+      ///
+      /// Locales: en
+      static func onboarding_goal_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_goal_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_goal_title"
+        }
+
+        return NSLocalizedString("onboarding_goal_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Workouts
+      ///
+      /// Locales: en
+      static func login_workouts(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_workouts", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_workouts"
+        }
+
+        return NSLocalizedString("login_workouts", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Your age
+      ///
+      /// Locales: en
+      static func onboarding_age_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_age_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_age_title"
+        }
+
+        return NSLocalizedString("onboarding_age_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Your email
+      ///
+      /// Locales: en
+      static func onboarding_email_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_email_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_email_title"
+        }
+
+        return NSLocalizedString("onboarding_email_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Your gender
+      ///
+      /// Locales: en
+      static func onboarding_gender_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_gender_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_gender_title"
+        }
+
+        return NSLocalizedString("onboarding_gender_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Your height
+      ///
+      /// Locales: en
+      static func onboarding_height_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_height_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_height_title"
+        }
+
+        return NSLocalizedString("onboarding_height_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Your name
+      ///
+      /// Locales: en
+      static func onboarding_name(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_name", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_name"
+        }
+
+        return NSLocalizedString("onboarding_name", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Your weigth
+      ///
+      /// Locales: en
+      static func onboarding_weight_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("onboarding_weight_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "onboarding_weight_title"
+        }
+
+        return NSLocalizedString("onboarding_weight_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: and
+      ///
+      /// Locales: en
+      static func login_and(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_and", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_and"
+        }
+
+        return NSLocalizedString("login_and", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}
@@ -271,15 +1869,54 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     #if os(iOS) || os(tvOS)
+    try nib.validate()
+    #endif
+    #if os(iOS) || os(tvOS)
     try storyboard.validate()
     #endif
   }
 
   #if os(iOS) || os(tvOS)
-  struct nib {
-    struct _LoginController: Rswift.NibResourceType {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _LoginController.validate()
+      try _QuizeAgeController.validate()
+      try _QuizeEmailController.validate()
+      try _QuizeFoodController.validate()
+      try _QuizeGenderController.validate()
+      try _QuizeGoalController.validate()
+      try _QuizeHeightController.validate()
+      try _QuizeNameController.validate()
+      try _QuizeProgressController.validate()
+      try _QuizeSportController.validate()
+      try _QuizeTargetWeightController.validate()
+      try _QuizeWeightController.validate()
+      try _SplashViewController.validate()
+      try _StartController.validate()
+    }
+
+    struct _LoginController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "LoginController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "auth_note_see_pass_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'auth_note_see_pass_ic' is used in nib 'LoginController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'LoginController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'LoginController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _MainTabBarController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "MainTabBarController"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
@@ -288,12 +1925,245 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _SplashViewController: Rswift.NibResourceType {
+    struct _QuizeAgeController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QuizeAgeController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'QuizeAgeController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeAgeController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QuizeEmailController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QuizeEmailController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'QuizeEmailController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeEmailController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QuizeFoodController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QuizeFoodController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'QuizeFoodController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeFoodController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_food_classic_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_food_classic_ic' is used in nib 'QuizeFoodController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_selected_ic' is used in nib 'QuizeFoodController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QuizeGenderController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QuizeGenderController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'QuizeGenderController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeGenderController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_gender_man_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_gender_man_ic' is used in nib 'QuizeGenderController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_gender_women_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_gender_women_ic' is used in nib 'QuizeGenderController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QuizeGoalController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QuizeGoalController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'QuizeGoalController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeGoalController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QuizeHeightController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QuizeHeightController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'QuizeHeightController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeHeightController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QuizeNameController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QuizeNameController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'QuizeNameController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeNameController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QuizeProgressController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QuizeProgressController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeProgressController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QuizeSportController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QuizeSportController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'QuizeSportController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeSportController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_food_classic_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_food_classic_ic' is used in nib 'QuizeSportController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_selected_ic' is used in nib 'QuizeSportController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QuizeTargetWeightController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QuizeTargetWeightController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'QuizeTargetWeightController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeTargetWeightController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_target_flag_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_target_flag_ic' is used in nib 'QuizeTargetWeightController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QuizeWeightController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QuizeWeightController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'QuizeWeightController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeWeightController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _SplashViewController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "SplashViewController"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "start_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_back_ic' is used in nib 'SplashViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "start_gradient_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_gradient_ic' is used in nib 'SplashViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "start_login_button_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_login_button_ic' is used in nib 'SplashViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "start_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_logo_ic' is used in nib 'SplashViewController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _StartController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "StartController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "start_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_back_ic' is used in nib 'StartController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "start_gradient_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_gradient_ic' is used in nib 'StartController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "start_login_button_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_login_button_ic' is used in nib 'StartController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "start_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_logo_ic' is used in nib 'StartController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}
@@ -319,6 +2189,10 @@ struct _R: Rswift.Validatable {
       let name = "LaunchScreen"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "start_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_back_ic' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "start_gradient_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_gradient_ic' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "start_login_button_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_login_button_ic' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "start_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_logo_ic' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

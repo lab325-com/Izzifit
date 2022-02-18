@@ -1,0 +1,27 @@
+mutation ProfileUpdate($record: ProfileUpdateInput!) {
+    profileUpdate(record: $record) {
+        Rank {
+            countryPosition
+            globalPosition
+            level
+            rank
+        }
+        age
+        coins
+        darkTheme
+        doSport
+        email
+        energy
+        fitnessPreference
+        foodGroupId
+        gender
+        goal
+        growth
+        id
+        name
+        notifications
+        reminders
+        showOnBoarding
+        weight
+    }
+}

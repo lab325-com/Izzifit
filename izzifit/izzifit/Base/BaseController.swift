@@ -24,6 +24,7 @@ class BaseController: UIViewController, NVActivityIndicatorViewable {
     /// property to keyboard settings
     var isShowKeyboard = false
     var correctionKeyboard: CGFloat = 0.0
+    var correctionHideKeyboard: CGFloat = 0.0
     var keyboardHeight: CGFloat = 0.0
     var isNeedBottomPagging = true
     var addTapOnScreen = true
@@ -163,7 +164,7 @@ extension BaseController {
     @objc func keyboardWillHideMain(_ notification : Notification) {
         isShowKeyboard = false
         if let bootomConstant = bottomViewConstraint {
-            bootomConstant.constant = 0
+            bootomConstant.constant = correctionHideKeyboard
             keyboardHeight = 0
             UIView.animate(withDuration: 0.4, animations: { () -> Void in
                 self.view.layoutIfNeeded()

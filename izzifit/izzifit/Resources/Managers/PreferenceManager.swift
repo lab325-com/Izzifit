@@ -14,6 +14,7 @@ class PreferencesManager : NSObject {
     
     //MARK: - Keys
     static let isFirstRun = "isFirstRun"
+    static let tempPorifle = "tempPorifle"
     
     var userDefaults: UserDefaults
     
@@ -102,6 +103,15 @@ class PreferencesManager : NSObject {
         set {
             userDefaults.set(newValue, forKey: PreferencesManager.isFirstRun)
             userDefaults.synchronize()
+        }
+    }
+    
+    var tempPorifle: TempProfileModel {
+        get {
+            return self.model(forKey: PreferencesManager.tempPorifle) ?? TempProfileModel(name: nil)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.tempPorifle)
         }
     }
 }

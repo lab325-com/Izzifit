@@ -41,7 +41,7 @@ class Network {
                     debugPrint("Failure! Error: \(error)")
                     if queryResult.errors?.first?.message == "Not authenticated" {
                         KeychainService.standard.removeAll()
-                        RootRouter.sharedInstance.loadLogin(toWindow: RootRouter.sharedInstance.window!)
+                        RootRouter.sharedInstance.loadStart(toWindow: RootRouter.sharedInstance.window!)
                     }
                     if let message = queryResult.errors?.first?.message {
                         controller?.view?.makeToast(message)
@@ -77,7 +77,7 @@ class Network {
                     debugPrint("Failure! Error: \(error)")
                     if queryResult.errors?.first?.message == "Not authenticated" {
                         KeychainService.standard.removeAll()
-                        RootRouter.sharedInstance.loadLogin(toWindow: RootRouter.sharedInstance.window!)
+                        RootRouter.sharedInstance.loadStart(toWindow: RootRouter.sharedInstance.window!)
                     }
                     if let message = queryResult.errors?.first?.message {
                         controller?.view?.makeToast(message)
@@ -113,7 +113,7 @@ class Network {
                     debugPrint("Failure! Error: \(error)")
                     if queryResult.errors?.first?.message == "Not authenticated" {
                         KeychainService.standard.removeAll()
-                        RootRouter.sharedInstance.loadLogin(toWindow: RootRouter.sharedInstance.window!)
+                        RootRouter.sharedInstance.loadStart(toWindow: RootRouter.sharedInstance.window!)
                     }
                     if let message = queryResult.errors?.first?.message {
                         controller?.view?.makeToast(message)

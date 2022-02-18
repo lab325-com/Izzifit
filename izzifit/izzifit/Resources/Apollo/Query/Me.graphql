@@ -10,6 +10,7 @@ query Me {
         coins
         darkTheme
         doSport
+        email
         energy
         fitnessPreference
         foodGroupId
@@ -20,6 +21,7 @@ query Me {
         name
         notifications
         reminders
+        showOnBoarding
         weight
 	}
 }

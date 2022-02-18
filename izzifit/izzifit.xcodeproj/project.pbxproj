@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021A6F4727BF8FFA0000D863 /* ProfileUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4627BF8FF90000D863 /* ProfileUpdateModel.swift */; };
+		021A6F4A27BF91050000D863 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4927BF91050000D863 /* CircularProgressBarView.swift */; };
+		021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4C27BF99710000D863 /* MainTabBarController.swift */; };
+		021A6F4F27BF99720000D863 /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021A6F4D27BF99710000D863 /* MainTabBarController.xib */; };
+		021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F5027BFA1AD0000D863 /* LoginPresenter.swift */; };
+		023D171C27BE1D4D005F95C0 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D171B27BE1D4D005F95C0 /* AuthRouter.swift */; };
+		023D171E27BE258A005F95C0 /* UITapGesture+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D171D27BE258A005F95C0 /* UITapGesture+Extension.swift */; };
 		0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249D22A27B3A4EF00F265C1 /* AppDelegate.swift */; };
 		0249D23427B3A4F100F265C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0249D23327B3A4F100F265C1 /* Assets.xcassets */; };
 		0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0249D23527B3A4F100F265C1 /* LaunchScreen.storyboard */; };
@@ -42,12 +49,60 @@
 		0249D29427B3ABD900F265C1 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0249D29027B3ABD900F265C1 /* Release.xcconfig */; };
 		0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0249D29B27B3D79D00F265C1 /* Me.graphql */; };
 		0249D29E27B3D81700F265C1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249D29D27B3D81700F265C1 /* API.swift */; };
+		02B225A227BCF0F00035CFA2 /* TempProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */; };
+		02B225A627BCFB9F0035CFA2 /* QuizeTargetWeightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225A427BCFB9F0035CFA2 /* QuizeTargetWeightController.swift */; };
+		02B225A727BCFB9F0035CFA2 /* QuizeTargetWeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02B225A527BCFB9F0035CFA2 /* QuizeTargetWeightController.xib */; };
+		02B225AE27BD45080035CFA2 /* QuizeFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225AC27BD45080035CFA2 /* QuizeFoodController.swift */; };
+		02B225AF27BD45080035CFA2 /* QuizeFoodController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02B225AD27BD45080035CFA2 /* QuizeFoodController.xib */; };
+		02B225B327BD5D300035CFA2 /* QuizeSportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225B127BD5D300035CFA2 /* QuizeSportController.swift */; };
+		02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02B225B227BD5D300035CFA2 /* QuizeSportController.xib */; };
+		02B225B827BD63FC0035CFA2 /* QuizeEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225B627BD63FC0035CFA2 /* QuizeEmailController.swift */; };
+		02B225B927BD63FC0035CFA2 /* QuizeEmailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02B225B727BD63FC0035CFA2 /* QuizeEmailController.xib */; };
+		02B225BB27BD79DA0035CFA2 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225BA27BD79DA0035CFA2 /* StartPresenter.swift */; };
+		02B225BE27BD7B110035CFA2 /* Login.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B225BD27BD7B110035CFA2 /* Login.graphql */; };
+		02B225C027BD7B4F0035CFA2 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225BF27BD7B4F0035CFA2 /* LoginModel.swift */; };
+		02B225C227BD7D4D0035CFA2 /* MeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225C127BD7D4D0035CFA2 /* MeModel.swift */; };
+		02C3DD6527BEDA82004E5C65 /* QuizeProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3DD6327BEDA82004E5C65 /* QuizeProgressController.swift */; };
+		02C3DD6627BEDA82004E5C65 /* QuizeProgressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C3DD6427BEDA82004E5C65 /* QuizeProgressController.xib */; };
+		02C3DD6827BEDAB1004E5C65 /* QuizeProgressPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3DD6727BEDAB1004E5C65 /* QuizeProgressPresenter.swift */; };
+		02C3DD6C27BEDB46004E5C65 /* ProfileUpdate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02C3DD6B27BEDB46004E5C65 /* ProfileUpdate.graphql */; };
 		02D066A827BBA72100D12C5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02D066AA27BBA72100D12C5F /* Localizable.strings */; };
 		02D066AD27BBA8F400D12C5F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066AC27BBA8F400D12C5F /* R.generated.swift */; };
+		02D066B227BBB32400D12C5F /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066B027BBB32400D12C5F /* StartController.swift */; };
+		02D066B327BBB32400D12C5F /* StartController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066B127BBB32400D12C5F /* StartController.xib */; };
+		02D066BE27BBB57D00D12C5F /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D066B527BBB57B00D12C5F /* Inter-ExtraLight.ttf */; };
+		02D066BF27BBB57D00D12C5F /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D066B627BBB57B00D12C5F /* Inter-ExtraBold.ttf */; };
+		02D066C027BBB57D00D12C5F /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D066B727BBB57B00D12C5F /* Inter-Medium.ttf */; };
+		02D066C127BBB57D00D12C5F /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D066B827BBB57C00D12C5F /* Inter-Thin.ttf */; };
+		02D066C227BBB57D00D12C5F /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D066B927BBB57C00D12C5F /* Inter-Light.ttf */; };
+		02D066C327BBB57D00D12C5F /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D066BA27BBB57C00D12C5F /* Inter-Regular.ttf */; };
+		02D066C427BBB57D00D12C5F /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D066BB27BBB57C00D12C5F /* Inter-Bold.ttf */; };
+		02D066C527BBB57D00D12C5F /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D066BC27BBB57D00D12C5F /* Inter-Black.ttf */; };
+		02D066C627BBB57D00D12C5F /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D066BD27BBB57D00D12C5F /* Inter-SemiBold.ttf */; };
+		02D066CB27BBBB4300D12C5F /* QuizeNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066C927BBBB4300D12C5F /* QuizeNameController.swift */; };
+		02D066CC27BBBB4300D12C5F /* QuizeNameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066CA27BBBB4300D12C5F /* QuizeNameController.xib */; };
+		02D066CE27BBC41800D12C5F /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066CD27BBC41700D12C5F /* OnboardingRouter.swift */; };
+		02D066D327BBD12600D12C5F /* QuizeGenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066D127BBD12600D12C5F /* QuizeGenderController.swift */; };
+		02D066D427BBD12600D12C5F /* QuizeGenderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066D227BBD12600D12C5F /* QuizeGenderController.xib */; };
+		02D066D827BBDC3400D12C5F /* QuizeGoalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066D627BBDC3400D12C5F /* QuizeGoalController.swift */; };
+		02D066D927BBDC3400D12C5F /* QuizeGoalController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066D727BBDC3400D12C5F /* QuizeGoalController.xib */; };
+		02D066DD27BBE56700D12C5F /* QuizeAgeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066DB27BBE56700D12C5F /* QuizeAgeController.swift */; };
+		02D066DE27BBE56700D12C5F /* QuizeAgeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066DC27BBE56700D12C5F /* QuizeAgeController.xib */; };
+		02D066E227BBEBA000D12C5F /* QuizeHeightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066E027BBEBA000D12C5F /* QuizeHeightController.swift */; };
+		02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066E127BBEBA000D12C5F /* QuizeHeightController.xib */; };
+		02D066E927BC1BC900D12C5F /* QuizeWeightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066E727BC1BC900D12C5F /* QuizeWeightController.swift */; };
+		02D066EA27BC1BC900D12C5F /* QuizeWeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066E827BC1BC900D12C5F /* QuizeWeightController.xib */; };
 		8C4F7F85C1CC5538D3E379C8 /* Pods_izzifit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA5E332399E73031D583774 /* Pods_izzifit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		021A6F4627BF8FF90000D863 /* ProfileUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateModel.swift; sourceTree = "<group>"; };
+		021A6F4927BF91050000D863 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
+		021A6F4C27BF99710000D863 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		021A6F4D27BF99710000D863 /* MainTabBarController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTabBarController.xib; sourceTree = "<group>"; };
+		021A6F5027BFA1AD0000D863 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		023D171B27BE1D4D005F95C0 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		023D171D27BE258A005F95C0 /* UITapGesture+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGesture+Extension.swift"; sourceTree = "<group>"; };
 		0249D22727B3A4EF00F265C1 /* izzifit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = izzifit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0249D22A27B3A4EF00F265C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0249D23327B3A4F100F265C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,8 +136,49 @@
 		0249D29027B3ABD900F265C1 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		0249D29B27B3D79D00F265C1 /* Me.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Me.graphql; sourceTree = "<group>"; };
 		0249D29D27B3D81700F265C1 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempProfileModel.swift; sourceTree = "<group>"; };
+		02B225A427BCFB9F0035CFA2 /* QuizeTargetWeightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeTargetWeightController.swift; sourceTree = "<group>"; };
+		02B225A527BCFB9F0035CFA2 /* QuizeTargetWeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeTargetWeightController.xib; sourceTree = "<group>"; };
+		02B225AC27BD45080035CFA2 /* QuizeFoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeFoodController.swift; sourceTree = "<group>"; };
+		02B225AD27BD45080035CFA2 /* QuizeFoodController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeFoodController.xib; sourceTree = "<group>"; };
+		02B225B127BD5D300035CFA2 /* QuizeSportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeSportController.swift; sourceTree = "<group>"; };
+		02B225B227BD5D300035CFA2 /* QuizeSportController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeSportController.xib; sourceTree = "<group>"; };
+		02B225B627BD63FC0035CFA2 /* QuizeEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeEmailController.swift; sourceTree = "<group>"; };
+		02B225B727BD63FC0035CFA2 /* QuizeEmailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeEmailController.xib; sourceTree = "<group>"; };
+		02B225BA27BD79DA0035CFA2 /* StartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
+		02B225BD27BD7B110035CFA2 /* Login.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Login.graphql; sourceTree = "<group>"; };
+		02B225BF27BD7B4F0035CFA2 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		02B225C127BD7D4D0035CFA2 /* MeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeModel.swift; sourceTree = "<group>"; };
+		02C3DD6327BEDA82004E5C65 /* QuizeProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeProgressController.swift; sourceTree = "<group>"; };
+		02C3DD6427BEDA82004E5C65 /* QuizeProgressController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeProgressController.xib; sourceTree = "<group>"; };
+		02C3DD6727BEDAB1004E5C65 /* QuizeProgressPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeProgressPresenter.swift; sourceTree = "<group>"; };
+		02C3DD6B27BEDB46004E5C65 /* ProfileUpdate.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ProfileUpdate.graphql; sourceTree = "<group>"; };
 		02D066A927BBA72100D12C5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		02D066AC27BBA8F400D12C5F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		02D066B027BBB32400D12C5F /* StartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
+		02D066B127BBB32400D12C5F /* StartController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartController.xib; sourceTree = "<group>"; };
+		02D066B527BBB57B00D12C5F /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		02D066B627BBB57B00D12C5F /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		02D066B727BBB57B00D12C5F /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		02D066B827BBB57C00D12C5F /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
+		02D066B927BBB57C00D12C5F /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		02D066BA27BBB57C00D12C5F /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		02D066BB27BBB57C00D12C5F /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		02D066BC27BBB57D00D12C5F /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		02D066BD27BBB57D00D12C5F /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		02D066C927BBBB4300D12C5F /* QuizeNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeNameController.swift; sourceTree = "<group>"; };
+		02D066CA27BBBB4300D12C5F /* QuizeNameController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeNameController.xib; sourceTree = "<group>"; };
+		02D066CD27BBC41700D12C5F /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
+		02D066D127BBD12600D12C5F /* QuizeGenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeGenderController.swift; sourceTree = "<group>"; };
+		02D066D227BBD12600D12C5F /* QuizeGenderController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeGenderController.xib; sourceTree = "<group>"; };
+		02D066D627BBDC3400D12C5F /* QuizeGoalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeGoalController.swift; sourceTree = "<group>"; };
+		02D066D727BBDC3400D12C5F /* QuizeGoalController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeGoalController.xib; sourceTree = "<group>"; };
+		02D066DB27BBE56700D12C5F /* QuizeAgeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeAgeController.swift; sourceTree = "<group>"; };
+		02D066DC27BBE56700D12C5F /* QuizeAgeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeAgeController.xib; sourceTree = "<group>"; };
+		02D066E027BBEBA000D12C5F /* QuizeHeightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeHeightController.swift; sourceTree = "<group>"; };
+		02D066E127BBEBA000D12C5F /* QuizeHeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeHeightController.xib; sourceTree = "<group>"; };
+		02D066E727BC1BC900D12C5F /* QuizeWeightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeWeightController.swift; sourceTree = "<group>"; };
+		02D066E827BC1BC900D12C5F /* QuizeWeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeWeightController.xib; sourceTree = "<group>"; };
 		352468CF0028C7B7CE37BC1F /* Pods-izzifit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.release.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.release.xcconfig"; sourceTree = "<group>"; };
 		3DE270F6FF543B995EC67ADF /* Pods-izzifit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.debug.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.debug.xcconfig"; sourceTree = "<group>"; };
 		A00F8397483211F5694F3938 /* Pods-izzifit.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.staging.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.staging.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +203,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		021A6F4827BF90F60000D863 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				021A6F4927BF91050000D863 /* CircularProgressBarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		021A6F4B27BF99530000D863 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				021A6F4C27BF99710000D863 /* MainTabBarController.swift */,
+				021A6F4D27BF99710000D863 /* MainTabBarController.xib */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		0249D21E27B3A4EF00F265C1 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +278,8 @@
 			children = (
 				0249D25327B3A71700F265C1 /* SplashViewController */,
 				0249D27E27B3AA8B00F265C1 /* Auth */,
+				02D066C727BBBB0800D12C5F /* Onboarding */,
+				021A6F4B27BF99530000D863 /* TabBar */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +296,7 @@
 		0249D25927B3A87100F265C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				02D066B427BBB54200D12C5F /* Font */,
 				02D066A527BBA6E600D12C5F /* Localization */,
 				0249D28427B3AB2C00F265C1 /* Application */,
 				0249D27127B3A9F600F265C1 /* Managers */,
@@ -200,6 +316,7 @@
 				0249D25E27B3A88C00F265C1 /* UIColor+Extension.swift */,
 				0249D25B27B3A88C00F265C1 /* UIScrollView+Extension.swift */,
 				0249D25F27B3A88C00F265C1 /* UIViewController+Extension.swift */,
+				023D171D27BE258A005F95C0 /* UITapGesture+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -215,6 +332,7 @@
 		0249D26A27B3A94200F265C1 /* Apollo */ = {
 			isa = PBXGroup;
 			children = (
+				02B225BC27BD7AD00035CFA2 /* Mutation */,
 				0249D29A27B3D78900F265C1 /* Query */,
 				0249D26B27B3A95400F265C1 /* GlobalModels */,
 			);
@@ -224,7 +342,9 @@
 		0249D26B27B3A95400F265C1 /* GlobalModels */ = {
 			isa = PBXGroup;
 			children = (
+				02B225C127BD7D4D0035CFA2 /* MeModel.swift */,
 				0249D26C27B3A96E00F265C1 /* AuthModel.swift */,
+				02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */,
 			);
 			path = GlobalModels;
 			sourceTree = "<group>";
@@ -241,6 +361,8 @@
 		0249D27E27B3AA8B00F265C1 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				023D171B27BE1D4D005F95C0 /* AuthRouter.swift */,
+				02D066AF27BBB30E00D12C5F /* Start */,
 				0249D27F27B3AA9F00F265C1 /* Login */,
 			);
 			path = Auth;
@@ -249,6 +371,7 @@
 		0249D27F27B3AA9F00F265C1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				021A6F5027BFA1AD0000D863 /* LoginPresenter.swift */,
 				0249D28027B3AAAE00F265C1 /* LoginController.swift */,
 				0249D28127B3AAAE00F265C1 /* LoginController.xib */,
 			);
@@ -294,12 +417,185 @@
 			path = Query;
 			sourceTree = "<group>";
 		};
+		02B225A327BCFB7E0035CFA2 /* QuizeTargetWeight */ = {
+			isa = PBXGroup;
+			children = (
+				02B225A427BCFB9F0035CFA2 /* QuizeTargetWeightController.swift */,
+				02B225A527BCFB9F0035CFA2 /* QuizeTargetWeightController.xib */,
+			);
+			path = QuizeTargetWeight;
+			sourceTree = "<group>";
+		};
+		02B225AB27BD44C40035CFA2 /* QuizeFood */ = {
+			isa = PBXGroup;
+			children = (
+				02B225AC27BD45080035CFA2 /* QuizeFoodController.swift */,
+				02B225AD27BD45080035CFA2 /* QuizeFoodController.xib */,
+			);
+			path = QuizeFood;
+			sourceTree = "<group>";
+		};
+		02B225B027BD59DE0035CFA2 /* QuizeSport */ = {
+			isa = PBXGroup;
+			children = (
+				02B225B127BD5D300035CFA2 /* QuizeSportController.swift */,
+				02B225B227BD5D300035CFA2 /* QuizeSportController.xib */,
+			);
+			path = QuizeSport;
+			sourceTree = "<group>";
+		};
+		02B225B527BD63D70035CFA2 /* QuizeEmail */ = {
+			isa = PBXGroup;
+			children = (
+				02B225B627BD63FC0035CFA2 /* QuizeEmailController.swift */,
+				02B225B727BD63FC0035CFA2 /* QuizeEmailController.xib */,
+			);
+			path = QuizeEmail;
+			sourceTree = "<group>";
+		};
+		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
+			isa = PBXGroup;
+			children = (
+				02C3DD6927BEDB13004E5C65 /* ProfileUpdate */,
+				02C3DD6A27BEDB26004E5C65 /* Login */,
+			);
+			path = Mutation;
+			sourceTree = "<group>";
+		};
+		02C3DD6227BEDA5C004E5C65 /* QuizeProgress */ = {
+			isa = PBXGroup;
+			children = (
+				021A6F4827BF90F60000D863 /* View */,
+				02C3DD6727BEDAB1004E5C65 /* QuizeProgressPresenter.swift */,
+				02C3DD6327BEDA82004E5C65 /* QuizeProgressController.swift */,
+				02C3DD6427BEDA82004E5C65 /* QuizeProgressController.xib */,
+			);
+			path = QuizeProgress;
+			sourceTree = "<group>";
+		};
+		02C3DD6927BEDB13004E5C65 /* ProfileUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				02C3DD6B27BEDB46004E5C65 /* ProfileUpdate.graphql */,
+				021A6F4627BF8FF90000D863 /* ProfileUpdateModel.swift */,
+			);
+			path = ProfileUpdate;
+			sourceTree = "<group>";
+		};
+		02C3DD6A27BEDB26004E5C65 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				02B225BD27BD7B110035CFA2 /* Login.graphql */,
+				02B225BF27BD7B4F0035CFA2 /* LoginModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		02D066A527BBA6E600D12C5F /* Localization */ = {
 			isa = PBXGroup;
 			children = (
 				02D066AA27BBA72100D12C5F /* Localizable.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		02D066AF27BBB30E00D12C5F /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				02B225BA27BD79DA0035CFA2 /* StartPresenter.swift */,
+				02D066B027BBB32400D12C5F /* StartController.swift */,
+				02D066B127BBB32400D12C5F /* StartController.xib */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		02D066B427BBB54200D12C5F /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				02D066BC27BBB57D00D12C5F /* Inter-Black.ttf */,
+				02D066BB27BBB57C00D12C5F /* Inter-Bold.ttf */,
+				02D066B627BBB57B00D12C5F /* Inter-ExtraBold.ttf */,
+				02D066B527BBB57B00D12C5F /* Inter-ExtraLight.ttf */,
+				02D066B927BBB57C00D12C5F /* Inter-Light.ttf */,
+				02D066B727BBB57B00D12C5F /* Inter-Medium.ttf */,
+				02D066BA27BBB57C00D12C5F /* Inter-Regular.ttf */,
+				02D066BD27BBB57D00D12C5F /* Inter-SemiBold.ttf */,
+				02D066B827BBB57C00D12C5F /* Inter-Thin.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		02D066C727BBBB0800D12C5F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				02D066CD27BBC41700D12C5F /* OnboardingRouter.swift */,
+				02D066C827BBBB2C00D12C5F /* QuizeName */,
+				02D066CF27BBCE9F00D12C5F /* QuizeGenger */,
+				02D066D527BBDC1800D12C5F /* QuizeGoal */,
+				02D066DA27BBE53500D12C5F /* QuizeAge */,
+				02D066DF27BBEB4B00D12C5F /* QuizeHeight */,
+				02D066E627BC1B9F00D12C5F /* QuizeWeight */,
+				02B225A327BCFB7E0035CFA2 /* QuizeTargetWeight */,
+				02B225AB27BD44C40035CFA2 /* QuizeFood */,
+				02B225B027BD59DE0035CFA2 /* QuizeSport */,
+				02B225B527BD63D70035CFA2 /* QuizeEmail */,
+				02C3DD6227BEDA5C004E5C65 /* QuizeProgress */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		02D066C827BBBB2C00D12C5F /* QuizeName */ = {
+			isa = PBXGroup;
+			children = (
+				02D066C927BBBB4300D12C5F /* QuizeNameController.swift */,
+				02D066CA27BBBB4300D12C5F /* QuizeNameController.xib */,
+			);
+			path = QuizeName;
+			sourceTree = "<group>";
+		};
+		02D066CF27BBCE9F00D12C5F /* QuizeGenger */ = {
+			isa = PBXGroup;
+			children = (
+				02D066D127BBD12600D12C5F /* QuizeGenderController.swift */,
+				02D066D227BBD12600D12C5F /* QuizeGenderController.xib */,
+			);
+			path = QuizeGenger;
+			sourceTree = "<group>";
+		};
+		02D066D527BBDC1800D12C5F /* QuizeGoal */ = {
+			isa = PBXGroup;
+			children = (
+				02D066D627BBDC3400D12C5F /* QuizeGoalController.swift */,
+				02D066D727BBDC3400D12C5F /* QuizeGoalController.xib */,
+			);
+			path = QuizeGoal;
+			sourceTree = "<group>";
+		};
+		02D066DA27BBE53500D12C5F /* QuizeAge */ = {
+			isa = PBXGroup;
+			children = (
+				02D066DB27BBE56700D12C5F /* QuizeAgeController.swift */,
+				02D066DC27BBE56700D12C5F /* QuizeAgeController.xib */,
+			);
+			path = QuizeAge;
+			sourceTree = "<group>";
+		};
+		02D066DF27BBEB4B00D12C5F /* QuizeHeight */ = {
+			isa = PBXGroup;
+			children = (
+				02D066E027BBEBA000D12C5F /* QuizeHeightController.swift */,
+				02D066E127BBEBA000D12C5F /* QuizeHeightController.xib */,
+			);
+			path = QuizeHeight;
+			sourceTree = "<group>";
+		};
+		02D066E627BC1B9F00D12C5F /* QuizeWeight */ = {
+			isa = PBXGroup;
+			children = (
+				02D066E727BC1BC900D12C5F /* QuizeWeightController.swift */,
+				02D066E827BC1BC900D12C5F /* QuizeWeightController.xib */,
+			);
+			path = QuizeWeight;
 			sourceTree = "<group>";
 		};
 		A0F0757F3659D125E6990336 /* Pods */ = {
@@ -398,15 +694,39 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
+				02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */,
 				0249D29427B3ABD900F265C1 /* Release.xcconfig in Resources */,
+				02D066BF27BBB57D00D12C5F /* Inter-ExtraBold.ttf in Resources */,
+				02D066C227BBB57D00D12C5F /* Inter-Light.ttf in Resources */,
 				0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */,
+				02D066CC27BBBB4300D12C5F /* QuizeNameController.xib in Resources */,
 				0249D28327B3AAAE00F265C1 /* LoginController.xib in Resources */,
+				02D066C027BBB57D00D12C5F /* Inter-Medium.ttf in Resources */,
+				02C3DD6C27BEDB46004E5C65 /* ProfileUpdate.graphql in Resources */,
+				02B225B927BD63FC0035CFA2 /* QuizeEmailController.xib in Resources */,
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
 				0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */,
+				02D066EA27BC1BC900D12C5F /* QuizeWeightController.xib in Resources */,
+				02B225BE27BD7B110035CFA2 /* Login.graphql in Resources */,
+				02D066C627BBB57D00D12C5F /* Inter-SemiBold.ttf in Resources */,
+				021A6F4F27BF99720000D863 /* MainTabBarController.xib in Resources */,
+				02D066C527BBB57D00D12C5F /* Inter-Black.ttf in Resources */,
+				02D066D927BBDC3400D12C5F /* QuizeGoalController.xib in Resources */,
 				02D066A827BBA72100D12C5F /* Localizable.strings in Resources */,
+				02D066C127BBB57D00D12C5F /* Inter-Thin.ttf in Resources */,
+				02C3DD6627BEDA82004E5C65 /* QuizeProgressController.xib in Resources */,
+				02D066D427BBD12600D12C5F /* QuizeGenderController.xib in Resources */,
 				0249D29127B3ABD900F265C1 /* Debug.xcconfig in Resources */,
+				02D066BE27BBB57D00D12C5F /* Inter-ExtraLight.ttf in Resources */,
+				02D066C427BBB57D00D12C5F /* Inter-Bold.ttf in Resources */,
 				0249D29227B3ABD900F265C1 /* Staging.xcconfig in Resources */,
 				0249D23427B3A4F100F265C1 /* Assets.xcassets in Resources */,
+				02B225AF27BD45080035CFA2 /* QuizeFoodController.xib in Resources */,
+				02D066B327BBB32400D12C5F /* StartController.xib in Resources */,
+				02B225A727BCFB9F0035CFA2 /* QuizeTargetWeightController.xib in Resources */,
+				02D066C327BBB57D00D12C5F /* Inter-Regular.ttf in Resources */,
+				02D066DE27BBE56700D12C5F /* QuizeAgeController.xib in Resources */,
 				0249D29327B3ABD900F265C1 /* Generator.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,7 +770,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
 		};
 		02D066AB27BBA8A800D12C5F /* RSwift */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -520,23 +840,47 @@
 			files = (
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
 				0249D26127B3A88C00F265C1 /* UIScrollView+Extension.swift in Sources */,
+				021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */,
+				02B225A627BCFB9F0035CFA2 /* QuizeTargetWeightController.swift in Sources */,
 				0249D26527B3A88C00F265C1 /* UIViewController+Extension.swift in Sources */,
+				02D066E927BC1BC900D12C5F /* QuizeWeightController.swift in Sources */,
 				0249D26227B3A88C00F265C1 /* Collection+Extension.swift in Sources */,
 				0249D24427B3A64300F265C1 /* LoadFromXibProtocol.swift in Sources */,
 				0249D24B27B3A67900F265C1 /* BaseController.swift in Sources */,
+				02D066B227BBB32400D12C5F /* StartController.swift in Sources */,
 				0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */,
 				0249D26327B3A88C00F265C1 /* UIApplicathion+Extension.swift in Sources */,
 				02D066AD27BBA8F400D12C5F /* R.generated.swift in Sources */,
 				0249D26927B3A92300F265C1 /* KeychainService.swift in Sources */,
+				02B225C027BD7B4F0035CFA2 /* LoginModel.swift in Sources */,
+				02D066D327BBD12600D12C5F /* QuizeGenderController.swift in Sources */,
+				021A6F4727BF8FFA0000D863 /* ProfileUpdateModel.swift in Sources */,
+				02B225AE27BD45080035CFA2 /* QuizeFoodController.swift in Sources */,
+				02B225B827BD63FC0035CFA2 /* QuizeEmailController.swift in Sources */,
 				0249D25127B3A70B00F265C1 /* SplashViewController.swift in Sources */,
+				02D066CB27BBBB4300D12C5F /* QuizeNameController.swift in Sources */,
+				02D066CE27BBC41800D12C5F /* OnboardingRouter.swift in Sources */,
+				02D066D827BBDC3400D12C5F /* QuizeGoalController.swift in Sources */,
 				0249D26D27B3A96E00F265C1 /* AuthModel.swift in Sources */,
 				0249D24C27B3A67900F265C1 /* RootRouter.swift in Sources */,
+				02C3DD6527BEDA82004E5C65 /* QuizeProgressController.swift in Sources */,
+				023D171E27BE258A005F95C0 /* UITapGesture+Extension.swift in Sources */,
 				0249D28227B3AAAE00F265C1 /* LoginController.swift in Sources */,
 				0249D28B27B3AB6300F265C1 /* AppConfigurationBridge.m in Sources */,
 				0249D29E27B3D81700F265C1 /* API.swift in Sources */,
+				02B225B327BD5D300035CFA2 /* QuizeSportController.swift in Sources */,
+				02D066E227BBEBA000D12C5F /* QuizeHeightController.swift in Sources */,
 				0249D26627B3A88C00F265C1 /* Int+Extension.swift in Sources */,
 				0249D27527B3AA0400F265C1 /* PreferenceManager.swift in Sources */,
+				023D171C27BE1D4D005F95C0 /* AuthRouter.swift in Sources */,
+				02B225C227BD7D4D0035CFA2 /* MeModel.swift in Sources */,
+				02D066DD27BBE56700D12C5F /* QuizeAgeController.swift in Sources */,
 				0249D27427B3AA0400F265C1 /* NetwokrManager.swift in Sources */,
+				021A6F4A27BF91050000D863 /* CircularProgressBarView.swift in Sources */,
+				021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */,
+				02C3DD6827BEDAB1004E5C65 /* QuizeProgressPresenter.swift in Sources */,
+				02B225BB27BD79DA0035CFA2 /* StartPresenter.swift in Sources */,
+				02B225A227BCF0F00035CFA2 /* TempProfileModel.swift in Sources */,
 				0249D24A27B3A67900F265C1 /* BaseRouter.swift in Sources */,
 				0249D26427B3A88C00F265C1 /* UIColor+Extension.swift in Sources */,
 			);
