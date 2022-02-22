@@ -1,11 +1,5 @@
 query Me {
 	me {
-        Rank {
-            countryPosition
-            globalPosition
-            level
-            rank
-        }
         age
         coins
         darkTheme
@@ -13,7 +7,6 @@ query Me {
         email
         energy
         fitnessPreference
-        foodGroupId
         gender
         goal
         growth
@@ -23,6 +16,15 @@ query Me {
         reminders
         showOnBoarding
         weight
+        FoodGroup {
+            Image {
+                id
+                urlIosFull
+                urlIosPrev
+            }
+            id
+            name
+        }
 	}
 }
 

@@ -24,7 +24,7 @@ struct TempProfileModel: Codable {
     var targetWeightMetric: QuizeWeightType?
     var targetWeight: Double?
     
-    var food: QuizeFoodType?
+    var food: FoodGroupModel?
     
     var sport: QuizeSportType?
     
@@ -75,7 +75,7 @@ struct TempProfileModel: Codable {
         self.targetWeight = targetWeight
     }
     
-    mutating func setFood(_ food: QuizeFoodType?) {
+    mutating func setFood(_ food: FoodGroupModel?) {
         self.food = food
     }
     

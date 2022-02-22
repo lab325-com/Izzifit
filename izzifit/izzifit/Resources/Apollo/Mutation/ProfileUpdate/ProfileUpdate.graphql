@@ -1,11 +1,5 @@
 mutation ProfileUpdate($record: ProfileUpdateInput!) {
     profileUpdate(record: $record) {
-        Rank {
-            countryPosition
-            globalPosition
-            level
-            rank
-        }
         age
         coins
         darkTheme
@@ -13,7 +7,6 @@ mutation ProfileUpdate($record: ProfileUpdateInput!) {
         email
         energy
         fitnessPreference
-        foodGroupId
         gender
         goal
         growth
@@ -23,5 +16,14 @@ mutation ProfileUpdate($record: ProfileUpdateInput!) {
         reminders
         showOnBoarding
         weight
+        FoodGroup {
+            Image {
+                id
+                urlIosFull
+                urlIosPrev
+            }
+            id
+            name
+        }
     }
 }

@@ -15,6 +15,7 @@ import UIKit
 protocol LoginOutputProtocol: BaseController {
     func successGoOnboarding()
     func successGoMain()
+    func successForgotPass()
 }
 
 //----------------------------------------------
@@ -62,5 +63,16 @@ class LoginPresenter: LoginPresenterProtocol {
             self?.view?.stopLoading()
         }
 
+    }
+    
+    func forgotPasswordUpdate(email: String) {
+        view?.startLoader()
+        let mutation = PasswordForgotRequestMutation(email: email)
+        let _ = Network.shared.mutation(model: PasswordForgotRequestModel.self, mutation, controller: view) { [weak self] model in
+            self?.view?.stopLoading()
+            self?.view?.successForgotPass()
+        } failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+        }
     }
 }

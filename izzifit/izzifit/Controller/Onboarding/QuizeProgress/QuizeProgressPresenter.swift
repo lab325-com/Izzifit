@@ -55,22 +55,10 @@ class QuizeProgressPresenter: QuizeProgressPresenterProtocol {
         let targetWeight = profile.targetWeight
         
         let goalType = profile.goal?.api
+        let foodId = profile.food?.id
         
-        //fitnessPreference: Optional<FitnessPreferenceType?>,
-        //foodGroupId: <#T##Optional<Int?>#>,
-        //notifications: nil,
         let mutation = ProfileUpdateMutation(record: ProfileUpdateInput(
-            growthMeasure: growthMeasure,
-            targetWeight: targetWeight,
-            gender: gender,
-            email: email,
-            age: age,
-            weight: weight,
-            growth: growth,
-            weightMeasure: weightMeasure,
-            targetWeightMeasure: targetWeightMeasure,
-            goal: goalType,
-            doSport: sport))
+            doSport: sport, age: age, weightMeasure: weightMeasure, goal: goalType, growth: growth, gender: gender, email: email, growthMeasure: growthMeasure, targetWeightMeasure: targetWeightMeasure, foodGroupId: foodId, targetWeight: targetWeight, weight: weight))
         
         let _ = Network.shared.mutation(model: ProfileUpdateModel.self, mutation, controller: view, successHandler: { [weak self] model in
             KeychainService.standard.me = model.profileUpdate

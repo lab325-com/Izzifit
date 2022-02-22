@@ -133,7 +133,9 @@ class LoginController: BaseController {
         let actionCancel = UIAlertAction(title: RLocalization.login_forgot_cancel(), style: .default) { _ in }
         
         let actionSubmit = UIAlertAction(title: RLocalization.login_forgot_submit(), style: .default) { action in
-            print(textField.text!)
+            if let text = textField.text {
+                self.presenter.forgotPasswordUpdate(email: text)
+            }
         }
         
         alert.addAction(actionCancel)
@@ -203,6 +205,10 @@ class LoginController: BaseController {
 //----------------------------------------------
 
 extension LoginController: LoginOutputProtocol {
+    func successForgotPass() {
+        
+    }
+    
     func successGoMain() {
         RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
     }

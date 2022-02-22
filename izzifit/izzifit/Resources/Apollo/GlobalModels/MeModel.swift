@@ -19,7 +19,6 @@ struct MeMainModel: Codable {
     let email: String?
     let energy: Int?
     let fitnessPreference: FitnessPreferenceType?
-    let foodGroupId: Int?
     let gender: GenderType?
     let goal: GoalType?
     let growth: Int?
@@ -29,6 +28,13 @@ struct MeMainModel: Codable {
     let reminders: Bool?
     let showOnBoarding: Bool?
     let weight: Float?
+    let FoodGroup: [FoodGroupModel]
+}
+
+struct FoodGroupModel: Codable {
+    let Image: ImageModel?
+    let id: String?
+    let name: String?
 }
 
 extension DoSportType: Codable {
