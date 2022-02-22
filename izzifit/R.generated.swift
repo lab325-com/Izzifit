@@ -131,7 +131,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 16 files.
+  /// This `R.file` struct is generated, and contains static references to 17 files.
   struct file {
     /// Resource file `Debug.xcconfig`.
     static let debugXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Debug", pathExtension: "xcconfig")
@@ -159,6 +159,8 @@ struct R: Rswift.Validatable {
     static let loginGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Login", pathExtension: "graphql")
     /// Resource file `Me.graphql`.
     static let meGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Me", pathExtension: "graphql")
+    /// Resource file `PasswordForgotRequest.graphql`.
+    static let passwordForgotRequestGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "PasswordForgotRequest", pathExtension: "graphql")
     /// Resource file `ProfileUpdate.graphql`.
     static let profileUpdateGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ProfileUpdate", pathExtension: "graphql")
     /// Resource file `Release.xcconfig`.
@@ -241,6 +243,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Me", withExtension: "graphql")`
     static func meGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.meGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "PasswordForgotRequest", withExtension: "graphql")`
+    static func passwordForgotRequestGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.passwordForgotRequestGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -346,7 +354,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 21 images.
+  /// This `R.image` struct is generated, and contains static references to 26 images.
   struct image {
     /// Image `auth_note_see_pass_ic`.
     static let auth_note_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_note_see_pass_ic")
@@ -390,6 +398,16 @@ struct R: Rswift.Validatable {
     static let start_login_button_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "start_login_button_ic")
     /// Image `start_logo_ic`.
     static let start_logo_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "start_logo_ic")
+    /// Image `tab_bar_energy_ic`.
+    static let tab_bar_energy_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab_bar_energy_ic")
+    /// Image `tab_bar_fun_ic`.
+    static let tab_bar_fun_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab_bar_fun_ic")
+    /// Image `tab_bar_menu_ic`.
+    static let tab_bar_menu_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab_bar_menu_ic")
+    /// Image `tab_bar_profile_ic`.
+    static let tab_bar_profile_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab_bar_profile_ic")
+    /// Image `tab_bar_workout_ic`.
+    static let tab_bar_workout_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab_bar_workout_ic")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "auth_note_see_pass_ic", bundle: ..., traitCollection: ...)`
@@ -538,19 +556,62 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "tab_bar_energy_ic", bundle: ..., traitCollection: ...)`
+    static func tab_bar_energy_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tab_bar_energy_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "tab_bar_fun_ic", bundle: ..., traitCollection: ...)`
+    static func tab_bar_fun_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tab_bar_fun_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "tab_bar_menu_ic", bundle: ..., traitCollection: ...)`
+    static func tab_bar_menu_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tab_bar_menu_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "tab_bar_profile_ic", bundle: ..., traitCollection: ...)`
+    static func tab_bar_profile_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tab_bar_profile_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "tab_bar_workout_ic", bundle: ..., traitCollection: ...)`
+    static func tab_bar_workout_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tab_bar_workout_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 15 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 20 nibs.
   struct nib {
+    /// Nib `EnergyController`.
+    static let energyController = _R.nib._EnergyController()
     /// Nib `LoginController`.
     static let loginController = _R.nib._LoginController()
     /// Nib `MainTabBarController`.
     static let mainTabBarController = _R.nib._MainTabBarController()
+    /// Nib `MenuController`.
+    static let menuController = _R.nib._MenuController()
+    /// Nib `ProfileController`.
+    static let profileController = _R.nib._ProfileController()
     /// Nib `QuizeAgeController`.
     static let quizeAgeController = _R.nib._QuizeAgeController()
     /// Nib `QuizeEmailController`.
     static let quizeEmailController = _R.nib._QuizeEmailController()
+    /// Nib `QuizeFoodCell`.
+    static let quizeFoodCell = _R.nib._QuizeFoodCell()
     /// Nib `QuizeFoodController`.
     static let quizeFoodController = _R.nib._QuizeFoodController()
     /// Nib `QuizeGenderController`.
@@ -573,6 +634,16 @@ struct R: Rswift.Validatable {
     static let splashViewController = _R.nib._SplashViewController()
     /// Nib `StartController`.
     static let startController = _R.nib._StartController()
+    /// Nib `WorkoutController`.
+    static let workoutController = _R.nib._WorkoutController()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "EnergyController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.energyController) instead")
+    static func energyController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.energyController)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "LoginController", in: bundle)`
@@ -591,6 +662,22 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MenuController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.menuController) instead")
+    static func menuController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.menuController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "ProfileController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.profileController) instead")
+    static func profileController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.profileController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "QuizeAgeController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeAgeController) instead")
     static func quizeAgeController(_: Void = ()) -> UIKit.UINib {
@@ -603,6 +690,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeEmailController) instead")
     static func quizeEmailController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.quizeEmailController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeFoodCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeFoodCell) instead")
+    static func quizeFoodCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeFoodCell)
     }
     #endif
 
@@ -694,6 +789,18 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutController) instead")
+    static func workoutController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutController)
+    }
+    #endif
+
+    static func energyController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.energyController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func loginController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.loginController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -702,12 +809,24 @@ struct R: Rswift.Validatable {
       return R.nib.mainTabBarController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func menuController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.menuController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func profileController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.profileController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func quizeAgeController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.quizeAgeController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func quizeEmailController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.quizeEmailController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func quizeFoodCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> QuizeFoodCell? {
+      return R.nib.quizeFoodCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? QuizeFoodCell
     }
 
     static func quizeFoodController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -753,6 +872,18 @@ struct R: Rswift.Validatable {
     static func startController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.startController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
+
+    static func workoutController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.workoutController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `QuizeFoodCell`.
+    static let quizeFoodCell: Rswift.ReuseIdentifier<QuizeFoodCell> = Rswift.ReuseIdentifier(identifier: "QuizeFoodCell")
 
     fileprivate init() {}
   }
@@ -1880,8 +2011,10 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _LoginController.validate()
+      try _MainTabBarController.validate()
       try _QuizeAgeController.validate()
       try _QuizeEmailController.validate()
+      try _QuizeFoodCell.validate()
       try _QuizeFoodController.validate()
       try _QuizeGenderController.validate()
       try _QuizeGoalController.validate()
@@ -1893,6 +2026,17 @@ struct _R: Rswift.Validatable {
       try _QuizeWeightController.validate()
       try _SplashViewController.validate()
       try _StartController.validate()
+    }
+
+    struct _EnergyController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "EnergyController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
     }
 
     struct _LoginController: Rswift.NibResourceType, Rswift.Validatable {
@@ -1914,9 +2058,41 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _MainTabBarController: Rswift.NibResourceType {
+    struct _MainTabBarController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "MainTabBarController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "tab_bar_energy_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tab_bar_energy_ic' is used in nib 'MainTabBarController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tab_bar_fun_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tab_bar_fun_ic' is used in nib 'MainTabBarController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tab_bar_menu_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tab_bar_menu_ic' is used in nib 'MainTabBarController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tab_bar_profile_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tab_bar_profile_ic' is used in nib 'MainTabBarController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tab_bar_workout_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tab_bar_workout_ic' is used in nib 'MainTabBarController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _MenuController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "MenuController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _ProfileController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "ProfileController"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
@@ -1961,6 +2137,27 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _QuizeFoodCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = QuizeFoodCell
+
+      let bundle = R.hostingBundle
+      let identifier = "QuizeFoodCell"
+      let name = "QuizeFoodCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> QuizeFoodCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? QuizeFoodCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_food_classic_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_food_classic_ic' is used in nib 'QuizeFoodCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_selected_ic' is used in nib 'QuizeFoodCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
     struct _QuizeFoodController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "QuizeFoodController"
@@ -1972,8 +2169,6 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'QuizeFoodController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeFoodController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "onboarding_food_classic_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_food_classic_ic' is used in nib 'QuizeFoodController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "onboarding_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_selected_ic' is used in nib 'QuizeFoodController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -2164,6 +2359,17 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "start_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_logo_ic' is used in nib 'StartController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WorkoutController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "WorkoutController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
 
       fileprivate init() {}

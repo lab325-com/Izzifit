@@ -12,6 +12,7 @@
 		021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4C27BF99710000D863 /* MainTabBarController.swift */; };
 		021A6F4F27BF99720000D863 /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021A6F4D27BF99710000D863 /* MainTabBarController.xib */; };
 		021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F5027BFA1AD0000D863 /* LoginPresenter.swift */; };
+		0227DA8C27C4CA77008AB26B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0227DA8B27C4CA77008AB26B /* Kingfisher */; };
 		023D171C27BE1D4D005F95C0 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D171B27BE1D4D005F95C0 /* AuthRouter.swift */; };
 		023D171E27BE258A005F95C0 /* UITapGesture+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D171D27BE258A005F95C0 /* UITapGesture+Extension.swift */; };
 		0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249D22A27B3A4EF00F265C1 /* AppDelegate.swift */; };
@@ -49,6 +50,19 @@
 		0249D29427B3ABD900F265C1 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0249D29027B3ABD900F265C1 /* Release.xcconfig */; };
 		0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0249D29B27B3D79D00F265C1 /* Me.graphql */; };
 		0249D29E27B3D81700F265C1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249D29D27B3D81700F265C1 /* API.swift */; };
+		02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA327C393A300D31FB4 /* EnergyController.swift */; };
+		02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDA427C393A300D31FB4 /* EnergyController.xib */; };
+		02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */; };
+		02A5CDAB27C393DC00D31FB4 /* WorkoutController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDA927C393DC00D31FB4 /* WorkoutController.xib */; };
+		02A5CDB027C3947800D31FB4 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDAE27C3947800D31FB4 /* ProfileController.swift */; };
+		02A5CDB127C3947800D31FB4 /* ProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDAF27C3947800D31FB4 /* ProfileController.xib */; };
+		02A5CDB427C3949700D31FB4 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDB227C3949700D31FB4 /* MenuController.swift */; };
+		02A5CDB527C3949700D31FB4 /* MenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDB327C3949700D31FB4 /* MenuController.xib */; };
+		02A5CDBA27C3DCFB00D31FB4 /* PasswordForgotRequest.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDB927C3DCFB00D31FB4 /* PasswordForgotRequest.graphql */; };
+		02A5CDBC27C3DD3300D31FB4 /* PasswordForgotRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDBB27C3DD3300D31FB4 /* PasswordForgotRequestModel.swift */; };
+		02A5CDBE27C3DE9F00D31FB4 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDBD27C3DE9F00D31FB4 /* ImageModel.swift */; };
+		02A5CDC227C4247300D31FB4 /* QuizeFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDC027C4247300D31FB4 /* QuizeFoodCell.swift */; };
+		02A5CDC327C4247300D31FB4 /* QuizeFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDC127C4247300D31FB4 /* QuizeFoodCell.xib */; };
 		02B225A227BCF0F00035CFA2 /* TempProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */; };
 		02B225A627BCFB9F0035CFA2 /* QuizeTargetWeightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225A427BCFB9F0035CFA2 /* QuizeTargetWeightController.swift */; };
 		02B225A727BCFB9F0035CFA2 /* QuizeTargetWeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02B225A527BCFB9F0035CFA2 /* QuizeTargetWeightController.xib */; };
@@ -136,6 +150,19 @@
 		0249D29027B3ABD900F265C1 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		0249D29B27B3D79D00F265C1 /* Me.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Me.graphql; sourceTree = "<group>"; };
 		0249D29D27B3D81700F265C1 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		02A5CDA327C393A300D31FB4 /* EnergyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyController.swift; sourceTree = "<group>"; };
+		02A5CDA427C393A300D31FB4 /* EnergyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyController.xib; sourceTree = "<group>"; };
+		02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
+		02A5CDA927C393DC00D31FB4 /* WorkoutController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutController.xib; sourceTree = "<group>"; };
+		02A5CDAE27C3947800D31FB4 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		02A5CDAF27C3947800D31FB4 /* ProfileController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileController.xib; sourceTree = "<group>"; };
+		02A5CDB227C3949700D31FB4 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		02A5CDB327C3949700D31FB4 /* MenuController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuController.xib; sourceTree = "<group>"; };
+		02A5CDB927C3DCFB00D31FB4 /* PasswordForgotRequest.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PasswordForgotRequest.graphql; sourceTree = "<group>"; };
+		02A5CDBB27C3DD3300D31FB4 /* PasswordForgotRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordForgotRequestModel.swift; sourceTree = "<group>"; };
+		02A5CDBD27C3DE9F00D31FB4 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		02A5CDC027C4247300D31FB4 /* QuizeFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeFoodCell.swift; sourceTree = "<group>"; };
+		02A5CDC127C4247300D31FB4 /* QuizeFoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeFoodCell.xib; sourceTree = "<group>"; };
 		02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempProfileModel.swift; sourceTree = "<group>"; };
 		02B225A427BCFB9F0035CFA2 /* QuizeTargetWeightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeTargetWeightController.swift; sourceTree = "<group>"; };
 		02B225A527BCFB9F0035CFA2 /* QuizeTargetWeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeTargetWeightController.xib; sourceTree = "<group>"; };
@@ -194,6 +221,7 @@
 				0249D27A27B3AA3B00F265C1 /* ApolloWebSocket in Frameworks */,
 				0249D25627B3A7AD00F265C1 /* NVActivityIndicatorView in Frameworks */,
 				0249D25827B3A7AD00F265C1 /* NVActivityIndicatorViewExtended in Frameworks */,
+				0227DA8C27C4CA77008AB26B /* Kingfisher in Frameworks */,
 				0249D27027B3A98C00F265C1 /* SwiftKeychainWrapper in Frameworks */,
 				0249D27D27B3AA7000F265C1 /* Toast in Frameworks */,
 				8C4F7F85C1CC5538D3E379C8 /* Pods_izzifit.framework in Frameworks */,
@@ -280,6 +308,10 @@
 				0249D27E27B3AA8B00F265C1 /* Auth */,
 				02D066C727BBBB0800D12C5F /* Onboarding */,
 				021A6F4B27BF99530000D863 /* TabBar */,
+				02A5CDA227C3938200D31FB4 /* Energy */,
+				02A5CDA727C393BC00D31FB4 /* Workout */,
+				02A5CDAC27C393F200D31FB4 /* Profile */,
+				02A5CDAD27C3946400D31FB4 /* Menu */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -345,6 +377,7 @@
 				02B225C127BD7D4D0035CFA2 /* MeModel.swift */,
 				0249D26C27B3A96E00F265C1 /* AuthModel.swift */,
 				02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */,
+				02A5CDBD27C3DE9F00D31FB4 /* ImageModel.swift */,
 			);
 			path = GlobalModels;
 			sourceTree = "<group>";
@@ -417,6 +450,60 @@
 			path = Query;
 			sourceTree = "<group>";
 		};
+		02A5CDA227C3938200D31FB4 /* Energy */ = {
+			isa = PBXGroup;
+			children = (
+				02A5CDA327C393A300D31FB4 /* EnergyController.swift */,
+				02A5CDA427C393A300D31FB4 /* EnergyController.xib */,
+			);
+			path = Energy;
+			sourceTree = "<group>";
+		};
+		02A5CDA727C393BC00D31FB4 /* Workout */ = {
+			isa = PBXGroup;
+			children = (
+				02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */,
+				02A5CDA927C393DC00D31FB4 /* WorkoutController.xib */,
+			);
+			path = Workout;
+			sourceTree = "<group>";
+		};
+		02A5CDAC27C393F200D31FB4 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				02A5CDAE27C3947800D31FB4 /* ProfileController.swift */,
+				02A5CDAF27C3947800D31FB4 /* ProfileController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		02A5CDAD27C3946400D31FB4 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				02A5CDB227C3949700D31FB4 /* MenuController.swift */,
+				02A5CDB327C3949700D31FB4 /* MenuController.xib */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		02A5CDB827C3DCDF00D31FB4 /* PasswordForgotRequest */ = {
+			isa = PBXGroup;
+			children = (
+				02A5CDB927C3DCFB00D31FB4 /* PasswordForgotRequest.graphql */,
+				02A5CDBB27C3DD3300D31FB4 /* PasswordForgotRequestModel.swift */,
+			);
+			path = PasswordForgotRequest;
+			sourceTree = "<group>";
+		};
+		02A5CDBF27C4245D00D31FB4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				02A5CDC027C4247300D31FB4 /* QuizeFoodCell.swift */,
+				02A5CDC127C4247300D31FB4 /* QuizeFoodCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		02B225A327BCFB7E0035CFA2 /* QuizeTargetWeight */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +516,7 @@
 		02B225AB27BD44C40035CFA2 /* QuizeFood */ = {
 			isa = PBXGroup;
 			children = (
+				02A5CDBF27C4245D00D31FB4 /* Cell */,
 				02B225AC27BD45080035CFA2 /* QuizeFoodController.swift */,
 				02B225AD27BD45080035CFA2 /* QuizeFoodController.xib */,
 			);
@@ -456,6 +544,7 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				02A5CDB827C3DCDF00D31FB4 /* PasswordForgotRequest */,
 				02C3DD6927BEDB13004E5C65 /* ProfileUpdate */,
 				02C3DD6A27BEDB26004E5C65 /* Login */,
 			);
@@ -644,6 +733,7 @@
 				0249D27727B3AA3B00F265C1 /* Apollo */,
 				0249D27927B3AA3B00F265C1 /* ApolloWebSocket */,
 				0249D27C27B3AA7000F265C1 /* Toast */,
+				0227DA8B27C4CA77008AB26B /* Kingfisher */,
 			);
 			productName = izzifit;
 			productReference = 0249D22727B3A4EF00F265C1 /* izzifit.app */;
@@ -679,6 +769,7 @@
 				0249D26E27B3A98C00F265C1 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				0249D27627B3AA3B00F265C1 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				0249D27B27B3AA7000F265C1 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				0227DA8A27C4CA77008AB26B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 0249D22827B3A4EF00F265C1 /* Products */;
 			projectDirPath = "";
@@ -696,6 +787,7 @@
 			files = (
 				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
 				02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */,
+				02A5CDB127C3947800D31FB4 /* ProfileController.xib in Resources */,
 				0249D29427B3ABD900F265C1 /* Release.xcconfig in Resources */,
 				02D066BF27BBB57D00D12C5F /* Inter-ExtraBold.ttf in Resources */,
 				02D066C227BBB57D00D12C5F /* Inter-Light.ttf in Resources */,
@@ -709,15 +801,20 @@
 				0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */,
 				02D066EA27BC1BC900D12C5F /* QuizeWeightController.xib in Resources */,
 				02B225BE27BD7B110035CFA2 /* Login.graphql in Resources */,
+				02A5CDC327C4247300D31FB4 /* QuizeFoodCell.xib in Resources */,
 				02D066C627BBB57D00D12C5F /* Inter-SemiBold.ttf in Resources */,
+				02A5CDBA27C3DCFB00D31FB4 /* PasswordForgotRequest.graphql in Resources */,
 				021A6F4F27BF99720000D863 /* MainTabBarController.xib in Resources */,
 				02D066C527BBB57D00D12C5F /* Inter-Black.ttf in Resources */,
 				02D066D927BBDC3400D12C5F /* QuizeGoalController.xib in Resources */,
+				02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */,
 				02D066A827BBA72100D12C5F /* Localizable.strings in Resources */,
 				02D066C127BBB57D00D12C5F /* Inter-Thin.ttf in Resources */,
 				02C3DD6627BEDA82004E5C65 /* QuizeProgressController.xib in Resources */,
+				02A5CDB527C3949700D31FB4 /* MenuController.xib in Resources */,
 				02D066D427BBD12600D12C5F /* QuizeGenderController.xib in Resources */,
 				0249D29127B3ABD900F265C1 /* Debug.xcconfig in Resources */,
+				02A5CDAB27C393DC00D31FB4 /* WorkoutController.xib in Resources */,
 				02D066BE27BBB57D00D12C5F /* Inter-ExtraLight.ttf in Resources */,
 				02D066C427BBB57D00D12C5F /* Inter-Bold.ttf in Resources */,
 				0249D29227B3ABD900F265C1 /* Staging.xcconfig in Resources */,
@@ -839,6 +936,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
+				02A5CDB427C3949700D31FB4 /* MenuController.swift in Sources */,
 				0249D26127B3A88C00F265C1 /* UIScrollView+Extension.swift in Sources */,
 				021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */,
 				02B225A627BCFB9F0035CFA2 /* QuizeTargetWeightController.swift in Sources */,
@@ -847,19 +945,24 @@
 				0249D26227B3A88C00F265C1 /* Collection+Extension.swift in Sources */,
 				0249D24427B3A64300F265C1 /* LoadFromXibProtocol.swift in Sources */,
 				0249D24B27B3A67900F265C1 /* BaseController.swift in Sources */,
+				02A5CDBE27C3DE9F00D31FB4 /* ImageModel.swift in Sources */,
 				02D066B227BBB32400D12C5F /* StartController.swift in Sources */,
+				02A5CDBC27C3DD3300D31FB4 /* PasswordForgotRequestModel.swift in Sources */,
 				0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */,
 				0249D26327B3A88C00F265C1 /* UIApplicathion+Extension.swift in Sources */,
+				02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */,
 				02D066AD27BBA8F400D12C5F /* R.generated.swift in Sources */,
 				0249D26927B3A92300F265C1 /* KeychainService.swift in Sources */,
 				02B225C027BD7B4F0035CFA2 /* LoginModel.swift in Sources */,
 				02D066D327BBD12600D12C5F /* QuizeGenderController.swift in Sources */,
+				02A5CDC227C4247300D31FB4 /* QuizeFoodCell.swift in Sources */,
 				021A6F4727BF8FFA0000D863 /* ProfileUpdateModel.swift in Sources */,
 				02B225AE27BD45080035CFA2 /* QuizeFoodController.swift in Sources */,
 				02B225B827BD63FC0035CFA2 /* QuizeEmailController.swift in Sources */,
 				0249D25127B3A70B00F265C1 /* SplashViewController.swift in Sources */,
 				02D066CB27BBBB4300D12C5F /* QuizeNameController.swift in Sources */,
 				02D066CE27BBC41800D12C5F /* OnboardingRouter.swift in Sources */,
+				02A5CDB027C3947800D31FB4 /* ProfileController.swift in Sources */,
 				02D066D827BBDC3400D12C5F /* QuizeGoalController.swift in Sources */,
 				0249D26D27B3A96E00F265C1 /* AuthModel.swift in Sources */,
 				0249D24C27B3A67900F265C1 /* RootRouter.swift in Sources */,
@@ -879,6 +982,7 @@
 				021A6F4A27BF91050000D863 /* CircularProgressBarView.swift in Sources */,
 				021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */,
 				02C3DD6827BEDAB1004E5C65 /* QuizeProgressPresenter.swift in Sources */,
+				02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */,
 				02B225BB27BD79DA0035CFA2 /* StartPresenter.swift in Sources */,
 				02B225A227BCF0F00035CFA2 /* TempProfileModel.swift in Sources */,
 				0249D24A27B3A67900F265C1 /* BaseRouter.swift in Sources */,
@@ -1034,7 +1138,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
@@ -1068,7 +1172,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
@@ -1163,7 +1267,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
@@ -1215,6 +1319,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0227DA8A27C4CA77008AB26B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		0249D25427B3A7AD00F265C1 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
@@ -1250,6 +1362,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0227DA8B27C4CA77008AB26B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0227DA8A27C4CA77008AB26B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		0249D25527B3A7AD00F265C1 /* NVActivityIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0249D25427B3A7AD00F265C1 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
