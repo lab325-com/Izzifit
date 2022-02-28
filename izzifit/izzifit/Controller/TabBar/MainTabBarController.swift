@@ -33,6 +33,8 @@ class MainTabBarController: BaseController {
     @IBOutlet weak var selectedProfileLayout: NSLayoutConstraint!
     @IBOutlet weak var selectedMenuLayout: NSLayoutConstraint!
     
+    @IBOutlet weak var bottomCustomTabBarLayout: NSLayoutConstraint!
+    
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
@@ -59,6 +61,14 @@ class MainTabBarController: BaseController {
         super.viewDidLoad()
 
         setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIView.animate(withDuration: 0.3) {
+            self.bottomCustomTabBarLayout.constant = 0
+            self.view.layoutIfNeeded()
+        }
     }
     
     //----------------------------------------------
@@ -143,7 +153,12 @@ class MainTabBarController: BaseController {
     }
     
     @IBAction func actionMenu(_ sender: UIButton) {
-        tab = .menu
+        UIView.animate(withDuration: 0.3) {
+            self.bottomCustomTabBarLayout.constant = -84
+            self.view.layoutIfNeeded()
+        }
+
+        TabBarRouter(presenter: navigationController).pushMenu()
     }
     
     @IBAction func actionLogOut(_ sender: UIButton) {

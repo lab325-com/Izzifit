@@ -16,6 +16,7 @@ mutation ProfileUpdate($record: ProfileUpdateInput!) {
         reminders
         showOnBoarding
         weight
+        targetWeight
         FoodGroup {
             Image {
                 id

@@ -24,8 +24,10 @@ class QuizeFoodController: BaseController {
     // MARK: - Property
     //----------------------------------------------
     
+    private lazy var presenter = QuizeFoodPresenter(view: self)
+    
     private let cellIdentifier = String(describing: QuizeFoodCell.self)
-    private let foodTypes = KeychainService.standard.me?.FoodGroup ?? []
+    private var foodTypes: [FoodGroupModel] = PreferencesManager.sharedManager.foods ?? []
     private var selectedType: FoodGroupModel? {
         didSet {
             goNextButton.alpha = 1.0
@@ -48,6 +50,7 @@ class QuizeFoodController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        presenter.getFoods()
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
@@ -115,4 +118,17 @@ extension QuizeFoodController: QuizeFoodCellDelegate {
         selectedType = model
         tableView.reloadData()
     }
+}
+
+//----------------------------------------------
+// MARK: - QuizeFoodOutputProtocol
+//----------------------------------------------
+
+extension QuizeFoodController: QuizeFoodOutputProtocol {
+    func success(model: FoodGroupsModel) {
+        foodTypes = model.foodGroups
+        tableView.reloadData()
+    }
+    
+    func failure() {}
 }

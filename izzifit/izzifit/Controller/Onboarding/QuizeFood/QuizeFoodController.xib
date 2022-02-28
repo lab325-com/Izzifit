@@ -98,7 +98,7 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OMG-PG-RJE">
-                    <rect key="frame" x="24" y="225.5" width="366" height="492.5"/>
+                    <rect key="frame" x="0.0" y="225.5" width="414" height="492.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="SbO-dM-e6Q"/>
@@ -114,7 +114,7 @@
                 <constraint firstItem="wtP-Sd-mMA" firstAttribute="top" secondItem="SlU-Ag-ZML" secondAttribute="top" id="6E6-d0-F6n"/>
                 <constraint firstItem="OMG-PG-RJE" firstAttribute="top" secondItem="iqt-p0-mpw" secondAttribute="bottom" constant="48" id="CZt-FG-wJb"/>
                 <constraint firstItem="yIq-DV-8Rs" firstAttribute="top" secondItem="dT3-rM-n5d" secondAttribute="top" constant="16" id="Elc-Ph-WCK"/>
-                <constraint firstItem="OMG-PG-RJE" firstAttribute="leading" secondItem="dT3-rM-n5d" secondAttribute="leading" constant="24" id="MBJ-6s-vJT"/>
+                <constraint firstItem="OMG-PG-RJE" firstAttribute="leading" secondItem="dT3-rM-n5d" secondAttribute="leading" id="MBJ-6s-vJT"/>
                 <constraint firstItem="bVR-Bc-YpL" firstAttribute="leading" secondItem="dT3-rM-n5d" secondAttribute="leading" constant="24" id="MdT-Av-V3T"/>
                 <constraint firstItem="bVR-Bc-YpL" firstAttribute="top" secondItem="54K-xw-CAn" secondAttribute="bottom" constant="10" id="Q87-nh-LrP"/>
                 <constraint firstItem="dT3-rM-n5d" firstAttribute="bottom" secondItem="bVR-Bc-YpL" secondAttribute="bottom" constant="14" id="RjZ-Bp-Niq"/>
@@ -126,7 +126,7 @@
                 <constraint firstItem="iqt-p0-mpw" firstAttribute="top" secondItem="yIq-DV-8Rs" secondAttribute="bottom" constant="58" id="j1z-1A-lds"/>
                 <constraint firstItem="iqt-p0-mpw" firstAttribute="centerX" secondItem="dT3-rM-n5d" secondAttribute="centerX" id="ngM-i5-gFL"/>
                 <constraint firstItem="dT3-rM-n5d" firstAttribute="trailing" secondItem="vKl-SD-dNU" secondAttribute="trailing" constant="23" id="qQs-sJ-S7L"/>
-                <constraint firstItem="dT3-rM-n5d" firstAttribute="trailing" secondItem="OMG-PG-RJE" secondAttribute="trailing" constant="24" id="w3i-BB-pOa"/>
+                <constraint firstItem="dT3-rM-n5d" firstAttribute="trailing" secondItem="OMG-PG-RJE" secondAttribute="trailing" id="w3i-BB-pOa"/>
                 <constraint firstItem="54K-xw-CAn" firstAttribute="top" secondItem="OMG-PG-RJE" secondAttribute="bottom" constant="24" id="wgd-xq-zQd"/>
                 <constraint firstItem="wtP-Sd-mMA" firstAttribute="trailing" secondItem="dT3-rM-n5d" secondAttribute="trailing" id="yex-Jq-NmN"/>
             </constraints>

@@ -28,7 +28,8 @@ struct MeMainModel: Codable {
     let reminders: Bool?
     let showOnBoarding: Bool?
     let weight: Float?
-    let FoodGroup: [FoodGroupModel]
+    let targetWeight: Int?
+    let FoodGroup: FoodGroupModel?
 }
 
 struct FoodGroupModel: Codable {
@@ -42,7 +43,18 @@ extension DoSportType: Codable {
 }
 
 extension FitnessPreferenceType: Codable {
-    
+    var text: String {
+        switch self {
+        case .fitnessPreferenceTypeLight:
+            return "Light"
+        case .fitnessPreferenceTypeProfessional:
+            return "Strong"
+        case .fitnessPreferenceTypeStrong:
+            return "Professional"
+        case .__unknown(_):
+            return ""
+        }
+    }
 }
 
 extension GenderType: Codable {

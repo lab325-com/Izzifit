@@ -15,6 +15,7 @@ class PreferencesManager : NSObject {
     //MARK: - Keys
     static let isFirstRun = "isFirstRun"
     static let tempPorifle = "tempPorifle"
+    static let foods =  "foods"
     
     var userDefaults: UserDefaults
     
@@ -112,6 +113,15 @@ class PreferencesManager : NSObject {
         }
         set {
             self.set(newValue, forKey: PreferencesManager.tempPorifle)
+        }
+    }
+    
+    var foods: [FoodGroupModel]? {
+        get {
+            return self.models(forKey: PreferencesManager.foods)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.foods)
         }
     }
 }

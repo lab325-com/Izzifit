@@ -61,7 +61,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target weigth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X30-A6-4i8">
-                    <rect key="frame" x="135.5" y="148" width="143.5" height="28"/>
+                    <rect key="frame" x="128" y="148" width="158.5" height="29.5"/>
                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="24"/>
                     <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -79,13 +79,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 from 9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hek-bU-Cdg">
-                    <rect key="frame" x="339" y="67" width="52" height="16.5"/>
+                    <rect key="frame" x="335" y="66.5" width="56" height="17"/>
                     <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                     <color key="textColor" red="0.72941176470000002" green="0.72549019609999998" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="U5f-aa-NEI">
-                    <rect key="frame" x="127" y="200" width="160" height="32"/>
+                    <rect key="frame" x="127" y="201.5" width="160" height="32"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPB-YA-coS">
                             <rect key="frame" x="0.0" y="0.0" width="80" height="32"/>
@@ -130,18 +130,18 @@
                     </constraints>
                 </stackView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNr-i9-obK">
-                    <rect key="frame" x="127" y="200" width="80" height="32"/>
+                    <rect key="frame" x="127" y="201.5" width="80" height="32"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKq-uo-Pi0">
-                    <rect key="frame" x="127" y="200" width="80" height="32"/>
+                    <rect key="frame" x="127" y="201.5" width="80" height="32"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <connections>
                         <action selector="actionKG:" destination="-1" eventType="touchUpInside" id="0AA-rf-VbF"/>
                     </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEu-Wd-nBy">
-                    <rect key="frame" x="207" y="200" width="80" height="32"/>
+                    <rect key="frame" x="207" y="201.5" width="80" height="32"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <connections>
                         <action selector="actionLB:" destination="-1" eventType="touchUpInside" id="3eq-cQ-8Te"/>
@@ -237,7 +237,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hb5-JD-B8r">
-                                            <rect key="frame" x="-3" y="37" width="7" height="14"/>
+                                            <rect key="frame" x="-3.5" y="37" width="8" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -473,7 +473,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIP-Cb-QmI">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -591,7 +591,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSw-Lz-6SC">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -709,7 +709,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omQ-Qj-p32">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7.5" y="37" width="16" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -827,7 +827,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3GU-ZS-j79">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -945,7 +945,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sf5-Dd-EcQ">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1063,7 +1063,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="70" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAe-pt-vW4">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1181,7 +1181,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDC-Y3-TDS">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1299,7 +1299,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1H-BQ-sJx">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1417,7 +1417,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fG6-Vh-pPL">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1535,7 +1535,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="110" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKa-kU-MMo">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-9" y="37" width="19.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1653,7 +1653,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7Y-xW-AbC">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1771,7 +1771,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="130" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0v5-ce-S0Y">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1889,7 +1889,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nm4-dr-LRk">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2007,7 +2007,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFX-rl-oMJ">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2125,7 +2125,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="160" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxs-0n-AG1">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2361,7 +2361,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="180" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdF-nx-nqc">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -2479,7 +2479,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="190" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZI-IC-rdf">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2597,7 +2597,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAr-R0-36V">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2715,7 +2715,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="210" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQV-eg-Gvh">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2833,7 +2833,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="220" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8h2-Xv-Hae">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10.5" y="37" width="22.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2951,7 +2951,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="230" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TT1-Ea-OIu">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3069,7 +3069,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="240" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIm-A6-5g0">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3210,7 +3210,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w32-dM-vf7">
-                                            <rect key="frame" x="-3" y="37" width="7" height="14"/>
+                                            <rect key="frame" x="-3.5" y="37" width="8" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3446,7 +3446,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrn-Fo-QzP">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3564,7 +3564,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="36" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2E-9R-JOS">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3682,7 +3682,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="46" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28P-pZ-h6V">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3800,7 +3800,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="56" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHc-Ju-XSr">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3918,7 +3918,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uq-wR-K1a">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -4036,7 +4036,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="76" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyi-ta-7y0">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-6.5" y="37" width="14.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -4154,7 +4154,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="86" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHF-eA-ses">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -4272,7 +4272,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="96" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBr-wd-mkr">
-                                            <rect key="frame" x="-6" y="37" width="13.5" height="14"/>
+                                            <rect key="frame" x="-7" y="37" width="15.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -4390,7 +4390,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="106" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBv-mG-6Zu">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -4508,7 +4508,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="116" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAv-PL-AqK">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-9" y="37" width="19" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -4626,7 +4626,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="126" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoP-0J-Ehn">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -4744,7 +4744,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="136" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okG-Zl-uIo">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -4862,7 +4862,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="146" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0P-c4-wG8">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -4980,7 +4980,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="156" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJY-qk-JZY">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -5098,7 +5098,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="166" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee1-11-l1e">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -5334,7 +5334,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="186" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57O-Vz-TrU">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -5452,7 +5452,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="196" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pp5-s6-0o1">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -5570,7 +5570,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="206" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xg5-s1-Eka">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -5688,7 +5688,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="216" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMM-5N-aQX">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -5806,7 +5806,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="226" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9m-0Q-rwV">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10.5" y="37" width="22.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -5924,7 +5924,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="236" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06T-L8-Vcq">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -6042,7 +6042,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="246" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZl-Zf-Gpi">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -6160,7 +6160,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="256" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udD-C1-POR">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10.5" y="37" width="22.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -6278,7 +6278,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="266" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5V-8J-9Ia">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -6396,7 +6396,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="276" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihT-rH-0yl">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10.5" y="37" width="22" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -6514,7 +6514,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="286" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzK-zE-VsR">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -6632,7 +6632,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="296" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsy-D3-sjO">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -6750,7 +6750,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="306" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSp-Op-nAp">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -6868,7 +6868,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="316" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNm-4f-hs1">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -6986,7 +6986,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="326" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bic-hf-kvK">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -7104,7 +7104,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="336" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwb-zH-hCd">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -7222,7 +7222,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="346" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eM-4J-GRo">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -7340,7 +7340,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="356" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7G-U1-hsq">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -7458,7 +7458,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="366" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qk6-B8-bO3">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -7576,7 +7576,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="376" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KC5-W3-xke">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10.5" y="37" width="22.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -7694,7 +7694,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="386" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMQ-4h-eDc">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -7812,7 +7812,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="396" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhm-Ou-nmQ">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -7930,7 +7930,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="406" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTQ-vP-KSr">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -8048,7 +8048,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="416" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQI-CQ-i7h">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -8166,7 +8166,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="426" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozK-Ft-cLO">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -8284,7 +8284,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="436" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfc-NU-3LT">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -8402,7 +8402,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="446" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxr-2n-TZ8">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -8520,7 +8520,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="456" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNH-zJ-I63">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -8638,7 +8638,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="466" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvQ-QF-3Ra">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -8756,7 +8756,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="476" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFt-RT-FtQ">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10.5" y="37" width="22.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -8874,7 +8874,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="486" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbm-io-vla">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -8992,7 +8992,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="496" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bA-mC-ikZ">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23.5" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -9110,7 +9110,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="506" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brc-Vg-Dx6">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-11" y="37" width="23" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -9228,7 +9228,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="516" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDX-MM-nle">
-                                            <rect key="frame" x="-9.5" y="37" width="20.5" height="14"/>
+                                            <rect key="frame" x="-10" y="37" width="21" height="14"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -9280,10 +9280,10 @@
                     </connections>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jdx-MG-bl6">
-                    <rect key="frame" x="0.0" y="232" width="414" height="393"/>
+                    <rect key="frame" x="0.0" y="233.5" width="414" height="391.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaI-NB-U0n">
-                            <rect key="frame" x="148.5" y="168.5" width="117.5" height="56"/>
+                            <rect key="frame" x="145.5" y="166.5" width="123.5" height="58.5"/>
                             <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="48"/>
                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
