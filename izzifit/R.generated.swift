@@ -131,7 +131,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 18 files.
+  /// This `R.file` struct is generated, and contains static references to 21 files.
   struct file {
     /// Resource file `Debug.xcconfig`.
     static let debugXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Debug", pathExtension: "xcconfig")
@@ -161,14 +161,20 @@ struct R: Rswift.Validatable {
     static let loginGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Login", pathExtension: "graphql")
     /// Resource file `Me.graphql`.
     static let meGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Me", pathExtension: "graphql")
+    /// Resource file `Muscles.graphql`.
+    static let musclesGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Muscles", pathExtension: "graphql")
     /// Resource file `PasswordForgotRequest.graphql`.
     static let passwordForgotRequestGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "PasswordForgotRequest", pathExtension: "graphql")
+    /// Resource file `Products.graphql`.
+    static let productsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Products", pathExtension: "graphql")
     /// Resource file `ProfileUpdate.graphql`.
     static let profileUpdateGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ProfileUpdate", pathExtension: "graphql")
     /// Resource file `Release.xcconfig`.
     static let releaseXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Release", pathExtension: "xcconfig")
     /// Resource file `Staging.xcconfig`.
     static let stagingXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Staging", pathExtension: "xcconfig")
+    /// Resource file `ToggleProductInRation.graphql`.
+    static let toggleProductInRationGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleProductInRation", pathExtension: "graphql")
 
     /// `bundle.url(forResource: "Debug", withExtension: "xcconfig")`
     static func debugXcconfig(_: Void = ()) -> Foundation.URL? {
@@ -254,9 +260,21 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "Muscles", withExtension: "graphql")`
+    static func musclesGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.musclesGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "PasswordForgotRequest", withExtension: "graphql")`
     static func passwordForgotRequestGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.passwordForgotRequestGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Products", withExtension: "graphql")`
+    static func productsGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.productsGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -275,6 +293,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Staging", withExtension: "xcconfig")`
     static func stagingXcconfig(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.stagingXcconfig
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "ToggleProductInRation", withExtension: "graphql")`
+    static func toggleProductInRationGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.toggleProductInRationGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -620,7 +644,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 30 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 34 nibs.
   struct nib {
     /// Nib `EnergyController`.
     static let energyController = _R.nib._EnergyController()
@@ -636,6 +660,8 @@ struct R: Rswift.Validatable {
     static let menuController = _R.nib._MenuController()
     /// Nib `MenuEmailController`.
     static let menuEmailController = _R.nib._MenuEmailController()
+    /// Nib `MenuFitnessController`.
+    static let menuFitnessController = _R.nib._MenuFitnessController()
     /// Nib `MenuFoodController`.
     static let menuFoodController = _R.nib._MenuFoodController()
     /// Nib `MenuFoodSwitchCell`.
@@ -644,12 +670,18 @@ struct R: Rswift.Validatable {
     static let menuFoodTitleCellCell = _R.nib._MenuFoodTitleCellCell()
     /// Nib `MenuHeightController`.
     static let menuHeightController = _R.nib._MenuHeightController()
+    /// Nib `MenuLanguageController`.
+    static let menuLanguageController = _R.nib._MenuLanguageController()
+    /// Nib `MenuLanguagesTitleCell`.
+    static let menuLanguagesTitleCell = _R.nib._MenuLanguagesTitleCell()
     /// Nib `MenuNameController`.
     static let menuNameController = _R.nib._MenuNameController()
     /// Nib `MenuTargetWeightController`.
     static let menuTargetWeightController = _R.nib._MenuTargetWeightController()
     /// Nib `MenuWeightController`.
     static let menuWeightController = _R.nib._MenuWeightController()
+    /// Nib `MenuWriteQuestionController`.
+    static let menuWriteQuestionController = _R.nib._MenuWriteQuestionController()
     /// Nib `ProfileController`.
     static let profileController = _R.nib._ProfileController()
     /// Nib `QuizeAgeController`.
@@ -740,6 +772,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MenuFitnessController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.menuFitnessController) instead")
+    static func menuFitnessController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.menuFitnessController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "MenuFoodController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.menuFoodController) instead")
     static func menuFoodController(_: Void = ()) -> UIKit.UINib {
@@ -772,6 +812,22 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MenuLanguageController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.menuLanguageController) instead")
+    static func menuLanguageController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.menuLanguageController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MenuLanguagesTitleCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.menuLanguagesTitleCell) instead")
+    static func menuLanguagesTitleCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.menuLanguagesTitleCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "MenuNameController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.menuNameController) instead")
     static func menuNameController(_: Void = ()) -> UIKit.UINib {
@@ -792,6 +848,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.menuWeightController) instead")
     static func menuWeightController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.menuWeightController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MenuWriteQuestionController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.menuWriteQuestionController) instead")
+    static func menuWriteQuestionController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.menuWriteQuestionController)
     }
     #endif
 
@@ -951,6 +1015,10 @@ struct R: Rswift.Validatable {
       return R.nib.menuEmailController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func menuFitnessController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.menuFitnessController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func menuFoodController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.menuFoodController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -967,6 +1035,14 @@ struct R: Rswift.Validatable {
       return R.nib.menuHeightController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func menuLanguageController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.menuLanguageController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func menuLanguagesTitleCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MenuLanguagesTitleCell? {
+      return R.nib.menuLanguagesTitleCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MenuLanguagesTitleCell
+    }
+
     static func menuNameController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.menuNameController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -977,6 +1053,10 @@ struct R: Rswift.Validatable {
 
     static func menuWeightController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.menuWeightController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func menuWriteQuestionController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.menuWriteQuestionController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func profileController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -1046,12 +1126,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `MenuFoodSwitchCell`.
     static let menuFoodSwitchCell: Rswift.ReuseIdentifier<MenuFoodSwitchCell> = Rswift.ReuseIdentifier(identifier: "MenuFoodSwitchCell")
     /// Reuse identifier `MenuFoodTitleCellCell`.
     static let menuFoodTitleCellCell: Rswift.ReuseIdentifier<MenuFoodTitleCellCell> = Rswift.ReuseIdentifier(identifier: "MenuFoodTitleCellCell")
+    /// Reuse identifier `MenuLanguagesTitleCell`.
+    static let menuLanguagesTitleCell: Rswift.ReuseIdentifier<MenuLanguagesTitleCell> = Rswift.ReuseIdentifier(identifier: "MenuLanguagesTitleCell")
     /// Reuse identifier `QuizeFoodCell`.
     static let quizeFoodCell: Rswift.ReuseIdentifier<QuizeFoodCell> = Rswift.ReuseIdentifier(identifier: "QuizeFoodCell")
 
@@ -1060,7 +1142,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 76 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 81 localization keys.
     struct localizable {
       /// en translation: %d from %d
       ///
@@ -1110,6 +1192,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_food_preferences_title2 = Rswift.StringResource(key: "menu_food_preferences_title2", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Exclude problem areas
+      ///
+      /// Locales: en
+      static let menu_fitness_problem = Rswift.StringResource(key: "menu_fitness_problem", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: FT
       ///
       /// Locales: en
@@ -1118,6 +1204,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_female = Rswift.StringResource(key: "onboarding_female", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Fitness level
+      ///
+      /// Locales: en
+      static let menu_fitness_leve = Rswift.StringResource(key: "menu_fitness_leve", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Fitness preferences
       ///
       /// Locales: en
@@ -1270,6 +1360,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_save_changes = Rswift.StringResource(key: "menu_save_changes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Send
+      ///
+      /// Locales: en
+      static let menu_write_us_send = Rswift.StringResource(key: "menu_write_us_send", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Settings
       ///
       /// Locales: en
@@ -1310,6 +1404,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_terms = Rswift.StringResource(key: "menu_terms", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Text your message
+      ///
+      /// Locales: en
+      static let menu_write_us_plcaheloder = Rswift.StringResource(key: "menu_write_us_plcaheloder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Vegan
       ///
       /// Locales: en
@@ -1338,6 +1436,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_write = Rswift.StringResource(key: "menu_write", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Write us to ask any question
+      ///
+      /// Locales: en
+      static let menu_write_us_title = Rswift.StringResource(key: "menu_write_us_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Your age
       ///
       /// Locales: en
@@ -1549,6 +1651,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("menu_food_preferences_title2", bundle: bundle, comment: "")
       }
 
+      /// en translation: Exclude problem areas
+      ///
+      /// Locales: en
+      static func menu_fitness_problem(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_fitness_problem", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_fitness_problem"
+        }
+
+        return NSLocalizedString("menu_fitness_problem", bundle: bundle, comment: "")
+      }
+
       /// en translation: FT
       ///
       /// Locales: en
@@ -1577,6 +1694,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("onboarding_female", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Fitness level
+      ///
+      /// Locales: en
+      static func menu_fitness_leve(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_fitness_leve", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_fitness_leve"
+        }
+
+        return NSLocalizedString("menu_fitness_leve", bundle: bundle, comment: "")
       }
 
       /// en translation: Fitness preferences
@@ -2149,6 +2281,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("menu_save_changes", bundle: bundle, comment: "")
       }
 
+      /// en translation: Send
+      ///
+      /// Locales: en
+      static func menu_write_us_send(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_write_us_send", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_write_us_send"
+        }
+
+        return NSLocalizedString("menu_write_us_send", bundle: bundle, comment: "")
+      }
+
       /// en translation: Settings
       ///
       /// Locales: en
@@ -2299,6 +2446,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("menu_terms", bundle: bundle, comment: "")
       }
 
+      /// en translation: Text your message
+      ///
+      /// Locales: en
+      static func menu_write_us_plcaheloder(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_write_us_plcaheloder", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_write_us_plcaheloder"
+        }
+
+        return NSLocalizedString("menu_write_us_plcaheloder", bundle: bundle, comment: "")
+      }
+
       /// en translation: Vegan
       ///
       /// Locales: en
@@ -2402,6 +2564,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("menu_write", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Write us to ask any question
+      ///
+      /// Locales: en
+      static func menu_write_us_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_write_us_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_write_us_title"
+        }
+
+        return NSLocalizedString("menu_write_us_title", bundle: bundle, comment: "")
       }
 
       /// en translation: Your age
@@ -2547,11 +2724,15 @@ struct _R: Rswift.Validatable {
       try _MenuCell.validate()
       try _MenuController.validate()
       try _MenuEmailController.validate()
+      try _MenuFitnessController.validate()
       try _MenuFoodController.validate()
       try _MenuHeightController.validate()
+      try _MenuLanguageController.validate()
+      try _MenuLanguagesTitleCell.validate()
       try _MenuNameController.validate()
       try _MenuTargetWeightController.validate()
       try _MenuWeightController.validate()
+      try _MenuWriteQuestionController.validate()
       try _QuizeAgeController.validate()
       try _QuizeEmailController.validate()
       try _QuizeFoodCell.validate()
@@ -2691,6 +2872,24 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _MenuFitnessController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "MenuFitnessController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'MenuFitnessController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'MenuFitnessController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
     struct _MenuFoodController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "MenuFoodController"
@@ -2755,6 +2954,44 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _MenuLanguageController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "MenuLanguageController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'MenuLanguageController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'MenuLanguageController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _MenuLanguagesTitleCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = MenuLanguagesTitleCell
+
+      let bundle = R.hostingBundle
+      let identifier = "MenuLanguagesTitleCell"
+      let name = "MenuLanguagesTitleCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MenuLanguagesTitleCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MenuLanguagesTitleCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_selected_ic' is used in nib 'MenuLanguagesTitleCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
     struct _MenuNameController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "MenuNameController"
@@ -2803,6 +3040,24 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'MenuWeightController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'MenuWeightController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _MenuWriteQuestionController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "MenuWriteQuestionController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'MenuWriteQuestionController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'MenuWriteQuestionController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

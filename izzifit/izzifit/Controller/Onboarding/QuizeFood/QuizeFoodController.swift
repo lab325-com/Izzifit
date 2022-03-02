@@ -125,6 +125,10 @@ extension QuizeFoodController: QuizeFoodCellDelegate {
 //----------------------------------------------
 
 extension QuizeFoodController: QuizeFoodOutputProtocol {
+    func successProducts(models: [ProductsMainModel]) {
+        
+    }
+    
     func success(model: FoodGroupsModel) {
         foodTypes = model.foodGroups
         tableView.reloadData()

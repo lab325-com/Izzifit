@@ -121,6 +121,7 @@ class MenuController: BaseController {
     }
     
     @IBAction func actionWriteUs(_ sender: UIButton) {
+        MenuRouter(presenter: navigationController).pushMenuQuiestion()
     }
     
 }
@@ -164,6 +165,10 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
             MenuRouter(presenter: navigationController).pushMenuTargetWeight()
         case .foodPreferences:
             MenuRouter(presenter: navigationController).pushMenuFood()
+        case .fitnessPreferences:
+            MenuRouter(presenter: navigationController).pushMenuFitness()
+        case .language:
+            MenuRouter(presenter: navigationController).pushMenuLanguage()
         default:
             break
         }
@@ -198,6 +203,10 @@ extension MenuController: MenuCellDelegate {
 //----------------------------------------------
 
 extension MenuController: QuizeFoodOutputProtocol {
+    func successProducts(models: [ProductsMainModel]) {
+        
+    }
+    
     func success(model: FoodGroupsModel) {
         tableView.reloadData()
     }

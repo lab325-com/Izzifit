@@ -1,0 +1,3 @@
+query ToggleMuscleInWorkouts($muscleIds: [String!]!) {
+	toggleMuscleInWorkouts(muscleIds: $muscleIds)
+}

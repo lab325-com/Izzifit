@@ -13,8 +13,14 @@ import UIKit
 // MARK: - Outputs Protocol
 //----------------------------------------------
 protocol QuizeFoodOutputProtocol: BaseController {
+    func successSetProduct()
     func success(model: FoodGroupsModel)
+    func successProducts(models: [ProductsMainModel])
     func failure()
+}
+
+extension QuizeFoodOutputProtocol {
+    func successSetProduct() {}
 }
 
 //----------------------------------------------
@@ -44,6 +50,31 @@ class QuizeFoodPresenter: QuizeFoodPresenterProtocol {
             PreferencesManager.sharedManager.foods = model.foodGroups
             self?.view?.stopLoading()
             self?.view?.success(model: model)
+        }, failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+            self?.view?.failure()
+        })
+    }
+    
+    func getProducts(foodGroupId: String) {
+        view?.startLoader()
+        let query = ProductsQuery(foodGroupId: foodGroupId)
+        
+        let _ = Network.shared.query(model: ProductsModel.self, query, controller: view, successHandler: { [weak self] model in
+            self?.view?.stopLoading()
+            self?.view?.successProducts(models: model.products)
+        }, failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+            self?.view?.failure()
+        })
+    }
+    
+    func setProducts(productIds: [String]) {
+        view?.startLoader()
+        let query = ToggleProductInRationQuery(productIds: productIds)
+        let _ = Network.shared.query(model: ToggleProductInRationModel.self, query, controller: view, successHandler: { [weak self] model in
+            self?.view?.stopLoading()
+            self?.view?.successSetProduct()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
             self?.view?.failure()

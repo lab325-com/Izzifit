@@ -1,13 +1,13 @@
 //
-//  MenuFoodController.swift
+//  MenuFitnessController.swift
 //  izzifit
 //
-//  Created by Andrey S on 23.02.2022.
+//  Created by Andrey S on 01.03.2022.
 //
 
 import UIKit
 
-class MenuFoodController: BaseController {
+class MenuFitnessController: BaseController {
     
     //----------------------------------------------
     // MARK: - IBOutlet
@@ -22,26 +22,26 @@ class MenuFoodController: BaseController {
     //----------------------------------------------
     
     private lazy var presenter = MenuPresenter(view: self)
-    private lazy var presenterFood = QuizeFoodPresenter(view: self)
+    private lazy var presenterFitness = MenuFitnessPresenter(view: self)
     
     private let cellIdentifier = String(describing: QuizeFoodCell.self)
     private let cellTitleIdentifier = String(describing: MenuFoodTitleCellCell.self)
     private let cellSwitcherIdentifier = String(describing: MenuFoodSwitchCell.self)
     
-    private var foodTypes: [FoodGroupModel] = PreferencesManager.sharedManager.foods ?? []
-    private var selectedType: FoodGroupModel? = KeychainService.standard.me?.FoodGroup {
+    private let allFitness = FitnessPreferenceType.allCases
+    private var selectedType: FitnessPreferenceType? = KeychainService.standard.me?.fitnessPreference {
         didSet {
-            if selectedProducts.count == 0 && selectedType == nil {
+            if selectedMuscles.count == 0 && selectedType == nil {
                 saveButton.alpha = 0.5
             } else {
                 saveButton.alpha = 1.0
             }
         }
     }
-    private var products: [ProductsMainModel] = []
-    private var selectedProducts: Set<ProductsMainModel> = [] {
+    private var muscles: [MusclesMainModel] = []
+    private var selectedMuscles: Set<MusclesMainModel> = [] {
         didSet {
-            if selectedProducts.count == 0 && selectedType == nil {
+            if selectedMuscles.count == 0 && selectedType == nil {
                 saveButton.alpha = 0.5
             } else {
                 saveButton.alpha = 1.0
@@ -68,12 +68,7 @@ class MenuFoodController: BaseController {
     
     private func setup() {
         
-        
-        if let id = KeychainService.standard.me?.FoodGroup?.id, PreferencesManager.sharedManager.foods != nil {
-            presenterFood.getProducts(foodGroupId: id)
-        } else {
-            presenterFood.getFoods()
-        }
+        presenterFitness.getMuscles()
         
         saveButton.alpha = 0.5
         tableView.tableFooterView = UIView()
@@ -83,7 +78,7 @@ class MenuFoodController: BaseController {
         tableView.register(UINib(nibName: cellTitleIdentifier, bundle: nil), forCellReuseIdentifier: cellTitleIdentifier)
         tableView.register(UINib(nibName: cellSwitcherIdentifier, bundle: nil), forCellReuseIdentifier: cellSwitcherIdentifier)
         
-        nameTitleLabel.text = RLocalization.menu_food_preferences()
+        nameTitleLabel.text = RLocalization.menu_fitness()
         saveButton.setTitle(RLocalization.menu_save_changes(), for: .normal)
     }
     
@@ -96,10 +91,10 @@ class MenuFoodController: BaseController {
     }
     
     @IBAction func actionGoNext(_ sender: UIButton) {
-        if let id = selectedType?.id {
-            presenter.profileUpdate(foodGroupId: id)
-        } else if selectedProducts.count > 0 {
-            presenterFood.setProducts(productIds: selectedProducts.compactMap({$0.id}))
+        if let type = selectedType {
+            presenter.profileUpdate(fitnessPreference: type)
+        } else if selectedMuscles.count > 0 {
+            presenterFitness.
         }
     }
 }
@@ -110,10 +105,10 @@ class MenuFoodController: BaseController {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 //----------------------------------------------
 
-extension MenuFoodController: UITableViewDelegate, UITableViewDataSource {
+extension MenuFitnessController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodTypes.count + 2 + products.count
+        return allFitness.count + 2 + muscles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -121,23 +116,23 @@ extension MenuFoodController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellTitleIdentifier) as? MenuFoodTitleCellCell else { return UITableViewCell() }
             cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
-            cell.setupCell(title: RLocalization.menu_food_preferences_title1())
+            cell.setupCell(title: RLocalization.menu_fitness_leve())
             return cell
-        case 1..<foodTypes.count + 1:
+        case 1..<allFitness.count + 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as? QuizeFoodCell else { return UITableViewCell() }
             cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
-            cell.setupCell(model: foodTypes[indexPath.row - 1], selected: selectedType?.id == foodTypes[indexPath.row - 1].id)
+            cell.setupCellFitness(type: allFitness[indexPath.row - 1], selected: selectedType == allFitness[indexPath.row - 1])
             cell.delegate = self
             return cell
-        case foodTypes.count + 1:
+        case allFitness.count + 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellTitleIdentifier) as? MenuFoodTitleCellCell else { return UITableViewCell() }
             cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
-            cell.setupCell(title: RLocalization.menu_food_preferences_title2())
+            cell.setupCell(title: RLocalization.menu_fitness_problem())
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSwitcherIdentifier) as? MenuFoodSwitchCell else { return UITableViewCell() }
             cell.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-            cell.setupCell(model: products[indexPath.row - (foodTypes.count + 2)])
+            cell.setupCellMuscle(model: muscles[indexPath.row - (allFitness.count + 2)])
             cell.delegate = self
             return cell
         }
@@ -145,15 +140,40 @@ extension MenuFoodController: UITableViewDelegate, UITableViewDataSource {
 }
 
 //----------------------------------------------
+// MARK: - MenuFitnessOutputProtocol
+//----------------------------------------------
+
+extension MenuFitnessController: MenuFitnessOutputProtocol {
+    func success(models: [MusclesMainModel]) {
+        muscles = models
+        tableView.reloadData()
+    }
+    
+    func failure() {
+        
+    }
+}
+
+//----------------------------------------------
+// MARK: - MenuOutputProtocol
+//----------------------------------------------
+
+extension MenuFitnessController: MenuOutputProtocol {
+    func success() {
+        
+    }
+}
+
+//----------------------------------------------
 // MARK: - MenuFoodSwitchDelegate
 //----------------------------------------------
 
-extension MenuFoodController: MenuFoodSwitchDelegate {
-    func menuFoodSwitch(cell: MenuFoodSwitchCell, model: ProductsMainModel) {
-        if selectedProducts.contains(model) {
-            selectedProducts.remove(model)
+extension MenuFitnessController: MenuFoodSwitchDelegate {
+    func menuFoodSwitchMusclee(cell: MenuFoodSwitchCell, model: MusclesMainModel) {
+        if selectedMuscles.contains(model) {
+            selectedMuscles.remove(model)
         } else {
-            selectedProducts.insert(model)
+            selectedMuscles.insert(model)
         }
     }
 }
@@ -162,47 +182,9 @@ extension MenuFoodController: MenuFoodSwitchDelegate {
 // MARK: - QuizeFoodCellDelegate
 //----------------------------------------------
 
-extension MenuFoodController: QuizeFoodCellDelegate {
-    func quizeFoodCellSelected(cell: QuizeFoodCell, model: FoodGroupModel) {
-        selectedType = model
-        guard let id = selectedType?.id else { return }
-        presenterFood.getProducts(foodGroupId: id)
+extension MenuFitnessController: QuizeFoodCellDelegate {
+    func quizeFoodCellSelectedFitness(cell: QuizeFoodCell, type: FitnessPreferenceType) {
+        selectedType = type
         tableView.reloadData()
     }
-}
-
-//----------------------------------------------
-// MARK: - QuizeFoodOutputProtocol
-//----------------------------------------------
-
-extension MenuFoodController: QuizeFoodOutputProtocol {
-    func successSetProduct() {
-        actionBack()
-    }
-    
-    func successProducts(models: [ProductsMainModel]) {
-        self.products = models
-        tableView.reloadData()
-    }
-    
-    func success(model: FoodGroupsModel) {
-        foodTypes = model.foodGroups
-        tableView.reloadData()
-    }
-}
-
-//----------------------------------------------
-// MARK: - MenuOutputProtocol
-//----------------------------------------------
-
-extension MenuFoodController: MenuOutputProtocol {
-    func success() {
-        if selectedProducts.count > 0 {
-            presenterFood.setProducts(productIds: selectedProducts.compactMap({$0.id}))
-        } else {
-            actionBack()
-        }
-    }
-    
-    func failure() {}
 }

@@ -38,28 +38,29 @@ class QuizeProgressPresenter: QuizeProgressPresenterProtocol {
     func profileUpdate() {
         let profile = PreferencesManager.sharedManager.tempPorifle
         
-        let name = profile.name
-        let age = profile.age
-        let email = profile.email
-        let sport = profile.sport?.api
-        let gender = profile.gender?.api
+        var profileUpdateInput = ProfileUpdateInput()
         
-        let growthMeasure = profile.heightMetric?.api
+        profileUpdateInput.name = profile.name
+        profileUpdateInput.age = profile.age
+        profileUpdateInput.email = profile.email
+        profileUpdateInput.doSport = profile.sport?.api
+        profileUpdateInput.gender = profile.gender?.api
+        
+        profileUpdateInput.growthMeasure = profile.heightMetric?.api
         let smHeight = profile.smHeight
         let ftHeight = Double(profile.ft ?? 0) * 30.48 + Double(profile.inch ?? 0) * 2.54
-        let growth = profile.heightMetric == .sm ? smHeight : Int(ftHeight)
+        profileUpdateInput.growth = profile.heightMetric == .sm ? smHeight : Int(ftHeight)
         
-        let weightMeasure = profile.weightMetric?.api
-        let weight = profile.weight
+        profileUpdateInput.weightMeasure = profile.weightMetric?.api
+        profileUpdateInput.weight = profile.weight
         
-        let targetWeightMeasure = profile.targetWeightMetric?.api
-        let targetWeight = profile.targetWeight
+        profileUpdateInput.targetWeightMeasure = profile.targetWeightMetric?.api
+        profileUpdateInput.targetWeight = profile.targetWeight
         
-        let goalType = profile.goal?.api
-        let foodId = profile.food?.id
+        profileUpdateInput.goal = profile.goal?.api
+        profileUpdateInput.foodGroupId = profile.food?.id
         
-        let mutation = ProfileUpdateMutation(record: ProfileUpdateInput(
-            targetWeightMeasure: targetWeightMeasure, gender: gender, targetWeight: targetWeight, foodGroupId: foodId, growthMeasure: growthMeasure, goal: goalType, email: email, name: name, growth: growth, weight: weight, weightMeasure: weightMeasure, age: age, doSport: sport))
+        let mutation = ProfileUpdateMutation(record: profileUpdateInput)
         
         let _ = Network.shared.mutation(model: ProfileUpdateModel.self, mutation, controller: view, successHandler: { [weak self] model in
             KeychainService.standard.me = model.profileUpdate

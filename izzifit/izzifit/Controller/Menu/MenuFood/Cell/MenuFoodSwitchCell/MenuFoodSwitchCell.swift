@@ -7,8 +7,26 @@
 
 import UIKit
 
+protocol MenuFoodSwitchDelegate: AnyObject {
+    func menuFoodSwitch(cell: MenuFoodSwitchCell, model: ProductsMainModel)
+    func menuFoodSwitchMusclee(cell: MenuFoodSwitchCell, model: MusclesMainModel)
+}
+
+extension MenuFoodSwitchDelegate {
+    func menuFoodSwitch(cell: MenuFoodSwitchCell, model: ProductsMainModel) {}
+    func menuFoodSwitchMusclee(cell: MenuFoodSwitchCell, model: MusclesMainModel) {}
+}
+
 class MenuFoodSwitchCell: UITableViewCell {
 
+    @IBOutlet weak var mainTextLabel: UILabel!
+    @IBOutlet weak var switcher: UISwitch!
+    
+    private var model: ProductsMainModel?
+    private var modelMuscle: MusclesMainModel?
+    
+    weak var delegate: MenuFoodSwitchDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +38,28 @@ class MenuFoodSwitchCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setupCell(model: ProductsMainModel) {
+        self.model = model
+        mainTextLabel.text = model.name
+        switcher.setOn(model.isToggled, animated: false)
+        
+    }
+    
+    func setupCellMuscle(model: MusclesMainModel) {
+        self.modelMuscle = model
+        mainTextLabel.text = model.name
+        switcher.setOn(model.isToggled, animated: false)
+    }
+    
+    //----------------------------------------------
+    // MARK: - IBAction
+    //----------------------------------------------
+    
+    @IBAction func actionChangedSwitcher(_ sender: UISwitch) {
+        if let model = model {
+            delegate?.menuFoodSwitch(cell: self, model: model)
+        } else if let model = modelMuscle {
+            delegate?.menuFoodSwitchMusclee(cell: self, model: model)
+        }
+    }
 }

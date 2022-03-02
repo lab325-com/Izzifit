@@ -42,4 +42,19 @@ class MenuRouter: BaseRouter {
         let controller = MenuFoodController()
         push(controller: controller)
     }
+    
+    func pushMenuFitness() {
+        let controller = MenuFitnessController()
+        push(controller: controller)
+    }
+    
+    func pushMenuLanguage() {
+        let controller = MenuLanguageController()
+        push(controller: controller)
+    }
+    
+    func pushMenuQuiestion() {
+        let controller = MenuWriteQuestionController()
+        push(controller: controller)
+    }
 }

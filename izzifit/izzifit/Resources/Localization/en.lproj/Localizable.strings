@@ -22,6 +22,8 @@
 "menu_email" = "Email";
 "menu_english" = "English";
 "menu_fitness" = "Fitness preferences";
+"menu_fitness_leve" = "Fitness level";
+"menu_fitness_problem" = "Exclude problem areas";
 "menu_food_preferences" = "Food preferences";
 "menu_food_preferences_title1" = "Diet Preferences";
 "menu_food_preferences_title2" = "Exclude from menu";
@@ -37,6 +39,9 @@
 "menu_title" = "Settings";
 "menu_weight" = "Weight";
 "menu_write" = "Write to us";
+"menu_write_us_plcaheloder" = "Text your message";
+"menu_write_us_send" = "Send";
+"menu_write_us_title" = "Write us to ask any\nquestion";
 "onboarding_age_title" = "Your age";
 "onboarding_count" = "%d from %d";
 "onboarding_email_get_plan" = "Get My Plan";
