@@ -8,9 +8,16 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Medium.ttf">
+            <string>Inter-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnergyController" customModule="izzifit" customModuleProvider="target">
             <connections>
+                <outlet property="avatarView" destination="54w-nJ-ly0" id="lNK-RA-fJf"/>
+                <outlet property="topView" destination="9Kh-1f-614" id="WEP-aM-byB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,14 +25,95 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_background_ic" id="lS5-s2-JDe">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Kh-1f-614" customClass="ShadowView" customModule="izzifit" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54w-nJ-ly0">
+                            <rect key="frame" x="19" y="40" width="40" height="40"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_food_ic" translatesAutoresizingMaskIntoConstraints="NO" id="IoB-MZ-iw5">
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="IoB-MZ-iw5" secondAttribute="trailing" id="2pm-8I-NzM"/>
+                                <constraint firstItem="IoB-MZ-iw5" firstAttribute="top" secondItem="54w-nJ-ly0" secondAttribute="top" id="Bg3-cN-qxh"/>
+                                <constraint firstAttribute="bottom" secondItem="IoB-MZ-iw5" secondAttribute="bottom" id="Hyy-CV-cUo"/>
+                                <constraint firstAttribute="height" constant="40" id="S5B-tP-Mga"/>
+                                <constraint firstAttribute="width" constant="40" id="dYB-UE-2js"/>
+                                <constraint firstItem="IoB-MZ-iw5" firstAttribute="leading" secondItem="54w-nJ-ly0" secondAttribute="leading" id="tQB-TK-o6K"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey, Alex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyM-mP-FLf">
+                            <rect key="frame" x="67" y="48" width="89.5" height="24.5"/>
+                            <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
+                            <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6a-wr-qVI">
+                            <rect key="frame" x="357.5" y="50" width="41.5" height="20.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrR-Dy-Lbk">
+                                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="54w-nJ-ly0" firstAttribute="leading" secondItem="9Kh-1f-614" secondAttribute="leading" constant="19" id="8Za-GH-UGi"/>
+                        <constraint firstItem="I6a-wr-qVI" firstAttribute="centerY" secondItem="EyM-mP-FLf" secondAttribute="centerY" id="FKH-JZ-RFK"/>
+                        <constraint firstItem="EyM-mP-FLf" firstAttribute="centerY" secondItem="IoB-MZ-iw5" secondAttribute="centerY" id="PWi-3T-ScF"/>
+                        <constraint firstAttribute="bottom" secondItem="54w-nJ-ly0" secondAttribute="bottom" constant="8" id="cDi-Dg-G53"/>
+                        <constraint firstAttribute="trailing" secondItem="I6a-wr-qVI" secondAttribute="trailing" constant="15" id="fEy-Ll-z0r"/>
+                        <constraint firstItem="EyM-mP-FLf" firstAttribute="leading" secondItem="54w-nJ-ly0" secondAttribute="trailing" constant="8" id="kGB-fC-gkQ"/>
+                        <constraint firstAttribute="height" constant="88" id="l4v-Sk-IjO"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="46"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="0.0" height="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" red="0.39215686274509803" green="0.44313725490196076" blue="0.47058823529411764" alpha="0.078958420526413692" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemGreenColor"/>
-            <point key="canvasLocation" x="139" y="114"/>
+            <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="9Kh-1f-614" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6Rv-K6-9r9"/>
+                <constraint firstItem="9Kh-1f-614" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="PQi-tf-Wcj"/>
+                <constraint firstItem="9Kh-1f-614" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sf2-z4-bmO"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="onboarding_background_ic" width="375" height="812"/>
+        <image name="placeholder_food_ic" width="40" height="40"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

@@ -2743,6 +2743,7 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _EnergyController.validate()
       try _LoginController.validate()
       try _MainTabBarController.validate()
       try _MenuAgeController.validate()
@@ -2774,12 +2775,18 @@ struct _R: Rswift.Validatable {
       try _StartController.validate()
     }
 
-    struct _EnergyController: Rswift.NibResourceType {
+    struct _EnergyController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "EnergyController"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'EnergyController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}

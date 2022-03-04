@@ -134,14 +134,6 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1g-cU-TEN">
-                    <rect key="frame" x="170.5" y="436" width="73" height="34"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="LOGOUT"/>
-                    <connections>
-                        <action selector="actionLogOut:" destination="-1" eventType="touchUpInside" id="NFj-Cy-8kT"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemRedColor"/>
@@ -155,7 +147,6 @@
                 <constraint firstItem="hFS-tn-2Ae" firstAttribute="centerX" secondItem="fjY-Ws-lzw" secondAttribute="centerX" priority="750" id="7ZO-aF-SOS"/>
                 <constraint firstItem="LDe-5W-WQK" firstAttribute="centerY" secondItem="bBE-g0-S5X" secondAttribute="centerY" constant="-18" id="7cR-nd-2w5"/>
                 <constraint firstItem="YxE-sx-cP6" firstAttribute="top" secondItem="n6x-QE-BRy" secondAttribute="bottom" id="DhK-ZF-2v4"/>
-                <constraint firstItem="x1g-cU-TEN" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="L9c-OV-MKs"/>
                 <constraint firstItem="WNt-O1-eAf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XY1-wR-2gW"/>
                 <constraint firstItem="YxE-sx-cP6" firstAttribute="top" secondItem="b0J-Rb-5cC" secondAttribute="bottom" id="Z4Q-S0-Nyq"/>
                 <constraint firstItem="n6x-QE-BRy" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="bAZ-sP-9DN"/>
@@ -173,7 +164,6 @@
                 <constraint firstItem="hFS-tn-2Ae" firstAttribute="centerX" secondItem="emR-W6-4jD" secondAttribute="centerX" priority="250" id="wzS-ve-URZ"/>
                 <constraint firstItem="vht-gD-zSx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xgW-I8-yrp"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YxE-sx-cP6" secondAttribute="trailing" id="xys-o2-mqn"/>
-                <constraint firstItem="x1g-cU-TEN" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="zAm-52-je5"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="72.991071428571431"/>
         </view>

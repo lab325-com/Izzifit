@@ -85,6 +85,8 @@
 		025463B927CF8F5D00D433DB /* ToggleMuscleInWorkoutsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025463B827CF8F5C00D433DB /* ToggleMuscleInWorkoutsModel.swift */; };
 		025463BB27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 025463BA27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql */; };
 		025463BD27CFB21B00D433DB /* ToggleProductInRation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 025463BC27CFB21B00D433DB /* ToggleProductInRation.graphql */; };
+		0290B39327D2045400381B42 /* ShadowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39227D2045400381B42 /* ShadowsView.swift */; };
+		0290B39527D212CA00381B42 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39427D212CA00381B42 /* UIView+Extension.swift */; };
 		02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA327C393A300D31FB4 /* EnergyController.swift */; };
 		02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDA427C393A300D31FB4 /* EnergyController.xib */; };
 		02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */; };
@@ -231,6 +233,8 @@
 		025463B827CF8F5C00D433DB /* ToggleMuscleInWorkoutsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleMuscleInWorkoutsModel.swift; sourceTree = "<group>"; };
 		025463BA27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToggleMuscleInWorkouts.graphql; sourceTree = "<group>"; };
 		025463BC27CFB21B00D433DB /* ToggleProductInRation.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToggleProductInRation.graphql; sourceTree = "<group>"; };
+		0290B39227D2045400381B42 /* ShadowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowsView.swift; sourceTree = "<group>"; };
+		0290B39427D212CA00381B42 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		02A5CDA327C393A300D31FB4 /* EnergyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyController.swift; sourceTree = "<group>"; };
 		02A5CDA427C393A300D31FB4 /* EnergyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyController.xib; sourceTree = "<group>"; };
 		02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
@@ -539,6 +543,7 @@
 		0249D25927B3A87100F265C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0290B39127D2044500381B42 /* Views */,
 				02D066B427BBB54200D12C5F /* Font */,
 				02D066A527BBA6E600D12C5F /* Localization */,
 				0249D28427B3AB2C00F265C1 /* Application */,
@@ -560,6 +565,7 @@
 				0249D25B27B3A88C00F265C1 /* UIScrollView+Extension.swift */,
 				0249D25F27B3A88C00F265C1 /* UIViewController+Extension.swift */,
 				023D171D27BE258A005F95C0 /* UITapGesture+Extension.swift */,
+				0290B39427D212CA00381B42 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -711,6 +717,14 @@
 				025463B827CF8F5C00D433DB /* ToggleMuscleInWorkoutsModel.swift */,
 			);
 			path = ToggleMuscleInWorkouts;
+			sourceTree = "<group>";
+		};
+		0290B39127D2044500381B42 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0290B39227D2045400381B42 /* ShadowsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		02A5CDA227C3938200D31FB4 /* Energy */ = {
@@ -1277,6 +1291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0290B39327D2045400381B42 /* ShadowsView.swift in Sources */,
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
 				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
 				02A5CDB427C3949700D31FB4 /* MenuController.swift in Sources */,
@@ -1294,6 +1309,7 @@
 				0249D26227B3A88C00F265C1 /* Collection+Extension.swift in Sources */,
 				0249D24427B3A64300F265C1 /* LoadFromXibProtocol.swift in Sources */,
 				0249D24B27B3A67900F265C1 /* BaseController.swift in Sources */,
+				0290B39527D212CA00381B42 /* UIView+Extension.swift in Sources */,
 				02A5CDBE27C3DE9F00D31FB4 /* ImageModel.swift in Sources */,
 				02D066B227BBB32400D12C5F /* StartController.swift in Sources */,
 				0227DAA127C63D51008AB26B /* QuizeFoodPresenter.swift in Sources */,
