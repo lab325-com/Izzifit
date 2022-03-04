@@ -131,8 +131,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 21 files.
+  /// This `R.file` struct is generated, and contains static references to 23 files.
   struct file {
+    /// Resource file `AskQuestion.graphql`.
+    static let askQuestionGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AskQuestion", pathExtension: "graphql")
     /// Resource file `Debug.xcconfig`.
     static let debugXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Debug", pathExtension: "xcconfig")
     /// Resource file `FoodGroups.graphql`.
@@ -173,8 +175,16 @@ struct R: Rswift.Validatable {
     static let releaseXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Release", pathExtension: "xcconfig")
     /// Resource file `Staging.xcconfig`.
     static let stagingXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Staging", pathExtension: "xcconfig")
+    /// Resource file `ToggleMuscleInWorkouts.graphql`.
+    static let toggleMuscleInWorkoutsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleMuscleInWorkouts", pathExtension: "graphql")
     /// Resource file `ToggleProductInRation.graphql`.
     static let toggleProductInRationGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleProductInRation", pathExtension: "graphql")
+
+    /// `bundle.url(forResource: "AskQuestion", withExtension: "graphql")`
+    static func askQuestionGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.askQuestionGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
 
     /// `bundle.url(forResource: "Debug", withExtension: "xcconfig")`
     static func debugXcconfig(_: Void = ()) -> Foundation.URL? {
@@ -296,6 +306,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "ToggleMuscleInWorkouts", withExtension: "graphql")`
+    static func toggleMuscleInWorkoutsGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.toggleMuscleInWorkoutsGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "ToggleProductInRation", withExtension: "graphql")`
     static func toggleProductInRationGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.toggleProductInRationGraphql
@@ -386,7 +402,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 28 images.
+  /// This `R.image` struct is generated, and contains static references to 29 images.
   struct image {
     /// Image `auth_note_see_pass_ic`.
     static let auth_note_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_note_see_pass_ic")
@@ -426,6 +442,8 @@ struct R: Rswift.Validatable {
     static let onboarding_sport_regulary_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_sport_regulary_ic")
     /// Image `onboarding_target_flag_ic`.
     static let onboarding_target_flag_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_target_flag_ic")
+    /// Image `placeholder_food_ic`.
+    static let placeholder_food_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder_food_ic")
     /// Image `start_back_ic`.
     static let start_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "start_back_ic")
     /// Image `start_gradient_ic`.
@@ -575,6 +593,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "onboarding_target_flag_ic", bundle: ..., traitCollection: ...)`
     static func onboarding_target_flag_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.onboarding_target_flag_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "placeholder_food_ic", bundle: ..., traitCollection: ...)`
+    static func placeholder_food_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placeholder_food_ic, compatibleWith: traitCollection)
     }
     #endif
 

@@ -25,6 +25,12 @@ class MenuWriteQuestionController: BaseController {
     @IBOutlet weak var sendButton: UIButton!
     
     //----------------------------------------------
+    // MARK: - Property
+    //----------------------------------------------
+    
+    private lazy var presenter = MenuWriteQuestionPresenter(view: self)
+    
+    //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
     
@@ -81,7 +87,8 @@ class MenuWriteQuestionController: BaseController {
     
     @IBAction func actionSend(_ sender: UIButton) {
         if mainTextView.text.count > 0 {
-            
+            guard let email = KeychainService.standard.me?.email else { return }
+            presenter.sendQuestion(email: email, message: mainTextView.text)
         }
     }
 }
@@ -95,6 +102,10 @@ extension MenuWriteQuestionController: UITextViewDelegate {
         setupTextView(hidden: false)
         
         sendButton.alpha = textView.text.count > 0 ? 1.0 : 0.5
+        
+        if textView.text.count > 300 {
+            textView.text = String(textView.text.dropLast())
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -104,4 +115,16 @@ extension MenuWriteQuestionController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         setupTextView(hidden: mainTextView.text.count == 0)
     }
+}
+
+//----------------------------------------------
+// MARK: - MenuWriteQuestionOutputProtocol
+//----------------------------------------------
+
+extension MenuWriteQuestionController: MenuWriteQuestionOutputProtocol {
+    func success() {
+        actionBack()
+    }
+    
+    func failure() {}
 }

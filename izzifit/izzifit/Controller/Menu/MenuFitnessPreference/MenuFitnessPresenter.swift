@@ -14,6 +14,7 @@ import UIKit
 //----------------------------------------------
 protocol MenuFitnessOutputProtocol: BaseController {
     func success(models: [MusclesMainModel])
+    func successMuscle()
     func failure()
 }
 
@@ -24,6 +25,7 @@ protocol MenuFitnessPresenterProtocol: AnyObject {
     init(view: MenuFitnessOutputProtocol)
     
     func getMuscles()
+    func setMuscle(muscleIds: [String])
 }
 
 class MenuFitnessPresenter: MenuFitnessPresenterProtocol {
@@ -40,6 +42,19 @@ class MenuFitnessPresenter: MenuFitnessPresenterProtocol {
         
         let _ = Network.shared.query(model: MusclesModel.self, query, controller: view, successHandler: { [weak self] model in
             self?.view?.success(models: model.muscles)
+            self?.view?.stopLoading()
+        }, failureHandler: { [weak self] error in
+            self?.view?.failure()
+            self?.view?.stopLoading()
+        })
+    }
+    
+    func setMuscle(muscleIds: [String]) {
+        view?.startLoader()
+        let query = ToggleMuscleInWorkoutsQuery(muscleIds: muscleIds)
+        
+        let _ = Network.shared.query(model: ToggleMuscleInWorkoutsModel.self, query, controller: view, successHandler: { [weak self] model in
+            self?.view?.successMuscle()
             self?.view?.stopLoading()
         }, failureHandler: { [weak self] error in
             self?.view?.failure()

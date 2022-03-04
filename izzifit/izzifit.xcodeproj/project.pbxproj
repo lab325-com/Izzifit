@@ -76,15 +76,15 @@
 		0249D29E27B3D81700F265C1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249D29D27B3D81700F265C1 /* API.swift */; };
 		025463A227CE2F1500D433DB /* MenuWriteQuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025463A027CE2F1500D433DB /* MenuWriteQuestionController.swift */; };
 		025463A327CE2F1500D433DB /* MenuWriteQuestionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 025463A127CE2F1500D433DB /* MenuWriteQuestionController.xib */; };
-		025463A627CE3F5800D433DB /* ToggleProductInRation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 025463A527CE3F5800D433DB /* ToggleProductInRation.graphql */; };
 		025463A827CE404F00D433DB /* ToggleProductInRationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025463A727CE404F00D433DB /* ToggleProductInRationModel.swift */; };
 		025463AC27CE6E9800D433DB /* MenuFitnessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025463AA27CE6E9800D433DB /* MenuFitnessController.swift */; };
 		025463AD27CE6E9800D433DB /* MenuFitnessController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 025463AB27CE6E9800D433DB /* MenuFitnessController.xib */; };
 		025463B027CF75BD00D433DB /* Muscles.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 025463AF27CF75BD00D433DB /* Muscles.graphql */; };
 		025463B227CF778B00D433DB /* MusclesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025463B127CF778B00D433DB /* MusclesModel.swift */; };
 		025463B427CF784400D433DB /* MenuFitnessPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025463B327CF784400D433DB /* MenuFitnessPresenter.swift */; };
-		025463B727CF8F3200D433DB /* ToggleMuscleInWorkouts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 025463B627CF8F3200D433DB /* ToggleMuscleInWorkouts.graphql */; };
 		025463B927CF8F5D00D433DB /* ToggleMuscleInWorkoutsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025463B827CF8F5C00D433DB /* ToggleMuscleInWorkoutsModel.swift */; };
+		025463BB27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 025463BA27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql */; };
+		025463BD27CFB21B00D433DB /* ToggleProductInRation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 025463BC27CFB21B00D433DB /* ToggleProductInRation.graphql */; };
 		02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA327C393A300D31FB4 /* EnergyController.swift */; };
 		02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDA427C393A300D31FB4 /* EnergyController.xib */; };
 		02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */; };
@@ -149,6 +149,9 @@
 		02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066E127BBEBA000D12C5F /* QuizeHeightController.xib */; };
 		02D066E927BC1BC900D12C5F /* QuizeWeightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066E727BC1BC900D12C5F /* QuizeWeightController.swift */; };
 		02D066EA27BC1BC900D12C5F /* QuizeWeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066E827BC1BC900D12C5F /* QuizeWeightController.xib */; };
+		02F2D94027D0BF5C00E9FB68 /* AskQuestion.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02F2D93F27D0BF5C00E9FB68 /* AskQuestion.graphql */; };
+		02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2D94127D0BF9100E9FB68 /* AskQuestionModel.swift */; };
+		02F2D94427D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2D94327D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift */; };
 		8C4F7F85C1CC5538D3E379C8 /* Pods_izzifit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA5E332399E73031D583774 /* Pods_izzifit.framework */; };
 /* End PBXBuildFile section */
 
@@ -219,15 +222,15 @@
 		0249D29D27B3D81700F265C1 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		025463A027CE2F1500D433DB /* MenuWriteQuestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuWriteQuestionController.swift; sourceTree = "<group>"; };
 		025463A127CE2F1500D433DB /* MenuWriteQuestionController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuWriteQuestionController.xib; sourceTree = "<group>"; };
-		025463A527CE3F5800D433DB /* ToggleProductInRation.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToggleProductInRation.graphql; sourceTree = "<group>"; };
 		025463A727CE404F00D433DB /* ToggleProductInRationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleProductInRationModel.swift; sourceTree = "<group>"; };
 		025463AA27CE6E9800D433DB /* MenuFitnessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFitnessController.swift; sourceTree = "<group>"; };
 		025463AB27CE6E9800D433DB /* MenuFitnessController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuFitnessController.xib; sourceTree = "<group>"; };
 		025463AF27CF75BD00D433DB /* Muscles.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Muscles.graphql; sourceTree = "<group>"; };
 		025463B127CF778B00D433DB /* MusclesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusclesModel.swift; sourceTree = "<group>"; };
 		025463B327CF784400D433DB /* MenuFitnessPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFitnessPresenter.swift; sourceTree = "<group>"; };
-		025463B627CF8F3200D433DB /* ToggleMuscleInWorkouts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; name = ToggleMuscleInWorkouts.graphql; path = izzifit/Resources/Apollo/Query/ToggleProductInRation/ToggleMuscleInWorkouts.graphql; sourceTree = SOURCE_ROOT; };
 		025463B827CF8F5C00D433DB /* ToggleMuscleInWorkoutsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleMuscleInWorkoutsModel.swift; sourceTree = "<group>"; };
+		025463BA27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToggleMuscleInWorkouts.graphql; sourceTree = "<group>"; };
+		025463BC27CFB21B00D433DB /* ToggleProductInRation.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToggleProductInRation.graphql; sourceTree = "<group>"; };
 		02A5CDA327C393A300D31FB4 /* EnergyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyController.swift; sourceTree = "<group>"; };
 		02A5CDA427C393A300D31FB4 /* EnergyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyController.xib; sourceTree = "<group>"; };
 		02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
@@ -292,6 +295,9 @@
 		02D066E127BBEBA000D12C5F /* QuizeHeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeHeightController.xib; sourceTree = "<group>"; };
 		02D066E727BC1BC900D12C5F /* QuizeWeightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeWeightController.swift; sourceTree = "<group>"; };
 		02D066E827BC1BC900D12C5F /* QuizeWeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeWeightController.xib; sourceTree = "<group>"; };
+		02F2D93F27D0BF5C00E9FB68 /* AskQuestion.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AskQuestion.graphql; sourceTree = "<group>"; };
+		02F2D94127D0BF9100E9FB68 /* AskQuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestionModel.swift; sourceTree = "<group>"; };
+		02F2D94327D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuWriteQuestionPresenter.swift; sourceTree = "<group>"; };
 		352468CF0028C7B7CE37BC1F /* Pods-izzifit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.release.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.release.xcconfig"; sourceTree = "<group>"; };
 		3DE270F6FF543B995EC67ADF /* Pods-izzifit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.debug.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.debug.xcconfig"; sourceTree = "<group>"; };
 		A00F8397483211F5694F3938 /* Pods-izzifit.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.staging.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.staging.xcconfig"; sourceTree = "<group>"; };
@@ -663,6 +669,7 @@
 		0254639F27CE2EEA00D433DB /* MenuWriteQuestion */ = {
 			isa = PBXGroup;
 			children = (
+				02F2D94327D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift */,
 				025463A027CE2F1500D433DB /* MenuWriteQuestionController.swift */,
 				025463A127CE2F1500D433DB /* MenuWriteQuestionController.xib */,
 			);
@@ -672,7 +679,7 @@
 		025463A427CE3F3800D433DB /* ToggleProductInRation */ = {
 			isa = PBXGroup;
 			children = (
-				025463A527CE3F5800D433DB /* ToggleProductInRation.graphql */,
+				025463BC27CFB21B00D433DB /* ToggleProductInRation.graphql */,
 				025463A727CE404F00D433DB /* ToggleProductInRationModel.swift */,
 			);
 			path = ToggleProductInRation;
@@ -700,7 +707,7 @@
 		025463B527CF8F1400D433DB /* ToggleMuscleInWorkouts */ = {
 			isa = PBXGroup;
 			children = (
-				025463B627CF8F3200D433DB /* ToggleMuscleInWorkouts.graphql */,
+				025463BA27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql */,
 				025463B827CF8F5C00D433DB /* ToggleMuscleInWorkoutsModel.swift */,
 			);
 			path = ToggleMuscleInWorkouts;
@@ -849,6 +856,7 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				02F2D93E27D0BF4300E9FB68 /* AskQuestion */,
 				02A5CDB827C3DCDF00D31FB4 /* PasswordForgotRequest */,
 				02C3DD6927BEDB13004E5C65 /* ProfileUpdate */,
 				02C3DD6A27BEDB26004E5C65 /* Login */,
@@ -992,6 +1000,15 @@
 			path = QuizeWeight;
 			sourceTree = "<group>";
 		};
+		02F2D93E27D0BF4300E9FB68 /* AskQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				02F2D93F27D0BF5C00E9FB68 /* AskQuestion.graphql */,
+				02F2D94127D0BF9100E9FB68 /* AskQuestionModel.swift */,
+			);
+			path = AskQuestion;
+			sourceTree = "<group>";
+		};
 		A0F0757F3659D125E6990336 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1129,10 +1146,11 @@
 				0227DACD27C6A82A008AB26B /* MenuFoodTitleCellCell.xib in Resources */,
 				02A5CDB527C3949700D31FB4 /* MenuController.xib in Resources */,
 				02D066D427BBD12600D12C5F /* QuizeGenderController.xib in Resources */,
+				02F2D94027D0BF5C00E9FB68 /* AskQuestion.graphql in Resources */,
+				025463BB27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql in Resources */,
 				0227DAB827C67334008AB26B /* MenuHeightController.xib in Resources */,
 				0249D29127B3ABD900F265C1 /* Debug.xcconfig in Resources */,
 				02A5CDAB27C393DC00D31FB4 /* WorkoutController.xib in Resources */,
-				025463A627CE3F5800D433DB /* ToggleProductInRation.graphql in Resources */,
 				02D066BE27BBB57D00D12C5F /* Inter-ExtraLight.ttf in Resources */,
 				02D066C427BBB57D00D12C5F /* Inter-Bold.ttf in Resources */,
 				0227DAB327C67179008AB26B /* MenuEmailController.xib in Resources */,
@@ -1140,7 +1158,7 @@
 				0227DAC227C6A19C008AB26B /* MenuTargetWeightController.xib in Resources */,
 				0249D23427B3A4F100F265C1 /* Assets.xcassets in Resources */,
 				02B225AF27BD45080035CFA2 /* QuizeFoodController.xib in Resources */,
-				025463B727CF8F3200D433DB /* ToggleMuscleInWorkouts.graphql in Resources */,
+				025463BD27CFB21B00D433DB /* ToggleProductInRation.graphql in Resources */,
 				025463B027CF75BD00D433DB /* Muscles.graphql in Resources */,
 				02D066B327BBB32400D12C5F /* StartController.xib in Resources */,
 				02B225A727BCFB9F0035CFA2 /* QuizeTargetWeightController.xib in Resources */,
@@ -1260,6 +1278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
+				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
 				02A5CDB427C3949700D31FB4 /* MenuController.swift in Sources */,
 				0227DA9627C619F7008AB26B /* MenuCell.swift in Sources */,
 				0227DACC27C6A82A008AB26B /* MenuFoodTitleCellCell.swift in Sources */,
@@ -1328,6 +1347,7 @@
 				021A6F4A27BF91050000D863 /* CircularProgressBarView.swift in Sources */,
 				021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */,
 				02C3DD6827BEDAB1004E5C65 /* QuizeProgressPresenter.swift in Sources */,
+				02F2D94427D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift in Sources */,
 				02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */,
 				02B225BB27BD79DA0035CFA2 /* StartPresenter.swift in Sources */,
 				02B225A227BCF0F00035CFA2 /* TempProfileModel.swift in Sources */,

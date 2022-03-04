@@ -55,7 +55,7 @@ class QuizeFoodCell: UITableViewCell {
         
         nameLabel.text = model.name
         
-        avatarImageView.kf.setImage(with: URL(string: model.Image?.urlIosFull ?? ""), placeholder: RImage.onboarding_food_keto_ic(), options: [.transition(.fade(0.25))])
+        avatarImageView.kf.setImage(with: URL(string: model.Image?.urlIosFull ?? ""), placeholder: RImage.placeholder_food_ic(), options: [.transition(.fade(0.25))])
     }
     
     func setupCellFitness(type: FitnessPreferenceType, selected: Bool) {

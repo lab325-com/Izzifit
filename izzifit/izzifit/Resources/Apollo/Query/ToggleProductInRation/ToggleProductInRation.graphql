@@ -1,0 +1,3 @@
+query ToggleProductInRation($productIds: [String!]!) {
+	toggleProductInRation(productIds: $productIds)
+}

@@ -94,7 +94,7 @@ class MenuFitnessController: BaseController {
         if let type = selectedType {
             presenter.profileUpdate(fitnessPreference: type)
         } else if selectedMuscles.count > 0 {
-            presenterFitness.
+            presenterFitness.setMuscle(muscleIds: selectedMuscles.compactMap({$0.id}))
         }
     }
 }
@@ -144,6 +144,10 @@ extension MenuFitnessController: UITableViewDelegate, UITableViewDataSource {
 //----------------------------------------------
 
 extension MenuFitnessController: MenuFitnessOutputProtocol {
+    func successMuscle() {
+        actionBack()
+    }
+    
     func success(models: [MusclesMainModel]) {
         muscles = models
         tableView.reloadData()
@@ -160,7 +164,11 @@ extension MenuFitnessController: MenuFitnessOutputProtocol {
 
 extension MenuFitnessController: MenuOutputProtocol {
     func success() {
-        
+        if selectedMuscles.count > 0 {
+            presenterFitness.setMuscle(muscleIds: selectedMuscles.compactMap({$0.id}))
+        } else {
+            actionBack()
+        }
     }
 }
 
