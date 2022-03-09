@@ -39,6 +39,8 @@ class EnergyPresenter: EnergyPresenterProtocol {
     var sleepWidget: SleepWidgetMainModel?
     var mealsWidget: MealsWidgetMainModel?
     var moodWidget: MoodWidgetMainModel?
+    var todayProgress: TodayProgressMainModel?
+    var weightWidget: SaveWeightWidgetMainModel?
     
     func getWidgets(date: String) {
         
@@ -81,6 +83,26 @@ class EnergyPresenter: EnergyPresenterProtocol {
         let query4 = MoodWidgetQuery(date: date)
         let _ = Network.shared.query(model: MoodWidgetModel.self, query4, controller: view, successHandler: { [weak self] model in
             self?.moodWidget = model.moodWidget
+            group.leave()
+        }, failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        })
+        
+        group.enter()
+        let query5 = TodayProgressQuery()
+        let _ = Network.shared.query(model: TodayProgressModel.self, query5, controller: view, successHandler: { [weak self] model in
+            self?.todayProgress = model.todayProgress
+            group.leave()
+        }, failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        })
+        
+        group.enter()
+        let query6 = SaveWeightWidgetQuery()
+        let _ = Network.shared.query(model: SaveWeightWidgetModel.self, query6, controller: view, successHandler: { [weak self] model in
+            self?.weightWidget = model.saveWeightWidget
             group.leave()
         }, failureHandler: { [weak self] error in
             group.leave()

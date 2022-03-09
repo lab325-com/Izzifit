@@ -3113,6 +3113,136 @@ public final class ProductsQuery: GraphQLQuery {
   }
 }
 
+public final class SaveWeightWidgetQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query SaveWeightWidget {
+      saveWeightWidget {
+        __typename
+        energy
+        energyTotal
+        measure
+        targetWeight
+        weight
+      }
+    }
+    """
+
+  public let operationName: String = "SaveWeightWidget"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("saveWeightWidget", type: .object(SaveWeightWidget.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(saveWeightWidget: SaveWeightWidget? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "saveWeightWidget": saveWeightWidget.flatMap { (value: SaveWeightWidget) -> ResultMap in value.resultMap }])
+    }
+
+    public var saveWeightWidget: SaveWeightWidget? {
+      get {
+        return (resultMap["saveWeightWidget"] as? ResultMap).flatMap { SaveWeightWidget(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "saveWeightWidget")
+      }
+    }
+
+    public struct SaveWeightWidget: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["SaveWeightWidget"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("energy", type: .scalar(Int.self)),
+          GraphQLField("energyTotal", type: .scalar(Int.self)),
+          GraphQLField("measure", type: .scalar(WeightMeasure.self)),
+          GraphQLField("targetWeight", type: .scalar(Double.self)),
+          GraphQLField("weight", type: .scalar(Double.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(energy: Int? = nil, energyTotal: Int? = nil, measure: WeightMeasure? = nil, targetWeight: Double? = nil, weight: Double? = nil) {
+        self.init(unsafeResultMap: ["__typename": "SaveWeightWidget", "energy": energy, "energyTotal": energyTotal, "measure": measure, "targetWeight": targetWeight, "weight": weight])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var energy: Int? {
+        get {
+          return resultMap["energy"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "energy")
+        }
+      }
+
+      public var energyTotal: Int? {
+        get {
+          return resultMap["energyTotal"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "energyTotal")
+        }
+      }
+
+      public var measure: WeightMeasure? {
+        get {
+          return resultMap["measure"] as? WeightMeasure
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "measure")
+        }
+      }
+
+      public var targetWeight: Double? {
+        get {
+          return resultMap["targetWeight"] as? Double
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "targetWeight")
+        }
+      }
+
+      public var weight: Double? {
+        get {
+          return resultMap["weight"] as? Double
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "weight")
+        }
+      }
+    }
+  }
+}
+
 public final class SleepWidgetQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -3222,6 +3352,103 @@ public final class SleepWidgetQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "quality")
+        }
+      }
+    }
+  }
+}
+
+public final class TodayProgressQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query TodayProgress {
+      todayProgress {
+        __typename
+        date
+        progress
+      }
+    }
+    """
+
+  public let operationName: String = "TodayProgress"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("todayProgress", type: .object(TodayProgress.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(todayProgress: TodayProgress? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "todayProgress": todayProgress.flatMap { (value: TodayProgress) -> ResultMap in value.resultMap }])
+    }
+
+    public var todayProgress: TodayProgress? {
+      get {
+        return (resultMap["todayProgress"] as? ResultMap).flatMap { TodayProgress(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "todayProgress")
+      }
+    }
+
+    public struct TodayProgress: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Progress"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("date", type: .scalar(String.self)),
+          GraphQLField("progress", type: .scalar(Int.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(date: String? = nil, progress: Int? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Progress", "date": date, "progress": progress])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var date: String? {
+        get {
+          return resultMap["date"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "date")
+        }
+      }
+
+      public var progress: Int? {
+        get {
+          return resultMap["progress"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "progress")
         }
       }
     }

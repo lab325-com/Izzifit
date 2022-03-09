@@ -44,20 +44,16 @@
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kx4-xy-uqN">
                         <rect key="frame" x="16" y="81" width="337" height="8"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ZM-SG-q4E">
-                                <rect key="frame" x="0.0" y="0.0" width="305" height="8"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZM-SG-q4E">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="8"/>
                                 <color key="backgroundColor" red="1" green="0.25882352941176467" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="knn-pt-jIQ">
-                                <rect key="frame" x="305" y="0.0" width="0.0" height="8"/>
-                                <color key="backgroundColor" red="0.31764705882352939" green="0.22745098039215686" blue="0.51764705882352935" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIh-wH-9Qz">
-                                <rect key="frame" x="305" y="0.0" width="32" height="8"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="xzP-lg-MUV"/>
+                                    <constraint firstAttribute="width" priority="999" constant="40" id="kge-4A-yKC"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="knn-pt-jIQ">
+                                <rect key="frame" x="40" y="0.0" width="297" height="8"/>
+                                <color key="backgroundColor" red="0.31764705882352939" green="0.22745098039215686" blue="0.51764705882352935" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <constraints>
@@ -70,14 +66,8 @@
                         <color key="textColor" red="0.72941176470588232" green="0.72549019607843135" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htx-7P-mJE">
-                        <rect key="frame" x="317" y="95" width="36" height="17"/>
-                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
-                        <color key="textColor" red="0.72941176470000002" green="0.72549019609999998" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_today_pin_ic" translatesAutoresizingMaskIntoConstraints="NO" id="kCi-oe-193">
-                        <rect key="frame" x="317" y="76" width="8" height="13"/>
+                        <rect key="frame" x="313" y="76" width="8" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="8" id="EK6-qq-el0"/>
                         </constraints>
@@ -94,12 +84,10 @@
                     <constraint firstItem="kx4-xy-uqN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="RCo-Fl-gZL"/>
                     <constraint firstItem="hCh-ep-o6H" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Z6e-4s-Ajb"/>
                     <constraint firstItem="NUh-um-yn0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="ad7-lv-D5e"/>
+                    <constraint firstItem="kCi-oe-193" firstAttribute="trailing" secondItem="knn-pt-jIQ" secondAttribute="trailing" constant="-32" id="fOs-hE-AHP"/>
                     <constraint firstItem="r9x-OE-VbX" firstAttribute="leading" secondItem="kx4-xy-uqN" secondAttribute="leading" id="iwq-cg-EcG"/>
                     <constraint firstItem="kx4-xy-uqN" firstAttribute="top" secondItem="kCi-oe-193" secondAttribute="bottom" constant="-8" id="ja5-8U-jfK"/>
                     <constraint firstItem="7Xa-Ys-cBy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="mun-1Q-n6p"/>
-                    <constraint firstItem="kCi-oe-193" firstAttribute="leading" secondItem="PIh-wH-9Qz" secondAttribute="leading" constant="-4" id="uns-UU-pak"/>
-                    <constraint firstItem="Htx-7P-mJE" firstAttribute="trailing" secondItem="kx4-xy-uqN" secondAttribute="trailing" id="vBU-5a-MCD"/>
-                    <constraint firstAttribute="bottom" secondItem="Htx-7P-mJE" secondAttribute="bottom" constant="5" id="voy-C1-T3b"/>
                     <constraint firstItem="7Xa-Ys-cBy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="yDt-cU-rE4"/>
                 </constraints>
             </tableViewCellContentView>
@@ -108,8 +96,10 @@
             <inset key="separatorInset" minX="10000" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="middleGoodView" destination="knn-pt-jIQ" id="NBh-Df-KaG"/>
-                <outlet property="moreGoodView" destination="PIh-wH-9Qz" id="aVq-W0-iWj"/>
+                <outlet property="progressPercentLabel" destination="r9x-OE-VbX" id="46p-x1-KAn"/>
                 <outlet property="progressView" destination="0ZM-SG-q4E" id="o8x-Vj-XOO"/>
+                <outlet property="progressWidthLayout" destination="kge-4A-yKC" id="Kex-cE-L5p"/>
+                <outlet property="stackView" destination="kx4-xy-uqN" id="vpK-76-deo"/>
             </connections>
             <point key="canvasLocation" x="173.18840579710147" y="132.25446428571428"/>
         </tableViewCell>

@@ -12,9 +12,13 @@
 "energy_mood_good" = "Good";
 "energy_mood_not_bad" = "Not bad";
 "energy_mood_title" = "How are you today?";
+"energy_progress_percent" = "Your progress %d%";
 "energy_sleep_bad" = "Bad";
 "energy_sleep_good" = "Good";
 "energy_sleep_title" = "How did you sleep?";
+"energy_update_button" = "Update";
+"energy_update_weight_goal" = "Goal %.1f %@";
+"energy_update_weight_title" = "Update weight";
 "login_and" = "and";
 "login_button" = "Login";
 "login_by_continue" = "By continuing you accept our";

@@ -33,6 +33,8 @@ class EnergyController: BaseController {
     private let cellEnergyMood = String(describing: EnergyMoodCell.self)
     private let cellMealsIdentifier = String(describing: EnergyMealsCell.self)
     private let cellSleepIdentifier = String(describing: EnergySleepCell.self)
+    private let cellWeightIdentifier = String(describing: EnergyWeightCell.self)
+    private let cellChooseActivity = String(describing: EnergyChooseActivityCell.self)
     
     private lazy var presenter = EnergyPresenter(view: self)
 
@@ -76,6 +78,8 @@ class EnergyController: BaseController {
         tableView.register(UINib(nibName: cellEnergyMood, bundle: nil), forCellReuseIdentifier: cellEnergyMood)
         tableView.register(UINib(nibName: cellMealsIdentifier, bundle: nil), forCellReuseIdentifier: cellMealsIdentifier)
         tableView.register(UINib(nibName: cellSleepIdentifier, bundle: nil), forCellReuseIdentifier: cellSleepIdentifier)
+        tableView.register(UINib(nibName: cellWeightIdentifier, bundle: nil), forCellReuseIdentifier: cellWeightIdentifier)
+        tableView.register(UINib(nibName: cellChooseActivity, bundle: nil), forCellReuseIdentifier: cellChooseActivity)
         
         topView.layer.cornerRadius = 30
         topView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -93,13 +97,16 @@ class EnergyController: BaseController {
 extension EnergyController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as? EnerdyTodayCell else { return UITableViewCell() }
+            if let model = presenter.todayProgress {
+                cell.setupCell(model: model)
+            }
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellWaterIdentifier) as? EnergyDrinkWaterCell else { return UITableViewCell() }
@@ -125,6 +132,17 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
                 cell.setupCell(model: model)
             }
             return cell
+        case 5:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellWeightIdentifier) as? EnergyWeightCell else { return UITableViewCell() }
+            if let model = presenter.weightWidget {
+                cell.setupCell(model: model)
+            }
+            return cell
+        case 6:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellChooseActivity) as? EnergyChooseActivityCell else { return UITableViewCell() }
+            cell.collectionView.reloadData()
+            return cell
+            
         default:
             return UITableViewCell()
         }

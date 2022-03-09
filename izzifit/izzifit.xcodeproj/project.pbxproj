@@ -85,6 +85,16 @@
 		025463B927CF8F5D00D433DB /* ToggleMuscleInWorkoutsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025463B827CF8F5C00D433DB /* ToggleMuscleInWorkoutsModel.swift */; };
 		025463BB27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 025463BA27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql */; };
 		025463BD27CFB21B00D433DB /* ToggleProductInRation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 025463BC27CFB21B00D433DB /* ToggleProductInRation.graphql */; };
+		0268752327D8904900FFEA6A /* TodayProgress.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0268752227D8904900FFEA6A /* TodayProgress.graphql */; };
+		0268752527D890F000FFEA6A /* TodayProgressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268752427D890F000FFEA6A /* TodayProgressModel.swift */; };
+		0268752927D8C90100FFEA6A /* EnergyWeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268752727D8C90100FFEA6A /* EnergyWeightCell.swift */; };
+		0268752A27D8C90100FFEA6A /* EnergyWeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0268752827D8C90100FFEA6A /* EnergyWeightCell.xib */; };
+		0268752D27D8CC5E00FFEA6A /* SaveWeightWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0268752C27D8CC5E00FFEA6A /* SaveWeightWidget.graphql */; };
+		0268752F27D8CCB700FFEA6A /* SaveWeightWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268752E27D8CCB700FFEA6A /* SaveWeightWidgetModel.swift */; };
+		0268753327D8E54E00FFEA6A /* EnergyChooseActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268753127D8E54E00FFEA6A /* EnergyChooseActivityCell.swift */; };
+		0268753427D8E54E00FFEA6A /* EnergyChooseActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0268753227D8E54E00FFEA6A /* EnergyChooseActivityCell.xib */; };
+		0268753827D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268753627D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.swift */; };
+		0268753927D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0268753727D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.xib */; };
 		0273F55927D5F08E00B19449 /* EnergyMoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F55727D5F08E00B19449 /* EnergyMoodCell.swift */; };
 		0273F55A27D5F08E00B19449 /* EnergyMoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0273F55827D5F08E00B19449 /* EnergyMoodCell.xib */; };
 		0273F55E27D5F7CB00B19449 /* EnergyMealsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F55C27D5F7CB00B19449 /* EnergyMealsCell.swift */; };
@@ -252,6 +262,16 @@
 		025463B827CF8F5C00D433DB /* ToggleMuscleInWorkoutsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleMuscleInWorkoutsModel.swift; sourceTree = "<group>"; };
 		025463BA27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToggleMuscleInWorkouts.graphql; sourceTree = "<group>"; };
 		025463BC27CFB21B00D433DB /* ToggleProductInRation.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToggleProductInRation.graphql; sourceTree = "<group>"; };
+		0268752227D8904900FFEA6A /* TodayProgress.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TodayProgress.graphql; sourceTree = "<group>"; };
+		0268752427D890F000FFEA6A /* TodayProgressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayProgressModel.swift; sourceTree = "<group>"; };
+		0268752727D8C90100FFEA6A /* EnergyWeightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyWeightCell.swift; sourceTree = "<group>"; };
+		0268752827D8C90100FFEA6A /* EnergyWeightCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyWeightCell.xib; sourceTree = "<group>"; };
+		0268752C27D8CC5E00FFEA6A /* SaveWeightWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SaveWeightWidget.graphql; sourceTree = "<group>"; };
+		0268752E27D8CCB700FFEA6A /* SaveWeightWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveWeightWidgetModel.swift; sourceTree = "<group>"; };
+		0268753127D8E54E00FFEA6A /* EnergyChooseActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyChooseActivityCell.swift; sourceTree = "<group>"; };
+		0268753227D8E54E00FFEA6A /* EnergyChooseActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyChooseActivityCell.xib; sourceTree = "<group>"; };
+		0268753627D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyChooseActivityCollectionCell.swift; sourceTree = "<group>"; };
+		0268753727D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyChooseActivityCollectionCell.xib; sourceTree = "<group>"; };
 		0273F55727D5F08E00B19449 /* EnergyMoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyMoodCell.swift; sourceTree = "<group>"; };
 		0273F55827D5F08E00B19449 /* EnergyMoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyMoodCell.xib; sourceTree = "<group>"; };
 		0273F55C27D5F7CB00B19449 /* EnergyMealsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyMealsCell.swift; sourceTree = "<group>"; };
@@ -700,6 +720,8 @@
 		0249D29A27B3D78900F265C1 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+				0268752B27D8CC0400FFEA6A /* SaveWeightWidget */,
+				0268752127D8902600FFEA6A /* TodayProgress */,
 				02F01C5027D7941C0066656D /* MoodWidget */,
 				0273F56A27D6508400B19449 /* MealsWidget */,
 				0273F56527D60EA400B19449 /* SleepWidget */,
@@ -759,6 +781,52 @@
 				025463B827CF8F5C00D433DB /* ToggleMuscleInWorkoutsModel.swift */,
 			);
 			path = ToggleMuscleInWorkouts;
+			sourceTree = "<group>";
+		};
+		0268752127D8902600FFEA6A /* TodayProgress */ = {
+			isa = PBXGroup;
+			children = (
+				0268752227D8904900FFEA6A /* TodayProgress.graphql */,
+				0268752427D890F000FFEA6A /* TodayProgressModel.swift */,
+			);
+			path = TodayProgress;
+			sourceTree = "<group>";
+		};
+		0268752627D8C8DF00FFEA6A /* EnergyWeightCell */ = {
+			isa = PBXGroup;
+			children = (
+				0268752727D8C90100FFEA6A /* EnergyWeightCell.swift */,
+				0268752827D8C90100FFEA6A /* EnergyWeightCell.xib */,
+			);
+			path = EnergyWeightCell;
+			sourceTree = "<group>";
+		};
+		0268752B27D8CC0400FFEA6A /* SaveWeightWidget */ = {
+			isa = PBXGroup;
+			children = (
+				0268752C27D8CC5E00FFEA6A /* SaveWeightWidget.graphql */,
+				0268752E27D8CCB700FFEA6A /* SaveWeightWidgetModel.swift */,
+			);
+			path = SaveWeightWidget;
+			sourceTree = "<group>";
+		};
+		0268753027D8E4ED00FFEA6A /* EnergyChooseActivityCell */ = {
+			isa = PBXGroup;
+			children = (
+				0268753127D8E54E00FFEA6A /* EnergyChooseActivityCell.swift */,
+				0268753227D8E54E00FFEA6A /* EnergyChooseActivityCell.xib */,
+				0268753527D8E69B00FFEA6A /* Cell */,
+			);
+			path = EnergyChooseActivityCell;
+			sourceTree = "<group>";
+		};
+		0268753527D8E69B00FFEA6A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0268753627D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.swift */,
+				0268753727D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		0273F55627D5F06F00B19449 /* EnergyMoodCell */ = {
@@ -822,6 +890,8 @@
 				0273F55627D5F06F00B19449 /* EnergyMoodCell */,
 				0273F55B27D5F7A600B19449 /* EnergyMealsCell */,
 				0273F56027D60C5F00B19449 /* EnergySleepCell */,
+				0268752627D8C8DF00FFEA6A /* EnergyWeightCell */,
+				0268753027D8E4ED00FFEA6A /* EnergyChooseActivityCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1258,8 +1328,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0268752A27D8C90100FFEA6A /* EnergyWeightCell.xib in Resources */,
 				0227DAAE27C66C25008AB26B /* MenuAgeController.xib in Resources */,
 				025463AD27CE6E9800D433DB /* MenuFitnessController.xib in Resources */,
+				0268752327D8904900FFEA6A /* TodayProgress.graphql in Resources */,
 				02FAF0A727D361AE002CD678 /* EnergyDrinkWaterCell.xib in Resources */,
 				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
 				02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */,
@@ -1288,6 +1360,7 @@
 				0227DAC727C6A455008AB26B /* MenuFoodController.xib in Resources */,
 				02A5CDBA27C3DCFB00D31FB4 /* PasswordForgotRequest.graphql in Resources */,
 				021A6F4F27BF99720000D863 /* MainTabBarController.xib in Resources */,
+				0268752D27D8CC5E00FFEA6A /* SaveWeightWidget.graphql in Resources */,
 				02D066C527BBB57D00D12C5F /* Inter-Black.ttf in Resources */,
 				02D066D927BBDC3400D12C5F /* QuizeGoalController.xib in Resources */,
 				02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */,
@@ -1306,11 +1379,13 @@
 				0249D29127B3ABD900F265C1 /* Debug.xcconfig in Resources */,
 				02A5CDAB27C393DC00D31FB4 /* WorkoutController.xib in Resources */,
 				02D066BE27BBB57D00D12C5F /* Inter-ExtraLight.ttf in Resources */,
+				0268753427D8E54E00FFEA6A /* EnergyChooseActivityCell.xib in Resources */,
 				02D066C427BBB57D00D12C5F /* Inter-Bold.ttf in Resources */,
 				0227DAB327C67179008AB26B /* MenuEmailController.xib in Resources */,
 				0249D29227B3ABD900F265C1 /* Staging.xcconfig in Resources */,
 				0227DAC227C6A19C008AB26B /* MenuTargetWeightController.xib in Resources */,
 				0249D23427B3A4F100F265C1 /* Assets.xcassets in Resources */,
+				0268753927D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.xib in Resources */,
 				02B225AF27BD45080035CFA2 /* QuizeFoodController.xib in Resources */,
 				0273F56C27D6513200B19449 /* MealsWidget.graphql in Resources */,
 				0273F56427D60C7A00B19449 /* EnergySleepCell.xib in Resources */,
@@ -1440,6 +1515,7 @@
 				0290B39327D2045400381B42 /* ShadowsView.swift in Sources */,
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
 				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
+				0268752927D8C90100FFEA6A /* EnergyWeightCell.swift in Sources */,
 				02A5CDB427C3949700D31FB4 /* MenuController.swift in Sources */,
 				0227DA9627C619F7008AB26B /* MenuCell.swift in Sources */,
 				0273F55927D5F08E00B19449 /* EnergyMoodCell.swift in Sources */,
@@ -1484,7 +1560,9 @@
 				0249D25127B3A70B00F265C1 /* SplashViewController.swift in Sources */,
 				02FAF0AE27D36D7C002CD678 /* EnergyPresenter.swift in Sources */,
 				02D066CB27BBBB4300D12C5F /* QuizeNameController.swift in Sources */,
+				0268752527D890F000FFEA6A /* TodayProgressModel.swift in Sources */,
 				025463A827CE404F00D433DB /* ToggleProductInRationModel.swift in Sources */,
+				0268752F27D8CCB700FFEA6A /* SaveWeightWidgetModel.swift in Sources */,
 				02D066CE27BBC41800D12C5F /* OnboardingRouter.swift in Sources */,
 				025463AC27CE6E9800D433DB /* MenuFitnessController.swift in Sources */,
 				02A5CDB027C3947800D31FB4 /* ProfileController.swift in Sources */,
@@ -1495,6 +1573,7 @@
 				0273F56927D60EF600B19449 /* SleepWidgetModel.swift in Sources */,
 				0249D24C27B3A67900F265C1 /* RootRouter.swift in Sources */,
 				02C3DD6527BEDA82004E5C65 /* QuizeProgressController.swift in Sources */,
+				0268753327D8E54E00FFEA6A /* EnergyChooseActivityCell.swift in Sources */,
 				023D171E27BE258A005F95C0 /* UITapGesture+Extension.swift in Sources */,
 				0249D28227B3AAAE00F265C1 /* LoginController.swift in Sources */,
 				0249D28B27B3AB6300F265C1 /* AppConfigurationBridge.m in Sources */,
@@ -1522,6 +1601,7 @@
 				02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */,
 				02B225BB27BD79DA0035CFA2 /* StartPresenter.swift in Sources */,
 				02B225A227BCF0F00035CFA2 /* TempProfileModel.swift in Sources */,
+				0268753827D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.swift in Sources */,
 				0249D24A27B3A67900F265C1 /* BaseRouter.swift in Sources */,
 				0227DA9227C52EC1008AB26B /* TabBarRouter.swift in Sources */,
 				0249D26427B3A88C00F265C1 /* UIColor+Extension.swift in Sources */,
