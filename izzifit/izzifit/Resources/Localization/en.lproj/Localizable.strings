@@ -1,3 +1,20 @@
+"energy_header_title" = "Hey, %@";
+"energy_meals_breakfast" = "Breakfast";
+"energy_meals_carbs" = "Carbs";
+"energy_meals_dinner" = "Dinner";
+"energy_meals_fats" = "Fats";
+"energy_meals_gramm" = "%dg left";
+"energy_meals_lunch" = "Lunch";
+"energy_meals_protein" = "Proteins";
+"energy_meals_snack" = "Snack";
+"energy_meals_title" = "Your meals";
+"energy_mood_badly" = "Badly";
+"energy_mood_good" = "Good";
+"energy_mood_not_bad" = "Not bad";
+"energy_mood_title" = "How are you today?";
+"energy_sleep_bad" = "Bad";
+"energy_sleep_good" = "Good";
+"energy_sleep_title" = "How did you sleep?";
 "login_and" = "and";
 "login_button" = "Login";
 "login_by_continue" = "By continuing you accept our";
@@ -79,3 +96,5 @@
 "onboarding_weight_kg" = "KG";
 "onboarding_weight_lb" = "LB";
 "onboarding_weight_title" = "Your weigth";
+"water_widget_ml_left" = "%dml left";
+"water_widget_title" = "Drink water";

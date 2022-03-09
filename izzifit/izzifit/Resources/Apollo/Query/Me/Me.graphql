@@ -26,6 +26,10 @@ query Me {
             id
             name
         }
+        Avatar {
+            id
+            url
+        }
 	}
 }
 

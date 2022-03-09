@@ -16,7 +16,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnergyController" customModule="izzifit" customModuleProvider="target">
             <connections>
+                <outlet property="avatarImageView" destination="IoB-MZ-iw5" id="vho-tg-LKn"/>
                 <outlet property="avatarView" destination="54w-nJ-ly0" id="lNK-RA-fJf"/>
+                <outlet property="cointLabel" destination="urr-CY-WRE" id="yUt-SQ-Aeo"/>
+                <outlet property="energyLabel" destination="MrR-Dy-Lbk" id="Gyv-gp-sgG"/>
+                <outlet property="nameLabel" destination="EyM-mP-FLf" id="YpK-kG-0DG"/>
+                <outlet property="tableView" destination="Hqa-Fq-ybI" id="ssT-fE-kRk"/>
                 <outlet property="topView" destination="9Kh-1f-614" id="WEP-aM-byB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -55,31 +60,54 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey, Alex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyM-mP-FLf">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey, Alex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EyM-mP-FLf">
                             <rect key="frame" x="67" y="48" width="89.5" height="24.5"/>
                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
                             <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6a-wr-qVI">
-                            <rect key="frame" x="357.5" y="50" width="41.5" height="20.5"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6u4-9V-6OV">
+                            <rect key="frame" x="250" y="49" width="146" height="22"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrR-Dy-Lbk">
-                                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xfY-p6-oCd">
+                                    <rect key="frame" x="0.0" y="0.0" width="69" height="22"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_coins_ic" translatesAutoresizingMaskIntoConstraints="NO" id="WHe-cG-ACv">
+                                            <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urr-CY-WRE">
+                                            <rect key="frame" x="27" y="0.0" width="42" height="22"/>
+                                            <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
+                                            <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="I6a-wr-qVI">
+                                    <rect key="frame" x="79" y="0.0" width="67" height="22"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_energy_ic" translatesAutoresizingMaskIntoConstraints="NO" id="mKS-lC-gqw">
+                                            <rect key="frame" x="0.0" y="0.0" width="20" height="22"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrR-Dy-Lbk">
+                                            <rect key="frame" x="25" y="0.0" width="42" height="22"/>
+                                            <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
+                                            <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="6u4-9V-6OV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EyM-mP-FLf" secondAttribute="trailing" constant="10" id="71X-c8-ApZ"/>
                         <constraint firstItem="54w-nJ-ly0" firstAttribute="leading" secondItem="9Kh-1f-614" secondAttribute="leading" constant="19" id="8Za-GH-UGi"/>
-                        <constraint firstItem="I6a-wr-qVI" firstAttribute="centerY" secondItem="EyM-mP-FLf" secondAttribute="centerY" id="FKH-JZ-RFK"/>
+                        <constraint firstItem="6u4-9V-6OV" firstAttribute="centerY" secondItem="EyM-mP-FLf" secondAttribute="centerY" id="KjN-hJ-AfO"/>
                         <constraint firstItem="EyM-mP-FLf" firstAttribute="centerY" secondItem="IoB-MZ-iw5" secondAttribute="centerY" id="PWi-3T-ScF"/>
+                        <constraint firstAttribute="trailing" secondItem="6u4-9V-6OV" secondAttribute="trailing" constant="18" id="bKY-WB-1bQ"/>
                         <constraint firstAttribute="bottom" secondItem="54w-nJ-ly0" secondAttribute="bottom" constant="8" id="cDi-Dg-G53"/>
-                        <constraint firstAttribute="trailing" secondItem="I6a-wr-qVI" secondAttribute="trailing" constant="15" id="fEy-Ll-z0r"/>
                         <constraint firstItem="EyM-mP-FLf" firstAttribute="leading" secondItem="54w-nJ-ly0" secondAttribute="trailing" constant="8" id="kGB-fC-gkQ"/>
                         <constraint firstAttribute="height" constant="88" id="l4v-Sk-IjO"/>
                     </constraints>
@@ -98,18 +126,32 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Hqa-Fq-ybI">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="9ai-mG-jDo"/>
+                        <outlet property="delegate" destination="-1" id="aG4-VM-rBt"/>
+                    </connections>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Hqa-Fq-ybI" secondAttribute="bottom" id="07c-kD-fgr"/>
                 <constraint firstItem="9Kh-1f-614" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6Rv-K6-9r9"/>
+                <constraint firstItem="Hqa-Fq-ybI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DAd-Oo-vBv"/>
                 <constraint firstItem="9Kh-1f-614" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="PQi-tf-Wcj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Hqa-Fq-ybI" secondAttribute="trailing" id="cPQ-Te-MtK"/>
+                <constraint firstItem="Hqa-Fq-ybI" firstAttribute="top" secondItem="9Kh-1f-614" secondAttribute="bottom" id="jF2-pg-95M"/>
                 <constraint firstItem="9Kh-1f-614" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sf2-z4-bmO"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </view>
     </objects>
     <resources>
+        <image name="energy_coins_ic" width="22" height="22"/>
+        <image name="energy_energy_ic" width="20" height="22"/>
         <image name="onboarding_background_ic" width="375" height="812"/>
         <image name="placeholder_food_ic" width="40" height="40"/>
         <systemColor name="systemBackgroundColor">

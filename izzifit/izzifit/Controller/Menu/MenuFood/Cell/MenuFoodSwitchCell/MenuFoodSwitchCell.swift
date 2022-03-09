@@ -41,7 +41,7 @@ class MenuFoodSwitchCell: UITableViewCell {
     func setupCell(model: ProductsMainModel) {
         self.model = model
         mainTextLabel.text = model.name
-        switcher.setOn(model.isToggled, animated: false)
+        switcher.setOn(model.isToggled ?? false, animated: false)
         
     }
     

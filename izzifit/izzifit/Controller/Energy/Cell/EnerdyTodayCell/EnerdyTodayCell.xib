@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Medium.ttf">
+            <string>Inter-Medium</string>
+        </array>
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EnerdyTodayCell" rowHeight="117" id="KGk-i7-Jjw" customClass="EnerdyTodayCell" customModule="izzifit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="369" height="117"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="369" height="117"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xa-Ys-cBy">
+                        <rect key="frame" x="16" y="16" width="11" height="68.5"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="energy_arrow_back_ic"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCh-ep-o6H">
+                        <rect key="frame" x="149.5" y="35.5" width="70" height="29.5"/>
+                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="24"/>
+                        <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUh-um-yn0">
+                        <rect key="frame" x="342" y="16" width="11" height="68.5"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="energy_arrow_forward_ic"/>
+                    </button>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kx4-xy-uqN">
+                        <rect key="frame" x="16" y="81" width="337" height="8"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ZM-SG-q4E">
+                                <rect key="frame" x="0.0" y="0.0" width="305" height="8"/>
+                                <color key="backgroundColor" red="1" green="0.25882352941176467" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="knn-pt-jIQ">
+                                <rect key="frame" x="305" y="0.0" width="0.0" height="8"/>
+                                <color key="backgroundColor" red="0.31764705882352939" green="0.22745098039215686" blue="0.51764705882352935" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIh-wH-9Qz">
+                                <rect key="frame" x="305" y="0.0" width="32" height="8"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="xzP-lg-MUV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="8" id="sei-Mv-ddc"/>
+                        </constraints>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your progress 37%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9x-OE-VbX">
+                        <rect key="frame" x="16" y="94" width="124.5" height="17"/>
+                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                        <color key="textColor" red="0.72941176470588232" green="0.72549019607843135" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htx-7P-mJE">
+                        <rect key="frame" x="317" y="95" width="36" height="17"/>
+                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                        <color key="textColor" red="0.72941176470000002" green="0.72549019609999998" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_today_pin_ic" translatesAutoresizingMaskIntoConstraints="NO" id="kCi-oe-193">
+                        <rect key="frame" x="317" y="76" width="8" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8" id="EK6-qq-el0"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kx4-xy-uqN" firstAttribute="top" secondItem="hCh-ep-o6H" secondAttribute="bottom" constant="16" id="7a2-GH-IXf"/>
+                    <constraint firstItem="hCh-ep-o6H" firstAttribute="centerY" secondItem="7Xa-Ys-cBy" secondAttribute="centerY" id="8JI-sF-rbM"/>
+                    <constraint firstAttribute="trailing" secondItem="kx4-xy-uqN" secondAttribute="trailing" constant="16" id="9XQ-DS-xSb"/>
+                    <constraint firstItem="r9x-OE-VbX" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="5" id="H1m-Ms-3PT"/>
+                    <constraint firstAttribute="trailing" secondItem="NUh-um-yn0" secondAttribute="trailing" constant="16" id="L4m-YR-Jm5"/>
+                    <constraint firstItem="r9x-OE-VbX" firstAttribute="top" secondItem="kx4-xy-uqN" secondAttribute="bottom" constant="5" id="OOp-kN-1fC"/>
+                    <constraint firstItem="NUh-um-yn0" firstAttribute="centerY" secondItem="hCh-ep-o6H" secondAttribute="centerY" id="PGD-lc-TwA"/>
+                    <constraint firstItem="kx4-xy-uqN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="RCo-Fl-gZL"/>
+                    <constraint firstItem="hCh-ep-o6H" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Z6e-4s-Ajb"/>
+                    <constraint firstItem="NUh-um-yn0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="ad7-lv-D5e"/>
+                    <constraint firstItem="r9x-OE-VbX" firstAttribute="leading" secondItem="kx4-xy-uqN" secondAttribute="leading" id="iwq-cg-EcG"/>
+                    <constraint firstItem="kx4-xy-uqN" firstAttribute="top" secondItem="kCi-oe-193" secondAttribute="bottom" constant="-8" id="ja5-8U-jfK"/>
+                    <constraint firstItem="7Xa-Ys-cBy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="mun-1Q-n6p"/>
+                    <constraint firstItem="kCi-oe-193" firstAttribute="leading" secondItem="PIh-wH-9Qz" secondAttribute="leading" constant="-4" id="uns-UU-pak"/>
+                    <constraint firstItem="Htx-7P-mJE" firstAttribute="trailing" secondItem="kx4-xy-uqN" secondAttribute="trailing" id="vBU-5a-MCD"/>
+                    <constraint firstAttribute="bottom" secondItem="Htx-7P-mJE" secondAttribute="bottom" constant="5" id="voy-C1-T3b"/>
+                    <constraint firstItem="7Xa-Ys-cBy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="yDt-cU-rE4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <inset key="separatorInset" minX="10000" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="middleGoodView" destination="knn-pt-jIQ" id="NBh-Df-KaG"/>
+                <outlet property="moreGoodView" destination="PIh-wH-9Qz" id="aVq-W0-iWj"/>
+                <outlet property="progressView" destination="0ZM-SG-q4E" id="o8x-Vj-XOO"/>
+            </connections>
+            <point key="canvasLocation" x="173.18840579710147" y="132.25446428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="energy_arrow_back_ic" width="11" height="20"/>
+        <image name="energy_arrow_forward_ic" width="11" height="20"/>
+        <image name="energy_today_pin_ic" width="8" height="13"/>
+    </resources>
+</document>

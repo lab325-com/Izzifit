@@ -85,8 +85,20 @@
 		025463B927CF8F5D00D433DB /* ToggleMuscleInWorkoutsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025463B827CF8F5C00D433DB /* ToggleMuscleInWorkoutsModel.swift */; };
 		025463BB27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 025463BA27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql */; };
 		025463BD27CFB21B00D433DB /* ToggleProductInRation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 025463BC27CFB21B00D433DB /* ToggleProductInRation.graphql */; };
+		0273F55927D5F08E00B19449 /* EnergyMoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F55727D5F08E00B19449 /* EnergyMoodCell.swift */; };
+		0273F55A27D5F08E00B19449 /* EnergyMoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0273F55827D5F08E00B19449 /* EnergyMoodCell.xib */; };
+		0273F55E27D5F7CB00B19449 /* EnergyMealsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F55C27D5F7CB00B19449 /* EnergyMealsCell.swift */; };
+		0273F55F27D5F7CB00B19449 /* EnergyMealsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0273F55D27D5F7CB00B19449 /* EnergyMealsCell.xib */; };
+		0273F56327D60C7A00B19449 /* EnergySleepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F56127D60C7900B19449 /* EnergySleepCell.swift */; };
+		0273F56427D60C7A00B19449 /* EnergySleepCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0273F56227D60C7900B19449 /* EnergySleepCell.xib */; };
+		0273F56727D60EC500B19449 /* SleepWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0273F56627D60EC500B19449 /* SleepWidget.graphql */; };
+		0273F56927D60EF600B19449 /* SleepWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F56827D60EF600B19449 /* SleepWidgetModel.swift */; };
+		0273F56C27D6513200B19449 /* MealsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0273F56B27D6513200B19449 /* MealsWidget.graphql */; };
+		0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F56D27D6561100B19449 /* MealsWidgetModel.swift */; };
 		0290B39327D2045400381B42 /* ShadowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39227D2045400381B42 /* ShadowsView.swift */; };
 		0290B39527D212CA00381B42 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39427D212CA00381B42 /* UIView+Extension.swift */; };
+		0290B39927D2340800381B42 /* EnerdyTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39727D2340800381B42 /* EnerdyTodayCell.swift */; };
+		0290B39A27D2340800381B42 /* EnerdyTodayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0290B39827D2340800381B42 /* EnerdyTodayCell.xib */; };
 		02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA327C393A300D31FB4 /* EnergyController.swift */; };
 		02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDA427C393A300D31FB4 /* EnergyController.xib */; };
 		02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */; };
@@ -151,9 +163,16 @@
 		02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066E127BBEBA000D12C5F /* QuizeHeightController.xib */; };
 		02D066E927BC1BC900D12C5F /* QuizeWeightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066E727BC1BC900D12C5F /* QuizeWeightController.swift */; };
 		02D066EA27BC1BC900D12C5F /* QuizeWeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066E827BC1BC900D12C5F /* QuizeWeightController.xib */; };
+		02F01C5227D794450066656D /* MoodWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02F01C5127D794450066656D /* MoodWidget.graphql */; };
+		02F01C5427D794B20066656D /* MoodWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F01C5327D794B20066656D /* MoodWidgetModel.swift */; };
 		02F2D94027D0BF5C00E9FB68 /* AskQuestion.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02F2D93F27D0BF5C00E9FB68 /* AskQuestion.graphql */; };
 		02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2D94127D0BF9100E9FB68 /* AskQuestionModel.swift */; };
 		02F2D94427D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2D94327D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift */; };
+		02FAF0A627D361AE002CD678 /* EnergyDrinkWaterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAF0A427D361AE002CD678 /* EnergyDrinkWaterCell.swift */; };
+		02FAF0A727D361AE002CD678 /* EnergyDrinkWaterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02FAF0A527D361AE002CD678 /* EnergyDrinkWaterCell.xib */; };
+		02FAF0AC27D36CE0002CD678 /* DrinkWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02FAF0AB27D36CE0002CD678 /* DrinkWidget.graphql */; };
+		02FAF0AE27D36D7C002CD678 /* EnergyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAF0AD27D36D7C002CD678 /* EnergyPresenter.swift */; };
+		02FAF0B027D36EA1002CD678 /* DrinkWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAF0AF27D36EA1002CD678 /* DrinkWidgetModel.swift */; };
 		8C4F7F85C1CC5538D3E379C8 /* Pods_izzifit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA5E332399E73031D583774 /* Pods_izzifit.framework */; };
 /* End PBXBuildFile section */
 
@@ -233,8 +252,20 @@
 		025463B827CF8F5C00D433DB /* ToggleMuscleInWorkoutsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleMuscleInWorkoutsModel.swift; sourceTree = "<group>"; };
 		025463BA27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToggleMuscleInWorkouts.graphql; sourceTree = "<group>"; };
 		025463BC27CFB21B00D433DB /* ToggleProductInRation.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToggleProductInRation.graphql; sourceTree = "<group>"; };
+		0273F55727D5F08E00B19449 /* EnergyMoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyMoodCell.swift; sourceTree = "<group>"; };
+		0273F55827D5F08E00B19449 /* EnergyMoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyMoodCell.xib; sourceTree = "<group>"; };
+		0273F55C27D5F7CB00B19449 /* EnergyMealsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyMealsCell.swift; sourceTree = "<group>"; };
+		0273F55D27D5F7CB00B19449 /* EnergyMealsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyMealsCell.xib; sourceTree = "<group>"; };
+		0273F56127D60C7900B19449 /* EnergySleepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergySleepCell.swift; sourceTree = "<group>"; };
+		0273F56227D60C7900B19449 /* EnergySleepCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergySleepCell.xib; sourceTree = "<group>"; };
+		0273F56627D60EC500B19449 /* SleepWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SleepWidget.graphql; sourceTree = "<group>"; };
+		0273F56827D60EF600B19449 /* SleepWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepWidgetModel.swift; sourceTree = "<group>"; };
+		0273F56B27D6513200B19449 /* MealsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MealsWidget.graphql; sourceTree = "<group>"; };
+		0273F56D27D6561100B19449 /* MealsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsWidgetModel.swift; sourceTree = "<group>"; };
 		0290B39227D2045400381B42 /* ShadowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowsView.swift; sourceTree = "<group>"; };
 		0290B39427D212CA00381B42 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		0290B39727D2340800381B42 /* EnerdyTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnerdyTodayCell.swift; sourceTree = "<group>"; };
+		0290B39827D2340800381B42 /* EnerdyTodayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnerdyTodayCell.xib; sourceTree = "<group>"; };
 		02A5CDA327C393A300D31FB4 /* EnergyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyController.swift; sourceTree = "<group>"; };
 		02A5CDA427C393A300D31FB4 /* EnergyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyController.xib; sourceTree = "<group>"; };
 		02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
@@ -299,9 +330,16 @@
 		02D066E127BBEBA000D12C5F /* QuizeHeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeHeightController.xib; sourceTree = "<group>"; };
 		02D066E727BC1BC900D12C5F /* QuizeWeightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeWeightController.swift; sourceTree = "<group>"; };
 		02D066E827BC1BC900D12C5F /* QuizeWeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeWeightController.xib; sourceTree = "<group>"; };
+		02F01C5127D794450066656D /* MoodWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MoodWidget.graphql; sourceTree = "<group>"; };
+		02F01C5327D794B20066656D /* MoodWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodWidgetModel.swift; sourceTree = "<group>"; };
 		02F2D93F27D0BF5C00E9FB68 /* AskQuestion.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AskQuestion.graphql; sourceTree = "<group>"; };
 		02F2D94127D0BF9100E9FB68 /* AskQuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestionModel.swift; sourceTree = "<group>"; };
 		02F2D94327D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuWriteQuestionPresenter.swift; sourceTree = "<group>"; };
+		02FAF0A427D361AE002CD678 /* EnergyDrinkWaterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDrinkWaterCell.swift; sourceTree = "<group>"; };
+		02FAF0A527D361AE002CD678 /* EnergyDrinkWaterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyDrinkWaterCell.xib; sourceTree = "<group>"; };
+		02FAF0AB27D36CE0002CD678 /* DrinkWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DrinkWidget.graphql; sourceTree = "<group>"; };
+		02FAF0AD27D36D7C002CD678 /* EnergyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyPresenter.swift; sourceTree = "<group>"; };
+		02FAF0AF27D36EA1002CD678 /* DrinkWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkWidgetModel.swift; sourceTree = "<group>"; };
 		352468CF0028C7B7CE37BC1F /* Pods-izzifit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.release.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.release.xcconfig"; sourceTree = "<group>"; };
 		3DE270F6FF543B995EC67ADF /* Pods-izzifit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.debug.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.debug.xcconfig"; sourceTree = "<group>"; };
 		A00F8397483211F5694F3938 /* Pods-izzifit.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.staging.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.staging.xcconfig"; sourceTree = "<group>"; };
@@ -662,6 +700,10 @@
 		0249D29A27B3D78900F265C1 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+				02F01C5027D7941C0066656D /* MoodWidget */,
+				0273F56A27D6508400B19449 /* MealsWidget */,
+				0273F56527D60EA400B19449 /* SleepWidget */,
+				02FAF0A827D36C89002CD678 /* DrinkWidget */,
 				025463B527CF8F1400D433DB /* ToggleMuscleInWorkouts */,
 				025463AE27CF759800D433DB /* Muscles */,
 				025463A427CE3F3800D433DB /* ToggleProductInRation */,
@@ -719,6 +761,51 @@
 			path = ToggleMuscleInWorkouts;
 			sourceTree = "<group>";
 		};
+		0273F55627D5F06F00B19449 /* EnergyMoodCell */ = {
+			isa = PBXGroup;
+			children = (
+				0273F55727D5F08E00B19449 /* EnergyMoodCell.swift */,
+				0273F55827D5F08E00B19449 /* EnergyMoodCell.xib */,
+			);
+			path = EnergyMoodCell;
+			sourceTree = "<group>";
+		};
+		0273F55B27D5F7A600B19449 /* EnergyMealsCell */ = {
+			isa = PBXGroup;
+			children = (
+				0273F55C27D5F7CB00B19449 /* EnergyMealsCell.swift */,
+				0273F55D27D5F7CB00B19449 /* EnergyMealsCell.xib */,
+			);
+			path = EnergyMealsCell;
+			sourceTree = "<group>";
+		};
+		0273F56027D60C5F00B19449 /* EnergySleepCell */ = {
+			isa = PBXGroup;
+			children = (
+				0273F56127D60C7900B19449 /* EnergySleepCell.swift */,
+				0273F56227D60C7900B19449 /* EnergySleepCell.xib */,
+			);
+			path = EnergySleepCell;
+			sourceTree = "<group>";
+		};
+		0273F56527D60EA400B19449 /* SleepWidget */ = {
+			isa = PBXGroup;
+			children = (
+				0273F56627D60EC500B19449 /* SleepWidget.graphql */,
+				0273F56827D60EF600B19449 /* SleepWidgetModel.swift */,
+			);
+			path = SleepWidget;
+			sourceTree = "<group>";
+		};
+		0273F56A27D6508400B19449 /* MealsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				0273F56B27D6513200B19449 /* MealsWidget.graphql */,
+				0273F56D27D6561100B19449 /* MealsWidgetModel.swift */,
+			);
+			path = MealsWidget;
+			sourceTree = "<group>";
+		};
 		0290B39127D2044500381B42 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,11 +814,25 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		0290B39627D233E700381B42 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				02FAF0A227D3616F002CD678 /* EnerdyTodayCell */,
+				02FAF0A327D36173002CD678 /* EnergyDrinkWaterCell */,
+				0273F55627D5F06F00B19449 /* EnergyMoodCell */,
+				0273F55B27D5F7A600B19449 /* EnergyMealsCell */,
+				0273F56027D60C5F00B19449 /* EnergySleepCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		02A5CDA227C3938200D31FB4 /* Energy */ = {
 			isa = PBXGroup;
 			children = (
+				02FAF0AD27D36D7C002CD678 /* EnergyPresenter.swift */,
 				02A5CDA327C393A300D31FB4 /* EnergyController.swift */,
 				02A5CDA427C393A300D31FB4 /* EnergyController.xib */,
+				0290B39627D233E700381B42 /* Cell */,
 			);
 			path = Energy;
 			sourceTree = "<group>";
@@ -1014,6 +1115,15 @@
 			path = QuizeWeight;
 			sourceTree = "<group>";
 		};
+		02F01C5027D7941C0066656D /* MoodWidget */ = {
+			isa = PBXGroup;
+			children = (
+				02F01C5127D794450066656D /* MoodWidget.graphql */,
+				02F01C5327D794B20066656D /* MoodWidgetModel.swift */,
+			);
+			path = MoodWidget;
+			sourceTree = "<group>";
+		};
 		02F2D93E27D0BF4300E9FB68 /* AskQuestion */ = {
 			isa = PBXGroup;
 			children = (
@@ -1021,6 +1131,33 @@
 				02F2D94127D0BF9100E9FB68 /* AskQuestionModel.swift */,
 			);
 			path = AskQuestion;
+			sourceTree = "<group>";
+		};
+		02FAF0A227D3616F002CD678 /* EnerdyTodayCell */ = {
+			isa = PBXGroup;
+			children = (
+				0290B39727D2340800381B42 /* EnerdyTodayCell.swift */,
+				0290B39827D2340800381B42 /* EnerdyTodayCell.xib */,
+			);
+			path = EnerdyTodayCell;
+			sourceTree = "<group>";
+		};
+		02FAF0A327D36173002CD678 /* EnergyDrinkWaterCell */ = {
+			isa = PBXGroup;
+			children = (
+				02FAF0A427D361AE002CD678 /* EnergyDrinkWaterCell.swift */,
+				02FAF0A527D361AE002CD678 /* EnergyDrinkWaterCell.xib */,
+			);
+			path = EnergyDrinkWaterCell;
+			sourceTree = "<group>";
+		};
+		02FAF0A827D36C89002CD678 /* DrinkWidget */ = {
+			isa = PBXGroup;
+			children = (
+				02FAF0AB27D36CE0002CD678 /* DrinkWidget.graphql */,
+				02FAF0AF27D36EA1002CD678 /* DrinkWidgetModel.swift */,
+			);
+			path = DrinkWidget;
 			sourceTree = "<group>";
 		};
 		A0F0757F3659D125E6990336 /* Pods */ = {
@@ -1123,6 +1260,7 @@
 			files = (
 				0227DAAE27C66C25008AB26B /* MenuAgeController.xib in Resources */,
 				025463AD27CE6E9800D433DB /* MenuFitnessController.xib in Resources */,
+				02FAF0A727D361AE002CD678 /* EnergyDrinkWaterCell.xib in Resources */,
 				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
 				02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */,
 				02A5CDB127C3947800D31FB4 /* ProfileController.xib in Resources */,
@@ -1145,6 +1283,7 @@
 				02B225BE27BD7B110035CFA2 /* Login.graphql in Resources */,
 				02A5CDC327C4247300D31FB4 /* QuizeFoodCell.xib in Resources */,
 				02D066C627BBB57D00D12C5F /* Inter-SemiBold.ttf in Resources */,
+				02FAF0AC27D36CE0002CD678 /* DrinkWidget.graphql in Resources */,
 				0227DAA727C64E31008AB26B /* MenuNameController.xib in Resources */,
 				0227DAC727C6A455008AB26B /* MenuFoodController.xib in Resources */,
 				02A5CDBA27C3DCFB00D31FB4 /* PasswordForgotRequest.graphql in Resources */,
@@ -1160,6 +1299,7 @@
 				0227DACD27C6A82A008AB26B /* MenuFoodTitleCellCell.xib in Resources */,
 				02A5CDB527C3949700D31FB4 /* MenuController.xib in Resources */,
 				02D066D427BBD12600D12C5F /* QuizeGenderController.xib in Resources */,
+				0273F56727D60EC500B19449 /* SleepWidget.graphql in Resources */,
 				02F2D94027D0BF5C00E9FB68 /* AskQuestion.graphql in Resources */,
 				025463BB27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql in Resources */,
 				0227DAB827C67334008AB26B /* MenuHeightController.xib in Resources */,
@@ -1172,12 +1312,18 @@
 				0227DAC227C6A19C008AB26B /* MenuTargetWeightController.xib in Resources */,
 				0249D23427B3A4F100F265C1 /* Assets.xcassets in Resources */,
 				02B225AF27BD45080035CFA2 /* QuizeFoodController.xib in Resources */,
+				0273F56C27D6513200B19449 /* MealsWidget.graphql in Resources */,
+				0273F56427D60C7A00B19449 /* EnergySleepCell.xib in Resources */,
 				025463BD27CFB21B00D433DB /* ToggleProductInRation.graphql in Resources */,
 				025463B027CF75BD00D433DB /* Muscles.graphql in Resources */,
 				02D066B327BBB32400D12C5F /* StartController.xib in Resources */,
 				02B225A727BCFB9F0035CFA2 /* QuizeTargetWeightController.xib in Resources */,
 				02D066C327BBB57D00D12C5F /* Inter-Regular.ttf in Resources */,
+				02F01C5227D794450066656D /* MoodWidget.graphql in Resources */,
 				0227DA9D27C63A3B008AB26B /* FoodGroups.graphql in Resources */,
+				0290B39A27D2340800381B42 /* EnerdyTodayCell.xib in Resources */,
+				0273F55A27D5F08E00B19449 /* EnergyMoodCell.xib in Resources */,
+				0273F55F27D5F7CB00B19449 /* EnergyMealsCell.xib in Resources */,
 				02D066DE27BBE56700D12C5F /* QuizeAgeController.xib in Resources */,
 				0249D29327B3ABD900F265C1 /* Generator.xcconfig in Resources */,
 				02ABCF4627CD0EA800E69C06 /* MenuLanguagesTitleCell.xib in Resources */,
@@ -1223,7 +1369,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
 		};
 		02D066AB27BBA8A800D12C5F /* RSwift */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1296,6 +1442,7 @@
 				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
 				02A5CDB427C3949700D31FB4 /* MenuController.swift in Sources */,
 				0227DA9627C619F7008AB26B /* MenuCell.swift in Sources */,
+				0273F55927D5F08E00B19449 /* EnergyMoodCell.swift in Sources */,
 				0227DACC27C6A82A008AB26B /* MenuFoodTitleCellCell.swift in Sources */,
 				02ABCF4027CD0D4700E69C06 /* MenuLanguageController.swift in Sources */,
 				02ABCF4527CD0EA800E69C06 /* MenuLanguagesTitleCell.swift in Sources */,
@@ -1314,9 +1461,11 @@
 				02D066B227BBB32400D12C5F /* StartController.swift in Sources */,
 				0227DAA127C63D51008AB26B /* QuizeFoodPresenter.swift in Sources */,
 				0227DAB227C67179008AB26B /* MenuEmailController.swift in Sources */,
+				0273F55E27D5F7CB00B19449 /* EnergyMealsCell.swift in Sources */,
 				02A5CDBC27C3DD3300D31FB4 /* PasswordForgotRequestModel.swift in Sources */,
 				0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */,
 				0249D26327B3A88C00F265C1 /* UIApplicathion+Extension.swift in Sources */,
+				02FAF0B027D36EA1002CD678 /* DrinkWidgetModel.swift in Sources */,
 				02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */,
 				02D066AD27BBA8F400D12C5F /* R.generated.swift in Sources */,
 				0249D26927B3A92300F265C1 /* KeychainService.swift in Sources */,
@@ -1329,9 +1478,11 @@
 				025463B227CF778B00D433DB /* MusclesModel.swift in Sources */,
 				02B225AE27BD45080035CFA2 /* QuizeFoodController.swift in Sources */,
 				0227DA9F27C63A57008AB26B /* FoodGroupsModel.swift in Sources */,
+				02FAF0A627D361AE002CD678 /* EnergyDrinkWaterCell.swift in Sources */,
 				02B225B827BD63FC0035CFA2 /* QuizeEmailController.swift in Sources */,
 				0227DAAD27C66C25008AB26B /* MenuAgeController.swift in Sources */,
 				0249D25127B3A70B00F265C1 /* SplashViewController.swift in Sources */,
+				02FAF0AE27D36D7C002CD678 /* EnergyPresenter.swift in Sources */,
 				02D066CB27BBBB4300D12C5F /* QuizeNameController.swift in Sources */,
 				025463A827CE404F00D433DB /* ToggleProductInRationModel.swift in Sources */,
 				02D066CE27BBC41800D12C5F /* OnboardingRouter.swift in Sources */,
@@ -1341,24 +1492,28 @@
 				025463A227CE2F1500D433DB /* MenuWriteQuestionController.swift in Sources */,
 				0249D26D27B3A96E00F265C1 /* AuthModel.swift in Sources */,
 				0227DAA927C64F33008AB26B /* MenuRouter.swift in Sources */,
+				0273F56927D60EF600B19449 /* SleepWidgetModel.swift in Sources */,
 				0249D24C27B3A67900F265C1 /* RootRouter.swift in Sources */,
 				02C3DD6527BEDA82004E5C65 /* QuizeProgressController.swift in Sources */,
 				023D171E27BE258A005F95C0 /* UITapGesture+Extension.swift in Sources */,
 				0249D28227B3AAAE00F265C1 /* LoginController.swift in Sources */,
 				0249D28B27B3AB6300F265C1 /* AppConfigurationBridge.m in Sources */,
 				0227DAA627C64E31008AB26B /* MenuNameController.swift in Sources */,
+				0273F56327D60C7A00B19449 /* EnergySleepCell.swift in Sources */,
 				0249D29E27B3D81700F265C1 /* API.swift in Sources */,
 				02B225B327BD5D300035CFA2 /* QuizeSportController.swift in Sources */,
 				025463B927CF8F5D00D433DB /* ToggleMuscleInWorkoutsModel.swift in Sources */,
 				0227DAC627C6A455008AB26B /* MenuFoodController.swift in Sources */,
 				02D066E227BBEBA000D12C5F /* QuizeHeightController.swift in Sources */,
 				0249D26627B3A88C00F265C1 /* Int+Extension.swift in Sources */,
+				0290B39927D2340800381B42 /* EnerdyTodayCell.swift in Sources */,
 				02ABCF3527CCC3F400E69C06 /* MenuFoodSwitchCell.swift in Sources */,
 				0249D27527B3AA0400F265C1 /* PreferenceManager.swift in Sources */,
 				02ABCF3B27CCF80300E69C06 /* ProductsModel.swift in Sources */,
 				023D171C27BE1D4D005F95C0 /* AuthRouter.swift in Sources */,
 				02B225C227BD7D4D0035CFA2 /* MeModel.swift in Sources */,
 				02D066DD27BBE56700D12C5F /* QuizeAgeController.swift in Sources */,
+				0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */,
 				0249D27427B3AA0400F265C1 /* NetwokrManager.swift in Sources */,
 				021A6F4A27BF91050000D863 /* CircularProgressBarView.swift in Sources */,
 				021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */,
@@ -1370,6 +1525,7 @@
 				0249D24A27B3A67900F265C1 /* BaseRouter.swift in Sources */,
 				0227DA9227C52EC1008AB26B /* TabBarRouter.swift in Sources */,
 				0249D26427B3A88C00F265C1 /* UIColor+Extension.swift in Sources */,
+				02F01C5427D794B20066656D /* MoodWidgetModel.swift in Sources */,
 				025463B427CF784400D433DB /* MenuFitnessPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

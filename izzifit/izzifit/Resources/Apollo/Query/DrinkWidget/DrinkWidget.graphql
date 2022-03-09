@@ -1,0 +1,10 @@
+query DrinkWidget($date: Date!) {
+    drinkWidget(date: $date) {
+        doneCups
+        energy
+        energyTotal
+        left
+        totalCups
+    }
+}
+

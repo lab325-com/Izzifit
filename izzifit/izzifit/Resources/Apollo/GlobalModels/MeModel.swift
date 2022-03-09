@@ -30,12 +30,18 @@ struct MeMainModel: Codable {
     let weight: Float?
     let targetWeight: Int?
     let FoodGroup: FoodGroupModel?
+    let Avatar: AvatarModel?
 }
 
 struct FoodGroupModel: Codable {
     let Image: ImageModel?
     let id: String?
     let name: String?
+}
+
+struct AvatarModel: Codable {
+    let id: String?
+    let url: String?
 }
 
 extension DoSportType: Codable {

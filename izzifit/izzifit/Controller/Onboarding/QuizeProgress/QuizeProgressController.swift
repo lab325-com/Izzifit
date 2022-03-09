@@ -52,7 +52,7 @@ class QuizeProgressController: BaseController {
         DispatchQueue.main.async {
             // set view
             self.circularProgressBarView = CircularProgressBarView(frame: .zero)
-            self.circularProgressBarView.createCircularPath()
+            self.circularProgressBarView.createCircularPath(backColor: UIColor(rgb: 0xDBD6E6), frontColor: UIColor(rgb: 0xFF42A8))
             // align to the center of the screen
             self.circularProgressBarView.center = self.mainView.center
             // call the animation with circularViewDuration

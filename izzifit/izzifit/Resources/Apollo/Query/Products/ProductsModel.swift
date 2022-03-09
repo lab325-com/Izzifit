@@ -12,7 +12,20 @@ struct ProductsModel: Codable {
 }
 
 struct ProductsMainModel: Codable, Hashable {
-    let id: String
-    let isToggled: Bool
-    let name: String
+    let id: String?
+    let isToggled: Bool?
+    let name: String?
+    let measure: ProductMeasure?
+    let amount: Int?
+    let ProductSources: [ProductSourceModel?]?
 }
+
+struct ProductSourceModel: Codable, Hashable {
+    let amount: Int?
+    let name: SourceEntityType?
+}
+
+extension ProductMeasure: Codable {
+    
+}
+

@@ -25,17 +25,17 @@ class CircularProgressBarView: UIView {
         super.init(coder: coder)
     }
     
-    func createCircularPath() {
+    func createCircularPath(backColor: UIColor, frontColor: UIColor, radius: CGFloat = 135, lineWidth: CGFloat = 8.0) {
         // created circularPath for circleLayer and progressLayer
-        let circularPath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: 135, startAngle: startPoint, endAngle: endPoint, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: radius, startAngle: startPoint, endAngle: endPoint, clockwise: true)
         // circleLayer path defined to circularPath
         circleLayer.path = circularPath.cgPath
         // ui edits
         circleLayer.fillColor = UIColor.clear.cgColor
         circleLayer.lineCap = .round
-        circleLayer.lineWidth = 8.0
+        circleLayer.lineWidth = lineWidth
         circleLayer.strokeEnd = 1.0
-        circleLayer.strokeColor = UIColor(rgb: 0xDBD6E6).cgColor
+        circleLayer.strokeColor = backColor.cgColor
         // added circleLayer to layer
         layer.addSublayer(circleLayer)
         // progressLayer path defined to circularPath
@@ -43,19 +43,19 @@ class CircularProgressBarView: UIView {
         // ui edits
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.lineCap = .round
-        progressLayer.lineWidth = 8.0
+        progressLayer.lineWidth = lineWidth
         progressLayer.strokeEnd = 0
-        progressLayer.strokeColor = UIColor(rgb: 0xFF42A8).cgColor
+        progressLayer.strokeColor = frontColor.cgColor
         // added progressLayer to layer
         layer.addSublayer(progressLayer)
     }
     
-    func progressAnimation(duration: TimeInterval) {
+    func progressAnimation(duration: TimeInterval, toValue: CGFloat = 1.0) {
         // created circularProgressAnimation with keyPath
         let circularProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
         // set the end time
         circularProgressAnimation.duration = duration
-        circularProgressAnimation.toValue = 1.0
+        circularProgressAnimation.toValue = toValue
         circularProgressAnimation.fillMode = .forwards
         circularProgressAnimation.isRemovedOnCompletion = false
         progressLayer.add(circularProgressAnimation, forKey: "progressAnim")

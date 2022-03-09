@@ -11,12 +11,12 @@ enum QuizeWeightType: Codable {
     case kg
     case lb
     
-    var api: MeasureWeight {
+    var api: WeightMeasure {
         switch self {
         case .kg:
-            return .measureWeightTypeKg
+            return .weightMeasureTypeKg
         case .lb:
-            return .measureWeightTypeLb
+            return .weightMeasureTypeLb
         }
     }
 }

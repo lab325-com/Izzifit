@@ -1,0 +1,7 @@
+query SleepWidget($date: Date!) {
+    sleepWidget(date: $date) {
+        energy
+        energyTotal
+        quality
+    }
+}
