@@ -184,6 +184,18 @@
 		02FAF0AE27D36D7C002CD678 /* EnergyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAF0AD27D36D7C002CD678 /* EnergyPresenter.swift */; };
 		02FAF0B027D36EA1002CD678 /* DrinkWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAF0AF27D36EA1002CD678 /* DrinkWidgetModel.swift */; };
 		8C4F7F85C1CC5538D3E379C8 /* Pods_izzifit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA5E332399E73031D583774 /* Pods_izzifit.framework */; };
+		FA1761AD27DA1D80002881BB /* WorkoutController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761AC27DA1D80002881BB /* WorkoutController+TableView.swift */; };
+		FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761AF27DA1F60002881BB /* WorkoutActivitiesCell.swift */; };
+		FA1761B227DA1F60002881BB /* WorkoutActivitiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1761B027DA1F60002881BB /* WorkoutActivitiesCell.xib */; };
+		FA1761B527DA1F72002881BB /* WorkoutSpecialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761B327DA1F72002881BB /* WorkoutSpecialCell.swift */; };
+		FA1761B627DA1F72002881BB /* WorkoutSpecialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1761B427DA1F72002881BB /* WorkoutSpecialCell.xib */; };
+		FA1761B927DA1F8A002881BB /* WorkoutExercisesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761B727DA1F8A002881BB /* WorkoutExercisesCell.swift */; };
+		FA1761BA27DA1F8A002881BB /* WorkoutExercisesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1761B827DA1F8A002881BB /* WorkoutExercisesCell.xib */; };
+		FA1761C027DA3E96002881BB /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761BE27DA3E96002881BB /* ActivityCell.swift */; };
+		FA1761C127DA3E96002881BB /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1761BF27DA3E96002881BB /* ActivityCell.xib */; };
+		FAA9DBEB27D9ECD4004A14FB /* WorkoutTypesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */; };
+		FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAA9DBEA27D9ECD4004A14FB /* WorkoutTypes.graphql */; };
+		FAA9DBEE27D9ECFF004A14FB /* WorkoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -363,6 +375,18 @@
 		352468CF0028C7B7CE37BC1F /* Pods-izzifit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.release.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.release.xcconfig"; sourceTree = "<group>"; };
 		3DE270F6FF543B995EC67ADF /* Pods-izzifit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.debug.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.debug.xcconfig"; sourceTree = "<group>"; };
 		A00F8397483211F5694F3938 /* Pods-izzifit.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.staging.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.staging.xcconfig"; sourceTree = "<group>"; };
+		FA1761AC27DA1D80002881BB /* WorkoutController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutController+TableView.swift"; sourceTree = "<group>"; };
+		FA1761AF27DA1F60002881BB /* WorkoutActivitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutActivitiesCell.swift; sourceTree = "<group>"; };
+		FA1761B027DA1F60002881BB /* WorkoutActivitiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutActivitiesCell.xib; sourceTree = "<group>"; };
+		FA1761B327DA1F72002881BB /* WorkoutSpecialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSpecialCell.swift; sourceTree = "<group>"; };
+		FA1761B427DA1F72002881BB /* WorkoutSpecialCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutSpecialCell.xib; sourceTree = "<group>"; };
+		FA1761B727DA1F8A002881BB /* WorkoutExercisesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExercisesCell.swift; sourceTree = "<group>"; };
+		FA1761B827DA1F8A002881BB /* WorkoutExercisesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutExercisesCell.xib; sourceTree = "<group>"; };
+		FA1761BE27DA3E96002881BB /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
+		FA1761BF27DA3E96002881BB /* ActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
+		FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTypesModel.swift; sourceTree = "<group>"; };
+		FAA9DBEA27D9ECD4004A14FB /* WorkoutTypes.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutTypes.graphql; sourceTree = "<group>"; };
+		FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPresenter.swift; sourceTree = "<group>"; };
 		FDA5E332399E73031D583774 /* Pods_izzifit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_izzifit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -720,6 +744,7 @@
 		0249D29A27B3D78900F265C1 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+				FAA9DBE827D9EC9F004A14FB /* WorkoutTypes */,
 				0268752B27D8CC0400FFEA6A /* SaveWeightWidget */,
 				0268752127D8902600FFEA6A /* TodayProgress */,
 				02F01C5027D7941C0066656D /* MoodWidget */,
@@ -912,6 +937,9 @@
 			children = (
 				02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */,
 				02A5CDA927C393DC00D31FB4 /* WorkoutController.xib */,
+				FA1761AC27DA1D80002881BB /* WorkoutController+TableView.swift */,
+				FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */,
+				FA1761AE27DA1F1B002881BB /* Cell */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -1248,6 +1276,54 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA1761AE27DA1F1B002881BB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FA1761BB27DA3912002881BB /* WorkoutActivitiesCell */,
+				FA1761BC27DA3938002881BB /* WorkoutSpecialCell */,
+				FA1761BD27DA3944002881BB /* WorkoutExercisesCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FA1761BB27DA3912002881BB /* WorkoutActivitiesCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA1761AF27DA1F60002881BB /* WorkoutActivitiesCell.swift */,
+				FA1761B027DA1F60002881BB /* WorkoutActivitiesCell.xib */,
+				FA1761BE27DA3E96002881BB /* ActivityCell.swift */,
+				FA1761BF27DA3E96002881BB /* ActivityCell.xib */,
+			);
+			path = WorkoutActivitiesCell;
+			sourceTree = "<group>";
+		};
+		FA1761BC27DA3938002881BB /* WorkoutSpecialCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA1761B327DA1F72002881BB /* WorkoutSpecialCell.swift */,
+				FA1761B427DA1F72002881BB /* WorkoutSpecialCell.xib */,
+			);
+			path = WorkoutSpecialCell;
+			sourceTree = "<group>";
+		};
+		FA1761BD27DA3944002881BB /* WorkoutExercisesCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA1761B727DA1F8A002881BB /* WorkoutExercisesCell.swift */,
+				FA1761B827DA1F8A002881BB /* WorkoutExercisesCell.xib */,
+			);
+			path = WorkoutExercisesCell;
+			sourceTree = "<group>";
+		};
+		FAA9DBE827D9EC9F004A14FB /* WorkoutTypes */ = {
+			isa = PBXGroup;
+			children = (
+				FAA9DBEA27D9ECD4004A14FB /* WorkoutTypes.graphql */,
+				FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */,
+			);
+			path = WorkoutTypes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1331,6 +1407,7 @@
 				0268752A27D8C90100FFEA6A /* EnergyWeightCell.xib in Resources */,
 				0227DAAE27C66C25008AB26B /* MenuAgeController.xib in Resources */,
 				025463AD27CE6E9800D433DB /* MenuFitnessController.xib in Resources */,
+				FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */,
 				0268752327D8904900FFEA6A /* TodayProgress.graphql in Resources */,
 				02FAF0A727D361AE002CD678 /* EnergyDrinkWaterCell.xib in Resources */,
 				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
@@ -1341,9 +1418,11 @@
 				02D066BF27BBB57D00D12C5F /* Inter-ExtraBold.ttf in Resources */,
 				02D066C227BBB57D00D12C5F /* Inter-Light.ttf in Resources */,
 				025463A327CE2F1500D433DB /* MenuWriteQuestionController.xib in Resources */,
+				FA1761B227DA1F60002881BB /* WorkoutActivitiesCell.xib in Resources */,
 				0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */,
 				02D066CC27BBBB4300D12C5F /* QuizeNameController.xib in Resources */,
 				0249D28327B3AAAE00F265C1 /* LoginController.xib in Resources */,
+				FA1761C127DA3E96002881BB /* ActivityCell.xib in Resources */,
 				02D066C027BBB57D00D12C5F /* Inter-Medium.ttf in Resources */,
 				02C3DD6C27BEDB46004E5C65 /* ProfileUpdate.graphql in Resources */,
 				0227DABD27C6768F008AB26B /* MenuWeightController.xib in Resources */,
@@ -1353,11 +1432,13 @@
 				0227DA9727C619F7008AB26B /* MenuCell.xib in Resources */,
 				02D066EA27BC1BC900D12C5F /* QuizeWeightController.xib in Resources */,
 				02B225BE27BD7B110035CFA2 /* Login.graphql in Resources */,
+				FA1761B627DA1F72002881BB /* WorkoutSpecialCell.xib in Resources */,
 				02A5CDC327C4247300D31FB4 /* QuizeFoodCell.xib in Resources */,
 				02D066C627BBB57D00D12C5F /* Inter-SemiBold.ttf in Resources */,
 				02FAF0AC27D36CE0002CD678 /* DrinkWidget.graphql in Resources */,
 				0227DAA727C64E31008AB26B /* MenuNameController.xib in Resources */,
 				0227DAC727C6A455008AB26B /* MenuFoodController.xib in Resources */,
+				FA1761BA27DA1F8A002881BB /* WorkoutExercisesCell.xib in Resources */,
 				02A5CDBA27C3DCFB00D31FB4 /* PasswordForgotRequest.graphql in Resources */,
 				021A6F4F27BF99720000D863 /* MainTabBarController.xib in Resources */,
 				0268752D27D8CC5E00FFEA6A /* SaveWeightWidget.graphql in Resources */,
@@ -1514,6 +1595,7 @@
 			files = (
 				0290B39327D2045400381B42 /* ShadowsView.swift in Sources */,
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
+				FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */,
 				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
 				0268752927D8C90100FFEA6A /* EnergyWeightCell.swift in Sources */,
 				02A5CDB427C3949700D31FB4 /* MenuController.swift in Sources */,
@@ -1531,6 +1613,7 @@
 				02D066E927BC1BC900D12C5F /* QuizeWeightController.swift in Sources */,
 				0249D26227B3A88C00F265C1 /* Collection+Extension.swift in Sources */,
 				0249D24427B3A64300F265C1 /* LoadFromXibProtocol.swift in Sources */,
+				FAA9DBEB27D9ECD4004A14FB /* WorkoutTypesModel.swift in Sources */,
 				0249D24B27B3A67900F265C1 /* BaseController.swift in Sources */,
 				0290B39527D212CA00381B42 /* UIView+Extension.swift in Sources */,
 				02A5CDBE27C3DE9F00D31FB4 /* ImageModel.swift in Sources */,
@@ -1543,9 +1626,11 @@
 				0249D26327B3A88C00F265C1 /* UIApplicathion+Extension.swift in Sources */,
 				02FAF0B027D36EA1002CD678 /* DrinkWidgetModel.swift in Sources */,
 				02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */,
+				FA1761B527DA1F72002881BB /* WorkoutSpecialCell.swift in Sources */,
 				02D066AD27BBA8F400D12C5F /* R.generated.swift in Sources */,
 				0249D26927B3A92300F265C1 /* KeychainService.swift in Sources */,
 				0227DABC27C6768F008AB26B /* MenuWeightController.swift in Sources */,
+				FA1761B927DA1F8A002881BB /* WorkoutExercisesCell.swift in Sources */,
 				02B225C027BD7B4F0035CFA2 /* LoginModel.swift in Sources */,
 				0227DAB727C67334008AB26B /* MenuHeightController.swift in Sources */,
 				02D066D327BBD12600D12C5F /* QuizeGenderController.swift in Sources */,
@@ -1564,7 +1649,9 @@
 				025463A827CE404F00D433DB /* ToggleProductInRationModel.swift in Sources */,
 				0268752F27D8CCB700FFEA6A /* SaveWeightWidgetModel.swift in Sources */,
 				02D066CE27BBC41800D12C5F /* OnboardingRouter.swift in Sources */,
+				FA1761AD27DA1D80002881BB /* WorkoutController+TableView.swift in Sources */,
 				025463AC27CE6E9800D433DB /* MenuFitnessController.swift in Sources */,
+				FA1761C027DA3E96002881BB /* ActivityCell.swift in Sources */,
 				02A5CDB027C3947800D31FB4 /* ProfileController.swift in Sources */,
 				02D066D827BBDC3400D12C5F /* QuizeGoalController.swift in Sources */,
 				025463A227CE2F1500D433DB /* MenuWriteQuestionController.swift in Sources */,
@@ -1595,6 +1682,7 @@
 				0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */,
 				0249D27427B3AA0400F265C1 /* NetwokrManager.swift in Sources */,
 				021A6F4A27BF91050000D863 /* CircularProgressBarView.swift in Sources */,
+				FAA9DBEE27D9ECFF004A14FB /* WorkoutPresenter.swift in Sources */,
 				021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */,
 				02C3DD6827BEDAB1004E5C65 /* QuizeProgressPresenter.swift in Sources */,
 				02F2D94427D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift in Sources */,

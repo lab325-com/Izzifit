@@ -131,7 +131,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 29 files.
+  /// This `R.file` struct is generated, and contains static references to 30 files.
   struct file {
     /// Resource file `AskQuestion.graphql`.
     static let askQuestionGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AskQuestion", pathExtension: "graphql")
@@ -191,6 +191,8 @@ struct R: Rswift.Validatable {
     static let toggleMuscleInWorkoutsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleMuscleInWorkouts", pathExtension: "graphql")
     /// Resource file `ToggleProductInRation.graphql`.
     static let toggleProductInRationGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleProductInRation", pathExtension: "graphql")
+    /// Resource file `WorkoutTypes.graphql`.
+    static let workoutTypesGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutTypes", pathExtension: "graphql")
 
     /// `bundle.url(forResource: "AskQuestion", withExtension: "graphql")`
     static func askQuestionGraphql(_: Void = ()) -> Foundation.URL? {
@@ -366,6 +368,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "WorkoutTypes", withExtension: "graphql")`
+    static func workoutTypesGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.workoutTypesGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     fileprivate init() {}
   }
 
@@ -450,7 +458,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 42 images.
+  /// This `R.image` struct is generated, and contains static references to 47 images.
   struct image {
     /// Image `auth_note_see_pass_ic`.
     static let auth_note_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_note_see_pass_ic")
@@ -536,6 +544,16 @@ struct R: Rswift.Validatable {
     static let tab_bar_profile_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab_bar_profile_ic")
     /// Image `tab_bar_workout_ic`.
     static let tab_bar_workout_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab_bar_workout_ic")
+    /// Image `temp_activity_ic`.
+    static let temp_activity_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "temp_activity_ic")
+    /// Image `top_view_coin_ic`.
+    static let top_view_coin_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_coin_ic")
+    /// Image `top_view_elipse_ic`.
+    static let top_view_elipse_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_elipse_ic")
+    /// Image `top_view_flash_ic`.
+    static let top_view_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_flash_ic")
+    /// Image `workout_activities_ic`.
+    static let workout_activities_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_activities_ic")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "auth_note_see_pass_ic", bundle: ..., traitCollection: ...)`
@@ -831,13 +849,52 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "temp_activity_ic", bundle: ..., traitCollection: ...)`
+    static func temp_activity_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.temp_activity_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "top_view_coin_ic", bundle: ..., traitCollection: ...)`
+    static func top_view_coin_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.top_view_coin_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "top_view_elipse_ic", bundle: ..., traitCollection: ...)`
+    static func top_view_elipse_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.top_view_elipse_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "top_view_flash_ic", bundle: ..., traitCollection: ...)`
+    static func top_view_flash_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.top_view_flash_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "workout_activities_ic", bundle: ..., traitCollection: ...)`
+    static func workout_activities_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.workout_activities_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 40 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 45 nibs.
   struct nib {
     /// Nib `EnerdyTodayCell`.
     static let enerdyTodayCell = _R.nib._EnerdyTodayCell()
+    /// Nib `EnergyChooseActivityCell`.
+    static let energyChooseActivityCell = _R.nib._EnergyChooseActivityCell()
+    /// Nib `EnergyChooseActivityCollectionCell`.
+    static let energyChooseActivityCollectionCell = _R.nib._EnergyChooseActivityCollectionCell()
     /// Nib `EnergyController`.
     static let energyController = _R.nib._EnergyController()
     /// Nib `EnergyDrinkWaterCell`.
@@ -914,14 +971,36 @@ struct R: Rswift.Validatable {
     static let splashViewController = _R.nib._SplashViewController()
     /// Nib `StartController`.
     static let startController = _R.nib._StartController()
+    /// Nib `WorkoutActivitiesCell`.
+    static let workoutActivitiesCell = _R.nib._WorkoutActivitiesCell()
     /// Nib `WorkoutController`.
     static let workoutController = _R.nib._WorkoutController()
+    /// Nib `WorkoutExercisesCell`.
+    static let workoutExercisesCell = _R.nib._WorkoutExercisesCell()
+    /// Nib `WorkoutSpecialCell`.
+    static let workoutSpecialCell = _R.nib._WorkoutSpecialCell()
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "EnerdyTodayCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.enerdyTodayCell) instead")
     static func enerdyTodayCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.enerdyTodayCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "EnergyChooseActivityCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.energyChooseActivityCell) instead")
+    static func energyChooseActivityCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.energyChooseActivityCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "EnergyChooseActivityCollectionCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.energyChooseActivityCollectionCell) instead")
+    static func energyChooseActivityCollectionCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.energyChooseActivityCollectionCell)
     }
     #endif
 
@@ -1230,6 +1309,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutActivitiesCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutActivitiesCell) instead")
+    static func workoutActivitiesCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutActivitiesCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "WorkoutController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutController) instead")
     static func workoutController(_: Void = ()) -> UIKit.UINib {
@@ -1237,8 +1324,32 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutExercisesCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutExercisesCell) instead")
+    static func workoutExercisesCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutExercisesCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutSpecialCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutSpecialCell) instead")
+    static func workoutSpecialCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutSpecialCell)
+    }
+    #endif
+
     static func enerdyTodayCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnerdyTodayCell? {
       return R.nib.enerdyTodayCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnerdyTodayCell
+    }
+
+    static func energyChooseActivityCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyChooseActivityCell? {
+      return R.nib.energyChooseActivityCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyChooseActivityCell
+    }
+
+    static func energyChooseActivityCollectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyChooseActivityCollectionCell? {
+      return R.nib.energyChooseActivityCollectionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyChooseActivityCollectionCell
     }
 
     static func energyController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -1393,17 +1504,33 @@ struct R: Rswift.Validatable {
       return R.nib.startController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func workoutActivitiesCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutActivitiesCell? {
+      return R.nib.workoutActivitiesCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutActivitiesCell
+    }
+
     static func workoutController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.workoutController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func workoutExercisesCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutExercisesCell? {
+      return R.nib.workoutExercisesCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutExercisesCell
+    }
+
+    static func workoutSpecialCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutSpecialCell? {
+      return R.nib.workoutSpecialCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutSpecialCell
     }
 
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 10 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 15 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `EnerdyTodayCell`.
     static let enerdyTodayCell: Rswift.ReuseIdentifier<EnerdyTodayCell> = Rswift.ReuseIdentifier(identifier: "EnerdyTodayCell")
+    /// Reuse identifier `EnergyChooseActivityCell`.
+    static let energyChooseActivityCell: Rswift.ReuseIdentifier<EnergyChooseActivityCell> = Rswift.ReuseIdentifier(identifier: "EnergyChooseActivityCell")
+    /// Reuse identifier `EnergyChooseActivityCollectionCell`.
+    static let energyChooseActivityCollectionCell: Rswift.ReuseIdentifier<EnergyChooseActivityCollectionCell> = Rswift.ReuseIdentifier(identifier: "EnergyChooseActivityCollectionCell")
     /// Reuse identifier `EnergyDrinkWaterCell`.
     static let energyDrinkWaterCell: Rswift.ReuseIdentifier<EnergyDrinkWaterCell> = Rswift.ReuseIdentifier(identifier: "EnergyDrinkWaterCell")
     /// Reuse identifier `EnergyMealsCell`.
@@ -1422,14 +1549,24 @@ struct R: Rswift.Validatable {
     static let menuLanguagesTitleCell: Rswift.ReuseIdentifier<MenuLanguagesTitleCell> = Rswift.ReuseIdentifier(identifier: "MenuLanguagesTitleCell")
     /// Reuse identifier `QuizeFoodCell`.
     static let quizeFoodCell: Rswift.ReuseIdentifier<QuizeFoodCell> = Rswift.ReuseIdentifier(identifier: "QuizeFoodCell")
+    /// Reuse identifier `WorkoutActivitiesCell`.
+    static let workoutActivitiesCell: Rswift.ReuseIdentifier<WorkoutActivitiesCell> = Rswift.ReuseIdentifier(identifier: "WorkoutActivitiesCell")
+    /// Reuse identifier `WorkoutExercisesCell`.
+    static let workoutExercisesCell: Rswift.ReuseIdentifier<WorkoutExercisesCell> = Rswift.ReuseIdentifier(identifier: "WorkoutExercisesCell")
+    /// Reuse identifier `WorkoutSpecialCell`.
+    static let workoutSpecialCell: Rswift.ReuseIdentifier<WorkoutSpecialCell> = Rswift.ReuseIdentifier(identifier: "WorkoutSpecialCell")
 
     fileprivate init() {}
   }
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 104 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 111 localization keys.
     struct localizable {
+      /// en translation: %d from %d
+      ///
+      /// Locales: en
+      static let energy_training_from = Rswift.StringResource(key: "energy_training_from", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: %d from %d
       ///
       /// Locales: en
@@ -1474,10 +1611,18 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let energy_meals_carbs = Rswift.StringResource(key: "energy_meals_carbs", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Choose activity
+      ///
+      /// Locales: en
+      static let energy_choose_activity = Rswift.StringResource(key: "energy_choose_activity", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Classic
       ///
       /// Locales: en
       static let onboarding_food_classic = Rswift.StringResource(key: "onboarding_food_classic", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Continue training
+      ///
+      /// Locales: en
+      static let energy_training_continue = Rswift.StringResource(key: "energy_training_continue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Diet Preferences
       ///
       /// Locales: en
@@ -1506,6 +1651,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_english = Rswift.StringResource(key: "menu_english", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Excellent! Good workout %d min
+      ///
+      /// Locales: en
+      static let energy_training_excellent = Rswift.StringResource(key: "energy_training_excellent", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Exclude from menu
       ///
       /// Locales: en
@@ -1738,6 +1887,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let login_start = Rswift.StringResource(key: "login_start", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Start training
+      ///
+      /// Locales: en
+      static let energy_training_start_training = Rswift.StringResource(key: "energy_training_start_training", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Submit
       ///
       /// Locales: en
@@ -1770,6 +1923,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_write_us_plcaheloder = Rswift.StringResource(key: "menu_write_us_plcaheloder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Training
+      ///
+      /// Locales: en
+      static let energy_training_training = Rswift.StringResource(key: "energy_training_training", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Update
       ///
       /// Locales: en
@@ -1834,6 +1991,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_name = Rswift.StringResource(key: "onboarding_name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Your next workout %d min
+      ///
+      /// Locales: en
+      static let energy_training_next_workout = Rswift.StringResource(key: "energy_training_next_workout", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Your progress %d%
       ///
       /// Locales: en
@@ -1846,6 +2007,23 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let login_and = Rswift.StringResource(key: "login_and", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+
+      /// en translation: %d from %d
+      ///
+      /// Locales: en
+      static func energy_training_from(_ value1: Int, _ value2: Int, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("energy_training_from", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1, value2)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_training_from"
+        }
+
+        let format = NSLocalizedString("energy_training_from", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1, value2)
+      }
 
       /// en translation: %d from %d
       ///
@@ -2018,6 +2196,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("energy_meals_carbs", bundle: bundle, comment: "")
       }
 
+      /// en translation: Choose activity
+      ///
+      /// Locales: en
+      static func energy_choose_activity(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("energy_choose_activity", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_choose_activity"
+        }
+
+        return NSLocalizedString("energy_choose_activity", bundle: bundle, comment: "")
+      }
+
       /// en translation: Classic
       ///
       /// Locales: en
@@ -2031,6 +2224,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("onboarding_food_classic", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Continue training
+      ///
+      /// Locales: en
+      static func energy_training_continue(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("energy_training_continue", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_training_continue"
+        }
+
+        return NSLocalizedString("energy_training_continue", bundle: bundle, comment: "")
       }
 
       /// en translation: Diet Preferences
@@ -2136,6 +2344,23 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("menu_english", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Excellent! Good workout %d min
+      ///
+      /// Locales: en
+      static func energy_training_excellent(_ value1: Int, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("energy_training_excellent", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_training_excellent"
+        }
+
+        let format = NSLocalizedString("energy_training_excellent", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
       }
 
       /// en translation: Exclude from menu
@@ -3012,6 +3237,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("login_start", bundle: bundle, comment: "")
       }
 
+      /// en translation: Start training
+      ///
+      /// Locales: en
+      static func energy_training_start_training(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("energy_training_start_training", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_training_start_training"
+        }
+
+        return NSLocalizedString("energy_training_start_training", bundle: bundle, comment: "")
+      }
+
       /// en translation: Submit
       ///
       /// Locales: en
@@ -3130,6 +3370,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("menu_write_us_plcaheloder", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Training
+      ///
+      /// Locales: en
+      static func energy_training_training(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("energy_training_training", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_training_training"
+        }
+
+        return NSLocalizedString("energy_training_training", bundle: bundle, comment: "")
       }
 
       /// en translation: Update
@@ -3372,6 +3627,23 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("onboarding_name", bundle: bundle, comment: "")
       }
 
+      /// en translation: Your next workout %d min
+      ///
+      /// Locales: en
+      static func energy_training_next_workout(_ value1: Int, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("energy_training_next_workout", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_training_next_workout"
+        }
+
+        let format = NSLocalizedString("energy_training_next_workout", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
+
       /// en translation: Your progress %d%
       ///
       /// Locales: en
@@ -3452,6 +3724,8 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _EnerdyTodayCell.validate()
+      try _EnergyChooseActivityCell.validate()
+      try _EnergyChooseActivityCollectionCell.validate()
       try _EnergyController.validate()
       try _EnergyDrinkWaterCell.validate()
       try _EnergyMealsCell.validate()
@@ -3487,6 +3761,7 @@ struct _R: Rswift.Validatable {
       try _QuizeWeightController.validate()
       try _SplashViewController.validate()
       try _StartController.validate()
+      try _WorkoutController.validate()
     }
 
     struct _EnerdyTodayCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
@@ -3504,6 +3779,46 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "energy_arrow_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_arrow_back_ic' is used in nib 'EnerdyTodayCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_arrow_forward_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_arrow_forward_ic' is used in nib 'EnerdyTodayCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_today_pin_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_today_pin_ic' is used in nib 'EnerdyTodayCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _EnergyChooseActivityCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = EnergyChooseActivityCell
+
+      let bundle = R.hostingBundle
+      let identifier = "EnergyChooseActivityCell"
+      let name = "EnergyChooseActivityCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyChooseActivityCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyChooseActivityCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergyChooseActivityCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _EnergyChooseActivityCollectionCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = EnergyChooseActivityCollectionCell
+
+      let bundle = R.hostingBundle
+      let identifier = "EnergyChooseActivityCollectionCell"
+      let name = "EnergyChooseActivityCollectionCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyChooseActivityCollectionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyChooseActivityCollectionCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "temp_activity_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'temp_activity_ic' is used in nib 'EnergyChooseActivityCollectionCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -4214,12 +4529,63 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _WorkoutController: Rswift.NibResourceType {
+    struct _WorkoutActivitiesCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = WorkoutActivitiesCell
+
+      let bundle = R.hostingBundle
+      let identifier = "WorkoutActivitiesCell"
+      let name = "WorkoutActivitiesCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutActivitiesCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutActivitiesCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WorkoutController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "WorkoutController"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "placeholder_food_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder_food_ic' is used in nib 'WorkoutController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "top_view_coin_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_coin_ic' is used in nib 'WorkoutController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "top_view_elipse_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_elipse_ic' is used in nib 'WorkoutController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "top_view_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_flash_ic' is used in nib 'WorkoutController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WorkoutExercisesCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = WorkoutExercisesCell
+
+      let bundle = R.hostingBundle
+      let identifier = "WorkoutExercisesCell"
+      let name = "WorkoutExercisesCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutExercisesCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutExercisesCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WorkoutSpecialCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = WorkoutSpecialCell
+
+      let bundle = R.hostingBundle
+      let identifier = "WorkoutSpecialCell"
+      let name = "WorkoutSpecialCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutSpecialCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutSpecialCell
       }
 
       fileprivate init() {}

@@ -323,7 +323,7 @@ extension Network {
         private lazy var webSocketTransport: WebSocketTransport = {
             let url = URL(string: AppConfiguration.shared.wssName)!
             let request = URLRequest(url: url)
-            let webSocketClient = WebSocket(request: request)
+            let webSocketClient = WebSocket(request: request, protocol: .graphql_transport_ws)
             let authPayload = ["Authorization": "Bearer \(KeychainService.standard.newAuthToken?.token ?? "")"]
             return WebSocketTransport(websocket: webSocketClient, connectingPayload: authPayload)
         }()
