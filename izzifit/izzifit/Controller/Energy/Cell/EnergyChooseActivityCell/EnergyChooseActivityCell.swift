@@ -14,16 +14,23 @@ class EnergyChooseActivityCell: UITableViewCell {
     //----------------------------------------------
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var heightCollectionView: NSLayoutConstraint!
+    @IBOutlet weak var mainTitleLabel: UILabel!
     
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
+    
+    private let weight  = UIScreen.main.bounds.size.width * 0.4373
+    private let height  = (UIScreen.main.bounds.size.width * 0.4373) * 0.6829 + 35
     
     private let cellIdentifier = String(describing: EnergyChooseActivityCollectionCell.self)
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        mainTitleLabel.text = RLocalization.energy_choose_activity()
+        heightCollectionView.constant = height
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib.init(nibName: cellIdentifier,
@@ -68,8 +75,7 @@ extension EnergyChooseActivityCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let weight  = UIScreen.main.bounds.size.width * 0.4373
-        let height  = weight * 0.6829 + 45
+        
         return CGSize(width: weight , height: height)
     }
 }

@@ -892,6 +892,7 @@
 				0273F56027D60C5F00B19449 /* EnergySleepCell */,
 				0268752627D8C8DF00FFEA6A /* EnergyWeightCell */,
 				0268753027D8E4ED00FFEA6A /* EnergyChooseActivityCell */,
+				02B1E71627D9FC9E00C9E610 /* EnergyTrainingCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -998,6 +999,13 @@
 				02ABCF4427CD0EA800E69C06 /* MenuLanguagesTitleCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		02B1E71627D9FC9E00C9E610 /* EnergyTrainingCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EnergyTrainingCell;
 			sourceTree = "<group>";
 		};
 		02B225A327BCFB7E0035CFA2 /* QuizeTargetWeight */ = {

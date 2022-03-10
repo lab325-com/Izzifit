@@ -450,7 +450,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 42 images.
+  /// This `R.image` struct is generated, and contains static references to 43 images.
   struct image {
     /// Image `auth_note_see_pass_ic`.
     static let auth_note_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_note_see_pass_ic")
@@ -536,6 +536,8 @@ struct R: Rswift.Validatable {
     static let tab_bar_profile_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab_bar_profile_ic")
     /// Image `tab_bar_workout_ic`.
     static let tab_bar_workout_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab_bar_workout_ic")
+    /// Image `temp_activity_ic`.
+    static let temp_activity_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "temp_activity_ic")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "auth_note_see_pass_ic", bundle: ..., traitCollection: ...)`
@@ -831,13 +833,24 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "temp_activity_ic", bundle: ..., traitCollection: ...)`
+    static func temp_activity_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.temp_activity_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 40 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 42 nibs.
   struct nib {
     /// Nib `EnerdyTodayCell`.
     static let enerdyTodayCell = _R.nib._EnerdyTodayCell()
+    /// Nib `EnergyChooseActivityCell`.
+    static let energyChooseActivityCell = _R.nib._EnergyChooseActivityCell()
+    /// Nib `EnergyChooseActivityCollectionCell`.
+    static let energyChooseActivityCollectionCell = _R.nib._EnergyChooseActivityCollectionCell()
     /// Nib `EnergyController`.
     static let energyController = _R.nib._EnergyController()
     /// Nib `EnergyDrinkWaterCell`.
@@ -922,6 +935,22 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.enerdyTodayCell) instead")
     static func enerdyTodayCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.enerdyTodayCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "EnergyChooseActivityCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.energyChooseActivityCell) instead")
+    static func energyChooseActivityCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.energyChooseActivityCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "EnergyChooseActivityCollectionCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.energyChooseActivityCollectionCell) instead")
+    static func energyChooseActivityCollectionCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.energyChooseActivityCollectionCell)
     }
     #endif
 
@@ -1241,6 +1270,14 @@ struct R: Rswift.Validatable {
       return R.nib.enerdyTodayCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnerdyTodayCell
     }
 
+    static func energyChooseActivityCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyChooseActivityCell? {
+      return R.nib.energyChooseActivityCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyChooseActivityCell
+    }
+
+    static func energyChooseActivityCollectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyChooseActivityCollectionCell? {
+      return R.nib.energyChooseActivityCollectionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyChooseActivityCollectionCell
+    }
+
     static func energyController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.energyController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -1400,10 +1437,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 10 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 12 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `EnerdyTodayCell`.
     static let enerdyTodayCell: Rswift.ReuseIdentifier<EnerdyTodayCell> = Rswift.ReuseIdentifier(identifier: "EnerdyTodayCell")
+    /// Reuse identifier `EnergyChooseActivityCell`.
+    static let energyChooseActivityCell: Rswift.ReuseIdentifier<EnergyChooseActivityCell> = Rswift.ReuseIdentifier(identifier: "EnergyChooseActivityCell")
+    /// Reuse identifier `EnergyChooseActivityCollectionCell`.
+    static let energyChooseActivityCollectionCell: Rswift.ReuseIdentifier<EnergyChooseActivityCollectionCell> = Rswift.ReuseIdentifier(identifier: "EnergyChooseActivityCollectionCell")
     /// Reuse identifier `EnergyDrinkWaterCell`.
     static let energyDrinkWaterCell: Rswift.ReuseIdentifier<EnergyDrinkWaterCell> = Rswift.ReuseIdentifier(identifier: "EnergyDrinkWaterCell")
     /// Reuse identifier `EnergyMealsCell`.
@@ -1428,7 +1469,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 104 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 105 localization keys.
     struct localizable {
       /// en translation: %d from %d
       ///
@@ -1474,6 +1515,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let energy_meals_carbs = Rswift.StringResource(key: "energy_meals_carbs", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Choose activity
+      ///
+      /// Locales: en
+      static let energy_choose_activity = Rswift.StringResource(key: "energy_choose_activity", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Classic
       ///
       /// Locales: en
@@ -2016,6 +2061,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("energy_meals_carbs", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Choose activity
+      ///
+      /// Locales: en
+      static func energy_choose_activity(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("energy_choose_activity", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_choose_activity"
+        }
+
+        return NSLocalizedString("energy_choose_activity", bundle: bundle, comment: "")
       }
 
       /// en translation: Classic
@@ -3452,6 +3512,8 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _EnerdyTodayCell.validate()
+      try _EnergyChooseActivityCell.validate()
+      try _EnergyChooseActivityCollectionCell.validate()
       try _EnergyController.validate()
       try _EnergyDrinkWaterCell.validate()
       try _EnergyMealsCell.validate()
@@ -3504,6 +3566,46 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "energy_arrow_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_arrow_back_ic' is used in nib 'EnerdyTodayCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_arrow_forward_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_arrow_forward_ic' is used in nib 'EnerdyTodayCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_today_pin_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_today_pin_ic' is used in nib 'EnerdyTodayCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _EnergyChooseActivityCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = EnergyChooseActivityCell
+
+      let bundle = R.hostingBundle
+      let identifier = "EnergyChooseActivityCell"
+      let name = "EnergyChooseActivityCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyChooseActivityCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyChooseActivityCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergyChooseActivityCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _EnergyChooseActivityCollectionCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = EnergyChooseActivityCollectionCell
+
+      let bundle = R.hostingBundle
+      let identifier = "EnergyChooseActivityCollectionCell"
+      let name = "EnergyChooseActivityCollectionCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyChooseActivityCollectionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyChooseActivityCollectionCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "temp_activity_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'temp_activity_ic' is used in nib 'EnergyChooseActivityCollectionCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
