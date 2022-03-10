@@ -17,6 +17,12 @@
 "energy_sleep_bad" = "Bad";
 "energy_sleep_good" = "Good";
 "energy_sleep_title" = "How did you sleep?";
+"energy_training_continue" = "Continue training";
+"energy_training_excellent" = "Excellent! Good workout %d min";
+"energy_training_from" = "%d from %d";
+"energy_training_next_workout" = "Your next workout %d min";
+"energy_training_start_training" = "Start training";
+"energy_training_training" = "Training";
 "energy_update_button" = "Update";
 "energy_update_weight_goal" = "Goal %.1f %@";
 "energy_update_weight_title" = "Update weight";

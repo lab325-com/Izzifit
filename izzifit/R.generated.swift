@@ -843,7 +843,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 42 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 43 nibs.
   struct nib {
     /// Nib `EnerdyTodayCell`.
     static let enerdyTodayCell = _R.nib._EnerdyTodayCell()
@@ -861,6 +861,8 @@ struct R: Rswift.Validatable {
     static let energyMoodCell = _R.nib._EnergyMoodCell()
     /// Nib `EnergySleepCell`.
     static let energySleepCell = _R.nib._EnergySleepCell()
+    /// Nib `EnergyTrainingCell`.
+    static let energyTrainingCell = _R.nib._EnergyTrainingCell()
     /// Nib `EnergyWeightCell`.
     static let energyWeightCell = _R.nib._EnergyWeightCell()
     /// Nib `LoginController`.
@@ -991,6 +993,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.energySleepCell) instead")
     static func energySleepCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.energySleepCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "EnergyTrainingCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.energyTrainingCell) instead")
+    static func energyTrainingCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.energyTrainingCell)
     }
     #endif
 
@@ -1298,6 +1308,10 @@ struct R: Rswift.Validatable {
       return R.nib.energySleepCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergySleepCell
     }
 
+    static func energyTrainingCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyTrainingCell? {
+      return R.nib.energyTrainingCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyTrainingCell
+    }
+
     static func energyWeightCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyWeightCell? {
       return R.nib.energyWeightCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyWeightCell
     }
@@ -1437,7 +1451,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 12 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 13 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `EnerdyTodayCell`.
     static let enerdyTodayCell: Rswift.ReuseIdentifier<EnerdyTodayCell> = Rswift.ReuseIdentifier(identifier: "EnerdyTodayCell")
@@ -1453,6 +1467,8 @@ struct R: Rswift.Validatable {
     static let energyMoodCell: Rswift.ReuseIdentifier<EnergyMoodCell> = Rswift.ReuseIdentifier(identifier: "EnergyMoodCell")
     /// Reuse identifier `EnergySleepCell`.
     static let energySleepCell: Rswift.ReuseIdentifier<EnergySleepCell> = Rswift.ReuseIdentifier(identifier: "EnergySleepCell")
+    /// Reuse identifier `EnergyTrainingCell`.
+    static let energyTrainingCell: Rswift.ReuseIdentifier<EnergyTrainingCell> = Rswift.ReuseIdentifier(identifier: "EnergyTrainingCell")
     /// Reuse identifier `EnergyWeightCell`.
     static let energyWeightCell: Rswift.ReuseIdentifier<EnergyWeightCell> = Rswift.ReuseIdentifier(identifier: "EnergyWeightCell")
     /// Reuse identifier `MenuFoodSwitchCell`.
@@ -1469,8 +1485,12 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 105 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 111 localization keys.
     struct localizable {
+      /// en translation: %d from %d
+      ///
+      /// Locales: en
+      static let energy_training_from = Rswift.StringResource(key: "energy_training_from", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: %d from %d
       ///
       /// Locales: en
@@ -1523,6 +1543,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_food_classic = Rswift.StringResource(key: "onboarding_food_classic", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Continue training
+      ///
+      /// Locales: en
+      static let energy_training_continue = Rswift.StringResource(key: "energy_training_continue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Diet Preferences
       ///
       /// Locales: en
@@ -1551,6 +1575,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_english = Rswift.StringResource(key: "menu_english", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Excellent! Good workout %d min
+      ///
+      /// Locales: en
+      static let energy_training_excellent = Rswift.StringResource(key: "energy_training_excellent", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Exclude from menu
       ///
       /// Locales: en
@@ -1783,6 +1811,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let login_start = Rswift.StringResource(key: "login_start", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Start training
+      ///
+      /// Locales: en
+      static let energy_training_start_training = Rswift.StringResource(key: "energy_training_start_training", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Submit
       ///
       /// Locales: en
@@ -1815,6 +1847,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_write_us_plcaheloder = Rswift.StringResource(key: "menu_write_us_plcaheloder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Training
+      ///
+      /// Locales: en
+      static let energy_training_training = Rswift.StringResource(key: "energy_training_training", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Update
       ///
       /// Locales: en
@@ -1879,6 +1915,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_name = Rswift.StringResource(key: "onboarding_name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Your next workout %d min
+      ///
+      /// Locales: en
+      static let energy_training_next_workout = Rswift.StringResource(key: "energy_training_next_workout", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Your progress %d%
       ///
       /// Locales: en
@@ -1891,6 +1931,23 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let login_and = Rswift.StringResource(key: "login_and", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+
+      /// en translation: %d from %d
+      ///
+      /// Locales: en
+      static func energy_training_from(_ value1: Int, _ value2: Int, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("energy_training_from", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1, value2)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_training_from"
+        }
+
+        let format = NSLocalizedString("energy_training_from", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1, value2)
+      }
 
       /// en translation: %d from %d
       ///
@@ -2093,6 +2150,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("onboarding_food_classic", bundle: bundle, comment: "")
       }
 
+      /// en translation: Continue training
+      ///
+      /// Locales: en
+      static func energy_training_continue(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("energy_training_continue", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_training_continue"
+        }
+
+        return NSLocalizedString("energy_training_continue", bundle: bundle, comment: "")
+      }
+
       /// en translation: Diet Preferences
       ///
       /// Locales: en
@@ -2196,6 +2268,23 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("menu_english", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Excellent! Good workout %d min
+      ///
+      /// Locales: en
+      static func energy_training_excellent(_ value1: Int, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("energy_training_excellent", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_training_excellent"
+        }
+
+        let format = NSLocalizedString("energy_training_excellent", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
       }
 
       /// en translation: Exclude from menu
@@ -3072,6 +3161,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("login_start", bundle: bundle, comment: "")
       }
 
+      /// en translation: Start training
+      ///
+      /// Locales: en
+      static func energy_training_start_training(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("energy_training_start_training", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_training_start_training"
+        }
+
+        return NSLocalizedString("energy_training_start_training", bundle: bundle, comment: "")
+      }
+
       /// en translation: Submit
       ///
       /// Locales: en
@@ -3190,6 +3294,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("menu_write_us_plcaheloder", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Training
+      ///
+      /// Locales: en
+      static func energy_training_training(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("energy_training_training", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_training_training"
+        }
+
+        return NSLocalizedString("energy_training_training", bundle: bundle, comment: "")
       }
 
       /// en translation: Update
@@ -3432,6 +3551,23 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("onboarding_name", bundle: bundle, comment: "")
       }
 
+      /// en translation: Your next workout %d min
+      ///
+      /// Locales: en
+      static func energy_training_next_workout(_ value1: Int, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("energy_training_next_workout", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "energy_training_next_workout"
+        }
+
+        let format = NSLocalizedString("energy_training_next_workout", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
+
       /// en translation: Your progress %d%
       ///
       /// Locales: en
@@ -3519,6 +3655,7 @@ struct _R: Rswift.Validatable {
       try _EnergyMealsCell.validate()
       try _EnergyMoodCell.validate()
       try _EnergySleepCell.validate()
+      try _EnergyTrainingCell.validate()
       try _EnergyWeightCell.validate()
       try _LoginController.validate()
       try _MainTabBarController.validate()
@@ -3710,6 +3847,28 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergySleepCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _EnergyTrainingCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = EnergyTrainingCell
+
+      let bundle = R.hostingBundle
+      let identifier = "EnergyTrainingCell"
+      let name = "EnergyTrainingCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyTrainingCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyTrainingCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergyTrainingCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_selected_ic' is used in nib 'EnergyTrainingCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "temp_activity_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'temp_activity_ic' is used in nib 'EnergyTrainingCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

@@ -130,6 +130,8 @@
 		02ABCF4127CD0D4700E69C06 /* MenuLanguageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02ABCF3F27CD0D4700E69C06 /* MenuLanguageController.xib */; };
 		02ABCF4527CD0EA800E69C06 /* MenuLanguagesTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABCF4327CD0EA800E69C06 /* MenuLanguagesTitleCell.swift */; };
 		02ABCF4627CD0EA800E69C06 /* MenuLanguagesTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02ABCF4427CD0EA800E69C06 /* MenuLanguagesTitleCell.xib */; };
+		02B1E71927DA003B00C9E610 /* EnergyTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1E71727DA003B00C9E610 /* EnergyTrainingCell.swift */; };
+		02B1E71A27DA003B00C9E610 /* EnergyTrainingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02B1E71827DA003B00C9E610 /* EnergyTrainingCell.xib */; };
 		02B225A227BCF0F00035CFA2 /* TempProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */; };
 		02B225A627BCFB9F0035CFA2 /* QuizeTargetWeightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225A427BCFB9F0035CFA2 /* QuizeTargetWeightController.swift */; };
 		02B225A727BCFB9F0035CFA2 /* QuizeTargetWeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02B225A527BCFB9F0035CFA2 /* QuizeTargetWeightController.xib */; };
@@ -307,6 +309,8 @@
 		02ABCF3F27CD0D4700E69C06 /* MenuLanguageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuLanguageController.xib; sourceTree = "<group>"; };
 		02ABCF4327CD0EA800E69C06 /* MenuLanguagesTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLanguagesTitleCell.swift; sourceTree = "<group>"; };
 		02ABCF4427CD0EA800E69C06 /* MenuLanguagesTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuLanguagesTitleCell.xib; sourceTree = "<group>"; };
+		02B1E71727DA003B00C9E610 /* EnergyTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyTrainingCell.swift; sourceTree = "<group>"; };
+		02B1E71827DA003B00C9E610 /* EnergyTrainingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyTrainingCell.xib; sourceTree = "<group>"; };
 		02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempProfileModel.swift; sourceTree = "<group>"; };
 		02B225A427BCFB9F0035CFA2 /* QuizeTargetWeightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeTargetWeightController.swift; sourceTree = "<group>"; };
 		02B225A527BCFB9F0035CFA2 /* QuizeTargetWeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeTargetWeightController.xib; sourceTree = "<group>"; };
@@ -1004,6 +1008,8 @@
 		02B1E71627D9FC9E00C9E610 /* EnergyTrainingCell */ = {
 			isa = PBXGroup;
 			children = (
+				02B1E71727DA003B00C9E610 /* EnergyTrainingCell.swift */,
+				02B1E71827DA003B00C9E610 /* EnergyTrainingCell.xib */,
 			);
 			path = EnergyTrainingCell;
 			sourceTree = "<group>";
@@ -1360,6 +1366,7 @@
 				0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */,
 				0227DA9727C619F7008AB26B /* MenuCell.xib in Resources */,
 				02D066EA27BC1BC900D12C5F /* QuizeWeightController.xib in Resources */,
+				02B1E71A27DA003B00C9E610 /* EnergyTrainingCell.xib in Resources */,
 				02B225BE27BD7B110035CFA2 /* Login.graphql in Resources */,
 				02A5CDC327C4247300D31FB4 /* QuizeFoodCell.xib in Resources */,
 				02D066C627BBB57D00D12C5F /* Inter-SemiBold.ttf in Resources */,
@@ -1577,6 +1584,7 @@
 				02D066D827BBDC3400D12C5F /* QuizeGoalController.swift in Sources */,
 				025463A227CE2F1500D433DB /* MenuWriteQuestionController.swift in Sources */,
 				0249D26D27B3A96E00F265C1 /* AuthModel.swift in Sources */,
+				02B1E71927DA003B00C9E610 /* EnergyTrainingCell.swift in Sources */,
 				0227DAA927C64F33008AB26B /* MenuRouter.swift in Sources */,
 				0273F56927D60EF600B19449 /* SleepWidgetModel.swift in Sources */,
 				0249D24C27B3A67900F265C1 /* RootRouter.swift in Sources */,

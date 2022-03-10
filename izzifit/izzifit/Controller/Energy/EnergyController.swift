@@ -35,6 +35,7 @@ class EnergyController: BaseController {
     private let cellSleepIdentifier = String(describing: EnergySleepCell.self)
     private let cellWeightIdentifier = String(describing: EnergyWeightCell.self)
     private let cellChooseActivity = String(describing: EnergyChooseActivityCell.self)
+    private let cellTraining = String(describing: EnergyTrainingCell.self)
     
     private lazy var presenter = EnergyPresenter(view: self)
 
@@ -80,6 +81,7 @@ class EnergyController: BaseController {
         tableView.register(UINib(nibName: cellSleepIdentifier, bundle: nil), forCellReuseIdentifier: cellSleepIdentifier)
         tableView.register(UINib(nibName: cellWeightIdentifier, bundle: nil), forCellReuseIdentifier: cellWeightIdentifier)
         tableView.register(UINib(nibName: cellChooseActivity, bundle: nil), forCellReuseIdentifier: cellChooseActivity)
+        tableView.register(UINib(nibName: cellTraining, bundle: nil), forCellReuseIdentifier: cellTraining)
         
         topView.layer.cornerRadius = 30
         topView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -97,7 +99,7 @@ class EnergyController: BaseController {
 extension EnergyController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -140,9 +142,11 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 6:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellChooseActivity) as? EnergyChooseActivityCell else { return UITableViewCell() }
-            cell.collectionView.reloadData()
             return cell
-            
+        case 7:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellTraining) as? EnergyTrainingCell else { return UITableViewCell() }
+            cell.setupCell(type: .training)
+            return cell
         default:
             return UITableViewCell()
         }
