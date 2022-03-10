@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ActivityCell" customModule="izzifit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="52" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="52" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPQ-FH-awt">
+                        <rect key="frame" x="0.0" y="0.0" width="52" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDj-9m-Ee8">
+                                <rect key="frame" x="8" y="16.5" width="36" height="17"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.25882352941176467" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="rDj-9m-Ee8" firstAttribute="centerX" secondItem="MPQ-FH-awt" secondAttribute="centerX" id="0aG-5d-fo4"/>
+                            <constraint firstItem="rDj-9m-Ee8" firstAttribute="leading" secondItem="MPQ-FH-awt" secondAttribute="leading" constant="8" id="8ae-3M-WsK"/>
+                            <constraint firstAttribute="trailing" secondItem="rDj-9m-Ee8" secondAttribute="trailing" constant="8" id="I4I-8w-0y5"/>
+                            <constraint firstItem="rDj-9m-Ee8" firstAttribute="centerY" secondItem="MPQ-FH-awt" secondAttribute="centerY" id="dYH-pf-RNt"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="MPQ-FH-awt" secondAttribute="trailing" id="Nhf-CJ-HXK"/>
+                <constraint firstItem="MPQ-FH-awt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="OVt-g2-xPJ"/>
+                <constraint firstItem="MPQ-FH-awt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Yar-25-V0X"/>
+                <constraint firstAttribute="bottom" secondItem="MPQ-FH-awt" secondAttribute="bottom" id="lO0-Aa-WjV"/>
+            </constraints>
+            <size key="customSize" width="52" height="50"/>
+            <point key="canvasLocation" x="137.68115942028987" y="83.705357142857139"/>
+        </collectionViewCell>
+    </objects>
+</document>
