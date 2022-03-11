@@ -56,6 +56,9 @@
                 <constraint firstAttribute="bottom" secondItem="MPQ-FH-awt" secondAttribute="bottom" id="lO0-Aa-WjV"/>
             </constraints>
             <size key="customSize" width="52" height="50"/>
+            <connections>
+                <outlet property="typeLabel" destination="rDj-9m-Ee8" id="ztm-Ec-1Al"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="83.705357142857139"/>
         </collectionViewCell>
     </objects>

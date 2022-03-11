@@ -13,8 +13,7 @@ class WorkoutActivitiesCell: UITableViewCell {
     // MARK: - Property
     //----------------------------------------------
     
-//    private let weight = UIScreen.main.bounds.size.width
-//    private let height = UIScreen.main.bounds.size.height
+    private let height = 32.0
     
     let cellIdentifier = String(describing: WorkoutActivityCollectionCell.self)
     
@@ -25,12 +24,14 @@ class WorkoutActivitiesCell: UITableViewCell {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.contentInset.left = 16
+        collectionView.contentInset.right = 16
         collectionView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
-        collectionView.reloadData()
     }
     
     func setupCell(workoutTypes: [WorkoutType]) {
-        //self.workoutTypes = workoutTypes
+        self.workoutTypes = workoutTypes
+        collectionView.reloadData()
     }
 }
 
@@ -40,11 +41,13 @@ class WorkoutActivitiesCell: UITableViewCell {
 
 extension WorkoutActivitiesCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return workoutTypes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! WorkoutActivityCollectionCell
+        
+        cell.setup(workoutType: workoutTypes[indexPath.row])
         
         return cell
     }
@@ -62,12 +65,14 @@ extension WorkoutActivitiesCell: UICollectionViewDelegate {
 // MARK: - UICollectionViewDelegateFlowLayout
 //----------------------------------------------
 
-//extension WorkoutActivitiesCell: UICollectionViewDelegateFlowLayout {
-//    
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        
-//        return CGSize(width: weight , height: height)
-//    }
-//}
+extension WorkoutActivitiesCell: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let label = UILabel(frame: CGRect.zero)
+        label.text = workoutTypes[indexPath.item].name
+        label.sizeToFit()
+        
+        return CGSize(width: label.frame.width + 16.0, height: height)
+    }
+}
