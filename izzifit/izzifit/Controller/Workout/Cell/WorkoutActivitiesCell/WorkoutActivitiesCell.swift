@@ -7,24 +7,30 @@ class WorkoutActivitiesCell: UITableViewCell {
     // MARK: - IBOutlet
     //----------------------------------------------
     
-    @IBOutlet weak var activitiesCollection: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     //----------------------------------------------
-    // MARK: - Prooerties
+    // MARK: - Property
     //----------------------------------------------
     
-    let activityCellIdentifier = String(describing: ActivityCell.self)
+//    private let weight = UIScreen.main.bounds.size.width
+//    private let height = UIScreen.main.bounds.size.height
+    
+    let cellIdentifier = String(describing: WorkoutActivityCollectionCell.self)
     
     var workoutTypes = [WorkoutType]()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        activitiesCollection.register(UINib(nibName: activityCellIdentifier, bundle: nil), forCellWithReuseIdentifier: activityCellIdentifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.reloadData()
     }
     
     func setupCell(workoutTypes: [WorkoutType]) {
-        self.workoutTypes = workoutTypes
+        //self.workoutTypes = workoutTypes
     }
 }
 
@@ -34,11 +40,11 @@ class WorkoutActivitiesCell: UITableViewCell {
 
 extension WorkoutActivitiesCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return workoutTypes.count
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: activityCellIdentifier, for: indexPath) as! ActivityCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! WorkoutActivityCollectionCell
         
         return cell
     }
@@ -51,3 +57,17 @@ extension WorkoutActivitiesCell: UICollectionViewDataSource {
 extension WorkoutActivitiesCell: UICollectionViewDelegate {
     
 }
+
+//----------------------------------------------
+// MARK: - UICollectionViewDelegateFlowLayout
+//----------------------------------------------
+
+//extension WorkoutActivitiesCell: UICollectionViewDelegateFlowLayout {
+//    
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        
+//        return CGSize(width: weight , height: height)
+//    }
+//}

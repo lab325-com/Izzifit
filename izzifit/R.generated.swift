@@ -889,8 +889,6 @@ struct R: Rswift.Validatable {
 
   /// This `R.nib` struct is generated, and contains static references to 47 nibs.
   struct nib {
-    /// Nib `ActivityCell`.
-    static let activityCell = _R.nib._ActivityCell()
     /// Nib `EnerdyTodayCell`.
     static let enerdyTodayCell = _R.nib._EnerdyTodayCell()
     /// Nib `EnergyChooseActivityCell`.
@@ -977,20 +975,14 @@ struct R: Rswift.Validatable {
     static let startController = _R.nib._StartController()
     /// Nib `WorkoutActivitiesCell`.
     static let workoutActivitiesCell = _R.nib._WorkoutActivitiesCell()
+    /// Nib `WorkoutActivityCollectionCell`.
+    static let workoutActivityCollectionCell = _R.nib._WorkoutActivityCollectionCell()
     /// Nib `WorkoutController`.
     static let workoutController = _R.nib._WorkoutController()
     /// Nib `WorkoutExercisesCell`.
     static let workoutExercisesCell = _R.nib._WorkoutExercisesCell()
     /// Nib `WorkoutSpecialCell`.
     static let workoutSpecialCell = _R.nib._WorkoutSpecialCell()
-
-    #if os(iOS) || os(tvOS)
-    /// `UINib(name: "ActivityCell", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.activityCell) instead")
-    static func activityCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.activityCell)
-    }
-    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "EnerdyTodayCell", in: bundle)`
@@ -1337,6 +1329,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutActivityCollectionCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutActivityCollectionCell) instead")
+    static func workoutActivityCollectionCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutActivityCollectionCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "WorkoutController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutController) instead")
     static func workoutController(_: Void = ()) -> UIKit.UINib {
@@ -1359,10 +1359,6 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.workoutSpecialCell)
     }
     #endif
-
-    static func activityCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ActivityCell? {
-      return R.nib.activityCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ActivityCell
-    }
 
     static func enerdyTodayCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnerdyTodayCell? {
       return R.nib.enerdyTodayCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnerdyTodayCell
@@ -1536,6 +1532,10 @@ struct R: Rswift.Validatable {
       return R.nib.workoutActivitiesCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutActivitiesCell
     }
 
+    static func workoutActivityCollectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutActivityCollectionCell? {
+      return R.nib.workoutActivityCollectionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutActivityCollectionCell
+    }
+
     static func workoutController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.workoutController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -1551,7 +1551,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 16 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 17 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `EnerdyTodayCell`.
     static let enerdyTodayCell: Rswift.ReuseIdentifier<EnerdyTodayCell> = Rswift.ReuseIdentifier(identifier: "EnerdyTodayCell")
@@ -1581,6 +1581,8 @@ struct R: Rswift.Validatable {
     static let quizeFoodCell: Rswift.ReuseIdentifier<QuizeFoodCell> = Rswift.ReuseIdentifier(identifier: "QuizeFoodCell")
     /// Reuse identifier `WorkoutActivitiesCell`.
     static let workoutActivitiesCell: Rswift.ReuseIdentifier<WorkoutActivitiesCell> = Rswift.ReuseIdentifier(identifier: "WorkoutActivitiesCell")
+    /// Reuse identifier `WorkoutActivityCollectionCell`.
+    static let workoutActivityCollectionCell: Rswift.ReuseIdentifier<WorkoutActivityCollectionCell> = Rswift.ReuseIdentifier(identifier: "WorkoutActivityCollectionCell")
     /// Reuse identifier `WorkoutExercisesCell`.
     static let workoutExercisesCell: Rswift.ReuseIdentifier<WorkoutExercisesCell> = Rswift.ReuseIdentifier(identifier: "WorkoutExercisesCell")
     /// Reuse identifier `WorkoutSpecialCell`.
@@ -3795,17 +3797,6 @@ struct _R: Rswift.Validatable {
       try _WorkoutController.validate()
     }
 
-    struct _ActivityCell: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "ActivityCell"
-
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ActivityCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ActivityCell
-      }
-
-      fileprivate init() {}
-    }
-
     struct _EnerdyTodayCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
       typealias ReusableType = EnerdyTodayCell
 
@@ -4602,6 +4593,20 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutActivitiesCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutActivitiesCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WorkoutActivityCollectionCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = WorkoutActivityCollectionCell
+
+      let bundle = R.hostingBundle
+      let identifier = "WorkoutActivityCollectionCell"
+      let name = "WorkoutActivityCollectionCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutActivityCollectionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutActivityCollectionCell
       }
 
       fileprivate init() {}
