@@ -106,6 +106,8 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as? EnerdyTodayCell else { return UITableViewCell() }
+            
+            cell.delegate = self
             if let model = presenter.todayProgress {
                 cell.setupCell(model: model)
             }
@@ -167,3 +169,15 @@ extension EnergyController: EnergyOutputProtocol {
         
     }
 }
+
+//----------------------------------------------
+// MARK: - EnergyTodayProtocol
+//----------------------------------------------
+
+extension EnergyController: EnergyTodayProtocol {
+    func energyTodayProgress(cell: EnerdyTodayCell) {
+        EnergyRouter(presenter: navigationController).pushProgrress()
+    }
+}
+
+

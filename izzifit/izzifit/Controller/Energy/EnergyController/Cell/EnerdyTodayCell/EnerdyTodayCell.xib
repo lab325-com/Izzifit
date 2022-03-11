@@ -26,9 +26,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xa-Ys-cBy">
-                        <rect key="frame" x="16" y="16" width="11" height="68.5"/>
+                        <rect key="frame" x="16" y="16" width="30" height="68.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="3Ri-e8-huX"/>
+                        </constraints>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" image="energy_arrow_back_ic"/>
+                        <connections>
+                            <action selector="actionProgress:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BIy-Dh-AdT"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCh-ep-o6H">
                         <rect key="frame" x="149.5" y="35.5" width="70" height="29.5"/>

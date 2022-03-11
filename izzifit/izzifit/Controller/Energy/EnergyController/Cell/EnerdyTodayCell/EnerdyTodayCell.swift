@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol EnergyTodayProtocol: AnyObject {
+    func energyTodayProgress(cell: EnerdyTodayCell)
+}
+
 class EnerdyTodayCell: UITableViewCell {
 
     @IBOutlet weak var stackView: UIStackView!
@@ -18,6 +22,7 @@ class EnerdyTodayCell: UITableViewCell {
     
     @IBOutlet weak var progressWidthLayout: NSLayoutConstraint!
     
+    weak var delegate: EnergyTodayProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,5 +52,9 @@ class EnerdyTodayCell: UITableViewCell {
                 progressWidthLayout.constant = progress * point
             }
         }
+    }
+    
+    @IBAction func actionProgress(_ sender: UIButton) {
+        delegate?.energyTodayProgress(cell: self)
     }
 }

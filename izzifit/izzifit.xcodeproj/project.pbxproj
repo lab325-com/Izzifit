@@ -85,6 +85,12 @@
 		025463B927CF8F5D00D433DB /* ToggleMuscleInWorkoutsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025463B827CF8F5C00D433DB /* ToggleMuscleInWorkoutsModel.swift */; };
 		025463BB27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 025463BA27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql */; };
 		025463BD27CFB21B00D433DB /* ToggleProductInRation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 025463BC27CFB21B00D433DB /* ToggleProductInRation.graphql */; };
+		0263388D27DB299600DC0325 /* EnergyProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263388B27DB299600DC0325 /* EnergyProgressController.swift */; };
+		0263388E27DB299600DC0325 /* EnergyProgressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0263388C27DB299600DC0325 /* EnergyProgressController.xib */; };
+		0263389027DB29AF00DC0325 /* EnergyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263388F27DB29AF00DC0325 /* EnergyRouter.swift */; };
+		0263389427DB3E5100DC0325 /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263389227DB3E5100DC0325 /* ProgressCell.swift */; };
+		0263389527DB3E5100DC0325 /* ProgressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0263389327DB3E5100DC0325 /* ProgressCell.xib */; };
+		0263389727DB48D000DC0325 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263389627DB48D000DC0325 /* CalendarManager.swift */; };
 		0268752327D8904900FFEA6A /* TodayProgress.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0268752227D8904900FFEA6A /* TodayProgress.graphql */; };
 		0268752527D890F000FFEA6A /* TodayProgressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268752427D890F000FFEA6A /* TodayProgressModel.swift */; };
 		0268752927D8C90100FFEA6A /* EnergyWeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268752727D8C90100FFEA6A /* EnergyWeightCell.swift */; };
@@ -276,6 +282,12 @@
 		025463B827CF8F5C00D433DB /* ToggleMuscleInWorkoutsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleMuscleInWorkoutsModel.swift; sourceTree = "<group>"; };
 		025463BA27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToggleMuscleInWorkouts.graphql; sourceTree = "<group>"; };
 		025463BC27CFB21B00D433DB /* ToggleProductInRation.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToggleProductInRation.graphql; sourceTree = "<group>"; };
+		0263388B27DB299600DC0325 /* EnergyProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyProgressController.swift; sourceTree = "<group>"; };
+		0263388C27DB299600DC0325 /* EnergyProgressController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyProgressController.xib; sourceTree = "<group>"; };
+		0263388F27DB29AF00DC0325 /* EnergyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyRouter.swift; sourceTree = "<group>"; };
+		0263389227DB3E5100DC0325 /* ProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCell.swift; sourceTree = "<group>"; };
+		0263389327DB3E5100DC0325 /* ProgressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressCell.xib; sourceTree = "<group>"; };
+		0263389627DB48D000DC0325 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		0268752227D8904900FFEA6A /* TodayProgress.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TodayProgress.graphql; sourceTree = "<group>"; };
 		0268752427D890F000FFEA6A /* TodayProgressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayProgressModel.swift; sourceTree = "<group>"; };
 		0268752727D8C90100FFEA6A /* EnergyWeightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyWeightCell.swift; sourceTree = "<group>"; };
@@ -690,6 +702,7 @@
 			children = (
 				0249D27227B3AA0400F265C1 /* NetwokrManager.swift */,
 				0249D27327B3AA0400F265C1 /* PreferenceManager.swift */,
+				0263389627DB48D000DC0325 /* CalendarManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -812,6 +825,36 @@
 			path = ToggleMuscleInWorkouts;
 			sourceTree = "<group>";
 		};
+		0263388927DB296600DC0325 /* EnergyController */ = {
+			isa = PBXGroup;
+			children = (
+				02FAF0AD27D36D7C002CD678 /* EnergyPresenter.swift */,
+				02A5CDA327C393A300D31FB4 /* EnergyController.swift */,
+				02A5CDA427C393A300D31FB4 /* EnergyController.xib */,
+				0290B39627D233E700381B42 /* Cell */,
+			);
+			path = EnergyController;
+			sourceTree = "<group>";
+		};
+		0263388A27DB296E00DC0325 /* EnergyProgress */ = {
+			isa = PBXGroup;
+			children = (
+				0263388B27DB299600DC0325 /* EnergyProgressController.swift */,
+				0263388C27DB299600DC0325 /* EnergyProgressController.xib */,
+				0263389127DB3E3800DC0325 /* Cell */,
+			);
+			path = EnergyProgress;
+			sourceTree = "<group>";
+		};
+		0263389127DB3E3800DC0325 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0263389227DB3E5100DC0325 /* ProgressCell.swift */,
+				0263389327DB3E5100DC0325 /* ProgressCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		0268752127D8902600FFEA6A /* TodayProgress */ = {
 			isa = PBXGroup;
 			children = (
@@ -929,10 +972,9 @@
 		02A5CDA227C3938200D31FB4 /* Energy */ = {
 			isa = PBXGroup;
 			children = (
-				02FAF0AD27D36D7C002CD678 /* EnergyPresenter.swift */,
-				02A5CDA327C393A300D31FB4 /* EnergyController.swift */,
-				02A5CDA427C393A300D31FB4 /* EnergyController.xib */,
-				0290B39627D233E700381B42 /* Cell */,
+				0263388F27DB29AF00DC0325 /* EnergyRouter.swift */,
+				0263388927DB296600DC0325 /* EnergyController */,
+				0263388A27DB296E00DC0325 /* EnergyProgress */,
 			);
 			path = Energy;
 			sourceTree = "<group>";
@@ -1426,6 +1468,7 @@
 				02FAF0A727D361AE002CD678 /* EnergyDrinkWaterCell.xib in Resources */,
 				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
 				02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */,
+				0263389527DB3E5100DC0325 /* ProgressCell.xib in Resources */,
 				02A5CDB127C3947800D31FB4 /* ProfileController.xib in Resources */,
 				0249D29427B3ABD900F265C1 /* Release.xcconfig in Resources */,
 				02ABCF3927CCF74C00E69C06 /* Products.graphql in Resources */,
@@ -1448,6 +1491,7 @@
 				02B1E71A27DA003B00C9E610 /* EnergyTrainingCell.xib in Resources */,
 				02B225BE27BD7B110035CFA2 /* Login.graphql in Resources */,
 				FA1761B627DA1F72002881BB /* WorkoutSpecialCell.xib in Resources */,
+				0263388E27DB299600DC0325 /* EnergyProgressController.xib in Resources */,
 				02A5CDC327C4247300D31FB4 /* QuizeFoodCell.xib in Resources */,
 				02D066C627BBB57D00D12C5F /* Inter-SemiBold.ttf in Resources */,
 				02FAF0AC27D36CE0002CD678 /* DrinkWidget.graphql in Resources */,
@@ -1612,6 +1656,7 @@
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
 				FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */,
 				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
+				0263388D27DB299600DC0325 /* EnergyProgressController.swift in Sources */,
 				0268752927D8C90100FFEA6A /* EnergyWeightCell.swift in Sources */,
 				02A5CDB427C3949700D31FB4 /* MenuController.swift in Sources */,
 				0227DA9627C619F7008AB26B /* MenuCell.swift in Sources */,
@@ -1621,6 +1666,7 @@
 				02ABCF4527CD0EA800E69C06 /* MenuLanguagesTitleCell.swift in Sources */,
 				0227DA9927C62854008AB26B /* MenuPresenter.swift in Sources */,
 				0249D26127B3A88C00F265C1 /* UIScrollView+Extension.swift in Sources */,
+				0263389027DB29AF00DC0325 /* EnergyRouter.swift in Sources */,
 				021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */,
 				0227DAC127C6A19C008AB26B /* MenuTargetWeightController.swift in Sources */,
 				02B225A627BCFB9F0035CFA2 /* QuizeTargetWeightController.swift in Sources */,
@@ -1636,6 +1682,7 @@
 				0227DAA127C63D51008AB26B /* QuizeFoodPresenter.swift in Sources */,
 				0227DAB227C67179008AB26B /* MenuEmailController.swift in Sources */,
 				0273F55E27D5F7CB00B19449 /* EnergyMealsCell.swift in Sources */,
+				0263389427DB3E5100DC0325 /* ProgressCell.swift in Sources */,
 				02A5CDBC27C3DD3300D31FB4 /* PasswordForgotRequestModel.swift in Sources */,
 				0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */,
 				0249D26327B3A88C00F265C1 /* UIApplicathion+Extension.swift in Sources */,
@@ -1691,6 +1738,7 @@
 				0290B39927D2340800381B42 /* EnerdyTodayCell.swift in Sources */,
 				02ABCF3527CCC3F400E69C06 /* MenuFoodSwitchCell.swift in Sources */,
 				0249D27527B3AA0400F265C1 /* PreferenceManager.swift in Sources */,
+				0263389727DB48D000DC0325 /* CalendarManager.swift in Sources */,
 				02ABCF3B27CCF80300E69C06 /* ProductsModel.swift in Sources */,
 				023D171C27BE1D4D005F95C0 /* AuthRouter.swift in Sources */,
 				02B225C227BD7D4D0035CFA2 /* MeModel.swift in Sources */,

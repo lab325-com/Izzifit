@@ -887,7 +887,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 47 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 48 nibs.
   struct nib {
     /// Nib `ActivityCell`.
     static let activityCell = _R.nib._ActivityCell()
@@ -905,6 +905,8 @@ struct R: Rswift.Validatable {
     static let energyMealsCell = _R.nib._EnergyMealsCell()
     /// Nib `EnergyMoodCell`.
     static let energyMoodCell = _R.nib._EnergyMoodCell()
+    /// Nib `EnergyProgressController`.
+    static let energyProgressController = _R.nib._EnergyProgressController()
     /// Nib `EnergySleepCell`.
     static let energySleepCell = _R.nib._EnergySleepCell()
     /// Nib `EnergyTrainingCell`.
@@ -1045,6 +1047,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.energyMoodCell) instead")
     static func energyMoodCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.energyMoodCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "EnergyProgressController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.energyProgressController) instead")
+    static func energyProgressController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.energyProgressController)
     }
     #endif
 
@@ -1390,6 +1400,10 @@ struct R: Rswift.Validatable {
 
     static func energyMoodCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyMoodCell? {
       return R.nib.energyMoodCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyMoodCell
+    }
+
+    static func energyProgressController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.energyProgressController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func energySleepCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergySleepCell? {
@@ -3947,6 +3961,17 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergyMoodCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _EnergyProgressController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "EnergyProgressController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
 
       fileprivate init() {}
