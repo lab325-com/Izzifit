@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ActivityCell: UICollectionViewCell {
+class WorkoutActivityCollectionCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
