@@ -1,0 +1,6 @@
+query Progress {
+	progress {
+        date
+        progress
+    }
+}

@@ -1,6 +1,0 @@
-query TodayProgress {
-	todayProgress {
-        date
-        progress
-    }
-}

@@ -8,7 +8,7 @@
 import Foundation
 
 struct TodayProgressModel: Codable {
-    let todayProgress: TodayProgressMainModel
+    let progress: TodayProgressMainModel
 }
 
 struct TodayProgressMainModel: Codable {

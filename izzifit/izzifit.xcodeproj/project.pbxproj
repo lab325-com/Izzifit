@@ -39,6 +39,7 @@
 		0227DACD27C6A82A008AB26B /* MenuFoodTitleCellCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0227DACB27C6A82A008AB26B /* MenuFoodTitleCellCell.xib */; };
 		023D171C27BE1D4D005F95C0 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D171B27BE1D4D005F95C0 /* AuthRouter.swift */; };
 		023D171E27BE258A005F95C0 /* UITapGesture+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D171D27BE258A005F95C0 /* UITapGesture+Extension.swift */; };
+		024779CD27DCB8BF00AAFE3D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024779CC27DCB8BF00AAFE3D /* Date+Extension.swift */; };
 		0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249D22A27B3A4EF00F265C1 /* AppDelegate.swift */; };
 		0249D23427B3A4F100F265C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0249D23327B3A4F100F265C1 /* Assets.xcassets */; };
 		0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0249D23527B3A4F100F265C1 /* LaunchScreen.storyboard */; };
@@ -74,6 +75,8 @@
 		0249D29427B3ABD900F265C1 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0249D29027B3ABD900F265C1 /* Release.xcconfig */; };
 		0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0249D29B27B3D79D00F265C1 /* Me.graphql */; };
 		0249D29E27B3D81700F265C1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249D29D27B3D81700F265C1 /* API.swift */; };
+		024C699F27DF61A200EE8D53 /* EnergyAddActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024C699D27DF61A200EE8D53 /* EnergyAddActivityCell.swift */; };
+		024C69A027DF61A200EE8D53 /* EnergyAddActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 024C699E27DF61A200EE8D53 /* EnergyAddActivityCell.xib */; };
 		025463A227CE2F1500D433DB /* MenuWriteQuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025463A027CE2F1500D433DB /* MenuWriteQuestionController.swift */; };
 		025463A327CE2F1500D433DB /* MenuWriteQuestionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 025463A127CE2F1500D433DB /* MenuWriteQuestionController.xib */; };
 		025463A827CE404F00D433DB /* ToggleProductInRationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025463A727CE404F00D433DB /* ToggleProductInRationModel.swift */; };
@@ -91,7 +94,10 @@
 		0263389427DB3E5100DC0325 /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263389227DB3E5100DC0325 /* ProgressCell.swift */; };
 		0263389527DB3E5100DC0325 /* ProgressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0263389327DB3E5100DC0325 /* ProgressCell.xib */; };
 		0263389727DB48D000DC0325 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263389627DB48D000DC0325 /* CalendarManager.swift */; };
-		0268752327D8904900FFEA6A /* TodayProgress.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0268752227D8904900FFEA6A /* TodayProgress.graphql */; };
+		0263389C27DB6BDD00DC0325 /* Progresses.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0263389B27DB6BDD00DC0325 /* Progresses.graphql */; };
+		0263389E27DB6C9A00DC0325 /* ProgressesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263389D27DB6C9A00DC0325 /* ProgressesModel.swift */; };
+		026338A027DB6D0200DC0325 /* EnergyProgressesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263389F27DB6D0200DC0325 /* EnergyProgressesPresenter.swift */; };
+		0268752327D8904900FFEA6A /* progress.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0268752227D8904900FFEA6A /* progress.graphql */; };
 		0268752527D890F000FFEA6A /* TodayProgressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268752427D890F000FFEA6A /* TodayProgressModel.swift */; };
 		0268752927D8C90100FFEA6A /* EnergyWeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268752727D8C90100FFEA6A /* EnergyWeightCell.swift */; };
 		0268752A27D8C90100FFEA6A /* EnergyWeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0268752827D8C90100FFEA6A /* EnergyWeightCell.xib */; };
@@ -238,6 +244,7 @@
 		0227DACB27C6A82A008AB26B /* MenuFoodTitleCellCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuFoodTitleCellCell.xib; sourceTree = "<group>"; };
 		023D171B27BE1D4D005F95C0 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		023D171D27BE258A005F95C0 /* UITapGesture+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGesture+Extension.swift"; sourceTree = "<group>"; };
+		024779CC27DCB8BF00AAFE3D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		0249D22727B3A4EF00F265C1 /* izzifit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = izzifit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0249D22A27B3A4EF00F265C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0249D23327B3A4F100F265C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -271,6 +278,8 @@
 		0249D29027B3ABD900F265C1 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		0249D29B27B3D79D00F265C1 /* Me.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Me.graphql; sourceTree = "<group>"; };
 		0249D29D27B3D81700F265C1 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		024C699D27DF61A200EE8D53 /* EnergyAddActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyAddActivityCell.swift; sourceTree = "<group>"; };
+		024C699E27DF61A200EE8D53 /* EnergyAddActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyAddActivityCell.xib; sourceTree = "<group>"; };
 		025463A027CE2F1500D433DB /* MenuWriteQuestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuWriteQuestionController.swift; sourceTree = "<group>"; };
 		025463A127CE2F1500D433DB /* MenuWriteQuestionController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuWriteQuestionController.xib; sourceTree = "<group>"; };
 		025463A727CE404F00D433DB /* ToggleProductInRationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleProductInRationModel.swift; sourceTree = "<group>"; };
@@ -288,7 +297,10 @@
 		0263389227DB3E5100DC0325 /* ProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCell.swift; sourceTree = "<group>"; };
 		0263389327DB3E5100DC0325 /* ProgressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressCell.xib; sourceTree = "<group>"; };
 		0263389627DB48D000DC0325 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
-		0268752227D8904900FFEA6A /* TodayProgress.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TodayProgress.graphql; sourceTree = "<group>"; };
+		0263389B27DB6BDD00DC0325 /* Progresses.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Progresses.graphql; sourceTree = "<group>"; };
+		0263389D27DB6C9A00DC0325 /* ProgressesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressesModel.swift; sourceTree = "<group>"; };
+		0263389F27DB6D0200DC0325 /* EnergyProgressesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyProgressesPresenter.swift; sourceTree = "<group>"; };
+		0268752227D8904900FFEA6A /* progress.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = progress.graphql; sourceTree = "<group>"; };
 		0268752427D890F000FFEA6A /* TodayProgressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayProgressModel.swift; sourceTree = "<group>"; };
 		0268752727D8C90100FFEA6A /* EnergyWeightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyWeightCell.swift; sourceTree = "<group>"; };
 		0268752827D8C90100FFEA6A /* EnergyWeightCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyWeightCell.xib; sourceTree = "<group>"; };
@@ -657,6 +669,7 @@
 			isa = PBXGroup;
 			children = (
 				0249D25C27B3A88C00F265C1 /* Collection+Extension.swift */,
+				024779CC27DCB8BF00AAFE3D /* Date+Extension.swift */,
 				0249D26027B3A88C00F265C1 /* Int+Extension.swift */,
 				0249D25D27B3A88C00F265C1 /* UIApplicathion+Extension.swift */,
 				0249D25E27B3A88C00F265C1 /* UIColor+Extension.swift */,
@@ -761,6 +774,7 @@
 		0249D29A27B3D78900F265C1 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+				0263389A27DB6BBE00DC0325 /* Progresses */,
 				FAA9DBE827D9EC9F004A14FB /* WorkoutTypes */,
 				0268752B27D8CC0400FFEA6A /* SaveWeightWidget */,
 				0268752127D8902600FFEA6A /* TodayProgress */,
@@ -776,6 +790,15 @@
 				0227DA9B27C63A1F008AB26B /* Me */,
 			);
 			path = Query;
+			sourceTree = "<group>";
+		};
+		024C699C27DF617E00EE8D53 /* EnergyAddActivityCell */ = {
+			isa = PBXGroup;
+			children = (
+				024C699D27DF61A200EE8D53 /* EnergyAddActivityCell.swift */,
+				024C699E27DF61A200EE8D53 /* EnergyAddActivityCell.xib */,
+			);
+			path = EnergyAddActivityCell;
 			sourceTree = "<group>";
 		};
 		0254639F27CE2EEA00D433DB /* MenuWriteQuestion */ = {
@@ -839,6 +862,7 @@
 		0263388A27DB296E00DC0325 /* EnergyProgress */ = {
 			isa = PBXGroup;
 			children = (
+				0263389F27DB6D0200DC0325 /* EnergyProgressesPresenter.swift */,
 				0263388B27DB299600DC0325 /* EnergyProgressController.swift */,
 				0263388C27DB299600DC0325 /* EnergyProgressController.xib */,
 				0263389127DB3E3800DC0325 /* Cell */,
@@ -855,10 +879,19 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		0263389A27DB6BBE00DC0325 /* Progresses */ = {
+			isa = PBXGroup;
+			children = (
+				0263389B27DB6BDD00DC0325 /* Progresses.graphql */,
+				0263389D27DB6C9A00DC0325 /* ProgressesModel.swift */,
+			);
+			path = Progresses;
+			sourceTree = "<group>";
+		};
 		0268752127D8902600FFEA6A /* TodayProgress */ = {
 			isa = PBXGroup;
 			children = (
-				0268752227D8904900FFEA6A /* TodayProgress.graphql */,
+				0268752227D8904900FFEA6A /* progress.graphql */,
 				0268752427D890F000FFEA6A /* TodayProgressModel.swift */,
 			);
 			path = TodayProgress;
@@ -965,6 +998,7 @@
 				0268752627D8C8DF00FFEA6A /* EnergyWeightCell */,
 				0268753027D8E4ED00FFEA6A /* EnergyChooseActivityCell */,
 				02B1E71627D9FC9E00C9E610 /* EnergyTrainingCell */,
+				024C699C27DF617E00EE8D53 /* EnergyAddActivityCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1472,7 +1506,7 @@
 				0227DAAE27C66C25008AB26B /* MenuAgeController.xib in Resources */,
 				025463AD27CE6E9800D433DB /* MenuFitnessController.xib in Resources */,
 				FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */,
-				0268752327D8904900FFEA6A /* TodayProgress.graphql in Resources */,
+				0268752327D8904900FFEA6A /* progress.graphql in Resources */,
 				02FAF0A727D361AE002CD678 /* EnergyDrinkWaterCell.xib in Resources */,
 				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
 				02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */,
@@ -1510,7 +1544,9 @@
 				021A6F4F27BF99720000D863 /* MainTabBarController.xib in Resources */,
 				0268752D27D8CC5E00FFEA6A /* SaveWeightWidget.graphql in Resources */,
 				02D066C527BBB57D00D12C5F /* Inter-Black.ttf in Resources */,
+				024C69A027DF61A200EE8D53 /* EnergyAddActivityCell.xib in Resources */,
 				02D066D927BBDC3400D12C5F /* QuizeGoalController.xib in Resources */,
+				0263389C27DB6BDD00DC0325 /* Progresses.graphql in Resources */,
 				02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */,
 				02ABCF3627CCC3F400E69C06 /* MenuFoodSwitchCell.xib in Resources */,
 				02D066A827BBA72100D12C5F /* Localizable.strings in Resources */,
@@ -1705,6 +1741,8 @@
 				0227DAB727C67334008AB26B /* MenuHeightController.swift in Sources */,
 				02D066D327BBD12600D12C5F /* QuizeGenderController.swift in Sources */,
 				02A5CDC227C4247300D31FB4 /* QuizeFoodCell.swift in Sources */,
+				024779CD27DCB8BF00AAFE3D /* Date+Extension.swift in Sources */,
+				026338A027DB6D0200DC0325 /* EnergyProgressesPresenter.swift in Sources */,
 				021A6F4727BF8FFA0000D863 /* ProfileUpdateModel.swift in Sources */,
 				025463B227CF778B00D433DB /* MusclesModel.swift in Sources */,
 				02B225AE27BD45080035CFA2 /* QuizeFoodController.swift in Sources */,
@@ -1738,6 +1776,7 @@
 				0227DAA627C64E31008AB26B /* MenuNameController.swift in Sources */,
 				0273F56327D60C7A00B19449 /* EnergySleepCell.swift in Sources */,
 				0249D29E27B3D81700F265C1 /* API.swift in Sources */,
+				024C699F27DF61A200EE8D53 /* EnergyAddActivityCell.swift in Sources */,
 				02B225B327BD5D300035CFA2 /* QuizeSportController.swift in Sources */,
 				025463B927CF8F5D00D433DB /* ToggleMuscleInWorkoutsModel.swift in Sources */,
 				0227DAC627C6A455008AB26B /* MenuFoodController.swift in Sources */,
@@ -1766,6 +1805,7 @@
 				0227DA9227C52EC1008AB26B /* TabBarRouter.swift in Sources */,
 				0249D26427B3A88C00F265C1 /* UIColor+Extension.swift in Sources */,
 				02F01C5427D794B20066656D /* MoodWidgetModel.swift in Sources */,
+				0263389E27DB6C9A00DC0325 /* ProgressesModel.swift in Sources */,
 				025463B427CF784400D433DB /* MenuFitnessPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1918,7 +1958,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
@@ -1952,7 +1992,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
@@ -2047,7 +2087,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;

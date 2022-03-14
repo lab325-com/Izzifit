@@ -90,9 +90,9 @@ class EnergyPresenter: EnergyPresenterProtocol {
         })
         
         group.enter()
-        let query5 = TodayProgressQuery()
+        let query5 = ProgressQuery()
         let _ = Network.shared.query(model: TodayProgressModel.self, query5, controller: view, successHandler: { [weak self] model in
-            self?.todayProgress = model.todayProgress
+            self?.todayProgress = model.progress
             group.leave()
         }, failureHandler: { [weak self] error in
             group.leave()

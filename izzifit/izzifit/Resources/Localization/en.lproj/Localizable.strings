@@ -107,5 +107,14 @@
 "onboarding_weight_kg" = "KG";
 "onboarding_weight_lb" = "LB";
 "onboarding_weight_title" = "Your weigth";
+"progress_activity" = "Add your activity";
+"progress_fri" = "Fri";
+"progress_mon" = "Mon";
+"progress_sat" = "Sat";
+"progress_sun" = "Sun";
+"progress_thu" = "Thu";
+"progress_title" = "Your progress";
+"progress_tue" = "Tue";
+"progress_wed" = "Wed";
 "water_widget_ml_left" = "%dml left";
 "water_widget_title" = "Drink water";

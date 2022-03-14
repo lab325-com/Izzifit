@@ -36,6 +36,7 @@ class EnergyController: BaseController {
     private let cellWeightIdentifier = String(describing: EnergyWeightCell.self)
     private let cellChooseActivity = String(describing: EnergyChooseActivityCell.self)
     private let cellTraining = String(describing: EnergyTrainingCell.self)
+    private let cellAddActivity = String(describing: EnergyAddActivityCell.self)
     
     private lazy var presenter = EnergyPresenter(view: self)
 
@@ -82,6 +83,7 @@ class EnergyController: BaseController {
         tableView.register(UINib(nibName: cellWeightIdentifier, bundle: nil), forCellReuseIdentifier: cellWeightIdentifier)
         tableView.register(UINib(nibName: cellChooseActivity, bundle: nil), forCellReuseIdentifier: cellChooseActivity)
         tableView.register(UINib(nibName: cellTraining, bundle: nil), forCellReuseIdentifier: cellTraining)
+        tableView.register(UINib(nibName: cellAddActivity, bundle: nil), forCellReuseIdentifier: cellAddActivity)
         
         topView.layer.cornerRadius = 30
         topView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -99,7 +101,7 @@ class EnergyController: BaseController {
 extension EnergyController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return 9
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -120,6 +122,7 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellEnergyMood) as? EnergyMoodCell else { return UITableViewCell() }
+            
             if let model = presenter.moodWidget {
                 cell.setupCell(model: model)
             }
@@ -148,6 +151,9 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
         case 7:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellTraining) as? EnergyTrainingCell else { return UITableViewCell() }
             cell.setupCell(type: .training)
+            return cell
+        case 8:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellAddActivity) as? EnergyAddActivityCell else { return UITableViewCell() }
             return cell
         default:
             return UITableViewCell()
