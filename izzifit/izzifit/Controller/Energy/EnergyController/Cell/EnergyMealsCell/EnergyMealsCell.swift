@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol EnergyMealsDeleagate: AnyObject {
+    func energyMealsAdd(cell: EnergyMealsCell, type: MealType)
+}
+
 class EnergyMealsCell: UITableViewCell {
     
     //----------------------------------------------
@@ -57,6 +61,9 @@ class EnergyMealsCell: UITableViewCell {
     private var circularProgressCarbsView: CircularProgressBarView!
     
     private var circularViewDuration: TimeInterval = 1
+    private var model: MealsWidgetMainModel?
+    
+    weak var delegate: EnergyMealsDeleagate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -114,7 +121,8 @@ class EnergyMealsCell: UITableViewCell {
     
     
     func setupCell(model: MealsWidgetMainModel) {
-    
+        self.model = model
+        
         countLabel.text = "\(model.energy ?? 0)/\(model.energyTotal ?? 0)"
         
         DispatchQueue.main.async { [weak self] in
@@ -176,5 +184,29 @@ class EnergyMealsCell: UITableViewCell {
         }
         
         layoutIfNeeded()
+    }
+    
+    @IBAction func actionBreakfast(_ sender: UIButton) {
+        //if let breakfest = model?.meals?.first(where: {$0?.type == MealType.mealTypeBreakfast}), breakfest?.eatenAt == nil {
+            delegate?.energyMealsAdd(cell: self, type: .mealTypeBreakfast)
+        //}
+    }
+    
+    @IBAction func actionLunch(_ sender: UIButton) {
+        //if let lunch = model?.meals?.first(where: {$0?.type == MealType.mealTypeLunch}), lunch?.eatenAt == nil {
+            delegate?.energyMealsAdd(cell: self, type: .mealTypeLunch)
+        //}
+    }
+    
+    @IBAction func actionSnack(_ sender: UIButton) {
+        //if let snack = model?.meals?.first(where: {$0?.type == MealType.mealTypeSnack}), snack?.eatenAt == nil {
+            delegate?.energyMealsAdd(cell: self, type: .mealTypeSnack)
+       // }
+    }
+    
+    @IBAction func actionDinner(_ sender: UIButton) {
+        //if let dinner = model?.meals?.first(where: {$0?.type == MealType.mealTypeDinner}), dinner?.eatenAt == nil {
+            delegate?.energyMealsAdd(cell: self, type: .mealTypeDinner)
+        //}
     }
 }

@@ -12,4 +12,9 @@ class EnergyRouter: BaseRouter {
         let controller = EnergyProgressController()
         push(controller: controller)
     }
+    
+    func pushFood() {
+        let controller = FoodController()
+        push(controller: controller)
+    }
 }

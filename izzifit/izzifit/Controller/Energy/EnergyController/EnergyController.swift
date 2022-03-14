@@ -130,6 +130,7 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellMealsIdentifier) as? EnergyMealsCell else { return UITableViewCell() }
             if let model = presenter.mealsWidget {
+                cell.delegate = self
                 cell.setupCell(model: model)
             }
             return cell
@@ -186,4 +187,12 @@ extension EnergyController: EnergyTodayProtocol {
     }
 }
 
+//----------------------------------------------
+// MARK: - EnergyMealsDeleagate
+//----------------------------------------------
 
+extension EnergyController: EnergyMealsDeleagate {
+    func energyMealsAdd(cell: EnergyMealsCell, type: MealType) {
+        EnergyRouter(presenter: navigationController).pushFood()
+    }
+}
