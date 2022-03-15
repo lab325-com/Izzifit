@@ -41,7 +41,7 @@ class MainTabBarController: BaseController {
     
     private lazy var energy = EnergyController()
     private lazy var workout = WorkoutController()
-    private lazy var profile = ProfileController()
+    private lazy var profile = ProfileVC()
     private lazy var menu = MenuController()
     
     private var tab: TabBarType = .energy {
