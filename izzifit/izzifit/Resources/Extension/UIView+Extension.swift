@@ -49,6 +49,45 @@ public extension UIView {
     }
 }
 
+extension UIView {
+    
+    var ui: SetUIManager {
+        return SetUIManager()
+    }
+    
+    var w: CGFloat {
+        return UIScreen.main.bounds.size.width
+    }
+    var h: CGFloat {
+        return UIScreen.main.bounds.size.height
+    }
+    
+    func image(img: Imgs) -> UIImage? {
+        let image = UIImage(named: img.rawValue)
+        return image ?? nil
+    }
+    
+    func clr(color: Clrs) -> UIColor? {
+        let color = UIColor(named: color.rawValue)
+        return color ?? nil
+    }
+    
+    func hRatio(cH: CGFloat) -> CGFloat {
+        let hScreen = 812.0
+        let value = hScreen / cH
+        let ratio = h / value
+        return ratio
+    }
+    
+    func wRatio(cW: CGFloat) -> CGFloat {
+        let wScreen = 375.0
+        let value = wScreen / cW
+        let ratio = w / value
+        return ratio
+    }
+}
+
+
 public extension CGPoint {
 
     enum CoordinateSide {
