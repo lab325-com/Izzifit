@@ -136,6 +136,10 @@
 		02A5CDBE27C3DE9F00D31FB4 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDBD27C3DE9F00D31FB4 /* ImageModel.swift */; };
 		02A5CDC227C4247300D31FB4 /* QuizeFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDC027C4247300D31FB4 /* QuizeFoodCell.swift */; };
 		02A5CDC327C4247300D31FB4 /* QuizeFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDC127C4247300D31FB4 /* QuizeFoodCell.xib */; };
+		02AB486427E06DEE00F35EE2 /* FoodRecomendedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB486227E06DEE00F35EE2 /* FoodRecomendedCell.swift */; };
+		02AB486527E06DEE00F35EE2 /* FoodRecomendedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02AB486327E06DEE00F35EE2 /* FoodRecomendedCell.xib */; };
+		02AB486A27E07EFB00F35EE2 /* FoodTopTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB486827E07EFB00F35EE2 /* FoodTopTitleCell.swift */; };
+		02AB486B27E07EFB00F35EE2 /* FoodTopTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02AB486927E07EFB00F35EE2 /* FoodTopTitleCell.xib */; };
 		02ABCF3527CCC3F400E69C06 /* MenuFoodSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABCF3327CCC3F400E69C06 /* MenuFoodSwitchCell.swift */; };
 		02ABCF3627CCC3F400E69C06 /* MenuFoodSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02ABCF3427CCC3F400E69C06 /* MenuFoodSwitchCell.xib */; };
 		02ABCF3927CCF74C00E69C06 /* Products.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02ABCF3827CCF74C00E69C06 /* Products.graphql */; };
@@ -341,6 +345,10 @@
 		02A5CDBD27C3DE9F00D31FB4 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		02A5CDC027C4247300D31FB4 /* QuizeFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeFoodCell.swift; sourceTree = "<group>"; };
 		02A5CDC127C4247300D31FB4 /* QuizeFoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeFoodCell.xib; sourceTree = "<group>"; };
+		02AB486227E06DEE00F35EE2 /* FoodRecomendedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecomendedCell.swift; sourceTree = "<group>"; };
+		02AB486327E06DEE00F35EE2 /* FoodRecomendedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodRecomendedCell.xib; sourceTree = "<group>"; };
+		02AB486827E07EFB00F35EE2 /* FoodTopTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTopTitleCell.swift; sourceTree = "<group>"; };
+		02AB486927E07EFB00F35EE2 /* FoodTopTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTopTitleCell.xib; sourceTree = "<group>"; };
 		02ABCF3327CCC3F400E69C06 /* MenuFoodSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFoodSwitchCell.swift; sourceTree = "<group>"; };
 		02ABCF3427CCC3F400E69C06 /* MenuFoodSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuFoodSwitchCell.xib; sourceTree = "<group>"; };
 		02ABCF3827CCF74C00E69C06 /* Products.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Products.graphql; sourceTree = "<group>"; };
@@ -810,6 +818,7 @@
 			children = (
 				024C69A227DF858300EE8D53 /* FoodController.swift */,
 				024C69A327DF858300EE8D53 /* FoodController.xib */,
+				02AB486127E06DCA00F35EE2 /* Cell */,
 			);
 			path = FoodController;
 			sourceTree = "<group>";
@@ -1084,6 +1093,33 @@
 				02A5CDC127C4247300D31FB4 /* QuizeFoodCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		02AB486127E06DCA00F35EE2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				02AB486727E07EE200F35EE2 /* FoodTopTitleCell */,
+				02AB486627E06DF400F35EE2 /* FoodRecomendedCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		02AB486627E06DF400F35EE2 /* FoodRecomendedCell */ = {
+			isa = PBXGroup;
+			children = (
+				02AB486227E06DEE00F35EE2 /* FoodRecomendedCell.swift */,
+				02AB486327E06DEE00F35EE2 /* FoodRecomendedCell.xib */,
+			);
+			path = FoodRecomendedCell;
+			sourceTree = "<group>";
+		};
+		02AB486727E07EE200F35EE2 /* FoodTopTitleCell */ = {
+			isa = PBXGroup;
+			children = (
+				02AB486827E07EFB00F35EE2 /* FoodTopTitleCell.swift */,
+				02AB486927E07EFB00F35EE2 /* FoodTopTitleCell.xib */,
+			);
+			path = FoodTopTitleCell;
 			sourceTree = "<group>";
 		};
 		02ABCF3227CCC3CB00E69C06 /* MenuFoodSwitchCell */ = {
@@ -1522,6 +1558,7 @@
 				FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */,
 				0268752327D8904900FFEA6A /* progress.graphql in Resources */,
 				02FAF0A727D361AE002CD678 /* EnergyDrinkWaterCell.xib in Resources */,
+				02AB486B27E07EFB00F35EE2 /* FoodTopTitleCell.xib in Resources */,
 				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
 				02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */,
 				0263389527DB3E5100DC0325 /* ProgressCell.xib in Resources */,
@@ -1543,6 +1580,7 @@
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
 				0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */,
 				0227DA9727C619F7008AB26B /* MenuCell.xib in Resources */,
+				02AB486527E06DEE00F35EE2 /* FoodRecomendedCell.xib in Resources */,
 				02D066EA27BC1BC900D12C5F /* QuizeWeightController.xib in Resources */,
 				02B1E71A27DA003B00C9E610 /* EnergyTrainingCell.xib in Resources */,
 				02B225BE27BD7B110035CFA2 /* Login.graphql in Resources */,
@@ -1711,7 +1749,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02AB486A27E07EFB00F35EE2 /* FoodTopTitleCell.swift in Sources */,
 				0290B39327D2045400381B42 /* ShadowsView.swift in Sources */,
+				02AB486427E06DEE00F35EE2 /* FoodRecomendedCell.swift in Sources */,
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
 				FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */,
 				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
