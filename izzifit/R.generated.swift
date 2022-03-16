@@ -106,10 +106,22 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 1 colors.
+  /// This `R.color` struct is generated, and contains static references to 7 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
+    /// Color `afterTarget`.
+    static let afterTarget = Rswift.ColorResource(bundle: R.hostingBundle, name: "afterTarget")
+    /// Color `chartPurple`.
+    static let chartPurple = Rswift.ColorResource(bundle: R.hostingBundle, name: "chartPurple")
+    /// Color `grayText`.
+    static let grayText = Rswift.ColorResource(bundle: R.hostingBundle, name: "grayText")
+    /// Color `pinkTarget`.
+    static let pinkTarget = Rswift.ColorResource(bundle: R.hostingBundle, name: "pinkTarget")
+    /// Color `profileCellBack`.
+    static let profileCellBack = Rswift.ColorResource(bundle: R.hostingBundle, name: "profileCellBack")
+    /// Color `textTitleBlack`.
+    static let textTitleBlack = Rswift.ColorResource(bundle: R.hostingBundle, name: "textTitleBlack")
 
     #if os(iOS) || os(tvOS)
     /// `UIColor(named: "AccentColor", bundle: ..., traitCollection: ...)`
@@ -120,11 +132,113 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "afterTarget", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func afterTarget(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.afterTarget, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "chartPurple", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func chartPurple(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.chartPurple, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "grayText", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func grayText(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.grayText, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "pinkTarget", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func pinkTarget(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.pinkTarget, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "profileCellBack", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func profileCellBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.profileCellBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "textTitleBlack", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func textTitleBlack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.textTitleBlack, compatibleWith: traitCollection)
+    }
+    #endif
+
     #if os(watchOS)
     /// `UIColor(named: "AccentColor", bundle: ..., traitCollection: ...)`
     @available(watchOSApplicationExtension 4.0, *)
     static func accentColor(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.accentColor.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "afterTarget", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func afterTarget(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.afterTarget.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "chartPurple", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func chartPurple(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.chartPurple.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "grayText", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func grayText(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.grayText.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "pinkTarget", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func pinkTarget(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.pinkTarget.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "profileCellBack", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func profileCellBack(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.profileCellBack.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "textTitleBlack", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func textTitleBlack(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.textTitleBlack.name)
     }
     #endif
 
@@ -1674,7 +1788,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 132 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 137 localization keys.
     struct localizable {
       /// en translation: %d from %d
       ///
@@ -1696,10 +1810,18 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let water_widget_ml_left = Rswift.StringResource(key: "water_widget_ml_left", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Add product
+      ///
+      /// Locales: en
+      static let write_to_us_add_product = Rswift.StringResource(key: "write_to_us_add_product", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Add your activity
       ///
       /// Locales: en
       static let progress_activity = Rswift.StringResource(key: "progress_activity", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Add your own product
+      ///
+      /// Locales: en
+      static let write_to_us_title = Rswift.StringResource(key: "write_to_us_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Age
       ///
       /// Locales: en
@@ -1752,6 +1874,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_food_classic = Rswift.StringResource(key: "onboarding_food_classic", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Comment
+      ///
+      /// Locales: en
+      static let write_to_us_comment = Rswift.StringResource(key: "write_to_us_comment", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Continue training
       ///
       /// Locales: en
@@ -2004,6 +2130,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_processing_title = Rswift.StringResource(key: "onboarding_processing_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Product name
+      ///
+      /// Locales: en
+      static let write_to_us_product_name = Rswift.StringResource(key: "write_to_us_product_name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Professional
       ///
       /// Locales: en
@@ -2136,6 +2266,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_processing_subTitle = Rswift.StringResource(key: "onboarding_processing_subTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: We will check the correctness of your product and add it to our base
+      ///
+      /// Locales: en
+      static let write_to_us_subtitle = Rswift.StringResource(key: "write_to_us_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Wed
       ///
       /// Locales: en
@@ -2290,6 +2424,21 @@ struct R: Rswift.Validatable {
         return String(format: format, locale: locale, value1)
       }
 
+      /// en translation: Add product
+      ///
+      /// Locales: en
+      static func write_to_us_add_product(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("write_to_us_add_product", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "write_to_us_add_product"
+        }
+
+        return NSLocalizedString("write_to_us_add_product", bundle: bundle, comment: "")
+      }
+
       /// en translation: Add your activity
       ///
       /// Locales: en
@@ -2303,6 +2452,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("progress_activity", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Add your own product
+      ///
+      /// Locales: en
+      static func write_to_us_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("write_to_us_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "write_to_us_title"
+        }
+
+        return NSLocalizedString("write_to_us_title", bundle: bundle, comment: "")
       }
 
       /// en translation: Age
@@ -2500,6 +2664,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("onboarding_food_classic", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Comment
+      ///
+      /// Locales: en
+      static func write_to_us_comment(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("write_to_us_comment", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "write_to_us_comment"
+        }
+
+        return NSLocalizedString("write_to_us_comment", bundle: bundle, comment: "")
       }
 
       /// en translation: Continue training
@@ -3455,6 +3634,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("onboarding_processing_title", bundle: bundle, comment: "")
       }
 
+      /// en translation: Product name
+      ///
+      /// Locales: en
+      static func write_to_us_product_name(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("write_to_us_product_name", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "write_to_us_product_name"
+        }
+
+        return NSLocalizedString("write_to_us_product_name", bundle: bundle, comment: "")
+      }
+
       /// en translation: Professional
       ///
       /// Locales: en
@@ -3950,6 +4144,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("onboarding_processing_subTitle", bundle: bundle, comment: "")
+      }
+
+      /// en translation: We will check the correctness of your product and add it to our base
+      ///
+      /// Locales: en
+      static func write_to_us_subtitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("write_to_us_subtitle", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "write_to_us_subtitle"
+        }
+
+        return NSLocalizedString("write_to_us_subtitle", bundle: bundle, comment: "")
       }
 
       /// en translation: Wed
