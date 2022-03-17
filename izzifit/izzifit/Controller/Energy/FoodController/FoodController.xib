@@ -456,7 +456,7 @@
                         <constraint firstAttribute="height" constant="1" id="PmG-nY-zpt"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yIf-nP-C8A">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yIf-nP-C8A">
                     <rect key="frame" x="0.0" y="227" width="414" height="669"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
@@ -473,7 +473,7 @@
                     </connections>
                 </pickerView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVz-QQ-nYd">
-                    <rect key="frame" x="0.0" y="735" width="414" height="161"/>
+                    <rect key="frame" x="0.0" y="701" width="414" height="161"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ANO-8A-tFG">
                             <rect key="frame" x="16" y="24" width="382" height="113"/>
@@ -493,6 +493,9 @@
                                             <integer key="value" value="24"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="addOwnProduct:" destination="-1" eventType="touchUpInside" id="mma-dP-hld"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We will check the correctness of your product and add it to our base" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvG-gE-TlO">
                                     <rect key="frame" x="0.0" y="72" width="382" height="41"/>
@@ -528,7 +531,7 @@
                 <constraint firstItem="dt6-Ya-DKx" firstAttribute="centerY" secondItem="ktR-K2-7MO" secondAttribute="centerY" id="DKP-59-ooz"/>
                 <constraint firstAttribute="bottom" secondItem="yIf-nP-C8A" secondAttribute="bottom" id="DXD-Mo-VYG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CE8-Tw-CF0" secondAttribute="trailing" id="ErL-O8-CV8"/>
-                <constraint firstAttribute="bottom" secondItem="AVz-QQ-nYd" secondAttribute="bottom" priority="999" id="Gqp-lp-RXJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="AVz-QQ-nYd" secondAttribute="bottom" priority="999" id="Gqp-lp-RXJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="V5D-Ps-I6q" secondAttribute="trailing" constant="16" id="HEF-DM-7na"/>
                 <constraint firstItem="NKC-fL-YB9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="IJd-co-nN1"/>
                 <constraint firstItem="gTf-2M-9On" firstAttribute="centerX" secondItem="c3K-Hi-dQl" secondAttribute="centerX" id="ILd-0I-Gvw"/>

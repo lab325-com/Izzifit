@@ -1,0 +1,7 @@
+query SourcesByMeal($mealId: String!) {
+    sourcesByMeal(mealId: $mealId) {
+        eaten
+        name
+        needed
+    }
+}

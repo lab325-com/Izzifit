@@ -56,10 +56,27 @@ class FoodController: BaseController {
     private let foodIdentifier = String(describing: FoodRecomendedCell.self)
     private let foodTopTitleIdentifier = String(describing: FoodTopTitleCell.self)
     
-    private var selectedType: MealType = .mealTypeBreakfast {
+    private lazy var presenter  = FoodPresenter(view: self)
+    private let mealsWidget: MealsWidgetMainModel
+    private var currentMealType: MealType {
         didSet {
-            topLabel.text = selectedType.text
+            topLabel.text = currentMealType.text
+            presenter.getProducts(mealTypes: currentMealType, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "")
         }
+    }
+    
+    //----------------------------------------------
+    // MARK: - Init
+    //----------------------------------------------
+    
+    init(mealsWidget: MealsWidgetMainModel, currentMealType: MealType) {
+        self.mealsWidget = mealsWidget
+        self.currentMealType = currentMealType
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     //----------------------------------------------
@@ -75,19 +92,14 @@ class FoodController: BaseController {
     }
     
     private func setup() {
+        stackProteinView.isHidden = true
+        
+        tableView.isHidden = true
+        
+        presenter.getProducts(mealTypes: currentMealType, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "")
         
         addProductButton.layer.borderWidth = 2
         addProductButton.layer.borderColor = UIColor(red: 0.8, green: 0.745, blue: 0.914, alpha: 1).cgColor
-        
-        proteinGrammLabel.text = RLocalization.food_proteins(100)
-        proteingGLeftLabel.text = RLocalization.food_gramm_lefts(23)
-        
-        fatsGLabel.text = RLocalization.food_fats(111)
-        fatsGLeftLabel.text  = RLocalization.food_gramm_lefts(23)
-        
-        carbsGLabel.text = RLocalization.food_carbs(222)
-        carbsGLeftLabel.text = RLocalization.food_gramm_lefts(23)
-        
         
         searchLabel.text = RLocalization.food_search()
         
@@ -96,14 +108,14 @@ class FoodController: BaseController {
         tableView.rowHeight = UITableView.automaticDimension
         
         tableView.register(UINib(nibName: foodIdentifier, bundle: nil), forCellReuseIdentifier: foodIdentifier)
-        tableView.register(UINib(nibName: foodTopTitleIdentifier, bundle: nil), forCellReuseIdentifier: foodTopTitleIdentifier)
+        tableView.register(UINib(nibName: foodTopTitleIdentifier, bundle: nil), forHeaderFooterViewReuseIdentifier: foodTopTitleIdentifier)
         
-        pickerView.selectRow(MealType.allCases.firstIndex(where: {$0 == selectedType}) ?? 0, inComponent: 0, animated: false)
+        pickerView.selectRow(MealType.allCases.firstIndex(where: {$0 == currentMealType}) ?? 0, inComponent: 0, animated: false)
         
         searchView.layer.borderWidth = 1
         
         setupSerach(isActive: false)
-        updateLabels()
+        
     }
     
     private func updateLabels() {
@@ -114,33 +126,36 @@ class FoodController: BaseController {
         
         let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Inter-Regular", size: 14), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0xFF42A8)]
         
-        let attributedString1 = NSMutableAttributedString(string: "Proteins", attributes:attrs1 as [NSAttributedString.Key : Any])
+        let proteins = presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeProteins})
+        let attributedString1 = NSMutableAttributedString(string: RLocalization.food_main_proteins(), attributes:attrs1 as [NSAttributedString.Key : Any])
         
-        let attributedString2 = NSMutableAttributedString(string:" 4", attributes:attrs2 as [NSAttributedString.Key : Any])
+        let attributedString2 = NSMutableAttributedString(string:" \(proteins?.eaten ?? 0)", attributes:attrs2 as [NSAttributedString.Key : Any])
         
-        let attributedString3 = NSMutableAttributedString(string:"/40g", attributes:attrs1 as [NSAttributedString.Key : Any])
+        let attributedString3 = NSMutableAttributedString(string:"/\(proteins?.needed ?? 0)g", attributes:attrs1 as [NSAttributedString.Key : Any])
         
         attributedString1.append(attributedString2)
         attributedString1.append(attributedString3)
         
         self.proteinsLabel.attributedText = attributedString1
         
-        let attributedString4 = NSMutableAttributedString(string: "Fats", attributes:attrs1 as [NSAttributedString.Key : Any])
+        let fats = presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeFats})
+        let attributedString4 = NSMutableAttributedString(string: RLocalization.food_main_fats(), attributes:attrs1 as [NSAttributedString.Key : Any])
         
-        let attributedString5 = NSMutableAttributedString(string:" 4", attributes:attrs2 as [NSAttributedString.Key : Any])
+        let attributedString5 = NSMutableAttributedString(string:" \(fats?.needed ?? 0)", attributes:attrs2 as [NSAttributedString.Key : Any])
         
-        let attributedString6 = NSMutableAttributedString(string:"/40g", attributes:attrs1 as [NSAttributedString.Key : Any])
+        let attributedString6 = NSMutableAttributedString(string:"/\(fats?.eaten ?? 0)g", attributes:attrs1 as [NSAttributedString.Key : Any])
         
         attributedString4.append(attributedString5)
         attributedString4.append(attributedString6)
         
         self.fatsLabel.attributedText = attributedString4
         
-        let attributedString7 = NSMutableAttributedString(string: "Carbs", attributes:attrs1 as [NSAttributedString.Key : Any])
+        let carbs = presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeCarbs})
+        let attributedString7 = NSMutableAttributedString(string: RLocalization.food_main_carbs(), attributes:attrs1 as [NSAttributedString.Key : Any])
         
-        let attributedString8 = NSMutableAttributedString(string:" 4", attributes:attrs2 as [NSAttributedString.Key : Any])
+        let attributedString8 = NSMutableAttributedString(string:" \(carbs?.needed ?? 0)", attributes:attrs2 as [NSAttributedString.Key : Any])
         
-        let attributedString9 = NSMutableAttributedString(string:"/40g", attributes:attrs1 as [NSAttributedString.Key : Any])
+        let attributedString9 = NSMutableAttributedString(string:"/\(carbs?.eaten ?? 0)g", attributes:attrs1 as [NSAttributedString.Key : Any])
         
         attributedString7.append(attributedString8)
         attributedString7.append(attributedString9)
@@ -161,6 +176,21 @@ class FoodController: BaseController {
             
             searchView.layer.borderColor = UIColor(red: 0.879, green: 0.878, blue: 0.917, alpha: 1).cgColor
         }
+    }
+    
+    private func setupProteintsView() {
+        
+        let proteins = presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeProteins})
+        proteinGrammLabel.text = RLocalization.food_proteins(proteins?.eaten ?? 0)
+        proteingGLeftLabel.text = RLocalization.food_gramm_lefts(proteins?.needed ?? 0)
+        
+        let fats = presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeFats})
+        fatsGLabel.text = RLocalization.food_fats(fats?.eaten ?? 0)
+        fatsGLeftLabel.text  = RLocalization.food_gramm_lefts(fats?.needed ?? 0)
+        
+        let carbs = presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeCarbs})
+        carbsGLabel.text = RLocalization.food_carbs(carbs?.eaten ?? 0)
+        carbsGLeftLabel.text = RLocalization.food_gramm_lefts(carbs?.needed ?? 0)
     }
     
     //----------------------------------------------
@@ -185,6 +215,10 @@ class FoodController: BaseController {
         }
     }
     
+    @IBAction func addOwnProduct(_ sender: UIButton) {
+        EnergyRouter(presenter: navigationController).pushWriteToUs()
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         hideKeyboard()
         return false
@@ -195,19 +229,37 @@ class FoodController: BaseController {
 // MARK: - UITableViewDataSource
 //----------------------------------------------
 
-extension FoodController: UITableViewDataSource {
+extension FoodController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return presenter.sections.keys.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 40
+        return presenter.sections[section]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.foodTopTitleIdentifier) as? FoodTopTitleCell else { return    UITableViewCell() }
-            return cell
-        } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.foodIdentifier) as? FoodRecomendedCell else { return    UITableViewCell() }
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: self.foodIdentifier) as? FoodRecomendedCell else { return    UITableViewCell() }
+        if let models = presenter.sections[indexPath.section], let model = models[safe: indexPath.row] {
+            cell.setupCell(model: model, isActive: presenter.namesSections[safe: indexPath.section] == RLocalization.food_already_eate())
         }
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "FoodTopTitleCell") as! FoodTopTitleCell
+        headerView.nameLabel.text = presenter.namesSections[section]
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
     }
 }
 
@@ -226,7 +278,7 @@ extension FoodController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedType =  MealType.allCases[row]
+        currentMealType =  MealType.allCases[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -273,5 +325,23 @@ extension FoodController: UITextFieldDelegate {
         } else {
             setupSerach(isActive: false)
         }
+    }
+}
+
+//----------------------------------------------
+// MARK: - FoodOutputProtocol
+//----------------------------------------------
+
+extension FoodController: FoodOutputProtocol {
+    func success() {
+        updateLabels()
+        setupProteintsView()
+        stackProteinView.isHidden = false
+        tableView.isHidden = false
+        tableView.reloadData()
+    }
+    
+    func failure() {
+        
     }
 }

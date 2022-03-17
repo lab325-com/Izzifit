@@ -193,6 +193,7 @@ extension EnergyController: EnergyTodayProtocol {
 
 extension EnergyController: EnergyMealsDeleagate {
     func energyMealsAdd(cell: EnergyMealsCell, type: MealType) {
-        EnergyRouter(presenter: navigationController).pushFood()
+        guard let meals = presenter.mealsWidget else { return }
+        EnergyRouter(presenter: navigationController).pushFood(mealsWidget: meals, currentMealType: type)
     }
 }

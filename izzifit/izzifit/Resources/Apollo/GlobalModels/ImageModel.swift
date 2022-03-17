@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ImageModel: Codable {
+struct ImageModel: Codable, Hashable {
     let id: String?
     let urlIosFull: String?
     let urlIosPrev: String?

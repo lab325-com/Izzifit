@@ -25,7 +25,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="362" height="64"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_activity_ic" translatesAutoresizingMaskIntoConstraints="NO" id="I9x-VX-arB">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_food_two_ic" translatesAutoresizingMaskIntoConstraints="NO" id="I9x-VX-arB">
                         <rect key="frame" x="16" y="8" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="CjG-lP-ntZ"/>
@@ -44,7 +44,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="eJE-qu-ioT">
-                        <rect key="frame" x="72" y="32.5" width="156.5" height="15"/>
+                        <rect key="frame" x="72" y="32.5" width="187.5" height="15"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Prot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzA-7u-ko3">
                                 <rect key="frame" x="0.0" y="0.0" width="34.5" height="15"/>
@@ -58,8 +58,8 @@
                                 <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.53701470819999997" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Carb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ck4-PL-L6X">
-                                <rect key="frame" x="118" y="0.0" width="38.5" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="1111111111111 Carb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ck4-PL-L6X">
+                                <rect key="frame" x="118" y="0.0" width="69.5" height="15"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
                                 <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.53701470819999997" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -71,7 +71,7 @@
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" image="energy_meals_add_ic"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="he6-ap-TdF">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="100 g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="he6-ap-TdF">
                         <rect key="frame" x="269.5" y="19.5" width="36.5" height="17"/>
                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                         <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -86,6 +86,7 @@
                     <constraint firstItem="I9x-VX-arB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Xcz-rj-G1R"/>
                     <constraint firstItem="sqK-N2-amS" firstAttribute="centerY" secondItem="I9x-VX-arB" secondAttribute="centerY" id="Xzk-QR-0Na"/>
                     <constraint firstItem="eJE-qu-ioT" firstAttribute="leading" secondItem="Z3K-Ur-jlf" secondAttribute="leading" id="c89-sC-XFT"/>
+                    <constraint firstItem="he6-ap-TdF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eJE-qu-ioT" secondAttribute="trailing" constant="10" id="gOo-9f-BVe"/>
                     <constraint firstAttribute="bottom" secondItem="I9x-VX-arB" secondAttribute="bottom" constant="8" id="n4G-4S-hOH"/>
                     <constraint firstItem="sqK-N2-amS" firstAttribute="leading" secondItem="he6-ap-TdF" secondAttribute="trailing" constant="16" id="o0d-Uq-kwQ"/>
                     <constraint firstItem="I9x-VX-arB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="oKP-hP-Va8"/>
@@ -95,11 +96,20 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <inset key="separatorInset" minX="10000" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="addButton" destination="sqK-N2-amS" id="NXe-JN-x4o"/>
+                <outlet property="avatarImageView" destination="I9x-VX-arB" id="HoF-U7-027"/>
+                <outlet property="carbsLabel" destination="ck4-PL-L6X" id="Vdu-yM-9by"/>
+                <outlet property="fatsLabel" destination="ANj-Rc-isG" id="25N-fU-0qN"/>
+                <outlet property="grammLabel" destination="he6-ap-TdF" id="AHC-K4-TaR"/>
+                <outlet property="nameLabel" destination="Z3K-Ur-jlf" id="RWa-aj-Pf5"/>
+                <outlet property="protLabel" destination="uzA-7u-ko3" id="5G2-6d-gbP"/>
+            </connections>
             <point key="canvasLocation" x="168.11594202898553" y="106.47321428571428"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="energy_meals_add_ic" width="24" height="24"/>
-        <image name="temp_activity_ic" width="156" height="112"/>
+        <image name="placeholder_food_two_ic" width="40" height="40"/>
     </resources>
 </document>
