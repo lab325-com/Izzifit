@@ -106,7 +106,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 7 colors.
+  /// This `R.color` struct is generated, and contains static references to 9 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
@@ -116,6 +116,10 @@ struct R: Rswift.Validatable {
     static let chartPurple = Rswift.ColorResource(bundle: R.hostingBundle, name: "chartPurple")
     /// Color `grayText`.
     static let grayText = Rswift.ColorResource(bundle: R.hostingBundle, name: "grayText")
+    /// Color `grayVw`.
+    static let grayVw = Rswift.ColorResource(bundle: R.hostingBundle, name: "grayVw")
+    /// Color `lightGrayText`.
+    static let lightGrayText = Rswift.ColorResource(bundle: R.hostingBundle, name: "lightGrayText")
     /// Color `pinkTarget`.
     static let pinkTarget = Rswift.ColorResource(bundle: R.hostingBundle, name: "pinkTarget")
     /// Color `profileCellBack`.
@@ -156,6 +160,24 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func grayText(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.grayText, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "grayVw", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func grayVw(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.grayVw, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "lightGrayText", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func lightGrayText(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.lightGrayText, compatibleWith: traitCollection)
     }
     #endif
 
@@ -215,6 +237,22 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func grayText(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.grayText.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "grayVw", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func grayVw(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.grayVw.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "lightGrayText", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func lightGrayText(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.lightGrayText.name)
     }
     #endif
 
@@ -612,12 +650,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 54 images.
+  /// This `R.image` struct is generated, and contains static references to 55 images.
   struct image {
     /// Image `auth_note_see_pass_ic`.
     static let auth_note_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_note_see_pass_ic")
     /// Image `auth_see_pass_ic`.
     static let auth_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_see_pass_ic")
+    /// Image `dummyFace`.
+    static let dummyFace = Rswift.ImageResource(bundle: R.hostingBundle, name: "dummyFace")
     /// Image `energy_arrow_back_ic`.
     static let energy_arrow_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_arrow_back_ic")
     /// Image `energy_arrow_forward_ic`.
@@ -734,6 +774,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "auth_see_pass_ic", bundle: ..., traitCollection: ...)`
     static func auth_see_pass_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.auth_see_pass_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "dummyFace", bundle: ..., traitCollection: ...)`
+    static func dummyFace(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.dummyFace, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1104,8 +1151,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 53 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 58 nibs.
   struct nib {
+    /// Nib `ChartCollectionCell`.
+    static let chartCollectionCell = _R.nib._ChartCollectionCell()
+    /// Nib `ChartTableCell`.
+    static let chartTableCell = _R.nib._ChartTableCell()
     /// Nib `EnerdyTodayCell`.
     static let enerdyTodayCell = _R.nib._EnerdyTodayCell()
     /// Nib `EnergyAddActivityCell`.
@@ -1170,6 +1221,10 @@ struct R: Rswift.Validatable {
     static let menuWeightController = _R.nib._MenuWeightController()
     /// Nib `MenuWriteQuestionController`.
     static let menuWriteQuestionController = _R.nib._MenuWriteQuestionController()
+    /// Nib `PositionTableCell`.
+    static let positionTableCell = _R.nib._PositionTableCell()
+    /// Nib `ProfileController`.
+    static let profileController = _R.nib._ProfileController()
     /// Nib `ProgressCell`.
     static let progressCell = _R.nib._ProgressCell()
     /// Nib `QuizeAgeController`.
@@ -1200,6 +1255,8 @@ struct R: Rswift.Validatable {
     static let splashViewController = _R.nib._SplashViewController()
     /// Nib `StartController`.
     static let startController = _R.nib._StartController()
+    /// Nib `WeightTableCell`.
+    static let weightTableCell = _R.nib._WeightTableCell()
     /// Nib `WorkoutActivitiesCell`.
     static let workoutActivitiesCell = _R.nib._WorkoutActivitiesCell()
     /// Nib `WorkoutActivityCollectionCell`.
@@ -1212,6 +1269,22 @@ struct R: Rswift.Validatable {
     static let workoutSpecialCell = _R.nib._WorkoutSpecialCell()
     /// Nib `WriteToUsController`.
     static let writeToUsController = _R.nib._WriteToUsController()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "ChartCollectionCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.chartCollectionCell) instead")
+    static func chartCollectionCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.chartCollectionCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "ChartTableCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.chartTableCell) instead")
+    static func chartTableCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.chartTableCell)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "EnerdyTodayCell", in: bundle)`
@@ -1470,6 +1543,22 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "PositionTableCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.positionTableCell) instead")
+    static func positionTableCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.positionTableCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "ProfileController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.profileController) instead")
+    static func profileController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.profileController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "ProgressCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.progressCell) instead")
     static func progressCell(_: Void = ()) -> UIKit.UINib {
@@ -1590,6 +1679,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WeightTableCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.weightTableCell) instead")
+    static func weightTableCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.weightTableCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "WorkoutActivitiesCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutActivitiesCell) instead")
     static func workoutActivitiesCell(_: Void = ()) -> UIKit.UINib {
@@ -1636,6 +1733,14 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.writeToUsController)
     }
     #endif
+
+    static func chartCollectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ChartCollectionCell? {
+      return R.nib.chartCollectionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ChartCollectionCell
+    }
+
+    static func chartTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ChartTableCell? {
+      return R.nib.chartTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ChartTableCell
+    }
 
     static func enerdyTodayCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnerdyTodayCell? {
       return R.nib.enerdyTodayCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnerdyTodayCell
@@ -1765,6 +1870,14 @@ struct R: Rswift.Validatable {
       return R.nib.menuWriteQuestionController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func positionTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PositionTableCell? {
+      return R.nib.positionTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PositionTableCell
+    }
+
+    static func profileController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.profileController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func progressCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ProgressCell? {
       return R.nib.progressCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ProgressCell
     }
@@ -1825,6 +1938,10 @@ struct R: Rswift.Validatable {
       return R.nib.startController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func weightTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WeightTableCell? {
+      return R.nib.weightTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WeightTableCell
+    }
+
     static func workoutActivitiesCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutActivitiesCell? {
       return R.nib.workoutActivitiesCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutActivitiesCell
     }
@@ -1852,8 +1969,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 21 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 25 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `ChartCollectionCell`.
+    static let chartCollectionCell: Rswift.ReuseIdentifier<ChartCollectionCell> = Rswift.ReuseIdentifier(identifier: "ChartCollectionCell")
+    /// Reuse identifier `ChartTableCell`.
+    static let chartTableCell: Rswift.ReuseIdentifier<ChartTableCell> = Rswift.ReuseIdentifier(identifier: "ChartTableCell")
     /// Reuse identifier `EnerdyTodayCell`.
     static let enerdyTodayCell: Rswift.ReuseIdentifier<EnerdyTodayCell> = Rswift.ReuseIdentifier(identifier: "EnerdyTodayCell")
     /// Reuse identifier `EnergyAddActivityCell`.
@@ -1884,10 +2005,14 @@ struct R: Rswift.Validatable {
     static let menuFoodTitleCellCell: Rswift.ReuseIdentifier<MenuFoodTitleCellCell> = Rswift.ReuseIdentifier(identifier: "MenuFoodTitleCellCell")
     /// Reuse identifier `MenuLanguagesTitleCell`.
     static let menuLanguagesTitleCell: Rswift.ReuseIdentifier<MenuLanguagesTitleCell> = Rswift.ReuseIdentifier(identifier: "MenuLanguagesTitleCell")
+    /// Reuse identifier `PositionTableCell`.
+    static let positionTableCell: Rswift.ReuseIdentifier<PositionTableCell> = Rswift.ReuseIdentifier(identifier: "PositionTableCell")
     /// Reuse identifier `ProgressCell`.
     static let progressCell: Rswift.ReuseIdentifier<ProgressCell> = Rswift.ReuseIdentifier(identifier: "ProgressCell")
     /// Reuse identifier `QuizeFoodCell`.
     static let quizeFoodCell: Rswift.ReuseIdentifier<QuizeFoodCell> = Rswift.ReuseIdentifier(identifier: "QuizeFoodCell")
+    /// Reuse identifier `WeightTableCell`.
+    static let weightTableCell: Rswift.ReuseIdentifier<WeightTableCell> = Rswift.ReuseIdentifier(identifier: "WeightTableCell")
     /// Reuse identifier `WorkoutActivitiesCell`.
     static let workoutActivitiesCell: Rswift.ReuseIdentifier<WorkoutActivitiesCell> = Rswift.ReuseIdentifier(identifier: "WorkoutActivitiesCell")
     /// Reuse identifier `WorkoutActivityCollectionCell`.
@@ -4714,6 +4839,7 @@ struct _R: Rswift.Validatable {
       try _MenuTargetWeightController.validate()
       try _MenuWeightController.validate()
       try _MenuWriteQuestionController.validate()
+      try _ProfileController.validate()
       try _QuizeAgeController.validate()
       try _QuizeEmailController.validate()
       try _QuizeFoodCell.validate()
@@ -4730,6 +4856,34 @@ struct _R: Rswift.Validatable {
       try _StartController.validate()
       try _WorkoutController.validate()
       try _WriteToUsController.validate()
+    }
+
+    struct _ChartCollectionCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = ChartCollectionCell
+
+      let bundle = R.hostingBundle
+      let identifier = "ChartCollectionCell"
+      let name = "ChartCollectionCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ChartCollectionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ChartCollectionCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _ChartTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = ChartTableCell
+
+      let bundle = R.hostingBundle
+      let identifier = "ChartTableCell"
+      let name = "ChartTableCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ChartTableCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ChartTableCell
+      }
+
+      fileprivate init() {}
     }
 
     struct _EnerdyTodayCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
@@ -5337,6 +5491,40 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _PositionTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = PositionTableCell
+
+      let bundle = R.hostingBundle
+      let identifier = "PositionTableCell"
+      let name = "PositionTableCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PositionTableCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PositionTableCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _ProfileController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "ProfileController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "dummyFace", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'dummyFace' is used in nib 'ProfileController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'ProfileController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "top_view_coin_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_coin_ic' is used in nib 'ProfileController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "top_view_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_flash_ic' is used in nib 'ProfileController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
     struct _ProgressCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = ProgressCell
 
@@ -5609,6 +5797,20 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "start_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_logo_ic' is used in nib 'StartController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WeightTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = WeightTableCell
+
+      let bundle = R.hostingBundle
+      let identifier = "WeightTableCell"
+      let name = "WeightTableCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WeightTableCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WeightTableCell
       }
 
       fileprivate init() {}

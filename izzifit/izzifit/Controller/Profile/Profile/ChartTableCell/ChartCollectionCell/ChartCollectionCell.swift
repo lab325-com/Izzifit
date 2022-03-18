@@ -1,23 +1,23 @@
 //
-//  CaloriesCollectionCell.swift
+//  ChartCollectionCell.swift
 //  izzifit
 //
-//  Created by Oleh Study on 15.03.2022.
+//  Created by Oleh Study on 16.03.2022.
 //
 
 import UIKit
 
-class CaloriesCollectionCell: UICollectionViewCell {
-    
-    static let id = "CaloriesCollectionCell"
+class ChartCollectionCell: UICollectionViewCell {
+
+    static let id = "ChartCollectionCell"
     
     var shapeLayer = CAShapeLayer()
     var shapeVw = UIView()
     var shapeLineWidth: Double = 9
     var strokeEnd = ((Double(Int(arc4random_uniform(58))) / 100) + 0.06)
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
         backgroundColor = clr(color: .profileCellBack)
         
         let shapeLayer = CAShapeLayer()
@@ -33,9 +33,10 @@ class CaloriesCollectionCell: UICollectionViewCell {
         overShapeLayer.strokeColor = clr(color: .chartPurple)?.cgColor
         
         let y = self.bounds.height / 2
+        let x = self.bounds.width / 2
         let path = UIBezierPath()
-        path.move(to: CGPoint(x: 0, y: y + y ))
-        path.addLine(to: CGPoint(x: 0 , y:  y - y  ))
+        path.move(to: CGPoint(x: x, y: y + y ))
+        path.addLine(to: CGPoint(x: x , y:  y - y  ))
         shapeLayer.path = path.cgPath
         overShapeLayer.path = path.cgPath
         layer.addSublayer(shapeLayer)
@@ -49,14 +50,10 @@ class CaloriesCollectionCell: UICollectionViewCell {
         afterTargetLayer.strokeColor = clr(color: .afterTarget)?.cgColor
         
         let afterPath = UIBezierPath()
-        afterPath.move(to: CGPoint(x: 0, y: y ))
-        afterPath.addLine(to: CGPoint(x: 0 , y: y - y))
+        afterPath.move(to: CGPoint(x: x, y: y ))
+        afterPath.addLine(to: CGPoint(x: x , y: y - y))
         afterTargetLayer.path = afterPath.cgPath
         
         overShapeLayer.addSublayer(afterTargetLayer)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

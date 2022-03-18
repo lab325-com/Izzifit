@@ -16,6 +16,7 @@
                 <outlet property="containerMenuView" destination="b0J-Rb-5cC" id="NdR-3A-c21"/>
                 <outlet property="containerProfileView" destination="vht-gD-zSx" id="Hbn-a4-UFQ"/>
                 <outlet property="containerWorkoutView" destination="n6x-QE-BRy" id="afc-Z1-aGP"/>
+                <outlet property="mainTabBarVw" destination="YxE-sx-cP6" id="XPf-g1-ngU"/>
                 <outlet property="selectWorkoutLayout" destination="734-NM-gLy" id="M4g-BA-Yeb"/>
                 <outlet property="selectedEnergyLayout" destination="7ZO-aF-SOS" id="cvG-2E-5rF"/>
                 <outlet property="selectedMenuLayout" destination="0JN-R7-pbZ" id="AuF-9d-zXA"/>
