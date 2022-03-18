@@ -214,6 +214,10 @@
 		FE1403BE27E2019C002F5819 /* ChartTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE1403BC27E2019C002F5819 /* ChartTableCell.xib */; };
 		FE1403C227E249EB002F5819 /* ChartCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1403C027E249EB002F5819 /* ChartCollectionCell.swift */; };
 		FE1403C327E249EB002F5819 /* ChartCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE1403C127E249EB002F5819 /* ChartCollectionCell.xib */; };
+		FE7CF8B627E48F760099682E /* PositionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7CF8B427E48F760099682E /* PositionTableCell.swift */; };
+		FE7CF8B727E48F760099682E /* PositionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7CF8B527E48F760099682E /* PositionTableCell.xib */; };
+		FE7CF8BB27E4A7ED0099682E /* WeightTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7CF8B927E4A7ED0099682E /* WeightTableCell.swift */; };
+		FE7CF8BC27E4A7ED0099682E /* WeightTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7CF8BA27E4A7ED0099682E /* WeightTableCell.xib */; };
 		FEBFD7B127E0F16A0027ADD2 /* SetUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFD7B027E0F16A0027ADD2 /* SetUIManager.swift */; };
 		FEBFD7B327E0F1880027ADD2 /* ImgsAndClrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFD7B227E0F1880027ADD2 /* ImgsAndClrs.swift */; };
 /* End PBXBuildFile section */
@@ -426,6 +430,10 @@
 		FE1403BC27E2019C002F5819 /* ChartTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableCell.xib; sourceTree = "<group>"; };
 		FE1403C027E249EB002F5819 /* ChartCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionCell.swift; sourceTree = "<group>"; };
 		FE1403C127E249EB002F5819 /* ChartCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCollectionCell.xib; sourceTree = "<group>"; };
+		FE7CF8B427E48F760099682E /* PositionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTableCell.swift; sourceTree = "<group>"; };
+		FE7CF8B527E48F760099682E /* PositionTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PositionTableCell.xib; sourceTree = "<group>"; };
+		FE7CF8B927E4A7ED0099682E /* WeightTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTableCell.swift; sourceTree = "<group>"; };
+		FE7CF8BA27E4A7ED0099682E /* WeightTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeightTableCell.xib; sourceTree = "<group>"; };
 		FEBFD7B027E0F16A0027ADD2 /* SetUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUIManager.swift; sourceTree = "<group>"; };
 		FEBFD7B227E0F1880027ADD2 /* ImgsAndClrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgsAndClrs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1437,6 +1445,8 @@
 		FE1403B527E1EF2A002F5819 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				FE7CF8B827E4A7990099682E /* WeightTableCell */,
+				FE7CF8B127E48E2E0099682E /* PositionTableCell */,
 				FE1403BA27E200D2002F5819 /* ChartTableCell */,
 				FE1403B127E1EDC2002F5819 /* ProfileController.swift */,
 				FE1403B227E1EDC2002F5819 /* ProfileController.xib */,
@@ -1461,6 +1471,24 @@
 				FE1403C127E249EB002F5819 /* ChartCollectionCell.xib */,
 			);
 			path = ChartCollectionCell;
+			sourceTree = "<group>";
+		};
+		FE7CF8B127E48E2E0099682E /* PositionTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				FE7CF8B427E48F760099682E /* PositionTableCell.swift */,
+				FE7CF8B527E48F760099682E /* PositionTableCell.xib */,
+			);
+			path = PositionTableCell;
+			sourceTree = "<group>";
+		};
+		FE7CF8B827E4A7990099682E /* WeightTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				FE7CF8B927E4A7ED0099682E /* WeightTableCell.swift */,
+				FE7CF8BA27E4A7ED0099682E /* WeightTableCell.xib */,
+			);
+			path = WeightTableCell;
 			sourceTree = "<group>";
 		};
 		FEBFD7AF27E0F14F0027ADD2 /* CodeDriving UI */ = {
@@ -1573,6 +1601,7 @@
 				FA1761C127DA3E96002881BB /* WorkoutActivityCollectionCell.xib in Resources */,
 				FE1403B427E1EDC2002F5819 /* ProfileController.xib in Resources */,
 				02D066C027BBB57D00D12C5F /* Inter-Medium.ttf in Resources */,
+				FE7CF8B727E48F760099682E /* PositionTableCell.xib in Resources */,
 				02C3DD6C27BEDB46004E5C65 /* ProfileUpdate.graphql in Resources */,
 				0227DABD27C6768F008AB26B /* MenuWeightController.xib in Resources */,
 				02B225B927BD63FC0035CFA2 /* QuizeEmailController.xib in Resources */,
@@ -1603,6 +1632,7 @@
 				02D066A827BBA72100D12C5F /* Localizable.strings in Resources */,
 				02D066C127BBB57D00D12C5F /* Inter-Thin.ttf in Resources */,
 				02C3DD6627BEDA82004E5C65 /* QuizeProgressController.xib in Resources */,
+				FE7CF8BC27E4A7ED0099682E /* WeightTableCell.xib in Resources */,
 				02ABCF4127CD0D4700E69C06 /* MenuLanguageController.xib in Resources */,
 				0227DACD27C6A82A008AB26B /* MenuFoodTitleCellCell.xib in Resources */,
 				02A5CDB527C3949700D31FB4 /* MenuController.xib in Resources */,
@@ -1779,6 +1809,7 @@
 				0227DAB227C67179008AB26B /* MenuEmailController.swift in Sources */,
 				0273F55E27D5F7CB00B19449 /* EnergyMealsCell.swift in Sources */,
 				0263389427DB3E5100DC0325 /* ProgressCell.swift in Sources */,
+				FE7CF8B627E48F760099682E /* PositionTableCell.swift in Sources */,
 				02A5CDBC27C3DD3300D31FB4 /* PasswordForgotRequestModel.swift in Sources */,
 				0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */,
 				0249D26327B3A88C00F265C1 /* UIApplicathion+Extension.swift in Sources */,
@@ -1862,6 +1893,7 @@
 				0249D26427B3A88C00F265C1 /* UIColor+Extension.swift in Sources */,
 				02F01C5427D794B20066656D /* MoodWidgetModel.swift in Sources */,
 				0263389E27DB6C9A00DC0325 /* ProgressesModel.swift in Sources */,
+				FE7CF8BB27E4A7ED0099682E /* WeightTableCell.swift in Sources */,
 				025463B427CF784400D433DB /* MenuFitnessPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
