@@ -38,6 +38,8 @@ class MainTabBarController: BaseController {
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
+    private let heightTabBarConstans: CGFloat = -84
+    
     
     private lazy var energy = EnergyController()
     private lazy var workout = WorkoutController()
@@ -94,11 +96,6 @@ class MainTabBarController: BaseController {
             containerMenuView.isHidden = true
             self.addContainer(child: workout, to: containerWorkoutView)
         case .profile:
-//            containerEnergyView.isHidden = true
-//            containerWorkoutView.isHidden = true
-//            containerProfileView.isHidden = false
-//            containerMenuView.isHidden = true
-//            self.addContainer(child: profile, to: containerProfileView)
             
             containerEnergyView.isHidden = true
             containerWorkoutView.isHidden = true
@@ -156,17 +153,16 @@ class MainTabBarController: BaseController {
     
     @IBAction func actionProfile(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
-            self.bottomCustomTabBarLayout.constant = -84
+            self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
             self.view.layoutIfNeeded()
         }
 
         TabBarRouter(presenter: navigationController).pushProfile()
-//        tab = .profile
     }
     
     @IBAction func actionMenu(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
-            self.bottomCustomTabBarLayout.constant = -84
+            self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
             self.view.layoutIfNeeded()
         }
 
