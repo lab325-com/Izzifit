@@ -12,4 +12,9 @@ class TabBarRouter: BaseRouter {
         let controller = MenuController()
         push(controller: controller)
     }
+    
+    func pushProfile() {
+        let controller = ProfileController()
+        push(controller: controller)
+    }
 }

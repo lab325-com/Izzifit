@@ -12,7 +12,6 @@ enum TabBarType {
     case workout
     case profile
     case menu
-    
 }
 
 class MainTabBarController: BaseController {
@@ -27,21 +26,24 @@ class MainTabBarController: BaseController {
     @IBOutlet weak var containerMenuView: UIView!
     
     @IBOutlet weak var selectedView: UIView!
+    @IBOutlet weak var mainTabBarVw: UIView!
     
     @IBOutlet weak var selectedEnergyLayout: NSLayoutConstraint!
     @IBOutlet weak var selectWorkoutLayout: NSLayoutConstraint!
     @IBOutlet weak var selectedProfileLayout: NSLayoutConstraint!
     @IBOutlet weak var selectedMenuLayout: NSLayoutConstraint!
-    
+
     @IBOutlet weak var bottomCustomTabBarLayout: NSLayoutConstraint!
     
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
+    private let heightTabBarConstans: CGFloat = -84
+    
     
     private lazy var energy = EnergyController()
     private lazy var workout = WorkoutController()
-    private lazy var profile = ProfileVC()
+    private lazy var profile = ProfileController()
     private lazy var menu = MenuController()
     
     private var tab: TabBarType = .energy {
@@ -59,7 +61,6 @@ class MainTabBarController: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setup()
     }
     
@@ -95,11 +96,13 @@ class MainTabBarController: BaseController {
             containerMenuView.isHidden = true
             self.addContainer(child: workout, to: containerWorkoutView)
         case .profile:
+            
             containerEnergyView.isHidden = true
             containerWorkoutView.isHidden = true
             containerProfileView.isHidden = false
             containerMenuView.isHidden = true
             self.addContainer(child: profile, to: containerProfileView)
+            
         case .menu:
             containerEnergyView.isHidden = true
             containerWorkoutView.isHidden = true
@@ -149,12 +152,17 @@ class MainTabBarController: BaseController {
     }
     
     @IBAction func actionProfile(_ sender: UIButton) {
-        tab = .profile
+        UIView.animate(withDuration: 0.3) {
+            self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
+            self.view.layoutIfNeeded()
+        }
+
+        TabBarRouter(presenter: navigationController).pushProfile()
     }
     
     @IBAction func actionMenu(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
-            self.bottomCustomTabBarLayout.constant = -84
+            self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
             self.view.layoutIfNeeded()
         }
 
