@@ -22,18 +22,22 @@
                 <outlet property="addProductButton" destination="11n-8P-dxA" id="r9e-eW-aaZ"/>
                 <outlet property="addProductView" destination="AVz-QQ-nYd" id="Otp-ra-Xd2"/>
                 <outlet property="allLabel" destination="FGx-qS-muT" id="fJV-cw-rmA"/>
+                <outlet property="allView" destination="eL7-yD-tAr" id="5vd-HA-OZE"/>
                 <outlet property="arrowDownImageView" destination="30u-3e-h9Q" id="2nv-lq-cti"/>
                 <outlet property="bottomPickerLayout" destination="pH3-p5-odc" id="qUb-Bb-CPA"/>
                 <outlet property="bottomViewConstraint" destination="Gqp-lp-RXJ" id="PYw-Gf-CEx"/>
                 <outlet property="carbsGLabel" destination="MZ8-LL-4jY" id="3Hm-f5-uZ6"/>
                 <outlet property="carbsGLeftLabel" destination="baM-3Z-ciL" id="o4c-4w-GBw"/>
                 <outlet property="carbsLabel" destination="KwV-fV-Z8Z" id="ord-UR-lRM"/>
+                <outlet property="carbsView" destination="To7-mW-MwK" id="rhy-Ff-Caj"/>
                 <outlet property="clearSearchButton" destination="bAi-aF-Xqt" id="ZO0-Sp-t4j"/>
                 <outlet property="fatsGLabel" destination="hdc-It-zoW" id="fZe-Vr-c6s"/>
                 <outlet property="fatsGLeftLabel" destination="mHA-Jo-S5y" id="WTl-z7-B2w"/>
                 <outlet property="fatsLabel" destination="ZGg-mV-hhi" id="KA3-TL-aqr"/>
+                <outlet property="fatsView" destination="1Es-Cr-fbD" id="8w0-dl-HfO"/>
                 <outlet property="pickerView" destination="cr1-V1-dCo" id="kn8-lw-F0k"/>
                 <outlet property="proteinGrammLabel" destination="ZP7-8R-9xQ" id="MVh-iE-Zef"/>
+                <outlet property="proteinView" destination="oLO-Dj-pi7" id="upb-nh-A2Q"/>
                 <outlet property="proteingGLeftLabel" destination="OAF-ur-wCq" id="GqN-i9-QLy"/>
                 <outlet property="proteinsLabel" destination="Eln-CA-emk" id="f22-ap-mA6"/>
                 <outlet property="searchLabel" destination="oI4-eP-9On" id="9mS-pM-RHf"/>
@@ -308,6 +312,9 @@
                                                         <constraint firstAttribute="height" constant="32" id="3x7-3b-VwK"/>
                                                     </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <connections>
+                                                        <action selector="actionAll:" destination="-1" eventType="touchUpInside" id="1dt-Ru-lqC"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="0.25882352939999997" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
@@ -342,6 +349,9 @@
                                                         <constraint firstAttribute="height" constant="32" id="RbP-cq-bV4"/>
                                                     </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <connections>
+                                                        <action selector="actionProtein:" destination="-1" eventType="touchUpInside" id="k6a-fd-FXF"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.94509803921568625" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -376,6 +386,9 @@
                                                         <constraint firstAttribute="height" constant="32" id="Nyi-ci-zvr"/>
                                                     </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <connections>
+                                                        <action selector="actionFats:" destination="-1" eventType="touchUpInside" id="xeD-r0-2m2"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.94509803921568625" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -410,6 +423,9 @@
                                                         <constraint firstAttribute="height" constant="32" id="dvP-7J-kxS"/>
                                                     </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <connections>
+                                                        <action selector="actionCarbs:" destination="-1" eventType="touchUpInside" id="lTw-3u-stO"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.94509803921568625" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

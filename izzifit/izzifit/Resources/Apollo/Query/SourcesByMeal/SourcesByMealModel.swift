@@ -15,4 +15,5 @@ struct SourcesByMealMainModel: Codable {
     let eaten: Int?
     let name: SourceEntityType?
     let needed: Int?
+    let id: Int?
 }

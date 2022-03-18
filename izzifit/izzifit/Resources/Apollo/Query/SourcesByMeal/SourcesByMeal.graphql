@@ -3,5 +3,6 @@ query SourcesByMeal($mealId: String!) {
         eaten
         name
         needed
+        id
     }
 }

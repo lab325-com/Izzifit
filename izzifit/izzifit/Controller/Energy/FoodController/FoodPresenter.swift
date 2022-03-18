@@ -14,6 +14,7 @@ import UIKit
 //----------------------------------------------
 protocol FoodOutputProtocol: BaseController {
     func success()
+    func successSeach()
     func failure()
 }
 
@@ -24,6 +25,7 @@ protocol FoodOutputProtocol: BaseController {
 protocol FoodPresenterProtocol: AnyObject {
     init(view: FoodOutputProtocol)
     
+    func search(text: String, id: Int?)
     func getProducts(mealTypes: MealType, mealId: String)
 }
 
@@ -43,6 +45,9 @@ class FoodPresenter: FoodPresenterProtocol {
     
     var sections: [Int: [ProductsMainModel]] = [:]
     var namesSections: [String] = []
+    
+    var searchProducts: [ProductsMainModel] = []
+    
     
     func getProducts(mealTypes: MealType, mealId: String) {
         sections.removeAll()
@@ -114,5 +119,19 @@ class FoodPresenter: FoodPresenterProtocol {
             self.view?.stopLoading()
             self.view?.success()
         }
+    }
+    
+    func search(text: String, id: Int?) {
+        view?.startLoader()
+        
+        let query = ProductsQuery(search: text, foodGroupId: "", sourceIds: [id], onlyToggled: true)
+        let _ = Network.shared.query(model: ProductsModel.self, query, controller: view, successHandler: { [weak self] model in
+            self?.searchProducts = model.products
+            self?.view?.stopLoading()
+            self?.view?.successSeach()
+        }, failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+            self?.view?.failure()
+        })
     }
 }
