@@ -22,7 +22,7 @@ class EnergyChooseActivityCell: UITableViewCell {
     //----------------------------------------------
     
     private let weight  = UIScreen.main.bounds.size.width * 0.4373
-    private let height  = (UIScreen.main.bounds.size.width * 0.4373) * 0.6829 + 35
+    private let height  = (UIScreen.main.bounds.size.width * 0.4373) * 0.6829 + 45
     
     private let cellIdentifier = String(describing: EnergyChooseActivityCollectionCell.self)
     

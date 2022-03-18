@@ -53,5 +53,18 @@ extension SourceEntityType: Codable {
 }
 
 extension MealType: Codable {
-    
+    var text: String {
+        switch self {
+        case .mealTypeDinner:
+            return RLocalization.food_dinner()
+        case .mealTypeLunch:
+            return RLocalization.food_lunch()
+        case .mealTypeSnack:
+            return RLocalization.food_snack()
+        case .mealTypeBreakfast:
+            return RLocalization.food_breakfast()
+        case .__unknown(_):
+            return ""
+        }
+    }
 }
