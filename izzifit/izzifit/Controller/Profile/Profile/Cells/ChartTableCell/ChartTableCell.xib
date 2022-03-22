@@ -153,7 +153,7 @@
                 <outlet property="backVw" destination="DtC-B5-fDl" id="QEn-yJ-vQg"/>
                 <outlet property="chartCollectionView" destination="Rgz-Iv-rxN" id="Xbl-lM-YZx"/>
             </connections>
-            <point key="canvasLocation" x="238" y="48"/>
+            <point key="canvasLocation" x="236.95652173913047" y="47.544642857142854"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -47,7 +47,7 @@ class ChartCollectionCell: UICollectionViewCell {
         afterTargetLayer.lineWidth = shapeLineWidth
         afterTargetLayer.fillColor = nil
         afterTargetLayer.strokeEnd = (strokeEnd - 0.50) * 2
-        afterTargetLayer.strokeColor = clr(color: .afterTarget)?.cgColor
+        afterTargetLayer.strokeColor = clr(color: .intensivePurple)?.cgColor
         
         let afterPath = UIBezierPath()
         afterPath.move(to: CGPoint(x: x, y: y ))

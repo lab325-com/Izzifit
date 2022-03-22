@@ -12,5 +12,5 @@ enum Imgs: String {
 }
 
 enum Clrs: String {
-    case profileCellBack, textTitleBlack, chartPurple, pinkTarget, grayText, afterTarget
+    case profileCellBack, textTitleBlack, chartPurple, pinkTarget, grayText, intensivePurple
 }
