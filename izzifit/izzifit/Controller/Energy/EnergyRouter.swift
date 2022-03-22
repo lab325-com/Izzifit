@@ -22,4 +22,11 @@ class EnergyRouter: BaseRouter {
         let controller = WriteToUsController()
         push(controller: controller)
     }
+    
+    func presentAddProduct(sourceByMeal: [SourcesByMealMainModel], isUpdate: Bool, model: ProductsMainModel, mealId: String) {
+        let controller = FoodAddController(sourceByMeal: sourceByMeal, isUpdate: isUpdate, model: model, mealID: mealId)
+        controller.modalTransitionStyle = .crossDissolve
+        controller.modalPresentationStyle = .overCurrentContext
+        present(controller: controller, presentStyle: .overCurrentContext)
+    }
 }

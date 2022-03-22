@@ -302,8 +302,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 35 files.
+  /// This `R.file` struct is generated, and contains static references to 36 files.
   struct file {
+    /// Resource file `AddProductToMeal.graphql`.
+    static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
     /// Resource file `AskQuestion.graphql`.
     static let askQuestionGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AskQuestion", pathExtension: "graphql")
     /// Resource file `Debug.xcconfig`.
@@ -374,6 +376,12 @@ struct R: Rswift.Validatable {
     static let workoutTypesGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutTypes", pathExtension: "graphql")
     /// Resource file `progress.graphql`.
     static let progressGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "progress", pathExtension: "graphql")
+
+    /// `bundle.url(forResource: "AddProductToMeal", withExtension: "graphql")`
+    static func addProductToMealGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.addProductToMealGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
 
     /// `bundle.url(forResource: "AskQuestion", withExtension: "graphql")`
     static func askQuestionGraphql(_: Void = ()) -> Foundation.URL? {
@@ -1206,7 +1214,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 60 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 61 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -1238,6 +1246,8 @@ struct R: Rswift.Validatable {
     static let energyTrainingCell = _R.nib._EnergyTrainingCell()
     /// Nib `EnergyWeightCell`.
     static let energyWeightCell = _R.nib._EnergyWeightCell()
+    /// Nib `FoodAddController`.
+    static let foodAddController = _R.nib._FoodAddController()
     /// Nib `FoodController`.
     static let foodController = _R.nib._FoodController()
     /// Nib `FoodRecomendedCell`.
@@ -1446,6 +1456,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.energyWeightCell) instead")
     static func energyWeightCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.energyWeightCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "FoodAddController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.foodAddController) instead")
+    static func foodAddController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.foodAddController)
     }
     #endif
 
@@ -1869,6 +1887,10 @@ struct R: Rswift.Validatable {
       return R.nib.energyWeightCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyWeightCell
     }
 
+    static func foodAddController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.foodAddController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func foodController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.foodController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -2052,8 +2074,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 25 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 27 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `AwardsTableCell`.
+    static let awardsTableCell: Rswift.ReuseIdentifier<AwardsTableCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
     /// Reuse identifier `ChartCollectionCell`.
     static let chartCollectionCell: Rswift.ReuseIdentifier<ChartCollectionCell> = Rswift.ReuseIdentifier(identifier: "ChartCollectionCell")
     /// Reuse identifier `ChartTableCell`.
@@ -2088,6 +2112,8 @@ struct R: Rswift.Validatable {
     static let menuFoodTitleCellCell: Rswift.ReuseIdentifier<MenuFoodTitleCellCell> = Rswift.ReuseIdentifier(identifier: "MenuFoodTitleCellCell")
     /// Reuse identifier `MenuLanguagesTitleCell`.
     static let menuLanguagesTitleCell: Rswift.ReuseIdentifier<MenuLanguagesTitleCell> = Rswift.ReuseIdentifier(identifier: "MenuLanguagesTitleCell")
+    /// Reuse identifier `MoodTableCell`.
+    static let moodTableCell: Rswift.ReuseIdentifier<MoodTableCell> = Rswift.ReuseIdentifier(identifier: "MoodTableCell")
     /// Reuse identifier `PositionTableCell`.
     static let positionTableCell: Rswift.ReuseIdentifier<PositionTableCell> = Rswift.ReuseIdentifier(identifier: "PositionTableCell")
     /// Reuse identifier `ProgressCell`.
@@ -2110,7 +2136,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 147 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 148 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -2464,6 +2490,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let login_forgot_subTitle = Rswift.StringResource(key: "login_forgot_subTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Privacy Policy
+      ///
+      /// Locales: en
+      static let award_privacy_policy = Rswift.StringResource(key: "award_privacy_policy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Privacy Policy
       ///
       /// Locales: en
@@ -4050,6 +4080,21 @@ struct R: Rswift.Validatable {
       /// en translation: Privacy Policy
       ///
       /// Locales: en
+      static func award_privacy_policy(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("award_privacy_policy", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "award_privacy_policy"
+        }
+
+        return NSLocalizedString("award_privacy_policy", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Privacy Policy
+      ///
+      /// Locales: en
       static func login_privacy(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("login_privacy", bundle: hostingBundle, comment: "")
@@ -5018,8 +5063,11 @@ struct _R: Rswift.Validatable {
       try _WriteToUsController.validate()
     }
 
-    struct _AwardsTableCell: Rswift.NibResourceType, Rswift.Validatable {
+    struct _AwardsTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = AwardsTableCell
+
       let bundle = R.hostingBundle
+      let identifier = "AwardsTableCell"
       let name = "AwardsTableCell"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> AwardsTableCell? {
@@ -5033,6 +5081,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "sportsAward", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'sportsAward' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "greyAwards", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'greyAwards' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "textTitleBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'textTitleBlack' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
         }
       }
 
@@ -5310,6 +5359,17 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _FoodAddController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "FoodAddController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
     struct _FoodController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "FoodController"
@@ -5322,9 +5382,9 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "food_arrow_down_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'food_arrow_down_ic' is used in nib 'FoodController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "food_clear_search_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'food_clear_search_ic' is used in nib 'FoodController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "food_search_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'food_search_ic' is used in nib 'FoodController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "imageView:3sc-gp-9Zw:image", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'imageView:3sc-gp-9Zw:image' is used in nib 'FoodController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'FoodController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'FoodController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "top_view_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_flash_ic' is used in nib 'FoodController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -5672,8 +5732,11 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _MoodTableCell: Rswift.NibResourceType {
+    struct _MoodTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = MoodTableCell
+
       let bundle = R.hostingBundle
+      let identifier = "MoodTableCell"
       let name = "MoodTableCell"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MoodTableCell? {

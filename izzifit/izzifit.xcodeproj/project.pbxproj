@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020D281F27E863DD00010122 /* FoodAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D281D27E863DD00010122 /* FoodAddController.swift */; };
+		020D282027E863DD00010122 /* FoodAddController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020D281E27E863DD00010122 /* FoodAddController.xib */; };
+		020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D282127E887A400010122 /* FoodAddPresenter.swift */; };
+		020D282527E89FE700010122 /* AddProductToMeal.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 020D282427E89FE700010122 /* AddProductToMeal.graphql */; };
+		020D282727E8A04400010122 /* AddProductToMealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D282627E8A04400010122 /* AddProductToMealModel.swift */; };
 		021A6F4727BF8FFA0000D863 /* ProfileUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4627BF8FF90000D863 /* ProfileUpdateModel.swift */; };
 		021A6F4A27BF91050000D863 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4927BF91050000D863 /* CircularProgressBarView.swift */; };
 		021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4C27BF99710000D863 /* MainTabBarController.swift */; };
@@ -245,6 +250,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		020D281D27E863DD00010122 /* FoodAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAddController.swift; sourceTree = "<group>"; };
+		020D281E27E863DD00010122 /* FoodAddController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodAddController.xib; sourceTree = "<group>"; };
+		020D282127E887A400010122 /* FoodAddPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAddPresenter.swift; sourceTree = "<group>"; };
+		020D282427E89FE700010122 /* AddProductToMeal.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AddProductToMeal.graphql; sourceTree = "<group>"; };
+		020D282627E8A04400010122 /* AddProductToMealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductToMealModel.swift; sourceTree = "<group>"; };
 		021A6F4627BF8FF90000D863 /* ProfileUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateModel.swift; sourceTree = "<group>"; };
 		021A6F4927BF91050000D863 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		021A6F4C27BF99710000D863 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -501,6 +511,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		020D281B27E863B400010122 /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				024C69A127DF856000EE8D53 /* FoodController */,
+				020D281C27E863BE00010122 /* FoodAddController */,
+				0239712127E1CD3B0087113A /* WriteToUsController */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
+		020D281C27E863BE00010122 /* FoodAddController */ = {
+			isa = PBXGroup;
+			children = (
+				020D282127E887A400010122 /* FoodAddPresenter.swift */,
+				020D281D27E863DD00010122 /* FoodAddController.swift */,
+				020D281E27E863DD00010122 /* FoodAddController.xib */,
+			);
+			path = FoodAddController;
+			sourceTree = "<group>";
+		};
+		020D282327E89FD300010122 /* AddProductToMeal */ = {
+			isa = PBXGroup;
+			children = (
+				020D282427E89FE700010122 /* AddProductToMeal.graphql */,
+				020D282627E8A04400010122 /* AddProductToMealModel.swift */,
+			);
+			path = AddProductToMeal;
+			sourceTree = "<group>";
+		};
 		021A6F4827BF90F60000D863 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1135,8 +1174,7 @@
 				0263388F27DB29AF00DC0325 /* EnergyRouter.swift */,
 				0263388927DB296600DC0325 /* EnergyController */,
 				0263388A27DB296E00DC0325 /* EnergyProgress */,
-				024C69A127DF856000EE8D53 /* FoodController */,
-				0239712127E1CD3B0087113A /* WriteToUsController */,
+				020D281B27E863B400010122 /* Food */,
 			);
 			path = Energy;
 			sourceTree = "<group>";
@@ -1313,6 +1351,7 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				020D282327E89FD300010122 /* AddProductToMeal */,
 				02F2D93E27D0BF4300E9FB68 /* AskQuestion */,
 				02A5CDB827C3DCDF00D31FB4 /* PasswordForgotRequest */,
 				02C3DD6927BEDB13004E5C65 /* ProfileUpdate */,
@@ -1757,8 +1796,10 @@
 				02D066BF27BBB57D00D12C5F /* Inter-ExtraBold.ttf in Resources */,
 				02D066C227BBB57D00D12C5F /* Inter-Light.ttf in Resources */,
 				025463A327CE2F1500D433DB /* MenuWriteQuestionController.xib in Resources */,
+				020D282527E89FE700010122 /* AddProductToMeal.graphql in Resources */,
 				FA1761B227DA1F60002881BB /* WorkoutActivitiesCell.xib in Resources */,
 				0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */,
+				020D282027E863DD00010122 /* FoodAddController.xib in Resources */,
 				02D066CC27BBBB4300D12C5F /* QuizeNameController.xib in Resources */,
 				0249D28327B3AAAE00F265C1 /* LoginController.xib in Resources */,
 				FA1761C127DA3E96002881BB /* WorkoutActivityCollectionCell.xib in Resources */,
@@ -1989,6 +2030,7 @@
 				02A5CDBC27C3DD3300D31FB4 /* PasswordForgotRequestModel.swift in Sources */,
 				0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */,
 				0249D26327B3A88C00F265C1 /* UIApplicathion+Extension.swift in Sources */,
+				020D281F27E863DD00010122 /* FoodAddController.swift in Sources */,
 				FEBFD7B127E0F16A0027ADD2 /* SetUIManager.swift in Sources */,
 				02FAF0B027D36EA1002CD678 /* DrinkWidgetModel.swift in Sources */,
 				02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */,
@@ -1996,6 +2038,7 @@
 				02D066AD27BBA8F400D12C5F /* R.generated.swift in Sources */,
 				0249D26927B3A92300F265C1 /* KeychainService.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* AwardsTableCell.swift in Sources */,
+				020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */,
 				0227DABC27C6768F008AB26B /* MenuWeightController.swift in Sources */,
 				FA1761B927DA1F8A002881BB /* WorkoutExercisesCell.swift in Sources */,
 				02B225C027BD7B4F0035CFA2 /* LoginModel.swift in Sources */,
@@ -2055,6 +2098,7 @@
 				FEE119BF27E9B9270058EE6D /* MoodTableCell.swift in Sources */,
 				02B225C227BD7D4D0035CFA2 /* MeModel.swift in Sources */,
 				02D066DD27BBE56700D12C5F /* QuizeAgeController.swift in Sources */,
+				020D282727E8A04400010122 /* AddProductToMealModel.swift in Sources */,
 				FE1403C227E249EB002F5819 /* ChartCollectionCell.swift in Sources */,
 				0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */,
 				0249D27427B3AA0400F265C1 /* NetwokrManager.swift in Sources */,
@@ -2230,7 +2274,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
@@ -2264,7 +2308,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
@@ -2359,7 +2403,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;

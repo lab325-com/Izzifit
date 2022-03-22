@@ -7,6 +7,13 @@
 
 import UIKit
 
+enum SearchSourceType {
+    case all
+    case protein
+    case fats
+    case carbs
+}
+
 class FoodController: BaseController {
     
     //----------------------------------------------
@@ -48,6 +55,10 @@ class FoodController: BaseController {
     @IBOutlet weak var fatsLabel: UILabel!
     @IBOutlet weak var carbsLabel: UILabel!
     
+    @IBOutlet weak var allView: UIView!
+    @IBOutlet weak var proteinView: UIView!
+    @IBOutlet weak var fatsView: UIView!
+    @IBOutlet weak var carbsView: UIView!
     
     //----------------------------------------------
     // MARK: - Property
@@ -62,6 +73,24 @@ class FoodController: BaseController {
         didSet {
             topLabel.text = currentMealType.text
             presenter.getProducts(mealTypes: currentMealType, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "")
+        }
+    }
+    
+    private var searchSource: SearchSourceType = .all {
+        didSet {
+            if searchSource != oldValue {
+                
+                startSearh()
+                
+                setupSearchSource()
+                updateLabels()
+            }
+        }
+    }
+    
+    private var isSearch = false {
+        didSet {
+            tableView.reloadData()
         }
     }
     
@@ -121,17 +150,20 @@ class FoodController: BaseController {
     private func updateLabels() {
         
         allLabel.text = "All"
+        allLabel.textColor = searchSource == .all ? UIColor.white : UIColor(rgb: 0x3F3E56)
         
         let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Inter-Regular", size: 14), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x3F3E56)]
         
         let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Inter-Regular", size: 14), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0xFF42A8)]
         
+        let attrsWhite = [NSAttributedString.Key.font : UIFont(name: "Inter-Regular", size: 14), NSAttributedString.Key.foregroundColor : UIColor.white]
+        
         let proteins = presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeProteins})
-        let attributedString1 = NSMutableAttributedString(string: RLocalization.food_main_proteins(), attributes:attrs1 as [NSAttributedString.Key : Any])
+        let attributedString1 = NSMutableAttributedString(string: RLocalization.food_main_proteins(), attributes: searchSource == .protein ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
         
-        let attributedString2 = NSMutableAttributedString(string:" \(proteins?.eaten ?? 0)", attributes:attrs2 as [NSAttributedString.Key : Any])
+        let attributedString2 = NSMutableAttributedString(string:" \(proteins?.eaten ?? 0)", attributes: searchSource == .protein ? attrsWhite as [NSAttributedString.Key : Any] : attrs2 as [NSAttributedString.Key : Any])
         
-        let attributedString3 = NSMutableAttributedString(string:"/\(proteins?.needed ?? 0)g", attributes:attrs1 as [NSAttributedString.Key : Any])
+        let attributedString3 = NSMutableAttributedString(string:"/\(proteins?.needed ?? 0)g", attributes: searchSource == .protein ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
         
         attributedString1.append(attributedString2)
         attributedString1.append(attributedString3)
@@ -139,11 +171,11 @@ class FoodController: BaseController {
         self.proteinsLabel.attributedText = attributedString1
         
         let fats = presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeFats})
-        let attributedString4 = NSMutableAttributedString(string: RLocalization.food_main_fats(), attributes:attrs1 as [NSAttributedString.Key : Any])
+        let attributedString4 = NSMutableAttributedString(string: RLocalization.food_main_fats(), attributes: searchSource == .fats ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
         
-        let attributedString5 = NSMutableAttributedString(string:" \(fats?.needed ?? 0)", attributes:attrs2 as [NSAttributedString.Key : Any])
+        let attributedString5 = NSMutableAttributedString(string:" \(fats?.needed ?? 0)", attributes: searchSource == .fats ? attrsWhite as [NSAttributedString.Key : Any] : attrs2 as [NSAttributedString.Key : Any])
         
-        let attributedString6 = NSMutableAttributedString(string:"/\(fats?.eaten ?? 0)g", attributes:attrs1 as [NSAttributedString.Key : Any])
+        let attributedString6 = NSMutableAttributedString(string:"/\(fats?.eaten ?? 0)g", attributes: searchSource == .fats ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
         
         attributedString4.append(attributedString5)
         attributedString4.append(attributedString6)
@@ -151,11 +183,11 @@ class FoodController: BaseController {
         self.fatsLabel.attributedText = attributedString4
         
         let carbs = presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeCarbs})
-        let attributedString7 = NSMutableAttributedString(string: RLocalization.food_main_carbs(), attributes:attrs1 as [NSAttributedString.Key : Any])
+        let attributedString7 = NSMutableAttributedString(string: RLocalization.food_main_carbs(), attributes: searchSource == .carbs ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
         
-        let attributedString8 = NSMutableAttributedString(string:" \(carbs?.needed ?? 0)", attributes:attrs2 as [NSAttributedString.Key : Any])
+        let attributedString8 = NSMutableAttributedString(string:" \(carbs?.needed ?? 0)", attributes: searchSource == .carbs ? attrsWhite as [NSAttributedString.Key : Any] : attrs2 as [NSAttributedString.Key : Any])
         
-        let attributedString9 = NSMutableAttributedString(string:"/\(carbs?.eaten ?? 0)g", attributes:attrs1 as [NSAttributedString.Key : Any])
+        let attributedString9 = NSMutableAttributedString(string:"/\(carbs?.eaten ?? 0)g", attributes: searchSource == .carbs ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
         
         attributedString7.append(attributedString8)
         attributedString7.append(attributedString9)
@@ -193,12 +225,53 @@ class FoodController: BaseController {
         carbsGLeftLabel.text = RLocalization.food_gramm_lefts(carbs?.needed ?? 0)
     }
     
+    private func setupSearchSource() {
+        switch searchSource {
+        case .all:
+            allView.backgroundColor = UIColor(rgb: 0xFF42A8)
+           proteinView.backgroundColor = UIColor(rgb: 0xF1EFF5)
+           fatsView.backgroundColor = UIColor(rgb: 0xF1EFF5)
+           carbsView.backgroundColor = UIColor(rgb: 0xF1EFF5)
+        case .protein:
+            allView.backgroundColor = UIColor(rgb: 0xF1EFF5)
+           proteinView.backgroundColor = UIColor(rgb: 0xFF42A8)
+           fatsView.backgroundColor = UIColor(rgb: 0xF1EFF5)
+           carbsView.backgroundColor = UIColor(rgb: 0xF1EFF5)
+        case .fats:
+            allView.backgroundColor = UIColor(rgb: 0xF1EFF5)
+           proteinView.backgroundColor = UIColor(rgb: 0xF1EFF5)
+           fatsView.backgroundColor = UIColor(rgb: 0xFF42A8)
+           carbsView.backgroundColor = UIColor(rgb: 0xF1EFF5)
+        case .carbs:
+            allView.backgroundColor = UIColor(rgb: 0xF1EFF5)
+           proteinView.backgroundColor = UIColor(rgb: 0xF1EFF5)
+           fatsView.backgroundColor = UIColor(rgb: 0xF1EFF5)
+           carbsView.backgroundColor = UIColor(rgb: 0xFF42A8)
+        }
+    }
+    
+    private func startSearh() {
+        switch searchSource {
+        case .all:
+            presenter.search(text: searchTextField.text!, id: nil)
+        case .protein:
+            presenter.search(text: searchTextField.text!, id: presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeProteins})?.id)
+        case .carbs:
+            presenter.search(text: searchTextField.text!, id: presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeCarbs})?.id)
+        case .fats:
+            presenter.search(text: searchTextField.text!, id: presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeFats})?.id)
+        }
+    }
+    
     //----------------------------------------------
     // MARK: - IBAction
     //----------------------------------------------
     
     @IBAction func actionClear(_ sender: UIButton) {
         searchTextField.text = ""
+        
+        isSearch = isShowKeyboard
+        
         setupSerach(isActive: isShowKeyboard)
     }
     
@@ -221,7 +294,32 @@ class FoodController: BaseController {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         hideKeyboard()
+        
+        if textField.text!.count > 0 {
+            startSearh()
+        }
+        
+        if textField.text == "" {
+            isSearch = false
+        }
+        
         return false
+    }
+    
+    @IBAction func actionAll(_ sender: UIButton) {
+        searchSource = .all
+    }
+    
+    @IBAction func actionProtein(_ sender: UIButton) {
+        searchSource = .protein
+    }
+    
+    @IBAction func actionFats(_ sender: UIButton) {
+        searchSource = .fats
+    }
+    
+    @IBAction func actionCarbs(_ sender: UIButton) {
+        searchSource = .carbs
     }
 }
 
@@ -232,30 +330,43 @@ class FoodController: BaseController {
 extension FoodController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return presenter.sections.keys.count
+        return isSearch ? 1 : presenter.sections.keys.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.sections[section]?.count ?? 0
+        return isSearch ? presenter.searchProducts.count : presenter.sections[section]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: self.foodIdentifier) as? FoodRecomendedCell else { return    UITableViewCell() }
-        if let models = presenter.sections[indexPath.section], let model = models[safe: indexPath.row] {
-            cell.setupCell(model: model, isActive: presenter.namesSections[safe: indexPath.section] == RLocalization.food_already_eate())
+        if isSearch {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.foodIdentifier) as? FoodRecomendedCell else { return    UITableViewCell() }
+            if let model = presenter.searchProducts[safe: indexPath.row] {
+                cell.setupCell(model: model, isActive: false)
+            }
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.foodIdentifier) as? FoodRecomendedCell else { return    UITableViewCell() }
+            cell.delegate = self
+            
+            if let models = presenter.sections[indexPath.section], let model = models[safe: indexPath.row] {
+                cell.setupCell(model: model, isActive: presenter.namesSections[safe: indexPath.section] == RLocalization.food_already_eate())
+            }
+            return cell
         }
-        return cell
-        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "FoodTopTitleCell") as! FoodTopTitleCell
-        headerView.nameLabel.text = presenter.namesSections[section]
-        return headerView
+        if isSearch {
+            return nil
+        } else {
+            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "FoodTopTitleCell") as! FoodTopTitleCell
+            headerView.nameLabel.text = presenter.namesSections[section]
+            return headerView
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
+        return isSearch ? 16 : 44
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -308,7 +419,7 @@ extension FoodController: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension FoodController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        addProductView.isHidden = false
+        //addProductView.isHidden = false
         stackProteinView.isHidden = true
         searchTypeScroll.isHidden = false
         
@@ -341,7 +452,21 @@ extension FoodController: FoodOutputProtocol {
         tableView.reloadData()
     }
     
+    func successSeach() {
+        isSearch = true
+    }
+    
     func failure() {
         
+    }
+}
+
+//----------------------------------------------
+// MARK: - FoodRecomendedProtocol
+//----------------------------------------------
+
+extension FoodController: FoodRecomendedProtocol {
+    func foodRecomendedAdd(cell: FoodRecomendedCell, isUpdate: Bool, model: ProductsMainModel) {
+        EnergyRouter(presenter: navigationController).presentAddProduct(sourceByMeal: presenter.sourceByMeal, isUpdate: isUpdate, model: model, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "")
     }
 }
