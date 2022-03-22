@@ -346,6 +346,8 @@ extension FoodController: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.foodIdentifier) as? FoodRecomendedCell else { return    UITableViewCell() }
+            cell.delegate = self
+            
             if let models = presenter.sections[indexPath.section], let model = models[safe: indexPath.row] {
                 cell.setupCell(model: model, isActive: presenter.namesSections[safe: indexPath.section] == RLocalization.food_already_eate())
             }
@@ -417,7 +419,7 @@ extension FoodController: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension FoodController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        addProductView.isHidden = false
+        //addProductView.isHidden = false
         stackProteinView.isHidden = true
         searchTypeScroll.isHidden = false
         
@@ -456,5 +458,15 @@ extension FoodController: FoodOutputProtocol {
     
     func failure() {
         
+    }
+}
+
+//----------------------------------------------
+// MARK: - FoodRecomendedProtocol
+//----------------------------------------------
+
+extension FoodController: FoodRecomendedProtocol {
+    func foodRecomendedAdd(cell: FoodRecomendedCell, isUpdate: Bool, model: ProductsMainModel) {
+        EnergyRouter(presenter: navigationController).presentAddProduct(sourceByMeal: presenter.sourceByMeal, isUpdate: isUpdate, model: model, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "")
     }
 }

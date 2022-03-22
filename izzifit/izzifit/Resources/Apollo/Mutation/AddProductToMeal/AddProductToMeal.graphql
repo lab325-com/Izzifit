@@ -1,0 +1,3 @@
+mutation AddProductToMeal($record: AddProductToMealRecordInput!) {
+    addProductToMeal(record: $record)
+}

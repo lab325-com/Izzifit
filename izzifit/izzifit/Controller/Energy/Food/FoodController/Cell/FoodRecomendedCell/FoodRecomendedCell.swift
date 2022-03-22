@@ -8,6 +8,10 @@
 import UIKit
 import Kingfisher
 
+protocol FoodRecomendedProtocol: AnyObject {
+    func foodRecomendedAdd(cell: FoodRecomendedCell, isUpdate: Bool, model: ProductsMainModel)
+}
+
 class FoodRecomendedCell: UITableViewCell {
     
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -22,6 +26,10 @@ class FoodRecomendedCell: UITableViewCell {
     
     @IBOutlet weak var addButton: UIButton!
     
+    weak var delegate: FoodRecomendedProtocol?
+    private var isActive: Bool?
+    private var model: ProductsMainModel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -34,6 +42,9 @@ class FoodRecomendedCell: UITableViewCell {
     }
     
     func setupCell(model: ProductsMainModel, isActive: Bool) {
+        self.isActive = isActive
+        self.model = model
+        
         protLabel.text = RLocalization.food_prot_description(model.ProductSources?.first(where: {$0?.name == .sourceEntityTypeProteins})??.amount ?? 0)
         
         fatsLabel.text = RLocalization.food_fats_description(model.ProductSources?.first(where: {$0?.name == .sourceEntityTypeFats})??.amount ?? 0)
@@ -50,5 +61,11 @@ class FoodRecomendedCell: UITableViewCell {
         let image = isActive ? RImage.onboarding_selected_ic() : RImage.energy_meals_add_ic()
         
         addButton.setImage(image, for: .normal)
+    }
+    
+    @IBAction func addProduct(_ sender: UIButton) {
+        guard let isActive = isActive, let model = model else { return }
+        
+        delegate?.foodRecomendedAdd(cell: self, isUpdate: isActive, model: model)
     }
 }
