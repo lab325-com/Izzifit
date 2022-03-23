@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol EnergyMoodProtocol: AnyObject {
+    func energyMoodSelected(cell: EnergyMoodCell, type: MoodType)
+}
+
 class EnergyMoodCell: UITableViewCell {
 
     @IBOutlet weak var mainTitleLabel: UILabel!
@@ -19,6 +23,8 @@ class EnergyMoodCell: UITableViewCell {
     @IBOutlet weak var goodView: UIView!
     @IBOutlet weak var notBadView: UIView!
     @IBOutlet weak var badlyView: UIView!
+    
+    weak var delegate: EnergyMoodProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -65,5 +71,17 @@ class EnergyMoodCell: UITableViewCell {
             badlyView.layer.borderColor = UIColor.clear.cgColor
         }
        
+    }
+    
+    @IBAction func actionGood(_ sender: UIButton) {
+        delegate?.energyMoodSelected(cell: self, type: .moodTypeGood)
+    }
+    
+    @IBAction func actionNotBad(_ sender: UIButton) {
+        delegate?.energyMoodSelected(cell: self, type: .moodTypeNotBad)
+    }
+    
+    @IBAction func actionBadly(_ sender: UIButton) {
+        delegate?.energyMoodSelected(cell: self, type: .moodTypeBadly)
     }
 }

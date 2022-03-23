@@ -24,6 +24,9 @@ protocol EnergyPresenterProtocol: AnyObject {
     init(view: EnergyOutputProtocol)
     
     func getWidgets(date: String)
+    
+    func setWater(index: Int, date: String)
+    func setMood(mood: MoodType, date: String)
 }
 
 class EnergyPresenter: EnergyPresenterProtocol {
@@ -41,6 +44,8 @@ class EnergyPresenter: EnergyPresenterProtocol {
     var moodWidget: MoodWidgetMainModel?
     var todayProgress: TodayProgressMainModel?
     var weightWidget: SaveWeightWidgetMainModel?
+    var workoutWidgets: [WorkoutsWidgetMainModel] = []
+    var chooseWorkoutWidgets: [WorkoutsWidgetMainModel] = []
     
     func getWidgets(date: String) {
         
@@ -109,9 +114,99 @@ class EnergyPresenter: EnergyPresenterProtocol {
             self?.view?.failure()
         })
         
+        group.enter()
+        let query7 = WorkoutsWidgetQuery(date: date)
+        let _ = Network.shared.query(model: WorkoutsWidgetModel.self, query7, controller: view, successHandler: { [weak self] model in
+            self?.workoutWidgets = model.workoutsWidget
+            group.leave()
+        }, failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        })
+        
+        group.enter()
+        let query8 = ChooseWorkoutWidgetQuery(date: date)
+        let _ = Network.shared.query(model: ChooseWorkoutWidgetModel.self, query8, controller: view, successHandler: { [weak self] model in
+            self?.chooseWorkoutWidgets = model.chooseWorkoutWidget
+            group.leave()
+        }, failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        })
+        
         group.notify(queue: DispatchQueue.main) { [weak self] in
             self?.view?.stopLoading()
             self?.view?.success()
         }
+    }
+    
+    func setWater(index: Int, date: String) {
+        view?.startLoader()
+        
+        let mutation = DrinkWaterMutation(cupsCount: index)
+        let _ = Network.shared.mutation(model: DrinkWaterModel.self, mutation, controller: view, successHandler: { [weak self] model in
+            let query = DrinkWidgetQuery(date: date)
+            let _ = Network.shared.query(model: DrinkWidgetModel.self, query, controller: self?.view, successHandler: { [weak self] model in
+                self?.drinkWidget = model.drinkWidget
+                self?.updateToday()
+            }, failureHandler: { [weak self] error in
+                self?.view?.stopLoading()
+                self?.view?.failure()
+            })
+        }, failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+            self?.view?.failure()
+        })
+    }
+    
+    func setMood(mood: MoodType, date: String) {
+        view?.startLoader()
+        
+        let mutation = SaveMoodMutation(mood: mood)
+        let _ = Network.shared.mutation(model: SaveMoodModel.self, mutation, controller: view, successHandler: { [weak self] model in
+            let query = MoodWidgetQuery(date: date)
+            let _ = Network.shared.query(model: MoodWidgetModel.self, query, controller: self?.view, successHandler: { [weak self] model in
+                self?.moodWidget = model.moodWidget
+                self?.updateToday()
+            }, failureHandler: { [weak self] error in
+                self?.view?.stopLoading()
+                self?.view?.failure()
+            })
+        }, failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+            self?.view?.failure()
+        })
+    }
+    
+    func setSeleep(sleep: SleepQualityType, date: String) {
+        view?.startLoader()
+        
+        let mutation = SaveSleepQualityMutation(quality: sleep)
+        
+        let _ = Network.shared.mutation(model: SaveSleepQualityModel.self, mutation, controller: view, successHandler: { [weak self] model in
+            let query = SleepWidgetQuery(date: date)
+            let _ = Network.shared.query(model: SleepWidgetModel.self, query, controller: self?.view, successHandler: { [weak self] model in
+                self?.sleepWidget = model.sleepWidget
+                self?.updateToday()
+            }, failureHandler: { [weak self] error in
+                self?.view?.stopLoading()
+                self?.view?.failure()
+            })
+        }, failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+            self?.view?.failure()
+        })
+    }
+    
+    private func updateToday() {
+        let query5 = ProgressQuery()
+        let _ = Network.shared.query(model: TodayProgressModel.self, query5, controller: view, successHandler: { [weak self] model in
+            self?.todayProgress = model.progress
+            self?.view?.stopLoading()
+            self?.view?.success()
+        }, failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+            self?.view?.failure()
+        })
     }
 }

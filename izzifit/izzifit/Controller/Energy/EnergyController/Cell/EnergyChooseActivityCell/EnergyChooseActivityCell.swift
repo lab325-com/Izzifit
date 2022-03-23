@@ -17,6 +17,8 @@ class EnergyChooseActivityCell: UITableViewCell {
     @IBOutlet weak var heightCollectionView: NSLayoutConstraint!
     @IBOutlet weak var mainTitleLabel: UILabel!
     
+    @IBOutlet weak var countEnergyLabel: UILabel!
+    
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
@@ -25,6 +27,14 @@ class EnergyChooseActivityCell: UITableViewCell {
     private let height  = (UIScreen.main.bounds.size.width * 0.4373) * 0.6829 + 45
     
     private let cellIdentifier = String(describing: EnergyChooseActivityCollectionCell.self)
+    
+    private var models: [WorkoutsWidgetMainModel] = [] {
+        didSet {
+            if models != oldValue {
+                collectionView.reloadData()
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,6 +57,10 @@ class EnergyChooseActivityCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setupCell(models: [WorkoutsWidgetMainModel]) {
+        self.models = models
+        
+    }
 }
 
 //----------------------------------------------
@@ -56,12 +70,12 @@ class EnergyChooseActivityCell: UITableViewCell {
 
 extension EnergyChooseActivityCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return models.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  cellIdentifier, for: indexPath) as! EnergyChooseActivityCollectionCell
-        
+        cell.setupCell(model: models[indexPath.row])
         return cell
     }
 }

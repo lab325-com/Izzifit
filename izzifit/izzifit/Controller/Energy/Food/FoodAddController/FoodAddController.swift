@@ -152,11 +152,15 @@ class FoodAddController: BaseController {
     }
     
     @IBAction func actionUpdateOrAdd(_ sender: UIButton) {
-        if isUpdate {
-            
+        if isUpdate, let gramm = Int(grammTextField.text!), grammTextField.text!.count > 0 {
+            presenter.update(mealId: mealId, productId: model.id ?? "", amount: gramm)
         } else if let gramm = Int(grammTextField.text!), grammTextField.text!.count > 0 {
             presenter.add(mealId: mealId, productId: model.id ?? "", amount: gramm)
         }
+    }
+    
+    @IBAction func actionDelete(_ sender: UIButton) {
+        presenter.remove(mealId: mealId, productId: model.id ?? "")
     }
 }
 
@@ -180,6 +184,14 @@ extension FoodAddController: UITextFieldDelegate {
 
 extension FoodAddController: FoodAddOutputProtocol {
     func success() {
+        dismiss(animated: true)
+    }
+    
+    func successUpdate() {
+        dismiss(animated: true)
+    }
+    
+    func successRemove() {
         dismiss(animated: true)
     }
     

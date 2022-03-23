@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol EnergySleepCellProtocol: AnyObject {
+    func energySleepCellSeleep(cell: EnergySleepCell, sleep: SleepQualityType)
+}
+
 class EnergySleepCell: UITableViewCell {
 
     @IBOutlet weak var mainTitleLabel: UILabel!
@@ -14,6 +18,8 @@ class EnergySleepCell: UITableViewCell {
     @IBOutlet weak var goodButton: UIButton!
     @IBOutlet weak var badButton: UIButton!
     @IBOutlet weak var countLabel: UILabel!
+    
+    weak var delegate: EnergySleepCellProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,4 +59,11 @@ class EnergySleepCell: UITableViewCell {
         
     }
     
+    @IBAction func actionGood(_ sender: UIButton) {
+        delegate?.energySleepCellSeleep(cell: self, sleep: .sleepQualityTypeGood)
+    }
+    
+    @IBAction func actionBad(_ sender: UIButton) {
+        delegate?.energySleepCellSeleep(cell: self, sleep: .sleepQualityTypeBad)
+    }
 }

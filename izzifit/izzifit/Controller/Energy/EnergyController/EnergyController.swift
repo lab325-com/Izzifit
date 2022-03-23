@@ -40,6 +40,13 @@ class EnergyController: BaseController {
     
     private lazy var presenter = EnergyPresenter(view: self)
 
+    private var date: String {
+        let dateFormmater = DateFormatter()
+        dateFormmater.locale = Locale(identifier: "en_US_POSIX")
+        dateFormmater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return dateFormmater.string(from: Date())
+    }
+    
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
@@ -67,11 +74,9 @@ class EnergyController: BaseController {
         
         tableView.isHidden = true
         
-        let dateFormmater = DateFormatter()
-        dateFormmater.locale = Locale(identifier: "en_US_POSIX")
-        dateFormmater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         
-        presenter.getWidgets(date: dateFormmater.string(from: Date()))
+        
+        presenter.getWidgets(date: date)
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
         
@@ -101,7 +106,7 @@ class EnergyController: BaseController {
 extension EnergyController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return 8 + presenter.workoutWidgets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -116,13 +121,14 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellWaterIdentifier) as? EnergyDrinkWaterCell else { return UITableViewCell() }
+            cell.delegate = self
             if let model = presenter.drinkWidget {
                 cell.setupCell(model: model)
             }
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellEnergyMood) as? EnergyMoodCell else { return UITableViewCell() }
-            
+            cell.delegate = self
             if let model = presenter.moodWidget {
                 cell.setupCell(model: model)
             }
@@ -136,6 +142,7 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 4:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSleepIdentifier) as? EnergySleepCell else { return UITableViewCell() }
+            cell.delegate = self
             if let model = presenter.sleepWidget {
                 cell.setupCell(model: model)
             }
@@ -148,12 +155,18 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 6:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellChooseActivity) as? EnergyChooseActivityCell else { return UITableViewCell() }
+            cell.setupCell(models: presenter.chooseWorkoutWidgets)
             return cell
-        case 7:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellTraining) as? EnergyTrainingCell else { return UITableViewCell() }
-            cell.setupCell(type: .training)
-            return cell
-        case 8:
+        case 7..<7 + presenter.workoutWidgets.count:
+            if presenter.workoutWidgets.count == 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellAddActivity) as? EnergyAddActivityCell else { return UITableViewCell() }
+                return cell
+            } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellTraining) as? EnergyTrainingCell else { return UITableViewCell() }
+                cell.setupCell(model: presenter.workoutWidgets[indexPath.row - 7])
+                return cell
+            }
+        case 7 + presenter.workoutWidgets.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellAddActivity) as? EnergyAddActivityCell else { return UITableViewCell() }
             return cell
         default:
@@ -195,5 +208,35 @@ extension EnergyController: EnergyMealsDeleagate {
     func energyMealsAdd(cell: EnergyMealsCell, type: MealType) {
         guard let meals = presenter.mealsWidget else { return }
         EnergyRouter(presenter: navigationController).pushFood(mealsWidget: meals, currentMealType: type)
+    }
+}
+
+//----------------------------------------------
+// MARK: - EnergyDrinkWaterProtocol
+//----------------------------------------------
+
+extension EnergyController: EnergyDrinkWaterProtocol {
+    func energyDrinkWaterSelectIndex(cell: EnergyDrinkWaterCell, index: Int) {
+        presenter.setWater(index: index, date: date)
+    }
+}
+
+//----------------------------------------------
+// MARK: - EnergyMoodProtocol
+//----------------------------------------------
+
+extension EnergyController: EnergyMoodProtocol {
+    func energyMoodSelected(cell: EnergyMoodCell, type: MoodType) {
+        presenter.setMood(mood: type, date: date)
+    }
+}
+
+//----------------------------------------------
+// MARK: - EnergySleepCellProtocol
+//----------------------------------------------
+
+extension EnergyController: EnergySleepCellProtocol {
+    func energySleepCellSeleep(cell: EnergySleepCell, sleep: SleepQualityType) {
+        presenter.setSeleep(sleep: sleep, date: date)
     }
 }

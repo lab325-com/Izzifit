@@ -274,6 +274,9 @@
                                             <integer key="value" value="24"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="actionDelete:" destination="-1" eventType="touchUpInside" id="gG6-5J-a1d"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
