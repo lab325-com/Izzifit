@@ -224,16 +224,20 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="backVw" destination="B9f-Nw-NMl" id="hfa-D7-Yc2"/>
+                <outlet property="countryPositionLbl" destination="XIx-3a-Zfg" id="trz-Yg-X1N"/>
+                <outlet property="globalPositionLbl" destination="CRx-Hd-vEH" id="ZGf-W2-ZE9"/>
+                <outlet property="levelLbl" destination="1xk-fp-17X" id="7yc-68-lSG"/>
+                <outlet property="rankLbl" destination="HN0-Mj-BVU" id="TiB-I1-t3D"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="63.616071428571423"/>
         </tableViewCell>
     </objects>
     <resources>
         <namedColor name="grayVw">
-            <color red="0.27450980392156865" green="0.32941176470588235" blue="0.36078431372549019" alpha="0.20866934955120087" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.27500000596046448" green="0.32899999618530273" blue="0.36100000143051147" alpha="0.20900000631809235" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="lightGrayText">
-            <color red="0.396078431372549" green="0.396078431372549" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.39599999785423279" green="0.39599999785423279" blue="0.47099998593330383" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="profileCellBack">
             <color red="0.94499999284744263" green="0.93699997663497925" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -13,6 +13,17 @@ class ChartTableCell: UITableViewCell {
     // MARK: - IBOutlet
     //----------------------------------------------
     
+    @IBOutlet weak var titleLbl: UILabel! {
+        didSet {
+            titleLbl.text = RLocalization.profile_calories()
+        }
+    }
+    @IBOutlet weak var targetLbl: UILabel! {
+        didSet {
+            targetLbl.text = RLocalization.profile_target()
+        }
+    }
+    
     @IBOutlet weak var backVw: UIView!
     @IBOutlet weak var chartCollectionView: UICollectionView!
     
