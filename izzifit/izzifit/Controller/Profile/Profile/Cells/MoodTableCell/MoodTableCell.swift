@@ -22,6 +22,11 @@ class MoodTableCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var moodLbl: UILabel! {
+        didSet {
+            moodLbl.text = RLocalization.profile_mood()
+        }
+    }
     private lazy var backYAxis: CGFloat = {
         chartBackVw.bounds.height / 10
     }()

@@ -10,18 +10,21 @@ import UIKit
 class AwardsTableCell: UITableViewCell {
 
     static let id = "AwardsTableCell"
-    var btnNames = ["Privacy Policy",
-                    "Terms of Use",
-                    "Write to us"]
+    var btnNames = [RLocalization.profile_privacy_policy(),
+                    RLocalization.profile_terms_of_use(),
+                    RLocalization.profile_write_to_us()]
+    @IBOutlet weak var mainLbl: UILabel! {
+        didSet{
+            mainLbl.text = RLocalization.profile_awards()
+        }
+    }
     @IBOutlet var buttonsCollection: [UIButton]! {
         didSet {
             for (index, button) in buttonsCollection.enumerated() {
                 button.setTitle(btnNames[index], for: .normal)
                 button.setTitleColor(clr(color: .textTitleBlack),
                                      for: .normal)
-                button.titleLabel!.font = UIFont(name: "Inter-Regular",
-                                                 size: 14)
-
+                button.titleLabel!.font = UIFont.systemFont(ofSize: 12, weight: .regular)
             }
         }
     }
@@ -35,7 +38,7 @@ class AwardsTableCell: UITableViewCell {
             activityBtn.layer.borderWidth = 2
             activityBtn.setTitleColor(clr(color: .textTitleBlack),
                                       for: .normal)
-            activityBtn.setTitle("Add your activity",
+            activityBtn.setTitle(RLocalization.profile_add_your_activity(),
                                  for: .normal)
         }
     }

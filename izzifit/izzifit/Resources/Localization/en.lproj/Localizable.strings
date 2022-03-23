@@ -1,4 +1,3 @@
-"award_privacy_policy" = "Privacy Policy";
 "energy_choose_activity" = "Choose activity";
 "energy_header_title" = "Hey, %@";
 "energy_meals_breakfast" = "Breakfast";
@@ -130,6 +129,20 @@
 "onboarding_weight_kg" = "KG";
 "onboarding_weight_lb" = "LB";
 "onboarding_weight_title" = "Your weigth";
+"profile" = "Profile";
+"profile_add_your_activity" = "Add your activity";
+"profile_awards" = "Awards";
+"profile_calories" = "Calories";
+"profile_country_position" = "Country position";
+"profile_global_position" = "Global position";
+"profile_level" = "Level";
+"profile_mood" = "Mood";
+"profile_privacy_policy" = "Privacy Policy";
+"profile_rank" = "Rank";
+"profile_target" = "Target";
+"profile_terms_of_use" = "Terms of Use";
+"profile_weight" = "Weight";
+"profile_write_to_us" = "Write to us";
 "progress_activity" = "Add your activity";
 "progress_fri" = "Fri";
 "progress_mon" = "Mon";

@@ -87,19 +87,25 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain"/>
                     </button>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Qyn-qB-2fJ">
-                        <rect key="frame" x="20" y="197" width="335" height="22"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Qyn-qB-2fJ">
+                        <rect key="frame" x="-7.5" y="197" width="390" height="15"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGe-VN-ZZl">
-                                <rect key="frame" x="0.0" y="0.0" width="107.5" height="22"/>
+                                <rect key="frame" x="0.0" y="0.0" width="24" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="Z4O-sI-Zl5"/>
+                                    <constraint firstAttribute="height" constant="15" id="yEx-A0-yc5"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Privacy Policy">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
-                                    <color key="baseForegroundColor" name="textTitleBlack"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="plain"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPe-c0-tA7">
-                                <rect key="frame" x="113.5" y="0.0" width="108" height="22"/>
+                                <rect key="frame" x="24" y="0.0" width="110" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="1Fe-0a-bb5"/>
+                                    <constraint firstAttribute="width" constant="110" id="lpw-kk-0cV"/>
+                                    <constraint firstAttribute="height" constant="15" id="tCa-iJ-OBh"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Terms of Use">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
@@ -107,7 +113,12 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KH-6w-KlN">
-                                <rect key="frame" x="227.5" y="0.0" width="107.5" height="22"/>
+                                <rect key="frame" x="280" y="0.0" width="110" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="4qM-cl-LTs"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="F1h-8s-cZ2"/>
+                                    <constraint firstAttribute="width" constant="110" id="ony-1S-gC7"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Write to us">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
@@ -116,29 +127,29 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="cPe-c0-tA7" firstAttribute="width" secondItem="ZGe-VN-ZZl" secondAttribute="width" id="0bh-Iz-Ofn"/>
-                            <constraint firstItem="4KH-6w-KlN" firstAttribute="width" secondItem="ZGe-VN-ZZl" secondAttribute="width" id="krF-mV-7a2"/>
-                            <constraint firstAttribute="height" constant="22" id="quM-dq-GTr"/>
+                            <constraint firstAttribute="width" constant="390" id="DGt-KL-pmK"/>
+                            <constraint firstAttribute="height" constant="15" id="quM-dq-GTr"/>
                         </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="aPU-qI-2c9" secondAttribute="trailing" constant="5" id="7Rz-hb-Ed7"/>
                     <constraint firstItem="Qyn-qB-2fJ" firstAttribute="top" secondItem="TxC-p5-Xua" secondAttribute="bottom" constant="114" id="7ea-ia-vbo"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Qyn-qB-2fJ" secondAttribute="trailing" id="9fP-ca-yiQ"/>
                     <constraint firstItem="TxC-p5-Xua" firstAttribute="top" secondItem="Hy1-NU-gxB" secondAttribute="bottom" constant="16" id="DFI-LW-8wi"/>
                     <constraint firstItem="Hy1-NU-gxB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="P3N-4R-VE5"/>
                     <constraint firstItem="TxC-p5-Xua" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Qje-wl-L4O"/>
+                    <constraint firstItem="Qyn-qB-2fJ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="SpC-vZ-vv0"/>
                     <constraint firstItem="aPU-qI-2c9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Wgi-DF-gPc"/>
                     <constraint firstItem="Hy1-NU-gxB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ZFg-Ld-6Tv"/>
+                    <constraint firstItem="Qyn-qB-2fJ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="dAu-68-ErK"/>
                     <constraint firstItem="aPU-qI-2c9" firstAttribute="top" secondItem="TxC-p5-Xua" secondAttribute="bottom" constant="41" id="dMt-ib-Ybc"/>
-                    <constraint firstItem="Qyn-qB-2fJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="icL-bu-nHe"/>
                     <constraint firstItem="aPU-qI-2c9" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="sP0-AD-k8L"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="activityBtn" destination="aPU-qI-2c9" id="Q2C-dn-hlO"/>
+                <outlet property="mainLbl" destination="Hy1-NU-gxB" id="t6M-MO-HLf"/>
                 <outletCollection property="buttonsCollection" destination="ZGe-VN-ZZl" collectionClass="NSMutableArray" id="3fI-qm-XB4"/>
                 <outletCollection property="buttonsCollection" destination="cPe-c0-tA7" collectionClass="NSMutableArray" id="3l3-n8-fxd"/>
                 <outletCollection property="buttonsCollection" destination="4KH-6w-KlN" collectionClass="NSMutableArray" id="dFy-2I-zbZ"/>

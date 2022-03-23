@@ -9,6 +9,19 @@ import UIKit
 
 class WeightTableCell: UITableViewCell {
 
+    @IBOutlet weak var weightLbl: UILabel! {
+        didSet {
+            weightLbl.text = RLocalization.profile_weight()
+        }
+    }
+    
+    @IBOutlet weak var targetLbl: UILabel! {
+        didSet {
+            targetLbl.text = RLocalization.profile_target()
+        }
+    }
+    
+    
     @IBOutlet weak var backVw: UIView! {
         didSet{
             backVw.layer.masksToBounds = true

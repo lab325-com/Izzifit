@@ -302,20 +302,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 36 files.
+  /// This `R.file` struct is generated, and contains static references to 32 files.
   struct file {
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
     /// Resource file `AskQuestion.graphql`.
     static let askQuestionGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AskQuestion", pathExtension: "graphql")
-    /// Resource file `Debug.xcconfig`.
-    static let debugXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Debug", pathExtension: "xcconfig")
     /// Resource file `DrinkWidget.graphql`.
     static let drinkWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DrinkWidget", pathExtension: "graphql")
     /// Resource file `FoodGroups.graphql`.
     static let foodGroupsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "FoodGroups", pathExtension: "graphql")
-    /// Resource file `Generator.xcconfig`.
-    static let generatorXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Generator", pathExtension: "xcconfig")
     /// Resource file `Inter-Black.ttf`.
     static let interBlackTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Black", pathExtension: "ttf")
     /// Resource file `Inter-Bold.ttf`.
@@ -358,16 +354,12 @@ struct R: Rswift.Validatable {
     static let recentProductsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "RecentProducts", pathExtension: "graphql")
     /// Resource file `RecommendProducts.graphql`.
     static let recommendProductsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "RecommendProducts", pathExtension: "graphql")
-    /// Resource file `Release.xcconfig`.
-    static let releaseXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Release", pathExtension: "xcconfig")
     /// Resource file `SaveWeightWidget.graphql`.
     static let saveWeightWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SaveWeightWidget", pathExtension: "graphql")
     /// Resource file `SleepWidget.graphql`.
     static let sleepWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SleepWidget", pathExtension: "graphql")
     /// Resource file `SourcesByMeal.graphql`.
     static let sourcesByMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SourcesByMeal", pathExtension: "graphql")
-    /// Resource file `Staging.xcconfig`.
-    static let stagingXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Staging", pathExtension: "xcconfig")
     /// Resource file `ToggleMuscleInWorkouts.graphql`.
     static let toggleMuscleInWorkoutsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleMuscleInWorkouts", pathExtension: "graphql")
     /// Resource file `ToggleProductInRation.graphql`.
@@ -389,12 +381,6 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
-    /// `bundle.url(forResource: "Debug", withExtension: "xcconfig")`
-    static func debugXcconfig(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.debugXcconfig
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
     /// `bundle.url(forResource: "DrinkWidget", withExtension: "graphql")`
     static func drinkWidgetGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.drinkWidgetGraphql
@@ -404,12 +390,6 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "FoodGroups", withExtension: "graphql")`
     static func foodGroupsGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.foodGroupsGraphql
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    /// `bundle.url(forResource: "Generator", withExtension: "xcconfig")`
-    static func generatorXcconfig(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.generatorXcconfig
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -539,12 +519,6 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
-    /// `bundle.url(forResource: "Release", withExtension: "xcconfig")`
-    static func releaseXcconfig(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.releaseXcconfig
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
     /// `bundle.url(forResource: "SaveWeightWidget", withExtension: "graphql")`
     static func saveWeightWidgetGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.saveWeightWidgetGraphql
@@ -560,12 +534,6 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "SourcesByMeal", withExtension: "graphql")`
     static func sourcesByMealGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.sourcesByMealGraphql
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    /// `bundle.url(forResource: "Staging", withExtension: "xcconfig")`
-    static func stagingXcconfig(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.stagingXcconfig
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -2136,7 +2104,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 148 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 161 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -2181,6 +2149,10 @@ struct R: Rswift.Validatable {
       /// en translation: Add your activity
       ///
       /// Locales: en
+      static let profile_add_your_activity = Rswift.StringResource(key: "profile_add_your_activity", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Add your activity
+      ///
+      /// Locales: en
       static let progress_activity = Rswift.StringResource(key: "progress_activity", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Add your own product
       ///
@@ -2194,6 +2166,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let food_already_eate = Rswift.StringResource(key: "food_already_eate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Awards
+      ///
+      /// Locales: en
+      static let profile_awards = Rswift.StringResource(key: "profile_awards", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Bad
       ///
       /// Locales: en
@@ -2222,6 +2198,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let login_by_continue = Rswift.StringResource(key: "login_by_continue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Calories
+      ///
+      /// Locales: en
+      static let profile_calories = Rswift.StringResource(key: "profile_calories", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Cancel
       ///
       /// Locales: en
@@ -2254,6 +2234,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let energy_training_continue = Rswift.StringResource(key: "energy_training_continue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Country position
+      ///
+      /// Locales: en
+      static let profile_country_position = Rswift.StringResource(key: "profile_country_position", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Delete
       ///
       /// Locales: en
@@ -2358,6 +2342,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_get_plan = Rswift.StringResource(key: "onboarding_get_plan", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Global position
+      ///
+      /// Locales: en
+      static let profile_global_position = Rswift.StringResource(key: "profile_global_position", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Go next
       ///
       /// Locales: en
@@ -2418,6 +2406,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_language = Rswift.StringResource(key: "menu_language", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Level
+      ///
+      /// Locales: en
+      static let profile_level = Rswift.StringResource(key: "profile_level", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Log In
       ///
       /// Locales: en
@@ -2450,6 +2442,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let progress_mon = Rswift.StringResource(key: "progress_mon", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Mood
+      ///
+      /// Locales: en
+      static let profile_mood = Rswift.StringResource(key: "profile_mood", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Name
       ///
       /// Locales: en
@@ -2493,15 +2489,15 @@ struct R: Rswift.Validatable {
       /// en translation: Privacy Policy
       ///
       /// Locales: en
-      static let award_privacy_policy = Rswift.StringResource(key: "award_privacy_policy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Privacy Policy
-      ///
-      /// Locales: en
       static let login_privacy = Rswift.StringResource(key: "login_privacy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Privacy Policy
       ///
       /// Locales: en
       static let menu_privacy = Rswift.StringResource(key: "menu_privacy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Privacy Policy
+      ///
+      /// Locales: en
+      static let profile_privacy_policy = Rswift.StringResource(key: "profile_privacy_policy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Privacy Policy,
       ///
       /// Locales: en
@@ -2518,6 +2514,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_sport_professional = Rswift.StringResource(key: "onboarding_sport_professional", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Profile
+      ///
+      /// Locales: en
+      static let profile = Rswift.StringResource(key: "profile", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Proteins
       ///
       /// Locales: en
@@ -2530,6 +2530,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let food_proteins = Rswift.StringResource(key: "food_proteins", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Rank
+      ///
+      /// Locales: en
+      static let profile_rank = Rswift.StringResource(key: "profile_rank", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Recent
       ///
       /// Locales: en
@@ -2590,6 +2594,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let progress_sun = Rswift.StringResource(key: "progress_sun", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Target
+      ///
+      /// Locales: en
+      static let profile_target = Rswift.StringResource(key: "profile_target", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Target weight
       ///
       /// Locales: en
@@ -2614,6 +2622,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_terms = Rswift.StringResource(key: "menu_terms", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Terms of Use
+      ///
+      /// Locales: en
+      static let profile_terms_of_use = Rswift.StringResource(key: "profile_terms_of_use", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Text your message
       ///
       /// Locales: en
@@ -2670,6 +2682,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_weight = Rswift.StringResource(key: "menu_weight", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Weight
+      ///
+      /// Locales: en
+      static let profile_weight = Rswift.StringResource(key: "profile_weight", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: What's your goal?
       ///
       /// Locales: en
@@ -2682,6 +2698,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_write = Rswift.StringResource(key: "menu_write", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Write to us
+      ///
+      /// Locales: en
+      static let profile_write_to_us = Rswift.StringResource(key: "profile_write_to_us", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Write us to ask any question
       ///
       /// Locales: en
@@ -2900,6 +2920,21 @@ struct R: Rswift.Validatable {
       /// en translation: Add your activity
       ///
       /// Locales: en
+      static func profile_add_your_activity(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_add_your_activity", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_add_your_activity"
+        }
+
+        return NSLocalizedString("profile_add_your_activity", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Add your activity
+      ///
+      /// Locales: en
       static func progress_activity(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("progress_activity", bundle: hostingBundle, comment: "")
@@ -2955,6 +2990,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("food_already_eate", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Awards
+      ///
+      /// Locales: en
+      static func profile_awards(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_awards", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_awards"
+        }
+
+        return NSLocalizedString("profile_awards", bundle: bundle, comment: "")
       }
 
       /// en translation: Bad
@@ -3060,6 +3110,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("login_by_continue", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Calories
+      ///
+      /// Locales: en
+      static func profile_calories(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_calories", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_calories"
+        }
+
+        return NSLocalizedString("profile_calories", bundle: bundle, comment: "")
       }
 
       /// en translation: Cancel
@@ -3182,6 +3247,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("energy_training_continue", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Country position
+      ///
+      /// Locales: en
+      static func profile_country_position(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_country_position", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_country_position"
+        }
+
+        return NSLocalizedString("profile_country_position", bundle: bundle, comment: "")
       }
 
       /// en translation: Delete
@@ -3578,6 +3658,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("onboarding_get_plan", bundle: bundle, comment: "")
       }
 
+      /// en translation: Global position
+      ///
+      /// Locales: en
+      static func profile_global_position(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_global_position", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_global_position"
+        }
+
+        return NSLocalizedString("profile_global_position", bundle: bundle, comment: "")
+      }
+
       /// en translation: Go next
       ///
       /// Locales: en
@@ -3807,6 +3902,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("menu_language", bundle: bundle, comment: "")
       }
 
+      /// en translation: Level
+      ///
+      /// Locales: en
+      static func profile_level(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_level", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_level"
+        }
+
+        return NSLocalizedString("profile_level", bundle: bundle, comment: "")
+      }
+
       /// en translation: Log In
       ///
       /// Locales: en
@@ -3925,6 +4035,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("progress_mon", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Mood
+      ///
+      /// Locales: en
+      static func profile_mood(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_mood", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_mood"
+        }
+
+        return NSLocalizedString("profile_mood", bundle: bundle, comment: "")
       }
 
       /// en translation: Name
@@ -4080,21 +4205,6 @@ struct R: Rswift.Validatable {
       /// en translation: Privacy Policy
       ///
       /// Locales: en
-      static func award_privacy_policy(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("award_privacy_policy", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "award_privacy_policy"
-        }
-
-        return NSLocalizedString("award_privacy_policy", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Privacy Policy
-      ///
-      /// Locales: en
       static func login_privacy(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("login_privacy", bundle: hostingBundle, comment: "")
@@ -4120,6 +4230,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("menu_privacy", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Privacy Policy
+      ///
+      /// Locales: en
+      static func profile_privacy_policy(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_privacy_policy", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_privacy_policy"
+        }
+
+        return NSLocalizedString("profile_privacy_policy", bundle: bundle, comment: "")
       }
 
       /// en translation: Privacy Policy,
@@ -4182,6 +4307,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("onboarding_sport_professional", bundle: bundle, comment: "")
       }
 
+      /// en translation: Profile
+      ///
+      /// Locales: en
+      static func profile(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile"
+        }
+
+        return NSLocalizedString("profile", bundle: bundle, comment: "")
+      }
+
       /// en translation: Proteins
       ///
       /// Locales: en
@@ -4227,6 +4367,21 @@ struct R: Rswift.Validatable {
 
         let format = NSLocalizedString("food_proteins", bundle: bundle, comment: "")
         return String(format: format, locale: locale, value1)
+      }
+
+      /// en translation: Rank
+      ///
+      /// Locales: en
+      static func profile_rank(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_rank", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_rank"
+        }
+
+        return NSLocalizedString("profile_rank", bundle: bundle, comment: "")
       }
 
       /// en translation: Recent
@@ -4454,6 +4609,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("progress_sun", bundle: bundle, comment: "")
       }
 
+      /// en translation: Target
+      ///
+      /// Locales: en
+      static func profile_target(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_target", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_target"
+        }
+
+        return NSLocalizedString("profile_target", bundle: bundle, comment: "")
+      }
+
       /// en translation: Target weight
       ///
       /// Locales: en
@@ -4542,6 +4712,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("menu_terms", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Terms of Use
+      ///
+      /// Locales: en
+      static func profile_terms_of_use(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_terms_of_use", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_terms_of_use"
+        }
+
+        return NSLocalizedString("profile_terms_of_use", bundle: bundle, comment: "")
       }
 
       /// en translation: Text your message
@@ -4754,6 +4939,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("menu_weight", bundle: bundle, comment: "")
       }
 
+      /// en translation: Weight
+      ///
+      /// Locales: en
+      static func profile_weight(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_weight", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_weight"
+        }
+
+        return NSLocalizedString("profile_weight", bundle: bundle, comment: "")
+      }
+
       /// en translation: What's your goal?
       ///
       /// Locales: en
@@ -4797,6 +4997,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("menu_write", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Write to us
+      ///
+      /// Locales: en
+      static func profile_write_to_us(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_write_to_us", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_write_to_us"
+        }
+
+        return NSLocalizedString("profile_write_to_us", bundle: bundle, comment: "")
       }
 
       /// en translation: Write us to ask any question

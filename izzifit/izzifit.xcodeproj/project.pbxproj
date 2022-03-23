@@ -76,10 +76,6 @@
 		0249D28327B3AAAE00F265C1 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0249D28127B3AAAE00F265C1 /* LoginController.xib */; };
 		0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249D28527B3AB4600F265C1 /* AppConfiguration.swift */; };
 		0249D28B27B3AB6300F265C1 /* AppConfigurationBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0249D28927B3AB6300F265C1 /* AppConfigurationBridge.m */; };
-		0249D29127B3ABD900F265C1 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0249D28D27B3ABD800F265C1 /* Debug.xcconfig */; };
-		0249D29227B3ABD900F265C1 /* Staging.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0249D28E27B3ABD800F265C1 /* Staging.xcconfig */; };
-		0249D29327B3ABD900F265C1 /* Generator.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0249D28F27B3ABD900F265C1 /* Generator.xcconfig */; };
-		0249D29427B3ABD900F265C1 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0249D29027B3ABD900F265C1 /* Release.xcconfig */; };
 		0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0249D29B27B3D79D00F265C1 /* Me.graphql */; };
 		0249D29E27B3D81700F265C1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249D29D27B3D81700F265C1 /* API.swift */; };
 		024C699F27DF61A200EE8D53 /* EnergyAddActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024C699D27DF61A200EE8D53 /* EnergyAddActivityCell.swift */; };
@@ -1791,7 +1787,6 @@
 				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
 				02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */,
 				0263389527DB3E5100DC0325 /* ProgressCell.xib in Resources */,
-				0249D29427B3ABD900F265C1 /* Release.xcconfig in Resources */,
 				02ABCF3927CCF74C00E69C06 /* Products.graphql in Resources */,
 				02D066BF27BBB57D00D12C5F /* Inter-ExtraBold.ttf in Resources */,
 				02D066C227BBB57D00D12C5F /* Inter-Light.ttf in Resources */,
@@ -1852,13 +1847,11 @@
 				02F2D94027D0BF5C00E9FB68 /* AskQuestion.graphql in Resources */,
 				025463BB27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql in Resources */,
 				0227DAB827C67334008AB26B /* MenuHeightController.xib in Resources */,
-				0249D29127B3ABD900F265C1 /* Debug.xcconfig in Resources */,
 				02A5CDAB27C393DC00D31FB4 /* WorkoutController.xib in Resources */,
 				02D066BE27BBB57D00D12C5F /* Inter-ExtraLight.ttf in Resources */,
 				0268753427D8E54E00FFEA6A /* EnergyChooseActivityCell.xib in Resources */,
 				02D066C427BBB57D00D12C5F /* Inter-Bold.ttf in Resources */,
 				0227DAB327C67179008AB26B /* MenuEmailController.xib in Resources */,
-				0249D29227B3ABD900F265C1 /* Staging.xcconfig in Resources */,
 				0227DAC227C6A19C008AB26B /* MenuTargetWeightController.xib in Resources */,
 				0249D23427B3A4F100F265C1 /* Assets.xcassets in Resources */,
 				0268753927D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.xib in Resources */,
@@ -1879,7 +1872,6 @@
 				0273F55A27D5F08E00B19449 /* EnergyMoodCell.xib in Resources */,
 				0273F55F27D5F7CB00B19449 /* EnergyMealsCell.xib in Resources */,
 				02D066DE27BBE56700D12C5F /* QuizeAgeController.xib in Resources */,
-				0249D29327B3ABD900F265C1 /* Generator.xcconfig in Resources */,
 				02ABCF4627CD0EA800E69C06 /* MenuLanguagesTitleCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2275,7 +2267,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = J544E3RJX6;
+				DEVELOPMENT_TEAM = R53Z54YJ8K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2309,7 +2301,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = J544E3RJX6;
+				DEVELOPMENT_TEAM = R53Z54YJ8K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2404,7 +2396,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = J544E3RJX6;
+				DEVELOPMENT_TEAM = R53Z54YJ8K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

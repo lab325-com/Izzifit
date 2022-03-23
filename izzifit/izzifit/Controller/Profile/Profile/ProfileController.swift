@@ -12,6 +12,11 @@ class ProfileController: BaseController {
     //----------------------------------------------
     // MARK: - IBOutlet
     //----------------------------------------------
+    @IBOutlet weak var profileLbl: UILabel! {
+        didSet {
+            profileLbl.text = RLocalization.profile()
+        }
+    }
     
     @IBOutlet weak var profileTableView: UITableView!
     

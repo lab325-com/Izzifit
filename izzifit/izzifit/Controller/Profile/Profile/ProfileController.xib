@@ -19,6 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileController" customModule="izzifit" customModuleProvider="target">
             <connections>
+                <outlet property="profileLbl" destination="jHD-hw-K0f" id="bxy-sJ-zje"/>
                 <outlet property="profileTableView" destination="BC1-HW-TjP" id="dMP-Jy-cxC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -43,8 +44,8 @@
                         <action selector="backAction:" destination="-1" eventType="touchUpInside" id="Cac-fc-v06"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHD-hw-K0f">
-                    <rect key="frame" x="170.5" y="60.5" width="73.5" height="29.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHD-hw-K0f">
+                    <rect key="frame" x="207" y="75" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="24"/>
                     <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>

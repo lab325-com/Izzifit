@@ -146,6 +146,8 @@
             <connections>
                 <outlet property="backVw" destination="nDs-6w-vmF" id="98f-Ud-X5J"/>
                 <outlet property="chartBackVw" destination="RQw-6Y-eHL" id="mSt-d9-2p2"/>
+                <outlet property="targetLbl" destination="VCZ-K9-WMc" id="dyC-Wb-W9o"/>
+                <outlet property="weightLbl" destination="f7p-cE-0G5" id="a3F-BP-yLj"/>
             </connections>
             <point key="canvasLocation" x="138.40579710144928" y="63.616071428571423"/>
         </tableViewCell>

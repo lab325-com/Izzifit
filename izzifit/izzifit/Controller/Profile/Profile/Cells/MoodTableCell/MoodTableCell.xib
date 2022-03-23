@@ -138,6 +138,7 @@
             <connections>
                 <outlet property="backVw" destination="aWd-iV-9Xq" id="8jC-oX-4yg"/>
                 <outlet property="chartBackVw" destination="ou2-ja-qFW" id="fEa-Db-86A"/>
+                <outlet property="moodLbl" destination="7Mx-zK-F7U" id="0t7-zR-bO3"/>
             </connections>
             <point key="canvasLocation" x="164" y="9"/>
         </tableViewCell>

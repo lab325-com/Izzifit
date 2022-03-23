@@ -10,6 +10,30 @@ import UIKit
 class PositionTableCell: UITableViewCell {
 
     static let id = "PositionTableCell"
+    @IBOutlet weak var rankLbl: UILabel! {
+        didSet {
+            rankLbl.text = RLocalization.profile_rank()
+        }
+    }
+    
+    @IBOutlet weak var globalPositionLbl: UILabel! {
+        didSet {
+            globalPositionLbl.text = RLocalization.profile_global_position()
+        }
+    }
+    
+    @IBOutlet weak var countryPositionLbl: UILabel! {
+        didSet {
+            countryPositionLbl.text = RLocalization.profile_country_position()
+        }
+    }
+    
+    @IBOutlet weak var levelLbl: UILabel! {
+        didSet {
+            levelLbl.text = RLocalization.profile_level()
+        }
+    }
+    
     
     @IBOutlet weak var backVw: UIView! {
         didSet{
