@@ -152,8 +152,10 @@
             <connections>
                 <outlet property="backVw" destination="DtC-B5-fDl" id="QEn-yJ-vQg"/>
                 <outlet property="chartCollectionView" destination="Rgz-Iv-rxN" id="Xbl-lM-YZx"/>
+                <outlet property="targetLbl" destination="UOe-JP-NEJ" id="9Sp-AL-2YM"/>
+                <outlet property="titleLbl" destination="p5S-LL-uwF" id="IzZ-J9-HiV"/>
             </connections>
-            <point key="canvasLocation" x="238" y="48"/>
+            <point key="canvasLocation" x="236.95652173913047" y="47.544642857142854"/>
         </tableViewCell>
     </objects>
     <resources>

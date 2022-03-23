@@ -106,18 +106,20 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 9 colors.
+  /// This `R.color` struct is generated, and contains static references to 10 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
-    /// Color `afterTarget`.
-    static let afterTarget = Rswift.ColorResource(bundle: R.hostingBundle, name: "afterTarget")
     /// Color `chartPurple`.
     static let chartPurple = Rswift.ColorResource(bundle: R.hostingBundle, name: "chartPurple")
     /// Color `grayText`.
     static let grayText = Rswift.ColorResource(bundle: R.hostingBundle, name: "grayText")
     /// Color `grayVw`.
     static let grayVw = Rswift.ColorResource(bundle: R.hostingBundle, name: "grayVw")
+    /// Color `greyAwards`.
+    static let greyAwards = Rswift.ColorResource(bundle: R.hostingBundle, name: "greyAwards")
+    /// Color `intensivePurple`.
+    static let intensivePurple = Rswift.ColorResource(bundle: R.hostingBundle, name: "intensivePurple")
     /// Color `lightGrayText`.
     static let lightGrayText = Rswift.ColorResource(bundle: R.hostingBundle, name: "lightGrayText")
     /// Color `pinkTarget`.
@@ -133,15 +135,6 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func accentColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.accentColor, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIColor(named: "afterTarget", bundle: ..., traitCollection: ...)`
-    @available(tvOS 11.0, *)
-    @available(iOS 11.0, *)
-    static func afterTarget(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
-      return UIKit.UIColor(resource: R.color.afterTarget, compatibleWith: traitCollection)
     }
     #endif
 
@@ -169,6 +162,24 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func grayVw(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.grayVw, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "greyAwards", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func greyAwards(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.greyAwards, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "intensivePurple", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func intensivePurple(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.intensivePurple, compatibleWith: traitCollection)
     }
     #endif
 
@@ -217,14 +228,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(watchOS)
-    /// `UIColor(named: "afterTarget", bundle: ..., traitCollection: ...)`
-    @available(watchOSApplicationExtension 4.0, *)
-    static func afterTarget(_: Void = ()) -> UIKit.UIColor? {
-      return UIKit.UIColor(named: R.color.afterTarget.name)
-    }
-    #endif
-
-    #if os(watchOS)
     /// `UIColor(named: "chartPurple", bundle: ..., traitCollection: ...)`
     @available(watchOSApplicationExtension 4.0, *)
     static func chartPurple(_: Void = ()) -> UIKit.UIColor? {
@@ -245,6 +248,22 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func grayVw(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.grayVw.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "greyAwards", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func greyAwards(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.greyAwards.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "intensivePurple", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func intensivePurple(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.intensivePurple.name)
     }
     #endif
 
@@ -283,20 +302,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 36 files.
+  /// This `R.file` struct is generated, and contains static references to 32 files.
   struct file {
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
     /// Resource file `AskQuestion.graphql`.
     static let askQuestionGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AskQuestion", pathExtension: "graphql")
-    /// Resource file `Debug.xcconfig`.
-    static let debugXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Debug", pathExtension: "xcconfig")
     /// Resource file `DrinkWidget.graphql`.
     static let drinkWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DrinkWidget", pathExtension: "graphql")
     /// Resource file `FoodGroups.graphql`.
     static let foodGroupsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "FoodGroups", pathExtension: "graphql")
-    /// Resource file `Generator.xcconfig`.
-    static let generatorXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Generator", pathExtension: "xcconfig")
     /// Resource file `Inter-Black.ttf`.
     static let interBlackTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Black", pathExtension: "ttf")
     /// Resource file `Inter-Bold.ttf`.
@@ -339,16 +354,12 @@ struct R: Rswift.Validatable {
     static let recentProductsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "RecentProducts", pathExtension: "graphql")
     /// Resource file `RecommendProducts.graphql`.
     static let recommendProductsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "RecommendProducts", pathExtension: "graphql")
-    /// Resource file `Release.xcconfig`.
-    static let releaseXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Release", pathExtension: "xcconfig")
     /// Resource file `SaveWeightWidget.graphql`.
     static let saveWeightWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SaveWeightWidget", pathExtension: "graphql")
     /// Resource file `SleepWidget.graphql`.
     static let sleepWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SleepWidget", pathExtension: "graphql")
     /// Resource file `SourcesByMeal.graphql`.
     static let sourcesByMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SourcesByMeal", pathExtension: "graphql")
-    /// Resource file `Staging.xcconfig`.
-    static let stagingXcconfig = Rswift.FileResource(bundle: R.hostingBundle, name: "Staging", pathExtension: "xcconfig")
     /// Resource file `ToggleMuscleInWorkouts.graphql`.
     static let toggleMuscleInWorkoutsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleMuscleInWorkouts", pathExtension: "graphql")
     /// Resource file `ToggleProductInRation.graphql`.
@@ -370,12 +381,6 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
-    /// `bundle.url(forResource: "Debug", withExtension: "xcconfig")`
-    static func debugXcconfig(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.debugXcconfig
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
     /// `bundle.url(forResource: "DrinkWidget", withExtension: "graphql")`
     static func drinkWidgetGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.drinkWidgetGraphql
@@ -385,12 +390,6 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "FoodGroups", withExtension: "graphql")`
     static func foodGroupsGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.foodGroupsGraphql
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    /// `bundle.url(forResource: "Generator", withExtension: "xcconfig")`
-    static func generatorXcconfig(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.generatorXcconfig
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -520,12 +519,6 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
-    /// `bundle.url(forResource: "Release", withExtension: "xcconfig")`
-    static func releaseXcconfig(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.releaseXcconfig
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
     /// `bundle.url(forResource: "SaveWeightWidget", withExtension: "graphql")`
     static func saveWeightWidgetGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.saveWeightWidgetGraphql
@@ -541,12 +534,6 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "SourcesByMeal", withExtension: "graphql")`
     static func sourcesByMealGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.sourcesByMealGraphql
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    /// `bundle.url(forResource: "Staging", withExtension: "xcconfig")`
-    static func stagingXcconfig(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.stagingXcconfig
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -658,12 +645,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 55 images.
+  /// This `R.image` struct is generated, and contains static references to 59 images.
   struct image {
     /// Image `auth_note_see_pass_ic`.
     static let auth_note_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_note_see_pass_ic")
     /// Image `auth_see_pass_ic`.
     static let auth_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_see_pass_ic")
+    /// Image `ballAward`.
+    static let ballAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "ballAward")
+    /// Image `dummyAward`.
+    static let dummyAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "dummyAward")
     /// Image `dummyFace`.
     static let dummyFace = Rswift.ImageResource(bundle: R.hostingBundle, name: "dummyFace")
     /// Image `energy_arrow_back_ic`.
@@ -702,6 +693,8 @@ struct R: Rswift.Validatable {
     static let menu_arrow_right_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "menu_arrow_right_ic")
     /// Image `menu_flag_ic`.
     static let menu_flag_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "menu_flag_ic")
+    /// Image `militaryAward`.
+    static let militaryAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "militaryAward")
     /// Image `onboarding_back_ic`.
     static let onboarding_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_back_ic")
     /// Image `onboarding_background_ic`.
@@ -742,6 +735,8 @@ struct R: Rswift.Validatable {
     static let progress_cube_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_cube_ic")
     /// Image `progress_forward_ic`.
     static let progress_forward_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_forward_ic")
+    /// Image `sportsAward`.
+    static let sportsAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "sportsAward")
     /// Image `start_back_ic`.
     static let start_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "start_back_ic")
     /// Image `start_gradient_ic`.
@@ -782,6 +777,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "auth_see_pass_ic", bundle: ..., traitCollection: ...)`
     static func auth_see_pass_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.auth_see_pass_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ballAward", bundle: ..., traitCollection: ...)`
+    static func ballAward(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ballAward, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "dummyAward", bundle: ..., traitCollection: ...)`
+    static func dummyAward(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.dummyAward, compatibleWith: traitCollection)
     }
     #endif
 
@@ -915,6 +924,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "menu_flag_ic", bundle: ..., traitCollection: ...)`
     static func menu_flag_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.menu_flag_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "militaryAward", bundle: ..., traitCollection: ...)`
+    static func militaryAward(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.militaryAward, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1059,6 +1075,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "sportsAward", bundle: ..., traitCollection: ...)`
+    static func sportsAward(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.sportsAward, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "start_back_ic", bundle: ..., traitCollection: ...)`
     static func start_back_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.start_back_ic, compatibleWith: traitCollection)
@@ -1159,8 +1182,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 59 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 61 nibs.
   struct nib {
+    /// Nib `AwardsTableCell`.
+    static let awardsTableCell = _R.nib._AwardsTableCell()
     /// Nib `ChartCollectionCell`.
     static let chartCollectionCell = _R.nib._ChartCollectionCell()
     /// Nib `ChartTableCell`.
@@ -1231,6 +1256,8 @@ struct R: Rswift.Validatable {
     static let menuWeightController = _R.nib._MenuWeightController()
     /// Nib `MenuWriteQuestionController`.
     static let menuWriteQuestionController = _R.nib._MenuWriteQuestionController()
+    /// Nib `MoodTableCell`.
+    static let moodTableCell = _R.nib._MoodTableCell()
     /// Nib `PositionTableCell`.
     static let positionTableCell = _R.nib._PositionTableCell()
     /// Nib `ProfileController`.
@@ -1279,6 +1306,14 @@ struct R: Rswift.Validatable {
     static let workoutSpecialCell = _R.nib._WorkoutSpecialCell()
     /// Nib `WriteToUsController`.
     static let writeToUsController = _R.nib._WriteToUsController()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "AwardsTableCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.awardsTableCell) instead")
+    static func awardsTableCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.awardsTableCell)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "ChartCollectionCell", in: bundle)`
@@ -1561,6 +1596,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MoodTableCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.moodTableCell) instead")
+    static func moodTableCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.moodTableCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "PositionTableCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.positionTableCell) instead")
     static func positionTableCell(_: Void = ()) -> UIKit.UINib {
@@ -1752,6 +1795,10 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    static func awardsTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> AwardsTableCell? {
+      return R.nib.awardsTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AwardsTableCell
+    }
+
     static func chartCollectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ChartCollectionCell? {
       return R.nib.chartCollectionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ChartCollectionCell
     }
@@ -1892,6 +1939,10 @@ struct R: Rswift.Validatable {
       return R.nib.menuWriteQuestionController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func moodTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MoodTableCell? {
+      return R.nib.moodTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MoodTableCell
+    }
+
     static func positionTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PositionTableCell? {
       return R.nib.positionTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PositionTableCell
     }
@@ -1991,8 +2042,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 25 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 27 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `AwardsTableCell`.
+    static let awardsTableCell: Rswift.ReuseIdentifier<AwardsTableCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
     /// Reuse identifier `ChartCollectionCell`.
     static let chartCollectionCell: Rswift.ReuseIdentifier<ChartCollectionCell> = Rswift.ReuseIdentifier(identifier: "ChartCollectionCell")
     /// Reuse identifier `ChartTableCell`.
@@ -2027,6 +2080,8 @@ struct R: Rswift.Validatable {
     static let menuFoodTitleCellCell: Rswift.ReuseIdentifier<MenuFoodTitleCellCell> = Rswift.ReuseIdentifier(identifier: "MenuFoodTitleCellCell")
     /// Reuse identifier `MenuLanguagesTitleCell`.
     static let menuLanguagesTitleCell: Rswift.ReuseIdentifier<MenuLanguagesTitleCell> = Rswift.ReuseIdentifier(identifier: "MenuLanguagesTitleCell")
+    /// Reuse identifier `MoodTableCell`.
+    static let moodTableCell: Rswift.ReuseIdentifier<MoodTableCell> = Rswift.ReuseIdentifier(identifier: "MoodTableCell")
     /// Reuse identifier `PositionTableCell`.
     static let positionTableCell: Rswift.ReuseIdentifier<PositionTableCell> = Rswift.ReuseIdentifier(identifier: "PositionTableCell")
     /// Reuse identifier `ProgressCell`.
@@ -2049,7 +2104,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 147 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 161 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -2094,6 +2149,10 @@ struct R: Rswift.Validatable {
       /// en translation: Add your activity
       ///
       /// Locales: en
+      static let profile_add_your_activity = Rswift.StringResource(key: "profile_add_your_activity", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Add your activity
+      ///
+      /// Locales: en
       static let progress_activity = Rswift.StringResource(key: "progress_activity", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Add your own product
       ///
@@ -2107,6 +2166,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let food_already_eate = Rswift.StringResource(key: "food_already_eate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Awards
+      ///
+      /// Locales: en
+      static let profile_awards = Rswift.StringResource(key: "profile_awards", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Bad
       ///
       /// Locales: en
@@ -2135,6 +2198,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let login_by_continue = Rswift.StringResource(key: "login_by_continue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Calories
+      ///
+      /// Locales: en
+      static let profile_calories = Rswift.StringResource(key: "profile_calories", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Cancel
       ///
       /// Locales: en
@@ -2167,6 +2234,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let energy_training_continue = Rswift.StringResource(key: "energy_training_continue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Country position
+      ///
+      /// Locales: en
+      static let profile_country_position = Rswift.StringResource(key: "profile_country_position", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Delete
       ///
       /// Locales: en
@@ -2271,6 +2342,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_get_plan = Rswift.StringResource(key: "onboarding_get_plan", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Global position
+      ///
+      /// Locales: en
+      static let profile_global_position = Rswift.StringResource(key: "profile_global_position", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Go next
       ///
       /// Locales: en
@@ -2331,6 +2406,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_language = Rswift.StringResource(key: "menu_language", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Level
+      ///
+      /// Locales: en
+      static let profile_level = Rswift.StringResource(key: "profile_level", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Log In
       ///
       /// Locales: en
@@ -2363,6 +2442,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let progress_mon = Rswift.StringResource(key: "progress_mon", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Mood
+      ///
+      /// Locales: en
+      static let profile_mood = Rswift.StringResource(key: "profile_mood", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Name
       ///
       /// Locales: en
@@ -2411,6 +2494,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_privacy = Rswift.StringResource(key: "menu_privacy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Privacy Policy
+      ///
+      /// Locales: en
+      static let profile_privacy_policy = Rswift.StringResource(key: "profile_privacy_policy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Privacy Policy,
       ///
       /// Locales: en
@@ -2427,6 +2514,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_sport_professional = Rswift.StringResource(key: "onboarding_sport_professional", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Profile
+      ///
+      /// Locales: en
+      static let profile = Rswift.StringResource(key: "profile", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Proteins
       ///
       /// Locales: en
@@ -2439,6 +2530,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let food_proteins = Rswift.StringResource(key: "food_proteins", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Rank
+      ///
+      /// Locales: en
+      static let profile_rank = Rswift.StringResource(key: "profile_rank", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Recent
       ///
       /// Locales: en
@@ -2499,6 +2594,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let progress_sun = Rswift.StringResource(key: "progress_sun", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Target
+      ///
+      /// Locales: en
+      static let profile_target = Rswift.StringResource(key: "profile_target", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Target weight
       ///
       /// Locales: en
@@ -2523,6 +2622,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_terms = Rswift.StringResource(key: "menu_terms", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Terms of Use
+      ///
+      /// Locales: en
+      static let profile_terms_of_use = Rswift.StringResource(key: "profile_terms_of_use", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Text your message
       ///
       /// Locales: en
@@ -2579,6 +2682,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_weight = Rswift.StringResource(key: "menu_weight", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Weight
+      ///
+      /// Locales: en
+      static let profile_weight = Rswift.StringResource(key: "profile_weight", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: What's your goal?
       ///
       /// Locales: en
@@ -2591,6 +2698,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_write = Rswift.StringResource(key: "menu_write", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Write to us
+      ///
+      /// Locales: en
+      static let profile_write_to_us = Rswift.StringResource(key: "profile_write_to_us", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Write us to ask any question
       ///
       /// Locales: en
@@ -2809,6 +2920,21 @@ struct R: Rswift.Validatable {
       /// en translation: Add your activity
       ///
       /// Locales: en
+      static func profile_add_your_activity(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_add_your_activity", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_add_your_activity"
+        }
+
+        return NSLocalizedString("profile_add_your_activity", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Add your activity
+      ///
+      /// Locales: en
       static func progress_activity(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("progress_activity", bundle: hostingBundle, comment: "")
@@ -2864,6 +2990,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("food_already_eate", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Awards
+      ///
+      /// Locales: en
+      static func profile_awards(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_awards", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_awards"
+        }
+
+        return NSLocalizedString("profile_awards", bundle: bundle, comment: "")
       }
 
       /// en translation: Bad
@@ -2969,6 +3110,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("login_by_continue", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Calories
+      ///
+      /// Locales: en
+      static func profile_calories(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_calories", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_calories"
+        }
+
+        return NSLocalizedString("profile_calories", bundle: bundle, comment: "")
       }
 
       /// en translation: Cancel
@@ -3091,6 +3247,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("energy_training_continue", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Country position
+      ///
+      /// Locales: en
+      static func profile_country_position(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_country_position", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_country_position"
+        }
+
+        return NSLocalizedString("profile_country_position", bundle: bundle, comment: "")
       }
 
       /// en translation: Delete
@@ -3487,6 +3658,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("onboarding_get_plan", bundle: bundle, comment: "")
       }
 
+      /// en translation: Global position
+      ///
+      /// Locales: en
+      static func profile_global_position(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_global_position", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_global_position"
+        }
+
+        return NSLocalizedString("profile_global_position", bundle: bundle, comment: "")
+      }
+
       /// en translation: Go next
       ///
       /// Locales: en
@@ -3716,6 +3902,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("menu_language", bundle: bundle, comment: "")
       }
 
+      /// en translation: Level
+      ///
+      /// Locales: en
+      static func profile_level(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_level", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_level"
+        }
+
+        return NSLocalizedString("profile_level", bundle: bundle, comment: "")
+      }
+
       /// en translation: Log In
       ///
       /// Locales: en
@@ -3834,6 +4035,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("progress_mon", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Mood
+      ///
+      /// Locales: en
+      static func profile_mood(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_mood", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_mood"
+        }
+
+        return NSLocalizedString("profile_mood", bundle: bundle, comment: "")
       }
 
       /// en translation: Name
@@ -4016,6 +4232,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("menu_privacy", bundle: bundle, comment: "")
       }
 
+      /// en translation: Privacy Policy
+      ///
+      /// Locales: en
+      static func profile_privacy_policy(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_privacy_policy", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_privacy_policy"
+        }
+
+        return NSLocalizedString("profile_privacy_policy", bundle: bundle, comment: "")
+      }
+
       /// en translation: Privacy Policy,
       ///
       /// Locales: en
@@ -4076,6 +4307,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("onboarding_sport_professional", bundle: bundle, comment: "")
       }
 
+      /// en translation: Profile
+      ///
+      /// Locales: en
+      static func profile(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile"
+        }
+
+        return NSLocalizedString("profile", bundle: bundle, comment: "")
+      }
+
       /// en translation: Proteins
       ///
       /// Locales: en
@@ -4121,6 +4367,21 @@ struct R: Rswift.Validatable {
 
         let format = NSLocalizedString("food_proteins", bundle: bundle, comment: "")
         return String(format: format, locale: locale, value1)
+      }
+
+      /// en translation: Rank
+      ///
+      /// Locales: en
+      static func profile_rank(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_rank", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_rank"
+        }
+
+        return NSLocalizedString("profile_rank", bundle: bundle, comment: "")
       }
 
       /// en translation: Recent
@@ -4348,6 +4609,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("progress_sun", bundle: bundle, comment: "")
       }
 
+      /// en translation: Target
+      ///
+      /// Locales: en
+      static func profile_target(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_target", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_target"
+        }
+
+        return NSLocalizedString("profile_target", bundle: bundle, comment: "")
+      }
+
       /// en translation: Target weight
       ///
       /// Locales: en
@@ -4436,6 +4712,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("menu_terms", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Terms of Use
+      ///
+      /// Locales: en
+      static func profile_terms_of_use(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_terms_of_use", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_terms_of_use"
+        }
+
+        return NSLocalizedString("profile_terms_of_use", bundle: bundle, comment: "")
       }
 
       /// en translation: Text your message
@@ -4648,6 +4939,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("menu_weight", bundle: bundle, comment: "")
       }
 
+      /// en translation: Weight
+      ///
+      /// Locales: en
+      static func profile_weight(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_weight", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_weight"
+        }
+
+        return NSLocalizedString("profile_weight", bundle: bundle, comment: "")
+      }
+
       /// en translation: What's your goal?
       ///
       /// Locales: en
@@ -4691,6 +4997,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("menu_write", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Write to us
+      ///
+      /// Locales: en
+      static func profile_write_to_us(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile_write_to_us", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profile_write_to_us"
+        }
+
+        return NSLocalizedString("profile_write_to_us", bundle: bundle, comment: "")
       }
 
       /// en translation: Write us to ask any question
@@ -4909,6 +5230,7 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _AwardsTableCell.validate()
       try _EnerdyTodayCell.validate()
       try _EnergyChooseActivityCell.validate()
       try _EnergyChooseActivityCollectionCell.validate()
@@ -4954,6 +5276,31 @@ struct _R: Rswift.Validatable {
       try _StartController.validate()
       try _WorkoutController.validate()
       try _WriteToUsController.validate()
+    }
+
+    struct _AwardsTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = AwardsTableCell
+
+      let bundle = R.hostingBundle
+      let identifier = "AwardsTableCell"
+      let name = "AwardsTableCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> AwardsTableCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AwardsTableCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "ballAward", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ballAward' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "dummyAward", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'dummyAward' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "militaryAward", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'militaryAward' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "sportsAward", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'sportsAward' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "greyAwards", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'greyAwards' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "textTitleBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'textTitleBlack' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
+        }
+      }
+
+      fileprivate init() {}
     }
 
     struct _ChartCollectionCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
@@ -5595,6 +5942,20 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'MenuWriteQuestionController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _MoodTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = MoodTableCell
+
+      let bundle = R.hostingBundle
+      let identifier = "MoodTableCell"
+      let name = "MoodTableCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MoodTableCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MoodTableCell
       }
 
       fileprivate init() {}
