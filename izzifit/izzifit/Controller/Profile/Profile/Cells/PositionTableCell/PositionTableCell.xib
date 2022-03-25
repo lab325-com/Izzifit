@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,7 +44,7 @@
                                                         <color key="textColor" name="lightGrayText"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 665" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHV-Lh-gRO">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHV-Lh-gRO">
                                                         <rect key="frame" x="203" y="0.0" width="53" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="v04-7H-ieF"/>
@@ -88,7 +88,7 @@
                                                         <color key="textColor" name="lightGrayText"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45 276" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFB-cW-FZT">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFB-cW-FZT">
                                                         <rect key="frame" x="202.5" y="0.0" width="53.5" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="j9o-Gt-DyE"/>
@@ -132,8 +132,8 @@
                                                         <color key="textColor" name="lightGrayText"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 873" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g81-AZ-KNI">
-                                                        <rect key="frame" x="212.5" y="0.0" width="43.5" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g81-AZ-KNI">
+                                                        <rect key="frame" x="206" y="0.0" width="50" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="93x-Oc-Whz"/>
                                                         </constraints>
@@ -176,8 +176,8 @@
                                                         <color key="textColor" name="lightGrayText"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlb-mr-qH4">
-                                                        <rect key="frame" x="238.5" y="0.0" width="17.5" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlb-mr-qH4">
+                                                        <rect key="frame" x="206" y="0.0" width="50" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="iR1-3O-wHC"/>
                                                         </constraints>
@@ -224,9 +224,13 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="backVw" destination="B9f-Nw-NMl" id="hfa-D7-Yc2"/>
+                <outlet property="countryPositionCountLbl" destination="g81-AZ-KNI" id="lqa-s9-gfC"/>
                 <outlet property="countryPositionLbl" destination="XIx-3a-Zfg" id="trz-Yg-X1N"/>
+                <outlet property="globalPositionCountLbl" destination="UFB-cW-FZT" id="OsJ-2u-35X"/>
                 <outlet property="globalPositionLbl" destination="CRx-Hd-vEH" id="ZGf-W2-ZE9"/>
+                <outlet property="levelCountLbl" destination="Hlb-mr-qH4" id="YPF-k0-cIG"/>
                 <outlet property="levelLbl" destination="1xk-fp-17X" id="7yc-68-lSG"/>
+                <outlet property="rankCountLbl" destination="sHV-Lh-gRO" id="q6M-Fx-H1N"/>
                 <outlet property="rankLbl" destination="HN0-Mj-BVU" id="TiB-I1-t3D"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="63.616071428571423"/>

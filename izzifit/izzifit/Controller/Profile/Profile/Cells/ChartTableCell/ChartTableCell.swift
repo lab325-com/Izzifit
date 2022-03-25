@@ -54,15 +54,19 @@ class ChartTableCell: UITableViewCell {
 }
 
 extension ChartTableCell: UICollectionViewDelegate, UICollectionViewDataSource {
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         31
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChartCollectionCell.id,
                                                       for: indexPath) as! ChartCollectionCell
        cell.strokeEnd = Double(Int(arc4random_uniform(50)) / 100  )
         return cell
     }
+}
+
+extension ChartTableCell: UICollectionViewDelegateFlowLayout {
+    
 }
