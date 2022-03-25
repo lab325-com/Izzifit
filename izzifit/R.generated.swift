@@ -302,7 +302,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 32 files.
+  /// This `R.file` struct is generated, and contains static references to 33 files.
   struct file {
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
@@ -350,6 +350,8 @@ struct R: Rswift.Validatable {
     static let profileUpdateGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ProfileUpdate", pathExtension: "graphql")
     /// Resource file `Progresses.graphql`.
     static let progressesGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Progresses", pathExtension: "graphql")
+    /// Resource file `Rank.graphql`.
+    static let rankGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Rank", pathExtension: "graphql")
     /// Resource file `RecentProducts.graphql`.
     static let recentProductsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "RecentProducts", pathExtension: "graphql")
     /// Resource file `RecommendProducts.graphql`.
@@ -504,6 +506,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Progresses", withExtension: "graphql")`
     static func progressesGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.progressesGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Rank", withExtension: "graphql")`
+    static func rankGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.rankGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -1795,8 +1803,8 @@ struct R: Rswift.Validatable {
     }
     #endif
 
-    static func awardsTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> AwardsTableCell? {
-      return R.nib.awardsTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AwardsTableCell
+    static func awardsTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PolicyCell? {
+      return R.nib.awardsTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PolicyCell
     }
 
     static func chartCollectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ChartCollectionCell? {
@@ -2045,7 +2053,7 @@ struct R: Rswift.Validatable {
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 27 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AwardsTableCell`.
-    static let awardsTableCell: Rswift.ReuseIdentifier<AwardsTableCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
+    static let awardsTableCell: Rswift.ReuseIdentifier<PolicyCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
     /// Reuse identifier `ChartCollectionCell`.
     static let chartCollectionCell: Rswift.ReuseIdentifier<ChartCollectionCell> = Rswift.ReuseIdentifier(identifier: "ChartCollectionCell")
     /// Reuse identifier `ChartTableCell`.
@@ -5230,7 +5238,6 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct nib: Rswift.Validatable {
     static func validate() throws {
-      try _AwardsTableCell.validate()
       try _EnerdyTodayCell.validate()
       try _EnergyChooseActivityCell.validate()
       try _EnergyChooseActivityCollectionCell.validate()
@@ -5278,26 +5285,15 @@ struct _R: Rswift.Validatable {
       try _WriteToUsController.validate()
     }
 
-    struct _AwardsTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
-      typealias ReusableType = AwardsTableCell
+    struct _AwardsTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = PolicyCell
 
       let bundle = R.hostingBundle
       let identifier = "AwardsTableCell"
       let name = "AwardsTableCell"
 
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> AwardsTableCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AwardsTableCell
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "ballAward", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ballAward' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "dummyAward", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'dummyAward' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "militaryAward", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'militaryAward' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "sportsAward", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'sportsAward' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "greyAwards", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'greyAwards' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "textTitleBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'textTitleBlack' is used in nib 'AwardsTableCell', but couldn't be loaded.") }
-        }
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PolicyCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PolicyCell
       }
 
       fileprivate init() {}

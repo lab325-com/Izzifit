@@ -22,7 +22,7 @@ class Network {
         
         return ApolloClient(networkTransport: requestChainTransport,
                             store: store)
-    }()
+    }() 
     
     func mutation<T: GraphQLMutation, Model: Codable>(model type: Model.Type,
                                                       _ mutation: T,

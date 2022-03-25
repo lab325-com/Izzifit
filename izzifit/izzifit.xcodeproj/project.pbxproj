@@ -224,9 +224,12 @@
 		FA1761BA27DA1F8A002881BB /* WorkoutExercisesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1761B827DA1F8A002881BB /* WorkoutExercisesCell.xib */; };
 		FA1761C027DA3E96002881BB /* WorkoutActivityCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761BE27DA3E96002881BB /* WorkoutActivityCollectionCell.swift */; };
 		FA1761C127DA3E96002881BB /* WorkoutActivityCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1761BF27DA3E96002881BB /* WorkoutActivityCollectionCell.xib */; };
+		FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */; };
 		FAA9DBEB27D9ECD4004A14FB /* WorkoutTypesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */; };
 		FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAA9DBEA27D9ECD4004A14FB /* WorkoutTypes.graphql */; };
 		FAA9DBEE27D9ECFF004A14FB /* WorkoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */; };
+		FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAC55B9627EB87F0001DA24C /* Rank.graphql */; };
+		FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC55B9927EB944E001DA24C /* RankModel.swift */; };
 		FE1403B327E1EDC2002F5819 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1403B127E1EDC2002F5819 /* ProfileController.swift */; };
 		FE1403B427E1EDC2002F5819 /* ProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE1403B227E1EDC2002F5819 /* ProfileController.xib */; };
 		FE1403BD27E2019C002F5819 /* ChartTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1403BB27E2019C002F5819 /* ChartTableCell.swift */; };
@@ -241,7 +244,7 @@
 		FEBFD7B327E0F1880027ADD2 /* ImgsAndClrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFD7B227E0F1880027ADD2 /* ImgsAndClrs.swift */; };
 		FEE119BF27E9B9270058EE6D /* MoodTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE119BD27E9B9270058EE6D /* MoodTableCell.swift */; };
 		FEE119C027E9B9270058EE6D /* MoodTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEE119BE27E9B9270058EE6D /* MoodTableCell.xib */; };
-		FEE119C527E9D1520058EE6D /* AwardsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE119C327E9D1520058EE6D /* AwardsTableCell.swift */; };
+		FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE119C327E9D1520058EE6D /* PolicyCell.swift */; };
 		FEE119C627E9D1520058EE6D /* AwardsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEE119C427E9D1520058EE6D /* AwardsTableCell.xib */; };
 /* End PBXBuildFile section */
 
@@ -466,9 +469,12 @@
 		FA1761B827DA1F8A002881BB /* WorkoutExercisesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutExercisesCell.xib; sourceTree = "<group>"; };
 		FA1761BE27DA3E96002881BB /* WorkoutActivityCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutActivityCollectionCell.swift; sourceTree = "<group>"; };
 		FA1761BF27DA3E96002881BB /* WorkoutActivityCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutActivityCollectionCell.xib; sourceTree = "<group>"; };
+		FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTypesModel.swift; sourceTree = "<group>"; };
 		FAA9DBEA27D9ECD4004A14FB /* WorkoutTypes.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutTypes.graphql; sourceTree = "<group>"; };
 		FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPresenter.swift; sourceTree = "<group>"; };
+		FAC55B9627EB87F0001DA24C /* Rank.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rank.graphql; sourceTree = "<group>"; };
+		FAC55B9927EB944E001DA24C /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		FDA5E332399E73031D583774 /* Pods_izzifit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_izzifit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE1403B127E1EDC2002F5819 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		FE1403B227E1EDC2002F5819 /* ProfileController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileController.xib; sourceTree = "<group>"; };
@@ -484,7 +490,7 @@
 		FEBFD7B227E0F1880027ADD2 /* ImgsAndClrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgsAndClrs.swift; sourceTree = "<group>"; };
 		FEE119BD27E9B9270058EE6D /* MoodTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTableCell.swift; sourceTree = "<group>"; };
 		FEE119BE27E9B9270058EE6D /* MoodTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoodTableCell.xib; sourceTree = "<group>"; };
-		FEE119C327E9D1520058EE6D /* AwardsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsTableCell.swift; sourceTree = "<group>"; };
+		FEE119C327E9D1520058EE6D /* PolicyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyCell.swift; sourceTree = "<group>"; };
 		FEE119C427E9D1520058EE6D /* AwardsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwardsTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -884,6 +890,7 @@
 		0249D29A27B3D78900F265C1 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+				FAC55B9527EB87A9001DA24C /* Rank */,
 				0251D24A27E222150098A54D /* RecentProducts */,
 				0251D24127E218E00098A54D /* RecommendProducts */,
 				0251D23C27E215300098A54D /* ProductsByMeal */,
@@ -1602,6 +1609,15 @@
 			path = WorkoutTypes;
 			sourceTree = "<group>";
 		};
+		FAC55B9527EB87A9001DA24C /* Rank */ = {
+			isa = PBXGroup;
+			children = (
+				FAC55B9627EB87F0001DA24C /* Rank.graphql */,
+				FAC55B9927EB944E001DA24C /* RankModel.swift */,
+			);
+			path = Rank;
+			sourceTree = "<group>";
+		};
 		FAFE2C4127DB5A5D00827956 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1615,6 +1631,7 @@
 			isa = PBXGroup;
 			children = (
 				FEE119BB27E9B8ED0058EE6D /* Cells */,
+				FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */,
 				FE1403B127E1EDC2002F5819 /* ProfileController.swift */,
 				FE1403B227E1EDC2002F5819 /* ProfileController.xib */,
 			);
@@ -1670,11 +1687,11 @@
 		FEE119BB27E9B8ED0058EE6D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				FEE119C127E9CEAD0058EE6D /* AwardsTableCell */,
-				FEE119BC27E9B9090058EE6D /* MoodTableCell */,
-				FE7CF8B127E48E2E0099682E /* PositionTableCell */,
 				FE1403BA27E200D2002F5819 /* ChartTableCell */,
+				FEE119BC27E9B9090058EE6D /* MoodTableCell */,
 				FE7CF8B827E4A7990099682E /* WeightTableCell */,
+				FE7CF8B127E48E2E0099682E /* PositionTableCell */,
+				FEE119C127E9CEAD0058EE6D /* AwardsTableCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1691,7 +1708,7 @@
 		FEE119C127E9CEAD0058EE6D /* AwardsTableCell */ = {
 			isa = PBXGroup;
 			children = (
-				FEE119C327E9D1520058EE6D /* AwardsTableCell.swift */,
+				FEE119C327E9D1520058EE6D /* PolicyCell.swift */,
 				FEE119C427E9D1520058EE6D /* AwardsTableCell.xib */,
 			);
 			path = AwardsTableCell;
@@ -1830,6 +1847,7 @@
 				02D066D927BBDC3400D12C5F /* QuizeGoalController.xib in Resources */,
 				0263389C27DB6BDD00DC0325 /* Progresses.graphql in Resources */,
 				02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */,
+				FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */,
 				02ABCF3627CCC3F400E69C06 /* MenuFoodSwitchCell.xib in Resources */,
 				02D066A827BBA72100D12C5F /* Localizable.strings in Resources */,
 				02D066C127BBB57D00D12C5F /* Inter-Thin.ttf in Resources */,
@@ -2029,7 +2047,7 @@
 				FA1761B527DA1F72002881BB /* WorkoutSpecialCell.swift in Sources */,
 				02D066AD27BBA8F400D12C5F /* R.generated.swift in Sources */,
 				0249D26927B3A92300F265C1 /* KeychainService.swift in Sources */,
-				FEE119C527E9D1520058EE6D /* AwardsTableCell.swift in Sources */,
+				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
 				020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */,
 				0227DABC27C6768F008AB26B /* MenuWeightController.swift in Sources */,
 				FA1761B927DA1F8A002881BB /* WorkoutExercisesCell.swift in Sources */,
@@ -2039,6 +2057,7 @@
 				02A5CDC227C4247300D31FB4 /* QuizeFoodCell.swift in Sources */,
 				024779CD27DCB8BF00AAFE3D /* Date+Extension.swift in Sources */,
 				026338A027DB6D0200DC0325 /* EnergyProgressesPresenter.swift in Sources */,
+				FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */,
 				021A6F4727BF8FFA0000D863 /* ProfileUpdateModel.swift in Sources */,
 				025463B227CF778B00D433DB /* MusclesModel.swift in Sources */,
 				02B225AE27BD45080035CFA2 /* QuizeFoodController.swift in Sources */,
@@ -2094,6 +2113,7 @@
 				FE1403C227E249EB002F5819 /* ChartCollectionCell.swift in Sources */,
 				0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */,
 				0249D27427B3AA0400F265C1 /* NetwokrManager.swift in Sources */,
+				FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */,
 				021A6F4A27BF91050000D863 /* CircularProgressBarView.swift in Sources */,
 				FAA9DBEE27D9ECFF004A14FB /* WorkoutPresenter.swift in Sources */,
 				021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */,
