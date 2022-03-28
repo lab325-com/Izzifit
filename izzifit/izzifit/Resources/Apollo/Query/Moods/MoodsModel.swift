@@ -8,11 +8,11 @@
 import Foundation
 
 struct MoodsModel: Codable {
-    let moods: [MoodsMainModel]?
+    let moods: [MoodsMainModel]
 }
 
 struct MoodsMainModel: Codable {
-    let date: Date?
+    let date: String?
     let mood: MoodType?
 }
 

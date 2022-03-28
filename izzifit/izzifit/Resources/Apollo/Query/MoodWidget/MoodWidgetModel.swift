@@ -18,12 +18,12 @@ struct MoodWidgetMainModel: Codable {
 }
 
 extension MoodType: Codable {
-//    var text: String {
-//        switch self {
-//        case .moodTypeGood: return "😀"
-//        case .moodTypeNotBad: return "🙂"
-//        case .moodTypeBadly: return "😬"
-//        case .__unknown(_): return ""
-//        }
-//    }
+    var text: String {
+        switch self {
+        case .moodTypeGood: return "😀"
+        case .moodTypeNotBad: return "🙂"
+        case .moodTypeBadly: return "😬"
+        case .__unknown(_): return ""
+        }
+    }
 }

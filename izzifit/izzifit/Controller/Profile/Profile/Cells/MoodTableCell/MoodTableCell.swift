@@ -90,7 +90,7 @@ class MoodTableCell: UITableViewCell {
                                                    y: cgPoint.y - 10 ,
                                                    width: 20,
                                                    height: 20))
-            emojiLabel.text = mood.mood!.rawValue
+            emojiLabel.text = mood.mood?.text
             chartBackVw.addSubview(emojiLabel)
         }
         chartShapeLayer.path = path.cgPath
