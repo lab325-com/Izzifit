@@ -15,7 +15,7 @@ protocol ProfileOutputProtocol: BaseController {
 
 protocol ProfilePresenterProtocol: AnyObject {
     init(view: ProfileOutputProtocol)
-    func getRankTypes()
+    func getRankTypes(date: String)
 }
 
 
@@ -29,9 +29,10 @@ class ProfilePresenter: ProfilePresenterProtocol {
     }
     
     var rank: RankMainModel?
+    var moods: [MoodsMainModel]?
     
     
-    func getRankTypes() {
+    func getRankTypes(date: String) {
         view?.startLoader()
         
         let group = DispatchGroup()
@@ -48,6 +49,18 @@ class ProfilePresenter: ProfilePresenterProtocol {
             self?.view?.failure()
         }
         
+        group.enter()
+        let query2 = MoodWidgetQuery(date: date)
+        let _ = Network.shared.query(model:  MoodsModel.self,
+                                     query2,
+                                     controller: view) { [weak self] model in
+            self?.moods = model.moods
+            group.leave()
+        } failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        }
+
         group.notify(queue: DispatchQueue.main) { [weak self] in
             self?.view?.stopLoading()
             self?.view?.success()

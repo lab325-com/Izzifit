@@ -28,7 +28,12 @@ class ProfileController: BaseController {
     
     private func setup() {
         profileTableView.isHidden = true
-        presenter.getRankTypes()
+        
+        let dateFormmater = DateFormatter()
+        dateFormmater.locale = Locale(identifier: "en_US_POSIX")
+        dateFormmater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        presenter.getRankTypes(date: dateFormmater.string(from: Date()))
         hiddenNavigationBar = true
         profileTableView.backgroundColor = .white
         profileTableView.delegate = self

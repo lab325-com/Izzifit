@@ -24,11 +24,12 @@ class ChartTableCell: UITableViewCell {
         }
     }
     
+    
     @IBOutlet weak var backVw: UIView!
     @IBOutlet weak var chartCollectionView: UICollectionView!
     
     static let id = "ChartTableCell"
-    
+    private var caloriesCellCount = 31
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
@@ -46,17 +47,18 @@ class ChartTableCell: UITableViewCell {
              lineLayer.lineWidth = 1
              lineLayer.lineDashPattern = [6, 4]
              let path = CGMutablePath()
-             path.addLines(between: [CGPoint(x: wRatio(cW: 16), y: 88),
-                                     CGPoint(x: chartCollectionView.bounds.size.width + 16, y: 88)])
+        let y = chartCollectionView.bounds.size.height / 2 - 10
+             path.addLines(between: [CGPoint(x: 0 , y: y),
+                                     CGPoint(x: CGFloat(caloriesCellCount * 45), y: y)])
              lineLayer.path = path
-             backVw.layer.addSublayer(lineLayer)
+             chartCollectionView.layer.addSublayer(lineLayer)
     }
 }
 
 extension ChartTableCell: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        31
+        caloriesCellCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

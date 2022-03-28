@@ -31,15 +31,15 @@ class MoodTableCell: UITableViewCell {
         chartBackVw.bounds.height / 10
     }()
     private lazy var backXAxis: CGFloat = {
-        chartBackVw.bounds.width / 7
+        chartBackVw.bounds.size.width / 6.6
     }()
     
-    private var emojiArray = ["😀","😐","🙂","🤯","🙂","🙂"]
+    private var emojiArray = ["😀","😐","🙂","😀","🙂","🙂"]
     private lazy var emojiPoints = [CGPoint(x: backXAxis, y: backYAxis * 2.5),
                                     CGPoint(x: backXAxis * 2, y: backYAxis * 7),
                                     CGPoint(x: backXAxis * 3, y: backYAxis * 5),
-                                    CGPoint(x: backXAxis * 4.5, y: backYAxis * 8.5),
-                                    CGPoint(x: backXAxis * 5.3, y: backYAxis * 5.5),
+                                    CGPoint(x: backXAxis * 4, y: backYAxis * 8.5),
+                                    CGPoint(x: backXAxis * 5, y: backYAxis * 5.5),
                                     CGPoint(x: backXAxis * 6, y: backYAxis * 5.5)]
     static let id = "MoodTableCell"
     
@@ -56,13 +56,8 @@ class MoodTableCell: UITableViewCell {
         
         
         
-        path.move(to: CGPoint(x: 5, y: backYAxis * 4 ))
-//        path.addLine(to: CGPoint(x: backXAxis, y: backYAxis * 2.5))
-//        path.addLine(to: CGPoint(x: backXAxis * 2, y: backYAxis * 7))
-//        path.addLine(to: CGPoint(x: backXAxis * 3, y: backYAxis * 5))
-//        path.addLine(to: CGPoint(x: backXAxis * 4.5, y: backYAxis * 8.5))
-//        path.addLine(to: CGPoint(x: backXAxis * 5.3, y: backYAxis * 5.5))
-//        path.addLine(to: CGPoint(x: backXAxis * 6, y: backYAxis * 5.5))
+        path.move(to: CGPoint(x: 0, y: backYAxis * 4 ))
+
     
         for (index, point) in emojiPoints.enumerated() {
             path.addLine(to: point)
@@ -86,8 +81,8 @@ class MoodTableCell: UITableViewCell {
         chartBackVw.layer.addSublayer(lineLayer)
         
         for (index, point) in emojiPoints.enumerated() {
-        var emojiLabel = UILabel(frame: CGRect(x: point.x - 10,
-                                               y: point.y - 10,
+            var emojiLabel = UILabel(frame: CGRect(x: point.x - CGFloat(chartBackVw.bounds.size.width / 28),
+                                               y: point.y - 10 ,
                                                width: 20,
                                                height: 20))
         emojiLabel.text = emojiArray[index]
