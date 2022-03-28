@@ -8,7 +8,7 @@
 import Foundation
 
 struct MoodsModel: Codable {
-    let moods: [MoodsMainModel]
+    let moods: [MoodsMainModel]?
 }
 
 struct MoodsMainModel: Codable {

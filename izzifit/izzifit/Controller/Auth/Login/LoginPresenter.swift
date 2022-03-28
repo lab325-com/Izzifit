@@ -38,7 +38,7 @@ class LoginPresenter: LoginPresenterProtocol {
     
     func login(email: String, password: String) {
         view?.startLoader()
-        let mutation = LoginMutation(record: LoginRecordInput(password: password, authType: .authTypeEmail, email: email))
+        let mutation = LoginMutation(record: LoginRecordInput(authType: .authTypeEmail, email: email, password: password))
         let _ = Network.shared.mutation(model: LoginModel.self, mutation, controller: view, successHandler: { [weak self] model in
             self?.me(token: model.login.token)
         }, failureHandler: { [weak self] error in

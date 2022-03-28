@@ -34,40 +34,23 @@ class MoodTableCell: UITableViewCell {
         chartBackVw.bounds.size.width / 6.6
     }()
     
-    private var emojiArray = ["😀","😐","🙂","😀","🙂","🙂"]
-    private lazy var emojiPoints = [CGPoint(x: backXAxis, y: backYAxis * 2.5),
-                                    CGPoint(x: backXAxis * 2, y: backYAxis * 7),
-                                    CGPoint(x: backXAxis * 3, y: backYAxis * 5),
-                                    CGPoint(x: backXAxis * 4, y: backYAxis * 8.5),
-                                    CGPoint(x: backXAxis * 5, y: backYAxis * 5.5),
-                                    CGPoint(x: backXAxis * 6, y: backYAxis * 5.5)]
-    static let id = "MoodTableCell"
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    private var chartShapeLayer: CAShapeLayer = {
         let chartShapeLayer = CAShapeLayer()
         chartShapeLayer.lineWidth = 2
         chartShapeLayer.lineCap = .round
         chartShapeLayer.fillColor = UIColor.clear.cgColor
-        chartShapeLayer.strokeColor = clr(color: .intensivePurple)?.cgColor
+        chartShapeLayer.strokeColor = UIColor(named: Clrs.intensivePurple.rawValue)?.cgColor
         chartShapeLayer.strokeEnd = 1
-        
-        let path = UIBezierPath()
-        
-        
-        
-        path.move(to: CGPoint(x: 0, y: backYAxis * 4 ))
-
+        return chartShapeLayer
+    }()
     
-        for (index, point) in emojiPoints.enumerated() {
-            path.addLine(to: point)
-        }
+    private var emojiArray = ["😀","😐","🙂","😀","🙂","🙂"]
+    private lazy var emojiPoints = [CGPoint]()
+    static let id = "MoodTableCell"
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
-       
-        
-        
-        chartShapeLayer.path = path.cgPath
-        chartBackVw.layer.addSublayer(chartShapeLayer)
         // Initialization code
         
         let lineLayer = CAShapeLayer()
@@ -79,15 +62,39 @@ class MoodTableCell: UITableViewCell {
                                     CGPoint(x: backXAxis * 7, y: backYAxis * 3)])
         lineLayer.path = linePath
         chartBackVw.layer.addSublayer(lineLayer)
+
+    }
+    
+    func fillCellby(_ moods: [MoodsMainModel]) {
         
-        for (index, point) in emojiPoints.enumerated() {
-            var emojiLabel = UILabel(frame: CGRect(x: point.x - CGFloat(chartBackVw.bounds.size.width / 28),
-                                               y: point.y - 10 ,
-                                               width: 20,
-                                               height: 20))
-        emojiLabel.text = emojiArray[index]
-        chartBackVw.addSubview(emojiLabel)
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: 0, y: backYAxis * 4 ))
+        
+        for (index, mood) in moods.enumerated() {
+            
+            let currentX = backXAxis * CGFloat(index + 1)
+            var currentY: CGFloat = 0.0
+            switch mood.mood {
+            case .moodTypeGood:
+                currentY = backYAxis * 7.5
+            case .moodTypeBadly:
+                currentY = backYAxis * 5.0
+            case .moodTypeNotBad:
+                currentY = backYAxis * 2.5
+            default: break
+            }
+            let cgPoint = CGPoint(x: currentX, y: currentY)
+            path.move(to: cgPoint)
+            
+            let emojiLabel = UILabel(frame: CGRect(x: cgPoint.x - CGFloat(chartBackVw.bounds.size.width / 28),
+                                                   y: cgPoint.y - 10 ,
+                                                   width: 20,
+                                                   height: 20))
+            emojiLabel.text = mood.mood!.rawValue
+            chartBackVw.addSubview(emojiLabel)
         }
+        chartShapeLayer.path = path.cgPath
+        chartBackVw.layer.addSublayer(chartShapeLayer)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

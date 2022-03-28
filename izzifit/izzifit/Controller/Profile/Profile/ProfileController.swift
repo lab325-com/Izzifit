@@ -32,8 +32,11 @@ class ProfileController: BaseController {
         let dateFormmater = DateFormatter()
         dateFormmater.locale = Locale(identifier: "en_US_POSIX")
         dateFormmater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        
-        presenter.getRankTypes(date: dateFormmater.string(from: Date()))
+        let today = dateFormmater.string(from: Date())
+        let calendat = Calendar.current
+        let sixDayAgo = calendat.date(byAdding: .day, value: -6, to: Date())
+        let sixDayAgoString = dateFormmater.string(from: sixDayAgo!)
+        presenter.getRankTypes(from: sixDayAgoString, to: today)
         hiddenNavigationBar = true
         profileTableView.backgroundColor = .white
         profileTableView.delegate = self
@@ -70,6 +73,9 @@ extension ProfileController: UITableViewDataSource {
             return caloriesCell
         case 1:
             let moodCell = tableView.dequeueReusableCell(withIdentifier: MoodTableCell.id) as! MoodTableCell
+            if let moodModels = presenter.moods {
+                moodCell.fillCellby(moodModels)
+            }
             return moodCell
         case 2:
             let weightCell = tableView.dequeueReusableCell(withIdentifier: WeightTableCell.id) as! WeightTableCell

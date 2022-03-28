@@ -5,8 +5,10 @@
 //  Created by O l e h on 24.03.2022.
 //
 
-import Foundation
+// Стягиваешь схему перед каждым новым запросом
+// - перепписываешь в модель названия модели из фейкера
 
+import Foundation
 
 protocol ProfileOutputProtocol: BaseController {
     func success()
@@ -15,7 +17,7 @@ protocol ProfileOutputProtocol: BaseController {
 
 protocol ProfilePresenterProtocol: AnyObject {
     init(view: ProfileOutputProtocol)
-    func getRankTypes(date: String)
+    func getRankTypes(from: String, to: String)
 }
 
 
@@ -32,7 +34,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
     var moods: [MoodsMainModel]?
     
     
-    func getRankTypes(date: String) {
+    func getRankTypes(from: String, to: String) {
         view?.startLoader()
         
         let group = DispatchGroup()
@@ -50,7 +52,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
         }
         
         group.enter()
-        let query2 = MoodWidgetQuery(date: date)
+        let query2 = MoodsQuery(from: from, to: to)
         let _ = Network.shared.query(model:  MoodsModel.self,
                                      query2,
                                      controller: view) { [weak self] model in
