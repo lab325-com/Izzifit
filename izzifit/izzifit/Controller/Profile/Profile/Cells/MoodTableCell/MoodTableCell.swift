@@ -9,6 +9,8 @@ import UIKit
 
 class MoodTableCell: UITableViewCell {
     
+    static let id = "MoodTableCell"
+    
     @IBOutlet weak var backVw: UIView! {
         didSet {
             backVw.layer.cornerRadius = 20
@@ -27,11 +29,14 @@ class MoodTableCell: UITableViewCell {
             moodLbl.text = RLocalization.profile_mood()
         }
     }
+    @IBOutlet weak var moodChartBackImgVw: UIImageView!
+    
     private lazy var backYAxis: CGFloat = {
         chartBackVw.bounds.height / 10
     }()
+    
     private lazy var backXAxis: CGFloat = {
-        chartBackVw.bounds.size.width / 6.6
+        (w - 99) / 7
     }()
     
     private var chartShapeLayer: CAShapeLayer = {
@@ -44,57 +49,57 @@ class MoodTableCell: UITableViewCell {
         return chartShapeLayer
     }()
     
-    private var emojiArray = ["😀","😐","🙂","😀","🙂","🙂"]
-    private lazy var emojiPoints = [CGPoint]()
-    static let id = "MoodTableCell"
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         // Initialization code
         
-        let lineLayer = CAShapeLayer()
-        lineLayer.strokeColor = clr(color: .chartPurple)!.cgColor
-        lineLayer.lineWidth = 1
-        lineLayer.lineDashPattern = [6, 4]
-        let linePath = CGMutablePath()
-        linePath.addLines(between: [CGPoint(x: backXAxis * 6, y: backYAxis * 5.5),
-                                    CGPoint(x: backXAxis * 7, y: backYAxis * 3)])
-        lineLayer.path = linePath
-        chartBackVw.layer.addSublayer(lineLayer)
+
 
     }
     
     func fillCellby(_ moods: [MoodsMainModel]) {
         
         let path = UIBezierPath()
+        var labelPoints = [CGPoint]()
         path.move(to: CGPoint(x: 0, y: backYAxis * 4 ))
-        
         for (index, mood) in moods.enumerated() {
-            
+            guard mood.mood != nil else { return }
             let currentX = backXAxis * CGFloat(index + 1)
             var currentY: CGFloat = 0.0
             switch mood.mood {
             case .moodTypeGood:
-                currentY = backYAxis * 7.5
-            case .moodTypeBadly:
-                currentY = backYAxis * 5.0
-            case .moodTypeNotBad:
                 currentY = backYAxis * 2.5
+            case .moodTypeBadly:
+                currentY = backYAxis * 7.5
+            case .moodTypeNotBad:
+                currentY = backYAxis * 5.0
             default: break
             }
             let cgPoint = CGPoint(x: currentX, y: currentY)
-            path.move(to: cgPoint)
-            
+            path.addLine(to: cgPoint)
+            labelPoints.append(cgPoint)
             let emojiLabel = UILabel(frame: CGRect(x: cgPoint.x - CGFloat(chartBackVw.bounds.size.width / 28),
-                                                   y: cgPoint.y - 10 ,
+                                                   y: cgPoint.y - 10,
                                                    width: 20,
                                                    height: 20))
             emojiLabel.text = mood.mood?.text
             chartBackVw.addSubview(emojiLabel)
         }
         chartShapeLayer.path = path.cgPath
-        chartBackVw.layer.addSublayer(chartShapeLayer)
+        moodChartBackImgVw.layer.addSublayer(chartShapeLayer)
+        
+        let lineLayer = CAShapeLayer()
+        lineLayer.strokeColor = clr(color: .chartPurple)!.cgColor
+        lineLayer.lineWidth = 1
+        lineLayer.lineDashPattern = [6, 4]
+        let linePath = CGMutablePath()
+        
+        linePath.addLines(between: [path.currentPoint,
+                                    CGPoint(x: backXAxis * CGFloat(moods.count + 1),
+                                            y: backYAxis * 3)])
+        lineLayer.path = linePath
+        chartBackVw.layer.addSublayer(lineLayer)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

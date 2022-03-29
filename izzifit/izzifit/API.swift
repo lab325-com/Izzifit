@@ -2848,7 +2848,7 @@ public final class MoodsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query Moods($from: Date!, $to: Date!) {
+    query Moods($from: Date, $to: Date) {
       moods(from: $from, to: $to) {
         __typename
         date
@@ -2859,10 +2859,10 @@ public final class MoodsQuery: GraphQLQuery {
 
   public let operationName: String = "Moods"
 
-  public var from: String
-  public var to: String
+  public var from: String?
+  public var to: String?
 
-  public init(from: String, to: String) {
+  public init(from: String? = nil, to: String? = nil) {
     self.from = from
     self.to = to
   }
