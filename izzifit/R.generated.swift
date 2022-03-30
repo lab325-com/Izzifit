@@ -2129,7 +2129,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 161 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 164 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -2267,6 +2267,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let food_delete = Rswift.StringResource(key: "food_delete", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Description
+      ///
+      /// Locales: en
+      static let workout_detail_description = Rswift.StringResource(key: "workout_detail_description", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Diet Preferences
       ///
       /// Locales: en
@@ -2471,6 +2475,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let profile_mood = Rswift.StringResource(key: "profile_mood", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Muscle group
+      ///
+      /// Locales: en
+      static let workout_detail_muscle = Rswift.StringResource(key: "workout_detail_muscle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Name
       ///
       /// Locales: en
@@ -2611,6 +2619,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let energy_training_start_training = Rswift.StringResource(key: "energy_training_start_training", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Start workout
+      ///
+      /// Locales: en
+      static let workout_detail_start = Rswift.StringResource(key: "workout_detail_start", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Submit
       ///
       /// Locales: en
@@ -3302,6 +3314,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("food_delete", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Description
+      ///
+      /// Locales: en
+      static func workout_detail_description(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("workout_detail_description", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "workout_detail_description"
+        }
+
+        return NSLocalizedString("workout_detail_description", bundle: bundle, comment: "")
       }
 
       /// en translation: Diet Preferences
@@ -4077,6 +4104,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("profile_mood", bundle: bundle, comment: "")
       }
 
+      /// en translation: Muscle group
+      ///
+      /// Locales: en
+      static func workout_detail_muscle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("workout_detail_muscle", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "workout_detail_muscle"
+        }
+
+        return NSLocalizedString("workout_detail_muscle", bundle: bundle, comment: "")
+      }
+
       /// en translation: Name
       ///
       /// Locales: en
@@ -4602,6 +4644,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("energy_training_start_training", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Start workout
+      ///
+      /// Locales: en
+      static func workout_detail_start(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("workout_detail_start", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "workout_detail_start"
+        }
+
+        return NSLocalizedString("workout_detail_start", bundle: bundle, comment: "")
       }
 
       /// en translation: Submit

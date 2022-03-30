@@ -1,4 +1,4 @@
-query Moods($from: Date, $to: Date) {
+query Moods($from: Date!, $to: Date!) {
     moods(from: $from, to: $to) {
         date
         mood

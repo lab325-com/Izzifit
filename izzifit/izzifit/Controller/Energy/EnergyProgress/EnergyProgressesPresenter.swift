@@ -41,7 +41,7 @@ class EnergyProgressesPresenter: EnergyProgressesProtocol {
         
         let dateFormmater = DateFormatter()
         dateFormmater.locale = Locale(identifier: "en_US_POSIX")
-        dateFormmater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormmater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ" 
         
         let from = dateFormmater.string(from: dateOne)
         let to = dateFormmater.string(from: dateTwo)

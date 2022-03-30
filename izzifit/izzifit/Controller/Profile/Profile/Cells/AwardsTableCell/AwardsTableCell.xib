@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,12 +24,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Qyn-qB-2fJ">
-                        <rect key="frame" x="7.5" y="17.5" width="360" height="15"/>
+                        <rect key="frame" x="15" y="17.5" width="360" height="15"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGe-VN-ZZl">
                                 <rect key="frame" x="0.0" y="0.0" width="120" height="15"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="Z4O-sI-Zl5"/>
                                     <constraint firstAttribute="height" constant="15" id="yEx-A0-yc5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
@@ -38,7 +38,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPe-c0-tA7">
                                 <rect key="frame" x="120" y="0.0" width="120" height="15"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="1Fe-0a-bb5"/>
                                     <constraint firstAttribute="height" constant="15" id="tCa-iJ-OBh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
@@ -51,7 +50,6 @@
                                 <rect key="frame" x="240" y="0.0" width="120" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="4qM-cl-LTs"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="F1h-8s-cZ2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -67,7 +65,9 @@
                     </stackView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Qyn-qB-2fJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="6Wb-74-2LG"/>
                     <constraint firstItem="Qyn-qB-2fJ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="LYW-ea-Zjt"/>
+                    <constraint firstAttribute="trailing" secondItem="Qyn-qB-2fJ" secondAttribute="trailing" constant="15" id="R3v-JB-6Of"/>
                     <constraint firstItem="Qyn-qB-2fJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rNI-0K-qYf"/>
                 </constraints>
             </tableViewCellContentView>

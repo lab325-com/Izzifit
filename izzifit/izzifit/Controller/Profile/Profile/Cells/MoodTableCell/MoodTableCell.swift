@@ -6,11 +6,19 @@
 //
 
 import UIKit
+import CoreAudio
 
 class MoodTableCell: UITableViewCell {
     
     static let id = "MoodTableCell"
     
+    @IBOutlet var dateLabelsCollection: [UILabel]! {
+        didSet {
+            for (index, label) in dateLabelsCollection.enumerated() {
+                label.tag = index
+            }
+        }
+    }
     @IBOutlet weak var backVw: UIView! {
         didSet {
             backVw.layer.cornerRadius = 20
@@ -51,58 +59,77 @@ class MoodTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        // Initialization code
-        
-
-
+        selectionStyle = .none
     }
     
     func fillCellby(_ moods: [MoodsMainModel]) {
         
         let path = UIBezierPath()
         var labelPoints = [CGPoint]()
-        path.move(to: CGPoint(x: 0, y: backYAxis * 4 ))
+        path.move(to: CGPoint(x: 0, y: backYAxis * 4))
         for (index, mood) in moods.enumerated() {
-            guard mood.mood != nil else { return }
-            let currentX = backXAxis * CGFloat(index + 1)
-            var currentY: CGFloat = 0.0
-            switch mood.mood {
-            case .moodTypeGood:
-                currentY = backYAxis * 2.5
-            case .moodTypeBadly:
-                currentY = backYAxis * 7.5
-            case .moodTypeNotBad:
-                currentY = backYAxis * 5.0
-            default: break
+            if index < 6 {
+                let currentX = backXAxis * CGFloat(index + 1)
+                var currentY: CGFloat = 0.0
+                switch mood.mood {
+                case .moodTypeGood:
+                    currentY = backYAxis * 2.5
+                case .moodTypeBadly:
+                    currentY = backYAxis * 7.5
+                case .moodTypeNotBad:
+                    currentY = backYAxis * 5.0
+                default: break
+                }
+                let cgPoint = CGPoint(x: currentX, y: currentY)
+                labelPoints.append(cgPoint)
+                if let stringDate = mood.date {
+                    dateLabelsCollection[index + 1].text = convertDate(stringDate)
+                }
             }
-            let cgPoint = CGPoint(x: currentX, y: currentY)
-            path.addLine(to: cgPoint)
-            labelPoints.append(cgPoint)
-            let emojiLabel = UILabel(frame: CGRect(x: cgPoint.x - CGFloat(chartBackVw.bounds.size.width / 28),
-                                                   y: cgPoint.y - 10,
+        }
+        
+        for point in labelPoints {
+            path.addLine(to: point)
+        }
+        
+        chartShapeLayer.path = path.cgPath
+        chartBackVw.layer.addSublayer(chartShapeLayer)
+        
+        for (index, point) in labelPoints.enumerated() {
+            let emojiLabel = UILabel(frame: CGRect(x: point.x - CGFloat(chartBackVw.bounds.size.width / 28),
+                                                   y: point.y - 10,
                                                    width: 20,
                                                    height: 20))
-            emojiLabel.text = mood.mood?.text
+            emojiLabel.text = moods[index].mood?.text
             chartBackVw.addSubview(emojiLabel)
         }
-        chartShapeLayer.path = path.cgPath
-        moodChartBackImgVw.layer.addSublayer(chartShapeLayer)
         
         let lineLayer = CAShapeLayer()
         lineLayer.strokeColor = clr(color: .chartPurple)!.cgColor
         lineLayer.lineWidth = 1
         lineLayer.lineDashPattern = [6, 4]
         let linePath = CGMutablePath()
-        
         linePath.addLines(between: [path.currentPoint,
-                                    CGPoint(x: backXAxis * CGFloat(moods.count + 1),
+                                    CGPoint(x: backXAxis * CGFloat(labelPoints.count + 1),
                                             y: backYAxis * 3)])
         lineLayer.path = linePath
         chartBackVw.layer.addSublayer(lineLayer)
     }
     
+    func convertDate(_ stringDate: String) -> String {
+        let oldDateFormatter = DateFormatter()
+        oldDateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        oldDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let gettedDate = oldDateFormatter.date(from: stringDate)
+        
+        let newDateFormatter = DateFormatter()
+        newDateFormatter.dateFormat = "dd.MM"
+        return newDateFormatter.string(from: gettedDate ?? Date())
+    }
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
     }
 }
