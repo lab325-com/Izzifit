@@ -27,6 +27,8 @@ protocol EnergyPresenterProtocol: AnyObject {
     
     func setWater(index: Int, date: String)
     func setMood(mood: MoodType, date: String)
+    
+    func updateWeight()
 }
 
 class EnergyPresenter: EnergyPresenterProtocol {
@@ -192,6 +194,20 @@ class EnergyPresenter: EnergyPresenterProtocol {
                 self?.view?.stopLoading()
                 self?.view?.failure()
             })
+        }, failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+            self?.view?.failure()
+        })
+    }
+    
+    func updateWeight() {
+        view?.startLoader()
+        
+        let queryWeight = SaveWeightWidgetQuery()
+        
+        let _ = Network.shared.query(model: SaveWeightWidgetModel.self, queryWeight, controller: view, successHandler: { [weak self] model in
+            self?.weightWidget = model.saveWeightWidget
+            self?.updateToday()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
             self?.view?.failure()

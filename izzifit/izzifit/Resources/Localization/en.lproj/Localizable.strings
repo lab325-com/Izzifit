@@ -154,6 +154,10 @@
 "progress_wed" = "Wed";
 "water_widget_ml_left" = "%dml left";
 "water_widget_title" = "Drink water";
+"workout_detail_description" = "Description";
+"workout_detail_muscle" = "Muscle group";
+"workout_detail_resting" = "Resting";
+"workout_detail_start" = "Start workout";
 "write_to_us_add_product" = "Add product";
 "write_to_us_comment" = "Comment";
 "write_to_us_product_name" = "Product name";

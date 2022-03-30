@@ -157,7 +157,7 @@ class MenuWeightController: BaseController {
         let targetWeightMeasure = type.api
         let targetWeight = Double(currentCountLabel.text!)!
         
-        presenter.profileUpdate(targetWeightMeasure: targetWeightMeasure, targetWeight: targetWeight)
+        presenter.profileUpdate(weightMeasure: targetWeightMeasure, weight: targetWeight)
     }
 }
 

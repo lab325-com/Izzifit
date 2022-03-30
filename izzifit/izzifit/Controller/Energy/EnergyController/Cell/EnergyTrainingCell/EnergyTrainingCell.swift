@@ -35,6 +35,10 @@ enum EnergyTrainingType {
     }
 }
 
+protocol EnergyTrainingProtocol: AnyObject {
+    func energyTrainingSelect(cell: EnergyTrainingCell, model: WorkoutsWidgetMainModel)
+}
+
 class EnergyTrainingCell: UITableViewCell {
 
     @IBOutlet weak var mainTitleLabel: UILabel!
@@ -46,6 +50,8 @@ class EnergyTrainingCell: UITableViewCell {
     @IBOutlet weak var fromLabel: UILabel!
     @IBOutlet weak var fromStackView: UIStackView!
     
+    private var model: WorkoutsWidgetMainModel?
+    weak var delegate: EnergyTrainingProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -59,6 +65,7 @@ class EnergyTrainingCell: UITableViewCell {
     }
     
     func setupCell(model: WorkoutsWidgetMainModel) {
+        self.model = model
         
         var type: EnergyTrainingType = .continueTraining
         
@@ -111,5 +118,13 @@ class EnergyTrainingCell: UITableViewCell {
             fromLabel.isHidden = true
             fromStackView.isHidden = true
         }
+    }
+    
+    @IBAction func actionSelect(_ sender: UIButton) {
+        guard let model = model else {
+            return
+        }
+
+        delegate?.energyTrainingSelect(cell: self, model: model)
     }
 }

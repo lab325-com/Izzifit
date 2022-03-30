@@ -7,6 +7,10 @@
 
 import UIKit
 import Kingfisher
+ 
+protocol EnergyControllerProtocol: AnyObject {
+    func energControllerSetProfile(controller: EnergyController, model: WorkoutsWidgetMainModel)
+}
 
 class EnergyController: BaseController {
 
@@ -45,6 +49,21 @@ class EnergyController: BaseController {
         dateFormmater.locale = Locale(identifier: "en_US_POSIX")
         dateFormmater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return dateFormmater.string(from: Date())
+    }
+    
+    weak var delegate: EnergyControllerProtocol?
+    
+    //----------------------------------------------
+    // MARK: - Init
+    //----------------------------------------------
+    
+    init(delegate: EnergyControllerProtocol) {
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     //----------------------------------------------
@@ -149,12 +168,14 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 5:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellWeightIdentifier) as? EnergyWeightCell else { return UITableViewCell() }
+            cell.delegate = self
             if let model = presenter.weightWidget {
                 cell.setupCell(model: model)
             }
             return cell
         case 6:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellChooseActivity) as? EnergyChooseActivityCell else { return UITableViewCell() }
+            cell.delegate = self
             cell.setupCell(models: presenter.chooseWorkoutWidgets)
             return cell
         case 7..<7 + presenter.workoutWidgets.count:
@@ -163,6 +184,7 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellTraining) as? EnergyTrainingCell else { return UITableViewCell() }
+                cell.delegate = self
                 cell.setupCell(model: presenter.workoutWidgets[indexPath.row - 7])
                 return cell
             }
@@ -238,5 +260,46 @@ extension EnergyController: EnergyMoodProtocol {
 extension EnergyController: EnergySleepCellProtocol {
     func energySleepCellSeleep(cell: EnergySleepCell, sleep: SleepQualityType) {
         presenter.setSeleep(sleep: sleep, date: date)
+    }
+}
+
+//----------------------------------------------
+// MARK: - EnergyWeightProtocol
+//----------------------------------------------
+
+extension EnergyController: EnergyWeightProtocol {
+    func energyWeightUpdate(cell: EnergyWeightCell) {
+        EnergyRouter(presenter: navigationController).presentUpdateWieght(delegate: self)
+    }
+}
+
+//----------------------------------------------
+// MARK: - EnergyUpdateWeightProtocol
+//----------------------------------------------
+
+extension EnergyController: EnergyUpdateWeightProtocol {
+    func energyUpdateWeight(controller: EnergyUpdateWeightController) {
+        presenter.updateWeight()
+    }
+}
+
+//----------------------------------------------
+// MARK: - EnergyChooseActivityProtocol
+//----------------------------------------------
+
+extension EnergyController: EnergyChooseActivityProtocol {
+    func energyChooseActivitySelect(cell: EnergyChooseActivityCell, model: WorkoutsWidgetMainModel) {
+        delegate?.energControllerSetProfile(controller: self, model: model)
+    }
+}
+
+//----------------------------------------------
+// MARK: - EnergyTrainingProtocol
+//----------------------------------------------
+
+extension EnergyController: EnergyTrainingProtocol {
+    func energyTrainingSelect(cell: EnergyTrainingCell, model: WorkoutsWidgetMainModel) {
+        guard let id = model.id else { return }
+        WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
     }
 }

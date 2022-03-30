@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol EnergyChooseActivityProtocol: AnyObject {
+    func energyChooseActivitySelect(cell: EnergyChooseActivityCell, model: WorkoutsWidgetMainModel)
+}
+
 class EnergyChooseActivityCell: UITableViewCell {
     
     //----------------------------------------------
@@ -35,6 +39,8 @@ class EnergyChooseActivityCell: UITableViewCell {
             }
         }
     }
+    
+    weak var delegate: EnergyChooseActivityProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -91,5 +97,9 @@ extension EnergyChooseActivityCell: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: weight , height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.energyChooseActivitySelect(cell: self, model: models[indexPath.row])
     }
 }
