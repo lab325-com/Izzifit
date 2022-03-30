@@ -42,7 +42,7 @@ class FoodAddPresenter: FoodAddPresenterProtocol {
     func add(mealId: String, productId: String, amount: Int) {
         view?.startLoader()
         
-        let mutation = AddProductToMealMutation(record: AddProductToMealRecordInput(mealId: mealId, productId: productId, amount: amount))
+        let mutation = AddProductToMealMutation(record: AddProductToMealRecordInput(amount: amount, mealId: mealId, productId: productId))
         let _ = Network.shared.mutation(model: AddProductToMealModel.self, mutation, controller: view, successHandler: { [weak self] model in
             self?.view?.stopLoading()
             self?.view?.success()

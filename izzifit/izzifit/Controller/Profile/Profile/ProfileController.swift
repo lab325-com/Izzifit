@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfileController: BaseController {
-
+    
     //----------------------------------------------
     // MARK: - IBOutlet
     //----------------------------------------------
@@ -19,9 +19,16 @@ class ProfileController: BaseController {
     }
     
     @IBOutlet weak var profileTableView: UITableView!
+    private lazy var presenter = ProfilePresenter(view: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    private func setup() {
+        profileTableView.isHidden = true
+        presenter.getRankTypes()
         hiddenNavigationBar = true
         profileTableView.backgroundColor = .white
         profileTableView.delegate = self
@@ -36,49 +43,59 @@ class ProfileController: BaseController {
         profileTableView.register(UINib(nibName: "MoodTableCell", bundle: nil),
                                   forCellReuseIdentifier: MoodTableCell.id)
         profileTableView.register(UINib(nibName: "AwardsTableCell", bundle: nil),
-                                  forCellReuseIdentifier: AwardsTableCell.id)
+                                  forCellReuseIdentifier: PolicyCell.id)
     }
     
     @IBAction func backAction(_ sender: Any) {
-      actionBack()
+        actionBack()
     }
-    
 }
 
 extension ProfileController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: PositionTableCell.id) as! PositionTableCell
-  
+        
         switch indexPath.row {
-        case 1:
+        case 0:
             let caloriesCell = tableView.dequeueReusableCell(withIdentifier: ChartTableCell.id) as! ChartTableCell
             return caloriesCell
-        case 2:
+        case 1:
             let moodCell = tableView.dequeueReusableCell(withIdentifier: MoodTableCell.id) as! MoodTableCell
-        
             return moodCell
-        case 3:
+        case 2:
             let weightCell = tableView.dequeueReusableCell(withIdentifier: WeightTableCell.id) as! WeightTableCell
-            
             return weightCell
-        case 4:
-            let awardsCell = tableView.dequeueReusableCell(withIdentifier: AwardsTableCell.id) as! AwardsTableCell
+        default:
+            let awardsCell = tableView.dequeueReusableCell(withIdentifier: PolicyCell.id) as! PolicyCell
             return awardsCell
-        default: return cell
+            //            let cell = tableView.dequeueReusableCell(withIdentifier: PositionTableCell.id) as! PositionTableCell
+            //            if let model = presenter.rank {
+            //                cell.fillCell(by: model)
+            //            }
+            //            return cell
         }
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case 4: return 266
+        case 3: return 50
         default: return 178
         }
     }
 }
 
 extension ProfileController: UITableViewDelegate {}
+
+extension ProfileController: ProfileOutputProtocol {
+    func success() {
+        profileTableView.isHidden = false
+        profileTableView.reloadData()
+    }
+    
+    func failure() {
+    }
+}

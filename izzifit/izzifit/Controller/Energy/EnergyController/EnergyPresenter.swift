@@ -22,7 +22,6 @@ protocol EnergyOutputProtocol: BaseController {
 //----------------------------------------------
 protocol EnergyPresenterProtocol: AnyObject {
     init(view: EnergyOutputProtocol)
-    
     func getWidgets(date: String)
     
     func setWater(index: Int, date: String)

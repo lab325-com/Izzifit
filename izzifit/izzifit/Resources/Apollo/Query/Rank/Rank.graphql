@@ -1,0 +1,8 @@
+query Rank {
+    rank {
+    countryPosition
+    globalPosition
+    level
+    rank
+}
+}

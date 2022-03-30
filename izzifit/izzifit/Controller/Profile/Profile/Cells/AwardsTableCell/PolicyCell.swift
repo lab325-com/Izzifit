@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AwardsTableCell: UITableViewCell {
+class PolicyCell: UITableViewCell {
 
     static let id = "AwardsTableCell"
     var btnNames = [RLocalization.profile_privacy_policy(),
