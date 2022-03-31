@@ -32,7 +32,8 @@ class ProfilePresenter: ProfilePresenterProtocol {
     
     var rank: RankMainModel?
     var moods: [MoodsMainModel]?
-    
+    var caloriesWidget: CaloriesWidgetModel?
+    var weightsWidget: WeightsWidgetMainModel?
     
     func getRankTypes(from: String, to: String) {
         view?.startLoader()
@@ -40,9 +41,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
         let group = DispatchGroup()
         
         group.enter()
-        
         let query1 = RankQuery()
-        
         let _ = Network.shared.query(model: RankModel.self, query1, controller: view) { [weak self] model in
             self?.rank = model.rank
             group.leave()
@@ -62,7 +61,31 @@ class ProfilePresenter: ProfilePresenterProtocol {
             group.leave()
             self?.view?.failure()
         }
-
+        
+        group.enter()
+        let query3 = CaloriesWidgetQuery(from: from, to: to)
+        let _ = Network.shared.query(model: CaloriesWidgetModel.self,
+                                     query3,
+                                     controller: view) { model in
+            self.caloriesWidget = model
+            group.leave()
+        } failureHandler: { error in
+            group.leave()
+            self.view?.failure()
+        }
+        
+        group.enter()
+        let query4 = WeightsWidgetQuery(from: from, to: to)
+        let _ = Network.shared.query(model: WeightsWidgetModel.self,
+                                     query4,
+                                     controller: view) { model in
+            self.weightsWidget = model.weightsWidget
+            group.leave()
+        } failureHandler: { error in
+            group.leave()
+            self.view?.failure()
+        }
+        
         group.notify(queue: DispatchQueue.main) { [weak self] in
             self?.view?.stopLoading()
             self?.view?.success()

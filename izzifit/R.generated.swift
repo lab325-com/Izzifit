@@ -302,12 +302,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 34 files.
+  /// This `R.file` struct is generated, and contains static references to 36 files.
   struct file {
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
     /// Resource file `AskQuestion.graphql`.
     static let askQuestionGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AskQuestion", pathExtension: "graphql")
+    /// Resource file `CaloriesWidget.graphql`.
+    static let caloriesWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "CaloriesWidget", pathExtension: "graphql")
     /// Resource file `DrinkWidget.graphql`.
     static let drinkWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DrinkWidget", pathExtension: "graphql")
     /// Resource file `FoodGroups.graphql`.
@@ -368,6 +370,8 @@ struct R: Rswift.Validatable {
     static let toggleMuscleInWorkoutsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleMuscleInWorkouts", pathExtension: "graphql")
     /// Resource file `ToggleProductInRation.graphql`.
     static let toggleProductInRationGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleProductInRation", pathExtension: "graphql")
+    /// Resource file `WeightsWidget.graphql`.
+    static let weightsWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WeightsWidget", pathExtension: "graphql")
     /// Resource file `WorkoutTypes.graphql`.
     static let workoutTypesGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutTypes", pathExtension: "graphql")
     /// Resource file `progress.graphql`.
@@ -382,6 +386,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "AskQuestion", withExtension: "graphql")`
     static func askQuestionGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.askQuestionGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "CaloriesWidget", withExtension: "graphql")`
+    static func caloriesWidgetGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.caloriesWidgetGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -562,6 +572,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "ToggleProductInRation", withExtension: "graphql")`
     static func toggleProductInRationGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.toggleProductInRationGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "WeightsWidget", withExtension: "graphql")`
+    static func weightsWidgetGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.weightsWidgetGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -2129,7 +2145,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 164 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 165 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -2575,6 +2591,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_reminders = Rswift.StringResource(key: "menu_reminders", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Resting
+      ///
+      /// Locales: en
+      static let workout_detail_resting = Rswift.StringResource(key: "workout_detail_resting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: SM
       ///
       /// Locales: en
@@ -4479,6 +4499,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("menu_reminders", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Resting
+      ///
+      /// Locales: en
+      static func workout_detail_resting(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("workout_detail_resting", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "workout_detail_resting"
+        }
+
+        return NSLocalizedString("workout_detail_resting", bundle: bundle, comment: "")
       }
 
       /// en translation: SM

@@ -82,9 +82,7 @@ class MoodTableCell: UITableViewCell {
                 }
                 let cgPoint = CGPoint(x: currentX, y: currentY)
                 labelPoints.append(cgPoint)
-                if let stringDate = mood.date {
-                    dateLabelsCollection[index + 1].text = convertDate(stringDate)
-                }
+                    dateLabelsCollection[index + 1].text = convertDate(mood.createdAt)
             }
         }
         
@@ -100,7 +98,7 @@ class MoodTableCell: UITableViewCell {
                                                    y: point.y - 10,
                                                    width: 20,
                                                    height: 20))
-            emojiLabel.text = moods[index].mood?.text
+            emojiLabel.text = moods[index].mood.text
             chartBackVw.addSubview(emojiLabel)
         }
         
@@ -126,10 +124,8 @@ class MoodTableCell: UITableViewCell {
         newDateFormatter.dateFormat = "dd.MM"
         return newDateFormatter.string(from: gettedDate ?? Date())
     }
-    
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
     }
 }
