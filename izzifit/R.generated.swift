@@ -302,14 +302,25 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+<<<<<<< HEAD
   /// This `R.file` struct is generated, and contains static references to 36 files.
+=======
+  /// This `R.file` struct is generated, and contains static references to 41 files.
+>>>>>>> develop
   struct file {
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
     /// Resource file `AskQuestion.graphql`.
     static let askQuestionGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AskQuestion", pathExtension: "graphql")
+<<<<<<< HEAD
     /// Resource file `CaloriesWidget.graphql`.
     static let caloriesWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "CaloriesWidget", pathExtension: "graphql")
+=======
+    /// Resource file `ChooseWorkoutWidgetModel.graphql`.
+    static let chooseWorkoutWidgetModelGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ChooseWorkoutWidgetModel", pathExtension: "graphql")
+    /// Resource file `DrinkWater.graphql`.
+    static let drinkWaterGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DrinkWater", pathExtension: "graphql")
+>>>>>>> develop
     /// Resource file `DrinkWidget.graphql`.
     static let drinkWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DrinkWidget", pathExtension: "graphql")
     /// Resource file `FoodGroups.graphql`.
@@ -360,6 +371,12 @@ struct R: Rswift.Validatable {
     static let recentProductsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "RecentProducts", pathExtension: "graphql")
     /// Resource file `RecommendProducts.graphql`.
     static let recommendProductsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "RecommendProducts", pathExtension: "graphql")
+    /// Resource file `RemoveProductFromMeal.graphql`.
+    static let removeProductFromMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "RemoveProductFromMeal", pathExtension: "graphql")
+    /// Resource file `SaveMood.graphql`.
+    static let saveMoodGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SaveMood", pathExtension: "graphql")
+    /// Resource file `SaveSleepQuality.graphql`.
+    static let saveSleepQualityGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SaveSleepQuality", pathExtension: "graphql")
     /// Resource file `SaveWeightWidget.graphql`.
     static let saveWeightWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SaveWeightWidget", pathExtension: "graphql")
     /// Resource file `SleepWidget.graphql`.
@@ -370,10 +387,19 @@ struct R: Rswift.Validatable {
     static let toggleMuscleInWorkoutsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleMuscleInWorkouts", pathExtension: "graphql")
     /// Resource file `ToggleProductInRation.graphql`.
     static let toggleProductInRationGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleProductInRation", pathExtension: "graphql")
+<<<<<<< HEAD
     /// Resource file `WeightsWidget.graphql`.
     static let weightsWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WeightsWidget", pathExtension: "graphql")
+=======
+    /// Resource file `UpdateProductInMeal.graphql`.
+    static let updateProductInMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "UpdateProductInMeal", pathExtension: "graphql")
+    /// Resource file `WorkoutById.graphql`.
+    static let workoutByIdGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutById", pathExtension: "graphql")
+>>>>>>> develop
     /// Resource file `WorkoutTypes.graphql`.
     static let workoutTypesGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutTypes", pathExtension: "graphql")
+    /// Resource file `WorkoutsWidget.graphql`.
+    static let workoutsWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutsWidget", pathExtension: "graphql")
     /// Resource file `progress.graphql`.
     static let progressGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "progress", pathExtension: "graphql")
 
@@ -389,9 +415,21 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+<<<<<<< HEAD
     /// `bundle.url(forResource: "CaloriesWidget", withExtension: "graphql")`
     static func caloriesWidgetGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.caloriesWidgetGraphql
+=======
+    /// `bundle.url(forResource: "ChooseWorkoutWidgetModel", withExtension: "graphql")`
+    static func chooseWorkoutWidgetModelGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.chooseWorkoutWidgetModelGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "DrinkWater", withExtension: "graphql")`
+    static func drinkWaterGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.drinkWaterGraphql
+>>>>>>> develop
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -545,6 +583,24 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "RemoveProductFromMeal", withExtension: "graphql")`
+    static func removeProductFromMealGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.removeProductFromMealGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "SaveMood", withExtension: "graphql")`
+    static func saveMoodGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.saveMoodGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "SaveSleepQuality", withExtension: "graphql")`
+    static func saveSleepQualityGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.saveSleepQualityGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "SaveWeightWidget", withExtension: "graphql")`
     static func saveWeightWidgetGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.saveWeightWidgetGraphql
@@ -575,15 +631,33 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+<<<<<<< HEAD
     /// `bundle.url(forResource: "WeightsWidget", withExtension: "graphql")`
     static func weightsWidgetGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.weightsWidgetGraphql
+=======
+    /// `bundle.url(forResource: "UpdateProductInMeal", withExtension: "graphql")`
+    static func updateProductInMealGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.updateProductInMealGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "WorkoutById", withExtension: "graphql")`
+    static func workoutByIdGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.workoutByIdGraphql
+>>>>>>> develop
       return fileResource.bundle.url(forResource: fileResource)
     }
 
     /// `bundle.url(forResource: "WorkoutTypes", withExtension: "graphql")`
     static func workoutTypesGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.workoutTypesGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "WorkoutsWidget", withExtension: "graphql")`
+    static func workoutsWidgetGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.workoutsWidgetGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -677,7 +751,11 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+<<<<<<< HEAD
   /// This `R.image` struct is generated, and contains static references to 60 images.
+=======
+  /// This `R.image` struct is generated, and contains static references to 68 images.
+>>>>>>> develop
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -759,6 +837,10 @@ struct R: Rswift.Validatable {
     static let onboarding_sport_regulary_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_sport_regulary_ic")
     /// Image `onboarding_target_flag_ic`.
     static let onboarding_target_flag_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_target_flag_ic")
+    /// Image `placeholder_big_sport_ic`.
+    static let placeholder_big_sport_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder_big_sport_ic")
+    /// Image `placeholder_big_sport_two_ic`.
+    static let placeholder_big_sport_two_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder_big_sport_two_ic")
     /// Image `placeholder_food_ic`.
     static let placeholder_food_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder_food_ic")
     /// Image `placeholder_food_two_ic`.
@@ -791,6 +873,10 @@ struct R: Rswift.Validatable {
     static let tab_bar_workout_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab_bar_workout_ic")
     /// Image `temp_activity_ic`.
     static let temp_activity_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "temp_activity_ic")
+    /// Image `temp_workout_gradient_ic`.
+    static let temp_workout_gradient_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "temp_workout_gradient_ic")
+    /// Image `temp_workout_ic`.
+    static let temp_workout_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "temp_workout_ic")
     /// Image `top_view_coin_ic`.
     static let top_view_coin_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_coin_ic")
     /// Image `top_view_elipse_ic`.
@@ -799,6 +885,16 @@ struct R: Rswift.Validatable {
     static let top_view_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_flash_ic")
     /// Image `workout_activities_ic`.
     static let workout_activities_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_activities_ic")
+    /// Image `workout_arrow_right_ic`.
+    static let workout_arrow_right_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_arrow_right_ic")
+    /// Image `workout_back_ic`.
+    static let workout_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_back_ic")
+    /// Image `workout_clock_ic`.
+    static let workout_clock_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_clock_ic")
+    /// Image `workout_fire_ic`.
+    static let workout_fire_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_fire_ic")
+    /// Image `workout_flash_ic`.
+    static let workout_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_flash_ic")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "MoodChartBack", bundle: ..., traitCollection: ...)`
@@ -1081,6 +1177,20 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "placeholder_big_sport_ic", bundle: ..., traitCollection: ...)`
+    static func placeholder_big_sport_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placeholder_big_sport_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "placeholder_big_sport_two_ic", bundle: ..., traitCollection: ...)`
+    static func placeholder_big_sport_two_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placeholder_big_sport_two_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "placeholder_food_ic", bundle: ..., traitCollection: ...)`
     static func placeholder_food_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.placeholder_food_ic, compatibleWith: traitCollection)
@@ -1193,6 +1303,20 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "temp_workout_gradient_ic", bundle: ..., traitCollection: ...)`
+    static func temp_workout_gradient_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.temp_workout_gradient_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "temp_workout_ic", bundle: ..., traitCollection: ...)`
+    static func temp_workout_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.temp_workout_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "top_view_coin_ic", bundle: ..., traitCollection: ...)`
     static func top_view_coin_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.top_view_coin_ic, compatibleWith: traitCollection)
@@ -1220,10 +1344,45 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "workout_arrow_right_ic", bundle: ..., traitCollection: ...)`
+    static func workout_arrow_right_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.workout_arrow_right_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "workout_back_ic", bundle: ..., traitCollection: ...)`
+    static func workout_back_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.workout_back_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "workout_clock_ic", bundle: ..., traitCollection: ...)`
+    static func workout_clock_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.workout_clock_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "workout_fire_ic", bundle: ..., traitCollection: ...)`
+    static func workout_fire_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.workout_fire_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "workout_flash_ic", bundle: ..., traitCollection: ...)`
+    static func workout_flash_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.workout_flash_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 61 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 69 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -1253,6 +1412,8 @@ struct R: Rswift.Validatable {
     static let energySleepCell = _R.nib._EnergySleepCell()
     /// Nib `EnergyTrainingCell`.
     static let energyTrainingCell = _R.nib._EnergyTrainingCell()
+    /// Nib `EnergyUpdateWeightController`.
+    static let energyUpdateWeightController = _R.nib._EnergyUpdateWeightController()
     /// Nib `EnergyWeightCell`.
     static let energyWeightCell = _R.nib._EnergyWeightCell()
     /// Nib `FoodAddController`.
@@ -1341,6 +1502,20 @@ struct R: Rswift.Validatable {
     static let workoutActivityCollectionCell = _R.nib._WorkoutActivityCollectionCell()
     /// Nib `WorkoutController`.
     static let workoutController = _R.nib._WorkoutController()
+    /// Nib `WorkoutDetailController`.
+    static let workoutDetailController = _R.nib._WorkoutDetailController()
+    /// Nib `WorkoutDetailDescriptionCell`.
+    static let workoutDetailDescriptionCell = _R.nib._WorkoutDetailDescriptionCell()
+    /// Nib `WorkoutDetailHeaderCell`.
+    static let workoutDetailHeaderCell = _R.nib._WorkoutDetailHeaderCell()
+    /// Nib `WorkoutDetailMuscleController`.
+    static let workoutDetailMuscleController = _R.nib._WorkoutDetailMuscleController()
+    /// Nib `WorkoutDetailMuscleСell`.
+    static let workoutDetailMuscleСell = _R.nib._WorkoutDetailMuscleСell()
+    /// Nib `WorkoutDetailSectionCell`.
+    static let workoutDetailSectionCell = _R.nib._WorkoutDetailSectionCell()
+    /// Nib `WorkoutDetailTrainCell`.
+    static let workoutDetailTrainCell = _R.nib._WorkoutDetailTrainCell()
     /// Nib `WorkoutExercisesCell`.
     static let workoutExercisesCell = _R.nib._WorkoutExercisesCell()
     /// Nib `WorkoutSpecialCell`.
@@ -1457,6 +1632,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.energyTrainingCell) instead")
     static func energyTrainingCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.energyTrainingCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "EnergyUpdateWeightController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.energyUpdateWeightController) instead")
+    static func energyUpdateWeightController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.energyUpdateWeightController)
     }
     #endif
 
@@ -1813,6 +1996,62 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutDetailController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutDetailController) instead")
+    static func workoutDetailController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutDetailController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutDetailDescriptionCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutDetailDescriptionCell) instead")
+    static func workoutDetailDescriptionCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutDetailDescriptionCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutDetailHeaderCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutDetailHeaderCell) instead")
+    static func workoutDetailHeaderCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutDetailHeaderCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutDetailMuscleController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutDetailMuscleController) instead")
+    static func workoutDetailMuscleController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutDetailMuscleController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutDetailMuscleСell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutDetailMuscleСell) instead")
+    static func workoutDetailMuscleСell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutDetailMuscleСell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutDetailSectionCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutDetailSectionCell) instead")
+    static func workoutDetailSectionCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutDetailSectionCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutDetailTrainCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutDetailTrainCell) instead")
+    static func workoutDetailTrainCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutDetailTrainCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "WorkoutExercisesCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutExercisesCell) instead")
     static func workoutExercisesCell(_: Void = ()) -> UIKit.UINib {
@@ -1890,6 +2129,10 @@ struct R: Rswift.Validatable {
 
     static func energyTrainingCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyTrainingCell? {
       return R.nib.energyTrainingCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyTrainingCell
+    }
+
+    static func energyUpdateWeightController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.energyUpdateWeightController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func energyWeightCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyWeightCell? {
@@ -2068,6 +2311,34 @@ struct R: Rswift.Validatable {
       return R.nib.workoutController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func workoutDetailController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.workoutDetailController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func workoutDetailDescriptionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutDetailDescriptionCell? {
+      return R.nib.workoutDetailDescriptionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutDetailDescriptionCell
+    }
+
+    static func workoutDetailHeaderCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutDetailHeaderCell? {
+      return R.nib.workoutDetailHeaderCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutDetailHeaderCell
+    }
+
+    static func workoutDetailMuscleController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.workoutDetailMuscleController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func workoutDetailMuscleСell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutDetailMuscleСell? {
+      return R.nib.workoutDetailMuscleСell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutDetailMuscleСell
+    }
+
+    static func workoutDetailSectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutDetailSectionCell? {
+      return R.nib.workoutDetailSectionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutDetailSectionCell
+    }
+
+    static func workoutDetailTrainCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutDetailTrainCell? {
+      return R.nib.workoutDetailTrainCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutDetailTrainCell
+    }
+
     static func workoutExercisesCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutExercisesCell? {
       return R.nib.workoutExercisesCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutExercisesCell
     }
@@ -2083,7 +2354,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 27 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 32 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AwardsTableCell`.
     static let awardsTableCell: Rswift.ReuseIdentifier<PolicyCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
@@ -2135,6 +2406,16 @@ struct R: Rswift.Validatable {
     static let workoutActivitiesCell: Rswift.ReuseIdentifier<WorkoutActivitiesCell> = Rswift.ReuseIdentifier(identifier: "WorkoutActivitiesCell")
     /// Reuse identifier `WorkoutActivityCollectionCell`.
     static let workoutActivityCollectionCell: Rswift.ReuseIdentifier<WorkoutActivityCollectionCell> = Rswift.ReuseIdentifier(identifier: "WorkoutActivityCollectionCell")
+    /// Reuse identifier `WorkoutDetailDescriptionCell`.
+    static let workoutDetailDescriptionCell: Rswift.ReuseIdentifier<WorkoutDetailDescriptionCell> = Rswift.ReuseIdentifier(identifier: "WorkoutDetailDescriptionCell")
+    /// Reuse identifier `WorkoutDetailHeaderCell`.
+    static let workoutDetailHeaderCell: Rswift.ReuseIdentifier<WorkoutDetailHeaderCell> = Rswift.ReuseIdentifier(identifier: "WorkoutDetailHeaderCell")
+    /// Reuse identifier `WorkoutDetailMuscleСell`.
+    static let workoutDetailMuscleСell: Rswift.ReuseIdentifier<WorkoutDetailMuscleСell> = Rswift.ReuseIdentifier(identifier: "WorkoutDetailMuscleСell")
+    /// Reuse identifier `WorkoutDetailSectionCell`.
+    static let workoutDetailSectionCell: Rswift.ReuseIdentifier<WorkoutDetailSectionCell> = Rswift.ReuseIdentifier(identifier: "WorkoutDetailSectionCell")
+    /// Reuse identifier `WorkoutDetailTrainCell`.
+    static let workoutDetailTrainCell: Rswift.ReuseIdentifier<WorkoutDetailTrainCell> = Rswift.ReuseIdentifier(identifier: "WorkoutDetailTrainCell")
     /// Reuse identifier `WorkoutExercisesCell`.
     static let workoutExercisesCell: Rswift.ReuseIdentifier<WorkoutExercisesCell> = Rswift.ReuseIdentifier(identifier: "WorkoutExercisesCell")
     /// Reuse identifier `WorkoutSpecialCell`.
@@ -5392,6 +5673,11 @@ struct _R: Rswift.Validatable {
       try _SplashViewController.validate()
       try _StartController.validate()
       try _WorkoutController.validate()
+      try _WorkoutDetailController.validate()
+      try _WorkoutDetailDescriptionCell.validate()
+      try _WorkoutDetailHeaderCell.validate()
+      try _WorkoutDetailMuscleController.validate()
+      try _WorkoutDetailTrainCell.validate()
       try _WriteToUsController.validate()
     }
 
@@ -5505,7 +5791,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "temp_activity_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'temp_activity_ic' is used in nib 'EnergyChooseActivityCollectionCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "placeholder_big_sport_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder_big_sport_ic' is used in nib 'EnergyChooseActivityCollectionCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -5655,6 +5941,17 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "temp_activity_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'temp_activity_ic' is used in nib 'EnergyTrainingCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _EnergyUpdateWeightController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "EnergyUpdateWeightController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
 
       fileprivate init() {}
@@ -6441,6 +6738,135 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "top_view_coin_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_coin_ic' is used in nib 'WorkoutController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "top_view_elipse_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_elipse_ic' is used in nib 'WorkoutController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "top_view_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_flash_ic' is used in nib 'WorkoutController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WorkoutDetailController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "WorkoutDetailController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'WorkoutDetailController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WorkoutDetailDescriptionCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = WorkoutDetailDescriptionCell
+
+      let bundle = R.hostingBundle
+      let identifier = "WorkoutDetailDescriptionCell"
+      let name = "WorkoutDetailDescriptionCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutDetailDescriptionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutDetailDescriptionCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "workout_arrow_right_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'workout_arrow_right_ic' is used in nib 'WorkoutDetailDescriptionCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WorkoutDetailHeaderCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = WorkoutDetailHeaderCell
+
+      let bundle = R.hostingBundle
+      let identifier = "WorkoutDetailHeaderCell"
+      let name = "WorkoutDetailHeaderCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutDetailHeaderCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutDetailHeaderCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "temp_workout_gradient_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'temp_workout_gradient_ic' is used in nib 'WorkoutDetailHeaderCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "temp_workout_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'temp_workout_ic' is used in nib 'WorkoutDetailHeaderCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "workout_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'workout_back_ic' is used in nib 'WorkoutDetailHeaderCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "workout_clock_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'workout_clock_ic' is used in nib 'WorkoutDetailHeaderCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "workout_fire_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'workout_fire_ic' is used in nib 'WorkoutDetailHeaderCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "workout_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'workout_flash_ic' is used in nib 'WorkoutDetailHeaderCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WorkoutDetailMuscleController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "WorkoutDetailMuscleController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'WorkoutDetailMuscleController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'WorkoutDetailMuscleController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WorkoutDetailMuscleСell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = WorkoutDetailMuscleСell
+
+      let bundle = R.hostingBundle
+      let identifier = "WorkoutDetailMuscleСell"
+      let name = "WorkoutDetailMuscleСell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutDetailMuscleСell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutDetailMuscleСell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WorkoutDetailSectionCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = WorkoutDetailSectionCell
+
+      let bundle = R.hostingBundle
+      let identifier = "WorkoutDetailSectionCell"
+      let name = "WorkoutDetailSectionCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutDetailSectionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutDetailSectionCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WorkoutDetailTrainCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = WorkoutDetailTrainCell
+
+      let bundle = R.hostingBundle
+      let identifier = "WorkoutDetailTrainCell"
+      let name = "WorkoutDetailTrainCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutDetailTrainCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutDetailTrainCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "temp_activity_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'temp_activity_ic' is used in nib 'WorkoutDetailTrainCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "temp_workout_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'temp_workout_ic' is used in nib 'WorkoutDetailTrainCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

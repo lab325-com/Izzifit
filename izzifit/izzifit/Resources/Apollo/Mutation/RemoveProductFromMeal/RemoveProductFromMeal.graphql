@@ -1,0 +1,3 @@
+mutation RemoveProductFromMeal($productId: String!, $mealId: String!) {
+    removeProductFromMeal(productId: $productId, mealId: $mealId)
+}

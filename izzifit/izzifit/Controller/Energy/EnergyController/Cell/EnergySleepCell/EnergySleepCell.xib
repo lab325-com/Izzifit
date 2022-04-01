@@ -61,6 +61,9 @@
                                                 <integer key="value" value="16"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="actionGood:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uGJ-3V-Dbl"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma9-xL-9SU">
                                         <rect key="frame" x="160.5" y="0.0" width="152.5" height="32"/>
@@ -77,6 +80,9 @@
                                                 <integer key="value" value="16"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="actionBad:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="KGZ-fY-Lnv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

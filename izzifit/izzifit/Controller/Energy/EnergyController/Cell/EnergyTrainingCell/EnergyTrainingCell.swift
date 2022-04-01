@@ -35,6 +35,10 @@ enum EnergyTrainingType {
     }
 }
 
+protocol EnergyTrainingProtocol: AnyObject {
+    func energyTrainingSelect(cell: EnergyTrainingCell, model: WorkoutsWidgetMainModel)
+}
+
 class EnergyTrainingCell: UITableViewCell {
 
     @IBOutlet weak var mainTitleLabel: UILabel!
@@ -46,6 +50,8 @@ class EnergyTrainingCell: UITableViewCell {
     @IBOutlet weak var fromLabel: UILabel!
     @IBOutlet weak var fromStackView: UIStackView!
     
+    private var model: WorkoutsWidgetMainModel?
+    weak var delegate: EnergyTrainingProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,23 +64,67 @@ class EnergyTrainingCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupCell(type: EnergyTrainingType) {
+    func setupCell(model: WorkoutsWidgetMainModel) {
+        self.model = model
+        
+        var type: EnergyTrainingType = .continueTraining
+        
+        if model.isFinished == true {
+            type = .training
+        } else if (model.totalFinishedExercises ?? 0) == 0 {
+            type = .startTraining
+        }
+        
         mainTitleLabel.text = type.text
-        describeLabel.text = type.subTitle(minutes: 25)
+        describeLabel.text = type.subTitle(minutes: model.duration?.minutes ?? 0)
         
         switch type {
         case .startTraining:
+            activityImage.isHidden = true
             describeLabel.isHidden = false
             fromLabel.isHidden = true
             fromStackView.isHidden = true
         case .continueTraining:
+            fromStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+            
+            for index in 0..<(model.totalExercises ?? 0) {
+                let view = UIView()
+                if (model.totalFinishedExercises ?? 0) > index {
+                    view.backgroundColor = UIColor(rgb: 0x513A84)
+                } else {
+                    view.backgroundColor = UIColor(rgb: 0x513A84, alpha: 0.1)
+                }
+                
+                if index == 0 {
+                    view.layer.cornerRadius = 4
+                    view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+                } else if index == (model.totalExercises ?? 0) - 1 {
+                    view.layer.cornerRadius = 4
+                    view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+                }
+                
+                fromStackView.addArrangedSubview(view)
+            }
+            
+            
+            fromLabel.text = "\(model.totalFinishedExercises ?? 0) form \(model.totalExercises ?? 0)"
+            activityImage.isHidden = true
             describeLabel.isHidden = true
             fromLabel.isHidden = false
             fromStackView.isHidden = false
         case .training:
+            activityImage.isHidden = false
             describeLabel.isHidden = false
             fromLabel.isHidden = true
             fromStackView.isHidden = true
         }
+    }
+    
+    @IBAction func actionSelect(_ sender: UIButton) {
+        guard let model = model else {
+            return
+        }
+
+        delegate?.energyTrainingSelect(cell: self, model: model)
     }
 }

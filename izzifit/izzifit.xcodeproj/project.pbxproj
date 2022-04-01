@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020CB3D327E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 020CB3D227E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql */; };
+		020CB3D527E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020CB3D427E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift */; };
+		020CB3D727E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020CB3D627E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift */; };
+		020CB3DA27E9F43D00F97A76 /* UpdateProductInMeal.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 020CB3D927E9F43D00F97A76 /* UpdateProductInMeal.graphql */; };
+		020CB3DC27E9F46600F97A76 /* UpdateProductInMealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020CB3DB27E9F46600F97A76 /* UpdateProductInMealModel.swift */; };
+		020CB3DF27E9F5E200F97A76 /* RemoveProductFromMeal.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 020CB3DE27E9F5E200F97A76 /* RemoveProductFromMeal.graphql */; };
+		020CB3E127E9F5EF00F97A76 /* RemoveProductFromMealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020CB3E027E9F5EF00F97A76 /* RemoveProductFromMealModel.swift */; };
+		020CB3E427EA201300F97A76 /* DrinkWater.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 020CB3E327EA201300F97A76 /* DrinkWater.graphql */; };
 		020D281F27E863DD00010122 /* FoodAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D281D27E863DD00010122 /* FoodAddController.swift */; };
 		020D282027E863DD00010122 /* FoodAddController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020D281E27E863DD00010122 /* FoodAddController.xib */; };
 		020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D282127E887A400010122 /* FoodAddPresenter.swift */; };
@@ -174,10 +182,33 @@
 		02B225BE27BD7B110035CFA2 /* Login.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B225BD27BD7B110035CFA2 /* Login.graphql */; };
 		02B225C027BD7B4F0035CFA2 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225BF27BD7B4F0035CFA2 /* LoginModel.swift */; };
 		02B225C227BD7D4D0035CFA2 /* MeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225C127BD7D4D0035CFA2 /* MeModel.swift */; };
+		02B3016F27EAFB310045C607 /* DrinkWaterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3016E27EAFB310045C607 /* DrinkWaterModel.swift */; };
+		02B3017227EB22EA0045C607 /* SaveMood.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B3017127EB22EA0045C607 /* SaveMood.graphql */; };
+		02B3017427EB23190045C607 /* SaveMoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3017327EB23190045C607 /* SaveMoodModel.swift */; };
+		02B3017727EB234A0045C607 /* SaveSleepQuality.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B3017627EB234A0045C607 /* SaveSleepQuality.graphql */; };
+		02B3017927EB236B0045C607 /* SaveSleepQualityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3017827EB236B0045C607 /* SaveSleepQualityModel.swift */; };
+		02BC127727F1CF5800678305 /* WorkoutDetailDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC127527F1CF5800678305 /* WorkoutDetailDescriptionCell.swift */; };
+		02BC127827F1CF5800678305 /* WorkoutDetailDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BC127627F1CF5800678305 /* WorkoutDetailDescriptionCell.xib */; };
+		02BC127B27F1E13D00678305 /* WorkoutById.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02BC127A27F1E13D00678305 /* WorkoutById.graphql */; };
+		02BC127D27F1E29A00678305 /* WorkoutByIdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC127C27F1E29A00678305 /* WorkoutByIdModel.swift */; };
+		02BC127F27F1FBA500678305 /* WorkoutDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC127E27F1FBA500678305 /* WorkoutDetailPresenter.swift */; };
+		02BC128327F3007300678305 /* WorkoutDetailSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC128127F3007300678305 /* WorkoutDetailSectionCell.swift */; };
+		02BC128427F3007300678305 /* WorkoutDetailSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BC128227F3007300678305 /* WorkoutDetailSectionCell.xib */; };
+		02BC128827F30AC200678305 /* WorkoutDetailTrainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC128627F30AC200678305 /* WorkoutDetailTrainCell.swift */; };
+		02BC128927F30AC200678305 /* WorkoutDetailTrainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BC128727F30AC200678305 /* WorkoutDetailTrainCell.xib */; };
+		02BC128D27F329E200678305 /* WorkoutDetailMuscleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC128B27F329E200678305 /* WorkoutDetailMuscleController.swift */; };
+		02BC128E27F329E200678305 /* WorkoutDetailMuscleController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BC128C27F329E200678305 /* WorkoutDetailMuscleController.xib */; };
+		02BC129327F358EE00678305 /* WorkoutDetailMuscleСell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC129127F358EE00678305 /* WorkoutDetailMuscleСell.swift */; };
+		02BC129427F358EE00678305 /* WorkoutDetailMuscleСell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BC129227F358EE00678305 /* WorkoutDetailMuscleСell.xib */; };
 		02C3DD6527BEDA82004E5C65 /* QuizeProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3DD6327BEDA82004E5C65 /* QuizeProgressController.swift */; };
 		02C3DD6627BEDA82004E5C65 /* QuizeProgressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C3DD6427BEDA82004E5C65 /* QuizeProgressController.xib */; };
 		02C3DD6827BEDAB1004E5C65 /* QuizeProgressPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3DD6727BEDAB1004E5C65 /* QuizeProgressPresenter.swift */; };
 		02C3DD6C27BEDB46004E5C65 /* ProfileUpdate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02C3DD6B27BEDB46004E5C65 /* ProfileUpdate.graphql */; };
+		02C487F827F184A00010D4FA /* WorkoutDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C487F627F184A00010D4FA /* WorkoutDetailController.swift */; };
+		02C487F927F184A00010D4FA /* WorkoutDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C487F727F184A00010D4FA /* WorkoutDetailController.xib */; };
+		02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C487FB27F184E80010D4FA /* WorkoutRouter.swift */; };
+		02C4880027F198100010D4FA /* WorkoutDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C487FE27F198100010D4FA /* WorkoutDetailHeaderCell.swift */; };
+		02C4880127F198100010D4FA /* WorkoutDetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C487FF27F198100010D4FA /* WorkoutDetailHeaderCell.xib */; };
 		02D066A827BBA72100D12C5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02D066AA27BBA72100D12C5F /* Localizable.strings */; };
 		02D066AD27BBA8F400D12C5F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066AC27BBA8F400D12C5F /* R.generated.swift */; };
 		02D066B227BBB32400D12C5F /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066B027BBB32400D12C5F /* StartController.swift */; };
@@ -204,8 +235,12 @@
 		02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066E127BBEBA000D12C5F /* QuizeHeightController.xib */; };
 		02D066E927BC1BC900D12C5F /* QuizeWeightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066E727BC1BC900D12C5F /* QuizeWeightController.swift */; };
 		02D066EA27BC1BC900D12C5F /* QuizeWeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066E827BC1BC900D12C5F /* QuizeWeightController.xib */; };
+		02D5703C27E9AE4C00F14911 /* WorkoutsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02D5703B27E9AE4B00F14911 /* WorkoutsWidget.graphql */; };
+		02D5703E27E9AF3B00F14911 /* WorkoutsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */; };
 		02F01C5227D794450066656D /* MoodWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02F01C5127D794450066656D /* MoodWidget.graphql */; };
 		02F01C5427D794B20066656D /* MoodWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F01C5327D794B20066656D /* MoodWidgetModel.swift */; };
+		02F0C18127EDBDDB005DE3E2 /* EnergyUpdateWeightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0C17F27EDBDDB005DE3E2 /* EnergyUpdateWeightController.swift */; };
+		02F0C18227EDBDDB005DE3E2 /* EnergyUpdateWeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F0C18027EDBDDB005DE3E2 /* EnergyUpdateWeightController.xib */; };
 		02F2D94027D0BF5C00E9FB68 /* AskQuestion.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02F2D93F27D0BF5C00E9FB68 /* AskQuestion.graphql */; };
 		02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2D94127D0BF9100E9FB68 /* AskQuestionModel.swift */; };
 		02F2D94427D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2D94327D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift */; };
@@ -255,6 +290,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		020CB3D227E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChooseWorkoutWidgetModel.graphql; sourceTree = "<group>"; };
+		020CB3D427E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsWidgetMainModel.swift; sourceTree = "<group>"; };
+		020CB3D627E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseWorkoutWidgetModel.swift; sourceTree = "<group>"; };
+		020CB3D927E9F43D00F97A76 /* UpdateProductInMeal.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UpdateProductInMeal.graphql; sourceTree = "<group>"; };
+		020CB3DB27E9F46600F97A76 /* UpdateProductInMealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProductInMealModel.swift; sourceTree = "<group>"; };
+		020CB3DE27E9F5E200F97A76 /* RemoveProductFromMeal.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RemoveProductFromMeal.graphql; sourceTree = "<group>"; };
+		020CB3E027E9F5EF00F97A76 /* RemoveProductFromMealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveProductFromMealModel.swift; sourceTree = "<group>"; };
+		020CB3E327EA201300F97A76 /* DrinkWater.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DrinkWater.graphql; sourceTree = "<group>"; };
 		020D281D27E863DD00010122 /* FoodAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAddController.swift; sourceTree = "<group>"; };
 		020D281E27E863DD00010122 /* FoodAddController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodAddController.xib; sourceTree = "<group>"; };
 		020D282127E887A400010122 /* FoodAddPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAddPresenter.swift; sourceTree = "<group>"; };
@@ -423,10 +466,33 @@
 		02B225BD27BD7B110035CFA2 /* Login.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Login.graphql; sourceTree = "<group>"; };
 		02B225BF27BD7B4F0035CFA2 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		02B225C127BD7D4D0035CFA2 /* MeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeModel.swift; sourceTree = "<group>"; };
+		02B3016E27EAFB310045C607 /* DrinkWaterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkWaterModel.swift; sourceTree = "<group>"; };
+		02B3017127EB22EA0045C607 /* SaveMood.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SaveMood.graphql; sourceTree = "<group>"; };
+		02B3017327EB23190045C607 /* SaveMoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMoodModel.swift; sourceTree = "<group>"; };
+		02B3017627EB234A0045C607 /* SaveSleepQuality.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SaveSleepQuality.graphql; sourceTree = "<group>"; };
+		02B3017827EB236B0045C607 /* SaveSleepQualityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSleepQualityModel.swift; sourceTree = "<group>"; };
+		02BC127527F1CF5800678305 /* WorkoutDetailDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailDescriptionCell.swift; sourceTree = "<group>"; };
+		02BC127627F1CF5800678305 /* WorkoutDetailDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutDetailDescriptionCell.xib; sourceTree = "<group>"; };
+		02BC127A27F1E13D00678305 /* WorkoutById.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutById.graphql; sourceTree = "<group>"; };
+		02BC127C27F1E29A00678305 /* WorkoutByIdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutByIdModel.swift; sourceTree = "<group>"; };
+		02BC127E27F1FBA500678305 /* WorkoutDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailPresenter.swift; sourceTree = "<group>"; };
+		02BC128127F3007300678305 /* WorkoutDetailSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailSectionCell.swift; sourceTree = "<group>"; };
+		02BC128227F3007300678305 /* WorkoutDetailSectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutDetailSectionCell.xib; sourceTree = "<group>"; };
+		02BC128627F30AC200678305 /* WorkoutDetailTrainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailTrainCell.swift; sourceTree = "<group>"; };
+		02BC128727F30AC200678305 /* WorkoutDetailTrainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutDetailTrainCell.xib; sourceTree = "<group>"; };
+		02BC128B27F329E200678305 /* WorkoutDetailMuscleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailMuscleController.swift; sourceTree = "<group>"; };
+		02BC128C27F329E200678305 /* WorkoutDetailMuscleController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutDetailMuscleController.xib; sourceTree = "<group>"; };
+		02BC129127F358EE00678305 /* WorkoutDetailMuscleСell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutDetailMuscleСell.swift"; sourceTree = "<group>"; };
+		02BC129227F358EE00678305 /* WorkoutDetailMuscleСell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "WorkoutDetailMuscleСell.xib"; sourceTree = "<group>"; };
 		02C3DD6327BEDA82004E5C65 /* QuizeProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeProgressController.swift; sourceTree = "<group>"; };
 		02C3DD6427BEDA82004E5C65 /* QuizeProgressController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeProgressController.xib; sourceTree = "<group>"; };
 		02C3DD6727BEDAB1004E5C65 /* QuizeProgressPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeProgressPresenter.swift; sourceTree = "<group>"; };
 		02C3DD6B27BEDB46004E5C65 /* ProfileUpdate.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ProfileUpdate.graphql; sourceTree = "<group>"; };
+		02C487F627F184A00010D4FA /* WorkoutDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailController.swift; sourceTree = "<group>"; };
+		02C487F727F184A00010D4FA /* WorkoutDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutDetailController.xib; sourceTree = "<group>"; };
+		02C487FB27F184E80010D4FA /* WorkoutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRouter.swift; sourceTree = "<group>"; };
+		02C487FE27F198100010D4FA /* WorkoutDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailHeaderCell.swift; sourceTree = "<group>"; };
+		02C487FF27F198100010D4FA /* WorkoutDetailHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutDetailHeaderCell.xib; sourceTree = "<group>"; };
 		02D066A927BBA72100D12C5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		02D066AC27BBA8F400D12C5F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		02D066B027BBB32400D12C5F /* StartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
@@ -453,8 +519,12 @@
 		02D066E127BBEBA000D12C5F /* QuizeHeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeHeightController.xib; sourceTree = "<group>"; };
 		02D066E727BC1BC900D12C5F /* QuizeWeightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeWeightController.swift; sourceTree = "<group>"; };
 		02D066E827BC1BC900D12C5F /* QuizeWeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeWeightController.xib; sourceTree = "<group>"; };
+		02D5703B27E9AE4B00F14911 /* WorkoutsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutsWidget.graphql; sourceTree = "<group>"; };
+		02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsWidgetModel.swift; sourceTree = "<group>"; };
 		02F01C5127D794450066656D /* MoodWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MoodWidget.graphql; sourceTree = "<group>"; };
 		02F01C5327D794B20066656D /* MoodWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodWidgetModel.swift; sourceTree = "<group>"; };
+		02F0C17F27EDBDDB005DE3E2 /* EnergyUpdateWeightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyUpdateWeightController.swift; sourceTree = "<group>"; };
+		02F0C18027EDBDDB005DE3E2 /* EnergyUpdateWeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyUpdateWeightController.xib; sourceTree = "<group>"; };
 		02F2D93F27D0BF5C00E9FB68 /* AskQuestion.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AskQuestion.graphql; sourceTree = "<group>"; };
 		02F2D94127D0BF9100E9FB68 /* AskQuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestionModel.swift; sourceTree = "<group>"; };
 		02F2D94327D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuWriteQuestionPresenter.swift; sourceTree = "<group>"; };
@@ -525,6 +595,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		020CB3D127E9C9DF00F97A76 /* ChooseWorkoutWidget */ = {
+			isa = PBXGroup;
+			children = (
+				020CB3D227E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql */,
+				020CB3D627E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift */,
+			);
+			path = ChooseWorkoutWidget;
+			sourceTree = "<group>";
+		};
+		020CB3D827E9F41B00F97A76 /* UpdateProductInMeal */ = {
+			isa = PBXGroup;
+			children = (
+				020CB3D927E9F43D00F97A76 /* UpdateProductInMeal.graphql */,
+				020CB3DB27E9F46600F97A76 /* UpdateProductInMealModel.swift */,
+			);
+			path = UpdateProductInMeal;
+			sourceTree = "<group>";
+		};
+		020CB3DD27E9F56000F97A76 /* RemoveProductFromMeal */ = {
+			isa = PBXGroup;
+			children = (
+				020CB3DE27E9F5E200F97A76 /* RemoveProductFromMeal.graphql */,
+				020CB3E027E9F5EF00F97A76 /* RemoveProductFromMealModel.swift */,
+			);
+			path = RemoveProductFromMeal;
+			sourceTree = "<group>";
+		};
+		020CB3E227EA1FF200F97A76 /* DrinkWater */ = {
+			isa = PBXGroup;
+			children = (
+				020CB3E327EA201300F97A76 /* DrinkWater.graphql */,
+				02B3016E27EAFB310045C607 /* DrinkWaterModel.swift */,
+			);
+			path = DrinkWater;
+			sourceTree = "<group>";
+		};
 		020D281B27E863B400010122 /* Food */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,6 +940,7 @@
 				02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */,
 				02A5CDBD27C3DE9F00D31FB4 /* ImageModel.swift */,
 				0251D24827E221ED0098A54D /* ProductsMainModel.swift */,
+				020CB3D427E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift */,
 			);
 			path = GlobalModels;
 			sourceTree = "<group>";
@@ -902,9 +1009,14 @@
 		0249D29A27B3D78900F265C1 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				FA62C54A27F5B43800AC463A /* WeightsWidget */,
 				FAA8E88827F448760081A12A /* CaloriesWidget */,
 				FA66289D27F182AC00FBB946 /* Moods */,
+=======
+				020CB3D127E9C9DF00F97A76 /* ChooseWorkoutWidget */,
+				02D5703A27E9AE2D00F14911 /* WorkoutsWidget */,
+>>>>>>> develop
 				FAC55B9527EB87A9001DA24C /* Rank */,
 				0251D24A27E222150098A54D /* RecentProducts */,
 				0251D24127E218E00098A54D /* RecommendProducts */,
@@ -924,6 +1036,7 @@
 				02ABCF3727CCF72B00E69C06 /* Products */,
 				0227DA9A27C63A11008AB26B /* FoodGroups */,
 				0227DA9B27C63A1F008AB26B /* Me */,
+				02BC127927F1E11C00678305 /* WorkoutById */,
 			);
 			path = Query;
 			sourceTree = "<group>";
@@ -1038,6 +1151,7 @@
 				02A5CDA327C393A300D31FB4 /* EnergyController.swift */,
 				02A5CDA427C393A300D31FB4 /* EnergyController.xib */,
 				0290B39627D233E700381B42 /* Cell */,
+				02F0C17E27EDBDB3005DE3E2 /* EnergyUpdateWeight */,
 			);
 			path = EnergyController;
 			sourceTree = "<group>";
@@ -1200,11 +1314,10 @@
 		02A5CDA727C393BC00D31FB4 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
-				02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */,
-				02A5CDA927C393DC00D31FB4 /* WorkoutController.xib */,
-				FA1761AC27DA1D80002881BB /* WorkoutController+TableView.swift */,
-				FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */,
-				FA1761AE27DA1F1B002881BB /* Cell */,
+				02C487FB27F184E80010D4FA /* WorkoutRouter.swift */,
+				02C487FA27F184C60010D4FA /* MainWorkout */,
+				02C487F527F184770010D4FA /* WorkoutDetail */,
+				02BC128A27F3299300678305 /* WorkoutDetailMuscle */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -1369,6 +1482,11 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				02B3017527EB23350045C607 /* SaveSleepQuality */,
+				02B3017027EB22CF0045C607 /* SaveMood */,
+				020CB3E227EA1FF200F97A76 /* DrinkWater */,
+				020CB3DD27E9F56000F97A76 /* RemoveProductFromMeal */,
+				020CB3D827E9F41B00F97A76 /* UpdateProductInMeal */,
 				020D282327E89FD300010122 /* AddProductToMeal */,
 				02F2D93E27D0BF4300E9FB68 /* AskQuestion */,
 				02A5CDB827C3DCDF00D31FB4 /* PasswordForgotRequest */,
@@ -1376,6 +1494,96 @@
 				02C3DD6A27BEDB26004E5C65 /* Login */,
 			);
 			path = Mutation;
+			sourceTree = "<group>";
+		};
+		02B3017027EB22CF0045C607 /* SaveMood */ = {
+			isa = PBXGroup;
+			children = (
+				02B3017127EB22EA0045C607 /* SaveMood.graphql */,
+				02B3017327EB23190045C607 /* SaveMoodModel.swift */,
+			);
+			path = SaveMood;
+			sourceTree = "<group>";
+		};
+		02B3017527EB23350045C607 /* SaveSleepQuality */ = {
+			isa = PBXGroup;
+			children = (
+				02B3017627EB234A0045C607 /* SaveSleepQuality.graphql */,
+				02B3017827EB236B0045C607 /* SaveSleepQualityModel.swift */,
+			);
+			path = SaveSleepQuality;
+			sourceTree = "<group>";
+		};
+		02BC127327F1CF3800678305 /* WorkoutDetailHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				02C487FE27F198100010D4FA /* WorkoutDetailHeaderCell.swift */,
+				02C487FF27F198100010D4FA /* WorkoutDetailHeaderCell.xib */,
+			);
+			path = WorkoutDetailHeaderCell;
+			sourceTree = "<group>";
+		};
+		02BC127427F1CF4200678305 /* WorkoutDetailDescriptionCell */ = {
+			isa = PBXGroup;
+			children = (
+				02BC127527F1CF5800678305 /* WorkoutDetailDescriptionCell.swift */,
+				02BC127627F1CF5800678305 /* WorkoutDetailDescriptionCell.xib */,
+			);
+			path = WorkoutDetailDescriptionCell;
+			sourceTree = "<group>";
+		};
+		02BC127927F1E11C00678305 /* WorkoutById */ = {
+			isa = PBXGroup;
+			children = (
+				02BC127A27F1E13D00678305 /* WorkoutById.graphql */,
+				02BC127C27F1E29A00678305 /* WorkoutByIdModel.swift */,
+			);
+			path = WorkoutById;
+			sourceTree = "<group>";
+		};
+		02BC128027F3005B00678305 /* WorkoutDetailSectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				02BC128127F3007300678305 /* WorkoutDetailSectionCell.swift */,
+				02BC128227F3007300678305 /* WorkoutDetailSectionCell.xib */,
+			);
+			path = WorkoutDetailSectionCell;
+			sourceTree = "<group>";
+		};
+		02BC128527F30AA100678305 /* WorkoutDetailTrainCell */ = {
+			isa = PBXGroup;
+			children = (
+				02BC128627F30AC200678305 /* WorkoutDetailTrainCell.swift */,
+				02BC128727F30AC200678305 /* WorkoutDetailTrainCell.xib */,
+			);
+			path = WorkoutDetailTrainCell;
+			sourceTree = "<group>";
+		};
+		02BC128A27F3299300678305 /* WorkoutDetailMuscle */ = {
+			isa = PBXGroup;
+			children = (
+				02BC128B27F329E200678305 /* WorkoutDetailMuscleController.swift */,
+				02BC128C27F329E200678305 /* WorkoutDetailMuscleController.xib */,
+				02BC128F27F357F300678305 /* Cell */,
+			);
+			path = WorkoutDetailMuscle;
+			sourceTree = "<group>";
+		};
+		02BC128F27F357F300678305 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				02BC129027F358D200678305 /* WorkoutDetailMuscleСell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		02BC129027F358D200678305 /* WorkoutDetailMuscleСell */ = {
+			isa = PBXGroup;
+			children = (
+				02BC129127F358EE00678305 /* WorkoutDetailMuscleСell.swift */,
+				02BC129227F358EE00678305 /* WorkoutDetailMuscleСell.xib */,
+			);
+			path = "WorkoutDetailMuscleСell";
 			sourceTree = "<group>";
 		};
 		02C3DD6227BEDA5C004E5C65 /* QuizeProgress */ = {
@@ -1405,6 +1613,40 @@
 				02B225BF27BD7B4F0035CFA2 /* LoginModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		02C487F527F184770010D4FA /* WorkoutDetail */ = {
+			isa = PBXGroup;
+			children = (
+				02BC127E27F1FBA500678305 /* WorkoutDetailPresenter.swift */,
+				02C487F627F184A00010D4FA /* WorkoutDetailController.swift */,
+				02C487F727F184A00010D4FA /* WorkoutDetailController.xib */,
+				02C487FD27F197E30010D4FA /* Cell */,
+			);
+			path = WorkoutDetail;
+			sourceTree = "<group>";
+		};
+		02C487FA27F184C60010D4FA /* MainWorkout */ = {
+			isa = PBXGroup;
+			children = (
+				02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */,
+				02A5CDA927C393DC00D31FB4 /* WorkoutController.xib */,
+				FA1761AC27DA1D80002881BB /* WorkoutController+TableView.swift */,
+				FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */,
+				FA1761AE27DA1F1B002881BB /* Cell */,
+			);
+			path = MainWorkout;
+			sourceTree = "<group>";
+		};
+		02C487FD27F197E30010D4FA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				02BC127327F1CF3800678305 /* WorkoutDetailHeaderCell */,
+				02BC127427F1CF4200678305 /* WorkoutDetailDescriptionCell */,
+				02BC128027F3005B00678305 /* WorkoutDetailSectionCell */,
+				02BC128527F30AA100678305 /* WorkoutDetailTrainCell */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		02D066A527BBA6E600D12C5F /* Localization */ = {
@@ -1514,6 +1756,15 @@
 			path = QuizeWeight;
 			sourceTree = "<group>";
 		};
+		02D5703A27E9AE2D00F14911 /* WorkoutsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				02D5703B27E9AE4B00F14911 /* WorkoutsWidget.graphql */,
+				02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */,
+			);
+			path = WorkoutsWidget;
+			sourceTree = "<group>";
+		};
 		02F01C5027D7941C0066656D /* MoodWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -1521,6 +1772,15 @@
 				02F01C5327D794B20066656D /* MoodWidgetModel.swift */,
 			);
 			path = MoodWidget;
+			sourceTree = "<group>";
+		};
+		02F0C17E27EDBDB3005DE3E2 /* EnergyUpdateWeight */ = {
+			isa = PBXGroup;
+			children = (
+				02F0C17F27EDBDDB005DE3E2 /* EnergyUpdateWeightController.swift */,
+				02F0C18027EDBDDB005DE3E2 /* EnergyUpdateWeightController.xib */,
+			);
+			path = EnergyUpdateWeight;
 			sourceTree = "<group>";
 		};
 		02F2D93E27D0BF4300E9FB68 /* AskQuestion */ = {
@@ -1838,8 +2098,13 @@
 			files = (
 				0268752A27D8C90100FFEA6A /* EnergyWeightCell.xib in Resources */,
 				0227DAAE27C66C25008AB26B /* MenuAgeController.xib in Resources */,
+				020CB3DF27E9F5E200F97A76 /* RemoveProductFromMeal.graphql in Resources */,
 				025463AD27CE6E9800D433DB /* MenuFitnessController.xib in Resources */,
+<<<<<<< HEAD
 				FAA8E88A27F449060081A12A /* CaloriesWidget.graphql in Resources */,
+=======
+				02F0C18227EDBDDB005DE3E2 /* EnergyUpdateWeightController.xib in Resources */,
+>>>>>>> develop
 				FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */,
 				0268752327D8904900FFEA6A /* progress.graphql in Resources */,
 				02FAF0A727D361AE002CD678 /* EnergyDrinkWaterCell.xib in Resources */,
@@ -1864,9 +2129,11 @@
 				02D066C027BBB57D00D12C5F /* Inter-Medium.ttf in Resources */,
 				FE7CF8B727E48F760099682E /* PositionTableCell.xib in Resources */,
 				02C3DD6C27BEDB46004E5C65 /* ProfileUpdate.graphql in Resources */,
+				020CB3DA27E9F43D00F97A76 /* UpdateProductInMeal.graphql in Resources */,
 				0227DABD27C6768F008AB26B /* MenuWeightController.xib in Resources */,
 				02B225B927BD63FC0035CFA2 /* QuizeEmailController.xib in Resources */,
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
+				02BC128E27F329E200678305 /* WorkoutDetailMuscleController.xib in Resources */,
 				0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */,
 				0227DA9727C619F7008AB26B /* MenuCell.xib in Resources */,
 				02AB486527E06DEE00F35EE2 /* FoodRecomendedCell.xib in Resources */,
@@ -1883,9 +2150,13 @@
 				02FAF0AC27D36CE0002CD678 /* DrinkWidget.graphql in Resources */,
 				0227DAA727C64E31008AB26B /* MenuNameController.xib in Resources */,
 				0227DAC727C6A455008AB26B /* MenuFoodController.xib in Resources */,
+				02BC128427F3007300678305 /* WorkoutDetailSectionCell.xib in Resources */,
 				FA1761BA27DA1F8A002881BB /* WorkoutExercisesCell.xib in Resources */,
+				02BC128927F30AC200678305 /* WorkoutDetailTrainCell.xib in Resources */,
+				02B3017727EB234A0045C607 /* SaveSleepQuality.graphql in Resources */,
 				02A5CDBA27C3DCFB00D31FB4 /* PasswordForgotRequest.graphql in Resources */,
 				021A6F4F27BF99720000D863 /* MainTabBarController.xib in Resources */,
+				02C4880127F198100010D4FA /* WorkoutDetailHeaderCell.xib in Resources */,
 				0268752D27D8CC5E00FFEA6A /* SaveWeightWidget.graphql in Resources */,
 				02D066C527BBB57D00D12C5F /* Inter-Black.ttf in Resources */,
 				024C69A027DF61A200EE8D53 /* EnergyAddActivityCell.xib in Resources */,
@@ -1893,11 +2164,14 @@
 				0263389C27DB6BDD00DC0325 /* Progresses.graphql in Resources */,
 				02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */,
 				FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */,
+				020CB3D327E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql in Resources */,
 				02ABCF3627CCC3F400E69C06 /* MenuFoodSwitchCell.xib in Resources */,
 				02D066A827BBA72100D12C5F /* Localizable.strings in Resources */,
 				02D066C127BBB57D00D12C5F /* Inter-Thin.ttf in Resources */,
 				02C3DD6627BEDA82004E5C65 /* QuizeProgressController.xib in Resources */,
 				FE7CF8BC27E4A7ED0099682E /* WeightTableCell.xib in Resources */,
+				02D5703C27E9AE4C00F14911 /* WorkoutsWidget.graphql in Resources */,
+				020CB3E427EA201300F97A76 /* DrinkWater.graphql in Resources */,
 				0239712527E1CD6E0087113A /* WriteToUsController.xib in Resources */,
 				FEE119C027E9B9270058EE6D /* MoodTableCell.xib in Resources */,
 				02ABCF4127CD0D4700E69C06 /* MenuLanguageController.xib in Resources */,
@@ -1910,12 +2184,15 @@
 				02F2D94027D0BF5C00E9FB68 /* AskQuestion.graphql in Resources */,
 				025463BB27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql in Resources */,
 				0227DAB827C67334008AB26B /* MenuHeightController.xib in Resources */,
+				02BC129427F358EE00678305 /* WorkoutDetailMuscleСell.xib in Resources */,
+				02B3017227EB22EA0045C607 /* SaveMood.graphql in Resources */,
 				02A5CDAB27C393DC00D31FB4 /* WorkoutController.xib in Resources */,
 				02D066BE27BBB57D00D12C5F /* Inter-ExtraLight.ttf in Resources */,
 				0268753427D8E54E00FFEA6A /* EnergyChooseActivityCell.xib in Resources */,
 				02D066C427BBB57D00D12C5F /* Inter-Bold.ttf in Resources */,
 				0227DAB327C67179008AB26B /* MenuEmailController.xib in Resources */,
 				0227DAC227C6A19C008AB26B /* MenuTargetWeightController.xib in Resources */,
+				02C487F927F184A00010D4FA /* WorkoutDetailController.xib in Resources */,
 				0249D23427B3A4F100F265C1 /* Assets.xcassets in Resources */,
 				0268753927D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.xib in Resources */,
 				02B225AF27BD45080035CFA2 /* QuizeFoodController.xib in Resources */,
@@ -1925,6 +2202,8 @@
 				0251D24C27E2222F0098A54D /* RecentProducts.graphql in Resources */,
 				025463B027CF75BD00D433DB /* Muscles.graphql in Resources */,
 				FE1403C327E249EB002F5819 /* ChartCollectionCell.xib in Resources */,
+				02BC127B27F1E13D00678305 /* WorkoutById.graphql in Resources */,
+				02BC127827F1CF5800678305 /* WorkoutDetailDescriptionCell.xib in Resources */,
 				02D066B327BBB32400D12C5F /* StartController.xib in Resources */,
 				02B225A727BCFB9F0035CFA2 /* QuizeTargetWeightController.xib in Resources */,
 				024C69A527DF858300EE8D53 /* FoodController.xib in Resources */,
@@ -2071,6 +2350,7 @@
 				02D066E927BC1BC900D12C5F /* QuizeWeightController.swift in Sources */,
 				0249D26227B3A88C00F265C1 /* Collection+Extension.swift in Sources */,
 				0249D24427B3A64300F265C1 /* LoadFromXibProtocol.swift in Sources */,
+				02BC128327F3007300678305 /* WorkoutDetailSectionCell.swift in Sources */,
 				0251D24927E221ED0098A54D /* ProductsMainModel.swift in Sources */,
 				FAA9DBEB27D9ECD4004A14FB /* WorkoutTypesModel.swift in Sources */,
 				0249D24B27B3A67900F265C1 /* BaseController.swift in Sources */,
@@ -2078,6 +2358,8 @@
 				0251D24E27E2225C0098A54D /* RecentProductsModel.swift in Sources */,
 				02A5CDBE27C3DE9F00D31FB4 /* ImageModel.swift in Sources */,
 				02D066B227BBB32400D12C5F /* StartController.swift in Sources */,
+				02C4880027F198100010D4FA /* WorkoutDetailHeaderCell.swift in Sources */,
+				020CB3D727E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift in Sources */,
 				0227DAA127C63D51008AB26B /* QuizeFoodPresenter.swift in Sources */,
 				0227DAB227C67179008AB26B /* MenuEmailController.swift in Sources */,
 				0273F55E27D5F7CB00B19449 /* EnergyMealsCell.swift in Sources */,
@@ -2088,13 +2370,17 @@
 				0249D26327B3A88C00F265C1 /* UIApplicathion+Extension.swift in Sources */,
 				020D281F27E863DD00010122 /* FoodAddController.swift in Sources */,
 				FEBFD7B127E0F16A0027ADD2 /* SetUIManager.swift in Sources */,
+				02B3017927EB236B0045C607 /* SaveSleepQualityModel.swift in Sources */,
 				02FAF0B027D36EA1002CD678 /* DrinkWidgetModel.swift in Sources */,
 				02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */,
 				FA1761B527DA1F72002881BB /* WorkoutSpecialCell.swift in Sources */,
 				02D066AD27BBA8F400D12C5F /* R.generated.swift in Sources */,
 				0249D26927B3A92300F265C1 /* KeychainService.swift in Sources */,
+				FEE119C527E9D1520058EE6D /* AwardsTableCell.swift in Sources */,
+				02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
 				020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */,
+				020CB3DC27E9F46600F97A76 /* UpdateProductInMealModel.swift in Sources */,
 				0227DABC27C6768F008AB26B /* MenuWeightController.swift in Sources */,
 				FA1761B927DA1F8A002881BB /* WorkoutExercisesCell.swift in Sources */,
 				02B225C027BD7B4F0035CFA2 /* LoginModel.swift in Sources */,
@@ -2110,6 +2396,7 @@
 				02B225AE27BD45080035CFA2 /* QuizeFoodController.swift in Sources */,
 				0227DA9F27C63A57008AB26B /* FoodGroupsModel.swift in Sources */,
 				02FAF0A627D361AE002CD678 /* EnergyDrinkWaterCell.swift in Sources */,
+				020CB3D527E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift in Sources */,
 				02B225B827BD63FC0035CFA2 /* QuizeEmailController.swift in Sources */,
 				0227DAAD27C66C25008AB26B /* MenuAgeController.swift in Sources */,
 				0249D25127B3A70B00F265C1 /* SplashViewController.swift in Sources */,
@@ -2137,8 +2424,13 @@
 				023D171E27BE258A005F95C0 /* UITapGesture+Extension.swift in Sources */,
 				0249D28227B3AAAE00F265C1 /* LoginController.swift in Sources */,
 				0249D28B27B3AB6300F265C1 /* AppConfigurationBridge.m in Sources */,
+				02C487F827F184A00010D4FA /* WorkoutDetailController.swift in Sources */,
 				0227DAA627C64E31008AB26B /* MenuNameController.swift in Sources */,
+<<<<<<< HEAD
 				FA62C54E27F5B58800AC463A /* WeightsWidgetModel.swift in Sources */,
+=======
+				02BC128D27F329E200678305 /* WorkoutDetailMuscleController.swift in Sources */,
+>>>>>>> develop
 				0273F56327D60C7A00B19449 /* EnergySleepCell.swift in Sources */,
 				0249D29E27B3D81700F265C1 /* API.swift in Sources */,
 				024C699F27DF61A200EE8D53 /* EnergyAddActivityCell.swift in Sources */,
@@ -2149,7 +2441,10 @@
 				0249D26627B3A88C00F265C1 /* Int+Extension.swift in Sources */,
 				0290B39927D2340800381B42 /* EnerdyTodayCell.swift in Sources */,
 				02ABCF3527CCC3F400E69C06 /* MenuFoodSwitchCell.swift in Sources */,
+				02D5703E27E9AF3B00F14911 /* WorkoutsWidgetModel.swift in Sources */,
 				0249D27527B3AA0400F265C1 /* PreferenceManager.swift in Sources */,
+				020CB3E127E9F5EF00F97A76 /* RemoveProductFromMealModel.swift in Sources */,
+				02BC129327F358EE00678305 /* WorkoutDetailMuscleСell.swift in Sources */,
 				0251D23B27E214980098A54D /* SourcesByMealModel.swift in Sources */,
 				0263389727DB48D000DC0325 /* CalendarManager.swift in Sources */,
 				02ABCF3B27CCF80300E69C06 /* ProductsModel.swift in Sources */,
@@ -2157,10 +2452,13 @@
 				FEE119BF27E9B9270058EE6D /* MoodTableCell.swift in Sources */,
 				02B225C227BD7D4D0035CFA2 /* MeModel.swift in Sources */,
 				02D066DD27BBE56700D12C5F /* QuizeAgeController.swift in Sources */,
+				02F0C18127EDBDDB005DE3E2 /* EnergyUpdateWeightController.swift in Sources */,
 				020D282727E8A04400010122 /* AddProductToMealModel.swift in Sources */,
 				FE1403C227E249EB002F5819 /* ChartCollectionCell.swift in Sources */,
 				0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */,
 				0249D27427B3AA0400F265C1 /* NetwokrManager.swift in Sources */,
+				02BC128827F30AC200678305 /* WorkoutDetailTrainCell.swift in Sources */,
+				02BC127727F1CF5800678305 /* WorkoutDetailDescriptionCell.swift in Sources */,
 				FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */,
 				021A6F4A27BF91050000D863 /* CircularProgressBarView.swift in Sources */,
 				FAA9DBEE27D9ECFF004A14FB /* WorkoutPresenter.swift in Sources */,
@@ -2172,15 +2470,19 @@
 				02B225BB27BD79DA0035CFA2 /* StartPresenter.swift in Sources */,
 				FE1403B327E1EDC2002F5819 /* ProfileController.swift in Sources */,
 				02B225A227BCF0F00035CFA2 /* TempProfileModel.swift in Sources */,
+				02B3016F27EAFB310045C607 /* DrinkWaterModel.swift in Sources */,
 				0251D24527E219440098A54D /* RecommendProductsModel.swift in Sources */,
 				0268753827D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.swift in Sources */,
 				0249D24A27B3A67900F265C1 /* BaseRouter.swift in Sources */,
 				0227DA9227C52EC1008AB26B /* TabBarRouter.swift in Sources */,
 				024C69A427DF858300EE8D53 /* FoodController.swift in Sources */,
 				0249D26427B3A88C00F265C1 /* UIColor+Extension.swift in Sources */,
+				02BC127D27F1E29A00678305 /* WorkoutByIdModel.swift in Sources */,
+				02B3017427EB23190045C607 /* SaveMoodModel.swift in Sources */,
 				02F01C5427D794B20066656D /* MoodWidgetModel.swift in Sources */,
 				0263389E27DB6C9A00DC0325 /* ProgressesModel.swift in Sources */,
 				FE7CF8BB27E4A7ED0099682E /* WeightTableCell.swift in Sources */,
+				02BC127F27F1FBA500678305 /* WorkoutDetailPresenter.swift in Sources */,
 				025463B427CF784400D433DB /* MenuFitnessPresenter.swift in Sources */,
 				0239712427E1CD6E0087113A /* WriteToUsController.swift in Sources */,
 			);

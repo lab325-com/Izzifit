@@ -1,0 +1,3 @@
+mutation SaveSleepQuality($quality: SleepQualityType!) {
+    saveSleepQuality(quality: $quality)
+}

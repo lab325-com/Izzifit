@@ -29,4 +29,11 @@ class EnergyRouter: BaseRouter {
         controller.modalPresentationStyle = .overCurrentContext
         present(controller: controller, presentStyle: .overCurrentContext)
     }
+    
+    func presentUpdateWieght(delegate: EnergyUpdateWeightProtocol) {
+        let controller = EnergyUpdateWeightController(delegate: delegate)
+        controller.modalTransitionStyle = .crossDissolve
+        controller.modalPresentationStyle = .overCurrentContext
+        present(controller: controller, presentStyle: .overCurrentContext)
+    }
 }

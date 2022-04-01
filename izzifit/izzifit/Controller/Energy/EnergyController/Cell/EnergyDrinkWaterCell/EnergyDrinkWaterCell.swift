@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol EnergyDrinkWaterProtocol: AnyObject {
+    func energyDrinkWaterSelectIndex(cell: EnergyDrinkWaterCell, index: Int)
+}
+
 class EnergyDrinkWaterCell: UITableViewCell {
 
     @IBOutlet weak var waterStackView: UIStackView!
@@ -15,6 +19,9 @@ class EnergyDrinkWaterCell: UITableViewCell {
     
     @IBOutlet weak var mlLeftLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
+    
+    private var model: DrinkWidgetMainModel?
+    weak var delegate: EnergyDrinkWaterProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,19 +35,32 @@ class EnergyDrinkWaterCell: UITableViewCell {
     }
     
     func setupCell(model: DrinkWidgetMainModel) {
+        self.model = model
+        
         mainLabel.text = RLocalization.water_widget_title()
         
         waterStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
         for _ in 0..<model.doneCups {
-            waterStackView.addArrangedSubview(UIImageView(image: RImage.energy_water_active_ic()))
+            let button = UIButton()
+            button.setImage(RImage.energy_water_active_ic(), for: .normal)
+            waterStackView.addArrangedSubview(button)
         }
         
-        for _ in model.doneCups..<model.totalCups {
-            waterStackView.addArrangedSubview(UIImageView(image: RImage.energy_water_empty_ic()))
+        for index in model.doneCups..<model.totalCups {
+            let button = UIButton()
+            button.setImage(RImage.energy_water_empty_ic(), for: .normal)
+            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+            button.tag = index - model.doneCups
+            waterStackView.addArrangedSubview(button)
         }
         
         mlLeftLabel.text = RLocalization.water_widget_ml_left(model.left)
         countLabel.text = "\(model.energy)/\(model.energyTotal)"
+    }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        debugPrint(sender.tag)
+        delegate?.energyDrinkWaterSelectIndex(cell: self, index: sender.tag)
     }
 }

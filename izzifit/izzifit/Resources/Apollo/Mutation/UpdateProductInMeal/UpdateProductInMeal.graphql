@@ -1,0 +1,4 @@
+mutation UpdateProductInMeal($record: UpdateProductInMealRecordInput!) {
+    updateProductInMeal(record: $record)
+}
+

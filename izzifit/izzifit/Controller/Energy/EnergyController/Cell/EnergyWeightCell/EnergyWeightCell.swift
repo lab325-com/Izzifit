@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol EnergyWeightProtocol: AnyObject {
+    func energyWeightUpdate(cell: EnergyWeightCell)
+}
+
+
 class EnergyWeightCell: UITableViewCell {
 
     @IBOutlet weak var mainTitleLabel: UILabel!
@@ -17,6 +22,9 @@ class EnergyWeightCell: UITableViewCell {
     @IBOutlet weak var goalLabel: UILabel!
     
     @IBOutlet weak var doneButton: UIButton!
+    
+    
+    weak var delegate: EnergyWeightProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,5 +55,9 @@ class EnergyWeightCell: UITableViewCell {
             doneButton.setTitle(RLocalization.energy_update_button(), for: .normal)
             doneButton.setImage(nil, for: .normal)
         }
+    }
+    
+    @IBAction func actionUpdateWieght(_ sender: UIButton) {
+        delegate?.energyWeightUpdate(cell: self)
     }
 }

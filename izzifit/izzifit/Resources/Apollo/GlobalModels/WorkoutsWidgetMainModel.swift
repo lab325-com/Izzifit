@@ -1,0 +1,35 @@
+//
+//  WorkoutsWidgetMainModel.swift
+//  izzifit
+//
+//  Created by Andrey S on 22.03.2022.
+//
+
+import Foundation
+
+struct WorkoutsWidgetMainModel: Codable, Equatable {
+    static func == (lhs: WorkoutsWidgetMainModel, rhs: WorkoutsWidgetMainModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    let Image: ImageModel?
+    let duration: IntervalRepresentationModel?
+    let energy: Int?
+    let energyTotal: Int?
+    let id: String?
+    let isAvailable: Bool?
+    let isFinished: Bool?
+    let title: String?
+    let totalExercises: Int?
+    let totalFinishedExercises: Int?
+}
+
+struct IntervalRepresentationModel: Codable {
+    let hours: Int?
+    let minutes: Int?
+    let seconds: Int?
+    
+    var time: String {
+        return String(format: "%02d", hours ?? 0) + ":" + String(format: "%02d", minutes ?? 0)
+    }
+}
