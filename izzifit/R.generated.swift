@@ -302,12 +302,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 43 files.
+  /// This `R.file` struct is generated, and contains static references to 46 files.
   struct file {
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
     /// Resource file `AskQuestion.graphql`.
     static let askQuestionGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AskQuestion", pathExtension: "graphql")
+    /// Resource file `CaloriesWidget.graphql`.
+    static let caloriesWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "CaloriesWidget", pathExtension: "graphql")
     /// Resource file `ChooseWorkoutWidgetModel.graphql`.
     static let chooseWorkoutWidgetModelGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ChooseWorkoutWidgetModel", pathExtension: "graphql")
     /// Resource file `DrinkWater.graphql`.
@@ -342,6 +344,8 @@ struct R: Rswift.Validatable {
     static let mealsWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "MealsWidget", pathExtension: "graphql")
     /// Resource file `MoodWidget.graphql`.
     static let moodWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "MoodWidget", pathExtension: "graphql")
+    /// Resource file `Moods.graphql`.
+    static let moodsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Moods", pathExtension: "graphql")
     /// Resource file `Muscles.graphql`.
     static let musclesGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Muscles", pathExtension: "graphql")
     /// Resource file `PasswordForgotRequest.graphql`.
@@ -380,6 +384,8 @@ struct R: Rswift.Validatable {
     static let toggleProductInRationGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleProductInRation", pathExtension: "graphql")
     /// Resource file `UpdateProductInMeal.graphql`.
     static let updateProductInMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "UpdateProductInMeal", pathExtension: "graphql")
+    /// Resource file `WeightsWidget.graphql`.
+    static let weightsWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WeightsWidget", pathExtension: "graphql")
     /// Resource file `WorkoutById.graphql`.
     static let workoutByIdGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutById", pathExtension: "graphql")
     /// Resource file `WorkoutTypes.graphql`.
@@ -400,6 +406,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "AskQuestion", withExtension: "graphql")`
     static func askQuestionGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.askQuestionGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "CaloriesWidget", withExtension: "graphql")`
+    static func caloriesWidgetGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.caloriesWidgetGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -502,6 +514,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "MoodWidget", withExtension: "graphql")`
     static func moodWidgetGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.moodWidgetGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Moods", withExtension: "graphql")`
+    static func moodsGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.moodsGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -619,6 +637,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "WeightsWidget", withExtension: "graphql")`
+    static func weightsWidgetGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.weightsWidgetGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "WorkoutById", withExtension: "graphql")`
     static func workoutByIdGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.workoutByIdGraphql
@@ -733,8 +757,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 69 images.
+  /// This `R.image` struct is generated, and contains static references to 70 images.
   struct image {
+    /// Image `MoodChartBack`.
+    static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
     /// Image `auth_note_see_pass_ic`.
     static let auth_note_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_note_see_pass_ic")
     /// Image `auth_see_pass_ic`.
@@ -873,6 +899,13 @@ struct R: Rswift.Validatable {
     static let workout_fire_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_fire_ic")
     /// Image `workout_flash_ic`.
     static let workout_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_flash_ic")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "MoodChartBack", bundle: ..., traitCollection: ...)`
+    static func moodChartBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.moodChartBack, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "auth_note_see_pass_ic", bundle: ..., traitCollection: ...)`
@@ -5666,6 +5699,7 @@ struct _R: Rswift.Validatable {
       try _MenuTargetWeightController.validate()
       try _MenuWeightController.validate()
       try _MenuWriteQuestionController.validate()
+      try _MoodTableCell.validate()
       try _ProfileController.validate()
       try _QuizeAgeController.validate()
       try _QuizeEmailController.validate()
@@ -6361,7 +6395,7 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _MoodTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+    struct _MoodTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
       typealias ReusableType = MoodTableCell
 
       let bundle = R.hostingBundle
@@ -6370,6 +6404,14 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MoodTableCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MoodTableCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "MoodChartBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'MoodChartBack' is used in nib 'MoodTableCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "grayText", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayText' is used in nib 'MoodTableCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "profileCellBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'profileCellBack' is used in nib 'MoodTableCell', but couldn't be loaded.") }
+        }
       }
 
       fileprivate init() {}

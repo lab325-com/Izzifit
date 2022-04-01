@@ -6,9 +6,19 @@
 //
 
 import UIKit
+import CoreAudio
 
 class MoodTableCell: UITableViewCell {
     
+    static let id = "MoodTableCell"
+    
+    @IBOutlet var dateLabelsCollection: [UILabel]! {
+        didSet {
+            for (index, label) in dateLabelsCollection.enumerated() {
+                label.tag = index
+            }
+        }
+    }
     @IBOutlet weak var backVw: UIView! {
         didSet {
             backVw.layer.cornerRadius = 20
@@ -27,74 +37,94 @@ class MoodTableCell: UITableViewCell {
             moodLbl.text = RLocalization.profile_mood()
         }
     }
+    @IBOutlet weak var moodChartBackImgVw: UIImageView!
+    
     private lazy var backYAxis: CGFloat = {
         chartBackVw.bounds.height / 10
     }()
+    
     private lazy var backXAxis: CGFloat = {
-        chartBackVw.bounds.width / 7
+        (w - 99) / 7
     }()
     
-    private var emojiArray = ["😀","😐","🙂","🤯","🙂","🙂"]
-    private lazy var emojiPoints = [CGPoint(x: backXAxis, y: backYAxis * 2.5),
-                                    CGPoint(x: backXAxis * 2, y: backYAxis * 7),
-                                    CGPoint(x: backXAxis * 3, y: backYAxis * 5),
-                                    CGPoint(x: backXAxis * 4.5, y: backYAxis * 8.5),
-                                    CGPoint(x: backXAxis * 5.3, y: backYAxis * 5.5),
-                                    CGPoint(x: backXAxis * 6, y: backYAxis * 5.5)]
-    static let id = "MoodTableCell"
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    private var chartShapeLayer: CAShapeLayer = {
         let chartShapeLayer = CAShapeLayer()
         chartShapeLayer.lineWidth = 2
         chartShapeLayer.lineCap = .round
         chartShapeLayer.fillColor = UIColor.clear.cgColor
-        chartShapeLayer.strokeColor = clr(color: .intensivePurple)?.cgColor
+        chartShapeLayer.strokeColor = UIColor(named: Clrs.intensivePurple.rawValue)?.cgColor
         chartShapeLayer.strokeEnd = 1
+        return chartShapeLayer
+    }()
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+    }
+    
+    func fillCellby(_ moods: [MoodsMainModel]) {
         
         let path = UIBezierPath()
+        var labelPoints = [CGPoint]()
+        path.move(to: CGPoint(x: 0, y: backYAxis * 4))
+        for (index, mood) in moods.enumerated() {
+            if index < 6 {
+                let currentX = backXAxis * CGFloat(index + 1)
+                var currentY: CGFloat = 0.0
+                switch mood.mood {
+                case .moodTypeGood:
+                    currentY = backYAxis * 2.5
+                case .moodTypeBadly:
+                    currentY = backYAxis * 7.5
+                case .moodTypeNotBad:
+                    currentY = backYAxis * 5.0
+                default: break
+                }
+                let cgPoint = CGPoint(x: currentX, y: currentY)
+                labelPoints.append(cgPoint)
+                    dateLabelsCollection[index + 1].text = convertDate(mood.date)
+            }
+        }
         
-        
-        
-        path.move(to: CGPoint(x: 5, y: backYAxis * 4 ))
-//        path.addLine(to: CGPoint(x: backXAxis, y: backYAxis * 2.5))
-//        path.addLine(to: CGPoint(x: backXAxis * 2, y: backYAxis * 7))
-//        path.addLine(to: CGPoint(x: backXAxis * 3, y: backYAxis * 5))
-//        path.addLine(to: CGPoint(x: backXAxis * 4.5, y: backYAxis * 8.5))
-//        path.addLine(to: CGPoint(x: backXAxis * 5.3, y: backYAxis * 5.5))
-//        path.addLine(to: CGPoint(x: backXAxis * 6, y: backYAxis * 5.5))
-    
-        for (index, point) in emojiPoints.enumerated() {
+        for point in labelPoints {
             path.addLine(to: point)
         }
         
-       
-        
-        
         chartShapeLayer.path = path.cgPath
         chartBackVw.layer.addSublayer(chartShapeLayer)
-        // Initialization code
+        
+        for (index, point) in labelPoints.enumerated() {
+            let emojiLabel = UILabel(frame: CGRect(x: point.x - CGFloat(chartBackVw.bounds.size.width / 28),
+                                                   y: point.y - 10,
+                                                   width: 20,
+                                                   height: 20))
+            emojiLabel.text = moods[index].mood.text
+            chartBackVw.addSubview(emojiLabel)
+        }
         
         let lineLayer = CAShapeLayer()
         lineLayer.strokeColor = clr(color: .chartPurple)!.cgColor
         lineLayer.lineWidth = 1
         lineLayer.lineDashPattern = [6, 4]
         let linePath = CGMutablePath()
-        linePath.addLines(between: [CGPoint(x: backXAxis * 6, y: backYAxis * 5.5),
-                                    CGPoint(x: backXAxis * 7, y: backYAxis * 3)])
+        linePath.addLines(between: [path.currentPoint,
+                                    CGPoint(x: backXAxis * CGFloat(labelPoints.count + 1),
+                                            y: backYAxis * 3)])
         lineLayer.path = linePath
         chartBackVw.layer.addSublayer(lineLayer)
-        
-        for (index, point) in emojiPoints.enumerated() {
-        var emojiLabel = UILabel(frame: CGRect(x: point.x - 10,
-                                               y: point.y - 10,
-                                               width: 20,
-                                               height: 20))
-        emojiLabel.text = emojiArray[index]
-        chartBackVw.addSubview(emojiLabel)
-        }
     }
     
+    func convertDate(_ stringDate: String) -> String {
+        let oldDateFormatter = DateFormatter()
+        oldDateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        oldDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let gettedDate = oldDateFormatter.date(from: stringDate)
+        
+        let newDateFormatter = DateFormatter()
+        newDateFormatter.dateFormat = "dd.MM"
+        return newDateFormatter.string(from: gettedDate ?? Date())
+    }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

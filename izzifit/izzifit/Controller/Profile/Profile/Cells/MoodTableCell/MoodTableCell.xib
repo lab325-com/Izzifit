@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -36,6 +36,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoodChartBack" translatesAutoresizingMaskIntoConstraints="NO" id="IJa-dB-6zF">
+                                <rect key="frame" x="16" y="47" width="276" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="89" id="qnu-Sq-kSR"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ou2-ja-qFW">
                                 <rect key="frame" x="16" y="47" width="276" height="89"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -112,16 +118,93 @@
                                     <constraint firstAttribute="width" constant="28" id="hFi-Fd-yvr"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZBi-GU-Yro">
+                                <rect key="frame" x="20" y="142" width="272" height="10"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJn-yI-7Iu">
+                                        <rect key="frame" x="0.0" y="0.0" width="39" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="3lJ-6h-3jN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
+                                        <color key="textColor" name="grayText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Y9-ve-E2l">
+                                        <rect key="frame" x="39" y="0.0" width="38.5" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="BwG-F6-xKD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
+                                        <color key="textColor" name="grayText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GY-WD-cUR">
+                                        <rect key="frame" x="77.5" y="0.0" width="39" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="ZmJ-rn-Ey3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
+                                        <color key="textColor" name="grayText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxu-Hq-JQs">
+                                        <rect key="frame" x="116.5" y="0.0" width="39" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="Ynh-o4-qAK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
+                                        <color key="textColor" name="grayText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wc-gS-STO">
+                                        <rect key="frame" x="155.5" y="0.0" width="39" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="z1l-hh-acA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
+                                        <color key="textColor" name="grayText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ki-Co-jUh">
+                                        <rect key="frame" x="194.5" y="0.0" width="38.5" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="kjP-7t-lKk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
+                                        <color key="textColor" name="grayText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lum-GQ-F7C">
+                                        <rect key="frame" x="233" y="0.0" width="39" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="ByH-Wa-6qR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
+                                        <color key="textColor" name="grayText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="Mah-dL-Q9W"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" name="profileCellBack"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="IJa-dB-6zF" secondAttribute="bottom" constant="32" id="4mE-KT-RT1"/>
                             <constraint firstAttribute="bottom" secondItem="ou2-ja-qFW" secondAttribute="bottom" constant="32" id="AaE-IO-GP0"/>
                             <constraint firstItem="7Mx-zK-F7U" firstAttribute="top" secondItem="aWd-iV-9Xq" secondAttribute="top" constant="16" id="EBR-K0-iP6"/>
                             <constraint firstItem="7Mx-zK-F7U" firstAttribute="leading" secondItem="aWd-iV-9Xq" secondAttribute="leading" constant="16" id="K0t-SQ-qFv"/>
+                            <constraint firstItem="ZBi-GU-Yro" firstAttribute="top" secondItem="IJa-dB-6zF" secondAttribute="bottom" constant="6" id="Sa9-4A-SP5"/>
                             <constraint firstItem="ou2-ja-qFW" firstAttribute="leading" secondItem="aWd-iV-9Xq" secondAttribute="leading" constant="16" id="V0Y-dc-uLc"/>
                             <constraint firstItem="JZJ-O5-Zpn" firstAttribute="leading" secondItem="ou2-ja-qFW" secondAttribute="trailing" constant="8" id="Y5F-cJ-OOT"/>
                             <constraint firstAttribute="trailing" secondItem="JZJ-O5-Zpn" secondAttribute="trailing" constant="15" id="Z5u-I7-udK"/>
+                            <constraint firstItem="ZBi-GU-Yro" firstAttribute="trailing" secondItem="JZJ-O5-Zpn" secondAttribute="leading" constant="-8" id="bPs-cz-Mxw"/>
                             <constraint firstItem="JZJ-O5-Zpn" firstAttribute="centerY" secondItem="ou2-ja-qFW" secondAttribute="centerY" id="eVr-Db-6DG"/>
+                            <constraint firstItem="ZBi-GU-Yro" firstAttribute="leading" secondItem="aWd-iV-9Xq" secondAttribute="leading" constant="20" id="ue9-gD-Cvt"/>
+                            <constraint firstItem="IJa-dB-6zF" firstAttribute="leading" secondItem="aWd-iV-9Xq" secondAttribute="leading" constant="16" id="vKF-hy-GdY"/>
+                            <constraint firstItem="JZJ-O5-Zpn" firstAttribute="leading" secondItem="IJa-dB-6zF" secondAttribute="trailing" constant="8" id="zFg-wf-VRK"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -138,12 +221,21 @@
             <connections>
                 <outlet property="backVw" destination="aWd-iV-9Xq" id="8jC-oX-4yg"/>
                 <outlet property="chartBackVw" destination="ou2-ja-qFW" id="fEa-Db-86A"/>
+                <outlet property="moodChartBackImgVw" destination="IJa-dB-6zF" id="hKV-h9-N7L"/>
                 <outlet property="moodLbl" destination="7Mx-zK-F7U" id="0t7-zR-bO3"/>
+                <outletCollection property="dateLabelsCollection" destination="gJn-yI-7Iu" collectionClass="NSMutableArray" id="84L-QE-TKj"/>
+                <outletCollection property="dateLabelsCollection" destination="2Y9-ve-E2l" collectionClass="NSMutableArray" id="h2W-Sn-sch"/>
+                <outletCollection property="dateLabelsCollection" destination="4GY-WD-cUR" collectionClass="NSMutableArray" id="9Fj-Tt-hPs"/>
+                <outletCollection property="dateLabelsCollection" destination="Uxu-Hq-JQs" collectionClass="NSMutableArray" id="Wny-qZ-lyt"/>
+                <outletCollection property="dateLabelsCollection" destination="5wc-gS-STO" collectionClass="NSMutableArray" id="Ji8-rc-qcN"/>
+                <outletCollection property="dateLabelsCollection" destination="3ki-Co-jUh" collectionClass="NSMutableArray" id="j2W-MN-4Je"/>
+                <outletCollection property="dateLabelsCollection" destination="Lum-GQ-F7C" collectionClass="NSMutableArray" id="8oa-nN-QW1"/>
             </connections>
             <point key="canvasLocation" x="164" y="9"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="MoodChartBack" width="281" height="90"/>
         <namedColor name="grayText">
             <color red="0.24699999392032623" green="0.24300000071525574" blue="0.33700001239776611" alpha="0.4050000011920929" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
