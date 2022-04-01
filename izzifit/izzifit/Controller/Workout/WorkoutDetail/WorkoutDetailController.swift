@@ -31,12 +31,14 @@ class WorkoutDetailController: BaseController {
     private var selectedId: String?
     
     private let id: String
+    private let model: WorkoutByIdMainModel?
     
     //----------------------------------------------
     // MARK: - Init
     //----------------------------------------------
     
-    init(id: String) {
+    init(id: String, model: WorkoutByIdMainModel?) {
+        self.model = model
         self.id = id
         super.init(nibName: nil, bundle: nil)
     }
@@ -62,8 +64,13 @@ class WorkoutDetailController: BaseController {
     
     private func setup() {
         startWorkoutButton.setTitle(RLocalization.workout_detail_start(), for: .normal)
-        tableView.isHidden = true
-        presenter.getWorkouts(id: id)
+        
+        if model == nil {
+            tableView.isHidden = true
+            presenter.getWorkouts(id: id)
+        } else {
+            presenter.workout = model
+        }
         
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension

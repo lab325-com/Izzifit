@@ -1,0 +1,53 @@
+query RecommendWorkouts {
+    recommendWorkouts {
+        ExerciseGroups {
+            Exercises {
+                Image {
+                    id
+                    urlIosFull
+                }
+                Video {
+                    id
+                    url
+                }
+                description
+                duration {
+                    hours
+                    minutes
+                    seconds
+                }
+                id
+                isFinished
+                isRest
+                title
+            }
+            id
+            title
+        }
+        Image {
+            id
+            urlIosFull
+        }
+        Muscles {
+            id
+            isToggled
+            name
+        }
+        description
+        duration {
+            hours
+            minutes
+            seconds
+        }
+        energy
+        energyTotal
+        id
+        isAvailable
+        isFinished
+        kCal
+        title
+        totalExercises
+        totalFinishedExercises
+    }
+}
+

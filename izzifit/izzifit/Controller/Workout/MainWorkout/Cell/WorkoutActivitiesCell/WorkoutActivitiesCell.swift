@@ -1,7 +1,11 @@
 
 import UIKit
 
-class WorkoutActivitiesCell: UITableViewCell {
+protocol WorkoutActivitesProtocol: AnyObject {
+    func workoutActivitiesSelect(cell: WorkoutActivitiesCell, selectedId: String?)
+}
+
+class WorkoutActivitiesCell: UICollectionViewCell {
     
     //----------------------------------------------
     // MARK: - IBOutlet
@@ -19,6 +23,15 @@ class WorkoutActivitiesCell: UITableViewCell {
     
     var workoutTypes = [WorkoutType]()
 
+    weak var delegate: WorkoutActivitesProtocol?
+    private var selectedId: String? {
+        didSet {
+            if selectedId != oldValue {
+                collectionView.reloadData()
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -29,7 +42,8 @@ class WorkoutActivitiesCell: UITableViewCell {
         collectionView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
     }
     
-    func setupCell(workoutTypes: [WorkoutType]) {
+    func setupCell(workoutTypes: [WorkoutType], selectedTypeId: String?) {
+        selectedId = selectedTypeId
         self.workoutTypes = workoutTypes
         collectionView.reloadData()
     }
@@ -41,13 +55,17 @@ class WorkoutActivitiesCell: UITableViewCell {
 
 extension WorkoutActivitiesCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return workoutTypes.count
+        return workoutTypes.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! WorkoutActivityCollectionCell
         
-        cell.setup(workoutType: workoutTypes[indexPath.row])
+        if indexPath.row == 0 {
+            cell.setup(workoutName: "All", isSelected: selectedId == nil)
+        } else {
+            cell.setup(workoutName: workoutTypes[indexPath.row - 1].name ?? "", isSelected: workoutTypes[indexPath.row - 1].id == selectedId)
+        }
         
         return cell
     }
@@ -58,7 +76,15 @@ extension WorkoutActivitiesCell: UICollectionViewDataSource {
 //----------------------------------------------
 
 extension WorkoutActivitiesCell: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            selectedId = nil
+        } else {
+            selectedId = workoutTypes[indexPath.row - 1].id
+        }
+        
+        delegate?.workoutActivitiesSelect(cell: self, selectedId: selectedId)
+    }
 }
 
 //----------------------------------------------
@@ -70,7 +96,7 @@ extension WorkoutActivitiesCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let label = UILabel(frame: CGRect.zero)
-        label.text = workoutTypes[indexPath.item].name
+        label.text = indexPath.row == 0 ? "All" : workoutTypes[indexPath.row - 1].name
         label.sizeToFit()
         
         return CGSize(width: label.frame.width + 16.0, height: height)

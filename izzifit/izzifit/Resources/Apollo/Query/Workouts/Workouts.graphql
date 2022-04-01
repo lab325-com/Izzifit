@@ -1,0 +1,61 @@
+query Workouts($categoryIds: [String], $difficulty: WorkoutDifficulty, $muscleIds: [String], $durationFrom: Int, $durationTo: Int) {
+    workouts(categoryIds: $categoryIds, difficulty: $difficulty, muscleIds: $muscleIds, durationFrom: $durationFrom, durationTo: $durationTo) {
+        Pagination {
+            nextPageExists
+            previousPageExists
+            total
+            totalPages
+        }
+        Workouts {
+            ExerciseGroups {
+                Exercises {
+                    Image {
+                        id
+                        urlIosFull
+                    }
+                    Video {
+                        id
+                        url
+                    }
+                    description
+                    duration {
+                        hours
+                        minutes
+                        seconds
+                    }
+                    id
+                    isFinished
+                    isRest
+                    title
+                }
+                id
+                title
+            }
+            Image {
+                id
+                urlIosFull
+            }
+            Muscles {
+                id
+                isToggled
+                name
+            }
+            description
+            duration {
+                hours
+                minutes
+                seconds
+            }
+            energy
+            energyTotal
+            id
+            isAvailable
+            isFinished
+            kCal
+            title
+            totalExercises
+            totalFinishedExercises
+        }
+    }
+}
+

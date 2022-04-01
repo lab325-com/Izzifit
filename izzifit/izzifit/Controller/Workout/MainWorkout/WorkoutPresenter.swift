@@ -8,9 +8,9 @@ import UIKit
 //----------------------------------------------
 
 protocol WorkoutOutputProtocol: BaseController {
-    func successGetWorkoutTypes()
+    func success()
     
-    func failure(error: String)
+    func failure()
 }
 
 //----------------------------------------------
@@ -20,7 +20,8 @@ protocol WorkoutOutputProtocol: BaseController {
 protocol WorkoutPresenterProtocol: AnyObject {
     init(view: WorkoutOutputProtocol)
     
-    func getWorkoutTypes()
+    func getWorkout()
+    func getWorkoutsAll(categoryId: String?)
 }
 
 class WorkoutPresenter: WorkoutPresenterProtocol {
@@ -33,19 +34,66 @@ class WorkoutPresenter: WorkoutPresenterProtocol {
     }
     
     var workoutTypes = [WorkoutType]()
+    var recomended = [WorkoutByIdMainModel]()
+    var exercises = [WorkoutByIdMainModel]()
+    var exercisesPagination: PaginationModel?
     
-    func getWorkoutTypes() {
+    func getWorkout() {
+        let group = DispatchGroup()
         view?.startLoader()
         
         let query = WorkoutTypesQuery()
         
+        group.enter()
         let _ = Network.shared.query(model: WorkoutTypesModel.self, query, controller: view, successHandler: { [weak self] model in
-            self?.view?.stopLoading()
             self?.workoutTypes = model.workoutTypes
-            self?.view?.successGetWorkoutTypes()
+            group.leave()
+        }, failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        })
+        
+        group.enter()
+        let query2 = RecommendWorkoutsQuery()
+        let _ = Network.shared.query(model: RecommendWorkoutsModel.self, query2, controller: view, successHandler: { [weak self] model in
+            self?.recomended = model.recommendWorkouts
+            group.leave()
+        }, failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        })
+        
+        group.enter()
+        let query3 = WorkoutsQuery()
+        let _ = Network.shared.query(model: WorkoutsModel.self, query3, controller: view, successHandler: { [weak self] model in
+            self?.exercises = model.workouts.workouts
+            self?.exercisesPagination = model.workouts.pagination
+            
+            group.leave()
+        }, failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        })
+        
+        group.notify(queue: DispatchQueue.main) { [weak self] in
+            self?.view?.stopLoading()
+            self?.view?.success()
+        }
+    }
+    
+    func getWorkoutsAll(categoryId: String?) {
+        
+        view?.startLoader()
+        let query = WorkoutsQuery(categoryIds: [categoryId])
+        let _ = Network.shared.query(model: WorkoutsModel.self, query, controller: view, successHandler: { [weak self] model in
+            self?.view?.stopLoading()
+            self?.exercises = model.workouts.workouts
+            self?.exercisesPagination = model.workouts.pagination
+            self?.view?.success()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
-            self?.view?.failure(error: error.localizedDescription)
+            self?.view?.failure()
         })
+        
     }
 }

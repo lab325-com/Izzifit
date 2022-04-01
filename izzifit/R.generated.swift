@@ -302,7 +302,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 41 files.
+  /// This `R.file` struct is generated, and contains static references to 43 files.
   struct file {
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
@@ -360,6 +360,8 @@ struct R: Rswift.Validatable {
     static let recentProductsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "RecentProducts", pathExtension: "graphql")
     /// Resource file `RecommendProducts.graphql`.
     static let recommendProductsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "RecommendProducts", pathExtension: "graphql")
+    /// Resource file `RecommendWorkouts.graphql`.
+    static let recommendWorkoutsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "RecommendWorkouts", pathExtension: "graphql")
     /// Resource file `RemoveProductFromMeal.graphql`.
     static let removeProductFromMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "RemoveProductFromMeal", pathExtension: "graphql")
     /// Resource file `SaveMood.graphql`.
@@ -382,6 +384,8 @@ struct R: Rswift.Validatable {
     static let workoutByIdGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutById", pathExtension: "graphql")
     /// Resource file `WorkoutTypes.graphql`.
     static let workoutTypesGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutTypes", pathExtension: "graphql")
+    /// Resource file `Workouts.graphql`.
+    static let workoutsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Workouts", pathExtension: "graphql")
     /// Resource file `WorkoutsWidget.graphql`.
     static let workoutsWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutsWidget", pathExtension: "graphql")
     /// Resource file `progress.graphql`.
@@ -555,6 +559,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "RecommendWorkouts", withExtension: "graphql")`
+    static func recommendWorkoutsGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.recommendWorkoutsGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "RemoveProductFromMeal", withExtension: "graphql")`
     static func removeProductFromMealGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.removeProductFromMealGraphql
@@ -618,6 +628,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "WorkoutTypes", withExtension: "graphql")`
     static func workoutTypesGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.workoutTypesGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Workouts", withExtension: "graphql")`
+    static func workoutsGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.workoutsGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -717,7 +733,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 68 images.
+  /// This `R.image` struct is generated, and contains static references to 69 images.
   struct image {
     /// Image `auth_note_see_pass_ic`.
     static let auth_note_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_note_see_pass_ic")
@@ -849,6 +865,8 @@ struct R: Rswift.Validatable {
     static let workout_arrow_right_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_arrow_right_ic")
     /// Image `workout_back_ic`.
     static let workout_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_back_ic")
+    /// Image `workout_blocked_ic`.
+    static let workout_blocked_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_blocked_ic")
     /// Image `workout_clock_ic`.
     static let workout_clock_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_clock_ic")
     /// Image `workout_fire_ic`.
@@ -1312,6 +1330,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "workout_blocked_ic", bundle: ..., traitCollection: ...)`
+    static func workout_blocked_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.workout_blocked_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "workout_clock_ic", bundle: ..., traitCollection: ...)`
     static func workout_clock_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.workout_clock_ic, compatibleWith: traitCollection)
@@ -1335,7 +1360,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 69 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 71 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -1471,8 +1496,12 @@ struct R: Rswift.Validatable {
     static let workoutDetailTrainCell = _R.nib._WorkoutDetailTrainCell()
     /// Nib `WorkoutExercisesCell`.
     static let workoutExercisesCell = _R.nib._WorkoutExercisesCell()
+    /// Nib `WorkoutExercisesDetailCell`.
+    static let workoutExercisesDetailCell = _R.nib._WorkoutExercisesDetailCell()
     /// Nib `WorkoutSpecialCell`.
     static let workoutSpecialCell = _R.nib._WorkoutSpecialCell()
+    /// Nib `WorkoutSpecialDetailCell`.
+    static let workoutSpecialDetailCell = _R.nib._WorkoutSpecialDetailCell()
     /// Nib `WriteToUsController`.
     static let writeToUsController = _R.nib._WriteToUsController()
 
@@ -2013,10 +2042,26 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutExercisesDetailCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutExercisesDetailCell) instead")
+    static func workoutExercisesDetailCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutExercisesDetailCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "WorkoutSpecialCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutSpecialCell) instead")
     static func workoutSpecialCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.workoutSpecialCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WorkoutSpecialDetailCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.workoutSpecialDetailCell) instead")
+    static func workoutSpecialDetailCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.workoutSpecialDetailCell)
     }
     #endif
 
@@ -2296,8 +2341,16 @@ struct R: Rswift.Validatable {
       return R.nib.workoutExercisesCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutExercisesCell
     }
 
+    static func workoutExercisesDetailCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutExercisesDetailCell? {
+      return R.nib.workoutExercisesDetailCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutExercisesDetailCell
+    }
+
     static func workoutSpecialCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutSpecialCell? {
       return R.nib.workoutSpecialCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutSpecialCell
+    }
+
+    static func workoutSpecialDetailCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutSpecialDetailCell? {
+      return R.nib.workoutSpecialDetailCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutSpecialDetailCell
     }
 
     static func writeToUsController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -2307,7 +2360,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 32 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 34 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AwardsTableCell`.
     static let awardsTableCell: Rswift.ReuseIdentifier<PolicyCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
@@ -2371,8 +2424,12 @@ struct R: Rswift.Validatable {
     static let workoutDetailTrainCell: Rswift.ReuseIdentifier<WorkoutDetailTrainCell> = Rswift.ReuseIdentifier(identifier: "WorkoutDetailTrainCell")
     /// Reuse identifier `WorkoutExercisesCell`.
     static let workoutExercisesCell: Rswift.ReuseIdentifier<WorkoutExercisesCell> = Rswift.ReuseIdentifier(identifier: "WorkoutExercisesCell")
+    /// Reuse identifier `WorkoutExercisesDetailCell`.
+    static let workoutExercisesDetailCell: Rswift.ReuseIdentifier<WorkoutExercisesDetailCell> = Rswift.ReuseIdentifier(identifier: "WorkoutExercisesDetailCell")
     /// Reuse identifier `WorkoutSpecialCell`.
     static let workoutSpecialCell: Rswift.ReuseIdentifier<WorkoutSpecialCell> = Rswift.ReuseIdentifier(identifier: "WorkoutSpecialCell")
+    /// Reuse identifier `WorkoutSpecialDetailCell`.
+    static let workoutSpecialDetailCell: Rswift.ReuseIdentifier<WorkoutSpecialDetailCell> = Rswift.ReuseIdentifier(identifier: "WorkoutSpecialDetailCell")
 
     fileprivate init() {}
   }
@@ -5630,6 +5687,8 @@ struct _R: Rswift.Validatable {
       try _WorkoutDetailHeaderCell.validate()
       try _WorkoutDetailMuscleController.validate()
       try _WorkoutDetailTrainCell.validate()
+      try _WorkoutExercisesDetailCell.validate()
+      try _WorkoutSpecialDetailCell.validate()
       try _WriteToUsController.validate()
     }
 
@@ -6678,10 +6737,10 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "energy_coins_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_coins_ic' is used in nib 'WorkoutController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "energy_energy_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_energy_ic' is used in nib 'WorkoutController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "placeholder_food_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder_food_ic' is used in nib 'WorkoutController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "top_view_coin_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_coin_ic' is used in nib 'WorkoutController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "top_view_elipse_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_elipse_ic' is used in nib 'WorkoutController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "top_view_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_flash_ic' is used in nib 'WorkoutController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -6832,6 +6891,27 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _WorkoutExercisesDetailCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = WorkoutExercisesDetailCell
+
+      let bundle = R.hostingBundle
+      let identifier = "WorkoutExercisesDetailCell"
+      let name = "WorkoutExercisesDetailCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutExercisesDetailCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutExercisesDetailCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "placeholder_big_sport_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder_big_sport_ic' is used in nib 'WorkoutExercisesDetailCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "workout_blocked_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'workout_blocked_ic' is used in nib 'WorkoutExercisesDetailCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
     struct _WorkoutSpecialCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = WorkoutSpecialCell
 
@@ -6841,6 +6921,26 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutSpecialCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutSpecialCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WorkoutSpecialDetailCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = WorkoutSpecialDetailCell
+
+      let bundle = R.hostingBundle
+      let identifier = "WorkoutSpecialDetailCell"
+      let name = "WorkoutSpecialDetailCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WorkoutSpecialDetailCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WorkoutSpecialDetailCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "placeholder_big_sport_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder_big_sport_ic' is used in nib 'WorkoutSpecialDetailCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}

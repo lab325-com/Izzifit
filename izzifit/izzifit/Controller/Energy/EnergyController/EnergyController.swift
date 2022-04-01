@@ -300,6 +300,6 @@ extension EnergyController: EnergyChooseActivityProtocol {
 extension EnergyController: EnergyTrainingProtocol {
     func energyTrainingSelect(cell: EnergyTrainingCell, model: WorkoutsWidgetMainModel) {
         guard let id = model.id else { return }
-        WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
+        WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id, model: nil)
     }
 }

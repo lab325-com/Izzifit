@@ -8,20 +8,11 @@ public struct AddProductToMealRecordInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   /// - Parameters:
-  ///   - amount
   ///   - mealId
   ///   - productId
-  public init(amount: Swift.Optional<Int?> = nil, mealId: Swift.Optional<String?> = nil, productId: Swift.Optional<String?> = nil) {
-    graphQLMap = ["amount": amount, "mealId": mealId, "productId": productId]
-  }
-
-  public var amount: Swift.Optional<Int?> {
-    get {
-      return graphQLMap["amount"] as? Swift.Optional<Int?> ?? Swift.Optional<Int?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "amount")
-    }
+  ///   - amount
+  public init(mealId: Swift.Optional<String?> = nil, productId: Swift.Optional<String?> = nil, amount: Swift.Optional<Int?> = nil) {
+    graphQLMap = ["mealId": mealId, "productId": productId, "amount": amount]
   }
 
   public var mealId: Swift.Optional<String?> {
@@ -41,28 +32,28 @@ public struct AddProductToMealRecordInput: GraphQLMapConvertible {
       graphQLMap.updateValue(newValue, forKey: "productId")
     }
   }
+
+  public var amount: Swift.Optional<Int?> {
+    get {
+      return graphQLMap["amount"] as? Swift.Optional<Int?> ?? Swift.Optional<Int?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "amount")
+    }
+  }
 }
 
 public struct LoginRecordInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   /// - Parameters:
-  ///   - email
   ///   - password
   ///   - authType
   ///   - token
   ///   - udid
-  public init(email: Swift.Optional<String?> = nil, password: Swift.Optional<String?> = nil, authType: Swift.Optional<AuthType?> = nil, token: Swift.Optional<String?> = nil, udid: Swift.Optional<String?> = nil) {
-    graphQLMap = ["email": email, "password": password, "authType": authType, "token": token, "udid": udid]
-  }
-
-  public var email: Swift.Optional<String?> {
-    get {
-      return graphQLMap["email"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "email")
-    }
+  ///   - email
+  public init(password: Swift.Optional<String?> = nil, authType: Swift.Optional<AuthType?> = nil, token: Swift.Optional<String?> = nil, udid: Swift.Optional<String?> = nil, email: Swift.Optional<String?> = nil) {
+    graphQLMap = ["password": password, "authType": authType, "token": token, "udid": udid, "email": email]
   }
 
   public var password: Swift.Optional<String?> {
@@ -98,6 +89,15 @@ public struct LoginRecordInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "udid")
+    }
+  }
+
+  public var email: Swift.Optional<String?> {
+    get {
+      return graphQLMap["email"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "email")
     }
   }
 }
@@ -156,25 +156,142 @@ public struct ProfileUpdateInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   /// - Parameters:
+  ///   - goal
+  ///   - notifications
+  ///   - targetWeightMeasure
+  ///   - gender
+  ///   - foodGroupId
+  ///   - name
+  ///   - weight
+  ///   - doSport
+  ///   - growthMeasure
+  ///   - reminders
+  ///   - darkTheme
+  ///   - email
+  ///   - weightMeasure
   ///   - age
   ///   - targetWeight
   ///   - fitnessPreference
-  ///   - targetWeightMeasure
-  ///   - goal
-  ///   - email
-  ///   - gender
-  ///   - weight
-  ///   - darkTheme
-  ///   - doSport
-  ///   - name
-  ///   - foodGroupId
-  ///   - weightMeasure
-  ///   - notifications
-  ///   - growthMeasure
-  ///   - reminders
   ///   - growth
-  public init(age: Swift.Optional<Int?> = nil, targetWeight: Swift.Optional<Double?> = nil, fitnessPreference: Swift.Optional<FitnessPreferenceType?> = nil, targetWeightMeasure: Swift.Optional<WeightMeasure?> = nil, goal: Swift.Optional<GoalType?> = nil, email: Swift.Optional<String?> = nil, gender: Swift.Optional<GenderType?> = nil, weight: Swift.Optional<Double?> = nil, darkTheme: Swift.Optional<Bool?> = nil, doSport: Swift.Optional<DoSportType?> = nil, name: Swift.Optional<String?> = nil, foodGroupId: Swift.Optional<String?> = nil, weightMeasure: Swift.Optional<WeightMeasure?> = nil, notifications: Swift.Optional<Bool?> = nil, growthMeasure: Swift.Optional<MeasureGrowth?> = nil, reminders: Swift.Optional<Bool?> = nil, growth: Swift.Optional<Int?> = nil) {
-    graphQLMap = ["age": age, "targetWeight": targetWeight, "fitnessPreference": fitnessPreference, "targetWeightMeasure": targetWeightMeasure, "goal": goal, "email": email, "gender": gender, "weight": weight, "darkTheme": darkTheme, "doSport": doSport, "name": name, "foodGroupId": foodGroupId, "weightMeasure": weightMeasure, "notifications": notifications, "growthMeasure": growthMeasure, "reminders": reminders, "growth": growth]
+  public init(goal: Swift.Optional<GoalType?> = nil, notifications: Swift.Optional<Bool?> = nil, targetWeightMeasure: Swift.Optional<WeightMeasure?> = nil, gender: Swift.Optional<GenderType?> = nil, foodGroupId: Swift.Optional<String?> = nil, name: Swift.Optional<String?> = nil, weight: Swift.Optional<Double?> = nil, doSport: Swift.Optional<DoSportType?> = nil, growthMeasure: Swift.Optional<MeasureGrowth?> = nil, reminders: Swift.Optional<Bool?> = nil, darkTheme: Swift.Optional<Bool?> = nil, email: Swift.Optional<String?> = nil, weightMeasure: Swift.Optional<WeightMeasure?> = nil, age: Swift.Optional<Int?> = nil, targetWeight: Swift.Optional<Double?> = nil, fitnessPreference: Swift.Optional<FitnessPreferenceType?> = nil, growth: Swift.Optional<Int?> = nil) {
+    graphQLMap = ["goal": goal, "notifications": notifications, "targetWeightMeasure": targetWeightMeasure, "gender": gender, "foodGroupId": foodGroupId, "name": name, "weight": weight, "doSport": doSport, "growthMeasure": growthMeasure, "reminders": reminders, "darkTheme": darkTheme, "email": email, "weightMeasure": weightMeasure, "age": age, "targetWeight": targetWeight, "fitnessPreference": fitnessPreference, "growth": growth]
+  }
+
+  public var goal: Swift.Optional<GoalType?> {
+    get {
+      return graphQLMap["goal"] as? Swift.Optional<GoalType?> ?? Swift.Optional<GoalType?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "goal")
+    }
+  }
+
+  public var notifications: Swift.Optional<Bool?> {
+    get {
+      return graphQLMap["notifications"] as? Swift.Optional<Bool?> ?? Swift.Optional<Bool?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "notifications")
+    }
+  }
+
+  public var targetWeightMeasure: Swift.Optional<WeightMeasure?> {
+    get {
+      return graphQLMap["targetWeightMeasure"] as? Swift.Optional<WeightMeasure?> ?? Swift.Optional<WeightMeasure?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "targetWeightMeasure")
+    }
+  }
+
+  public var gender: Swift.Optional<GenderType?> {
+    get {
+      return graphQLMap["gender"] as? Swift.Optional<GenderType?> ?? Swift.Optional<GenderType?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "gender")
+    }
+  }
+
+  public var foodGroupId: Swift.Optional<String?> {
+    get {
+      return graphQLMap["foodGroupId"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "foodGroupId")
+    }
+  }
+
+  public var name: Swift.Optional<String?> {
+    get {
+      return graphQLMap["name"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "name")
+    }
+  }
+
+  public var weight: Swift.Optional<Double?> {
+    get {
+      return graphQLMap["weight"] as? Swift.Optional<Double?> ?? Swift.Optional<Double?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "weight")
+    }
+  }
+
+  public var doSport: Swift.Optional<DoSportType?> {
+    get {
+      return graphQLMap["doSport"] as? Swift.Optional<DoSportType?> ?? Swift.Optional<DoSportType?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "doSport")
+    }
+  }
+
+  public var growthMeasure: Swift.Optional<MeasureGrowth?> {
+    get {
+      return graphQLMap["growthMeasure"] as? Swift.Optional<MeasureGrowth?> ?? Swift.Optional<MeasureGrowth?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "growthMeasure")
+    }
+  }
+
+  public var reminders: Swift.Optional<Bool?> {
+    get {
+      return graphQLMap["reminders"] as? Swift.Optional<Bool?> ?? Swift.Optional<Bool?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "reminders")
+    }
+  }
+
+  public var darkTheme: Swift.Optional<Bool?> {
+    get {
+      return graphQLMap["darkTheme"] as? Swift.Optional<Bool?> ?? Swift.Optional<Bool?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "darkTheme")
+    }
+  }
+
+  public var email: Swift.Optional<String?> {
+    get {
+      return graphQLMap["email"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "email")
+    }
+  }
+
+  public var weightMeasure: Swift.Optional<WeightMeasure?> {
+    get {
+      return graphQLMap["weightMeasure"] as? Swift.Optional<WeightMeasure?> ?? Swift.Optional<WeightMeasure?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "weightMeasure")
+    }
   }
 
   public var age: Swift.Optional<Int?> {
@@ -204,123 +321,6 @@ public struct ProfileUpdateInput: GraphQLMapConvertible {
     }
   }
 
-  public var targetWeightMeasure: Swift.Optional<WeightMeasure?> {
-    get {
-      return graphQLMap["targetWeightMeasure"] as? Swift.Optional<WeightMeasure?> ?? Swift.Optional<WeightMeasure?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "targetWeightMeasure")
-    }
-  }
-
-  public var goal: Swift.Optional<GoalType?> {
-    get {
-      return graphQLMap["goal"] as? Swift.Optional<GoalType?> ?? Swift.Optional<GoalType?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "goal")
-    }
-  }
-
-  public var email: Swift.Optional<String?> {
-    get {
-      return graphQLMap["email"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "email")
-    }
-  }
-
-  public var gender: Swift.Optional<GenderType?> {
-    get {
-      return graphQLMap["gender"] as? Swift.Optional<GenderType?> ?? Swift.Optional<GenderType?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "gender")
-    }
-  }
-
-  public var weight: Swift.Optional<Double?> {
-    get {
-      return graphQLMap["weight"] as? Swift.Optional<Double?> ?? Swift.Optional<Double?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "weight")
-    }
-  }
-
-  public var darkTheme: Swift.Optional<Bool?> {
-    get {
-      return graphQLMap["darkTheme"] as? Swift.Optional<Bool?> ?? Swift.Optional<Bool?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "darkTheme")
-    }
-  }
-
-  public var doSport: Swift.Optional<DoSportType?> {
-    get {
-      return graphQLMap["doSport"] as? Swift.Optional<DoSportType?> ?? Swift.Optional<DoSportType?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "doSport")
-    }
-  }
-
-  public var name: Swift.Optional<String?> {
-    get {
-      return graphQLMap["name"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "name")
-    }
-  }
-
-  public var foodGroupId: Swift.Optional<String?> {
-    get {
-      return graphQLMap["foodGroupId"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "foodGroupId")
-    }
-  }
-
-  public var weightMeasure: Swift.Optional<WeightMeasure?> {
-    get {
-      return graphQLMap["weightMeasure"] as? Swift.Optional<WeightMeasure?> ?? Swift.Optional<WeightMeasure?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "weightMeasure")
-    }
-  }
-
-  public var notifications: Swift.Optional<Bool?> {
-    get {
-      return graphQLMap["notifications"] as? Swift.Optional<Bool?> ?? Swift.Optional<Bool?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "notifications")
-    }
-  }
-
-  public var growthMeasure: Swift.Optional<MeasureGrowth?> {
-    get {
-      return graphQLMap["growthMeasure"] as? Swift.Optional<MeasureGrowth?> ?? Swift.Optional<MeasureGrowth?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "growthMeasure")
-    }
-  }
-
-  public var reminders: Swift.Optional<Bool?> {
-    get {
-      return graphQLMap["reminders"] as? Swift.Optional<Bool?> ?? Swift.Optional<Bool?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "reminders")
-    }
-  }
-
   public var growth: Swift.Optional<Int?> {
     get {
       return graphQLMap["growth"] as? Swift.Optional<Int?> ?? Swift.Optional<Int?>.none
@@ -328,91 +328,6 @@ public struct ProfileUpdateInput: GraphQLMapConvertible {
     set {
       graphQLMap.updateValue(newValue, forKey: "growth")
     }
-  }
-}
-
-public enum FitnessPreferenceType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
-  public typealias RawValue = String
-  case fitnessPreferenceTypeLight
-  case fitnessPreferenceTypeProfessional
-  case fitnessPreferenceTypeStrong
-  /// Auto generated constant for unknown enum values
-  case __unknown(RawValue)
-
-  public init?(rawValue: RawValue) {
-    switch rawValue {
-      case "FITNESS_PREFERENCE_TYPE_LIGHT": self = .fitnessPreferenceTypeLight
-      case "FITNESS_PREFERENCE_TYPE_PROFESSIONAL": self = .fitnessPreferenceTypeProfessional
-      case "FITNESS_PREFERENCE_TYPE_STRONG": self = .fitnessPreferenceTypeStrong
-      default: self = .__unknown(rawValue)
-    }
-  }
-
-  public var rawValue: RawValue {
-    switch self {
-      case .fitnessPreferenceTypeLight: return "FITNESS_PREFERENCE_TYPE_LIGHT"
-      case .fitnessPreferenceTypeProfessional: return "FITNESS_PREFERENCE_TYPE_PROFESSIONAL"
-      case .fitnessPreferenceTypeStrong: return "FITNESS_PREFERENCE_TYPE_STRONG"
-      case .__unknown(let value): return value
-    }
-  }
-
-  public static func == (lhs: FitnessPreferenceType, rhs: FitnessPreferenceType) -> Bool {
-    switch (lhs, rhs) {
-      case (.fitnessPreferenceTypeLight, .fitnessPreferenceTypeLight): return true
-      case (.fitnessPreferenceTypeProfessional, .fitnessPreferenceTypeProfessional): return true
-      case (.fitnessPreferenceTypeStrong, .fitnessPreferenceTypeStrong): return true
-      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
-      default: return false
-    }
-  }
-
-  public static var allCases: [FitnessPreferenceType] {
-    return [
-      .fitnessPreferenceTypeLight,
-      .fitnessPreferenceTypeProfessional,
-      .fitnessPreferenceTypeStrong,
-    ]
-  }
-}
-
-public enum WeightMeasure: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
-  public typealias RawValue = String
-  case weightMeasureTypeKg
-  case weightMeasureTypeLb
-  /// Auto generated constant for unknown enum values
-  case __unknown(RawValue)
-
-  public init?(rawValue: RawValue) {
-    switch rawValue {
-      case "WEIGHT_MEASURE_TYPE_KG": self = .weightMeasureTypeKg
-      case "WEIGHT_MEASURE_TYPE_LB": self = .weightMeasureTypeLb
-      default: self = .__unknown(rawValue)
-    }
-  }
-
-  public var rawValue: RawValue {
-    switch self {
-      case .weightMeasureTypeKg: return "WEIGHT_MEASURE_TYPE_KG"
-      case .weightMeasureTypeLb: return "WEIGHT_MEASURE_TYPE_LB"
-      case .__unknown(let value): return value
-    }
-  }
-
-  public static func == (lhs: WeightMeasure, rhs: WeightMeasure) -> Bool {
-    switch (lhs, rhs) {
-      case (.weightMeasureTypeKg, .weightMeasureTypeKg): return true
-      case (.weightMeasureTypeLb, .weightMeasureTypeLb): return true
-      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
-      default: return false
-    }
-  }
-
-  public static var allCases: [WeightMeasure] {
-    return [
-      .weightMeasureTypeKg,
-      .weightMeasureTypeLb,
-    ]
   }
 }
 
@@ -466,37 +381,77 @@ public enum GoalType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
   }
 }
 
-public enum GenderType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+public enum WeightMeasure: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
-  case genderTypeWoman
-  case genderTypeCommon
-  case genderTypeMan
+  case weightMeasureTypeLb
+  case weightMeasureTypeKg
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
   public init?(rawValue: RawValue) {
     switch rawValue {
-      case "GENDER_TYPE_WOMAN": self = .genderTypeWoman
-      case "GENDER_TYPE_COMMON": self = .genderTypeCommon
-      case "GENDER_TYPE_MAN": self = .genderTypeMan
+      case "WEIGHT_MEASURE_TYPE_LB": self = .weightMeasureTypeLb
+      case "WEIGHT_MEASURE_TYPE_KG": self = .weightMeasureTypeKg
       default: self = .__unknown(rawValue)
     }
   }
 
   public var rawValue: RawValue {
     switch self {
-      case .genderTypeWoman: return "GENDER_TYPE_WOMAN"
+      case .weightMeasureTypeLb: return "WEIGHT_MEASURE_TYPE_LB"
+      case .weightMeasureTypeKg: return "WEIGHT_MEASURE_TYPE_KG"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: WeightMeasure, rhs: WeightMeasure) -> Bool {
+    switch (lhs, rhs) {
+      case (.weightMeasureTypeLb, .weightMeasureTypeLb): return true
+      case (.weightMeasureTypeKg, .weightMeasureTypeKg): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [WeightMeasure] {
+    return [
+      .weightMeasureTypeLb,
+      .weightMeasureTypeKg,
+    ]
+  }
+}
+
+public enum GenderType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case genderTypeCommon
+  case genderTypeMan
+  case genderTypeWoman
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "GENDER_TYPE_COMMON": self = .genderTypeCommon
+      case "GENDER_TYPE_MAN": self = .genderTypeMan
+      case "GENDER_TYPE_WOMAN": self = .genderTypeWoman
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
       case .genderTypeCommon: return "GENDER_TYPE_COMMON"
       case .genderTypeMan: return "GENDER_TYPE_MAN"
+      case .genderTypeWoman: return "GENDER_TYPE_WOMAN"
       case .__unknown(let value): return value
     }
   }
 
   public static func == (lhs: GenderType, rhs: GenderType) -> Bool {
     switch (lhs, rhs) {
-      case (.genderTypeWoman, .genderTypeWoman): return true
       case (.genderTypeCommon, .genderTypeCommon): return true
       case (.genderTypeMan, .genderTypeMan): return true
+      case (.genderTypeWoman, .genderTypeWoman): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -504,48 +459,48 @@ public enum GenderType: RawRepresentable, Equatable, Hashable, CaseIterable, Apo
 
   public static var allCases: [GenderType] {
     return [
-      .genderTypeWoman,
       .genderTypeCommon,
       .genderTypeMan,
+      .genderTypeWoman,
     ]
   }
 }
 
 public enum DoSportType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
-  case doSportTypeNot
-  case doSportTypeProfessional
   case doSportTypeRegular
   case doSportTypeNewbie
+  case doSportTypeNot
+  case doSportTypeProfessional
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
   public init?(rawValue: RawValue) {
     switch rawValue {
-      case "DO_SPORT_TYPE_NOT": self = .doSportTypeNot
-      case "DO_SPORT_TYPE_PROFESSIONAL": self = .doSportTypeProfessional
       case "DO_SPORT_TYPE_REGULAR": self = .doSportTypeRegular
       case "DO_SPORT_TYPE_NEWBIE": self = .doSportTypeNewbie
+      case "DO_SPORT_TYPE_NOT": self = .doSportTypeNot
+      case "DO_SPORT_TYPE_PROFESSIONAL": self = .doSportTypeProfessional
       default: self = .__unknown(rawValue)
     }
   }
 
   public var rawValue: RawValue {
     switch self {
-      case .doSportTypeNot: return "DO_SPORT_TYPE_NOT"
-      case .doSportTypeProfessional: return "DO_SPORT_TYPE_PROFESSIONAL"
       case .doSportTypeRegular: return "DO_SPORT_TYPE_REGULAR"
       case .doSportTypeNewbie: return "DO_SPORT_TYPE_NEWBIE"
+      case .doSportTypeNot: return "DO_SPORT_TYPE_NOT"
+      case .doSportTypeProfessional: return "DO_SPORT_TYPE_PROFESSIONAL"
       case .__unknown(let value): return value
     }
   }
 
   public static func == (lhs: DoSportType, rhs: DoSportType) -> Bool {
     switch (lhs, rhs) {
-      case (.doSportTypeNot, .doSportTypeNot): return true
-      case (.doSportTypeProfessional, .doSportTypeProfessional): return true
       case (.doSportTypeRegular, .doSportTypeRegular): return true
       case (.doSportTypeNewbie, .doSportTypeNewbie): return true
+      case (.doSportTypeNot, .doSportTypeNot): return true
+      case (.doSportTypeProfessional, .doSportTypeProfessional): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -553,10 +508,10 @@ public enum DoSportType: RawRepresentable, Equatable, Hashable, CaseIterable, Ap
 
   public static var allCases: [DoSportType] {
     return [
-      .doSportTypeNot,
-      .doSportTypeProfessional,
       .doSportTypeRegular,
       .doSportTypeNewbie,
+      .doSportTypeNot,
+      .doSportTypeProfessional,
     ]
   }
 }
@@ -597,6 +552,51 @@ public enum MeasureGrowth: RawRepresentable, Equatable, Hashable, CaseIterable, 
     return [
       .measureGrowthTypeFt,
       .measureGrowthTypeSm,
+    ]
+  }
+}
+
+public enum FitnessPreferenceType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case fitnessPreferenceTypeLight
+  case fitnessPreferenceTypeProfessional
+  case fitnessPreferenceTypeStrong
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "FITNESS_PREFERENCE_TYPE_LIGHT": self = .fitnessPreferenceTypeLight
+      case "FITNESS_PREFERENCE_TYPE_PROFESSIONAL": self = .fitnessPreferenceTypeProfessional
+      case "FITNESS_PREFERENCE_TYPE_STRONG": self = .fitnessPreferenceTypeStrong
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .fitnessPreferenceTypeLight: return "FITNESS_PREFERENCE_TYPE_LIGHT"
+      case .fitnessPreferenceTypeProfessional: return "FITNESS_PREFERENCE_TYPE_PROFESSIONAL"
+      case .fitnessPreferenceTypeStrong: return "FITNESS_PREFERENCE_TYPE_STRONG"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: FitnessPreferenceType, rhs: FitnessPreferenceType) -> Bool {
+    switch (lhs, rhs) {
+      case (.fitnessPreferenceTypeLight, .fitnessPreferenceTypeLight): return true
+      case (.fitnessPreferenceTypeProfessional, .fitnessPreferenceTypeProfessional): return true
+      case (.fitnessPreferenceTypeStrong, .fitnessPreferenceTypeStrong): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [FitnessPreferenceType] {
+    return [
+      .fitnessPreferenceTypeLight,
+      .fitnessPreferenceTypeProfessional,
+      .fitnessPreferenceTypeStrong,
     ]
   }
 }
@@ -817,31 +817,31 @@ public enum SourceEntityType: RawRepresentable, Equatable, Hashable, CaseIterabl
 
 public enum ProductMeasure: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
-  case productMeasureTypePcs
   case productMeasureTypeGram
+  case productMeasureTypePcs
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
   public init?(rawValue: RawValue) {
     switch rawValue {
-      case "PRODUCT_MEASURE_TYPE_PCS": self = .productMeasureTypePcs
       case "PRODUCT_MEASURE_TYPE_GRAM": self = .productMeasureTypeGram
+      case "PRODUCT_MEASURE_TYPE_PCS": self = .productMeasureTypePcs
       default: self = .__unknown(rawValue)
     }
   }
 
   public var rawValue: RawValue {
     switch self {
-      case .productMeasureTypePcs: return "PRODUCT_MEASURE_TYPE_PCS"
       case .productMeasureTypeGram: return "PRODUCT_MEASURE_TYPE_GRAM"
+      case .productMeasureTypePcs: return "PRODUCT_MEASURE_TYPE_PCS"
       case .__unknown(let value): return value
     }
   }
 
   public static func == (lhs: ProductMeasure, rhs: ProductMeasure) -> Bool {
     switch (lhs, rhs) {
-      case (.productMeasureTypePcs, .productMeasureTypePcs): return true
       case (.productMeasureTypeGram, .productMeasureTypeGram): return true
+      case (.productMeasureTypePcs, .productMeasureTypePcs): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -849,8 +849,8 @@ public enum ProductMeasure: RawRepresentable, Equatable, Hashable, CaseIterable,
 
   public static var allCases: [ProductMeasure] {
     return [
-      .productMeasureTypePcs,
       .productMeasureTypeGram,
+      .productMeasureTypePcs,
     ]
   }
 }
@@ -5026,6 +5026,769 @@ public final class RecommendProductsQuery: GraphQLQuery {
   }
 }
 
+public final class RecommendWorkoutsQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query RecommendWorkouts {
+      recommendWorkouts {
+        __typename
+        ExerciseGroups {
+          __typename
+          Exercises {
+            __typename
+            Image {
+              __typename
+              id
+              urlIosFull
+            }
+            Video {
+              __typename
+              id
+              url
+            }
+            description
+            duration {
+              __typename
+              hours
+              minutes
+              seconds
+            }
+            id
+            isFinished
+            isRest
+            title
+          }
+          id
+          title
+        }
+        Image {
+          __typename
+          id
+          urlIosFull
+        }
+        Muscles {
+          __typename
+          id
+          isToggled
+          name
+        }
+        description
+        duration {
+          __typename
+          hours
+          minutes
+          seconds
+        }
+        energy
+        energyTotal
+        id
+        isAvailable
+        isFinished
+        kCal
+        title
+        totalExercises
+        totalFinishedExercises
+      }
+    }
+    """
+
+  public let operationName: String = "RecommendWorkouts"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("recommendWorkouts", type: .nonNull(.list(.nonNull(.object(RecommendWorkout.selections))))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(recommendWorkouts: [RecommendWorkout]) {
+      self.init(unsafeResultMap: ["__typename": "Query", "recommendWorkouts": recommendWorkouts.map { (value: RecommendWorkout) -> ResultMap in value.resultMap }])
+    }
+
+    public var recommendWorkouts: [RecommendWorkout] {
+      get {
+        return (resultMap["recommendWorkouts"] as! [ResultMap]).map { (value: ResultMap) -> RecommendWorkout in RecommendWorkout(unsafeResultMap: value) }
+      }
+      set {
+        resultMap.updateValue(newValue.map { (value: RecommendWorkout) -> ResultMap in value.resultMap }, forKey: "recommendWorkouts")
+      }
+    }
+
+    public struct RecommendWorkout: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Workout"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("ExerciseGroups", type: .nonNull(.list(.nonNull(.object(ExerciseGroup.selections))))),
+          GraphQLField("Image", type: .nonNull(.object(Image.selections))),
+          GraphQLField("Muscles", type: .nonNull(.list(.nonNull(.object(Muscle.selections))))),
+          GraphQLField("description", type: .nonNull(.scalar(String.self))),
+          GraphQLField("duration", type: .nonNull(.object(Duration.selections))),
+          GraphQLField("energy", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("energyTotal", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("isAvailable", type: .nonNull(.scalar(Bool.self))),
+          GraphQLField("isFinished", type: .nonNull(.scalar(Bool.self))),
+          GraphQLField("kCal", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("title", type: .nonNull(.scalar(String.self))),
+          GraphQLField("totalExercises", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("totalFinishedExercises", type: .nonNull(.scalar(Int.self))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(exerciseGroups: [ExerciseGroup], image: Image, muscles: [Muscle], description: String, duration: Duration, energy: Int, energyTotal: Int, id: GraphQLID, isAvailable: Bool, isFinished: Bool, kCal: Int, title: String, totalExercises: Int, totalFinishedExercises: Int) {
+        self.init(unsafeResultMap: ["__typename": "Workout", "ExerciseGroups": exerciseGroups.map { (value: ExerciseGroup) -> ResultMap in value.resultMap }, "Image": image.resultMap, "Muscles": muscles.map { (value: Muscle) -> ResultMap in value.resultMap }, "description": description, "duration": duration.resultMap, "energy": energy, "energyTotal": energyTotal, "id": id, "isAvailable": isAvailable, "isFinished": isFinished, "kCal": kCal, "title": title, "totalExercises": totalExercises, "totalFinishedExercises": totalFinishedExercises])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var exerciseGroups: [ExerciseGroup] {
+        get {
+          return (resultMap["ExerciseGroups"] as! [ResultMap]).map { (value: ResultMap) -> ExerciseGroup in ExerciseGroup(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: ExerciseGroup) -> ResultMap in value.resultMap }, forKey: "ExerciseGroups")
+        }
+      }
+
+      public var image: Image {
+        get {
+          return Image(unsafeResultMap: resultMap["Image"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "Image")
+        }
+      }
+
+      public var muscles: [Muscle] {
+        get {
+          return (resultMap["Muscles"] as! [ResultMap]).map { (value: ResultMap) -> Muscle in Muscle(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: Muscle) -> ResultMap in value.resultMap }, forKey: "Muscles")
+        }
+      }
+
+      public var description: String {
+        get {
+          return resultMap["description"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "description")
+        }
+      }
+
+      public var duration: Duration {
+        get {
+          return Duration(unsafeResultMap: resultMap["duration"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "duration")
+        }
+      }
+
+      public var energy: Int {
+        get {
+          return resultMap["energy"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "energy")
+        }
+      }
+
+      public var energyTotal: Int {
+        get {
+          return resultMap["energyTotal"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "energyTotal")
+        }
+      }
+
+      public var id: GraphQLID {
+        get {
+          return resultMap["id"]! as! GraphQLID
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var isAvailable: Bool {
+        get {
+          return resultMap["isAvailable"]! as! Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "isAvailable")
+        }
+      }
+
+      public var isFinished: Bool {
+        get {
+          return resultMap["isFinished"]! as! Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "isFinished")
+        }
+      }
+
+      public var kCal: Int {
+        get {
+          return resultMap["kCal"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "kCal")
+        }
+      }
+
+      public var title: String {
+        get {
+          return resultMap["title"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "title")
+        }
+      }
+
+      public var totalExercises: Int {
+        get {
+          return resultMap["totalExercises"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "totalExercises")
+        }
+      }
+
+      public var totalFinishedExercises: Int {
+        get {
+          return resultMap["totalFinishedExercises"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "totalFinishedExercises")
+        }
+      }
+
+      public struct ExerciseGroup: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["ExerciseGroup"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("Exercises", type: .nonNull(.list(.nonNull(.object(Exercise.selections))))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+            GraphQLField("title", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(exercises: [Exercise], id: GraphQLID, title: String) {
+          self.init(unsafeResultMap: ["__typename": "ExerciseGroup", "Exercises": exercises.map { (value: Exercise) -> ResultMap in value.resultMap }, "id": id, "title": title])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var exercises: [Exercise] {
+          get {
+            return (resultMap["Exercises"] as! [ResultMap]).map { (value: ResultMap) -> Exercise in Exercise(unsafeResultMap: value) }
+          }
+          set {
+            resultMap.updateValue(newValue.map { (value: Exercise) -> ResultMap in value.resultMap }, forKey: "Exercises")
+          }
+        }
+
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var title: String {
+          get {
+            return resultMap["title"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "title")
+          }
+        }
+
+        public struct Exercise: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Exercise"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("Image", type: .nonNull(.object(Image.selections))),
+              GraphQLField("Video", type: .nonNull(.object(Video.selections))),
+              GraphQLField("description", type: .nonNull(.scalar(String.self))),
+              GraphQLField("duration", type: .nonNull(.object(Duration.selections))),
+              GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+              GraphQLField("isFinished", type: .nonNull(.scalar(Bool.self))),
+              GraphQLField("isRest", type: .nonNull(.scalar(Bool.self))),
+              GraphQLField("title", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(image: Image, video: Video, description: String, duration: Duration, id: GraphQLID, isFinished: Bool, isRest: Bool, title: String) {
+            self.init(unsafeResultMap: ["__typename": "Exercise", "Image": image.resultMap, "Video": video.resultMap, "description": description, "duration": duration.resultMap, "id": id, "isFinished": isFinished, "isRest": isRest, "title": title])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var image: Image {
+            get {
+              return Image(unsafeResultMap: resultMap["Image"]! as! ResultMap)
+            }
+            set {
+              resultMap.updateValue(newValue.resultMap, forKey: "Image")
+            }
+          }
+
+          public var video: Video {
+            get {
+              return Video(unsafeResultMap: resultMap["Video"]! as! ResultMap)
+            }
+            set {
+              resultMap.updateValue(newValue.resultMap, forKey: "Video")
+            }
+          }
+
+          public var description: String {
+            get {
+              return resultMap["description"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "description")
+            }
+          }
+
+          public var duration: Duration {
+            get {
+              return Duration(unsafeResultMap: resultMap["duration"]! as! ResultMap)
+            }
+            set {
+              resultMap.updateValue(newValue.resultMap, forKey: "duration")
+            }
+          }
+
+          public var id: GraphQLID {
+            get {
+              return resultMap["id"]! as! GraphQLID
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "id")
+            }
+          }
+
+          public var isFinished: Bool {
+            get {
+              return resultMap["isFinished"]! as! Bool
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "isFinished")
+            }
+          }
+
+          public var isRest: Bool {
+            get {
+              return resultMap["isRest"]! as! Bool
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "isRest")
+            }
+          }
+
+          public var title: String {
+            get {
+              return resultMap["title"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "title")
+            }
+          }
+
+          public struct Image: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Image"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("id", type: .scalar(GraphQLID.self)),
+                GraphQLField("urlIosFull", type: .scalar(String.self)),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(id: GraphQLID? = nil, urlIosFull: String? = nil) {
+              self.init(unsafeResultMap: ["__typename": "Image", "id": id, "urlIosFull": urlIosFull])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var id: GraphQLID? {
+              get {
+                return resultMap["id"] as? GraphQLID
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "id")
+              }
+            }
+
+            public var urlIosFull: String? {
+              get {
+                return resultMap["urlIosFull"] as? String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "urlIosFull")
+              }
+            }
+          }
+
+          public struct Video: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Video"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("id", type: .scalar(GraphQLID.self)),
+                GraphQLField("url", type: .scalar(String.self)),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(id: GraphQLID? = nil, url: String? = nil) {
+              self.init(unsafeResultMap: ["__typename": "Video", "id": id, "url": url])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var id: GraphQLID? {
+              get {
+                return resultMap["id"] as? GraphQLID
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "id")
+              }
+            }
+
+            public var url: String? {
+              get {
+                return resultMap["url"] as? String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "url")
+              }
+            }
+          }
+
+          public struct Duration: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["IntervalRepresentation"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("hours", type: .scalar(Int.self)),
+                GraphQLField("minutes", type: .scalar(Int.self)),
+                GraphQLField("seconds", type: .scalar(Int.self)),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil) {
+              self.init(unsafeResultMap: ["__typename": "IntervalRepresentation", "hours": hours, "minutes": minutes, "seconds": seconds])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var hours: Int? {
+              get {
+                return resultMap["hours"] as? Int
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "hours")
+              }
+            }
+
+            public var minutes: Int? {
+              get {
+                return resultMap["minutes"] as? Int
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "minutes")
+              }
+            }
+
+            public var seconds: Int? {
+              get {
+                return resultMap["seconds"] as? Int
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "seconds")
+              }
+            }
+          }
+        }
+      }
+
+      public struct Image: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Image"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .scalar(GraphQLID.self)),
+            GraphQLField("urlIosFull", type: .scalar(String.self)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID? = nil, urlIosFull: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Image", "id": id, "urlIosFull": urlIosFull])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID? {
+          get {
+            return resultMap["id"] as? GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var urlIosFull: String? {
+          get {
+            return resultMap["urlIosFull"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "urlIosFull")
+          }
+        }
+      }
+
+      public struct Muscle: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Muscle"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+            GraphQLField("isToggled", type: .nonNull(.scalar(Bool.self))),
+            GraphQLField("name", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID, isToggled: Bool, name: String) {
+          self.init(unsafeResultMap: ["__typename": "Muscle", "id": id, "isToggled": isToggled, "name": name])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var isToggled: Bool {
+          get {
+            return resultMap["isToggled"]! as! Bool
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "isToggled")
+          }
+        }
+
+        public var name: String {
+          get {
+            return resultMap["name"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "name")
+          }
+        }
+      }
+
+      public struct Duration: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["IntervalRepresentation"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("hours", type: .scalar(Int.self)),
+            GraphQLField("minutes", type: .scalar(Int.self)),
+            GraphQLField("seconds", type: .scalar(Int.self)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil) {
+          self.init(unsafeResultMap: ["__typename": "IntervalRepresentation", "hours": hours, "minutes": minutes, "seconds": seconds])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var hours: Int? {
+          get {
+            return resultMap["hours"] as? Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "hours")
+          }
+        }
+
+        public var minutes: Int? {
+          get {
+            return resultMap["minutes"] as? Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "minutes")
+          }
+        }
+
+        public var seconds: Int? {
+          get {
+            return resultMap["seconds"] as? Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "seconds")
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class SaveWeightWidgetQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -6367,6 +7130,919 @@ public final class WorkoutByIdQuery: GraphQLQuery {
   }
 }
 
+public final class WorkoutsQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query Workouts($categoryIds: [String], $difficulty: WorkoutDifficulty, $muscleIds: [String], $durationFrom: Int, $durationTo: Int) {
+      workouts(
+        categoryIds: $categoryIds
+        difficulty: $difficulty
+        muscleIds: $muscleIds
+        durationFrom: $durationFrom
+        durationTo: $durationTo
+      ) {
+        __typename
+        Pagination {
+          __typename
+          nextPageExists
+          previousPageExists
+          total
+          totalPages
+        }
+        Workouts {
+          __typename
+          ExerciseGroups {
+            __typename
+            Exercises {
+              __typename
+              Image {
+                __typename
+                id
+                urlIosFull
+              }
+              Video {
+                __typename
+                id
+                url
+              }
+              description
+              duration {
+                __typename
+                hours
+                minutes
+                seconds
+              }
+              id
+              isFinished
+              isRest
+              title
+            }
+            id
+            title
+          }
+          Image {
+            __typename
+            id
+            urlIosFull
+          }
+          Muscles {
+            __typename
+            id
+            isToggled
+            name
+          }
+          description
+          duration {
+            __typename
+            hours
+            minutes
+            seconds
+          }
+          energy
+          energyTotal
+          id
+          isAvailable
+          isFinished
+          kCal
+          title
+          totalExercises
+          totalFinishedExercises
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "Workouts"
+
+  public var categoryIds: [String?]?
+  public var difficulty: WorkoutDifficulty?
+  public var muscleIds: [String?]?
+  public var durationFrom: Int?
+  public var durationTo: Int?
+
+  public init(categoryIds: [String?]? = nil, difficulty: WorkoutDifficulty? = nil, muscleIds: [String?]? = nil, durationFrom: Int? = nil, durationTo: Int? = nil) {
+    self.categoryIds = categoryIds
+    self.difficulty = difficulty
+    self.muscleIds = muscleIds
+    self.durationFrom = durationFrom
+    self.durationTo = durationTo
+  }
+
+  public var variables: GraphQLMap? {
+    return ["categoryIds": categoryIds, "difficulty": difficulty, "muscleIds": muscleIds, "durationFrom": durationFrom, "durationTo": durationTo]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("workouts", arguments: ["categoryIds": GraphQLVariable("categoryIds"), "difficulty": GraphQLVariable("difficulty"), "muscleIds": GraphQLVariable("muscleIds"), "durationFrom": GraphQLVariable("durationFrom"), "durationTo": GraphQLVariable("durationTo")], type: .nonNull(.object(Workout.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(workouts: Workout) {
+      self.init(unsafeResultMap: ["__typename": "Query", "workouts": workouts.resultMap])
+    }
+
+    /// Получение списка всех воркаутов с фильтром
+    public var workouts: Workout {
+      get {
+        return Workout(unsafeResultMap: resultMap["workouts"]! as! ResultMap)
+      }
+      set {
+        resultMap.updateValue(newValue.resultMap, forKey: "workouts")
+      }
+    }
+
+    public struct Workout: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["WorkoutsResponse"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("Pagination", type: .object(Pagination.selections)),
+          GraphQLField("Workouts", type: .nonNull(.list(.nonNull(.object(Workout.selections))))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(pagination: Pagination? = nil, workouts: [Workout]) {
+        self.init(unsafeResultMap: ["__typename": "WorkoutsResponse", "Pagination": pagination.flatMap { (value: Pagination) -> ResultMap in value.resultMap }, "Workouts": workouts.map { (value: Workout) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var pagination: Pagination? {
+        get {
+          return (resultMap["Pagination"] as? ResultMap).flatMap { Pagination(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "Pagination")
+        }
+      }
+
+      public var workouts: [Workout] {
+        get {
+          return (resultMap["Workouts"] as! [ResultMap]).map { (value: ResultMap) -> Workout in Workout(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: Workout) -> ResultMap in value.resultMap }, forKey: "Workouts")
+        }
+      }
+
+      public struct Pagination: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Pagination"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("nextPageExists", type: .scalar(Bool.self)),
+            GraphQLField("previousPageExists", type: .scalar(Bool.self)),
+            GraphQLField("total", type: .scalar(Int.self)),
+            GraphQLField("totalPages", type: .scalar(Int.self)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(nextPageExists: Bool? = nil, previousPageExists: Bool? = nil, total: Int? = nil, totalPages: Int? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Pagination", "nextPageExists": nextPageExists, "previousPageExists": previousPageExists, "total": total, "totalPages": totalPages])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var nextPageExists: Bool? {
+          get {
+            return resultMap["nextPageExists"] as? Bool
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "nextPageExists")
+          }
+        }
+
+        public var previousPageExists: Bool? {
+          get {
+            return resultMap["previousPageExists"] as? Bool
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "previousPageExists")
+          }
+        }
+
+        public var total: Int? {
+          get {
+            return resultMap["total"] as? Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "total")
+          }
+        }
+
+        public var totalPages: Int? {
+          get {
+            return resultMap["totalPages"] as? Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "totalPages")
+          }
+        }
+      }
+
+      public struct Workout: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Workout"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("ExerciseGroups", type: .nonNull(.list(.nonNull(.object(ExerciseGroup.selections))))),
+            GraphQLField("Image", type: .nonNull(.object(Image.selections))),
+            GraphQLField("Muscles", type: .nonNull(.list(.nonNull(.object(Muscle.selections))))),
+            GraphQLField("description", type: .nonNull(.scalar(String.self))),
+            GraphQLField("duration", type: .nonNull(.object(Duration.selections))),
+            GraphQLField("energy", type: .nonNull(.scalar(Int.self))),
+            GraphQLField("energyTotal", type: .nonNull(.scalar(Int.self))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+            GraphQLField("isAvailable", type: .nonNull(.scalar(Bool.self))),
+            GraphQLField("isFinished", type: .nonNull(.scalar(Bool.self))),
+            GraphQLField("kCal", type: .nonNull(.scalar(Int.self))),
+            GraphQLField("title", type: .nonNull(.scalar(String.self))),
+            GraphQLField("totalExercises", type: .nonNull(.scalar(Int.self))),
+            GraphQLField("totalFinishedExercises", type: .nonNull(.scalar(Int.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(exerciseGroups: [ExerciseGroup], image: Image, muscles: [Muscle], description: String, duration: Duration, energy: Int, energyTotal: Int, id: GraphQLID, isAvailable: Bool, isFinished: Bool, kCal: Int, title: String, totalExercises: Int, totalFinishedExercises: Int) {
+          self.init(unsafeResultMap: ["__typename": "Workout", "ExerciseGroups": exerciseGroups.map { (value: ExerciseGroup) -> ResultMap in value.resultMap }, "Image": image.resultMap, "Muscles": muscles.map { (value: Muscle) -> ResultMap in value.resultMap }, "description": description, "duration": duration.resultMap, "energy": energy, "energyTotal": energyTotal, "id": id, "isAvailable": isAvailable, "isFinished": isFinished, "kCal": kCal, "title": title, "totalExercises": totalExercises, "totalFinishedExercises": totalFinishedExercises])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var exerciseGroups: [ExerciseGroup] {
+          get {
+            return (resultMap["ExerciseGroups"] as! [ResultMap]).map { (value: ResultMap) -> ExerciseGroup in ExerciseGroup(unsafeResultMap: value) }
+          }
+          set {
+            resultMap.updateValue(newValue.map { (value: ExerciseGroup) -> ResultMap in value.resultMap }, forKey: "ExerciseGroups")
+          }
+        }
+
+        public var image: Image {
+          get {
+            return Image(unsafeResultMap: resultMap["Image"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "Image")
+          }
+        }
+
+        public var muscles: [Muscle] {
+          get {
+            return (resultMap["Muscles"] as! [ResultMap]).map { (value: ResultMap) -> Muscle in Muscle(unsafeResultMap: value) }
+          }
+          set {
+            resultMap.updateValue(newValue.map { (value: Muscle) -> ResultMap in value.resultMap }, forKey: "Muscles")
+          }
+        }
+
+        public var description: String {
+          get {
+            return resultMap["description"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "description")
+          }
+        }
+
+        public var duration: Duration {
+          get {
+            return Duration(unsafeResultMap: resultMap["duration"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "duration")
+          }
+        }
+
+        public var energy: Int {
+          get {
+            return resultMap["energy"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "energy")
+          }
+        }
+
+        public var energyTotal: Int {
+          get {
+            return resultMap["energyTotal"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "energyTotal")
+          }
+        }
+
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var isAvailable: Bool {
+          get {
+            return resultMap["isAvailable"]! as! Bool
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "isAvailable")
+          }
+        }
+
+        public var isFinished: Bool {
+          get {
+            return resultMap["isFinished"]! as! Bool
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "isFinished")
+          }
+        }
+
+        public var kCal: Int {
+          get {
+            return resultMap["kCal"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "kCal")
+          }
+        }
+
+        public var title: String {
+          get {
+            return resultMap["title"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "title")
+          }
+        }
+
+        public var totalExercises: Int {
+          get {
+            return resultMap["totalExercises"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "totalExercises")
+          }
+        }
+
+        public var totalFinishedExercises: Int {
+          get {
+            return resultMap["totalFinishedExercises"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "totalFinishedExercises")
+          }
+        }
+
+        public struct ExerciseGroup: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["ExerciseGroup"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("Exercises", type: .nonNull(.list(.nonNull(.object(Exercise.selections))))),
+              GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+              GraphQLField("title", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(exercises: [Exercise], id: GraphQLID, title: String) {
+            self.init(unsafeResultMap: ["__typename": "ExerciseGroup", "Exercises": exercises.map { (value: Exercise) -> ResultMap in value.resultMap }, "id": id, "title": title])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var exercises: [Exercise] {
+            get {
+              return (resultMap["Exercises"] as! [ResultMap]).map { (value: ResultMap) -> Exercise in Exercise(unsafeResultMap: value) }
+            }
+            set {
+              resultMap.updateValue(newValue.map { (value: Exercise) -> ResultMap in value.resultMap }, forKey: "Exercises")
+            }
+          }
+
+          public var id: GraphQLID {
+            get {
+              return resultMap["id"]! as! GraphQLID
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "id")
+            }
+          }
+
+          public var title: String {
+            get {
+              return resultMap["title"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "title")
+            }
+          }
+
+          public struct Exercise: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Exercise"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("Image", type: .nonNull(.object(Image.selections))),
+                GraphQLField("Video", type: .nonNull(.object(Video.selections))),
+                GraphQLField("description", type: .nonNull(.scalar(String.self))),
+                GraphQLField("duration", type: .nonNull(.object(Duration.selections))),
+                GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+                GraphQLField("isFinished", type: .nonNull(.scalar(Bool.self))),
+                GraphQLField("isRest", type: .nonNull(.scalar(Bool.self))),
+                GraphQLField("title", type: .nonNull(.scalar(String.self))),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(image: Image, video: Video, description: String, duration: Duration, id: GraphQLID, isFinished: Bool, isRest: Bool, title: String) {
+              self.init(unsafeResultMap: ["__typename": "Exercise", "Image": image.resultMap, "Video": video.resultMap, "description": description, "duration": duration.resultMap, "id": id, "isFinished": isFinished, "isRest": isRest, "title": title])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var image: Image {
+              get {
+                return Image(unsafeResultMap: resultMap["Image"]! as! ResultMap)
+              }
+              set {
+                resultMap.updateValue(newValue.resultMap, forKey: "Image")
+              }
+            }
+
+            public var video: Video {
+              get {
+                return Video(unsafeResultMap: resultMap["Video"]! as! ResultMap)
+              }
+              set {
+                resultMap.updateValue(newValue.resultMap, forKey: "Video")
+              }
+            }
+
+            public var description: String {
+              get {
+                return resultMap["description"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "description")
+              }
+            }
+
+            public var duration: Duration {
+              get {
+                return Duration(unsafeResultMap: resultMap["duration"]! as! ResultMap)
+              }
+              set {
+                resultMap.updateValue(newValue.resultMap, forKey: "duration")
+              }
+            }
+
+            public var id: GraphQLID {
+              get {
+                return resultMap["id"]! as! GraphQLID
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "id")
+              }
+            }
+
+            public var isFinished: Bool {
+              get {
+                return resultMap["isFinished"]! as! Bool
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "isFinished")
+              }
+            }
+
+            public var isRest: Bool {
+              get {
+                return resultMap["isRest"]! as! Bool
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "isRest")
+              }
+            }
+
+            public var title: String {
+              get {
+                return resultMap["title"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "title")
+              }
+            }
+
+            public struct Image: GraphQLSelectionSet {
+              public static let possibleTypes: [String] = ["Image"]
+
+              public static var selections: [GraphQLSelection] {
+                return [
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("id", type: .scalar(GraphQLID.self)),
+                  GraphQLField("urlIosFull", type: .scalar(String.self)),
+                ]
+              }
+
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public init(id: GraphQLID? = nil, urlIosFull: String? = nil) {
+                self.init(unsafeResultMap: ["__typename": "Image", "id": id, "urlIosFull": urlIosFull])
+              }
+
+              public var __typename: String {
+                get {
+                  return resultMap["__typename"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              public var id: GraphQLID? {
+                get {
+                  return resultMap["id"] as? GraphQLID
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "id")
+                }
+              }
+
+              public var urlIosFull: String? {
+                get {
+                  return resultMap["urlIosFull"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "urlIosFull")
+                }
+              }
+            }
+
+            public struct Video: GraphQLSelectionSet {
+              public static let possibleTypes: [String] = ["Video"]
+
+              public static var selections: [GraphQLSelection] {
+                return [
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("id", type: .scalar(GraphQLID.self)),
+                  GraphQLField("url", type: .scalar(String.self)),
+                ]
+              }
+
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public init(id: GraphQLID? = nil, url: String? = nil) {
+                self.init(unsafeResultMap: ["__typename": "Video", "id": id, "url": url])
+              }
+
+              public var __typename: String {
+                get {
+                  return resultMap["__typename"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              public var id: GraphQLID? {
+                get {
+                  return resultMap["id"] as? GraphQLID
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "id")
+                }
+              }
+
+              public var url: String? {
+                get {
+                  return resultMap["url"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "url")
+                }
+              }
+            }
+
+            public struct Duration: GraphQLSelectionSet {
+              public static let possibleTypes: [String] = ["IntervalRepresentation"]
+
+              public static var selections: [GraphQLSelection] {
+                return [
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("hours", type: .scalar(Int.self)),
+                  GraphQLField("minutes", type: .scalar(Int.self)),
+                  GraphQLField("seconds", type: .scalar(Int.self)),
+                ]
+              }
+
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public init(hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil) {
+                self.init(unsafeResultMap: ["__typename": "IntervalRepresentation", "hours": hours, "minutes": minutes, "seconds": seconds])
+              }
+
+              public var __typename: String {
+                get {
+                  return resultMap["__typename"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              public var hours: Int? {
+                get {
+                  return resultMap["hours"] as? Int
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "hours")
+                }
+              }
+
+              public var minutes: Int? {
+                get {
+                  return resultMap["minutes"] as? Int
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "minutes")
+                }
+              }
+
+              public var seconds: Int? {
+                get {
+                  return resultMap["seconds"] as? Int
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "seconds")
+                }
+              }
+            }
+          }
+        }
+
+        public struct Image: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Image"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("id", type: .scalar(GraphQLID.self)),
+              GraphQLField("urlIosFull", type: .scalar(String.self)),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(id: GraphQLID? = nil, urlIosFull: String? = nil) {
+            self.init(unsafeResultMap: ["__typename": "Image", "id": id, "urlIosFull": urlIosFull])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var id: GraphQLID? {
+            get {
+              return resultMap["id"] as? GraphQLID
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "id")
+            }
+          }
+
+          public var urlIosFull: String? {
+            get {
+              return resultMap["urlIosFull"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "urlIosFull")
+            }
+          }
+        }
+
+        public struct Muscle: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Muscle"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+              GraphQLField("isToggled", type: .nonNull(.scalar(Bool.self))),
+              GraphQLField("name", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(id: GraphQLID, isToggled: Bool, name: String) {
+            self.init(unsafeResultMap: ["__typename": "Muscle", "id": id, "isToggled": isToggled, "name": name])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var id: GraphQLID {
+            get {
+              return resultMap["id"]! as! GraphQLID
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "id")
+            }
+          }
+
+          public var isToggled: Bool {
+            get {
+              return resultMap["isToggled"]! as! Bool
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "isToggled")
+            }
+          }
+
+          public var name: String {
+            get {
+              return resultMap["name"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "name")
+            }
+          }
+        }
+
+        public struct Duration: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["IntervalRepresentation"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("hours", type: .scalar(Int.self)),
+              GraphQLField("minutes", type: .scalar(Int.self)),
+              GraphQLField("seconds", type: .scalar(Int.self)),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil) {
+            self.init(unsafeResultMap: ["__typename": "IntervalRepresentation", "hours": hours, "minutes": minutes, "seconds": seconds])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var hours: Int? {
+            get {
+              return resultMap["hours"] as? Int
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "hours")
+            }
+          }
+
+          public var minutes: Int? {
+            get {
+              return resultMap["minutes"] as? Int
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "minutes")
+            }
+          }
+
+          public var seconds: Int? {
+            get {
+              return resultMap["seconds"] as? Int
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "seconds")
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class WorkoutsWidgetQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -6740,7 +8416,7 @@ public final class WorkoutTypesQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("name", type: .scalar(String.self)),
+          GraphQLField("name", type: .nonNull(.scalar(String.self))),
         ]
       }
 
@@ -6750,7 +8426,7 @@ public final class WorkoutTypesQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: GraphQLID, name: String? = nil) {
+      public init(id: GraphQLID, name: String) {
         self.init(unsafeResultMap: ["__typename": "WorkoutType", "id": id, "name": name])
       }
 
@@ -6772,9 +8448,9 @@ public final class WorkoutTypesQuery: GraphQLQuery {
         }
       }
 
-      public var name: String? {
+      public var name: String {
         get {
-          return resultMap["name"] as? String
+          return resultMap["name"]! as! String
         }
         set {
           resultMap.updateValue(newValue, forKey: "name")

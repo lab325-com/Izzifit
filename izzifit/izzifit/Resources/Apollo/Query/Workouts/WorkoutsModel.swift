@@ -1,0 +1,29 @@
+//
+//  WorkoutsModel.swift
+//  izzifit
+//
+//  Created by Andrey S on 31.03.2022.
+//
+
+import Foundation
+
+struct WorkoutsModel: Codable {
+    let workouts: WorkoutsMainModel
+}
+
+struct WorkoutsMainModel: Codable {
+    let pagination: PaginationModel?
+    let workouts: [WorkoutByIdMainModel]
+    
+    enum CodingKeys: String, CodingKey {
+        case pagination = "Pagination"
+        case workouts = "Workouts"
+    }
+}
+
+struct PaginationModel: Codable {
+    let nextPageExists: Bool?
+    let previousPageExists: Bool?
+    let total: Int?
+    let totalPages: Int?
+}

@@ -16,12 +16,13 @@ class WorkoutController: BaseController {
     @IBOutlet weak var topView: ShadowView!
     
     @IBOutlet weak var avatarView: UIView!
+    @IBOutlet weak var avatarImageView: UIImageView!
     
-    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var coinLabel: UILabel!
     @IBOutlet weak var flashLabel: UILabel!
     
-    @IBOutlet weak var workoutTable: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     //----------------------------------------------
     // MARK: - Public Property
@@ -32,6 +33,14 @@ class WorkoutController: BaseController {
     let workoutActivitiesIdentifier = String(describing: WorkoutActivitiesCell.self)
     let workoutSpecialIdentifier = String(describing: WorkoutSpecialCell.self)
     let workoutExercisesIdentifier = String(describing: WorkoutExercisesCell.self)
+    
+    var selectedTypeId: String? {
+        didSet {
+            if selectedTypeId != oldValue {
+                presenter.getWorkoutsAll(categoryId: selectedTypeId)
+            }
+        }
+    }
 
     //----------------------------------------------
     // MARK: - Life cycle
@@ -40,10 +49,10 @@ class WorkoutController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter.getWorkoutTypes()
+        presenter.getWorkout()
 
         setup()
-        setupTable()
+        setupCollection()
     }
     
     //----------------------------------------------
@@ -51,28 +60,51 @@ class WorkoutController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        
+        collectionView.isHidden = true
+        
+        coinLabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        flashLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        
+        if let name = KeychainService.standard.me?.name {
+            nameLabel.text = RLocalization.energy_header_title(name)
+        } else {
+            nameLabel.isHidden = true
+        }
+        
         topView.layer.cornerRadius = 30
         topView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
         avatarView.gradientBorder(width: 2, colors: [UIColor(rgb: 0xFF42A8), UIColor(rgb: 0x7759B7)], startPoint: .unitCoordinate(.top), endPoint: .unitCoordinate(.bottom), andRoundCornersWithRadius: 20)
+        
+        avatarImageView.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""), placeholder: RImage.placeholder_food_ic(), options: [.transition(.fade(0.25))])
     }
     
-    private func setupTable() {
-        workoutTable.tableFooterView = UIView()
-        workoutTable.rowHeight = UITableView.automaticDimension
+    private func setupCollection() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib.init(nibName: workoutActivitiesIdentifier,
+                                           bundle: nil),
+                                forCellWithReuseIdentifier: workoutActivitiesIdentifier)
         
-        workoutTable.register(UINib(nibName: workoutActivitiesIdentifier, bundle: nil), forCellReuseIdentifier: workoutActivitiesIdentifier)
-        workoutTable.register(UINib(nibName: workoutSpecialIdentifier, bundle: nil), forCellReuseIdentifier: workoutSpecialIdentifier)
-        workoutTable.register(UINib(nibName: workoutExercisesIdentifier, bundle: nil), forCellReuseIdentifier: workoutExercisesIdentifier)
+        collectionView.register(UINib.init(nibName: workoutSpecialIdentifier,
+                                           bundle: nil),
+                                forCellWithReuseIdentifier: workoutSpecialIdentifier)
+        
+        collectionView.register(UINib.init(nibName: workoutExercisesIdentifier,
+                                           bundle: nil),
+                                forCellWithReuseIdentifier: workoutExercisesIdentifier)
+        
     }
 }
 
 extension WorkoutController: WorkoutOutputProtocol {
-    func successGetWorkoutTypes() {
-        workoutTable.reloadData()
+    func success() {
+        collectionView.isHidden = false
+        collectionView.reloadData()
     }
     
-    func failure(error: String) {
+    func failure() {
         
     }
 }
