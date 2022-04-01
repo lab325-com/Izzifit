@@ -28,7 +28,15 @@ class ProfileController: BaseController {
     
     private func setup() {
         profileTableView.isHidden = true
-        presenter.getRankTypes()
+        
+        let dateFormmater = DateFormatter()
+        dateFormmater.locale = Locale(identifier: "en_US_POSIX")
+        dateFormmater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let today = dateFormmater.string(from: Date())
+        let calendat = Calendar.current
+        let sixDayAgo = calendat.date(byAdding: .day, value: -6, to: Date())
+        let sixDayAgoString = dateFormmater.string(from: sixDayAgo!)
+        presenter.getRankTypes(from: sixDayAgoString, to: today)
         hiddenNavigationBar = true
         profileTableView.backgroundColor = .white
         profileTableView.delegate = self
@@ -62,9 +70,15 @@ extension ProfileController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let caloriesCell = tableView.dequeueReusableCell(withIdentifier: ChartTableCell.id) as! ChartTableCell
+            if let model = presenter.caloriesWidget?.caloriesWidget {
+                caloriesCell.fillCellBy(model)
+            }
             return caloriesCell
         case 1:
             let moodCell = tableView.dequeueReusableCell(withIdentifier: MoodTableCell.id) as! MoodTableCell
+            if let moodModels = presenter.moods {
+                moodCell.fillCellby(moodModels)
+            }
             return moodCell
         case 2:
             let weightCell = tableView.dequeueReusableCell(withIdentifier: WeightTableCell.id) as! WeightTableCell
@@ -95,7 +109,6 @@ extension ProfileController: ProfileOutputProtocol {
         profileTableView.isHidden = false
         profileTableView.reloadData()
     }
-    
     func failure() {
     }
 }

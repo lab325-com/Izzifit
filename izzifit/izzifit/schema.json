@@ -164,28 +164,43 @@
             "description": "",
             "args": [
               {
+<<<<<<< HEAD
+                "name": "to",
+=======
                 "name": "from",
+>>>>>>> develop
                 "description": "",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Date",
                   "ofType": null
                 },
+<<<<<<< HEAD
+                "defaultValue": null
+              },
+              {
+                "name": "from",
+=======
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
               },
               {
                 "name": "to",
+>>>>>>> develop
                 "description": "",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Date",
                   "ofType": null
                 },
+<<<<<<< HEAD
+                "defaultValue": null
+=======
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+>>>>>>> develop
               }
             ],
             "type": {
@@ -401,7 +416,11 @@
             "description": "",
             "args": [
               {
+<<<<<<< HEAD
+                "name": "to",
+=======
                 "name": "from",
+>>>>>>> develop
                 "description": "",
                 "type": {
                   "kind": "NON_NULL",
@@ -412,12 +431,19 @@
                     "ofType": null
                   }
                 },
+<<<<<<< HEAD
+                "defaultValue": null
+              },
+              {
+                "name": "from",
+=======
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
               },
               {
                 "name": "to",
+>>>>>>> develop
                 "description": "",
                 "type": {
                   "kind": "NON_NULL",
@@ -428,9 +454,13 @@
                     "ofType": null
                   }
                 },
+<<<<<<< HEAD
+                "defaultValue": null
+=======
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+>>>>>>> develop
               }
             ],
             "type": {
@@ -502,9 +532,13 @@
                   "name": "String",
                   "ofType": null
                 },
+<<<<<<< HEAD
+                "defaultValue": null
+=======
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+>>>>>>> develop
               },
               {
                 "name": "foodGroupId",
@@ -542,9 +576,13 @@
                   "name": "Boolean",
                   "ofType": null
                 },
+<<<<<<< HEAD
+                "defaultValue": null
+=======
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+>>>>>>> develop
               }
             ],
             "type": {
@@ -772,12 +810,20 @@
             "description": "",
             "args": [],
             "type": {
-              "kind": "LIST",
+              "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "Workout",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Workout",
+                    "ofType": null
+                  }
+                }
               }
             },
             "isDeprecated": false,
@@ -936,6 +982,39 @@
             "deprecationReason": null
           },
           {
+            "name": "weightsWidget",
+            "description": "",
+            "args": [
+              {
+                "name": "from",
+                "description": "",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Date",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "to",
+                "description": "",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Date",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "WeightsWidget",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "widgetList",
             "description": "",
             "args": [],
@@ -1036,7 +1115,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "Int",
+                    "name": "String",
                     "ofType": null
                   }
                 },
@@ -1080,9 +1159,13 @@
                   "name": "Int",
                   "ofType": null
                 },
+<<<<<<< HEAD
+                "defaultValue": null
+=======
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+>>>>>>> develop
               },
               {
                 "name": "durationTo",
@@ -1092,9 +1175,13 @@
                   "name": "Int",
                   "ofType": null
                 },
+<<<<<<< HEAD
+                "defaultValue": null
+=======
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+>>>>>>> develop
               }
             ],
             "type": {
@@ -1309,22 +1396,55 @@
         "possibleTypes": null
       },
       {
+<<<<<<< HEAD
+        "kind": "SCALAR",
+        "name": "String",
+        "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CaloriesWidget",
+=======
         "kind": "INPUT_OBJECT",
         "name": "UpdateProductInMealRecordInput",
+>>>>>>> develop
         "description": "",
         "specifiedByUrl": null,
         "fields": null,
         "inputFields": [
           {
+<<<<<<< HEAD
+            "name": "Calories",
+=======
             "name": "mealId",
+>>>>>>> develop
             "description": "",
             "type": {
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
+<<<<<<< HEAD
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Calories",
+                    "ofType": null
+                  }
+                }
+=======
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
+>>>>>>> develop
               }
             },
             "defaultValue": null,
@@ -1332,21 +1452,40 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "target",
+=======
             "name": "productId",
+>>>>>>> develop
             "description": "",
             "type": {
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
+<<<<<<< HEAD
+                "name": "Int",
+=======
                 "name": "String",
+>>>>>>> develop
                 "ofType": null
               }
             },
             "defaultValue": null,
             "isDeprecated": false,
             "deprecationReason": null
-          },
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Calories",
+        "description": "",
+        "fields": [
           {
             "name": "amount",
             "description": "",
@@ -1375,31 +1514,111 @@
         "specifiedByUrl": null,
         "fields": [
           {
+<<<<<<< HEAD
+            "name": "date",
+=======
             "name": "hours",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "WorkoutShort",
+        "description": "",
+        "fields": [
           {
+<<<<<<< HEAD
+            "name": "Image",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Image",
+=======
             "name": "minutes",
             "description": "",
             "args": [],
             "type": {
               "kind": "SCALAR",
               "name": "Int",
+>>>>>>> develop
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "duration",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "IntervalRepresentation",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "energy",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "energyTotal",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isAvailable",
+=======
             "name": "seconds",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -1486,7 +1705,11 @@
         "interfaces": null,
         "enumValues": [
           {
+<<<<<<< HEAD
+            "name": "date",
+=======
             "name": "MEAL_TYPE_DINNER",
+>>>>>>> develop
             "description": "",
             "isDeprecated": false,
             "deprecationReason": null
@@ -2059,19 +2282,37 @@
         "interfaces": null,
         "enumValues": [
           {
+<<<<<<< HEAD
+            "name": "DO_SPORT_TYPE_NEWBIE",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "DO_SPORT_TYPE_NOT",
+=======
             "name": "ACTIVITY_MEASURE_TYPE_METRES",
+>>>>>>> develop
             "description": "",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "DO_SPORT_TYPE_PROFESSIONAL",
+=======
             "name": "ACTIVITY_MEASURE_TYPE_MINUTES",
+>>>>>>> develop
             "description": "",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "DO_SPORT_TYPE_REGULAR",
+=======
             "name": "ACTIVITY_MEASURE_TYPE_TIMES",
+>>>>>>> develop
             "description": "",
             "isDeprecated": false,
             "deprecationReason": null
@@ -2083,10 +2324,25 @@
         "kind": "OBJECT",
         "name": "Calories",
         "description": "",
+<<<<<<< HEAD
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "WORKOUT_DIFFICULTY_TYPE_STRONG",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "WORKOUT_DIFFICULTY_TYPE_LIGHT",
+=======
         "specifiedByUrl": null,
         "fields": [
           {
             "name": "amount",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -2098,7 +2354,11 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "WORKOUT_DIFFICULTY_TYPE_PROFESSIONAL",
+=======
             "name": "date",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -2492,10 +2752,25 @@
         "kind": "OBJECT",
         "name": "FoodGroup",
         "description": "",
+<<<<<<< HEAD
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "MEAL_TYPE_BREAKFAST",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MEAL_TYPE_DINNER",
+=======
         "specifiedByUrl": null,
         "fields": [
           {
             "name": "Image",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -2507,7 +2782,11 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "MEAL_TYPE_LUNCH",
+=======
             "name": "id",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -2519,7 +2798,11 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "MEAL_TYPE_SNACK",
+=======
             "name": "name",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -2625,9 +2908,35 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+<<<<<<< HEAD
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "MoodType",
+        "description": "",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "MOOD_TYPE_BADLY",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MOOD_TYPE_GOOD",
+=======
           },
           {
             "name": "targetWeight",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -2639,6 +2948,49 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "MOOD_TYPE_NOT_BAD",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Mood",
+        "description": "",
+        "fields": [
+          {
+            "name": "date",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "mood",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "MoodType",
+                "ofType": null
+              }
+=======
             "name": "weight",
             "description": "",
             "args": [],
@@ -2646,6 +2998,7 @@
               "kind": "SCALAR",
               "name": "Float",
               "ofType": null
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -2834,12 +3187,22 @@
             "description": "",
             "args": [],
             "type": {
-              "kind": "LIST",
+              "kind": "NON_NULL",
               "name": null,
               "ofType": {
+<<<<<<< HEAD
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Equipment",
+                  "ofType": null
+                }
+=======
                 "kind": "OBJECT",
                 "name": "Product",
                 "ofType": null
+>>>>>>> develop
               }
             },
             "isDeprecated": false,
@@ -2850,6 +3213,22 @@
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ExerciseGroup",
+                    "ofType": null
+                  }
+                }
+=======
               "kind": "ENUM",
               "name": "MealType",
               "ofType": null
@@ -2880,6 +3259,7 @@
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
+>>>>>>> develop
               }
             },
             "isDeprecated": false,
@@ -2890,9 +3270,19 @@
             "description": null,
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Image",
+                "ofType": null
+              }
+=======
               "kind": "SCALAR",
               "name": "String",
               "ofType": null
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -2905,9 +3295,23 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
+<<<<<<< HEAD
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Image",
+                    "ofType": null
+                  }
+                }
+=======
                 "kind": "SCALAR",
                 "name": "Boolean",
                 "ofType": null
+>>>>>>> develop
               }
             },
             "isDeprecated": false,
@@ -2927,8 +3331,13 @@
                   "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
+<<<<<<< HEAD
+                    "kind": "OBJECT",
+                    "name": "Muscle",
+=======
                     "kind": "ENUM",
                     "name": "__DirectiveLocation",
+>>>>>>> develop
                     "ofType": null
                   }
                 }
@@ -2958,6 +3367,11 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
+<<<<<<< HEAD
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+=======
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
@@ -2969,6 +3383,7 @@
                     "ofType": null
                   }
                 }
+>>>>>>> develop
               }
             },
             "isDeprecated": false,
@@ -2994,8 +3409,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
+<<<<<<< HEAD
+                "kind": "OBJECT",
+                "name": "IntervalRepresentation",
+=======
                 "kind": "ENUM",
                 "name": "__TypeKind",
+>>>>>>> develop
                 "ofType": null
               }
             },
@@ -3007,9 +3427,35 @@
             "description": null,
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "energyTotal",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+=======
               "kind": "SCALAR",
               "name": "String",
               "ofType": null
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -3019,9 +3465,19 @@
             "description": null,
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+=======
               "kind": "SCALAR",
               "name": "String",
               "ofType": null
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -3031,9 +3487,35 @@
             "description": null,
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isFinished",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+=======
               "kind": "SCALAR",
               "name": "String",
               "ofType": null
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -3056,6 +3538,14 @@
               }
             ],
             "type": {
+<<<<<<< HEAD
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+=======
               "kind": "LIST",
               "name": null,
               "ofType": {
@@ -3066,6 +3556,7 @@
                   "name": "__Field",
                   "ofType": null
                 }
+>>>>>>> develop
               }
             },
             "isDeprecated": false,
@@ -3076,6 +3567,14 @@
             "description": null,
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+=======
               "kind": "LIST",
               "name": null,
               "ofType": {
@@ -3086,6 +3585,7 @@
                   "name": "__Type",
                   "ofType": null
                 }
+>>>>>>> develop
               }
             },
             "isDeprecated": false,
@@ -3096,6 +3596,30 @@
             "description": null,
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "totalFinishedExercises",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+=======
               "kind": "LIST",
               "name": null,
               "ofType": {
@@ -3106,6 +3630,7 @@
                   "name": "__Type",
                   "ofType": null
                 }
+>>>>>>> develop
               }
             },
             "isDeprecated": false,
@@ -3199,20 +3724,76 @@
         "kind": "ENUM",
         "name": "WeightMeasure",
         "description": "",
+<<<<<<< HEAD
+        "fields": [
+          {
+            "name": "Exercises",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Exercise",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+=======
         "specifiedByUrl": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
         "enumValues": [
+>>>>>>> develop
           {
             "name": "WEIGHT_MEASURE_TYPE_KG",
             "description": "",
+<<<<<<< HEAD
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+=======
+>>>>>>> develop
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "title",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+=======
             "name": "WEIGHT_MEASURE_TYPE_LB",
             "description": "",
+>>>>>>> develop
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -3226,6 +3807,51 @@
         "specifiedByUrl": null,
         "fields": [
           {
+<<<<<<< HEAD
+            "name": "Image",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Image",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "Video",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Video",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "description",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+=======
             "name": "donePercents",
             "description": "",
             "args": [],
@@ -3233,11 +3859,25 @@
               "kind": "SCALAR",
               "name": "Int",
               "ofType": null
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "duration",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "IntervalRepresentation",
+                "ofType": null
+              }
+=======
             "name": "left",
             "description": "",
             "args": [],
@@ -3245,11 +3885,25 @@
               "kind": "SCALAR",
               "name": "Int",
               "ofType": null
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "id",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+=======
             "name": "name",
             "description": "",
             "args": [],
@@ -3257,6 +3911,7 @@
               "kind": "ENUM",
               "name": "SourceEntityType",
               "ofType": null
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -3266,9 +3921,19 @@
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+=======
               "kind": "SCALAR",
               "name": "Int",
               "ofType": null
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -3297,12 +3962,40 @@
           {
             "name": "GENDER_TYPE_COMMON",
             "description": "",
+<<<<<<< HEAD
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+=======
+>>>>>>> develop
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "title",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+=======
             "name": "GENDER_TYPE_MAN",
             "description": "",
+>>>>>>> develop
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -3417,7 +4110,11 @@
         "specifiedByUrl": null,
         "fields": [
           {
+<<<<<<< HEAD
+            "name": "WEIGHT_MEASURE_TYPE_LB",
+=======
             "name": "id",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -3433,7 +4130,11 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "WEIGHT_MEASURE_TYPE_KG",
+=======
             "name": "name",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -3552,7 +4253,132 @@
             "defaultValue": null,
             "isDeprecated": false,
             "deprecationReason": null
+<<<<<<< HEAD
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "WeightsWidget",
+        "description": "",
+        "fields": [
+          {
+            "name": "Weights",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Weight",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           },
+          {
+            "name": "measure",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "WeightMeasure",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "targetWeight",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Weight",
+        "description": "",
+        "fields": [
+          {
+            "name": "date",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "weight",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Widget",
+        "description": "",
+        "fields": [
+=======
+          },
+>>>>>>> develop
           {
             "name": "darkTheme",
             "description": "",
@@ -3696,6 +4522,19 @@
           {
             "name": "AUTH_TYPE_UDID",
             "description": "",
+<<<<<<< HEAD
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+=======
+>>>>>>> develop
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -3735,7 +4574,11 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
+<<<<<<< HEAD
+                    "name": "Workout",
+=======
                     "name": "__Type",
+>>>>>>> develop
                     "ofType": null
                   }
                 }
@@ -3951,7 +4794,40 @@
           {
             "name": "date",
             "description": "",
+<<<<<<< HEAD
+            "args": [
+              {
+                "name": "productId",
+                "description": "",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "mealId",
+                "description": "",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+=======
             "args": [],
+>>>>>>> develop
             "type": {
               "kind": "SCALAR",
               "name": "Date",
@@ -4078,12 +4954,29 @@
         "interfaces": null,
         "enumValues": [
           {
+<<<<<<< HEAD
+            "name": "token",
+=======
             "name": "MEASURE_GROWTH_TYPE_FT",
+>>>>>>> develop
             "description": "",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "udid",
+            "description": "",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "email",
+=======
             "name": "MEASURE_GROWTH_TYPE_SM",
             "description": "",
             "isDeprecated": false,
@@ -4100,6 +4993,7 @@
         "fields": [
           {
             "name": "createdAt",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -4111,7 +5005,11 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "password",
+=======
             "name": "id",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -4123,12 +5021,16 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "authType",
+=======
             "name": "urlAndroidPhone",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
+              "kind": "ENUM",
+              "name": "AuthType",
               "ofType": null
             },
             "isDeprecated": false,
@@ -4182,6 +5084,21 @@
         "description": "The `Boolean` scalar type represents `true` or `false`.",
         "specifiedByUrl": null,
         "fields": null,
+<<<<<<< HEAD
+        "inputFields": [
+          {
+            "name": "notifications",
+            "description": "",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "email",
+=======
         "inputFields": null,
         "interfaces": null,
         "enumValues": null,
@@ -4195,9 +5112,15 @@
         "fields": [
           {
             "name": "Exercises",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+=======
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
@@ -4213,15 +5136,25 @@
                   }
                 }
               }
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "name",
+=======
             "name": "id",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+=======
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
@@ -4229,15 +5162,25 @@
                 "name": "ID",
                 "ofType": null
               }
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "targetWeight",
+=======
             "name": "title",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "SCALAR",
+              "name": "Float",
+              "ofType": null
+=======
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
@@ -4245,6 +5188,7 @@
                 "name": "String",
                 "ofType": null
               }
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -4262,10 +5206,19 @@
         "specifiedByUrl": null,
         "fields": [
           {
+<<<<<<< HEAD
+            "name": "weight",
+=======
             "name": "Equipments",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "SCALAR",
+              "name": "Float",
+              "ofType": null
+=======
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
@@ -4277,15 +5230,25 @@
                   "ofType": null
                 }
               }
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "growthMeasure",
+=======
             "name": "ExerciseGroups",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "ENUM",
+              "name": "MeasureGrowth",
+              "ofType": null
+=======
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
@@ -4301,6 +5264,7 @@
                   }
                 }
               }
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -4322,10 +5286,19 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "targetWeightMeasure",
+=======
             "name": "MuscleGroupImages",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "ENUM",
+              "name": "WeightMeasure",
+              "ofType": null
+=======
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
@@ -4341,15 +5314,45 @@
                   }
                 }
               }
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "age",
+=======
             "name": "Muscles",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "darkTheme",
+            "description": "",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "goal",
+            "description": "",
+            "type": {
+              "kind": "ENUM",
+              "name": "GoalType",
+              "ofType": null
+=======
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
@@ -4365,15 +5368,25 @@
                   }
                 }
               }
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "weightMeasure",
+=======
             "name": "description",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "ENUM",
+              "name": "WeightMeasure",
+              "ofType": null
+=======
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
@@ -4381,12 +5394,17 @@
                 "name": "String",
                 "ofType": null
               }
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "foodGroupId",
+=======
             "name": "duration",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -4402,10 +5420,19 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "reminders",
+=======
             "name": "energy",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+=======
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
@@ -4413,15 +5440,25 @@
                 "name": "Int",
                 "ofType": null
               }
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "gender",
+=======
             "name": "energyTotal",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "ENUM",
+              "name": "GenderType",
+              "ofType": null
+=======
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
@@ -4429,15 +5466,25 @@
                 "name": "Int",
                 "ofType": null
               }
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "fitnessPreference",
+=======
             "name": "id",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "ENUM",
+              "name": "FitnessPreferenceType",
+              "ofType": null
+=======
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
@@ -4445,15 +5492,25 @@
                 "name": "ID",
                 "ofType": null
               }
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "doSport",
+=======
             "name": "isAvailable",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
+<<<<<<< HEAD
+              "kind": "ENUM",
+              "name": "DoSportType",
+              "ofType": null
+=======
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
@@ -4461,12 +5518,34 @@
                 "name": "Boolean",
                 "ofType": null
               }
+>>>>>>> develop
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "MEASURE_GROWTH_TYPE_SM",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "FitnessPreferenceType",
+        "description": "",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "FITNESS_PREFERENCE_TYPE_LIGHT",
+=======
             "name": "isFinished",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -4482,7 +5561,11 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "FITNESS_PREFERENCE_TYPE_PROFESSIONAL",
+=======
             "name": "kCal",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -4498,7 +5581,26 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "FITNESS_PREFERENCE_TYPE_STRONG",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "UpdateProductInMealRecordInput",
+        "description": "",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "mealId",
+=======
             "name": "title",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -4514,7 +5616,11 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "productId",
+=======
             "name": "totalExercises",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {
@@ -4530,7 +5636,11 @@
             "deprecationReason": null
           },
           {
+<<<<<<< HEAD
+            "name": "amount",
+=======
             "name": "totalFinishedExercises",
+>>>>>>> develop
             "description": "",
             "args": [],
             "type": {

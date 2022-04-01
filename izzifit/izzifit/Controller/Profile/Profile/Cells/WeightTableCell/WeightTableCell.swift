@@ -40,6 +40,8 @@ class WeightTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        selectionStyle = .none
+        
         let chartShapeLayer = CAShapeLayer()
         chartShapeLayer.lineWidth = 2
         chartShapeLayer.lineCap = .round

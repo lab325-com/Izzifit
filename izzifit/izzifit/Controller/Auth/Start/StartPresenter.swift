@@ -37,7 +37,7 @@ class StartPresenter: StartPresenterProtocol {
     
     func login() {
         view?.startLoader()
-        let mutation = LoginMutation(record: LoginRecordInput(authType: .authTypeUdid, udid: uuid))
+        let mutation = LoginMutation(record: LoginRecordInput(udid: uuid, authType: .authTypeUdid))
         let _ = Network.shared.mutation(model: LoginModel.self, mutation, controller: view, successHandler: { [weak self] model in
             self?.me(token: model.login.token)
         }, failureHandler: { [weak self] error in
