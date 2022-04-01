@@ -24,9 +24,17 @@ class ChartTableCell: UITableViewCell {
         }
     }
     
+    private let floatMultiplier: Float = 0.00001
     
     @IBOutlet weak var backVw: UIView!
     @IBOutlet weak var chartCollectionView: UICollectionView!
+    private var lineLayer: CAShapeLayer = {
+        let lineLayer = CAShapeLayer()
+        lineLayer.lineWidth = 1
+        lineLayer.lineDashPattern = [6, 4]
+        lineLayer.strokeColor =  UIColor(named: Clrs.pinkTarget.rawValue)?.cgColor
+        return lineLayer
+    }()
     
     static let id = "ChartTableCell"
     private var caloriesCellCount = 31
@@ -42,14 +50,21 @@ class ChartTableCell: UITableViewCell {
         chartCollectionView.register(UINib(nibName: "ChartCollectionCell", bundle: nil),
                                      forCellWithReuseIdentifier: ChartCollectionCell.id)
         
-        let lineLayer = CAShapeLayer()
-             lineLayer.strokeColor = clr(color: .pinkTarget)!.cgColor
-             lineLayer.lineWidth = 1
-             lineLayer.lineDashPattern = [6, 4]
-             let path = CGMutablePath()
+       
+ 
+    }
+    
+    func fillCellBy(_ model: CaloriesWidgetMainModel) {
+        // Cast to Float
+    
+        let floatTarget = Float(model.target) * floatMultiplier
+        let targetInt: CGFloat = CGFloat(model.target) * 0.0001
+        
+        let path = CGMutablePath()
+        
         let y = chartCollectionView.bounds.size.height / 2 - 10
              path.addLines(between: [CGPoint(x: 0 , y: y),
-                                     CGPoint(x: CGFloat(caloriesCellCount * 45), y: y)])
+                                     CGPoint(x: CGFloat(31 * 45), y: y)])
              lineLayer.path = path
              chartCollectionView.layer.addSublayer(lineLayer)
     }

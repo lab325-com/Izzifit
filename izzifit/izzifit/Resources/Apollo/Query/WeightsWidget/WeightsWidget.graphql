@@ -1,7 +1,7 @@
 query WeightsWidget($from: Date, $to: Date) {
     weightsWidget(from: $from, to: $to) {
     Weights {
-         createdAt
+         date
          weight
         }
     measure

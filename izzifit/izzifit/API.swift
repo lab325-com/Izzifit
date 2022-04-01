@@ -8,11 +8,20 @@ public struct AddProductToMealRecordInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   /// - Parameters:
+  ///   - mealId
   ///   - productId
   ///   - amount
-  ///   - mealId
-  public init(productId: Swift.Optional<String?> = nil, amount: Swift.Optional<Int?> = nil, mealId: Swift.Optional<String?> = nil) {
-    graphQLMap = ["productId": productId, "amount": amount, "mealId": mealId]
+  public init(mealId: Swift.Optional<String?> = nil, productId: Swift.Optional<String?> = nil, amount: Swift.Optional<Int?> = nil) {
+    graphQLMap = ["mealId": mealId, "productId": productId, "amount": amount]
+  }
+
+  public var mealId: Swift.Optional<String?> {
+    get {
+      return graphQLMap["mealId"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "mealId")
+    }
   }
 
   public var productId: Swift.Optional<String?> {
@@ -32,28 +41,37 @@ public struct AddProductToMealRecordInput: GraphQLMapConvertible {
       graphQLMap.updateValue(newValue, forKey: "amount")
     }
   }
-
-  public var mealId: Swift.Optional<String?> {
-    get {
-      return graphQLMap["mealId"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "mealId")
-    }
-  }
 }
 
 public struct LoginRecordInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   /// - Parameters:
+  ///   - token
+  ///   - udid
   ///   - email
   ///   - password
   ///   - authType
-  ///   - token
-  ///   - udid
-  public init(email: Swift.Optional<String?> = nil, password: Swift.Optional<String?> = nil, authType: Swift.Optional<AuthType?> = nil, token: Swift.Optional<String?> = nil, udid: Swift.Optional<String?> = nil) {
-    graphQLMap = ["email": email, "password": password, "authType": authType, "token": token, "udid": udid]
+  public init(token: Swift.Optional<String?> = nil, udid: Swift.Optional<String?> = nil, email: Swift.Optional<String?> = nil, password: Swift.Optional<String?> = nil, authType: Swift.Optional<AuthType?> = nil) {
+    graphQLMap = ["token": token, "udid": udid, "email": email, "password": password, "authType": authType]
+  }
+
+  public var token: Swift.Optional<String?> {
+    get {
+      return graphQLMap["token"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "token")
+    }
+  }
+
+  public var udid: Swift.Optional<String?> {
+    get {
+      return graphQLMap["udid"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "udid")
+    }
   }
 
   public var email: Swift.Optional<String?> {
@@ -82,61 +100,43 @@ public struct LoginRecordInput: GraphQLMapConvertible {
       graphQLMap.updateValue(newValue, forKey: "authType")
     }
   }
-
-  public var token: Swift.Optional<String?> {
-    get {
-      return graphQLMap["token"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "token")
-    }
-  }
-
-  public var udid: Swift.Optional<String?> {
-    get {
-      return graphQLMap["udid"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "udid")
-    }
-  }
 }
 
 public enum AuthType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
-  case authTypeFacebook
-  case authTypeUdid
   case authTypeApple
   case authTypeEmail
+  case authTypeFacebook
+  case authTypeUdid
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
   public init?(rawValue: RawValue) {
     switch rawValue {
-      case "AUTH_TYPE_FACEBOOK": self = .authTypeFacebook
-      case "AUTH_TYPE_UDID": self = .authTypeUdid
       case "AUTH_TYPE_APPLE": self = .authTypeApple
       case "AUTH_TYPE_EMAIL": self = .authTypeEmail
+      case "AUTH_TYPE_FACEBOOK": self = .authTypeFacebook
+      case "AUTH_TYPE_UDID": self = .authTypeUdid
       default: self = .__unknown(rawValue)
     }
   }
 
   public var rawValue: RawValue {
     switch self {
-      case .authTypeFacebook: return "AUTH_TYPE_FACEBOOK"
-      case .authTypeUdid: return "AUTH_TYPE_UDID"
       case .authTypeApple: return "AUTH_TYPE_APPLE"
       case .authTypeEmail: return "AUTH_TYPE_EMAIL"
+      case .authTypeFacebook: return "AUTH_TYPE_FACEBOOK"
+      case .authTypeUdid: return "AUTH_TYPE_UDID"
       case .__unknown(let value): return value
     }
   }
 
   public static func == (lhs: AuthType, rhs: AuthType) -> Bool {
     switch (lhs, rhs) {
-      case (.authTypeFacebook, .authTypeFacebook): return true
-      case (.authTypeUdid, .authTypeUdid): return true
       case (.authTypeApple, .authTypeApple): return true
       case (.authTypeEmail, .authTypeEmail): return true
+      case (.authTypeFacebook, .authTypeFacebook): return true
+      case (.authTypeUdid, .authTypeUdid): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -144,10 +144,10 @@ public enum AuthType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
 
   public static var allCases: [AuthType] {
     return [
-      .authTypeFacebook,
-      .authTypeUdid,
       .authTypeApple,
       .authTypeEmail,
+      .authTypeFacebook,
+      .authTypeUdid,
     ]
   }
 }
@@ -156,97 +156,25 @@ public struct ProfileUpdateInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   /// - Parameters:
-  ///   - name
-  ///   - foodGroupId
-  ///   - fitnessPreference
-  ///   - weightMeasure
-  ///   - goal
-  ///   - doSport
-  ///   - growth
-  ///   - age
   ///   - notifications
-  ///   - targetWeight
-  ///   - growthMeasure
-  ///   - reminders
-  ///   - targetWeightMeasure
-  ///   - darkTheme
   ///   - email
-  ///   - gender
+  ///   - name
+  ///   - targetWeight
   ///   - weight
-  public init(name: Swift.Optional<String?> = nil, foodGroupId: Swift.Optional<String?> = nil, fitnessPreference: Swift.Optional<FitnessPreferenceType?> = nil, weightMeasure: Swift.Optional<WeightMeasure?> = nil, goal: Swift.Optional<GoalType?> = nil, doSport: Swift.Optional<DoSportType?> = nil, growth: Swift.Optional<Int?> = nil, age: Swift.Optional<Int?> = nil, notifications: Swift.Optional<Bool?> = nil, targetWeight: Swift.Optional<Double?> = nil, growthMeasure: Swift.Optional<MeasureGrowth?> = nil, reminders: Swift.Optional<Bool?> = nil, targetWeightMeasure: Swift.Optional<WeightMeasure?> = nil, darkTheme: Swift.Optional<Bool?> = nil, email: Swift.Optional<String?> = nil, gender: Swift.Optional<GenderType?> = nil, weight: Swift.Optional<Double?> = nil) {
-    graphQLMap = ["name": name, "foodGroupId": foodGroupId, "fitnessPreference": fitnessPreference, "weightMeasure": weightMeasure, "goal": goal, "doSport": doSport, "growth": growth, "age": age, "notifications": notifications, "targetWeight": targetWeight, "growthMeasure": growthMeasure, "reminders": reminders, "targetWeightMeasure": targetWeightMeasure, "darkTheme": darkTheme, "email": email, "gender": gender, "weight": weight]
-  }
-
-  public var name: Swift.Optional<String?> {
-    get {
-      return graphQLMap["name"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "name")
-    }
-  }
-
-  public var foodGroupId: Swift.Optional<String?> {
-    get {
-      return graphQLMap["foodGroupId"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "foodGroupId")
-    }
-  }
-
-  public var fitnessPreference: Swift.Optional<FitnessPreferenceType?> {
-    get {
-      return graphQLMap["fitnessPreference"] as? Swift.Optional<FitnessPreferenceType?> ?? Swift.Optional<FitnessPreferenceType?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "fitnessPreference")
-    }
-  }
-
-  public var weightMeasure: Swift.Optional<WeightMeasure?> {
-    get {
-      return graphQLMap["weightMeasure"] as? Swift.Optional<WeightMeasure?> ?? Swift.Optional<WeightMeasure?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "weightMeasure")
-    }
-  }
-
-  public var goal: Swift.Optional<GoalType?> {
-    get {
-      return graphQLMap["goal"] as? Swift.Optional<GoalType?> ?? Swift.Optional<GoalType?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "goal")
-    }
-  }
-
-  public var doSport: Swift.Optional<DoSportType?> {
-    get {
-      return graphQLMap["doSport"] as? Swift.Optional<DoSportType?> ?? Swift.Optional<DoSportType?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "doSport")
-    }
-  }
-
-  public var growth: Swift.Optional<Int?> {
-    get {
-      return graphQLMap["growth"] as? Swift.Optional<Int?> ?? Swift.Optional<Int?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "growth")
-    }
-  }
-
-  public var age: Swift.Optional<Int?> {
-    get {
-      return graphQLMap["age"] as? Swift.Optional<Int?> ?? Swift.Optional<Int?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "age")
-    }
+  ///   - growthMeasure
+  ///   - growth
+  ///   - targetWeightMeasure
+  ///   - age
+  ///   - darkTheme
+  ///   - goal
+  ///   - weightMeasure
+  ///   - foodGroupId
+  ///   - reminders
+  ///   - gender
+  ///   - fitnessPreference
+  ///   - doSport
+  public init(notifications: Swift.Optional<Bool?> = nil, email: Swift.Optional<String?> = nil, name: Swift.Optional<String?> = nil, targetWeight: Swift.Optional<Double?> = nil, weight: Swift.Optional<Double?> = nil, growthMeasure: Swift.Optional<MeasureGrowth?> = nil, growth: Swift.Optional<Int?> = nil, targetWeightMeasure: Swift.Optional<WeightMeasure?> = nil, age: Swift.Optional<Int?> = nil, darkTheme: Swift.Optional<Bool?> = nil, goal: Swift.Optional<GoalType?> = nil, weightMeasure: Swift.Optional<WeightMeasure?> = nil, foodGroupId: Swift.Optional<String?> = nil, reminders: Swift.Optional<Bool?> = nil, gender: Swift.Optional<GenderType?> = nil, fitnessPreference: Swift.Optional<FitnessPreferenceType?> = nil, doSport: Swift.Optional<DoSportType?> = nil) {
+    graphQLMap = ["notifications": notifications, "email": email, "name": name, "targetWeight": targetWeight, "weight": weight, "growthMeasure": growthMeasure, "growth": growth, "targetWeightMeasure": targetWeightMeasure, "age": age, "darkTheme": darkTheme, "goal": goal, "weightMeasure": weightMeasure, "foodGroupId": foodGroupId, "reminders": reminders, "gender": gender, "fitnessPreference": fitnessPreference, "doSport": doSport]
   }
 
   public var notifications: Swift.Optional<Bool?> {
@@ -255,51 +183,6 @@ public struct ProfileUpdateInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "notifications")
-    }
-  }
-
-  public var targetWeight: Swift.Optional<Double?> {
-    get {
-      return graphQLMap["targetWeight"] as? Swift.Optional<Double?> ?? Swift.Optional<Double?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "targetWeight")
-    }
-  }
-
-  public var growthMeasure: Swift.Optional<MeasureGrowth?> {
-    get {
-      return graphQLMap["growthMeasure"] as? Swift.Optional<MeasureGrowth?> ?? Swift.Optional<MeasureGrowth?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "growthMeasure")
-    }
-  }
-
-  public var reminders: Swift.Optional<Bool?> {
-    get {
-      return graphQLMap["reminders"] as? Swift.Optional<Bool?> ?? Swift.Optional<Bool?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "reminders")
-    }
-  }
-
-  public var targetWeightMeasure: Swift.Optional<WeightMeasure?> {
-    get {
-      return graphQLMap["targetWeightMeasure"] as? Swift.Optional<WeightMeasure?> ?? Swift.Optional<WeightMeasure?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "targetWeightMeasure")
-    }
-  }
-
-  public var darkTheme: Swift.Optional<Bool?> {
-    get {
-      return graphQLMap["darkTheme"] as? Swift.Optional<Bool?> ?? Swift.Optional<Bool?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "darkTheme")
     }
   }
 
@@ -312,12 +195,21 @@ public struct ProfileUpdateInput: GraphQLMapConvertible {
     }
   }
 
-  public var gender: Swift.Optional<GenderType?> {
+  public var name: Swift.Optional<String?> {
     get {
-      return graphQLMap["gender"] as? Swift.Optional<GenderType?> ?? Swift.Optional<GenderType?>.none
+      return graphQLMap["name"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "gender")
+      graphQLMap.updateValue(newValue, forKey: "name")
+    }
+  }
+
+  public var targetWeight: Swift.Optional<Double?> {
+    get {
+      return graphQLMap["targetWeight"] as? Swift.Optional<Double?> ?? Swift.Optional<Double?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "targetWeight")
     }
   }
 
@@ -328,6 +220,289 @@ public struct ProfileUpdateInput: GraphQLMapConvertible {
     set {
       graphQLMap.updateValue(newValue, forKey: "weight")
     }
+  }
+
+  public var growthMeasure: Swift.Optional<MeasureGrowth?> {
+    get {
+      return graphQLMap["growthMeasure"] as? Swift.Optional<MeasureGrowth?> ?? Swift.Optional<MeasureGrowth?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "growthMeasure")
+    }
+  }
+
+  public var growth: Swift.Optional<Int?> {
+    get {
+      return graphQLMap["growth"] as? Swift.Optional<Int?> ?? Swift.Optional<Int?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "growth")
+    }
+  }
+
+  public var targetWeightMeasure: Swift.Optional<WeightMeasure?> {
+    get {
+      return graphQLMap["targetWeightMeasure"] as? Swift.Optional<WeightMeasure?> ?? Swift.Optional<WeightMeasure?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "targetWeightMeasure")
+    }
+  }
+
+  public var age: Swift.Optional<Int?> {
+    get {
+      return graphQLMap["age"] as? Swift.Optional<Int?> ?? Swift.Optional<Int?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "age")
+    }
+  }
+
+  public var darkTheme: Swift.Optional<Bool?> {
+    get {
+      return graphQLMap["darkTheme"] as? Swift.Optional<Bool?> ?? Swift.Optional<Bool?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "darkTheme")
+    }
+  }
+
+  public var goal: Swift.Optional<GoalType?> {
+    get {
+      return graphQLMap["goal"] as? Swift.Optional<GoalType?> ?? Swift.Optional<GoalType?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "goal")
+    }
+  }
+
+  public var weightMeasure: Swift.Optional<WeightMeasure?> {
+    get {
+      return graphQLMap["weightMeasure"] as? Swift.Optional<WeightMeasure?> ?? Swift.Optional<WeightMeasure?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "weightMeasure")
+    }
+  }
+
+  public var foodGroupId: Swift.Optional<String?> {
+    get {
+      return graphQLMap["foodGroupId"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "foodGroupId")
+    }
+  }
+
+  public var reminders: Swift.Optional<Bool?> {
+    get {
+      return graphQLMap["reminders"] as? Swift.Optional<Bool?> ?? Swift.Optional<Bool?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "reminders")
+    }
+  }
+
+  public var gender: Swift.Optional<GenderType?> {
+    get {
+      return graphQLMap["gender"] as? Swift.Optional<GenderType?> ?? Swift.Optional<GenderType?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "gender")
+    }
+  }
+
+  public var fitnessPreference: Swift.Optional<FitnessPreferenceType?> {
+    get {
+      return graphQLMap["fitnessPreference"] as? Swift.Optional<FitnessPreferenceType?> ?? Swift.Optional<FitnessPreferenceType?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "fitnessPreference")
+    }
+  }
+
+  public var doSport: Swift.Optional<DoSportType?> {
+    get {
+      return graphQLMap["doSport"] as? Swift.Optional<DoSportType?> ?? Swift.Optional<DoSportType?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "doSport")
+    }
+  }
+}
+
+public enum MeasureGrowth: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case measureGrowthTypeFt
+  case measureGrowthTypeSm
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "MEASURE_GROWTH_TYPE_FT": self = .measureGrowthTypeFt
+      case "MEASURE_GROWTH_TYPE_SM": self = .measureGrowthTypeSm
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .measureGrowthTypeFt: return "MEASURE_GROWTH_TYPE_FT"
+      case .measureGrowthTypeSm: return "MEASURE_GROWTH_TYPE_SM"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: MeasureGrowth, rhs: MeasureGrowth) -> Bool {
+    switch (lhs, rhs) {
+      case (.measureGrowthTypeFt, .measureGrowthTypeFt): return true
+      case (.measureGrowthTypeSm, .measureGrowthTypeSm): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [MeasureGrowth] {
+    return [
+      .measureGrowthTypeFt,
+      .measureGrowthTypeSm,
+    ]
+  }
+}
+
+public enum WeightMeasure: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case weightMeasureTypeLb
+  case weightMeasureTypeKg
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "WEIGHT_MEASURE_TYPE_LB": self = .weightMeasureTypeLb
+      case "WEIGHT_MEASURE_TYPE_KG": self = .weightMeasureTypeKg
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .weightMeasureTypeLb: return "WEIGHT_MEASURE_TYPE_LB"
+      case .weightMeasureTypeKg: return "WEIGHT_MEASURE_TYPE_KG"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: WeightMeasure, rhs: WeightMeasure) -> Bool {
+    switch (lhs, rhs) {
+      case (.weightMeasureTypeLb, .weightMeasureTypeLb): return true
+      case (.weightMeasureTypeKg, .weightMeasureTypeKg): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [WeightMeasure] {
+    return [
+      .weightMeasureTypeLb,
+      .weightMeasureTypeKg,
+    ]
+  }
+}
+
+public enum GoalType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case goalTypeFit
+  case goalTypeFun
+  case goalTypeLoseWeight
+  case goalTypeMuscle
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "GOAL_TYPE_FIT": self = .goalTypeFit
+      case "GOAL_TYPE_FUN": self = .goalTypeFun
+      case "GOAL_TYPE_LOSE_WEIGHT": self = .goalTypeLoseWeight
+      case "GOAL_TYPE_MUSCLE": self = .goalTypeMuscle
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .goalTypeFit: return "GOAL_TYPE_FIT"
+      case .goalTypeFun: return "GOAL_TYPE_FUN"
+      case .goalTypeLoseWeight: return "GOAL_TYPE_LOSE_WEIGHT"
+      case .goalTypeMuscle: return "GOAL_TYPE_MUSCLE"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: GoalType, rhs: GoalType) -> Bool {
+    switch (lhs, rhs) {
+      case (.goalTypeFit, .goalTypeFit): return true
+      case (.goalTypeFun, .goalTypeFun): return true
+      case (.goalTypeLoseWeight, .goalTypeLoseWeight): return true
+      case (.goalTypeMuscle, .goalTypeMuscle): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [GoalType] {
+    return [
+      .goalTypeFit,
+      .goalTypeFun,
+      .goalTypeLoseWeight,
+      .goalTypeMuscle,
+    ]
+  }
+}
+
+public enum GenderType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case genderTypeCommon
+  case genderTypeMan
+  case genderTypeWoman
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "GENDER_TYPE_COMMON": self = .genderTypeCommon
+      case "GENDER_TYPE_MAN": self = .genderTypeMan
+      case "GENDER_TYPE_WOMAN": self = .genderTypeWoman
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .genderTypeCommon: return "GENDER_TYPE_COMMON"
+      case .genderTypeMan: return "GENDER_TYPE_MAN"
+      case .genderTypeWoman: return "GENDER_TYPE_WOMAN"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: GenderType, rhs: GenderType) -> Bool {
+    switch (lhs, rhs) {
+      case (.genderTypeCommon, .genderTypeCommon): return true
+      case (.genderTypeMan, .genderTypeMan): return true
+      case (.genderTypeWoman, .genderTypeWoman): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [GenderType] {
+    return [
+      .genderTypeCommon,
+      .genderTypeMan,
+      .genderTypeWoman,
+    ]
   }
 }
 
@@ -376,131 +551,41 @@ public enum FitnessPreferenceType: RawRepresentable, Equatable, Hashable, CaseIt
   }
 }
 
-public enum WeightMeasure: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
-  public typealias RawValue = String
-  case weightMeasureTypeKg
-  case weightMeasureTypeLb
-  /// Auto generated constant for unknown enum values
-  case __unknown(RawValue)
-
-  public init?(rawValue: RawValue) {
-    switch rawValue {
-      case "WEIGHT_MEASURE_TYPE_KG": self = .weightMeasureTypeKg
-      case "WEIGHT_MEASURE_TYPE_LB": self = .weightMeasureTypeLb
-      default: self = .__unknown(rawValue)
-    }
-  }
-
-  public var rawValue: RawValue {
-    switch self {
-      case .weightMeasureTypeKg: return "WEIGHT_MEASURE_TYPE_KG"
-      case .weightMeasureTypeLb: return "WEIGHT_MEASURE_TYPE_LB"
-      case .__unknown(let value): return value
-    }
-  }
-
-  public static func == (lhs: WeightMeasure, rhs: WeightMeasure) -> Bool {
-    switch (lhs, rhs) {
-      case (.weightMeasureTypeKg, .weightMeasureTypeKg): return true
-      case (.weightMeasureTypeLb, .weightMeasureTypeLb): return true
-      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
-      default: return false
-    }
-  }
-
-  public static var allCases: [WeightMeasure] {
-    return [
-      .weightMeasureTypeKg,
-      .weightMeasureTypeLb,
-    ]
-  }
-}
-
-public enum GoalType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
-  public typealias RawValue = String
-  case goalTypeMuscle
-  case goalTypeFit
-  case goalTypeFun
-  case goalTypeLoseWeight
-  /// Auto generated constant for unknown enum values
-  case __unknown(RawValue)
-
-  public init?(rawValue: RawValue) {
-    switch rawValue {
-      case "GOAL_TYPE_MUSCLE": self = .goalTypeMuscle
-      case "GOAL_TYPE_FIT": self = .goalTypeFit
-      case "GOAL_TYPE_FUN": self = .goalTypeFun
-      case "GOAL_TYPE_LOSE_WEIGHT": self = .goalTypeLoseWeight
-      default: self = .__unknown(rawValue)
-    }
-  }
-
-  public var rawValue: RawValue {
-    switch self {
-      case .goalTypeMuscle: return "GOAL_TYPE_MUSCLE"
-      case .goalTypeFit: return "GOAL_TYPE_FIT"
-      case .goalTypeFun: return "GOAL_TYPE_FUN"
-      case .goalTypeLoseWeight: return "GOAL_TYPE_LOSE_WEIGHT"
-      case .__unknown(let value): return value
-    }
-  }
-
-  public static func == (lhs: GoalType, rhs: GoalType) -> Bool {
-    switch (lhs, rhs) {
-      case (.goalTypeMuscle, .goalTypeMuscle): return true
-      case (.goalTypeFit, .goalTypeFit): return true
-      case (.goalTypeFun, .goalTypeFun): return true
-      case (.goalTypeLoseWeight, .goalTypeLoseWeight): return true
-      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
-      default: return false
-    }
-  }
-
-  public static var allCases: [GoalType] {
-    return [
-      .goalTypeMuscle,
-      .goalTypeFit,
-      .goalTypeFun,
-      .goalTypeLoseWeight,
-    ]
-  }
-}
-
 public enum DoSportType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
-  case doSportTypeRegular
   case doSportTypeNewbie
   case doSportTypeNot
   case doSportTypeProfessional
+  case doSportTypeRegular
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
   public init?(rawValue: RawValue) {
     switch rawValue {
-      case "DO_SPORT_TYPE_REGULAR": self = .doSportTypeRegular
       case "DO_SPORT_TYPE_NEWBIE": self = .doSportTypeNewbie
       case "DO_SPORT_TYPE_NOT": self = .doSportTypeNot
       case "DO_SPORT_TYPE_PROFESSIONAL": self = .doSportTypeProfessional
+      case "DO_SPORT_TYPE_REGULAR": self = .doSportTypeRegular
       default: self = .__unknown(rawValue)
     }
   }
 
   public var rawValue: RawValue {
     switch self {
-      case .doSportTypeRegular: return "DO_SPORT_TYPE_REGULAR"
       case .doSportTypeNewbie: return "DO_SPORT_TYPE_NEWBIE"
       case .doSportTypeNot: return "DO_SPORT_TYPE_NOT"
       case .doSportTypeProfessional: return "DO_SPORT_TYPE_PROFESSIONAL"
+      case .doSportTypeRegular: return "DO_SPORT_TYPE_REGULAR"
       case .__unknown(let value): return value
     }
   }
 
   public static func == (lhs: DoSportType, rhs: DoSportType) -> Bool {
     switch (lhs, rhs) {
-      case (.doSportTypeRegular, .doSportTypeRegular): return true
       case (.doSportTypeNewbie, .doSportTypeNewbie): return true
       case (.doSportTypeNot, .doSportTypeNot): return true
       case (.doSportTypeProfessional, .doSportTypeProfessional): return true
+      case (.doSportTypeRegular, .doSportTypeRegular): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -508,130 +593,45 @@ public enum DoSportType: RawRepresentable, Equatable, Hashable, CaseIterable, Ap
 
   public static var allCases: [DoSportType] {
     return [
-      .doSportTypeRegular,
       .doSportTypeNewbie,
       .doSportTypeNot,
       .doSportTypeProfessional,
-    ]
-  }
-}
-
-public enum MeasureGrowth: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
-  public typealias RawValue = String
-  case measureGrowthTypeFt
-  case measureGrowthTypeSm
-  /// Auto generated constant for unknown enum values
-  case __unknown(RawValue)
-
-  public init?(rawValue: RawValue) {
-    switch rawValue {
-      case "MEASURE_GROWTH_TYPE_FT": self = .measureGrowthTypeFt
-      case "MEASURE_GROWTH_TYPE_SM": self = .measureGrowthTypeSm
-      default: self = .__unknown(rawValue)
-    }
-  }
-
-  public var rawValue: RawValue {
-    switch self {
-      case .measureGrowthTypeFt: return "MEASURE_GROWTH_TYPE_FT"
-      case .measureGrowthTypeSm: return "MEASURE_GROWTH_TYPE_SM"
-      case .__unknown(let value): return value
-    }
-  }
-
-  public static func == (lhs: MeasureGrowth, rhs: MeasureGrowth) -> Bool {
-    switch (lhs, rhs) {
-      case (.measureGrowthTypeFt, .measureGrowthTypeFt): return true
-      case (.measureGrowthTypeSm, .measureGrowthTypeSm): return true
-      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
-      default: return false
-    }
-  }
-
-  public static var allCases: [MeasureGrowth] {
-    return [
-      .measureGrowthTypeFt,
-      .measureGrowthTypeSm,
-    ]
-  }
-}
-
-public enum GenderType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
-  public typealias RawValue = String
-  case genderTypeMan
-  case genderTypeWoman
-  case genderTypeCommon
-  /// Auto generated constant for unknown enum values
-  case __unknown(RawValue)
-
-  public init?(rawValue: RawValue) {
-    switch rawValue {
-      case "GENDER_TYPE_MAN": self = .genderTypeMan
-      case "GENDER_TYPE_WOMAN": self = .genderTypeWoman
-      case "GENDER_TYPE_COMMON": self = .genderTypeCommon
-      default: self = .__unknown(rawValue)
-    }
-  }
-
-  public var rawValue: RawValue {
-    switch self {
-      case .genderTypeMan: return "GENDER_TYPE_MAN"
-      case .genderTypeWoman: return "GENDER_TYPE_WOMAN"
-      case .genderTypeCommon: return "GENDER_TYPE_COMMON"
-      case .__unknown(let value): return value
-    }
-  }
-
-  public static func == (lhs: GenderType, rhs: GenderType) -> Bool {
-    switch (lhs, rhs) {
-      case (.genderTypeMan, .genderTypeMan): return true
-      case (.genderTypeWoman, .genderTypeWoman): return true
-      case (.genderTypeCommon, .genderTypeCommon): return true
-      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
-      default: return false
-    }
-  }
-
-  public static var allCases: [GenderType] {
-    return [
-      .genderTypeMan,
-      .genderTypeWoman,
-      .genderTypeCommon,
+      .doSportTypeRegular,
     ]
   }
 }
 
 public enum WorkoutDifficulty: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
+  case workoutDifficultyTypeStrong
   case workoutDifficultyTypeLight
   case workoutDifficultyTypeProfessional
-  case workoutDifficultyTypeStrong
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
   public init?(rawValue: RawValue) {
     switch rawValue {
+      case "WORKOUT_DIFFICULTY_TYPE_STRONG": self = .workoutDifficultyTypeStrong
       case "WORKOUT_DIFFICULTY_TYPE_LIGHT": self = .workoutDifficultyTypeLight
       case "WORKOUT_DIFFICULTY_TYPE_PROFESSIONAL": self = .workoutDifficultyTypeProfessional
-      case "WORKOUT_DIFFICULTY_TYPE_STRONG": self = .workoutDifficultyTypeStrong
       default: self = .__unknown(rawValue)
     }
   }
 
   public var rawValue: RawValue {
     switch self {
+      case .workoutDifficultyTypeStrong: return "WORKOUT_DIFFICULTY_TYPE_STRONG"
       case .workoutDifficultyTypeLight: return "WORKOUT_DIFFICULTY_TYPE_LIGHT"
       case .workoutDifficultyTypeProfessional: return "WORKOUT_DIFFICULTY_TYPE_PROFESSIONAL"
-      case .workoutDifficultyTypeStrong: return "WORKOUT_DIFFICULTY_TYPE_STRONG"
       case .__unknown(let value): return value
     }
   }
 
   public static func == (lhs: WorkoutDifficulty, rhs: WorkoutDifficulty) -> Bool {
     switch (lhs, rhs) {
+      case (.workoutDifficultyTypeStrong, .workoutDifficultyTypeStrong): return true
       case (.workoutDifficultyTypeLight, .workoutDifficultyTypeLight): return true
       case (.workoutDifficultyTypeProfessional, .workoutDifficultyTypeProfessional): return true
-      case (.workoutDifficultyTypeStrong, .workoutDifficultyTypeStrong): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -639,9 +639,9 @@ public enum WorkoutDifficulty: RawRepresentable, Equatable, Hashable, CaseIterab
 
   public static var allCases: [WorkoutDifficulty] {
     return [
+      .workoutDifficultyTypeStrong,
       .workoutDifficultyTypeLight,
       .workoutDifficultyTypeProfessional,
-      .workoutDifficultyTypeStrong,
     ]
   }
 }
@@ -733,39 +733,39 @@ public enum ProductMeasure: RawRepresentable, Equatable, Hashable, CaseIterable,
 
 public enum MealType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
+  case mealTypeBreakfast
   case mealTypeDinner
   case mealTypeLunch
   case mealTypeSnack
-  case mealTypeBreakfast
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
   public init?(rawValue: RawValue) {
     switch rawValue {
+      case "MEAL_TYPE_BREAKFAST": self = .mealTypeBreakfast
       case "MEAL_TYPE_DINNER": self = .mealTypeDinner
       case "MEAL_TYPE_LUNCH": self = .mealTypeLunch
       case "MEAL_TYPE_SNACK": self = .mealTypeSnack
-      case "MEAL_TYPE_BREAKFAST": self = .mealTypeBreakfast
       default: self = .__unknown(rawValue)
     }
   }
 
   public var rawValue: RawValue {
     switch self {
+      case .mealTypeBreakfast: return "MEAL_TYPE_BREAKFAST"
       case .mealTypeDinner: return "MEAL_TYPE_DINNER"
       case .mealTypeLunch: return "MEAL_TYPE_LUNCH"
       case .mealTypeSnack: return "MEAL_TYPE_SNACK"
-      case .mealTypeBreakfast: return "MEAL_TYPE_BREAKFAST"
       case .__unknown(let value): return value
     }
   }
 
   public static func == (lhs: MealType, rhs: MealType) -> Bool {
     switch (lhs, rhs) {
+      case (.mealTypeBreakfast, .mealTypeBreakfast): return true
       case (.mealTypeDinner, .mealTypeDinner): return true
       case (.mealTypeLunch, .mealTypeLunch): return true
       case (.mealTypeSnack, .mealTypeSnack): return true
-      case (.mealTypeBreakfast, .mealTypeBreakfast): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -773,45 +773,45 @@ public enum MealType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
 
   public static var allCases: [MealType] {
     return [
+      .mealTypeBreakfast,
       .mealTypeDinner,
       .mealTypeLunch,
       .mealTypeSnack,
-      .mealTypeBreakfast,
     ]
   }
 }
 
 public enum MoodType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
+  case moodTypeBadly
   case moodTypeGood
   case moodTypeNotBad
-  case moodTypeBadly
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
   public init?(rawValue: RawValue) {
     switch rawValue {
+      case "MOOD_TYPE_BADLY": self = .moodTypeBadly
       case "MOOD_TYPE_GOOD": self = .moodTypeGood
       case "MOOD_TYPE_NOT_BAD": self = .moodTypeNotBad
-      case "MOOD_TYPE_BADLY": self = .moodTypeBadly
       default: self = .__unknown(rawValue)
     }
   }
 
   public var rawValue: RawValue {
     switch self {
+      case .moodTypeBadly: return "MOOD_TYPE_BADLY"
       case .moodTypeGood: return "MOOD_TYPE_GOOD"
       case .moodTypeNotBad: return "MOOD_TYPE_NOT_BAD"
-      case .moodTypeBadly: return "MOOD_TYPE_BADLY"
       case .__unknown(let value): return value
     }
   }
 
   public static func == (lhs: MoodType, rhs: MoodType) -> Bool {
     switch (lhs, rhs) {
+      case (.moodTypeBadly, .moodTypeBadly): return true
       case (.moodTypeGood, .moodTypeGood): return true
       case (.moodTypeNotBad, .moodTypeNotBad): return true
-      case (.moodTypeBadly, .moodTypeBadly): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -819,40 +819,40 @@ public enum MoodType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
 
   public static var allCases: [MoodType] {
     return [
+      .moodTypeBadly,
       .moodTypeGood,
       .moodTypeNotBad,
-      .moodTypeBadly,
     ]
   }
 }
 
 public enum SleepQualityType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
-  case sleepQualityTypeGood
   case sleepQualityTypeBad
+  case sleepQualityTypeGood
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
   public init?(rawValue: RawValue) {
     switch rawValue {
-      case "SLEEP_QUALITY_TYPE_GOOD": self = .sleepQualityTypeGood
       case "SLEEP_QUALITY_TYPE_BAD": self = .sleepQualityTypeBad
+      case "SLEEP_QUALITY_TYPE_GOOD": self = .sleepQualityTypeGood
       default: self = .__unknown(rawValue)
     }
   }
 
   public var rawValue: RawValue {
     switch self {
-      case .sleepQualityTypeGood: return "SLEEP_QUALITY_TYPE_GOOD"
       case .sleepQualityTypeBad: return "SLEEP_QUALITY_TYPE_BAD"
+      case .sleepQualityTypeGood: return "SLEEP_QUALITY_TYPE_GOOD"
       case .__unknown(let value): return value
     }
   }
 
   public static func == (lhs: SleepQualityType, rhs: SleepQualityType) -> Bool {
     switch (lhs, rhs) {
-      case (.sleepQualityTypeGood, .sleepQualityTypeGood): return true
       case (.sleepQualityTypeBad, .sleepQualityTypeBad): return true
+      case (.sleepQualityTypeGood, .sleepQualityTypeGood): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -860,8 +860,8 @@ public enum SleepQualityType: RawRepresentable, Equatable, Hashable, CaseIterabl
 
   public static var allCases: [SleepQualityType] {
     return [
-      .sleepQualityTypeGood,
       .sleepQualityTypeBad,
+      .sleepQualityTypeGood,
     ]
   }
 }
@@ -1576,7 +1576,7 @@ public final class CaloriesWidgetQuery: GraphQLQuery {
         Calories {
           __typename
           amount
-          createdAt
+          date
         }
         target
       }
@@ -1680,7 +1680,7 @@ public final class CaloriesWidgetQuery: GraphQLQuery {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("amount", type: .nonNull(.scalar(Int.self))),
-            GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
+            GraphQLField("date", type: .nonNull(.scalar(String.self))),
           ]
         }
 
@@ -1690,8 +1690,8 @@ public final class CaloriesWidgetQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(amount: Int, createdAt: String) {
-          self.init(unsafeResultMap: ["__typename": "Calories", "amount": amount, "createdAt": createdAt])
+        public init(amount: Int, date: String) {
+          self.init(unsafeResultMap: ["__typename": "Calories", "amount": amount, "date": date])
         }
 
         public var __typename: String {
@@ -1712,12 +1712,12 @@ public final class CaloriesWidgetQuery: GraphQLQuery {
           }
         }
 
-        public var createdAt: String {
+        public var date: String {
           get {
-            return resultMap["createdAt"]! as! String
+            return resultMap["date"]! as! String
           }
           set {
-            resultMap.updateValue(newValue, forKey: "createdAt")
+            resultMap.updateValue(newValue, forKey: "date")
           }
         }
       }
@@ -3010,7 +3010,7 @@ public final class MoodsQuery: GraphQLQuery {
     query Moods($from: Date!, $to: Date!) {
       moods(from: $from, to: $to) {
         __typename
-        createdAt
+        date
         mood
       }
     }
@@ -3064,7 +3064,7 @@ public final class MoodsQuery: GraphQLQuery {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
+          GraphQLField("date", type: .nonNull(.scalar(String.self))),
           GraphQLField("mood", type: .nonNull(.scalar(MoodType.self))),
         ]
       }
@@ -3075,8 +3075,8 @@ public final class MoodsQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(createdAt: String, mood: MoodType) {
-        self.init(unsafeResultMap: ["__typename": "Mood", "createdAt": createdAt, "mood": mood])
+      public init(date: String, mood: MoodType) {
+        self.init(unsafeResultMap: ["__typename": "Mood", "date": date, "mood": mood])
       }
 
       public var __typename: String {
@@ -3088,12 +3088,12 @@ public final class MoodsQuery: GraphQLQuery {
         }
       }
 
-      public var createdAt: String {
+      public var date: String {
         get {
-          return resultMap["createdAt"]! as! String
+          return resultMap["date"]! as! String
         }
         set {
-          resultMap.updateValue(newValue, forKey: "createdAt")
+          resultMap.updateValue(newValue, forKey: "date")
         }
       }
 
@@ -5254,7 +5254,7 @@ public final class WeightsWidgetQuery: GraphQLQuery {
         __typename
         Weights {
           __typename
-          createdAt
+          date
           weight
         }
         measure
@@ -5369,7 +5369,7 @@ public final class WeightsWidgetQuery: GraphQLQuery {
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
+            GraphQLField("date", type: .nonNull(.scalar(String.self))),
             GraphQLField("weight", type: .nonNull(.scalar(Double.self))),
           ]
         }
@@ -5380,8 +5380,8 @@ public final class WeightsWidgetQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(createdAt: String, weight: Double) {
-          self.init(unsafeResultMap: ["__typename": "Weight", "createdAt": createdAt, "weight": weight])
+        public init(date: String, weight: Double) {
+          self.init(unsafeResultMap: ["__typename": "Weight", "date": date, "weight": weight])
         }
 
         public var __typename: String {
@@ -5393,12 +5393,12 @@ public final class WeightsWidgetQuery: GraphQLQuery {
           }
         }
 
-        public var createdAt: String {
+        public var date: String {
           get {
-            return resultMap["createdAt"]! as! String
+            return resultMap["date"]! as! String
           }
           set {
-            resultMap.updateValue(newValue, forKey: "createdAt")
+            resultMap.updateValue(newValue, forKey: "date")
           }
         }
 

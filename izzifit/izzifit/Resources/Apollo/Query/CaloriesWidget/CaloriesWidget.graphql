@@ -2,7 +2,7 @@ query CaloriesWidget($from: Date, $to: Date) {
     caloriesWidget(from: $from, to: $to) {
     Calories {
          amount
-         createdAt
+         date
         }
     target
     }

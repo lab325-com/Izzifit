@@ -18,5 +18,5 @@ struct CaloriesWidgetMainModel: Codable {
 
 struct CaloriesModel: Codable {
     let amount: Int
-    let createdAt: String
+    let date: String
 }

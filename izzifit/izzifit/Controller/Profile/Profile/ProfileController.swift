@@ -70,6 +70,9 @@ extension ProfileController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let caloriesCell = tableView.dequeueReusableCell(withIdentifier: ChartTableCell.id) as! ChartTableCell
+            if let model = presenter.caloriesWidget?.caloriesWidget {
+                caloriesCell.fillCellBy(model)
+            }
             return caloriesCell
         case 1:
             let moodCell = tableView.dequeueReusableCell(withIdentifier: MoodTableCell.id) as! MoodTableCell
@@ -106,7 +109,6 @@ extension ProfileController: ProfileOutputProtocol {
         profileTableView.isHidden = false
         profileTableView.reloadData()
     }
-    
     func failure() {
     }
 }
