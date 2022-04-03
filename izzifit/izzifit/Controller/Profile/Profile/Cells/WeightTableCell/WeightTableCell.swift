@@ -9,6 +9,15 @@ import UIKit
 
 class WeightTableCell: UITableViewCell {
 
+    
+    @IBOutlet var dateLabelsCollection: [UILabel]! {
+        didSet {
+            for (index, label) in dateLabelsCollection.enumerated() {
+                label.tag = index
+            }
+        }
+    }
+    
     @IBOutlet weak var weightLbl: UILabel! {
         didSet {
             weightLbl.text = RLocalization.profile_weight()
@@ -94,6 +103,5 @@ class WeightTableCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
 }

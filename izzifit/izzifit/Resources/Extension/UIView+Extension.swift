@@ -55,6 +55,14 @@ extension UIView {
         return SetUIManager()
     }
     
+    public var sizeWidth: CGFloat {
+        return frame.size.width
+    }
+    
+    public var sizeHeight: CGFloat {
+        return frame.size.height
+    }
+    
     var w: CGFloat {
         return UIScreen.main.bounds.size.width
     }
