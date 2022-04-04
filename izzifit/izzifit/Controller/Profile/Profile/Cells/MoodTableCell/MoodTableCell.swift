@@ -66,11 +66,14 @@ class MoodTableCell: UITableViewCell {
         
         let path = UIBezierPath()
         var labelPoints = [CGPoint]()
-        path.move(to: CGPoint(x: 0, y: backYAxis * 4))
+        path.move(to: CGPoint(x: 0,
+                              y: backYAxis * 4))
+        
         for (index, mood) in moods.enumerated() {
             if index < 6 {
                 let currentX = backXAxis * CGFloat(index + 1)
                 var currentY: CGFloat = 0.0
+                
                 switch mood.mood {
                 case .moodTypeGood:
                     currentY = backYAxis * 2.5
@@ -80,9 +83,11 @@ class MoodTableCell: UITableViewCell {
                     currentY = backYAxis * 5.0
                 default: break
                 }
-                let cgPoint = CGPoint(x: currentX, y: currentY)
+                
+                let cgPoint = CGPoint(x: currentX,
+                                      y: currentY)
                 labelPoints.append(cgPoint)
-                    dateLabelsCollection[index + 1].text = convertDate(mood.date)
+                dateLabelsCollection[index + 1].text = convertDate(mood.date)
             }
         }
         

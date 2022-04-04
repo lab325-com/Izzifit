@@ -82,6 +82,9 @@ extension ProfileController: UITableViewDataSource {
             return moodCell
         case 2:
             let weightCell = tableView.dequeueReusableCell(withIdentifier: WeightTableCell.id) as! WeightTableCell
+            if let weightWidgetModel = presenter.weightsWidget {
+                weightCell.fillCellBy(weightWidgetModel)
+            }
             return weightCell
         default:
             let awardsCell = tableView.dequeueReusableCell(withIdentifier: PolicyCell.id) as! PolicyCell

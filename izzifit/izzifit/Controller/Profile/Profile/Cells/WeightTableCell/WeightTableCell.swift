@@ -6,13 +6,24 @@
 //
 
 import UIKit
+import SwiftUI
 
 class WeightTableCell: UITableViewCell {
-
+    
+    
+    var calculator = TrigonometryManager()
     
     @IBOutlet var dateLabelsCollection: [UILabel]! {
         didSet {
             for (index, label) in dateLabelsCollection.enumerated() {
+                label.tag = index
+            }
+        }
+    }
+    
+    @IBOutlet var weightsOutletCollection: [UILabel]! {
+        didSet {
+            for (index, label) in weightsOutletCollection.enumerated() {
                 label.tag = index
             }
         }
@@ -24,12 +35,7 @@ class WeightTableCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var targetLbl: UILabel! {
-        didSet {
-            targetLbl.text = RLocalization.profile_target()
-        }
-    }
-    
+    @IBOutlet weak var targetLbl: UILabel!
     
     @IBOutlet weak var backVw: UIView! {
         didSet{
@@ -43,6 +49,20 @@ class WeightTableCell: UITableViewCell {
             chartBackVw.layer.backgroundColor = UIColor.clear.cgColor
         }
     }
+    
+    private lazy var chartBackViewStrideX: CGFloat = {
+        (w - 99) / 7
+    }()
+    
+    private var chartShapeLayer: CAShapeLayer = {
+        let chartShapeLayer = CAShapeLayer()
+        chartShapeLayer.lineWidth = 2
+        chartShapeLayer.lineCap = .round
+        chartShapeLayer.fillColor = UIColor.clear.cgColor
+        chartShapeLayer.strokeColor = UIColor(named: Clrs.intensivePurple.rawValue)?.cgColor
+        chartShapeLayer.strokeEnd = 1
+        return chartShapeLayer
+    }()
     
     static let id = "WeightTableCell"
     
@@ -82,25 +102,126 @@ class WeightTableCell: UITableViewCell {
         pinkPath.move(to: CGPoint(x: backXAxis * 2, y: backYAxis * 5))
         pinkPath.addLine(to: CGPoint(x: backXAxis * 3, y: backYAxis * 7))
         pinkPath.addLine(to: CGPoint(x: backXAxis * 4 , y: backYAxis * 5))
-                     
+        
         chartShapeLayer.path = path.cgPath
         pinkShapeLayer.path = pinkPath.cgPath
         
-        chartBackVw.layer.addSublayer(chartShapeLayer)
-        chartBackVw.layer.addSublayer(pinkShapeLayer)
+        //chartBackVw.layer.addSublayer(chartShapeLayer)
+        // chartBackVw.layer.addSublayer(pinkShapeLayer)
         // Initialization code
         
-        let lineLayer = CAShapeLayer()
-             lineLayer.strokeColor = clr(color: .pinkTarget)!.cgColor
-             lineLayer.lineWidth = 1
-             lineLayer.lineDashPattern = [6, 4]
-             let linePath = CGMutablePath()
-             linePath.addLines(between: [CGPoint(x: 0, y: backYAxis * 6),
-                                         CGPoint(x: chartBackVw.bounds.size.width, y: backYAxis * 6)])
-             lineLayer.path = linePath
-             chartBackVw.layer.addSublayer(lineLayer)
+     
     }
+    
+    func fillCellBy(_ model: WeightsWidgetMainModel) {
 
+        let path = UIBezierPath()
+        var chartPoints = [CGPoint]()
+        
+        path.move(to: CGPoint(x: 0,
+                              y: 25))
+        
+        // Weight Labels
+        fillWeightLbls(model)
+        
+        // Date Labels
+        for (index, item) in model.Weights.enumerated() {
+            if index <= 6 {
+            dateLabelsCollection[index].text = convertDate(item.date)
+            // Draw Graph
+            let currentX = chartBackViewStrideX * CGFloat(index + 1)
+            let currentY = correlateValueToY(Int(item.weight))
+            
+            let cgPoint = CGPoint(x: currentX,
+                                  y: currentY)
+            chartPoints.append(cgPoint)
+            }
+        }
+        
+        for point in chartPoints {
+            path.addLine(to: point)
+        }
+        targetLbl.text = RLocalization.profile_target()
+        
+        chartShapeLayer.path = path.cgPath
+        chartBackVw.layer.addSublayer(chartShapeLayer)
+        
+        targetLineDraw()
+        // Pink UnderTarget
+
+    }
+    
+    func targetLineDraw() {
+        let lineLayer = CAShapeLayer()
+        lineLayer.strokeColor = clr(color: .pinkTarget)!.cgColor
+        lineLayer.lineWidth = 1
+        lineLayer.lineDashPattern = [6, 4]
+        let linePath = CGMutablePath()
+        let lineY = chartBackVw.sizeHeight / 2
+        linePath.addLines(between: [CGPoint(x: 0,
+                                            y: lineY),
+                                    CGPoint(x: chartBackVw.sizeWidth,
+                                            y: lineY) ])
+        lineLayer.path = linePath
+        chartBackVw.layer.addSublayer(lineLayer)
+    }
+    
+    
+    func correlateValueToY(_ targetAmount: Int) -> CGFloat  {
+        
+        let decimalTargetAmount = Int(Float(targetAmount) * 0.1)
+        
+        let oneHundredth: CGFloat = CGFloat(decimalTargetAmount) / 100
+        
+        let verticalPointAmount: CGFloat = CGFloat(oneHundredth) * 89 // 83 - chart height
+        
+        let residualValue: CGFloat = 89 - verticalPointAmount
+        
+        return residualValue
+    }
+    
+    
+    func fillWeightLbls(_ model: WeightsWidgetMainModel) {
+        var measure = String()
+        
+        switch model.measure {
+        case .weightMeasureTypeLb:
+            measure = "lb"
+        case .weightMeasureTypeKg:
+            measure = "kg"
+        case .__unknown(_):
+            measure = ""
+        }
+        
+        var weightValues = createWeights(from: model.targetWeight)
+        for (index,item) in weightsOutletCollection.enumerated() {
+            item.text = "\(weightValues[index]) \(measure)"
+        }
+    }
+    
+    func createWeights(from targetWeight: Float) -> [Int] {
+        var multiplier: Float = 1.4
+        var weightsArray = [Int]()
+        for _ in 1...5 {
+            let number = Int(targetWeight * multiplier)
+            weightsArray.append(number)
+            multiplier -= 0.2
+        }
+        return weightsArray
+    }
+    
+    func convertDate(_ stringDate: String) -> String {
+        let oldDateFormatter = DateFormatter()
+        oldDateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        oldDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let gettedDate = oldDateFormatter.date(from: stringDate)
+        
+        let newDateFormatter = DateFormatter()
+        newDateFormatter.dateFormat = "dd.MM"
+        return newDateFormatter.string(from: gettedDate ?? Date())
+    }
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

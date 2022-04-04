@@ -268,6 +268,7 @@
 		FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761AF27DA1F60002881BB /* WorkoutActivitiesCell.swift */; };
 		FA1761C027DA3E96002881BB /* WorkoutActivityCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761BE27DA3E96002881BB /* WorkoutActivityCollectionCell.swift */; };
 		FA1761C127DA3E96002881BB /* WorkoutActivityCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1761BF27DA3E96002881BB /* WorkoutActivityCollectionCell.xib */; };
+		FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */; };
 		FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */; };
 		FA62C54E27F5B58800AC463A /* WeightsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */; };
 		FA6628A327F184C200FBB946 /* Moods.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA6628A227F184C200FBB946 /* Moods.graphql */; };
@@ -563,6 +564,7 @@
 		FA1761AF27DA1F60002881BB /* WorkoutActivitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutActivitiesCell.swift; sourceTree = "<group>"; };
 		FA1761BE27DA3E96002881BB /* WorkoutActivityCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutActivityCollectionCell.swift; sourceTree = "<group>"; };
 		FA1761BF27DA3E96002881BB /* WorkoutActivityCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutActivityCollectionCell.xib; sourceTree = "<group>"; };
+		FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometryManager.swift; sourceTree = "<group>"; };
 		FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WeightsWidget.graphql; sourceTree = "<group>"; };
 		FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsWidgetModel.swift; sourceTree = "<group>"; };
 		FA6628A227F184C200FBB946 /* Moods.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moods.graphql; sourceTree = "<group>"; };
@@ -1931,24 +1933,6 @@
 			path = WorkoutActivitiesCell;
 			sourceTree = "<group>";
 		};
-		FA1761BC27DA3938002881BB /* WorkoutSpecialCell */ = {
-			isa = PBXGroup;
-			children = (
-				FA1761B327DA1F72002881BB /* WorkoutSpecialCell.swift */,
-				FA1761B427DA1F72002881BB /* WorkoutSpecialCell.xib */,
-			);
-			path = WorkoutSpecialCell;
-			sourceTree = "<group>";
-		};
-		FA1761BD27DA3944002881BB /* WorkoutExercisesCell */ = {
-			isa = PBXGroup;
-			children = (
-				FA1761B727DA1F8A002881BB /* WorkoutExercisesCell.swift */,
-				FA1761B827DA1F8A002881BB /* WorkoutExercisesCell.xib */,
-			);
-			path = WorkoutExercisesCell;
-			sourceTree = "<group>";
-		};
 		FA62C54A27F5B43800AC463A /* WeightsWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -2047,6 +2031,7 @@
 			children = (
 				FE7CF8B927E4A7ED0099682E /* WeightTableCell.swift */,
 				FE7CF8BA27E4A7ED0099682E /* WeightTableCell.xib */,
+				FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */,
 			);
 			path = WeightTableCell;
 			sourceTree = "<group>";
@@ -2191,7 +2176,6 @@
 				020D282527E89FE700010122 /* AddProductToMeal.graphql in Resources */,
 				02BACF0C27F4407300B7562C /* WorkoutActivitiesCell.xib in Resources */,
 				FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */,
-				FA1761B227DA1F60002881BB /* WorkoutActivitiesCell.xib in Resources */,
 				0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */,
 				020D282027E863DD00010122 /* FoodAddController.xib in Resources */,
 				02D066CC27BBBB4300D12C5F /* QuizeNameController.xib in Resources */,
@@ -2453,6 +2437,7 @@
 				02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */,
 				02D066AD27BBA8F400D12C5F /* R.generated.swift in Sources */,
 				0249D26927B3A92300F265C1 /* KeychainService.swift in Sources */,
+				FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
 				02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,

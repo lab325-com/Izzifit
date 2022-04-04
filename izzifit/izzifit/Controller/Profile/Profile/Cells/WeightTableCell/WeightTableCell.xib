@@ -43,32 +43,32 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="C0s-Mf-ka3">
-                                <rect key="frame" x="300" y="46.5" width="28" height="90"/>
+                                <rect key="frame" x="300" y="46.5" width="38" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="76 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rix-hk-uj3">
-                                        <rect key="frame" x="0.0" y="0.0" width="28" height="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="38" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="fL7-bX-mKa"/>
-                                            <constraint firstAttribute="width" constant="28" id="oPm-5b-277"/>
+                                            <constraint firstAttribute="width" constant="38" id="oPm-5b-277"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
                                         <color key="textColor" name="grayText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="74 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FK5-cU-std">
-                                        <rect key="frame" x="0.0" y="18" width="28" height="18"/>
+                                        <rect key="frame" x="0.0" y="18" width="38" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="2ni-a4-LwP"/>
-                                            <constraint firstAttribute="width" constant="28" id="DCK-Dt-mTo"/>
+                                            <constraint firstAttribute="width" constant="38" id="DCK-Dt-mTo"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
                                         <color key="textColor" name="grayText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="72 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jh7-j8-z3W">
-                                        <rect key="frame" x="0.0" y="36" width="28" height="18"/>
+                                        <rect key="frame" x="0.0" y="36" width="38" height="18"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="28" id="h8M-I6-vey"/>
+                                            <constraint firstAttribute="width" constant="38" id="h8M-I6-vey"/>
                                             <constraint firstAttribute="height" constant="18" id="kzU-Yk-fn6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
@@ -76,20 +76,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="70 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1N-u8-iC6">
-                                        <rect key="frame" x="0.0" y="54" width="28" height="18"/>
+                                        <rect key="frame" x="0.0" y="54" width="38" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="QDA-6W-1sT"/>
-                                            <constraint firstAttribute="width" constant="28" id="jje-Gd-Tk3"/>
+                                            <constraint firstAttribute="width" constant="38" id="jje-Gd-Tk3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
                                         <color key="textColor" name="grayText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1au-XG-SmW">
-                                        <rect key="frame" x="0.0" y="72" width="28" height="18"/>
+                                        <rect key="frame" x="0.0" y="72" width="38" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="EVL-dk-hWm"/>
-                                            <constraint firstAttribute="width" constant="28" id="SbL-mN-wfa"/>
+                                            <constraint firstAttribute="width" constant="38" id="SbL-mN-wfa"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
                                         <color key="textColor" name="grayText"/>
@@ -98,14 +98,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="R6K-H1-v3Y"/>
-                                    <constraint firstAttribute="width" constant="28" id="RKX-Bc-PzK"/>
+                                    <constraint firstAttribute="width" constant="38" id="RKX-Bc-PzK"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQw-6Y-eHL">
                                 <rect key="frame" x="16" y="47" width="276" height="89"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCZ-K9-WMc">
-                                        <rect key="frame" x="0.0" y="39" width="27.5" height="11"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCZ-K9-WMc">
+                                        <rect key="frame" x="0.0" y="36.5" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="9"/>
                                         <color key="textColor" name="pinkTarget"/>
                                         <nil key="highlightedColor"/>
@@ -113,7 +113,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="VCZ-K9-WMc" firstAttribute="centerY" secondItem="RQw-6Y-eHL" secondAttribute="centerY" id="ORT-IA-opi"/>
+                                    <constraint firstItem="VCZ-K9-WMc" firstAttribute="centerY" secondItem="RQw-6Y-eHL" secondAttribute="centerY" constant="-8" id="9Si-Wk-njO"/>
                                     <constraint firstAttribute="height" constant="89" id="mca-Hx-5ET"/>
                                     <constraint firstItem="VCZ-K9-WMc" firstAttribute="leading" secondItem="RQw-6Y-eHL" secondAttribute="leading" id="yNj-Rv-VbW"/>
                                 </constraints>
@@ -196,7 +196,7 @@
                             <constraint firstItem="xqb-6h-Y0B" firstAttribute="leading" secondItem="nDs-6w-vmF" secondAttribute="leading" constant="16" id="Bw8-S5-M7O"/>
                             <constraint firstItem="C0s-Mf-ka3" firstAttribute="leading" secondItem="xqb-6h-Y0B" secondAttribute="trailing" constant="8" id="EgQ-YL-QP8"/>
                             <constraint firstItem="C0s-Mf-ka3" firstAttribute="centerY" secondItem="xqb-6h-Y0B" secondAttribute="centerY" id="FSG-Py-s4m"/>
-                            <constraint firstAttribute="trailing" secondItem="C0s-Mf-ka3" secondAttribute="trailing" constant="15" id="IfJ-fu-d4J"/>
+                            <constraint firstAttribute="trailing" secondItem="C0s-Mf-ka3" secondAttribute="trailing" constant="5" id="IfJ-fu-d4J"/>
                             <constraint firstAttribute="bottom" secondItem="RQw-6Y-eHL" secondAttribute="bottom" constant="32" id="JtO-MH-d8v"/>
                             <constraint firstItem="f7p-cE-0G5" firstAttribute="top" secondItem="nDs-6w-vmF" secondAttribute="top" constant="16" id="Kvm-GH-MTc"/>
                             <constraint firstItem="ty3-Il-PbN" firstAttribute="trailing" secondItem="C0s-Mf-ka3" secondAttribute="leading" constant="-8" id="RrF-Ny-5P0"/>
@@ -228,6 +228,11 @@
                 <outletCollection property="dateLabelsCollection" destination="dfT-5g-ZZc" collectionClass="NSMutableArray" id="GjO-iJ-DeP"/>
                 <outletCollection property="dateLabelsCollection" destination="4fz-DF-eMJ" collectionClass="NSMutableArray" id="if1-gQ-4HD"/>
                 <outletCollection property="dateLabelsCollection" destination="vet-Oe-J3i" collectionClass="NSMutableArray" id="lOZ-gz-iQd"/>
+                <outletCollection property="weightsOutletCollection" destination="Rix-hk-uj3" collectionClass="NSMutableArray" id="mL2-V7-bJh"/>
+                <outletCollection property="weightsOutletCollection" destination="FK5-cU-std" collectionClass="NSMutableArray" id="djJ-Wt-bG3"/>
+                <outletCollection property="weightsOutletCollection" destination="Jh7-j8-z3W" collectionClass="NSMutableArray" id="rsx-ex-uBW"/>
+                <outletCollection property="weightsOutletCollection" destination="l1N-u8-iC6" collectionClass="NSMutableArray" id="aGj-JR-8X0"/>
+                <outletCollection property="weightsOutletCollection" destination="1au-XG-SmW" collectionClass="NSMutableArray" id="IXf-9T-vd1"/>
             </connections>
             <point key="canvasLocation" x="138.40579710144928" y="63.616071428571423"/>
         </tableViewCell>
