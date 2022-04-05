@@ -86,6 +86,30 @@ struct TrigonometryManager {
         return result
     }
     
+    func getForwardIntersectedStrokeEnd(by firstPoint: CGPoint,
+                                        and secondPoint: CGPoint,
+                                        intersectionY: CGFloat) -> CGFloat {
+        // 0. два катета целого треугольника
+        let oppositeLegWholeTriangle = secondPoint.x - firstPoint.x
+        let adjacentLegWholeTriangle = firstPoint.y - secondPoint.y
+        
+        // 1. длина гипотенузы целого треугольника
+        let hyp = getHyp(leg1: oppositeLegWholeTriangle,
+                         leg2: adjacentLegWholeTriangle)
+        // 2. угол по гипотенузе и противоположному катету
+        let angle = getAngleBy(oppLeg: oppositeLegWholeTriangle,
+                               hyp: hyp)
+        // 3. прилегающий катет пересеченного треугольника
+        let adjacentLegIntersectionTriangle = firstPoint.y - intersectionY
+        // 4. гипотенуза пересеченного треугольника
+        let intersectedHyp = getHyp(adjLeg: adjacentLegIntersectionTriangle,
+                                    angle: angle)
+        // 5, сколько процентов гипотенуза пересеченного составляет от гипотенузы целого в формате "0.55"
+        let result = intersectedHyp / hyp
+        return result
+
+    }
+    
 //    func calculateAngleBy(adjacentC: CGFloat, oppositeC: CGFloat) -> CGFloat {
 //       let divided =  adjacentC  /   oppositeC
 //        let angle = atan(divided)

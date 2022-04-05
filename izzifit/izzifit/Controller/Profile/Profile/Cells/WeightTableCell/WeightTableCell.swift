@@ -109,8 +109,6 @@ class WeightTableCell: UITableViewCell {
         //chartBackVw.layer.addSublayer(chartShapeLayer)
         // chartBackVw.layer.addSublayer(pinkShapeLayer)
         // Initialization code
-        
-        
     }
     
     func fillCellBy(_ model: WeightsWidgetMainModel) {
@@ -138,10 +136,17 @@ class WeightTableCell: UITableViewCell {
             }
         }
         
+        for point in chartPoints {
+            path.addLine(to: point)
+        }
+        
+        chartShapeLayer.path = path.cgPath
+        chartBackVw.layer.addSublayer(chartShapeLayer)
+        
         for (index,point) in chartPoints.enumerated() {
             var combination:  ChartCombinations!
             var previousPoint = CGPoint()
-            path.addLine(to: point)
+          //  path.addLine(to: point)
             
             switch index {
             case 0:
@@ -158,7 +163,22 @@ class WeightTableCell: UITableViewCell {
             
             switch combination! {
             case .triangleIntersectionForwardToBack:
-                break
+                let path = UIBezierPath()
+                
+                path.move(to: previousPoint)
+                path.addLine(to: point)
+                
+                var end = calculator.getForwardIntersectedStrokeEnd(by: previousPoint,
+                                                                    and: point,
+                                                                    intersectionY: chartBackVw.sizeHeight / 2)
+                
+                let shapeLayer = CAShapeLayer()
+                shapeLayer.strokeEnd = end
+                shapeLayer.lineWidth = 2
+                shapeLayer.fillColor = UIColor.clear.cgColor
+                shapeLayer.strokeColor = clr(color: .pinkTarget)?.cgColor
+                shapeLayer.path = path.cgPath
+                chartBackVw.layer.addSublayer(shapeLayer)
             case .triangleIntersectionBackToForward:
                 let path = UIBezierPath()
                 
@@ -171,13 +191,24 @@ class WeightTableCell: UITableViewCell {
                 
                 let shapeLayer = CAShapeLayer()
                 shapeLayer.strokeEnd = end
-                shapeLayer.lineWidth = 5
+                shapeLayer.lineWidth = 2
                 shapeLayer.fillColor = UIColor.clear.cgColor
                 shapeLayer.strokeColor = clr(color: .pinkTarget)?.cgColor
                 shapeLayer.path = path.cgPath
                 chartBackVw.layer.addSublayer(shapeLayer)
             case .twoPointsUnderTarget:
-                break
+                let path = UIBezierPath()
+                
+                path.move(to: previousPoint)
+                path.addLine(to: point)
+                
+                let shapeLayer = CAShapeLayer()
+                shapeLayer.strokeEnd = 1
+                shapeLayer.lineWidth = 2
+                shapeLayer.fillColor = UIColor.clear.cgColor
+                shapeLayer.strokeColor = clr(color: .pinkTarget)?.cgColor
+                shapeLayer.path = path.cgPath
+                chartBackVw.layer.addSublayer(shapeLayer)
             case .none:
                 break
             }
@@ -186,9 +217,6 @@ class WeightTableCell: UITableViewCell {
    
         }
         targetLbl.text = RLocalization.profile_target()
-        
-        chartShapeLayer.path = path.cgPath
-        chartBackVw.layer.addSublayer(chartShapeLayer)
         
         targetLineDraw()
         // Pink UnderTarget
