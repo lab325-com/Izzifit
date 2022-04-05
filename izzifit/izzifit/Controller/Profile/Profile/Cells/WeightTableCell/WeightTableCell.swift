@@ -181,32 +181,51 @@ class WeightTableCell: UITableViewCell {
             
             switch combination! {
             case .triangleIntersectionForwardToBack:
-                break
+                starterDrawingPoint = calculator.getForwardIntersectionPoint(by: previousPoint,
+                                                                             and: point,
+                                                                             intersectionY: chartBackVw.sizeHeight / 2)
+                if let startPoint = starterDrawingPoint  {
+                    // проевряй есть ли комбинация вообще
+                    let path = UIBezierPath()
+                    
+                    path.move(to:startPoint )
+                    path.addLine(to: previousPoint)
+                    
+                    let shapeLayer = CAShapeLayer()
+                    shapeLayer.strokeEnd = 1
+                    shapeLayer.lineWidth = 3
+                    shapeLayer.fillColor = UIColor.clear.cgColor
+                    shapeLayer.strokeColor = clr(color: .pinkTarget)?.cgColor
+                    shapeLayer.path = path.cgPath
+                    chartBackVw.layer.addSublayer(shapeLayer)
+                }
+                
             case .triangleIntersectionBackToForward:
-                starterDrawingPoint = calculator.getIntersectionPoint(by:  previousPoint ,
+                starterDrawingPoint = calculator.getBackIntersectionPoint(by:  previousPoint ,
                                                                       and: point,
                                                                       intersectionY: chartBackVw.sizeHeight / 2)
+                if let startPoint = starterDrawingPoint  {
+                    // проевряй есть ли комбинация вообще
+                    let path = UIBezierPath()
+                    
+                    path.move(to:point )
+                    path.addLine(to: startPoint)
+                    
+                    let shapeLayer = CAShapeLayer()
+                    shapeLayer.strokeEnd = 1
+                    shapeLayer.lineWidth = 2
+                    shapeLayer.fillColor = UIColor.clear.cgColor
+                    shapeLayer.strokeColor = clr(color: .pinkTarget)?.cgColor
+                    shapeLayer.path = path.cgPath
+                    chartBackVw.layer.addSublayer(shapeLayer)
+                }
             case .twoPointsUnderTarget:
                 break
             case .none:
                 break
             }
             
-            if let startPoint = starterDrawingPoint  {
-                // проевряй есть ли комбинация вообще
-                let path = UIBezierPath()
-                
-                path.move(to:point )
-                path.addLine(to: startPoint)
-                
-                let shapeLayer = CAShapeLayer()
-                shapeLayer.strokeEnd = 1
-                shapeLayer.lineWidth = 2
-                shapeLayer.fillColor = UIColor.clear.cgColor
-                shapeLayer.strokeColor = clr(color: .pinkTarget)?.cgColor
-                shapeLayer.path = path.cgPath
-                chartBackVw.layer.addSublayer(shapeLayer)
-            }
+          
           
         }
     }
