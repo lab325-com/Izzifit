@@ -86,6 +86,9 @@ struct TrigonometryManager {
     }
     
     func recognizeCombination(backPoint: CGPoint, forwardPoint: CGPoint, interY: CGFloat) -> ChartCombinations {
+        
+        
+        
         if backPoint.y < interY && forwardPoint.y > interY { return .triangleIntersectionBackToForward }
         else if backPoint.y > interY && forwardPoint.y < interY { return .triangleIntersectionForwardToBack }
         else if backPoint.y > interY && forwardPoint.y > interY { return .twoPointsUnderTarget }

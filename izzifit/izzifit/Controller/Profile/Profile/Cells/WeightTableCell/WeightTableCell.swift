@@ -220,7 +220,18 @@ class WeightTableCell: UITableViewCell {
                     chartBackVw.layer.addSublayer(shapeLayer)
                 }
             case .twoPointsUnderTarget:
-                break
+                let path = UIBezierPath()
+                
+                path.move(to: previousPoint)
+                path.addLine(to: point)
+                
+                let shapeLayer = CAShapeLayer()
+                shapeLayer.strokeEnd = 1
+                shapeLayer.lineWidth = 2
+                shapeLayer.fillColor = UIColor.clear.cgColor
+                shapeLayer.strokeColor = clr(color: .pinkTarget)?.cgColor
+                shapeLayer.path = path.cgPath
+                chartBackVw.layer.addSublayer(shapeLayer)
             case .none:
                 break
             }
