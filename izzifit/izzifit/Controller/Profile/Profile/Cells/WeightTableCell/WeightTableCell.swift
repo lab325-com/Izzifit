@@ -138,8 +138,52 @@ class WeightTableCell: UITableViewCell {
             }
         }
         
-        for point in chartPoints {
+        for (index,point) in chartPoints.enumerated() {
+            var combination:  ChartCombinations!
+            var previousPoint = CGPoint()
             path.addLine(to: point)
+            
+            switch index {
+            case 0:
+                previousPoint = CGPoint(x: 1, y: 25)
+                combination = calculator.recognizeCombination(backPoint:  CGPoint(x: 1, y: 25),
+                                                              forwardPoint: point,
+                                                              interY: chartBackVw.sizeHeight / 2)
+            default:
+                previousPoint = chartPoints[index - 1]
+                combination = calculator.recognizeCombination(backPoint: chartPoints[index - 1],
+                                                              forwardPoint: point,
+                                                              interY: chartBackVw.sizeHeight / 2)
+            }
+            
+            switch combination! {
+            case .triangleIntersectionForwardToBack:
+                break
+            case .triangleIntersectionBackToForward:
+                let path = UIBezierPath()
+                
+                path.move(to: point )
+                path.addLine(to: previousPoint)
+                
+                var end = calculator.getBackIntersectedStrokeEnd(by: previousPoint,
+                                                                 and: point,
+                                                                 intersectionY: chartBackVw.sizeHeight / 2)
+                
+                let shapeLayer = CAShapeLayer()
+                shapeLayer.strokeEnd = end
+                shapeLayer.lineWidth = 5
+                shapeLayer.fillColor = UIColor.clear.cgColor
+                shapeLayer.strokeColor = clr(color: .pinkTarget)?.cgColor
+                shapeLayer.path = path.cgPath
+                chartBackVw.layer.addSublayer(shapeLayer)
+            case .twoPointsUnderTarget:
+                break
+            case .none:
+                break
+            }
+            
+            
+   
         }
         targetLbl.text = RLocalization.profile_target()
         
@@ -148,7 +192,7 @@ class WeightTableCell: UITableViewCell {
         
         targetLineDraw()
         // Pink UnderTarget
-        pinkChartDrawer(chartPoints)
+        //  pinkChartDrawer(chartPoints)
         
         
         
@@ -163,7 +207,7 @@ class WeightTableCell: UITableViewCell {
         for (index, point) in points.enumerated() {
             var combination:  ChartCombinations!
             var starterDrawingPoint: CGPoint?
-
+            
             switch index {
             case 0:
                 previousPoint = CGPoint(x: 1,
@@ -193,7 +237,7 @@ class WeightTableCell: UITableViewCell {
                     
                     let shapeLayer = CAShapeLayer()
                     shapeLayer.strokeEnd = 1
-                    shapeLayer.lineWidth = 3
+                    shapeLayer.lineWidth = 2
                     shapeLayer.fillColor = UIColor.clear.cgColor
                     shapeLayer.strokeColor = clr(color: .pinkTarget)?.cgColor
                     shapeLayer.path = path.cgPath
@@ -202,8 +246,8 @@ class WeightTableCell: UITableViewCell {
                 
             case .triangleIntersectionBackToForward:
                 starterDrawingPoint = calculator.getBackIntersectionPoint(by:  previousPoint ,
-                                                                      and: point,
-                                                                      intersectionY: chartBackVw.sizeHeight / 2)
+                                                                          and: point,
+                                                                          intersectionY: chartBackVw.sizeHeight / 2)
                 if let startPoint = starterDrawingPoint  {
                     // проевряй есть ли комбинация вообще
                     let path = UIBezierPath()
@@ -236,8 +280,8 @@ class WeightTableCell: UITableViewCell {
                 break
             }
             
-          
-          
+            
+            
         }
     }
     
