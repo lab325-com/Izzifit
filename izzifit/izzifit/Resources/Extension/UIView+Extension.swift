@@ -115,3 +115,10 @@ public extension CGPoint {
         }
     }
 }
+
+
+public extension Double {
+    var twoDigits: Double {
+        Double(String(format: "%.2f", self))!
+    }
+}

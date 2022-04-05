@@ -110,11 +110,11 @@ class WeightTableCell: UITableViewCell {
         // chartBackVw.layer.addSublayer(pinkShapeLayer)
         // Initialization code
         
-     
+        
     }
     
     func fillCellBy(_ model: WeightsWidgetMainModel) {
-
+        
         let path = UIBezierPath()
         var chartPoints = [CGPoint]()
         
@@ -127,14 +127,14 @@ class WeightTableCell: UITableViewCell {
         // Date Labels
         for (index, item) in model.Weights.enumerated() {
             if index <= 6 {
-            dateLabelsCollection[index].text = convertDate(item.date)
-            // Draw Graph
-            let currentX = chartBackViewStrideX * CGFloat(index + 1)
-            let currentY = correlateValueToY(Int(item.weight))
-            
-            let cgPoint = CGPoint(x: currentX,
-                                  y: currentY)
-            chartPoints.append(cgPoint)
+                dateLabelsCollection[index].text = convertDate(item.date)
+                // Draw Graph
+                let currentX = chartBackViewStrideX * CGFloat(index + 1)
+                let currentY = correlateValueToY(Int(item.weight))
+                
+                let cgPoint = CGPoint(x: currentX,
+                                      y: currentY)
+                chartPoints.append(cgPoint)
             }
         }
         
@@ -148,7 +148,67 @@ class WeightTableCell: UITableViewCell {
         
         targetLineDraw()
         // Pink UnderTarget
+        pinkChartDrawer(chartPoints)
+        
+        
+        
+    }
+    
+    func pinkChartDrawer(_ points: [CGPoint]) {
+        
+        var previousPoint = CGPoint()
+        var currentPoint = CGPoint()
+        
+        
+        for (index, point) in points.enumerated() {
+            var combination:  ChartCombinations!
+            var starterDrawingPoint: CGPoint?
 
+            switch index {
+            case 0:
+                previousPoint = CGPoint(x: 1,
+                                        y: 25)
+                combination = calculator.recognizeCombination(backPoint: previousPoint,
+                                                              forwardPoint: point,
+                                                              interY: chartBackVw.sizeHeight / 2)
+                
+            default:
+                previousPoint = points[index - 1]
+                combination = calculator.recognizeCombination(backPoint: previousPoint,
+                                                              forwardPoint: point,
+                                                              interY: chartBackVw.sizeHeight / 2)
+            }
+            
+            switch combination! {
+            case .triangleIntersectionForwardToBack:
+                break
+            case .triangleIntersectionBackToForward:
+                starterDrawingPoint = calculator.getIntersectionPoint(by:  previousPoint ,
+                                                                      and: point,
+                                                                      intersectionY: chartBackVw.sizeHeight / 2)
+            case .twoPointsUnderTarget:
+                break
+            case .none:
+                break
+            }
+            
+            if let startPoint = starterDrawingPoint  {
+                // проевряй есть ли комбинация вообще
+                let path = UIBezierPath()
+                
+                path.move(to:point )
+                path.addLine(to: startPoint)
+                
+                let shapeLayer = CAShapeLayer()
+                shapeLayer.strokeEnd = 1
+                shapeLayer.lineWidth = 2
+                shapeLayer.fillColor = UIColor.clear.cgColor
+                shapeLayer.strokeColor = clr(color: .pinkTarget)?.cgColor
+                shapeLayer.path = path.cgPath
+                chartBackVw.layer.addSublayer(shapeLayer)
+            }
+          
+        }
     }
     
     func targetLineDraw() {
@@ -220,7 +280,6 @@ class WeightTableCell: UITableViewCell {
         newDateFormatter.dateFormat = "dd.MM"
         return newDateFormatter.string(from: gettedDate ?? Date())
     }
-    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
