@@ -144,7 +144,7 @@ class WeightTableCell: UITableViewCell {
         chartBackVw.layer.addSublayer(chartShapeLayer)
         
         for (index,point) in chartPoints.enumerated() {
-            var combination:  ChartCombinations!
+            var combination: ChartCombinations
             var previousPoint = CGPoint()
           //  path.addLine(to: point)
             
@@ -161,7 +161,7 @@ class WeightTableCell: UITableViewCell {
                                                               interY: chartBackVw.sizeHeight / 2)
             }
             
-            switch combination! {
+            switch combination {
             case .triangleIntersectionForwardToBack:
                 let path = UIBezierPath()
                 
@@ -212,9 +212,6 @@ class WeightTableCell: UITableViewCell {
             case .none:
                 break
             }
-            
-            
-   
         }
         targetLbl.text = RLocalization.profile_target()
         
