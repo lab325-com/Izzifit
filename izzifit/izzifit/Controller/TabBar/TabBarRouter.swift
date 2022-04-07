@@ -17,4 +17,9 @@ class TabBarRouter: BaseRouter {
         let controller = ProfileController()
         push(controller: controller)
     }
+    
+    func pushGame() {
+        let controller = ArcticGameComtroller()
+        push(controller: controller)
+    }
 }

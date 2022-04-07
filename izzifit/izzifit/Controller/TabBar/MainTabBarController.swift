@@ -45,6 +45,7 @@ class MainTabBarController: BaseController {
     private lazy var workout = WorkoutController()
     private lazy var profile = ProfileController()
     private lazy var menu = MenuController()
+    private lazy var game = ArcticGameComtroller()
     
     private var tab: TabBarType = .energy {
         didSet {
@@ -160,6 +161,14 @@ class MainTabBarController: BaseController {
         TabBarRouter(presenter: navigationController).pushProfile()
     }
     
+    @IBAction func actionGame(_ sender: Any) {
+        UIView.animate(withDuration: 0.3) {
+            self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
+            self.view.layoutIfNeeded()
+        }
+        
+        TabBarRouter(presenter: navigationController).pushGame()
+    }
     @IBAction func actionMenu(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
             self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans

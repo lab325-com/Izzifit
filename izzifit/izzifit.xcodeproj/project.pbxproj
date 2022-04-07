@@ -277,6 +277,8 @@
 		FAA9DBEB27D9ECD4004A14FB /* WorkoutTypesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */; };
 		FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAA9DBEA27D9ECD4004A14FB /* WorkoutTypes.graphql */; };
 		FAA9DBEE27D9ECFF004A14FB /* WorkoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */; };
+		FAB6547027FEDFA70057A221 /* ArcticGameComtroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6546E27FEDFA70057A221 /* ArcticGameComtroller.swift */; };
+		FAB6547127FEDFA70057A221 /* ArcticGameComtroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB6546F27FEDFA70057A221 /* ArcticGameComtroller.xib */; };
 		FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAC55B9627EB87F0001DA24C /* Rank.graphql */; };
 		FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC55B9927EB944E001DA24C /* RankModel.swift */; };
 		FADA6BD127F188B200913F67 /* MoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA6BD027F188B200913F67 /* MoodsModel.swift */; };
@@ -572,6 +574,8 @@
 		FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTypesModel.swift; sourceTree = "<group>"; };
 		FAA9DBEA27D9ECD4004A14FB /* WorkoutTypes.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutTypes.graphql; sourceTree = "<group>"; };
 		FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPresenter.swift; sourceTree = "<group>"; };
+		FAB6546E27FEDFA70057A221 /* ArcticGameComtroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGameComtroller.swift; sourceTree = "<group>"; };
+		FAB6546F27FEDFA70057A221 /* ArcticGameComtroller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArcticGameComtroller.xib; sourceTree = "<group>"; };
 		FAC55B9627EB87F0001DA24C /* Rank.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rank.graphql; sourceTree = "<group>"; };
 		FAC55B9927EB944E001DA24C /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		FADA6BD027F188B200913F67 /* MoodsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsModel.swift; sourceTree = "<group>"; };
@@ -879,6 +883,7 @@
 		0249D24E27B3A6EE00F265C1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FAB6546B27FEDF1A0057A221 /* Game */,
 				0249D25327B3A71700F265C1 /* SplashViewController */,
 				0249D27E27B3AA8B00F265C1 /* Auth */,
 				02D066C727BBBB0800D12C5F /* Onboarding */,
@@ -1931,24 +1936,6 @@
 			path = WorkoutActivitiesCell;
 			sourceTree = "<group>";
 		};
-		FA1761BC27DA3938002881BB /* WorkoutSpecialCell */ = {
-			isa = PBXGroup;
-			children = (
-				FA1761B327DA1F72002881BB /* WorkoutSpecialCell.swift */,
-				FA1761B427DA1F72002881BB /* WorkoutSpecialCell.xib */,
-			);
-			path = WorkoutSpecialCell;
-			sourceTree = "<group>";
-		};
-		FA1761BD27DA3944002881BB /* WorkoutExercisesCell */ = {
-			isa = PBXGroup;
-			children = (
-				FA1761B727DA1F8A002881BB /* WorkoutExercisesCell.swift */,
-				FA1761B827DA1F8A002881BB /* WorkoutExercisesCell.xib */,
-			);
-			path = WorkoutExercisesCell;
-			sourceTree = "<group>";
-		};
 		FA62C54A27F5B43800AC463A /* WeightsWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -1983,6 +1970,31 @@
 				FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */,
 			);
 			path = WorkoutTypes;
+			sourceTree = "<group>";
+		};
+		FAB6546B27FEDF1A0057A221 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				FAB6546D27FEDF340057A221 /* Arctic Game */,
+				FAB6546C27FEDF290057A221 /* Level */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		FAB6546C27FEDF290057A221 /* Level */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Level;
+			sourceTree = "<group>";
+		};
+		FAB6546D27FEDF340057A221 /* Arctic Game */ = {
+			isa = PBXGroup;
+			children = (
+				FAB6546E27FEDFA70057A221 /* ArcticGameComtroller.swift */,
+				FAB6546F27FEDFA70057A221 /* ArcticGameComtroller.xib */,
+			);
+			path = "Arctic Game";
 			sourceTree = "<group>";
 		};
 		FAC55B9527EB87A9001DA24C /* Rank */ = {
@@ -2191,7 +2203,6 @@
 				020D282527E89FE700010122 /* AddProductToMeal.graphql in Resources */,
 				02BACF0C27F4407300B7562C /* WorkoutActivitiesCell.xib in Resources */,
 				FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */,
-				FA1761B227DA1F60002881BB /* WorkoutActivitiesCell.xib in Resources */,
 				0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */,
 				020D282027E863DD00010122 /* FoodAddController.xib in Resources */,
 				02D066CC27BBBB4300D12C5F /* QuizeNameController.xib in Resources */,
@@ -2286,6 +2297,7 @@
 				02D066C327BBB57D00D12C5F /* Inter-Regular.ttf in Resources */,
 				02F01C5227D794450066656D /* MoodWidget.graphql in Resources */,
 				0227DA9D27C63A3B008AB26B /* FoodGroups.graphql in Resources */,
+				FAB6547127FEDFA70057A221 /* ArcticGameComtroller.xib in Resources */,
 				0290B39A27D2340800381B42 /* EnerdyTodayCell.xib in Resources */,
 				0273F55A27D5F08E00B19449 /* EnergyMoodCell.xib in Resources */,
 				0273F55F27D5F7CB00B19449 /* EnergyMealsCell.xib in Resources */,
@@ -2408,6 +2420,7 @@
 				FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */,
 				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
 				0263388D27DB299600DC0325 /* EnergyProgressController.swift in Sources */,
+				FAB6547027FEDFA70057A221 /* ArcticGameComtroller.swift in Sources */,
 				0268752927D8C90100FFEA6A /* EnergyWeightCell.swift in Sources */,
 				02A5CDB427C3949700D31FB4 /* MenuController.swift in Sources */,
 				0227DA9627C619F7008AB26B /* MenuCell.swift in Sources */,
