@@ -19,6 +19,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileController" customModule="izzifit" customModuleProvider="target">
             <connections>
+                <outlet property="avatarImageView" destination="iSb-AS-frT" id="lfr-I6-WcJ"/>
+                <outlet property="coinsLabel" destination="6x7-Rm-fkm" id="I34-kW-sJB"/>
+                <outlet property="energyLabel" destination="4AL-1l-1H7" id="46N-qr-Jq4"/>
+                <outlet property="nameLabel" destination="0zC-1t-aE7" id="zeQ-VL-Iou"/>
                 <outlet property="profileLbl" destination="jHD-hw-K0f" id="bxy-sJ-zje"/>
                 <outlet property="profileTableView" destination="BC1-HW-TjP" id="dMP-Jy-cxC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -75,14 +79,14 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zC-1t-aE7">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0zC-1t-aE7">
                             <rect key="frame" x="67" y="20" width="41.5" height="24.5"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="n7M-DM-ZF0">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="n7M-DM-ZF0">
                             <rect key="frame" x="271.5" y="21" width="127.5" height="22"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_view_coin_ic" translatesAutoresizingMaskIntoConstraints="NO" id="wdF-UY-8bl">
@@ -113,9 +117,10 @@
                         <constraint firstAttribute="bottom" secondItem="vbd-LP-k5G" secondAttribute="bottom" constant="8" id="CNk-WT-tVK"/>
                         <constraint firstAttribute="trailing" secondItem="n7M-DM-ZF0" secondAttribute="trailing" constant="15" id="GpN-ew-Jcr"/>
                         <constraint firstItem="0zC-1t-aE7" firstAttribute="leading" secondItem="vbd-LP-k5G" secondAttribute="trailing" constant="8" id="JF6-Ro-Ya3"/>
+                        <constraint firstItem="n7M-DM-ZF0" firstAttribute="centerY" secondItem="0zC-1t-aE7" secondAttribute="centerY" id="LQf-JT-h9I"/>
                         <constraint firstAttribute="height" constant="60" id="PC7-od-vVd"/>
+                        <constraint firstItem="n7M-DM-ZF0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0zC-1t-aE7" secondAttribute="trailing" constant="10" id="bQq-0q-dQk"/>
                         <constraint firstItem="0zC-1t-aE7" firstAttribute="centerY" secondItem="iSb-AS-frT" secondAttribute="centerY" id="if7-Qg-WG3"/>
-                        <constraint firstItem="n7M-DM-ZF0" firstAttribute="centerY" secondItem="0zC-1t-aE7" secondAttribute="centerY" id="lYl-Z8-PoN"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
