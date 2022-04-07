@@ -21,7 +21,7 @@ protocol WorkoutPresenterProtocol: AnyObject {
     init(view: WorkoutOutputProtocol)
     
     func getWorkout()
-    func getWorkoutsAll(categoryId: String?)
+    func getWorkoutsAll(categoryId: Int?)
 }
 
 class WorkoutPresenter: WorkoutPresenterProtocol {
@@ -81,10 +81,10 @@ class WorkoutPresenter: WorkoutPresenterProtocol {
         }
     }
     
-    func getWorkoutsAll(categoryId: String?) {
+    func getWorkoutsAll(categoryId: Int?) {
         
         view?.startLoader()
-        let query = WorkoutsQuery(categoryIds: [categoryId])
+        let query = WorkoutsQuery(workoutTypeIds: [categoryId])
         let _ = Network.shared.query(model: WorkoutsModel.self, query, controller: view, successHandler: { [weak self] model in
             self?.view?.stopLoading()
             self?.exercises = model.workouts.workouts

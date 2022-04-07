@@ -54,6 +54,9 @@
 		0239712527E1CD6E0087113A /* WriteToUsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0239712327E1CD6E0087113A /* WriteToUsController.xib */; };
 		023D171C27BE1D4D005F95C0 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D171B27BE1D4D005F95C0 /* AuthRouter.swift */; };
 		023D171E27BE258A005F95C0 /* UITapGesture+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D171D27BE258A005F95C0 /* UITapGesture+Extension.swift */; };
+		023FBC3C27FACC8C004D0CEA /* PaywallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023FBC3A27FACC8C004D0CEA /* PaywallController.swift */; };
+		023FBC3D27FACC8C004D0CEA /* PaywallController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023FBC3B27FACC8C004D0CEA /* PaywallController.xib */; };
+		023FBC3F27FACCC0004D0CEA /* PaywallRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023FBC3E27FACCC0004D0CEA /* PaywallRouter.swift */; };
 		024779CD27DCB8BF00AAFE3D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024779CC27DCB8BF00AAFE3D /* Date+Extension.swift */; };
 		0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249D22A27B3A4EF00F265C1 /* AppDelegate.swift */; };
 		0249D23427B3A4F100F265C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0249D23327B3A4F100F265C1 /* Assets.xcassets */; };
@@ -243,8 +246,12 @@
 		02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066E127BBEBA000D12C5F /* QuizeHeightController.xib */; };
 		02D066E927BC1BC900D12C5F /* QuizeWeightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066E727BC1BC900D12C5F /* QuizeWeightController.swift */; };
 		02D066EA27BC1BC900D12C5F /* QuizeWeightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02D066E827BC1BC900D12C5F /* QuizeWeightController.xib */; };
+		02D1631F27FADC2F007C6686 /* Inter-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D1631E27FADC2F007C6686 /* Inter-BoldItalic.ttf */; };
 		02D5703C27E9AE4C00F14911 /* WorkoutsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02D5703B27E9AE4B00F14911 /* WorkoutsWidget.graphql */; };
 		02D5703E27E9AF3B00F14911 /* WorkoutsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */; };
+		02E6D85827FC255100E29509 /* SubscribePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6D85727FC255100E29509 /* SubscribePresenter.swift */; };
+		02E6D85B27FC259E00E29509 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02E6D85A27FC259E00E29509 /* SwiftyStoreKit */; };
+		02E6D85D27FC385F00E29509 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 02E6D85C27FC385F00E29509 /* Localizable.stringsdict */; };
 		02E9047127F59E56008CFFB4 /* WorkoutExercisesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9046F27F59E56008CFFB4 /* WorkoutExercisesCell.swift */; };
 		02E9047227F59E56008CFFB4 /* WorkoutExercisesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02E9047027F59E56008CFFB4 /* WorkoutExercisesCell.xib */; };
 		02E9047A27F5A0E8008CFFB4 /* WorkoutExercisesDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9047827F5A0E8008CFFB4 /* WorkoutExercisesDetailCell.swift */; };
@@ -345,6 +352,9 @@
 		0239712327E1CD6E0087113A /* WriteToUsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WriteToUsController.xib; sourceTree = "<group>"; };
 		023D171B27BE1D4D005F95C0 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		023D171D27BE258A005F95C0 /* UITapGesture+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGesture+Extension.swift"; sourceTree = "<group>"; };
+		023FBC3A27FACC8C004D0CEA /* PaywallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallController.swift; sourceTree = "<group>"; };
+		023FBC3B27FACC8C004D0CEA /* PaywallController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaywallController.xib; sourceTree = "<group>"; };
+		023FBC3E27FACCC0004D0CEA /* PaywallRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallRouter.swift; sourceTree = "<group>"; };
 		024779CC27DCB8BF00AAFE3D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		0249D22727B3A4EF00F265C1 /* izzifit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = izzifit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0249D22A27B3A4EF00F265C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -536,8 +546,11 @@
 		02D066E127BBEBA000D12C5F /* QuizeHeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeHeightController.xib; sourceTree = "<group>"; };
 		02D066E727BC1BC900D12C5F /* QuizeWeightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeWeightController.swift; sourceTree = "<group>"; };
 		02D066E827BC1BC900D12C5F /* QuizeWeightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeWeightController.xib; sourceTree = "<group>"; };
+		02D1631E27FADC2F007C6686 /* Inter-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.ttf"; sourceTree = "<group>"; };
 		02D5703B27E9AE4B00F14911 /* WorkoutsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutsWidget.graphql; sourceTree = "<group>"; };
 		02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsWidgetModel.swift; sourceTree = "<group>"; };
+		02E6D85727FC255100E29509 /* SubscribePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribePresenter.swift; sourceTree = "<group>"; };
+		02E6D85C27FC385F00E29509 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		02E9046F27F59E56008CFFB4 /* WorkoutExercisesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExercisesCell.swift; sourceTree = "<group>"; };
 		02E9047027F59E56008CFFB4 /* WorkoutExercisesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutExercisesCell.xib; sourceTree = "<group>"; };
 		02E9047827F5A0E8008CFFB4 /* WorkoutExercisesDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExercisesDetailCell.swift; sourceTree = "<group>"; };
@@ -602,6 +615,7 @@
 				0249D27827B3AA3B00F265C1 /* Apollo in Frameworks */,
 				0249D27A27B3AA3B00F265C1 /* ApolloWebSocket in Frameworks */,
 				0249D25627B3A7AD00F265C1 /* NVActivityIndicatorView in Frameworks */,
+				02E6D85B27FC259E00E29509 /* SwiftyStoreKit in Frameworks */,
 				0249D25827B3A7AD00F265C1 /* NVActivityIndicatorViewExtended in Frameworks */,
 				0227DA8C27C4CA77008AB26B /* Kingfisher in Frameworks */,
 				0249D27027B3A98C00F265C1 /* SwiftKeychainWrapper in Frameworks */,
@@ -823,6 +837,17 @@
 			path = WriteToUsController;
 			sourceTree = "<group>";
 		};
+		023FBC3927FACC69004D0CEA /* Paywall */ = {
+			isa = PBXGroup;
+			children = (
+				023FBC3E27FACCC0004D0CEA /* PaywallRouter.swift */,
+				02E6D85727FC255100E29509 /* SubscribePresenter.swift */,
+				023FBC3A27FACC8C004D0CEA /* PaywallController.swift */,
+				023FBC3B27FACC8C004D0CEA /* PaywallController.xib */,
+			);
+			path = Paywall;
+			sourceTree = "<group>";
+		};
 		0249D21E27B3A4EF00F265C1 = {
 			isa = PBXGroup;
 			children = (
@@ -882,6 +907,7 @@
 				0249D25327B3A71700F265C1 /* SplashViewController */,
 				0249D27E27B3AA8B00F265C1 /* Auth */,
 				02D066C727BBBB0800D12C5F /* Onboarding */,
+				023FBC3927FACC69004D0CEA /* Paywall */,
 				021A6F4B27BF99530000D863 /* TabBar */,
 				02A5CDA227C3938200D31FB4 /* Energy */,
 				02A5CDA727C393BC00D31FB4 /* Workout */,
@@ -1699,6 +1725,7 @@
 			isa = PBXGroup;
 			children = (
 				02D066AA27BBA72100D12C5F /* Localizable.strings */,
+				02E6D85C27FC385F00E29509 /* Localizable.stringsdict */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -1723,6 +1750,7 @@
 				02D066B927BBB57C00D12C5F /* Inter-Light.ttf */,
 				02D066B727BBB57B00D12C5F /* Inter-Medium.ttf */,
 				02D066BA27BBB57C00D12C5F /* Inter-Regular.ttf */,
+				02D1631E27FADC2F007C6686 /* Inter-BoldItalic.ttf */,
 				02D066BD27BBB57D00D12C5F /* Inter-SemiBold.ttf */,
 				02D066B827BBB57C00D12C5F /* Inter-Thin.ttf */,
 			);
@@ -1931,24 +1959,6 @@
 			path = WorkoutActivitiesCell;
 			sourceTree = "<group>";
 		};
-		FA1761BC27DA3938002881BB /* WorkoutSpecialCell */ = {
-			isa = PBXGroup;
-			children = (
-				FA1761B327DA1F72002881BB /* WorkoutSpecialCell.swift */,
-				FA1761B427DA1F72002881BB /* WorkoutSpecialCell.xib */,
-			);
-			path = WorkoutSpecialCell;
-			sourceTree = "<group>";
-		};
-		FA1761BD27DA3944002881BB /* WorkoutExercisesCell */ = {
-			isa = PBXGroup;
-			children = (
-				FA1761B727DA1F8A002881BB /* WorkoutExercisesCell.swift */,
-				FA1761B827DA1F8A002881BB /* WorkoutExercisesCell.xib */,
-			);
-			path = WorkoutExercisesCell;
-			sourceTree = "<group>";
-		};
 		FA62C54A27F5B43800AC463A /* WeightsWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -2119,6 +2129,7 @@
 				0249D27927B3AA3B00F265C1 /* ApolloWebSocket */,
 				0249D27C27B3AA7000F265C1 /* Toast */,
 				0227DA8B27C4CA77008AB26B /* Kingfisher */,
+				02E6D85A27FC259E00E29509 /* SwiftyStoreKit */,
 			);
 			productName = izzifit;
 			productReference = 0249D22727B3A4EF00F265C1 /* izzifit.app */;
@@ -2155,6 +2166,7 @@
 				0249D27627B3AA3B00F265C1 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				0249D27B27B3AA7000F265C1 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				0227DA8A27C4CA77008AB26B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 			);
 			productRefGroup = 0249D22827B3A4EF00F265C1 /* Products */;
 			projectDirPath = "";
@@ -2176,6 +2188,7 @@
 				025463AD27CE6E9800D433DB /* MenuFitnessController.xib in Resources */,
 				FAA8E88A27F449060081A12A /* CaloriesWidget.graphql in Resources */,
 				02F0C18227EDBDDB005DE3E2 /* EnergyUpdateWeightController.xib in Resources */,
+				02D1631F27FADC2F007C6686 /* Inter-BoldItalic.ttf in Resources */,
 				FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */,
 				0268752327D8904900FFEA6A /* progress.graphql in Resources */,
 				02FAF0A727D361AE002CD678 /* EnergyDrinkWaterCell.xib in Resources */,
@@ -2191,7 +2204,6 @@
 				020D282527E89FE700010122 /* AddProductToMeal.graphql in Resources */,
 				02BACF0C27F4407300B7562C /* WorkoutActivitiesCell.xib in Resources */,
 				FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */,
-				FA1761B227DA1F60002881BB /* WorkoutActivitiesCell.xib in Resources */,
 				0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */,
 				020D282027E863DD00010122 /* FoodAddController.xib in Resources */,
 				02D066CC27BBBB4300D12C5F /* QuizeNameController.xib in Resources */,
@@ -2206,6 +2218,7 @@
 				02B225B927BD63FC0035CFA2 /* QuizeEmailController.xib in Resources */,
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
 				02BC128E27F329E200678305 /* WorkoutDetailMuscleController.xib in Resources */,
+				023FBC3D27FACC8C004D0CEA /* PaywallController.xib in Resources */,
 				0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */,
 				0227DA9727C619F7008AB26B /* MenuCell.xib in Resources */,
 				02AB486527E06DEE00F35EE2 /* FoodRecomendedCell.xib in Resources */,
@@ -2216,6 +2229,7 @@
 				FE1403BE27E2019C002F5819 /* ChartTableCell.xib in Resources */,
 				0251D23927E214020098A54D /* SourcesByMeal.graphql in Resources */,
 				0263388E27DB299600DC0325 /* EnergyProgressController.xib in Resources */,
+				02E6D85D27FC385F00E29509 /* Localizable.stringsdict in Resources */,
 				02A5CDC327C4247300D31FB4 /* QuizeFoodCell.xib in Resources */,
 				02D066C627BBB57D00D12C5F /* Inter-SemiBold.ttf in Resources */,
 				02FAF0AC27D36CE0002CD678 /* DrinkWidget.graphql in Resources */,
@@ -2333,7 +2347,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
 		};
 		02D066AB27BBA8A800D12C5F /* RSwift */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2494,6 +2508,7 @@
 				02B1E71927DA003B00C9E610 /* EnergyTrainingCell.swift in Sources */,
 				0227DAA927C64F33008AB26B /* MenuRouter.swift in Sources */,
 				0273F56927D60EF600B19449 /* SleepWidgetModel.swift in Sources */,
+				023FBC3F27FACCC0004D0CEA /* PaywallRouter.swift in Sources */,
 				0251D24027E215C60098A54D /* ProductsByMealModel.swift in Sources */,
 				0249D24C27B3A67900F265C1 /* RootRouter.swift in Sources */,
 				02C3DD6527BEDA82004E5C65 /* QuizeProgressController.swift in Sources */,
@@ -2503,6 +2518,7 @@
 				0249D28B27B3AB6300F265C1 /* AppConfigurationBridge.m in Sources */,
 				02C487F827F184A00010D4FA /* WorkoutDetailController.swift in Sources */,
 				0227DAA627C64E31008AB26B /* MenuNameController.swift in Sources */,
+				023FBC3C27FACC8C004D0CEA /* PaywallController.swift in Sources */,
 				FA62C54E27F5B58800AC463A /* WeightsWidgetModel.swift in Sources */,
 				02BC128D27F329E200678305 /* WorkoutDetailMuscleController.swift in Sources */,
 				0273F56327D60C7A00B19449 /* EnergySleepCell.swift in Sources */,
@@ -2527,6 +2543,7 @@
 				02E9047127F59E56008CFFB4 /* WorkoutExercisesCell.swift in Sources */,
 				02B225C227BD7D4D0035CFA2 /* MeModel.swift in Sources */,
 				02D066DD27BBE56700D12C5F /* QuizeAgeController.swift in Sources */,
+				02E6D85827FC255100E29509 /* SubscribePresenter.swift in Sources */,
 				02F0C18127EDBDDB005DE3E2 /* EnergyUpdateWeightController.swift in Sources */,
 				020D282727E8A04400010122 /* AddProductToMealModel.swift in Sources */,
 				FE1403C227E249EB002F5819 /* ChartCollectionCell.swift in Sources */,
@@ -2714,8 +2731,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = R53Z54YJ8K;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2748,8 +2765,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = R53Z54YJ8K;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2843,8 +2860,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = R53Z54YJ8K;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2935,6 +2952,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2972,6 +2997,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0249D27B27B3AA7000F265C1 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		02E6D85A27FC259E00E29509 /* SwiftyStoreKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
+			productName = SwiftyStoreKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -12,7 +12,7 @@ struct MoodsModel: Codable {
 }
 
 struct MoodsMainModel: Codable {
-    let date: String
+    let createdAt: String
     let mood: MoodType
 }
 

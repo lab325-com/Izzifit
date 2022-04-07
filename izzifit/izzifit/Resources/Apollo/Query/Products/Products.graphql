@@ -1,4 +1,4 @@
-query Products($search: String, $foodGroupId: String!, $sourceIds: [Int], $onlyToggled: Boolean) {
+query Products($search: String, $foodGroupId: Int, $sourceIds: [Int], $onlyToggled: Boolean) {
 	products(search: $search, foodGroupId: $foodGroupId, sourceIds: $sourceIds, onlyToggled: $onlyToggled) {
         Image {
             id

@@ -2,7 +2,7 @@
 import UIKit
 
 protocol WorkoutActivitesProtocol: AnyObject {
-    func workoutActivitiesSelect(cell: WorkoutActivitiesCell, selectedId: String?)
+    func workoutActivitiesSelect(cell: WorkoutActivitiesCell, selectedId: Int?)
 }
 
 class WorkoutActivitiesCell: UICollectionViewCell {
@@ -24,7 +24,7 @@ class WorkoutActivitiesCell: UICollectionViewCell {
     var workoutTypes = [WorkoutType]()
 
     weak var delegate: WorkoutActivitesProtocol?
-    private var selectedId: String? {
+    private var selectedId: Int? {
         didSet {
             if selectedId != oldValue {
                 collectionView.reloadData()
@@ -42,7 +42,7 @@ class WorkoutActivitiesCell: UICollectionViewCell {
         collectionView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
     }
     
-    func setupCell(workoutTypes: [WorkoutType], selectedTypeId: String?) {
+    func setupCell(workoutTypes: [WorkoutType], selectedTypeId: Int?) {
         selectedId = selectedTypeId
         self.workoutTypes = workoutTypes
         collectionView.reloadData()

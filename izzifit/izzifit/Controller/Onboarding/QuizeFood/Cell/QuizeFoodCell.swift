@@ -10,12 +10,12 @@ import Kingfisher
 
 protocol QuizeFoodCellDelegate: AnyObject {
     func quizeFoodCellSelected(cell: QuizeFoodCell, model: FoodGroupModel)
-    func quizeFoodCellSelectedFitness(cell: QuizeFoodCell, type: FitnessPreferenceType)
+    func quizeFoodCellSelectedFitness(cell: QuizeFoodCell, type: WorkoutDifficulty)
 }
 
 extension QuizeFoodCellDelegate {
     func quizeFoodCellSelected(cell: QuizeFoodCell, model: FoodGroupModel) {}
-    func quizeFoodCellSelectedFitness(cell: QuizeFoodCell, type: FitnessPreferenceType) {}
+    func quizeFoodCellSelectedFitness(cell: QuizeFoodCell, type: WorkoutDifficulty) {}
 }
 
 class QuizeFoodCell: UITableViewCell {
@@ -37,7 +37,7 @@ class QuizeFoodCell: UITableViewCell {
     }
     
     private var model: FoodGroupModel?
-    private var selecteType: FitnessPreferenceType?
+    private var selecteType: WorkoutDifficulty?
     
     var delegate: QuizeFoodCellDelegate?
     
@@ -58,7 +58,7 @@ class QuizeFoodCell: UITableViewCell {
         avatarImageView.kf.setImage(with: URL(string: model.Image?.urlIosFull ?? ""), placeholder: RImage.placeholder_food_ic(), options: [.transition(.fade(0.25))])
     }
     
-    func setupCellFitness(type: FitnessPreferenceType, selected: Bool) {
+    func setupCellFitness(type: WorkoutDifficulty, selected: Bool) {
         self.selecteType = type
         
         selectedImageView.isHidden = !selected
@@ -73,11 +73,11 @@ class QuizeFoodCell: UITableViewCell {
         nameLabel.text = type.text
         
         switch type {
-        case .fitnessPreferenceTypeLight:
+        case .workoutDifficultyTypeLight:
             avatarImageView.image = RImage.onboarding_sport_newbie_ic()
-        case .fitnessPreferenceTypeProfessional:
+        case .workoutDifficultyTypeProfessional:
             avatarImageView.image = RImage.onboarding_sport_professional_ic()
-        case .fitnessPreferenceTypeStrong:
+        case .workoutDifficultyTypeStrong:
             avatarImageView.image = RImage.onboarding_sport_regulary_ic()
         case .__unknown(_):
             break

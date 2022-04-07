@@ -23,7 +23,7 @@ protocol MenuOutputProtocol: BaseController {
 protocol MenuPresenterProtocol: AnyObject {
     init(view: MenuOutputProtocol)
     
-    func profileUpdate(fitnessPreference: FitnessPreferenceType?, growthMeasure: MeasureGrowth?, targetWeightMeasure: WeightMeasure?, foodGroupId: String?, notifications: Bool?, weightMeasure: WeightMeasure?, targetWeight: Double?, weight: Double?, doSport: DoSportType?, darkTheme: Bool?, reminders: Bool?, email: String?, age: Int?, growth: Int?, goal: GoalType?, gender: GenderType?, name: String?)
+    func profileUpdate(fitnessPreference: WorkoutDifficulty?, growthMeasure: GrowthMeasure?, foodGroupId: Int?, notifications: Bool?, weightMeasure: WeightMeasure?, targetWeight: Double?, weight: Double?, doSport: DoSportType?, darkTheme: Bool?, reminders: Bool?, email: String?, age: Int?, growth: Int?, goal: GoalType?, gender: GenderType?, name: String?)
 }
 
 class MenuPresenter: MenuPresenterProtocol {
@@ -35,7 +35,7 @@ class MenuPresenter: MenuPresenterProtocol {
         self.view = view
     }
     
-    func profileUpdate(fitnessPreference: FitnessPreferenceType? = nil, growthMeasure: MeasureGrowth? = nil, targetWeightMeasure: WeightMeasure? = nil, foodGroupId: String? = nil, notifications: Bool? = nil, weightMeasure: WeightMeasure? = nil, targetWeight: Double? = nil, weight: Double? = nil, doSport: DoSportType? = nil, darkTheme: Bool? = nil, reminders: Bool? = nil, email: String? = nil, age: Int? = nil, growth: Int? = nil, goal: GoalType? = nil, gender: GenderType? = nil, name: String? = nil) {
+    func profileUpdate(fitnessPreference: WorkoutDifficulty? = nil, growthMeasure: GrowthMeasure? = nil, foodGroupId: Int? = nil, notifications: Bool? = nil, weightMeasure: WeightMeasure? = nil, targetWeight: Double? = nil, weight: Double? = nil, doSport: DoSportType? = nil, darkTheme: Bool? = nil, reminders: Bool? = nil, email: String? = nil, age: Int? = nil, growth: Int? = nil, goal: GoalType? = nil, gender: GenderType? = nil, name: String? = nil) {
         
         var profile = ProfileUpdateInput()
         
@@ -45,14 +45,6 @@ class MenuPresenter: MenuPresenterProtocol {
         
         if let growthMeasure = growthMeasure {
             profile.growthMeasure = growthMeasure
-        }
-        
-        if let targetWeight = targetWeight {
-            profile.targetWeight = targetWeight
-        }
-        
-        if let targetWeightMeasure = targetWeightMeasure {
-            profile.targetWeightMeasure = targetWeightMeasure
         }
         
         if let foodGroupId = foodGroupId {

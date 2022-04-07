@@ -8,5 +8,5 @@
 import Foundation
 
 struct SaveMoodModel: Codable {
-    let saveMood: Int
+    let saveMood: Bool
 }

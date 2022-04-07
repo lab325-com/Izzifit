@@ -18,7 +18,7 @@ struct MeMainModel: Codable {
     let doSport: DoSportType?
     let email: String?
     let energy: Int?
-    let fitnessPreference: FitnessPreferenceType?
+    let fitnessPreference: WorkoutDifficulty?
     let gender: GenderType?
     let goal: GoalType?
     let growth: Int?
@@ -28,14 +28,14 @@ struct MeMainModel: Codable {
     let reminders: Bool?
     let showOnBoarding: Bool?
     let weight: Float?
-    let targetWeight: Int?
+    let targetWeight: Float?
     let FoodGroup: FoodGroupModel?
     let Avatar: AvatarModel?
 }
 
 struct FoodGroupModel: Codable {
     let Image: ImageModel?
-    let id: String?
+    let id: Int?
     let name: String?
 }
 
@@ -48,14 +48,14 @@ extension DoSportType: Codable {
     
 }
 
-extension FitnessPreferenceType: Codable {
+extension WorkoutDifficulty: Codable {
     var text: String {
         switch self {
-        case .fitnessPreferenceTypeLight:
+        case .workoutDifficultyTypeLight:
             return "Light"
-        case .fitnessPreferenceTypeProfessional:
+        case .workoutDifficultyTypeProfessional:
             return "Strong"
-        case .fitnessPreferenceTypeStrong:
+        case .workoutDifficultyTypeStrong:
             return "Professional"
         case .__unknown(_):
             return ""

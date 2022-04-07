@@ -82,7 +82,7 @@ class MoodTableCell: UITableViewCell {
                 }
                 let cgPoint = CGPoint(x: currentX, y: currentY)
                 labelPoints.append(cgPoint)
-                    dateLabelsCollection[index + 1].text = convertDate(mood.date)
+                    dateLabelsCollection[index + 1].text = convertDate(mood.createdAt)
             }
         }
         

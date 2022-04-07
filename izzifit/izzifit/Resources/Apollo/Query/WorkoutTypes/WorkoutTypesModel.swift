@@ -6,6 +6,6 @@ struct WorkoutTypesModel: Codable {
 }
 
 struct WorkoutType: Codable, Hashable {
-    let id: String
+    let id: Int
     let name: String?
 }

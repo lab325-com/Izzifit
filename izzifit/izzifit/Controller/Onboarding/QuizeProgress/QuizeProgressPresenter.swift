@@ -54,7 +54,6 @@ class QuizeProgressPresenter: QuizeProgressPresenterProtocol {
         profileUpdateInput.weightMeasure = profile.weightMetric?.api
         profileUpdateInput.weight = profile.weight
         
-        profileUpdateInput.targetWeightMeasure = profile.targetWeightMetric?.api
         profileUpdateInput.targetWeight = profile.targetWeight
         
         profileUpdateInput.goal = profile.goal?.api
