@@ -10,34 +10,21 @@ import CoreAudio
 
 class MoodTableCell: UITableViewCell {
     
-    static let id = "MoodTableCell"
+    //----------------------------------------------
+    // MARK: - IBOutlet
+    //----------------------------------------------
     
-    @IBOutlet var dateLabelsCollection: [UILabel]! {
-        didSet {
-            for (index, label) in dateLabelsCollection.enumerated() {
-                label.tag = index
-            }
-        }
-    }
-    @IBOutlet weak var backVw: UIView! {
-        didSet {
-            backVw.layer.cornerRadius = 20
-            backVw.layer.masksToBounds = true
-        }
-    }
-    
-    @IBOutlet weak var chartBackVw: UIView! {
-        didSet {
-            chartBackVw.layer.backgroundColor = UIColor.clear.cgColor
-        }
-    }
-    
-    @IBOutlet weak var moodLbl: UILabel! {
-        didSet {
-            moodLbl.text = RLocalization.profile_mood()
-        }
-    }
+    @IBOutlet var dateLabelsCollection: [UILabel]!
+    @IBOutlet weak var backVw: UIView!
+    @IBOutlet weak var chartBackVw: UIView!
+    @IBOutlet weak var moodLbl: UILabel!
     @IBOutlet weak var moodChartBackImgVw: UIImageView!
+    
+    //----------------------------------------------
+    // MARK: - Property
+    //----------------------------------------------
+    
+    static let id = "MoodTableCell"
     
     private lazy var backYAxis: CGFloat = {
         chartBackVw.bounds.height / 10
@@ -60,17 +47,31 @@ class MoodTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        setup()
+    }
+    
+    private func setup() {
+        for (index, label) in dateLabelsCollection.enumerated() {
+            label.tag = index
+        }
+        backVw.layer.cornerRadius = 20
+        backVw.layer.masksToBounds = true
+        chartBackVw.layer.backgroundColor = UIColor.clear.cgColor
+        moodLbl.text = RLocalization.profile_mood()
     }
     
     func fillCellby(_ moods: [MoodsMainModel]) {
         
         let path = UIBezierPath()
         var labelPoints = [CGPoint]()
-        path.move(to: CGPoint(x: 0, y: backYAxis * 4))
+        path.move(to: CGPoint(x: 0,
+                              y: backYAxis * 4))
+        
         for (index, mood) in moods.enumerated() {
             if index < 6 {
                 let currentX = backXAxis * CGFloat(index + 1)
                 var currentY: CGFloat = 0.0
+                
                 switch mood.mood {
                 case .moodTypeGood:
                     currentY = backYAxis * 2.5
@@ -80,9 +81,11 @@ class MoodTableCell: UITableViewCell {
                     currentY = backYAxis * 5.0
                 default: break
                 }
-                let cgPoint = CGPoint(x: currentX, y: currentY)
+                
+                let cgPoint = CGPoint(x: currentX,
+                                      y: currentY)
                 labelPoints.append(cgPoint)
-                    dateLabelsCollection[index + 1].text = convertDate(mood.createdAt)
+                dateLabelsCollection[index + 1].text = convertDate(mood.createdAt)
             }
         }
         
@@ -114,7 +117,7 @@ class MoodTableCell: UITableViewCell {
         chartBackVw.layer.addSublayer(lineLayer)
     }
     
-    func convertDate(_ stringDate: String) -> String {
+    private func convertDate(_ stringDate: String) -> String {
         let oldDateFormatter = DateFormatter()
         oldDateFormatter.locale = Locale(identifier: "en_US_POSIX")
         oldDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -124,7 +127,7 @@ class MoodTableCell: UITableViewCell {
         newDateFormatter.dateFormat = "dd.MM"
         return newDateFormatter.string(from: gettedDate ?? Date())
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

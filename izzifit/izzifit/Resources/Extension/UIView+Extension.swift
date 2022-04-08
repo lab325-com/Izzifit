@@ -55,6 +55,14 @@ extension UIView {
         return SetUIManager()
     }
     
+    public var sizeWidth: CGFloat {
+        return frame.size.width
+    }
+    
+    public var sizeHeight: CGFloat {
+        return frame.size.height
+    }
+    
     var w: CGFloat {
         return UIScreen.main.bounds.size.width
     }
@@ -105,5 +113,12 @@ public extension CGPoint {
         case .bottomLeft:   return CGPoint(x: 0.0, y: 1.0)
         case .left:         return CGPoint(x: 1.0, y: 0.5)
         }
+    }
+}
+
+
+public extension Double {
+    var twoDigits: Double {
+        Double(String(format: "%.2f", self))!
     }
 }

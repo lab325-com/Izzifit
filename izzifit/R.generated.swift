@@ -5800,6 +5800,7 @@ struct _R: Rswift.Validatable {
       try _QuizeWeightController.validate()
       try _SplashViewController.validate()
       try _StartController.validate()
+      try _WeightTableCell.validate()
       try _WorkoutController.validate()
       try _WorkoutDetailController.validate()
       try _WorkoutDetailDescriptionCell.validate()
@@ -6836,7 +6837,7 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _WeightTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+    struct _WeightTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
       typealias ReusableType = WeightTableCell
 
       let bundle = R.hostingBundle
@@ -6845,6 +6846,15 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WeightTableCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WeightTableCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "MoodChartBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'MoodChartBack' is used in nib 'WeightTableCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "grayText", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayText' is used in nib 'WeightTableCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "pinkTarget", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'pinkTarget' is used in nib 'WeightTableCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "profileCellBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'profileCellBack' is used in nib 'WeightTableCell', but couldn't be loaded.") }
+        }
       }
 
       fileprivate init() {}
