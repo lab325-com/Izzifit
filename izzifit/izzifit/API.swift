@@ -1306,7 +1306,7 @@ public final class ProfileUpdateMutation: GraphQLMutation {
           GraphQLField("darkTheme", type: .scalar(Bool.self)),
           GraphQLField("doSport", type: .scalar(DoSportType.self)),
           GraphQLField("email", type: .scalar(String.self)),
-          GraphQLField("energy", type: .scalar(Int.self)),
+          GraphQLField("energy", type: .scalar(Double.self)),
           GraphQLField("fitnessPreference", type: .scalar(WorkoutDifficulty.self)),
           GraphQLField("gender", type: .scalar(GenderType.self)),
           GraphQLField("goal", type: .scalar(GoalType.self)),
@@ -1328,7 +1328,7 @@ public final class ProfileUpdateMutation: GraphQLMutation {
         self.resultMap = unsafeResultMap
       }
 
-      public init(age: Int? = nil, coins: Int? = nil, darkTheme: Bool? = nil, doSport: DoSportType? = nil, email: String? = nil, energy: Int? = nil, fitnessPreference: WorkoutDifficulty? = nil, gender: GenderType? = nil, goal: GoalType? = nil, growth: Int? = nil, id: GraphQLID? = nil, name: String? = nil, notifications: Bool? = nil, reminders: Bool? = nil, showOnBoarding: Bool? = nil, weight: Double? = nil, targetWeight: Double? = nil, foodGroup: FoodGroup? = nil) {
+      public init(age: Int? = nil, coins: Int? = nil, darkTheme: Bool? = nil, doSport: DoSportType? = nil, email: String? = nil, energy: Double? = nil, fitnessPreference: WorkoutDifficulty? = nil, gender: GenderType? = nil, goal: GoalType? = nil, growth: Int? = nil, id: GraphQLID? = nil, name: String? = nil, notifications: Bool? = nil, reminders: Bool? = nil, showOnBoarding: Bool? = nil, weight: Double? = nil, targetWeight: Double? = nil, foodGroup: FoodGroup? = nil) {
         self.init(unsafeResultMap: ["__typename": "MeModel", "age": age, "coins": coins, "darkTheme": darkTheme, "doSport": doSport, "email": email, "energy": energy, "fitnessPreference": fitnessPreference, "gender": gender, "goal": goal, "growth": growth, "id": id, "name": name, "notifications": notifications, "reminders": reminders, "showOnBoarding": showOnBoarding, "weight": weight, "targetWeight": targetWeight, "FoodGroup": foodGroup.flatMap { (value: FoodGroup) -> ResultMap in value.resultMap }])
       }
 
@@ -1386,9 +1386,9 @@ public final class ProfileUpdateMutation: GraphQLMutation {
         }
       }
 
-      public var energy: Int? {
+      public var energy: Double? {
         get {
-          return resultMap["energy"] as? Int
+          return resultMap["energy"] as? Double
         }
         set {
           resultMap.updateValue(newValue, forKey: "energy")
@@ -1754,7 +1754,7 @@ public final class SaveSleepQualityMutation: GraphQLMutation {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("saveSleepQuality", arguments: ["quality": GraphQLVariable("quality")], type: .scalar(Int.self)),
+        GraphQLField("saveSleepQuality", arguments: ["quality": GraphQLVariable("quality")], type: .scalar(Bool.self)),
       ]
     }
 
@@ -1764,13 +1764,13 @@ public final class SaveSleepQualityMutation: GraphQLMutation {
       self.resultMap = unsafeResultMap
     }
 
-    public init(saveSleepQuality: Int? = nil) {
+    public init(saveSleepQuality: Bool? = nil) {
       self.init(unsafeResultMap: ["__typename": "Mutation", "saveSleepQuality": saveSleepQuality])
     }
 
-    public var saveSleepQuality: Int? {
+    public var saveSleepQuality: Bool? {
       get {
-        return resultMap["saveSleepQuality"] as? Int
+        return resultMap["saveSleepQuality"] as? Bool
       }
       set {
         resultMap.updateValue(newValue, forKey: "saveSleepQuality")
@@ -2706,7 +2706,7 @@ public final class MeQuery: GraphQLQuery {
           GraphQLField("darkTheme", type: .scalar(Bool.self)),
           GraphQLField("doSport", type: .scalar(DoSportType.self)),
           GraphQLField("email", type: .scalar(String.self)),
-          GraphQLField("energy", type: .scalar(Int.self)),
+          GraphQLField("energy", type: .scalar(Double.self)),
           GraphQLField("fitnessPreference", type: .scalar(WorkoutDifficulty.self)),
           GraphQLField("gender", type: .scalar(GenderType.self)),
           GraphQLField("goal", type: .scalar(GoalType.self)),
@@ -2729,7 +2729,7 @@ public final class MeQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(age: Int? = nil, coins: Int? = nil, darkTheme: Bool? = nil, doSport: DoSportType? = nil, email: String? = nil, energy: Int? = nil, fitnessPreference: WorkoutDifficulty? = nil, gender: GenderType? = nil, goal: GoalType? = nil, growth: Int? = nil, id: GraphQLID? = nil, name: String? = nil, notifications: Bool? = nil, reminders: Bool? = nil, showOnBoarding: Bool? = nil, weight: Double? = nil, targetWeight: Double? = nil, foodGroup: FoodGroup? = nil, avatar: Avatar? = nil) {
+      public init(age: Int? = nil, coins: Int? = nil, darkTheme: Bool? = nil, doSport: DoSportType? = nil, email: String? = nil, energy: Double? = nil, fitnessPreference: WorkoutDifficulty? = nil, gender: GenderType? = nil, goal: GoalType? = nil, growth: Int? = nil, id: GraphQLID? = nil, name: String? = nil, notifications: Bool? = nil, reminders: Bool? = nil, showOnBoarding: Bool? = nil, weight: Double? = nil, targetWeight: Double? = nil, foodGroup: FoodGroup? = nil, avatar: Avatar? = nil) {
         self.init(unsafeResultMap: ["__typename": "MeModel", "age": age, "coins": coins, "darkTheme": darkTheme, "doSport": doSport, "email": email, "energy": energy, "fitnessPreference": fitnessPreference, "gender": gender, "goal": goal, "growth": growth, "id": id, "name": name, "notifications": notifications, "reminders": reminders, "showOnBoarding": showOnBoarding, "weight": weight, "targetWeight": targetWeight, "FoodGroup": foodGroup.flatMap { (value: FoodGroup) -> ResultMap in value.resultMap }, "Avatar": avatar.flatMap { (value: Avatar) -> ResultMap in value.resultMap }])
       }
 
@@ -2787,9 +2787,9 @@ public final class MeQuery: GraphQLQuery {
         }
       }
 
-      public var energy: Int? {
+      public var energy: Double? {
         get {
-          return resultMap["energy"] as? Int
+          return resultMap["energy"] as? Double
         }
         set {
           resultMap.updateValue(newValue, forKey: "energy")
