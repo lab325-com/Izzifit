@@ -12,6 +12,6 @@ struct TodayProgressModel: Codable {
 }
 
 struct TodayProgressMainModel: Codable {
-    let date: String?
+    let createdAt: String?
     let progress: Int?
 }

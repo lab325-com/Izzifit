@@ -25,7 +25,7 @@ protocol MenuFitnessPresenterProtocol: AnyObject {
     init(view: MenuFitnessOutputProtocol)
     
     func getMuscles()
-    func setMuscle(muscleIds: [String])
+    func setMuscle(muscleIds: [Int])
 }
 
 class MenuFitnessPresenter: MenuFitnessPresenterProtocol {
@@ -49,7 +49,7 @@ class MenuFitnessPresenter: MenuFitnessPresenterProtocol {
         })
     }
     
-    func setMuscle(muscleIds: [String]) {
+    func setMuscle(muscleIds: [Int]) {
         view?.startLoader()
         let query = ToggleMuscleInWorkoutsQuery(muscleIds: muscleIds)
         

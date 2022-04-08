@@ -23,7 +23,7 @@ struct WorkoutsMainModel: Codable {
 
 struct PaginationModel: Codable {
     let nextPageExists: Bool?
-    let previousPageExists: Bool?
+    let prevPageExist: Bool?
     let total: Int?
     let totalPages: Int?
 }

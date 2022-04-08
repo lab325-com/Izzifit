@@ -16,6 +16,13 @@ struct MealsWidgetMainModel: Codable {
     let energyTotal: Int?
     let meals: [MealModel?]?
     let sources: [SourceModel?]?
+    
+    enum CodingKeys: String, CodingKey {
+        case energy = "energy"
+        case energyTotal = "energyTotal"
+        case meals = "Meals"
+        case sources = "Sources"
+    }
 }
 
 struct MealModel: Codable {
@@ -23,6 +30,13 @@ struct MealModel: Codable {
     let eatenAt: String?
     let products: [ProductsMainModel?]?
     let type: MealType?
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case eatenAt = "eatenAt"
+        case products = "Products"
+        case type = "type"
+    }
     
     var textProduct: String {
         var text: [String] = []

@@ -124,7 +124,7 @@ class FoodPresenter: FoodPresenterProtocol {
     func search(text: String, id: Int?) {
         view?.startLoader()
         
-        let query = ProductsQuery(search: text, foodGroupId: "", sourceIds: [id], onlyToggled: true)
+        let query = ProductsQuery(search: text, sourceIds: [id], onlyToggled: true)
         let _ = Network.shared.query(model: ProductsModel.self, query, controller: view, successHandler: { [weak self] model in
             self?.searchProducts = model.products
             self?.view?.stopLoading()

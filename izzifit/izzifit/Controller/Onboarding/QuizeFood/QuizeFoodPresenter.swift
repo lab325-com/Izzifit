@@ -56,7 +56,7 @@ class QuizeFoodPresenter: QuizeFoodPresenterProtocol {
         })
     }
     
-    func getProducts(foodGroupId: String) {
+    func getProducts(foodGroupId: Int) {
         view?.startLoader()
         let query = ProductsQuery(foodGroupId: foodGroupId)
         

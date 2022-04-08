@@ -160,7 +160,7 @@ class MenuTargetWeightController: BaseController {
     }
     
     @IBAction func actionGoNext(_ sender: UIButton) {
-        presenter.profileUpdate(targetWeightMeasure: type.api, targetWeight: Double(currentCountLabel.text!)!)
+        presenter.profileUpdate(targetWeight: Double(currentCountLabel.text!)!)
     }
 }
 

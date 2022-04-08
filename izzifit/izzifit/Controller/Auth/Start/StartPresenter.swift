@@ -37,8 +37,9 @@ class StartPresenter: StartPresenterProtocol {
     
     func login() {
         view?.startLoader()
-        let mutation = LoginMutation(record: LoginRecordInput(authType: .authTypeUdid, udid: uuid))
+        let mutation = LoginMutation(record: LoginRecordInput(udid: uuid, authType: .authTypeUdid))
         let _ = Network.shared.mutation(model: LoginModel.self, mutation, controller: view, successHandler: { [weak self] model in
+            KeychainService.standard.newAuthToken = AuthModel(token: model.login.token)
             self?.me(token: model.login.token)
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
@@ -50,7 +51,6 @@ class StartPresenter: StartPresenterProtocol {
         
         let _ = Network.shared.query(model: MeModel.self, query, controller: view) { [weak self] model in
             self?.view?.stopLoading()
-            KeychainService.standard.newAuthToken = AuthModel(token: token)
             KeychainService.standard.me = model.me
             
             if model.me.showOnBoarding == true {

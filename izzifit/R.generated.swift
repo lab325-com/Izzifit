@@ -302,7 +302,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 46 files.
+  /// This `R.file` struct is generated, and contains static references to 47 files.
   struct file {
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
@@ -322,6 +322,8 @@ struct R: Rswift.Validatable {
     static let interBlackTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Black", pathExtension: "ttf")
     /// Resource file `Inter-Bold.ttf`.
     static let interBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Bold", pathExtension: "ttf")
+    /// Resource file `Inter-BoldItalic.ttf`.
+    static let interBoldItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-BoldItalic", pathExtension: "ttf")
     /// Resource file `Inter-ExtraBold.ttf`.
     static let interExtraBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-ExtraBold", pathExtension: "ttf")
     /// Resource file `Inter-ExtraLight.ttf`.
@@ -448,6 +450,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Inter-Bold", withExtension: "ttf")`
     static func interBoldTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.interBoldTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Inter-BoldItalic", withExtension: "ttf")`
+    static func interBoldItalicTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.interBoldItalicTtf
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -676,10 +684,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.font` struct is generated, and contains static references to 9 fonts.
+  /// This `R.font` struct is generated, and contains static references to 10 fonts.
   struct font: Rswift.Validatable {
     /// Font `Inter-Black`.
     static let interBlack = Rswift.FontResource(fontName: "Inter-Black")
+    /// Font `Inter-BoldItalic`.
+    static let interBoldItalic = Rswift.FontResource(fontName: "Inter-BoldItalic")
     /// Font `Inter-Bold`.
     static let interBold = Rswift.FontResource(fontName: "Inter-Bold")
     /// Font `Inter-ExtraBold`.
@@ -705,6 +715,11 @@ struct R: Rswift.Validatable {
     /// `UIFont(name: "Inter-Bold", size: ...)`
     static func interBold(size: CGFloat) -> UIKit.UIFont? {
       return UIKit.UIFont(resource: interBold, size: size)
+    }
+
+    /// `UIFont(name: "Inter-BoldItalic", size: ...)`
+    static func interBoldItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: interBoldItalic, size: size)
     }
 
     /// `UIFont(name: "Inter-ExtraBold", size: ...)`
@@ -745,6 +760,7 @@ struct R: Rswift.Validatable {
     static func validate() throws {
       if R.font.interBlack(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Black' could not be loaded, is 'Inter-Black.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Bold' could not be loaded, is 'Inter-Bold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.interBoldItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-BoldItalic' could not be loaded, is 'Inter-BoldItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interExtraBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-ExtraBold' could not be loaded, is 'Inter-ExtraBold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interExtraLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-ExtraLight' could not be loaded, is 'Inter-ExtraLight.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Light' could not be loaded, is 'Inter-Light.ttf' added to the UIAppFonts array in this targets Info.plist?") }
@@ -757,7 +773,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 81 images.
+  /// This `R.image` struct is generated, and contains static references to 87 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -853,6 +869,18 @@ struct R: Rswift.Validatable {
     static let onboarding_sport_regulary_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_sport_regulary_ic")
     /// Image `onboarding_target_flag_ic`.
     static let onboarding_target_flag_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_target_flag_ic")
+    /// Image `paywall_above_text_ic`.
+    static let paywall_above_text_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_above_text_ic")
+    /// Image `paywall_back_ic`.
+    static let paywall_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_back_ic")
+    /// Image `paywall_fade_down_ic`.
+    static let paywall_fade_down_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_fade_down_ic")
+    /// Image `paywall_selected_ic`.
+    static let paywall_selected_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_selected_ic")
+    /// Image `paywall_women_ic`.
+    static let paywall_women_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_women_ic")
+    /// Image `paywall_women_shadow_ic`.
+    static let paywall_women_shadow_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_women_shadow_ic")
     /// Image `placeholder_big_sport_ic`.
     static let placeholder_big_sport_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder_big_sport_ic")
     /// Image `placeholder_big_sport_two_ic`.
@@ -1252,6 +1280,48 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_above_text_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_above_text_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_above_text_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_back_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_back_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_back_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_fade_down_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_fade_down_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_fade_down_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_selected_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_selected_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_selected_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_women_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_women_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_women_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_women_shadow_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_women_shadow_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_women_shadow_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "placeholder_big_sport_ic", bundle: ..., traitCollection: ...)`
     static func placeholder_big_sport_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.placeholder_big_sport_ic, compatibleWith: traitCollection)
@@ -1492,7 +1562,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 72 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 73 nibs.
   struct nib {
     /// Nib `ArcticGameComtroller`.
     static let arcticGameComtroller = _R.nib._ArcticGameComtroller()
@@ -1572,6 +1642,8 @@ struct R: Rswift.Validatable {
     static let menuWriteQuestionController = _R.nib._MenuWriteQuestionController()
     /// Nib `MoodTableCell`.
     static let moodTableCell = _R.nib._MoodTableCell()
+    /// Nib `PaywallController`.
+    static let paywallController = _R.nib._PaywallController()
     /// Nib `PositionTableCell`.
     static let positionTableCell = _R.nib._PositionTableCell()
     /// Nib `ProfileController`.
@@ -1948,6 +2020,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.moodTableCell) instead")
     static func moodTableCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.moodTableCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "PaywallController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.paywallController) instead")
+    static func paywallController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.paywallController)
     }
     #endif
 
@@ -2369,6 +2449,10 @@ struct R: Rswift.Validatable {
 
     static func moodTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MoodTableCell? {
       return R.nib.moodTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MoodTableCell
+    }
+
+    static func paywallController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.paywallController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func positionTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PositionTableCell? {
@@ -5814,6 +5898,7 @@ struct _R: Rswift.Validatable {
       try _MenuWeightController.validate()
       try _MenuWriteQuestionController.validate()
       try _MoodTableCell.validate()
+      try _PaywallController.validate()
       try _ProfileController.validate()
       try _QuizeAgeController.validate()
       try _QuizeEmailController.validate()
@@ -5829,6 +5914,7 @@ struct _R: Rswift.Validatable {
       try _QuizeWeightController.validate()
       try _SplashViewController.validate()
       try _StartController.validate()
+      try _WeightTableCell.validate()
       try _WorkoutController.validate()
       try _WorkoutDetailController.validate()
       try _WorkoutDetailDescriptionCell.validate()
@@ -6556,6 +6642,29 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _PaywallController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "PaywallController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'PaywallController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_above_text_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_above_text_ic' is used in nib 'PaywallController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_back_ic' is used in nib 'PaywallController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_fade_down_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_fade_down_ic' is used in nib 'PaywallController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_selected_ic' is used in nib 'PaywallController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_women_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_women_ic' is used in nib 'PaywallController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_women_shadow_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_women_shadow_ic' is used in nib 'PaywallController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
     struct _PositionTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = PositionTableCell
 
@@ -6867,7 +6976,7 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _WeightTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+    struct _WeightTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
       typealias ReusableType = WeightTableCell
 
       let bundle = R.hostingBundle
@@ -6876,6 +6985,15 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WeightTableCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WeightTableCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "MoodChartBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'MoodChartBack' is used in nib 'WeightTableCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "grayText", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayText' is used in nib 'WeightTableCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "pinkTarget", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'pinkTarget' is used in nib 'WeightTableCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "profileCellBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'profileCellBack' is used in nib 'WeightTableCell', but couldn't be loaded.") }
+        }
       }
 
       fileprivate init() {}

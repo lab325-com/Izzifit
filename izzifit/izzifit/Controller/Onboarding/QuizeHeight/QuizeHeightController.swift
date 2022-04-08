@@ -11,12 +11,12 @@ enum QuizeHeightType: Codable {
     case sm
     case ft
     
-    var api: MeasureGrowth {
+    var api: GrowthMeasure {
         switch self {
         case .sm:
-            return .measureGrowthTypeSm
+            return .growthMeasureTypeSm
         case .ft:
-            return .measureGrowthTypeFt
+            return .growthMeasureTypeFt
         }
     }
 }
