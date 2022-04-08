@@ -1,0 +1,5 @@
+
+itc_team_id("118890949") # App Store Connect Team ID
+team_id("J544E3RJX6") # Developer Portal Team ID
+
+app_identifier("com.bgtech.izzifit") # The bundle identifier of your app

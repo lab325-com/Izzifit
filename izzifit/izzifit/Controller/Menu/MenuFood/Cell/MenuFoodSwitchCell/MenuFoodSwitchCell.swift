@@ -48,7 +48,7 @@ class MenuFoodSwitchCell: UITableViewCell {
     func setupCellMuscle(model: MusclesMainModel) {
         self.modelMuscle = model
         mainTextLabel.text = model.name
-        switcher.setOn(model.isToggled, animated: false)
+        switcher.setOn(model.isToggled ?? false, animated: false)
     }
     
     //----------------------------------------------

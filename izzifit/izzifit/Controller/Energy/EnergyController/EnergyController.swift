@@ -44,12 +44,8 @@ class EnergyController: BaseController {
     
     private lazy var presenter = EnergyPresenter(view: self)
 
-    private var date: String {
-        let dateFormmater = DateFormatter()
-        dateFormmater.locale = Locale(identifier: "en_US_POSIX")
-        dateFormmater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        return dateFormmater.string(from: Date())
-    }
+    private var currentDate = Date()
+    
     
     weak var delegate: EnergyControllerProtocol?
     
@@ -76,6 +72,15 @@ class EnergyController: BaseController {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !currentDate.isInToday {
+            currentDate = Date()
+            presenter.getWidgets(date: getDate())
+        }
+    }
+    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
@@ -95,7 +100,7 @@ class EnergyController: BaseController {
         
         
         
-        presenter.getWidgets(date: date)
+        presenter.getWidgets(date: getDate())
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
         
@@ -115,6 +120,13 @@ class EnergyController: BaseController {
         avatarView.gradientBorder(width: 2, colors: [UIColor(rgb: 0xFF42A8), UIColor(rgb: 0x7759B7)], startPoint: .unitCoordinate(.top), endPoint: .unitCoordinate(.bottom), andRoundCornersWithRadius: 20)
         
         avatarImageView.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""), placeholder: RImage.placeholder_food_ic(), options: [.transition(.fade(0.25))])
+    }
+    
+    private func getDate() -> String {
+        let dateFormmater = DateFormatter()
+        dateFormmater.locale = Locale(identifier: "en_US_POSIX")
+        dateFormmater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return dateFormmater.string(from: currentDate)
     }
 }
 
@@ -239,7 +251,7 @@ extension EnergyController: EnergyMealsDeleagate {
 
 extension EnergyController: EnergyDrinkWaterProtocol {
     func energyDrinkWaterSelectIndex(cell: EnergyDrinkWaterCell, index: Int) {
-        presenter.setWater(index: index, date: date)
+        presenter.setWater(index: index, date: getDate())
     }
 }
 
@@ -249,7 +261,7 @@ extension EnergyController: EnergyDrinkWaterProtocol {
 
 extension EnergyController: EnergyMoodProtocol {
     func energyMoodSelected(cell: EnergyMoodCell, type: MoodType) {
-        presenter.setMood(mood: type, date: date)
+        presenter.setMood(mood: type, date: getDate())
     }
 }
 
@@ -259,7 +271,7 @@ extension EnergyController: EnergyMoodProtocol {
 
 extension EnergyController: EnergySleepCellProtocol {
     func energySleepCellSeleep(cell: EnergySleepCell, sleep: SleepQualityType) {
-        presenter.setSeleep(sleep: sleep, date: date)
+        presenter.setSeleep(sleep: sleep, date: getDate())
     }
 }
 
@@ -299,7 +311,8 @@ extension EnergyController: EnergyChooseActivityProtocol {
 
 extension EnergyController: EnergyTrainingProtocol {
     func energyTrainingSelect(cell: EnergyTrainingCell, model: WorkoutsWidgetMainModel) {
-        guard let id = model.id else { return }
-        WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id, model: nil)
+//        guard let id = model.id else { return }
+//        WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id, model: nil)
+        PaywallRouter(presenter: navigationController).presentPaywall()
     }
 }

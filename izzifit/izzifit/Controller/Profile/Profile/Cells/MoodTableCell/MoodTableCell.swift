@@ -9,7 +9,7 @@ import UIKit
 import CoreAudio
 
 class MoodTableCell: UITableViewCell {
-        
+    
     //----------------------------------------------
     // MARK: - IBOutlet
     //----------------------------------------------
@@ -25,7 +25,7 @@ class MoodTableCell: UITableViewCell {
     //----------------------------------------------
     
     static let id = "MoodTableCell"
-
+    
     private lazy var backYAxis: CGFloat = {
         chartBackVw.bounds.height / 10
     }()
@@ -85,7 +85,7 @@ class MoodTableCell: UITableViewCell {
                 let cgPoint = CGPoint(x: currentX,
                                       y: currentY)
                 labelPoints.append(cgPoint)
-                dateLabelsCollection[index + 1].text = convertDate(mood.date)
+                dateLabelsCollection[index + 1].text = convertDate(mood.createdAt)
             }
         }
         
@@ -117,7 +117,7 @@ class MoodTableCell: UITableViewCell {
         chartBackVw.layer.addSublayer(lineLayer)
     }
     
-   private func convertDate(_ stringDate: String) -> String {
+    private func convertDate(_ stringDate: String) -> String {
         let oldDateFormatter = DateFormatter()
         oldDateFormatter.locale = Locale(identifier: "en_US_POSIX")
         oldDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -127,7 +127,7 @@ class MoodTableCell: UITableViewCell {
         newDateFormatter.dateFormat = "dd.MM"
         return newDateFormatter.string(from: gettedDate ?? Date())
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

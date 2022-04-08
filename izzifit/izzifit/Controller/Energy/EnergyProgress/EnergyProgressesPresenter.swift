@@ -51,6 +51,7 @@ class EnergyProgressesPresenter: EnergyProgressesProtocol {
         let _ = Network.shared.query(model: ProgressesModel.self, query, controller: view, successHandler: { [weak self] model in
             self?.progersses = model.progresses
             self?.view?.stopLoading()
+            self?.view?.success()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
             self?.view?.failure()

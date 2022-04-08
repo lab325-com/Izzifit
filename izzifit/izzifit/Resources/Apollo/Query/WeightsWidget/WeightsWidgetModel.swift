@@ -18,6 +18,6 @@ struct WeightsWidgetMainModel: Codable {
 }
 
 struct Weight: Codable {
-    let date: String
+    let createdAt: String
     let weight: Float
 }

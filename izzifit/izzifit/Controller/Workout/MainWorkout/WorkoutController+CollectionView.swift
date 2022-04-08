@@ -74,7 +74,7 @@ extension WorkoutController: UICollectionViewDelegateFlowLayout {
 //----------------------------------------------
 
 extension WorkoutController: WorkoutActivitesProtocol {
-    func workoutActivitiesSelect(cell: WorkoutActivitiesCell, selectedId: String?) {
+    func workoutActivitiesSelect(cell: WorkoutActivitiesCell, selectedId: Int?) {
         selectedTypeId = selectedId
     }
 }

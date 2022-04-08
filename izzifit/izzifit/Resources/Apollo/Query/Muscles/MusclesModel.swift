@@ -12,7 +12,7 @@ struct MusclesModel: Codable {
 }
 
 struct MusclesMainModel: Codable, Hashable {
-    let id: String
-    let isToggled: Bool
+    let id: Int
+    let isToggled: Bool?
     let name: String
 }

@@ -34,7 +34,7 @@ class WorkoutController: BaseController {
     let workoutSpecialIdentifier = String(describing: WorkoutSpecialCell.self)
     let workoutExercisesIdentifier = String(describing: WorkoutExercisesCell.self)
     
-    var selectedTypeId: String? {
+    var selectedTypeId: Int? {
         didSet {
             if selectedTypeId != oldValue {
                 presenter.getWorkoutsAll(categoryId: selectedTypeId)

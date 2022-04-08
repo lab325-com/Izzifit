@@ -61,6 +61,6 @@ class EnergyDrinkWaterCell: UITableViewCell {
     
     @objc func buttonAction(sender: UIButton!) {
         debugPrint(sender.tag)
-        delegate?.energyDrinkWaterSelectIndex(cell: self, index: sender.tag)
+        delegate?.energyDrinkWaterSelectIndex(cell: self, index: sender.tag + 1)
     }
 }

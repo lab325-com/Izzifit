@@ -131,16 +131,17 @@ extension EnergyProgressController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  cellIdentifier, for: indexPath) as! ProgressCell
         if currentFirstWeekDay <= 0 {
-            cell.setupCell(progress: 70, isHidden: false, day: indexPath.row - currentFirstWeekDay + 1)
+            cell.setupCell(progress: 0, isHidden: false, day: indexPath.row - currentFirstWeekDay + 1)
         } else {
             if currentDay.isInThisMonth {
                 if indexPath.row >= todayNumberDays + currentFirstWeekDay {
                     cell.setupCell(progress: 0, isHidden: Array(0..<currentFirstWeekDay).contains(indexPath.row), day: indexPath.row - currentFirstWeekDay + 1)
                 } else {
-                    cell.setupCell(progress: 70, isHidden: Array(0..<currentFirstWeekDay).contains(indexPath.row), day: indexPath.row - currentFirstWeekDay + 1, isToday: indexPath.row == todayNumberDays + currentFirstWeekDay - 1)
+                    let indexDay = indexPath.row - currentFirstWeekDay + 1
+                    cell.setupCell(progress: CGFloat(presenter.progersses.first(where: {$0.date == indexDay})?.progress ?? 0), isHidden: Array(0..<currentFirstWeekDay).contains(indexPath.row), day: indexPath.row - currentFirstWeekDay + 1, isToday: indexPath.row == todayNumberDays + currentFirstWeekDay - 1)
                 }
             } else {
-                cell.setupCell(progress: 70, isHidden: Array(0..<currentFirstWeekDay).contains(indexPath.row), day: indexPath.row - currentFirstWeekDay + 1)
+                cell.setupCell(progress: 0, isHidden: Array(0..<currentFirstWeekDay).contains(indexPath.row), day: indexPath.row - currentFirstWeekDay + 1)
             }
         }
         return cell

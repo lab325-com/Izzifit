@@ -78,7 +78,7 @@ class ChartTableCell: UITableViewCell {
             let hundredthCount = CGFloat(item.amount) * 0.00001
             
             let newCaloriesItem = CaloriesObjectModel(count: hundredthCount,
-                                                      stringDate: convertDate(item.date),
+                                                      stringDate: convertDate(item.createdAt),
                                                       target: hundredthTarget)
             calories.append(newCaloriesItem)
         }

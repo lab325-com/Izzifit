@@ -74,7 +74,7 @@ class WeightTableCell: UITableViewCell {
         // Date Labels
         for (index, item) in model.Weights.enumerated() {
             if index <= 6 {
-                dateLabelsCollection[index].text = convertDate(item.date)
+                dateLabelsCollection[index].text = convertDate(item.createdAt)
                 // Draw Graph
                 let currentX = chartBackViewStrideX * CGFloat(index + 1)
                 let currentY = correlateValueToY(Int(item.weight))

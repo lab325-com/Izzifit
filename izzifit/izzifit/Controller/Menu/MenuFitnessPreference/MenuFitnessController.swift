@@ -28,8 +28,8 @@ class MenuFitnessController: BaseController {
     private let cellTitleIdentifier = String(describing: MenuFoodTitleCellCell.self)
     private let cellSwitcherIdentifier = String(describing: MenuFoodSwitchCell.self)
     
-    private let allFitness = FitnessPreferenceType.allCases
-    private var selectedType: FitnessPreferenceType? = KeychainService.standard.me?.fitnessPreference {
+    private let allFitness = WorkoutDifficulty.allCases
+    private var selectedType: WorkoutDifficulty? = KeychainService.standard.me?.fitnessPreference {
         didSet {
             if selectedMuscles.count == 0 && selectedType == nil {
                 saveButton.alpha = 0.5
@@ -191,7 +191,7 @@ extension MenuFitnessController: MenuFoodSwitchDelegate {
 //----------------------------------------------
 
 extension MenuFitnessController: QuizeFoodCellDelegate {
-    func quizeFoodCellSelectedFitness(cell: QuizeFoodCell, type: FitnessPreferenceType) {
+    func quizeFoodCellSelectedFitness(cell: QuizeFoodCell, type: WorkoutDifficulty) {
         selectedType = type
         tableView.reloadData()
     }
