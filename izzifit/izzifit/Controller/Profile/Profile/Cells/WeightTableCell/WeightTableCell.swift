@@ -332,9 +332,9 @@ class WeightTableCell: UITableViewCell {
         
         let oneHundredth: CGFloat = CGFloat(decimalTargetAmount) / 100
         
-        let verticalPointAmount: CGFloat = CGFloat(oneHundredth) * 89 // 83 - chart height
+        let verticalPointAmount: CGFloat = CGFloat(oneHundredth) * chartBackVw.sizeHeight // 83 - chart height
         
-        let residualValue: CGFloat = 89 - verticalPointAmount
+        let residualValue: CGFloat = chartBackVw.sizeHeight - verticalPointAmount
         
         return residualValue
     }
