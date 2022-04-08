@@ -279,6 +279,9 @@
 		FAA9DBEE27D9ECFF004A14FB /* WorkoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */; };
 		FAB6547027FEDFA70057A221 /* ArcticGameComtroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6546E27FEDFA70057A221 /* ArcticGameComtroller.swift */; };
 		FAB6547127FEDFA70057A221 /* ArcticGameComtroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB6546F27FEDFA70057A221 /* ArcticGameComtroller.xib */; };
+		FAB6547327FF39420057A221 /* GameLogicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6547227FF39420057A221 /* GameLogicManager.swift */; };
+		FAB6548027FFFD480057A221 /* SlotTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6547F27FFFD480057A221 /* SlotTableCell.swift */; };
+		FAB6548227FFFD650057A221 /* SlotCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6548127FFFD650057A221 /* SlotCollectionCell.swift */; };
 		FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAC55B9627EB87F0001DA24C /* Rank.graphql */; };
 		FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC55B9927EB944E001DA24C /* RankModel.swift */; };
 		FADA6BD127F188B200913F67 /* MoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA6BD027F188B200913F67 /* MoodsModel.swift */; };
@@ -576,6 +579,9 @@
 		FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPresenter.swift; sourceTree = "<group>"; };
 		FAB6546E27FEDFA70057A221 /* ArcticGameComtroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGameComtroller.swift; sourceTree = "<group>"; };
 		FAB6546F27FEDFA70057A221 /* ArcticGameComtroller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArcticGameComtroller.xib; sourceTree = "<group>"; };
+		FAB6547227FF39420057A221 /* GameLogicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogicManager.swift; sourceTree = "<group>"; };
+		FAB6547F27FFFD480057A221 /* SlotTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotTableCell.swift; sourceTree = "<group>"; };
+		FAB6548127FFFD650057A221 /* SlotCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotCollectionCell.swift; sourceTree = "<group>"; };
 		FAC55B9627EB87F0001DA24C /* Rank.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rank.graphql; sourceTree = "<group>"; };
 		FAC55B9927EB944E001DA24C /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		FADA6BD027F188B200913F67 /* MoodsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsModel.swift; sourceTree = "<group>"; };
@@ -1991,10 +1997,21 @@
 		FAB6546D27FEDF340057A221 /* Arctic Game */ = {
 			isa = PBXGroup;
 			children = (
+				FAB6547E27FFFD330057A221 /* Cells */,
 				FAB6546E27FEDFA70057A221 /* ArcticGameComtroller.swift */,
 				FAB6546F27FEDFA70057A221 /* ArcticGameComtroller.xib */,
+				FAB6547227FF39420057A221 /* GameLogicManager.swift */,
 			);
 			path = "Arctic Game";
+			sourceTree = "<group>";
+		};
+		FAB6547E27FFFD330057A221 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FAB6548127FFFD650057A221 /* SlotCollectionCell.swift */,
+				FAB6547F27FFFD480057A221 /* SlotTableCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		FAC55B9527EB87A9001DA24C /* Rank */ = {
@@ -2434,6 +2451,7 @@
 				0263389027DB29AF00DC0325 /* EnergyRouter.swift in Sources */,
 				021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */,
 				0227DAC127C6A19C008AB26B /* MenuTargetWeightController.swift in Sources */,
+				FAB6548227FFFD650057A221 /* SlotCollectionCell.swift in Sources */,
 				02B225A627BCFB9F0035CFA2 /* QuizeTargetWeightController.swift in Sources */,
 				0249D26527B3A88C00F265C1 /* UIViewController+Extension.swift in Sources */,
 				02D066E927BC1BC900D12C5F /* QuizeWeightController.swift in Sources */,
@@ -2503,6 +2521,7 @@
 				0251D23627E210BA0098A54D /* FoodPresenter.swift in Sources */,
 				02D066D827BBDC3400D12C5F /* QuizeGoalController.swift in Sources */,
 				025463A227CE2F1500D433DB /* MenuWriteQuestionController.swift in Sources */,
+				FAB6548027FFFD480057A221 /* SlotTableCell.swift in Sources */,
 				0249D26D27B3A96E00F265C1 /* AuthModel.swift in Sources */,
 				02B1E71927DA003B00C9E610 /* EnergyTrainingCell.swift in Sources */,
 				0227DAA927C64F33008AB26B /* MenuRouter.swift in Sources */,
@@ -2521,6 +2540,7 @@
 				0273F56327D60C7A00B19449 /* EnergySleepCell.swift in Sources */,
 				0249D29E27B3D81700F265C1 /* API.swift in Sources */,
 				024C699F27DF61A200EE8D53 /* EnergyAddActivityCell.swift in Sources */,
+				FAB6547327FF39420057A221 /* GameLogicManager.swift in Sources */,
 				02B225B327BD5D300035CFA2 /* QuizeSportController.swift in Sources */,
 				025463B927CF8F5D00D433DB /* ToggleMuscleInWorkoutsModel.swift in Sources */,
 				0227DAC627C6A455008AB26B /* MenuFoodController.swift in Sources */,
