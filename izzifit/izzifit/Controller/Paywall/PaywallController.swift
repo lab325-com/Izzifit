@@ -271,13 +271,13 @@ class PaywallController: BaseController {
     }
     
     @IBAction func actionBack(_ sender: UIButton) {
-        dismiss(animated: true)
+        RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
     }
     
     @IBAction func actionSubscription(_ sender: UIButton) {
         presenter.purchase(id: priceType.productId) { result, error in
             if result {
-                self.dismiss(animated: true)
+                RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
             }
         }
     }
@@ -285,7 +285,7 @@ class PaywallController: BaseController {
     @IBAction func actionRestore(_ sender: UIButton) {
         presenter.restore { result in
             if result {
-                self.dismiss(animated: true)
+                RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
             }
         }
     }
