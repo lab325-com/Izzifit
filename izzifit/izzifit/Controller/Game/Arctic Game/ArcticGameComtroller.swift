@@ -8,7 +8,7 @@
 import UIKit
 
 class ArcticGameComtroller: BaseController {
-
+    
     
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -28,7 +28,14 @@ class ArcticGameComtroller: BaseController {
         hiddenNavigationBar = true
         setup()
         setCollectionView()
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
         // Do any additional setup after loading the view.
+    }
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        actionBack()
     }
     
     private func setup() {
@@ -73,12 +80,10 @@ class ArcticGameComtroller: BaseController {
     @IBAction func spinAction(_ sender: Any) {
         
         timer = Timer.scheduledTimer(timeInterval: 0.3,
-                                         target: self,
-                                         selector: #selector(randomSpinSlots),
-                                         userInfo: nil,
-                                         repeats: true)
-        
-        
+                                     target: self,
+                                     selector: #selector(randomSpinSlots),
+                                     userInfo: nil,
+                                     repeats: true)
     }
     
     @objc
@@ -99,7 +104,6 @@ class ArcticGameComtroller: BaseController {
         timer.invalidate()
         timerCount = 0
     }
-    
 }
 
 extension ArcticGameComtroller: UICollectionViewDelegate, UICollectionViewDataSource {
