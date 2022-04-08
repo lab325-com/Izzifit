@@ -12,22 +12,16 @@ class ProfileController: BaseController {
     //----------------------------------------------
     // MARK: - IBOutlet
     //----------------------------------------------
-    
-    
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var coinsLabel: UILabel!
     @IBOutlet weak var energyLabel: UILabel!
-    
-    
-    
-    @IBOutlet weak var profileLbl: UILabel! {
-        didSet {
-            profileLbl.text = RLocalization.profile()
-        }
-    }
-    
+    @IBOutlet weak var profileLbl: UILabel!
     @IBOutlet weak var profileTableView: UITableView!
+    
+    //----------------------------------------------
+    // MARK: - Property
+    //----------------------------------------------
     private lazy var presenter = ProfilePresenter(view: self)
     
     override func viewDidLoad() {
@@ -36,7 +30,7 @@ class ProfileController: BaseController {
     }
     
     private func setup() {
-        
+        profileLbl.text = RLocalization.profile()
         coinsLabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
         energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
         
@@ -76,11 +70,18 @@ class ProfileController: BaseController {
                                   forCellReuseIdentifier: PolicyCell.id)
     }
     
+    //----------------------------------------------
+    // MARK: - IBActions
+    //----------------------------------------------
     @IBAction func backAction(_ sender: Any) {
         actionBack()
     }
 }
 
+
+//----------------------------------------------
+// MARK: - UITableViewDelegate, UITableViewDataSource
+//----------------------------------------------
 extension ProfileController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -111,11 +112,6 @@ extension ProfileController: UITableViewDataSource {
         default:
             let awardsCell = tableView.dequeueReusableCell(withIdentifier: PolicyCell.id) as! PolicyCell
             return awardsCell
-            //            let cell = tableView.dequeueReusableCell(withIdentifier: PositionTableCell.id) as! PositionTableCell
-            //            if let model = presenter.rank {
-            //                cell.fillCell(by: model)
-            //            }
-            //            return cell
         }
     }
     

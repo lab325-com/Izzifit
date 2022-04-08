@@ -18,9 +18,6 @@ class ChartTableCell: UITableViewCell {
     //----------------------------------------------
     // MARK: - IBOutlet
     //----------------------------------------------
-    
-    var calories = [CaloriesObjectModel]()
-    
     @IBOutlet weak var titleLbl: UILabel! {
         didSet {
             titleLbl.text = RLocalization.profile_calories()
@@ -30,6 +27,9 @@ class ChartTableCell: UITableViewCell {
     @IBOutlet weak var backVw: UIView!
     @IBOutlet weak var chartCollectionView: UICollectionView!
     
+    //----------------------------------------------
+    // MARK: - Property
+    //----------------------------------------------
     private var lineLayer: CAShapeLayer = {
         let lineLayer = CAShapeLayer()
         lineLayer.lineWidth = 1
@@ -38,8 +38,13 @@ class ChartTableCell: UITableViewCell {
         return lineLayer
     }()
     
+    private var calories = [CaloriesObjectModel]()
+    
     static let id = "ChartTableCell"
     
+    //----------------------------------------------
+    // MARK: - Life cycle
+    //----------------------------------------------
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
@@ -54,9 +59,8 @@ class ChartTableCell: UITableViewCell {
     }
     
     func fillCellBy(_ model: CaloriesWidgetMainModel) {
-        // Cast to Float
+
         let targetInt = correlateValueToY(model.target)
-        
         let path = CGMutablePath()
         
         path.addLines(between: [CGPoint(x: 0 , y: targetInt),
@@ -64,10 +68,9 @@ class ChartTableCell: UITableViewCell {
         lineLayer.path = path
         chartCollectionView.layer.addSublayer(lineLayer)
         targetLbl.text = RLocalization.profile_target()
-        targetLbl.topAnchor.constraint(equalTo: chartCollectionView.topAnchor, constant: targetInt - 13).isActive = true
+        targetLbl.topAnchor.constraint(equalTo: chartCollectionView.topAnchor,
+                                       constant: targetInt - 13).isActive = true
         
-        
-      
         let hundredthTarget = CGFloat(model.target) * 0.00001
         
         for item in model.Calories {
@@ -83,7 +86,7 @@ class ChartTableCell: UITableViewCell {
         chartCollectionView.reloadData()
     }
     
-    func convertDate(_ stringDate: String) -> String {
+  private func convertDate(_ stringDate: String) -> String {
         let oldDateFormatter = DateFormatter()
         oldDateFormatter.locale = Locale(identifier: "en_US_POSIX")
         oldDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -94,7 +97,7 @@ class ChartTableCell: UITableViewCell {
         return newDateFormatter.string(from: gettedDate ?? Date())
     }
     
-    func correlateValueToY(_ targetAmount: Int) -> CGFloat  {
+  private func correlateValueToY(_ targetAmount: Int) -> CGFloat  {
         
         let decimalTargetAmount = Int(Float(targetAmount) * 0.001)
         
@@ -106,11 +109,12 @@ class ChartTableCell: UITableViewCell {
         
         return residualValue
     }
-    
-    deinit {
-        targetLbl.text = ""
-    }
+
 }
+
+//----------------------------------------------
+// MARK: - UICollectionViewDataSource
+//----------------------------------------------
 
 extension ChartTableCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -126,6 +130,4 @@ extension ChartTableCell: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
-extension ChartTableCell: UICollectionViewDelegateFlowLayout {
-    
-}
+extension ChartTableCell: UICollectionViewDelegateFlowLayout { }

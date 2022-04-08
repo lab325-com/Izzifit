@@ -9,61 +9,6 @@ import UIKit
 
 struct TrigonometryManager {
     
-    func getBackIntersectionPoint(by firstPoint: CGPoint,
-                              and secondPoint: CGPoint,
-                              intersectionY: CGFloat) -> CGPoint {
-        
-        let oppositeLegWholeTriangle = secondPoint.x - firstPoint.x
-        let adjacentLegWholeTriangle = secondPoint.y - firstPoint.y
-        
-        // Hypotenuse whole triangle
-        let hyp = getHyp(leg1: Double(oppositeLegWholeTriangle),
-                         leg2: Double(adjacentLegWholeTriangle))
-        
-        // Angle
-        let angle = getAngleBy(oppLeg: oppositeLegWholeTriangle,
-                               hyp: hyp)
-        
-        // Opposite Leg Intersected Triangle
-        
-        let adjacentLegIntersectionTriangle = secondPoint.y - intersectionY
-        
-        let oppositeIntersectedLeg = calculateOppositeLeg(adjacentC: adjacentLegIntersectionTriangle,
-                                                          adjacentAngle: angle)
-        
-        let betwweenFirstAndIntersectionLength = oppositeLegWholeTriangle - oppositeIntersectedLeg
-        
-        let intersectionX = (firstPoint.x + betwweenFirstAndIntersectionLength) + 1.0
-        
-        return CGPoint(x: intersectionX,
-                       y: intersectionY)
-    }
-    
-    
-    func getForwardIntersectionPoint(by firstPoint: CGPoint,
-                              and secondPoint: CGPoint,
-                              intersectionY: CGFloat) -> CGPoint {
-        
-        let oppositeLegWholeTriangle = secondPoint.x - firstPoint.x
-        let adjacentLegWholeTriangle = firstPoint.y - secondPoint.y
-        
-        let hyp = getHyp(leg1: Double(oppositeLegWholeTriangle),
-                         leg2: Double(adjacentLegWholeTriangle))
-        
-        let angle = getAngleBy(oppLeg: oppositeLegWholeTriangle,
-                               hyp: hyp)
-        
-        let adjacentLegIntersectionTriangle = firstPoint.y - intersectionY
-        
-        let oppositeIntersectedLeg = calculateOppositeLeg(adjacentC: adjacentLegIntersectionTriangle,
-                                                          adjacentAngle: angle)
-        let x = (firstPoint.x + oppositeIntersectedLeg) - 1.0
-        
-        return CGPoint(x: x,
-                       y: intersectionY)
-    }
-    
-    
     func getBackIntersectedStrokeEnd(by firstPoint: CGPoint,
                                      and secondPoint: CGPoint,
                                      intersectionY: CGFloat) -> CGFloat {
@@ -82,8 +27,7 @@ struct TrigonometryManager {
         let intersectedHyp = getHyp(adjLeg: adjacentLegIntersectionTriangle,
                                     angle: angle)
         // 5, сколько процентов гипотенуза пересеченного составляет от гипотенузы целого в формате "0.55"
-        let result = intersectedHyp / hyp
-        return result
+        return intersectedHyp / hyp
     }
     
     func getForwardIntersectedStrokeEnd(by firstPoint: CGPoint,
@@ -92,7 +36,6 @@ struct TrigonometryManager {
         // 0. два катета целого треугольника
         let oppositeLegWholeTriangle = secondPoint.x - firstPoint.x
         let adjacentLegWholeTriangle = firstPoint.y - secondPoint.y
-        
         // 1. длина гипотенузы целого треугольника
         let hyp = getHyp(leg1: oppositeLegWholeTriangle,
                          leg2: adjacentLegWholeTriangle)
@@ -105,43 +48,22 @@ struct TrigonometryManager {
         let intersectedHyp = getHyp(adjLeg: adjacentLegIntersectionTriangle,
                                     angle: angle)
         // 5, сколько процентов гипотенуза пересеченного составляет от гипотенузы целого в формате "0.55"
-        let result = intersectedHyp / hyp
-        return result
-
+        return intersectedHyp / hyp
     }
-    
-//    func calculateAngleBy(adjacentC: CGFloat, oppositeC: CGFloat) -> CGFloat {
-//       let divided =  adjacentC  /   oppositeC
-//        let angle = atan(divided)
-//        return angle
-//    }
-    
+
     func getHyp(leg1: Double, leg2: Double) -> Double {
         let hyp = (leg1 * leg1) + (leg2 * leg2)
-        let result = sqrt(hyp)
-        
-        return result
+        return sqrt(hyp)
     }
     
     func getAngleBy(oppLeg: Double, hyp: Double) -> Double {
-        let angle = tan(oppLeg / hyp)
-        return angle
-    }
-    
-    func calculateOppositeLeg(adjacentC: Double, adjacentAngle: Double) -> Double {
-        return (adjacentC * tan(adjacentAngle))
-    }
-    
-    func getIntersectedHyp(adjLeg: Double, angle: Double) -> Double {
-        let result = adjLeg / cos(angle)
-        return result
-    }
-    
-    func getHyp(adjLeg: Double, angle: Double) -> Double {
-        let result = adjLeg / cos(angle)
-        return result
+        return tan(oppLeg / hyp)
     }
 
+    func getHyp(adjLeg: Double, angle: Double) -> Double {
+        return adjLeg / cos(angle)
+    }
+    
     func recognizeCombination(backPoint: CGPoint, forwardPoint: CGPoint, interY: CGFloat) -> ChartCombinations {
         if backPoint.y < interY && forwardPoint.y > interY { return .triangleIntersectionBackToForward }
         else if backPoint.y > interY && forwardPoint.y < interY { return .triangleIntersectionForwardToBack }

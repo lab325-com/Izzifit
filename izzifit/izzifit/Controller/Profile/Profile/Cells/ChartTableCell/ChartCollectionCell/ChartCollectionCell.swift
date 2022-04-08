@@ -8,15 +8,23 @@
 import UIKit
 
 class ChartCollectionCell: UICollectionViewCell {
-
-    static let id = "ChartCollectionCell"
+    
+    //----------------------------------------------
+    // MARK: - IBOutlet
+    //----------------------------------------------
+    
     @IBOutlet weak var dateLbl: UILabel!
     
-    var shapeLayer = CAShapeLayer()
-    var shapeLineWidth: Double = 36
-    var strokeEnd: Double = 0
-    var targetValue: CGFloat = 0
-
+    //----------------------------------------------
+    // MARK: - Property
+    //----------------------------------------------
+    
+    static let id = "ChartCollectionCell"
+    private var shapeLayer = CAShapeLayer()
+    private var shapeLineWidth: Double = 36
+    private var strokeEnd: Double = 0
+    private  var targetValue: CGFloat = 0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = clr(color: .profileCellBack)
@@ -50,7 +58,7 @@ class ChartCollectionCell: UICollectionViewCell {
         layer.addSublayer(overShapeLayer)
         
         guard strokeEnd > targetValue else { return }
-       
+        
         let overTargetSL = CAShapeLayer()
         overTargetSL.lineWidth = shapeLineWidth
         overTargetSL.strokeColor = clr(color: .intensivePurple)?.cgColor
@@ -66,17 +74,12 @@ class ChartCollectionCell: UICollectionViewCell {
         
     }
     
-    
-    
-   private func correlateValueToY(_ targetAmount: CGFloat) -> CGFloat  {
+    private func correlateValueToY(_ targetAmount: CGFloat) -> CGFloat  {
         
-        var decimalTargetAmount = Int(Float(targetAmount) * 100)
-        
-        var oneHundredth: CGFloat = CGFloat(decimalTargetAmount) / 100
-        
-        var verticalPointAmount: CGFloat = CGFloat(oneHundredth) * 83 // 83 - chartCollectionview height
-        
-        var residualValue: CGFloat = 83 - verticalPointAmount
+        let decimalTargetAmount = Int(Float(targetAmount) * 100)
+        let oneHundredth: CGFloat = CGFloat(decimalTargetAmount) / 100
+        let verticalPointAmount: CGFloat = CGFloat(oneHundredth) * 83 // 83 - chartCollectionview height
+        let residualValue: CGFloat = 83 - verticalPointAmount
         
         return residualValue
     }
