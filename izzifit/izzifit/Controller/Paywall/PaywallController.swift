@@ -24,6 +24,11 @@ enum PaywallPriceType: CaseIterable {
     }
 }
 
+protocol PaywallProtocol: AnyObject {
+    func paywallActionBack(controller: PaywallController)
+    func paywallSuccess(controller: PaywallController)
+}
+
 class PaywallController: BaseController {
     
     //----------------------------------------------
@@ -62,6 +67,20 @@ class PaywallController: BaseController {
     }
     
     private lazy var presenter = SubscribePresenter(view: self)
+    weak var delegate: PaywallProtocol?
+    
+    //----------------------------------------------
+    // MARK: - Init
+    //----------------------------------------------
+    
+    init(delegate: PaywallProtocol) {
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //----------------------------------------------
     // MARK: - Life cycle
@@ -271,21 +290,23 @@ class PaywallController: BaseController {
     }
     
     @IBAction func actionBack(_ sender: UIButton) {
-        RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
+        self.delegate?.paywallActionBack(controller: self)
     }
     
     @IBAction func actionSubscription(_ sender: UIButton) {
         presenter.purchase(id: priceType.productId) { result, error in
             if result {
-                RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
+                self.delegate?.paywallSuccess(controller: self)
             }
         }
     }
     
     @IBAction func actionRestore(_ sender: UIButton) {
-        presenter.restore { result in
+        presenter.restore { [weak self] result in
+            guard let `self` = self else { return }
+            
             if result {
-                RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
+                self.delegate?.paywallSuccess(controller: self)
             }
         }
     }

@@ -93,7 +93,7 @@ class MenuCell: UITableViewCell {
             detailLabel.text = model.fitnessPreference?.text
         case .language:
             detailLabel.text = RLocalization.menu_english()
-        case .notification:
+        case .notification, .logout:
             break
         case .reminders:
             break

@@ -1,0 +1,3 @@
+query AvailableGoals {
+    availableGoals
+}

@@ -52,6 +52,11 @@
 		0227DACD27C6A82A008AB26B /* MenuFoodTitleCellCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0227DACB27C6A82A008AB26B /* MenuFoodTitleCellCell.xib */; };
 		0239712427E1CD6E0087113A /* WriteToUsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239712227E1CD6E0087113A /* WriteToUsController.swift */; };
 		0239712527E1CD6E0087113A /* WriteToUsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0239712327E1CD6E0087113A /* WriteToUsController.xib */; };
+		023CDC2D280408400056F022 /* MenuLogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CDC2B280408400056F022 /* MenuLogoutCell.swift */; };
+		023CDC2E280408400056F022 /* MenuLogoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023CDC2C280408400056F022 /* MenuLogoutCell.xib */; };
+		023CDC3528047BEB0056F022 /* QuizeGoalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CDC3428047BEB0056F022 /* QuizeGoalPresenter.swift */; };
+		023CDC3828047C8A0056F022 /* AvailableGoals.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 023CDC3728047C8A0056F022 /* AvailableGoals.graphql */; };
+		023CDC3A28047C930056F022 /* AvailableGoalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CDC3928047C930056F022 /* AvailableGoalsModel.swift */; };
 		023D171C27BE1D4D005F95C0 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D171B27BE1D4D005F95C0 /* AuthRouter.swift */; };
 		023D171E27BE258A005F95C0 /* UITapGesture+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D171D27BE258A005F95C0 /* UITapGesture+Extension.swift */; };
 		023FBC3C27FACC8C004D0CEA /* PaywallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023FBC3A27FACC8C004D0CEA /* PaywallController.swift */; };
@@ -170,6 +175,8 @@
 		02ABCF4127CD0D4700E69C06 /* MenuLanguageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02ABCF3F27CD0D4700E69C06 /* MenuLanguageController.xib */; };
 		02ABCF4527CD0EA800E69C06 /* MenuLanguagesTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABCF4327CD0EA800E69C06 /* MenuLanguagesTitleCell.swift */; };
 		02ABCF4627CD0EA800E69C06 /* MenuLanguagesTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02ABCF4427CD0EA800E69C06 /* MenuLanguagesTitleCell.xib */; };
+		02AC22262800666700440DFB /* OrderCreate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02AC22252800666600440DFB /* OrderCreate.graphql */; };
+		02AC22282800677B00440DFB /* OrderCreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AC22272800677B00440DFB /* OrderCreateModel.swift */; };
 		02B1E71927DA003B00C9E610 /* EnergyTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1E71727DA003B00C9E610 /* EnergyTrainingCell.swift */; };
 		02B1E71A27DA003B00C9E610 /* EnergyTrainingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02B1E71827DA003B00C9E610 /* EnergyTrainingCell.xib */; };
 		02B225A227BCF0F00035CFA2 /* TempProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */; };
@@ -356,6 +363,11 @@
 		0227DACB27C6A82A008AB26B /* MenuFoodTitleCellCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuFoodTitleCellCell.xib; sourceTree = "<group>"; };
 		0239712227E1CD6E0087113A /* WriteToUsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteToUsController.swift; sourceTree = "<group>"; };
 		0239712327E1CD6E0087113A /* WriteToUsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WriteToUsController.xib; sourceTree = "<group>"; };
+		023CDC2B280408400056F022 /* MenuLogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLogoutCell.swift; sourceTree = "<group>"; };
+		023CDC2C280408400056F022 /* MenuLogoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuLogoutCell.xib; sourceTree = "<group>"; };
+		023CDC3428047BEB0056F022 /* QuizeGoalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeGoalPresenter.swift; sourceTree = "<group>"; };
+		023CDC3728047C8A0056F022 /* AvailableGoals.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AvailableGoals.graphql; sourceTree = "<group>"; };
+		023CDC3928047C930056F022 /* AvailableGoalsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableGoalsModel.swift; sourceTree = "<group>"; };
 		023D171B27BE1D4D005F95C0 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		023D171D27BE258A005F95C0 /* UITapGesture+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGesture+Extension.swift"; sourceTree = "<group>"; };
 		023FBC3A27FACC8C004D0CEA /* PaywallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallController.swift; sourceTree = "<group>"; };
@@ -476,6 +488,8 @@
 		02ABCF3F27CD0D4700E69C06 /* MenuLanguageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuLanguageController.xib; sourceTree = "<group>"; };
 		02ABCF4327CD0EA800E69C06 /* MenuLanguagesTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLanguagesTitleCell.swift; sourceTree = "<group>"; };
 		02ABCF4427CD0EA800E69C06 /* MenuLanguagesTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuLanguagesTitleCell.xib; sourceTree = "<group>"; };
+		02AC22252800666600440DFB /* OrderCreate.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OrderCreate.graphql; sourceTree = "<group>"; };
+		02AC22272800677B00440DFB /* OrderCreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCreateModel.swift; sourceTree = "<group>"; };
 		02B1E71727DA003B00C9E610 /* EnergyTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyTrainingCell.swift; sourceTree = "<group>"; };
 		02B1E71827DA003B00C9E610 /* EnergyTrainingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyTrainingCell.xib; sourceTree = "<group>"; };
 		02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempProfileModel.swift; sourceTree = "<group>"; };
@@ -849,6 +863,24 @@
 			path = WriteToUsController;
 			sourceTree = "<group>";
 		};
+		023CDC2A280408230056F022 /* MenuLogout */ = {
+			isa = PBXGroup;
+			children = (
+				023CDC2B280408400056F022 /* MenuLogoutCell.swift */,
+				023CDC2C280408400056F022 /* MenuLogoutCell.xib */,
+			);
+			path = MenuLogout;
+			sourceTree = "<group>";
+		};
+		023CDC3628047C720056F022 /* AvailableGoals */ = {
+			isa = PBXGroup;
+			children = (
+				023CDC3728047C8A0056F022 /* AvailableGoals.graphql */,
+				023CDC3928047C930056F022 /* AvailableGoalsModel.swift */,
+			);
+			path = AvailableGoals;
+			sourceTree = "<group>";
+		};
 		023FBC3927FACC69004D0CEA /* Paywall */ = {
 			isa = PBXGroup;
 			children = (
@@ -1067,6 +1099,7 @@
 		0249D29A27B3D78900F265C1 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+				023CDC3628047C720056F022 /* AvailableGoals */,
 				02E9047C27F5A360008CFFB4 /* Workouts */,
 				02BACF1227F4574800B7562C /* RecommendWorkouts */,
 				FA62C54A27F5B43800AC463A /* WeightsWidget */,
@@ -1403,6 +1436,7 @@
 				025463A927CE6E6400D433DB /* MenuFitnessPreference */,
 				02ABCF3D27CD0D1B00E69C06 /* MenuLanguageController */,
 				0254639F27CE2EEA00D433DB /* MenuWriteQuestion */,
+				023CDC2A280408230056F022 /* MenuLogout */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -1489,6 +1523,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		02AC22242800665000440DFB /* OrderCreate */ = {
+			isa = PBXGroup;
+			children = (
+				02AC22252800666600440DFB /* OrderCreate.graphql */,
+				02AC22272800677B00440DFB /* OrderCreateModel.swift */,
+			);
+			path = OrderCreate;
+			sourceTree = "<group>";
+		};
 		02B1E71627D9FC9E00C9E610 /* EnergyTrainingCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1539,6 +1582,7 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				02AC22242800665000440DFB /* OrderCreate */,
 				02B3017527EB23350045C607 /* SaveSleepQuality */,
 				02B3017027EB22CF0045C607 /* SaveMood */,
 				020CB3E227EA1FF200F97A76 /* DrinkWater */,
@@ -1810,6 +1854,7 @@
 		02D066D527BBDC1800D12C5F /* QuizeGoal */ = {
 			isa = PBXGroup;
 			children = (
+				023CDC3428047BEB0056F022 /* QuizeGoalPresenter.swift */,
 				02D066D627BBDC3400D12C5F /* QuizeGoalController.swift */,
 				02D066D727BBDC3400D12C5F /* QuizeGoalController.xib */,
 			);
@@ -2274,6 +2319,7 @@
 				02AB486527E06DEE00F35EE2 /* FoodRecomendedCell.xib in Resources */,
 				02D066EA27BC1BC900D12C5F /* QuizeWeightController.xib in Resources */,
 				02B1E71A27DA003B00C9E610 /* EnergyTrainingCell.xib in Resources */,
+				023CDC2E280408400056F022 /* MenuLogoutCell.xib in Resources */,
 				0251D24327E218FF0098A54D /* RecommendProducts.graphql in Resources */,
 				02B225BE27BD7B110035CFA2 /* Login.graphql in Resources */,
 				FE1403BE27E2019C002F5819 /* ChartTableCell.xib in Resources */,
@@ -2313,6 +2359,7 @@
 				0239712527E1CD6E0087113A /* WriteToUsController.xib in Resources */,
 				FEE119C027E9B9270058EE6D /* MoodTableCell.xib in Resources */,
 				02ABCF4127CD0D4700E69C06 /* MenuLanguageController.xib in Resources */,
+				02AC22262800666700440DFB /* OrderCreate.graphql in Resources */,
 				0227DACD27C6A82A008AB26B /* MenuFoodTitleCellCell.xib in Resources */,
 				02A5CDB527C3949700D31FB4 /* MenuController.xib in Resources */,
 				FEE119C627E9D1520058EE6D /* AwardsTableCell.xib in Resources */,
@@ -2335,6 +2382,7 @@
 				02C487F927F184A00010D4FA /* WorkoutDetailController.xib in Resources */,
 				0249D23427B3A4F100F265C1 /* Assets.xcassets in Resources */,
 				0268753927D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.xib in Resources */,
+				023CDC3828047C8A0056F022 /* AvailableGoals.graphql in Resources */,
 				02B225AF27BD45080035CFA2 /* QuizeFoodController.xib in Resources */,
 				0273F56C27D6513200B19449 /* MealsWidget.graphql in Resources */,
 				0273F56427D60C7A00B19449 /* EnergySleepCell.xib in Resources */,
@@ -2488,6 +2536,7 @@
 				021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */,
 				0227DAC127C6A19C008AB26B /* MenuTargetWeightController.swift in Sources */,
 				FAB6548227FFFD650057A221 /* SlotCollectionCell.swift in Sources */,
+				023CDC2D280408400056F022 /* MenuLogoutCell.swift in Sources */,
 				02B225A627BCFB9F0035CFA2 /* QuizeTargetWeightController.swift in Sources */,
 				0249D26527B3A88C00F265C1 /* UIViewController+Extension.swift in Sources */,
 				02D066E927BC1BC900D12C5F /* QuizeWeightController.swift in Sources */,
@@ -2524,6 +2573,7 @@
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
 				02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
+				02AC22282800677B00440DFB /* OrderCreateModel.swift in Sources */,
 				020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */,
 				020CB3DC27E9F46600F97A76 /* UpdateProductInMealModel.swift in Sources */,
 				0227DABC27C6768F008AB26B /* MenuWeightController.swift in Sources */,
@@ -2548,6 +2598,7 @@
 				02FAF0AE27D36D7C002CD678 /* EnergyPresenter.swift in Sources */,
 				02D066CB27BBBB4300D12C5F /* QuizeNameController.swift in Sources */,
 				FE1403BD27E2019C002F5819 /* ChartTableCell.swift in Sources */,
+				023CDC3A28047C930056F022 /* AvailableGoalsModel.swift in Sources */,
 				0268752527D890F000FFEA6A /* TodayProgressModel.swift in Sources */,
 				025463A827CE404F00D433DB /* ToggleProductInRationModel.swift in Sources */,
 				0268752F27D8CCB700FFEA6A /* SaveWeightWidgetModel.swift in Sources */,
@@ -2584,6 +2635,7 @@
 				025463B927CF8F5D00D433DB /* ToggleMuscleInWorkoutsModel.swift in Sources */,
 				0227DAC627C6A455008AB26B /* MenuFoodController.swift in Sources */,
 				02D066E227BBEBA000D12C5F /* QuizeHeightController.swift in Sources */,
+				023CDC3528047BEB0056F022 /* QuizeGoalPresenter.swift in Sources */,
 				0249D26627B3A88C00F265C1 /* Int+Extension.swift in Sources */,
 				0290B39927D2340800381B42 /* EnerdyTodayCell.swift in Sources */,
 				02ABCF3527CCC3F400E69C06 /* MenuFoodSwitchCell.swift in Sources */,
@@ -2787,7 +2839,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
@@ -2821,7 +2873,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
@@ -2916,7 +2968,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;

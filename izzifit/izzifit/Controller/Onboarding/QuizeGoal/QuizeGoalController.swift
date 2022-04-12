@@ -54,6 +54,8 @@ class QuizeGoalController: BaseController {
     @IBOutlet weak var muscleButton: UIButton!
     @IBOutlet weak var justPlayButton: UIButton!
     
+    private lazy var presenter = QuizeQoalPresenter(view: self)
+    
     private var goalType: QuizeGoalType? {
         didSet {
             updateType()
@@ -81,6 +83,13 @@ class QuizeGoalController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        //presenter.getGoals()
+        
+//        keepFitButton.isHidden = true
+//        loseWeightButton.isHidden = true
+//        muscleButton.isHidden = true
+//        justPlayButton.isHidden = true
+        
         updateType()
         
         countLabel.text = RLocalization.onboarding_count(3, 9)
@@ -158,5 +167,30 @@ class QuizeGoalController: BaseController {
     
     @IBAction func actionJustPlay(_ sender: Any) {
         goalType = .justPlay
+    }
+}
+
+//----------------------------------------------
+// MARK: - QuizeQoalOutputProtocol
+//----------------------------------------------
+
+extension QuizeGoalController: QuizeQoalOutputProtocol {
+    func success() {
+        for type in presenter.types {
+            switch type {
+            case .keepFit:
+                keepFitButton.isHidden = false
+            case .loseWeight:
+                loseWeightButton.isHidden = false
+            case .muscle:
+                muscleButton.isHidden = false
+            case .justPlay:
+                justPlayButton.isHidden = false
+            }
+        }
+    }
+    
+    func failure() {
+        actionBack()
     }
 }

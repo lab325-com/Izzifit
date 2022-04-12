@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FoodAddControllerProtocol: AnyObject {
+    func foodAddReload(controller: FoodAddController)
+}
+
 class FoodAddController: BaseController {
     
     //----------------------------------------------
@@ -16,7 +20,6 @@ class FoodAddController: BaseController {
     @IBOutlet weak var mainView: ShadowView!
     
     @IBOutlet weak var mainTitleLabel: UILabel!
-    @IBOutlet weak var subTitleLabel: UILabel!
     
     @IBOutlet weak var grammView: UIView!
     @IBOutlet weak var textView: UIView!
@@ -49,16 +52,18 @@ class FoodAddController: BaseController {
     private let mealId: String
     
     private lazy var presenter = FoodAddPresenter(view: self)
+    weak var delegate: FoodAddControllerProtocol?
     
     //----------------------------------------------
     // MARK: - Init
     //----------------------------------------------
     
-    init(sourceByMeal: [SourcesByMealMainModel], isUpdate: Bool, model: ProductsMainModel, mealID: String) {
+    init(sourceByMeal: [SourcesByMealMainModel], isUpdate: Bool, model: ProductsMainModel, mealID: String, delegate: FoodAddControllerProtocol) {
         self.mealId = mealID
         self.sourceByMeal = sourceByMeal
         self.isUpdate = isUpdate
         self.model = model
+        self.delegate = delegate
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -125,8 +130,7 @@ class FoodAddController: BaseController {
         }
         
         grammsLabel.text = model.measure == .productMeasureTypePcs ? "pcs" : "gramm"
-        
-        subTitleLabel.text = RLocalization.food_better()
+    
     }
     
     private func setupProteintsView() {
@@ -184,14 +188,17 @@ extension FoodAddController: UITextFieldDelegate {
 
 extension FoodAddController: FoodAddOutputProtocol {
     func success() {
+        delegate?.foodAddReload(controller: self)
         dismiss(animated: true)
     }
     
     func successUpdate() {
+        delegate?.foodAddReload(controller: self)
         dismiss(animated: true)
     }
     
     func successRemove() {
+        delegate?.foodAddReload(controller: self)
         dismiss(animated: true)
     }
     

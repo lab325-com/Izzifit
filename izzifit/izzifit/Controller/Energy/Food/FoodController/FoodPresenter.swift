@@ -40,6 +40,7 @@ class FoodPresenter: FoodPresenterProtocol {
     var recentProducts: [ProductsMainModel] = []
     var recomendetsProducts: [ProductsMainModel] = []
     var productsByMeal: [ProductsMainModel] = []
+    var defaultProduct: [ProductsMainModel] = []
     
     var sourceByMeal: [SourcesByMealMainModel] = []
     
@@ -116,15 +117,29 @@ class FoodPresenter: FoodPresenterProtocol {
                 self.namesSections.append(RLocalization.food_we_recomend())
             }
             
-            self.view?.stopLoading()
-            self.view?.success()
+            if self.productsByMeal.count == 0 && self.recentProducts.count == 0 && self.recomendetsProducts.count == 0 {
+                let query = ProductsQuery(search: "", sourceIds: nil, onlyToggled: true)
+                let _ = Network.shared.query(model: ProductsModel.self, query, controller: self.view, successHandler: { [weak self] model in
+                    guard let `self` = self else { return }
+                    self.sections[self.sections.count] = model.products
+                    self.namesSections.append("Product")
+                    self.view?.stopLoading()
+                    self.view?.success()
+                }, failureHandler: { [weak self] error in
+                    self?.view?.stopLoading()
+                    self?.view?.failure()
+                })
+            } else {
+                self.view?.stopLoading()
+                self.view?.success()
+            }
         }
     }
     
     func search(text: String, id: Int?) {
         view?.startLoader()
         
-        let query = ProductsQuery(search: text, sourceIds: [id], onlyToggled: true)
+        let query = ProductsQuery(search: text, sourceIds: id != nil ? [id] : nil, onlyToggled: true)
         let _ = Network.shared.query(model: ProductsModel.self, query, controller: view, successHandler: { [weak self] model in
             self?.searchProducts = model.products
             self?.view?.stopLoading()

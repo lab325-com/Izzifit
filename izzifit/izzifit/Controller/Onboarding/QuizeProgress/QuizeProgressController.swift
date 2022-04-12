@@ -72,7 +72,7 @@ extension QuizeProgressController: QuizeProgressOutputProtocol {
     func success() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) { [weak self] in
             guard let `self` = self else { return }
-            PaywallRouter(presenter: self.navigationController).presentPaywall()
+            PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self)
         }
     }
     
@@ -80,5 +80,19 @@ extension QuizeProgressController: QuizeProgressOutputProtocol {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.actionBack()
         }
+    }
+}
+
+//----------------------------------------------
+// MARK: - PaywallProtocol
+//----------------------------------------------
+
+extension QuizeProgressController: PaywallProtocol {
+    func paywallActionBack(controller: PaywallController) {
+        RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
+    }
+    
+    func paywallSuccess(controller: PaywallController) {
+        RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
     }
 }

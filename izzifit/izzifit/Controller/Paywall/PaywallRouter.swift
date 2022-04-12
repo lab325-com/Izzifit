@@ -8,8 +8,8 @@
 import Foundation
 
 class PaywallRouter: BaseRouter {
-    func presentPaywall() {
-        let controller = PaywallController()
+    func presentPaywall(delegate: PaywallProtocol) {
+        let controller = PaywallController(delegate: delegate)
         present(controller: controller)
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,7 +33,6 @@
                 <outlet property="proteinGrammLabel" destination="kds-hM-bAe" id="RUL-Gn-naj"/>
                 <outlet property="proteingGLeftLabel" destination="tuz-OI-6bF" id="rUR-Jx-VZI"/>
                 <outlet property="shadowView" destination="Dhe-QD-VNO" id="X17-BK-rSp"/>
-                <outlet property="subTitleLabel" destination="hbI-au-9C4" id="Gou-12-NHu"/>
                 <outlet property="textView" destination="W8q-nA-iIm" id="sc1-Rm-NsP"/>
                 <outlet property="updataAddButton" destination="DFP-YZ-LZY" id="XZr-CF-tew"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -45,7 +44,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zb-Q3-lwT" customClass="ShadowView" customModule="izzifit" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="488.5" width="414" height="373.5"/>
+                    <rect key="frame" x="0.0" y="516.5" width="414" height="345.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llk-OY-ZlG">
                             <rect key="frame" x="167" y="8" width="80" height="6"/>
@@ -66,14 +65,8 @@
                             <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Better boiled or steamed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbI-au-9C4">
-                            <rect key="frame" x="24" y="57.5" width="164.5" height="17"/>
-                            <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
-                            <color key="textColor" red="0.72941176470588232" green="0.72549019607843135" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dhe-QD-VNO" customClass="ShadowView" customModule="izzifit" customModuleProvider="target">
-                            <rect key="frame" x="24" y="96.5" width="262" height="48"/>
+                            <rect key="frame" x="24" y="68.5" width="262" height="48"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
@@ -88,7 +81,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8q-nA-iIm">
-                            <rect key="frame" x="24" y="96.5" width="262" height="48"/>
+                            <rect key="frame" x="24" y="68.5" width="262" height="48"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q31-YK-w8P">
                                     <rect key="frame" x="16" y="0.0" width="230" height="48"/>
@@ -110,7 +103,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyx-c7-fvS">
-                            <rect key="frame" x="294" y="96.5" width="97" height="48"/>
+                            <rect key="frame" x="294" y="68.5" width="97" height="48"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gramm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b76-7f-oFE">
                                     <rect key="frame" x="22" y="14.5" width="53" height="19.5"/>
@@ -128,7 +121,7 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2oy-jU-rD7">
-                            <rect key="frame" x="24" y="164.5" width="366" height="57"/>
+                            <rect key="frame" x="24" y="136.5" width="366" height="57"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jr0-Vd-h1x">
                                     <rect key="frame" x="0.0" y="0.0" width="121.5" height="57"/>
@@ -238,7 +231,7 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="1rh-6b-Jzq">
-                            <rect key="frame" x="24" y="241.5" width="366" height="112"/>
+                            <rect key="frame" x="24" y="213.5" width="366" height="112"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFP-YZ-LZY">
                                     <rect key="frame" x="0.0" y="0.0" width="366" height="48"/>
@@ -289,21 +282,19 @@
                         <constraint firstAttribute="bottom" secondItem="1rh-6b-Jzq" secondAttribute="bottom" constant="20" id="I7G-5Z-BX7"/>
                         <constraint firstItem="qyx-c7-fvS" firstAttribute="leading" secondItem="W8q-nA-iIm" secondAttribute="trailing" constant="8" id="LYw-I5-sS0"/>
                         <constraint firstItem="Dhe-QD-VNO" firstAttribute="height" secondItem="W8q-nA-iIm" secondAttribute="height" id="MCm-hs-QAG"/>
-                        <constraint firstItem="W8q-nA-iIm" firstAttribute="leading" secondItem="hbI-au-9C4" secondAttribute="leading" id="PWi-kt-fkT"/>
                         <constraint firstItem="llk-OY-ZlG" firstAttribute="centerX" secondItem="3zb-Q3-lwT" secondAttribute="centerX" id="RDx-Ke-gSL"/>
                         <constraint firstItem="Dhe-QD-VNO" firstAttribute="width" secondItem="W8q-nA-iIm" secondAttribute="width" id="U7P-Rc-fMP"/>
                         <constraint firstItem="2oy-jU-rD7" firstAttribute="leading" secondItem="3zb-Q3-lwT" secondAttribute="leading" constant="24" id="UGJ-pZ-1yp"/>
                         <constraint firstItem="Dhe-QD-VNO" firstAttribute="centerY" secondItem="W8q-nA-iIm" secondAttribute="centerY" id="YIV-5f-K0x"/>
-                        <constraint firstItem="hbI-au-9C4" firstAttribute="top" secondItem="xRw-Lg-O2G" secondAttribute="bottom" constant="9" id="Yqs-uR-AII"/>
                         <constraint firstItem="xRw-Lg-O2G" firstAttribute="leading" secondItem="3zb-Q3-lwT" secondAttribute="leading" constant="24" id="aN8-am-7P9"/>
                         <constraint firstAttribute="trailing" secondItem="1rh-6b-Jzq" secondAttribute="trailing" constant="24" id="cgq-9B-Y31"/>
                         <constraint firstAttribute="trailing" secondItem="2oy-jU-rD7" secondAttribute="trailing" constant="24" id="eJt-Y6-Lke"/>
-                        <constraint firstItem="W8q-nA-iIm" firstAttribute="top" secondItem="hbI-au-9C4" secondAttribute="bottom" constant="22" id="eyk-CU-U7l"/>
                         <constraint firstItem="qyx-c7-fvS" firstAttribute="centerY" secondItem="W8q-nA-iIm" secondAttribute="centerY" id="irt-if-Re2"/>
                         <constraint firstItem="xRw-Lg-O2G" firstAttribute="top" secondItem="llk-OY-ZlG" secondAttribute="bottom" constant="5" id="oUg-Yn-nOH"/>
                         <constraint firstAttribute="trailing" secondItem="qyx-c7-fvS" secondAttribute="trailing" constant="23" id="pNO-hS-kzk"/>
-                        <constraint firstItem="hbI-au-9C4" firstAttribute="leading" secondItem="xRw-Lg-O2G" secondAttribute="leading" id="sqn-XN-KDF"/>
+                        <constraint firstItem="W8q-nA-iIm" firstAttribute="leading" secondItem="xRw-Lg-O2G" secondAttribute="leading" id="u0i-g3-BpB"/>
                         <constraint firstItem="2oy-jU-rD7" firstAttribute="top" secondItem="W8q-nA-iIm" secondAttribute="bottom" constant="20" id="vd1-vr-dIw"/>
+                        <constraint firstItem="Dhe-QD-VNO" firstAttribute="top" secondItem="xRw-Lg-O2G" secondAttribute="bottom" constant="20" id="wBy-Xw-5kK"/>
                         <constraint firstItem="llk-OY-ZlG" firstAttribute="top" secondItem="3zb-Q3-lwT" secondAttribute="top" constant="8" id="yle-qo-9q5"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>

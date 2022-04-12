@@ -26,9 +26,9 @@ class WorkoutExercisesDetailCell: UICollectionViewCell {
     }
 
     func setupCell(model: WorkoutByIdMainModel) {
-        redView.isHidden = (model.isAvailable == false || model.isAvailable == nil) ? false : true
+        redView.isHidden = model.isAvailable ?? false
         
-        blockedImageView.isHidden = (model.isAvailable == false || model.isAvailable == nil) ? false : true
+        blockedImageView.isHidden = model.isAvailable ?? false
         
         mainImageView.kf.setImage(with: URL(string: model.image?.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_two_ic(), options: [.transition(.fade(0.25))])
         

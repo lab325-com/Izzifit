@@ -73,8 +73,6 @@ extension WorkoutExercisesCell: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if models[indexPath.row].isAvailable == true {
-            delegate?.workoutExercisesCell(cell: self, model: models[indexPath.row])
-        }
+        delegate?.workoutExercisesCell(cell: self, model: models[indexPath.row])
     }
 }

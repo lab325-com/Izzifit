@@ -8,5 +8,5 @@
 import Foundation
 
 struct RecommendWorkoutsModel: Codable {
-    let recommendWorkouts: [WorkoutByIdMainModel]
+    let recommendWorkouts: [WorkoutByIdMainModel]?
 }

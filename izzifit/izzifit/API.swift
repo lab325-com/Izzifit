@@ -157,6 +157,65 @@ public enum AuthType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
   }
 }
 
+public struct OrderCreateInputRecord: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - receipt
+  public init(receipt: Swift.Optional<String?> = nil) {
+    graphQLMap = ["receipt": receipt]
+  }
+
+  public var receipt: Swift.Optional<String?> {
+    get {
+      return graphQLMap["receipt"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "receipt")
+    }
+  }
+}
+
+public enum PaymentSystemName: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case paymentSystemNameApple
+  case paymentSystemNameGoogle
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "PAYMENT_SYSTEM_NAME_APPLE": self = .paymentSystemNameApple
+      case "PAYMENT_SYSTEM_NAME_GOOGLE": self = .paymentSystemNameGoogle
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .paymentSystemNameApple: return "PAYMENT_SYSTEM_NAME_APPLE"
+      case .paymentSystemNameGoogle: return "PAYMENT_SYSTEM_NAME_GOOGLE"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: PaymentSystemName, rhs: PaymentSystemName) -> Bool {
+    switch (lhs, rhs) {
+      case (.paymentSystemNameApple, .paymentSystemNameApple): return true
+      case (.paymentSystemNameGoogle, .paymentSystemNameGoogle): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [PaymentSystemName] {
+    return [
+      .paymentSystemNameApple,
+      .paymentSystemNameGoogle,
+    ]
+  }
+}
+
 public struct ProfileUpdateInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
@@ -1123,6 +1182,59 @@ public final class LoginMutation: GraphQLMutation {
   }
 }
 
+public final class OrderCreateMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation OrderCreate($order: OrderCreateInputRecord!, $paymentSystem: PaymentSystemName!) {
+      orderCreate(order: $order, paymentSystem: $paymentSystem)
+    }
+    """
+
+  public let operationName: String = "OrderCreate"
+
+  public var order: OrderCreateInputRecord
+  public var paymentSystem: PaymentSystemName
+
+  public init(order: OrderCreateInputRecord, paymentSystem: PaymentSystemName) {
+    self.order = order
+    self.paymentSystem = paymentSystem
+  }
+
+  public var variables: GraphQLMap? {
+    return ["order": order, "paymentSystem": paymentSystem]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("orderCreate", arguments: ["order": GraphQLVariable("order"), "paymentSystem": GraphQLVariable("paymentSystem")], type: .scalar(Bool.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(orderCreate: Bool? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "orderCreate": orderCreate])
+    }
+
+    public var orderCreate: Bool? {
+      get {
+        return resultMap["orderCreate"] as? Bool
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "orderCreate")
+      }
+    }
+  }
+}
+
 public final class PasswordForgotRequestMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -1825,6 +1937,50 @@ public final class UpdateProductInMealMutation: GraphQLMutation {
       }
       set {
         resultMap.updateValue(newValue, forKey: "updateProductInMeal")
+      }
+    }
+  }
+}
+
+public final class AvailableGoalsQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query AvailableGoals {
+      availableGoals
+    }
+    """
+
+  public let operationName: String = "AvailableGoals"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("availableGoals", type: .list(.scalar(GoalType.self))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(availableGoals: [GoalType?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "availableGoals": availableGoals])
+    }
+
+    public var availableGoals: [GoalType?]? {
+      get {
+        return resultMap["availableGoals"] as? [GoalType?]
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "availableGoals")
       }
     }
   }

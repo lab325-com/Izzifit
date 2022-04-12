@@ -302,12 +302,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 47 files.
+  /// This `R.file` struct is generated, and contains static references to 49 files.
   struct file {
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
     /// Resource file `AskQuestion.graphql`.
     static let askQuestionGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AskQuestion", pathExtension: "graphql")
+    /// Resource file `AvailableGoals.graphql`.
+    static let availableGoalsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AvailableGoals", pathExtension: "graphql")
     /// Resource file `CaloriesWidget.graphql`.
     static let caloriesWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "CaloriesWidget", pathExtension: "graphql")
     /// Resource file `ChooseWorkoutWidgetModel.graphql`.
@@ -350,6 +352,8 @@ struct R: Rswift.Validatable {
     static let moodsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Moods", pathExtension: "graphql")
     /// Resource file `Muscles.graphql`.
     static let musclesGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Muscles", pathExtension: "graphql")
+    /// Resource file `OrderCreate.graphql`.
+    static let orderCreateGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "OrderCreate", pathExtension: "graphql")
     /// Resource file `PasswordForgotRequest.graphql`.
     static let passwordForgotRequestGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "PasswordForgotRequest", pathExtension: "graphql")
     /// Resource file `Products.graphql`.
@@ -408,6 +412,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "AskQuestion", withExtension: "graphql")`
     static func askQuestionGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.askQuestionGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "AvailableGoals", withExtension: "graphql")`
+    static func availableGoalsGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.availableGoalsGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -534,6 +544,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Muscles", withExtension: "graphql")`
     static func musclesGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.musclesGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "OrderCreate", withExtension: "graphql")`
+    static func orderCreateGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.orderCreateGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -1562,7 +1578,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 73 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 74 nibs.
   struct nib {
     /// Nib `ArcticGameComtroller`.
     static let arcticGameComtroller = _R.nib._ArcticGameComtroller()
@@ -1632,6 +1648,8 @@ struct R: Rswift.Validatable {
     static let menuLanguageController = _R.nib._MenuLanguageController()
     /// Nib `MenuLanguagesTitleCell`.
     static let menuLanguagesTitleCell = _R.nib._MenuLanguagesTitleCell()
+    /// Nib `MenuLogoutCell`.
+    static let menuLogoutCell = _R.nib._MenuLogoutCell()
     /// Nib `MenuNameController`.
     static let menuNameController = _R.nib._MenuNameController()
     /// Nib `MenuTargetWeightController`.
@@ -1980,6 +1998,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.menuLanguagesTitleCell) instead")
     static func menuLanguagesTitleCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.menuLanguagesTitleCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MenuLogoutCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.menuLogoutCell) instead")
+    static func menuLogoutCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.menuLogoutCell)
     }
     #endif
 
@@ -2431,6 +2457,10 @@ struct R: Rswift.Validatable {
       return R.nib.menuLanguagesTitleCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MenuLanguagesTitleCell
     }
 
+    static func menuLogoutCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MenuLogoutCell? {
+      return R.nib.menuLogoutCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MenuLogoutCell
+    }
+
     static func menuNameController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.menuNameController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -2590,7 +2620,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 34 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 35 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AwardsTableCell`.
     static let awardsTableCell: Rswift.ReuseIdentifier<PolicyCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
@@ -2628,6 +2658,8 @@ struct R: Rswift.Validatable {
     static let menuFoodTitleCellCell: Rswift.ReuseIdentifier<MenuFoodTitleCellCell> = Rswift.ReuseIdentifier(identifier: "MenuFoodTitleCellCell")
     /// Reuse identifier `MenuLanguagesTitleCell`.
     static let menuLanguagesTitleCell: Rswift.ReuseIdentifier<MenuLanguagesTitleCell> = Rswift.ReuseIdentifier(identifier: "MenuLanguagesTitleCell")
+    /// Reuse identifier `MenuLogoutCell`.
+    static let menuLogoutCell: Rswift.ReuseIdentifier<MenuLogoutCell> = Rswift.ReuseIdentifier(identifier: "MenuLogoutCell")
     /// Reuse identifier `MoodTableCell`.
     static let moodTableCell: Rswift.ReuseIdentifier<MoodTableCell> = Rswift.ReuseIdentifier(identifier: "MoodTableCell")
     /// Reuse identifier `PositionTableCell`.
@@ -6542,6 +6574,20 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "onboarding_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_selected_ic' is used in nib 'MenuLanguagesTitleCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _MenuLogoutCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = MenuLogoutCell
+
+      let bundle = R.hostingBundle
+      let identifier = "MenuLogoutCell"
+      let name = "MenuLogoutCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MenuLogoutCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MenuLogoutCell
       }
 
       fileprivate init() {}

@@ -241,7 +241,7 @@ extension EnergyController: EnergyTodayProtocol {
 extension EnergyController: EnergyMealsDeleagate {
     func energyMealsAdd(cell: EnergyMealsCell, type: MealType) {
         guard let meals = presenter.mealsWidget else { return }
-        EnergyRouter(presenter: navigationController).pushFood(mealsWidget: meals, currentMealType: type)
+        EnergyRouter(presenter: navigationController).pushFood(mealsWidget: meals, currentMealType: type, delegate: self)
     }
 }
 
@@ -312,6 +312,16 @@ extension EnergyController: EnergyChooseActivityProtocol {
 extension EnergyController: EnergyTrainingProtocol {
     func energyTrainingSelect(cell: EnergyTrainingCell, model: WorkoutsWidgetMainModel) {
         guard let id = model.id else { return }
-        WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id, model: nil)
+        WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
+    }
+}
+
+//----------------------------------------------
+// MARK: - FoodControllerProtocol
+//----------------------------------------------
+
+extension EnergyController: FoodControllerProtocol {
+    func foodControllerUpdate(controller: FoodController) {
+        presenter.getWidgets(date: getDate())
     }
 }
