@@ -773,16 +773,32 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 87 images.
+  /// This `R.image` struct is generated, and contains static references to 120 images.
   struct image {
+    /// Image `Finish`.
+    static let finish = Rswift.ImageResource(bundle: R.hostingBundle, name: "Finish")
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
+    /// Image `Upgrade`.
+    static let upgrade = Rswift.ImageResource(bundle: R.hostingBundle, name: "Upgrade")
     /// Image `auth_note_see_pass_ic`.
     static let auth_note_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_note_see_pass_ic")
     /// Image `auth_see_pass_ic`.
     static let auth_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_see_pass_ic")
     /// Image `ballAward`.
     static let ballAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "ballAward")
+    /// Image `deerStart`.
+    static let deerStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "deerStart")
+    /// Image `deersFinish`.
+    static let deersFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersFinish")
+    /// Image `deersFirst`.
+    static let deersFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersFirst")
+    /// Image `deersFourth`.
+    static let deersFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersFourth")
+    /// Image `deersSecond`.
+    static let deersSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersSecond")
+    /// Image `deersThird`.
+    static let deersThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersThird")
     /// Image `dollar`.
     static let dollar = Rswift.ImageResource(bundle: R.hostingBundle, name: "dollar")
     /// Image `dummyAward`.
@@ -815,6 +831,18 @@ struct R: Rswift.Validatable {
     static let energy_water_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_water_flash_ic")
     /// Image `energy_weight_selected_ic`.
     static let energy_weight_selected_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_weight_selected_ic")
+    /// Image `fishFinish`.
+    static let fishFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "fishFinish")
+    /// Image `fishFirst`.
+    static let fishFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "fishFirst")
+    /// Image `fishFourth`.
+    static let fishFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "fishFourth")
+    /// Image `fishSecond`.
+    static let fishSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "fishSecond")
+    /// Image `fishStart`.
+    static let fishStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "fishStart")
+    /// Image `fishThird`.
+    static let fishThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "fishThird")
     /// Image `food_arrow_down_ic`.
     static let food_arrow_down_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "food_arrow_down_ic")
     /// Image `food_clear_search_ic`.
@@ -827,8 +855,34 @@ struct R: Rswift.Validatable {
     static let gameBackTwo = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameBackTwo")
     /// Image `gameBarBack`.
     static let gameBarBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameBarBack")
+    /// Image `goldFinish`.
+    static let goldFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "goldFinish")
+    /// Image `goldFirst`.
+    static let goldFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "goldFirst")
+    /// Image `goldFourth`.
+    static let goldFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "goldFourth")
+    /// Image `goldSecond`.
+    static let goldSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "goldSecond")
+    /// Image `goldStart`.
+    static let goldStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "goldStart")
+    /// Image `goldThird`.
+    static let goldThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "goldThird")
     /// Image `hammer`.
     static let hammer = Rswift.ImageResource(bundle: R.hostingBundle, name: "hammer")
+    /// Image `igluFinish`.
+    static let igluFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "igluFinish")
+    /// Image `igluFirst`.
+    static let igluFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "igluFirst")
+    /// Image `igluFourth`.
+    static let igluFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "igluFourth")
+    /// Image `igluSecond`.
+    static let igluSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "igluSecond")
+    /// Image `igluStart`.
+    static let igluStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "igluStart")
+    /// Image `igluThird`.
+    static let igluThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "igluThird")
+    /// Image `levelBack`.
+    static let levelBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "levelBack")
     /// Image `lightning`.
     static let lightning = Rswift.ImageResource(bundle: R.hostingBundle, name: "lightning")
     /// Image `menu_arrow_right_ic`.
@@ -895,6 +949,18 @@ struct R: Rswift.Validatable {
     static let progress_cube_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_cube_ic")
     /// Image `progress_forward_ic`.
     static let progress_forward_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_forward_ic")
+    /// Image `shipFinish`.
+    static let shipFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "shipFinish")
+    /// Image `shipFirst`.
+    static let shipFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "shipFirst")
+    /// Image `shipFourth`.
+    static let shipFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "shipFourth")
+    /// Image `shipSecond`.
+    static let shipSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "shipSecond")
+    /// Image `shipStart`.
+    static let shipStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "shipStart")
+    /// Image `shipThird`.
+    static let shipThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "shipThird")
     /// Image `slotBack`.
     static let slotBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "slotBack")
     /// Image `slotHouse`.
@@ -951,9 +1017,23 @@ struct R: Rswift.Validatable {
     static let workout_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_flash_ic")
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Finish", bundle: ..., traitCollection: ...)`
+    static func finish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.finish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "MoodChartBack", bundle: ..., traitCollection: ...)`
     static func moodChartBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.moodChartBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Upgrade", bundle: ..., traitCollection: ...)`
+    static func upgrade(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.upgrade, compatibleWith: traitCollection)
     }
     #endif
 
@@ -975,6 +1055,48 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ballAward", bundle: ..., traitCollection: ...)`
     static func ballAward(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ballAward, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "deerStart", bundle: ..., traitCollection: ...)`
+    static func deerStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.deerStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "deersFinish", bundle: ..., traitCollection: ...)`
+    static func deersFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.deersFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "deersFirst", bundle: ..., traitCollection: ...)`
+    static func deersFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.deersFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "deersFourth", bundle: ..., traitCollection: ...)`
+    static func deersFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.deersFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "deersSecond", bundle: ..., traitCollection: ...)`
+    static func deersSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.deersSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "deersThird", bundle: ..., traitCollection: ...)`
+    static func deersThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.deersThird, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1091,6 +1213,48 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fishFinish", bundle: ..., traitCollection: ...)`
+    static func fishFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fishFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fishFirst", bundle: ..., traitCollection: ...)`
+    static func fishFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fishFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fishFourth", bundle: ..., traitCollection: ...)`
+    static func fishFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fishFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fishSecond", bundle: ..., traitCollection: ...)`
+    static func fishSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fishSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fishStart", bundle: ..., traitCollection: ...)`
+    static func fishStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fishStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fishThird", bundle: ..., traitCollection: ...)`
+    static func fishThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fishThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "food_arrow_down_ic", bundle: ..., traitCollection: ...)`
     static func food_arrow_down_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.food_arrow_down_ic, compatibleWith: traitCollection)
@@ -1133,9 +1297,100 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "goldFinish", bundle: ..., traitCollection: ...)`
+    static func goldFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.goldFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "goldFirst", bundle: ..., traitCollection: ...)`
+    static func goldFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.goldFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "goldFourth", bundle: ..., traitCollection: ...)`
+    static func goldFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.goldFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "goldSecond", bundle: ..., traitCollection: ...)`
+    static func goldSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.goldSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "goldStart", bundle: ..., traitCollection: ...)`
+    static func goldStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.goldStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "goldThird", bundle: ..., traitCollection: ...)`
+    static func goldThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.goldThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "hammer", bundle: ..., traitCollection: ...)`
     static func hammer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.hammer, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "igluFinish", bundle: ..., traitCollection: ...)`
+    static func igluFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.igluFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "igluFirst", bundle: ..., traitCollection: ...)`
+    static func igluFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.igluFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "igluFourth", bundle: ..., traitCollection: ...)`
+    static func igluFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.igluFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "igluSecond", bundle: ..., traitCollection: ...)`
+    static func igluSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.igluSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "igluStart", bundle: ..., traitCollection: ...)`
+    static func igluStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.igluStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "igluThird", bundle: ..., traitCollection: ...)`
+    static func igluThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.igluThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "levelBack", bundle: ..., traitCollection: ...)`
+    static func levelBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.levelBack, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1371,6 +1626,48 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "shipFinish", bundle: ..., traitCollection: ...)`
+    static func shipFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.shipFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "shipFirst", bundle: ..., traitCollection: ...)`
+    static func shipFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.shipFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "shipFourth", bundle: ..., traitCollection: ...)`
+    static func shipFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.shipFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "shipSecond", bundle: ..., traitCollection: ...)`
+    static func shipSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.shipSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "shipStart", bundle: ..., traitCollection: ...)`
+    static func shipStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.shipStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "shipThird", bundle: ..., traitCollection: ...)`
+    static func shipThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.shipThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "slotBack", bundle: ..., traitCollection: ...)`
     static func slotBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.slotBack, compatibleWith: traitCollection)
@@ -1562,7 +1859,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 73 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 74 nibs.
   struct nib {
     /// Nib `ArcticGameComtroller`.
     static let arcticGameComtroller = _R.nib._ArcticGameComtroller()
@@ -1606,6 +1903,8 @@ struct R: Rswift.Validatable {
     static let foodRecomendedCell = _R.nib._FoodRecomendedCell()
     /// Nib `FoodTopTitleCell`.
     static let foodTopTitleCell = _R.nib._FoodTopTitleCell()
+    /// Nib `LevelController`.
+    static let levelController = _R.nib._LevelController()
     /// Nib `LoginController`.
     static let loginController = _R.nib._LoginController()
     /// Nib `MainTabBarController`.
@@ -1876,6 +2175,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.foodTopTitleCell) instead")
     static func foodTopTitleCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.foodTopTitleCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "LevelController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.levelController) instead")
+    static func levelController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.levelController)
     }
     #endif
 
@@ -2377,6 +2684,10 @@ struct R: Rswift.Validatable {
 
     static func foodTopTitleCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FoodTopTitleCell? {
       return R.nib.foodTopTitleCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FoodTopTitleCell
+    }
+
+    static func levelController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.levelController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func loginController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -5882,6 +6193,7 @@ struct _R: Rswift.Validatable {
       try _EnergyWeightCell.validate()
       try _FoodController.validate()
       try _FoodRecomendedCell.validate()
+      try _LevelController.validate()
       try _LoginController.validate()
       try _MainTabBarController.validate()
       try _MenuAgeController.validate()
@@ -6310,6 +6622,23 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FoodTopTitleCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FoodTopTitleCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _LevelController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "LevelController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "levelBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'levelBack' is used in nib 'LevelController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}

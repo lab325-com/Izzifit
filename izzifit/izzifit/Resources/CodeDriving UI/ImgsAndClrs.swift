@@ -9,7 +9,11 @@ import Foundation
 import UIKit
 
 enum Imgs: String {
-    case dummy
+    case shipStart, shipFirst, shipSecond, shipThird, shipFourth, shipFinish
+    case fishStart, fishFirst, fishSecond, fishThird, fishFourth, fishFinish
+    case igluStart, igluFirst, igluSecond, igluThird, igluFourth, igluFinish
+    case goldStart, goldFirst, goldSecond, goldThird, goldFourth, goldFinish
+    case deerStart, deerFirst, deerSecond, deerThird, deerFourth, deerFinish
 }
 
 enum Clrs: String {

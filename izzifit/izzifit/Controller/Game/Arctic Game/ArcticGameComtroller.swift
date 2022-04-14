@@ -9,17 +9,12 @@ import UIKit
 
 class ArcticGameComtroller: BaseController {
     
-    
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var coinslabel: UILabel!
     @IBOutlet weak var energyLabel: UILabel!
-    
     @IBOutlet weak var slotBackImgVw: UIImageView!
-    
     var collectionView: UICollectionView!
-    
-    
     var timerCount = 0
     var timer = Timer()
     
