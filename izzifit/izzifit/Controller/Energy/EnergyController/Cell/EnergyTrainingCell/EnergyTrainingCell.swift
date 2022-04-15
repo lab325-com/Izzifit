@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 enum EnergyTrainingType {
     case startTraining
@@ -50,6 +51,8 @@ class EnergyTrainingCell: UITableViewCell {
     @IBOutlet weak var fromLabel: UILabel!
     @IBOutlet weak var fromStackView: UIStackView!
     
+    @IBOutlet weak var avatarmageView: UIImageView!
+    
     private var model: WorkoutsWidgetMainModel?
     weak var delegate: EnergyTrainingProtocol?
     
@@ -67,6 +70,9 @@ class EnergyTrainingCell: UITableViewCell {
     func setupCell(model: WorkoutsWidgetMainModel) {
         self.model = model
         
+        avatarmageView.kf.setImage(with: URL(string: model.Image?.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_ic(), options: [.transition(.fade(0.25))])
+        
+        countEnergyLabel.text = "\(model.energy ?? 0)/\(model.energyTotal ?? 0)"
         var type: EnergyTrainingType = .continueTraining
         
         if model.isFinished == true {

@@ -36,6 +36,11 @@ class EnergyProgressController: BaseController {
     private let calendarManager = CalendarManager()
     private var currentDay = Date() {
         didSet {
+            if Calendar.current.isDateInToday(currentDay) {
+                nextButton.setImage(RImage.progress_forward_ic(), for: .normal)
+            } else {
+                nextButton.setImage(RImage.arrow_right_ic(), for: .normal) 
+            }
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "LLLL yyyy"
             dateFormatter.locale =  Locale(identifier: "en_US_POSIX")

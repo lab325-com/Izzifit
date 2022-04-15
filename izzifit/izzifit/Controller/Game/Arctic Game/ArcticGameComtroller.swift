@@ -22,8 +22,8 @@ class ArcticGameComtroller: BaseController {
    private var timer = Timer()
     
     override func viewDidLoad() {
+      //  hiddenNavigationBar = true
         super.viewDidLoad()
-        hiddenNavigationBar = true
         setup()
         setCollectionView()
         

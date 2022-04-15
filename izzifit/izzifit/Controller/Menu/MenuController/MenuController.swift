@@ -19,6 +19,7 @@ enum SettingsType: Int, CaseIterable {
     case language
     case notification
     case reminders
+    case logout
     
     var text: String {
         switch self {
@@ -44,6 +45,8 @@ enum SettingsType: Int, CaseIterable {
             return RLocalization.menu_notification()
         case .reminders:
             return RLocalization.menu_reminders()
+        case .logout:
+            return ""
         }
     }
 
@@ -66,6 +69,8 @@ class MenuController: BaseController {
     //----------------------------------------------
     
     private let cellIdentifier = String(describing: MenuCell.self)
+    private let cellLogoutIdentifier = String(describing: MenuLogoutCell.self)
+    
     private lazy var presenter = MenuPresenter(view: self)
     private lazy var presenterFood = QuizeFoodPresenter(view: self)
     
@@ -94,6 +99,7 @@ class MenuController: BaseController {
         tableView.rowHeight = UITableView.automaticDimension
         
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.register(UINib(nibName: cellLogoutIdentifier, bundle: nil), forCellReuseIdentifier: cellLogoutIdentifier)
         
         titleLabel.text = RLocalization.menu_title()
         
@@ -137,12 +143,19 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as? MenuCell else { return UITableViewCell() }
-        
-        cell.separatorInset = (SettingsType.allCases.count - 1) == indexPath.row ? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width) : UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-        cell.delegate = self
-        cell.setupCell(type: SettingsType.allCases[indexPath.row])
-        return cell
+        if indexPath.row == SettingsType.allCases.count - 1 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellLogoutIdentifier) as? MenuLogoutCell else { return UITableViewCell() }
+            cell.delegate = self
+            cell.separatorInset = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.width, bottom: 0, right: 0)
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as? MenuCell else { return UITableViewCell() }
+            
+            cell.separatorInset = (SettingsType.allCases.count - 1) == indexPath.row ? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width) : UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+            cell.delegate = self
+            cell.setupCell(type: SettingsType.allCases[indexPath.row])
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -209,5 +222,31 @@ extension MenuController: QuizeFoodOutputProtocol {
     
     func success(model: FoodGroupsModel) {
         tableView.reloadData()
+    }
+}
+
+//----------------------------------------------
+// MARK: - QuizeFoodOutputProtocol
+//----------------------------------------------
+
+extension MenuController: MenuLogoutCellDeleagate {
+    func menuLogoutCell(cell: MenuLogoutCell) {
+        let alert = UIAlertController(title: "Do you want LogOut", message: nil, preferredStyle: .alert)
+            
+             let ok = UIAlertAction(title: "No", style: .default, handler: { action in
+        
+             })
+             alert.addAction(ok)
+             let cancel = UIAlertAction(title: "Yes", style: .default, handler: { action in
+                 KeychainService.standard.removeAll()
+                 RootRouter.sharedInstance.loadStart(toWindow: RootRouter.sharedInstance.window!)
+             })
+        
+             alert.addAction(cancel)
+             DispatchQueue.main.async(execute: {
+                self.present(alert, animated: true)
+        })
+        
+        
     }
 }

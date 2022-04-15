@@ -56,7 +56,7 @@ class WorkoutPresenter: WorkoutPresenterProtocol {
         group.enter()
         let query2 = RecommendWorkoutsQuery()
         let _ = Network.shared.query(model: RecommendWorkoutsModel.self, query2, controller: view, successHandler: { [weak self] model in
-            self?.recomended = model.recommendWorkouts
+            self?.recomended = model.recommendWorkouts ?? []
             group.leave()
         }, failureHandler: { [weak self] error in
             group.leave()
@@ -84,7 +84,7 @@ class WorkoutPresenter: WorkoutPresenterProtocol {
     func getWorkoutsAll(categoryId: Int?) {
         
         view?.startLoader()
-        let query = WorkoutsQuery(workoutTypeIds: [categoryId])
+        let query = WorkoutsQuery(workoutTypeIds: categoryId != nil ? [categoryId] : nil)
         let _ = Network.shared.query(model: WorkoutsModel.self, query, controller: view, successHandler: { [weak self] model in
             self?.view?.stopLoading()
             self?.exercises = model.workouts.workouts

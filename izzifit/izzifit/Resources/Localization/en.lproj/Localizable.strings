@@ -152,6 +152,10 @@
 "progress_title" = "Your progress";
 "progress_tue" = "Tue";
 "progress_wed" = "Wed";
+"video_player_get_ready" = "Get ready";
+"video_player_next" = "Next exercise";
+"video_player_reps" = "reps";
+"video_player_start" = "Start your\nworkout";
 "water_widget_ml_left" = "%dml left";
 "water_widget_title" = "Drink water";
 "workout_detail_description" = "Description";

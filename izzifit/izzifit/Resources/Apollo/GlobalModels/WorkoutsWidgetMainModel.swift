@@ -30,6 +30,6 @@ struct IntervalRepresentationModel: Codable {
     let seconds: Int?
     
     var time: String {
-        return String(format: "%02d", hours ?? 0) + ":" + String(format: "%02d", minutes ?? 0)
+        return String(format: "%02d", minutes ?? 0) + ":" + String(format: "%02d", seconds ?? 0)
     }
 }

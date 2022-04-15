@@ -1,0 +1,3 @@
+mutation DoExercise($exerciseId: String!, $attemptId: String!) {
+    doExercise(exerciseId: $exerciseId, attemptId: $attemptId)
+}

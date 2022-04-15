@@ -50,6 +50,14 @@ class CircularProgressBarView: UIView {
         layer.addSublayer(progressLayer)
     }
     
+    func updatePath(radius: CGFloat, backColor: UIColor) {
+        let circularPath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: radius, startAngle: startPoint, endAngle: endPoint, clockwise: true)
+        // circleLayer path defined to circularPath
+        circleLayer.strokeColor = backColor.cgColor
+        circleLayer.path = circularPath.cgPath
+        progressLayer.path = circularPath.cgPath
+    }
+    
     func progressAnimation(duration: TimeInterval, toValue: CGFloat = 1.0) {
         // created circularProgressAnimation with keyPath
         let circularProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
@@ -59,5 +67,19 @@ class CircularProgressBarView: UIView {
         circularProgressAnimation.fillMode = .forwards
         circularProgressAnimation.isRemovedOnCompletion = false
         progressLayer.add(circularProgressAnimation, forKey: "progressAnim")
+    }
+    
+    func progressNew(duration: TimeInterval, toValue: CGFloat = 1.0, fromValue: CGFloat = 0.0) {
+        let circularProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        // set the end time
+        circularProgressAnimation.duration = duration
+        circularProgressAnimation.fromValue = fromValue
+        circularProgressAnimation.toValue = toValue
+        circularProgressAnimation.fillMode = .forwards
+        circularProgressAnimation.isRemovedOnCompletion = false
+        circularProgressAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
+        progressLayer.add(circularProgressAnimation, forKey: "progressAnim")
+        progressLayer.opacity = 1.0
+        //progressLayer.strokeEnd = toValue
     }
 }

@@ -148,8 +148,8 @@ class EnergyMealsCell: UITableViewCell {
         
         
         if let breakfest = model.meals?.first(where: {$0?.type == MealType.mealTypeBreakfast}) {
-            breakfestImageView.image = breakfest?.eatenAt != nil ? RImage.onboarding_selected_ic() : RImage.energy_meals_add_ic()
-            breakfestSubTitleLabel.isHidden = breakfest?.eatenAt == nil ? true : false
+            breakfestImageView.image = breakfest?.products?.count ?? 0 != 0 ? RImage.onboarding_selected_ic() : RImage.energy_meals_add_ic()
+            breakfestSubTitleLabel.isHidden = breakfest?.products?.count ?? 0 == 0 ? true : false
             breakfestSubTitleLabel.text = breakfest?.textProduct
         } else {
             breakfestImageView.image = RImage.energy_meals_add_ic()
@@ -157,8 +157,8 @@ class EnergyMealsCell: UITableViewCell {
         }
        
         if let lunch = model.meals?.first(where: {$0?.type == MealType.mealTypeLunch}) {
-            lunchImageView.image = lunch?.eatenAt != nil ? RImage.onboarding_selected_ic() : RImage.energy_meals_add_ic()
-            lunchSubTitleLabel.isHidden = lunch?.eatenAt == nil ? true : false
+            lunchImageView.image = lunch?.products?.count ?? 0 != 0 ? RImage.onboarding_selected_ic() : RImage.energy_meals_add_ic()
+            lunchSubTitleLabel.isHidden = lunch?.products?.count ?? 0 == 0 ? true : false
             lunchSubTitleLabel.text = lunch?.textProduct
         } else {
             lunchImageView.image = RImage.energy_meals_add_ic()
@@ -166,8 +166,8 @@ class EnergyMealsCell: UITableViewCell {
         }
         
         if let snack = model.meals?.first(where: {$0?.type == MealType.mealTypeSnack}) {
-            snackImageView.image = snack?.eatenAt != nil ? RImage.onboarding_selected_ic() : RImage.energy_meals_add_ic()
-            snackSubTitleLabel.isHidden = snack?.eatenAt == nil ? true : false
+            snackImageView.image = snack?.products?.count ?? 0 != 0 ? RImage.onboarding_selected_ic() : RImage.energy_meals_add_ic()
+            snackSubTitleLabel.isHidden = snack?.products?.count ?? 0 == 0 ? true : false
             snackSubTitleLabel.text = snack?.textProduct
         } else {
             snackImageView.image = RImage.energy_meals_add_ic()
@@ -175,8 +175,8 @@ class EnergyMealsCell: UITableViewCell {
         }
         
         if let dinner = model.meals?.first(where: {$0?.type == MealType.mealTypeDinner}) {
-            dinnerImageView.image = dinner?.eatenAt != nil ? RImage.onboarding_selected_ic() : RImage.energy_meals_add_ic()
-            dinnerSubTitleLabel.isHidden = dinner?.eatenAt == nil ? true : false
+            dinnerImageView.image = dinner?.products?.count ?? 0 != 0 ? RImage.onboarding_selected_ic() : RImage.energy_meals_add_ic()
+            dinnerSubTitleLabel.isHidden = dinner?.products?.count ?? 0 == 0 ? true : false
             dinnerSubTitleLabel.text = dinner?.textProduct
         } else {
             dinnerImageView.image = RImage.energy_meals_add_ic()

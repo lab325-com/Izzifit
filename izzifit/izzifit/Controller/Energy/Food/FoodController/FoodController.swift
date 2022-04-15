@@ -14,6 +14,10 @@ enum SearchSourceType {
     case carbs
 }
 
+protocol FoodControllerProtocol: AnyObject {
+    func foodControllerUpdate(controller: FoodController)
+}
+
 class FoodController: BaseController {
     
     //----------------------------------------------
@@ -94,13 +98,16 @@ class FoodController: BaseController {
         }
     }
     
+    weak var delegate: FoodControllerProtocol?
+    
     //----------------------------------------------
     // MARK: - Init
     //----------------------------------------------
     
-    init(mealsWidget: MealsWidgetMainModel, currentMealType: MealType) {
+    init(mealsWidget: MealsWidgetMainModel, currentMealType: MealType, delegate: FoodControllerProtocol) {
         self.mealsWidget = mealsWidget
         self.currentMealType = currentMealType
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -340,6 +347,7 @@ extension FoodController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isSearch {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.foodIdentifier) as? FoodRecomendedCell else { return    UITableViewCell() }
+            cell.delegate = self
             if let model = presenter.searchProducts[safe: indexPath.row] {
                 cell.setupCell(model: model, isActive: false)
             }
@@ -360,7 +368,7 @@ extension FoodController: UITableViewDataSource, UITableViewDelegate {
             return nil
         } else {
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "FoodTopTitleCell") as! FoodTopTitleCell
-            headerView.nameLabel.text = presenter.namesSections[section]
+            headerView.nameLabel.text = presenter.namesSections[safe: section]
             return headerView
         }
     }
@@ -467,6 +475,18 @@ extension FoodController: FoodOutputProtocol {
 
 extension FoodController: FoodRecomendedProtocol {
     func foodRecomendedAdd(cell: FoodRecomendedCell, isUpdate: Bool, model: ProductsMainModel) {
-        EnergyRouter(presenter: navigationController).presentAddProduct(sourceByMeal: presenter.sourceByMeal, isUpdate: isUpdate, model: model, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "")
+        EnergyRouter(presenter: navigationController).presentAddProduct(sourceByMeal: presenter.sourceByMeal, isUpdate: isUpdate, model: model, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "", delegate: self)
+    }
+}
+
+//----------------------------------------------
+// MARK: - FoodAddControllerProtocol
+//----------------------------------------------
+
+extension FoodController: FoodAddControllerProtocol {
+    func foodAddReload(controller: FoodAddController) {
+        isSearch = false
+        delegate?.foodControllerUpdate(controller: self)
+        presenter.getProducts(mealTypes: currentMealType, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "")
     }
 }

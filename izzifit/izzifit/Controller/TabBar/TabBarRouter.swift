@@ -19,6 +19,8 @@ class TabBarRouter: BaseRouter {
     }
     
     func pushGame() {
+        
+        
         let controller = GameTabBarController()
         push(controller: controller)
     }

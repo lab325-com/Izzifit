@@ -20,7 +20,7 @@ struct WorkoutByIdMainModel: Codable, Equatable {
     let duration: IntervalRepresentationModel?
     let energy: Int?
     let energyTotal: Int?
-    let id: String?
+    let id: String
     let isAvailable: Bool?
     let isFinished: Bool?
     let kCal: Int?
@@ -68,6 +68,7 @@ struct ExerciseModel: Codable {
     let isFinished: Bool?
     let isRest: Bool?
     let title: String?
+    let rapes: Int?
     
     enum CodingKeys: String, CodingKey {
         case image = "Image"
@@ -78,6 +79,7 @@ struct ExerciseModel: Codable {
         case isFinished = "isFinished"
         case isRest = "isRest"
         case title = "title"
+        case rapes = "rapes"
     }
 }
 
@@ -88,7 +90,7 @@ struct VideoModel: Codable {
 }
 
 struct MuscleModel: Codable {
-    let id: String
-    let isToggled: Bool
+    let id: Int
+    let isToggled: Bool?
     let name: String
 }

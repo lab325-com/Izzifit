@@ -302,16 +302,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 47 files.
+  /// This `R.file` struct is generated, and contains static references to 51 files.
   struct file {
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
     /// Resource file `AskQuestion.graphql`.
     static let askQuestionGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AskQuestion", pathExtension: "graphql")
+    /// Resource file `AvailableGoals.graphql`.
+    static let availableGoalsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AvailableGoals", pathExtension: "graphql")
     /// Resource file `CaloriesWidget.graphql`.
     static let caloriesWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "CaloriesWidget", pathExtension: "graphql")
     /// Resource file `ChooseWorkoutWidgetModel.graphql`.
     static let chooseWorkoutWidgetModelGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ChooseWorkoutWidgetModel", pathExtension: "graphql")
+    /// Resource file `DoExercise.graphql`.
+    static let doExerciseGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DoExercise", pathExtension: "graphql")
     /// Resource file `DrinkWater.graphql`.
     static let drinkWaterGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DrinkWater", pathExtension: "graphql")
     /// Resource file `DrinkWidget.graphql`.
@@ -350,6 +354,8 @@ struct R: Rswift.Validatable {
     static let moodsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Moods", pathExtension: "graphql")
     /// Resource file `Muscles.graphql`.
     static let musclesGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Muscles", pathExtension: "graphql")
+    /// Resource file `OrderCreate.graphql`.
+    static let orderCreateGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "OrderCreate", pathExtension: "graphql")
     /// Resource file `PasswordForgotRequest.graphql`.
     static let passwordForgotRequestGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "PasswordForgotRequest", pathExtension: "graphql")
     /// Resource file `Products.graphql`.
@@ -380,6 +386,8 @@ struct R: Rswift.Validatable {
     static let sleepWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SleepWidget", pathExtension: "graphql")
     /// Resource file `SourcesByMeal.graphql`.
     static let sourcesByMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SourcesByMeal", pathExtension: "graphql")
+    /// Resource file `StartWorkout.graphql`.
+    static let startWorkoutGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "StartWorkout", pathExtension: "graphql")
     /// Resource file `ToggleMuscleInWorkouts.graphql`.
     static let toggleMuscleInWorkoutsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleMuscleInWorkouts", pathExtension: "graphql")
     /// Resource file `ToggleProductInRation.graphql`.
@@ -411,6 +419,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "AvailableGoals", withExtension: "graphql")`
+    static func availableGoalsGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.availableGoalsGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "CaloriesWidget", withExtension: "graphql")`
     static func caloriesWidgetGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.caloriesWidgetGraphql
@@ -420,6 +434,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "ChooseWorkoutWidgetModel", withExtension: "graphql")`
     static func chooseWorkoutWidgetModelGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.chooseWorkoutWidgetModelGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "DoExercise", withExtension: "graphql")`
+    static func doExerciseGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.doExerciseGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -537,6 +557,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "OrderCreate", withExtension: "graphql")`
+    static func orderCreateGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.orderCreateGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "PasswordForgotRequest", withExtension: "graphql")`
     static func passwordForgotRequestGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.passwordForgotRequestGraphql
@@ -624,6 +650,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "SourcesByMeal", withExtension: "graphql")`
     static func sourcesByMealGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.sourcesByMealGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "StartWorkout", withExtension: "graphql")`
+    static func startWorkoutGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.startWorkoutGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -773,7 +805,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 125 images.
+  /// This `R.image` struct is generated, and contains static references to 139 images.
   struct image {
     /// Image `Finish`.
     static let finish = Rswift.ImageResource(bundle: R.hostingBundle, name: "Finish")
@@ -781,6 +813,8 @@ struct R: Rswift.Validatable {
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
     /// Image `Upgrade`.
     static let upgrade = Rswift.ImageResource(bundle: R.hostingBundle, name: "Upgrade")
+    /// Image `arrow_right_ic`.
+    static let arrow_right_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "arrow_right_ic")
     /// Image `auth_note_see_pass_ic`.
     static let auth_note_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_note_see_pass_ic")
     /// Image `auth_see_pass_ic`.
@@ -931,6 +965,8 @@ struct R: Rswift.Validatable {
     static let onboarding_sport_regulary_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_sport_regulary_ic")
     /// Image `onboarding_target_flag_ic`.
     static let onboarding_target_flag_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_target_flag_ic")
+    /// Image `payer_shadow_ic`.
+    static let payer_shadow_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "payer_shadow_ic")
     /// Image `paywall_above_text_ic`.
     static let paywall_above_text_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_above_text_ic")
     /// Image `paywall_back_ic`.
@@ -951,6 +987,30 @@ struct R: Rswift.Validatable {
     static let placeholder_food_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder_food_ic")
     /// Image `placeholder_food_two_ic`.
     static let placeholder_food_two_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder_food_two_ic")
+    /// Image `player_bubles_ic`.
+    static let player_bubles_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_bubles_ic")
+    /// Image `player_landscape_mute_ic`.
+    static let player_landscape_mute_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_landscape_mute_ic")
+    /// Image `player_landscape_shadow_ic`.
+    static let player_landscape_shadow_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_landscape_shadow_ic")
+    /// Image `player_landscape_unmute_ic`.
+    static let player_landscape_unmute_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_landscape_unmute_ic")
+    /// Image `player_next_ic`.
+    static let player_next_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_next_ic")
+    /// Image `player_next_inactive_ic`.
+    static let player_next_inactive_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_next_inactive_ic")
+    /// Image `player_play_ic`.
+    static let player_play_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_play_ic")
+    /// Image `player_portrait_mute_ic`.
+    static let player_portrait_mute_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_portrait_mute_ic")
+    /// Image `player_portrait_unmute_ic`.
+    static let player_portrait_unmute_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_portrait_unmute_ic")
+    /// Image `player_prev_active_ic`.
+    static let player_prev_active_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_prev_active_ic")
+    /// Image `player_prev_ic`.
+    static let player_prev_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_prev_ic")
+    /// Image `player_stop_ic`.
+    static let player_stop_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_stop_ic")
     /// Image `progress_back_ic`.
     static let progress_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_back_ic")
     /// Image `progress_cube_ic`.
@@ -1044,6 +1104,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "Upgrade", bundle: ..., traitCollection: ...)`
     static func upgrade(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.upgrade, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "arrow_right_ic", bundle: ..., traitCollection: ...)`
+    static func arrow_right_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.arrow_right_ic, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1573,6 +1640,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "payer_shadow_ic", bundle: ..., traitCollection: ...)`
+    static func payer_shadow_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.payer_shadow_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "paywall_above_text_ic", bundle: ..., traitCollection: ...)`
     static func paywall_above_text_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.paywall_above_text_ic, compatibleWith: traitCollection)
@@ -1639,6 +1713,90 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "placeholder_food_two_ic", bundle: ..., traitCollection: ...)`
     static func placeholder_food_two_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.placeholder_food_two_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "player_bubles_ic", bundle: ..., traitCollection: ...)`
+    static func player_bubles_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.player_bubles_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "player_landscape_mute_ic", bundle: ..., traitCollection: ...)`
+    static func player_landscape_mute_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.player_landscape_mute_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "player_landscape_shadow_ic", bundle: ..., traitCollection: ...)`
+    static func player_landscape_shadow_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.player_landscape_shadow_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "player_landscape_unmute_ic", bundle: ..., traitCollection: ...)`
+    static func player_landscape_unmute_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.player_landscape_unmute_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "player_next_ic", bundle: ..., traitCollection: ...)`
+    static func player_next_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.player_next_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "player_next_inactive_ic", bundle: ..., traitCollection: ...)`
+    static func player_next_inactive_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.player_next_inactive_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "player_play_ic", bundle: ..., traitCollection: ...)`
+    static func player_play_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.player_play_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "player_portrait_mute_ic", bundle: ..., traitCollection: ...)`
+    static func player_portrait_mute_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.player_portrait_mute_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "player_portrait_unmute_ic", bundle: ..., traitCollection: ...)`
+    static func player_portrait_unmute_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.player_portrait_unmute_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "player_prev_active_ic", bundle: ..., traitCollection: ...)`
+    static func player_prev_active_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.player_prev_active_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "player_prev_ic", bundle: ..., traitCollection: ...)`
+    static func player_prev_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.player_prev_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "player_stop_ic", bundle: ..., traitCollection: ...)`
+    static func player_stop_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.player_stop_ic, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1904,7 +2062,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 74 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 76 nibs.
   struct nib {
     /// Nib `ArcticGameComtroller`.
     static let arcticGameComtroller = _R.nib._ArcticGameComtroller()
@@ -1976,6 +2134,8 @@ struct R: Rswift.Validatable {
     static let menuLanguageController = _R.nib._MenuLanguageController()
     /// Nib `MenuLanguagesTitleCell`.
     static let menuLanguagesTitleCell = _R.nib._MenuLanguagesTitleCell()
+    /// Nib `MenuLogoutCell`.
+    static let menuLogoutCell = _R.nib._MenuLogoutCell()
     /// Nib `MenuNameController`.
     static let menuNameController = _R.nib._MenuNameController()
     /// Nib `MenuTargetWeightController`.
@@ -2022,6 +2182,8 @@ struct R: Rswift.Validatable {
     static let splashViewController = _R.nib._SplashViewController()
     /// Nib `StartController`.
     static let startController = _R.nib._StartController()
+    /// Nib `VideoPlayerController`.
+    static let videoPlayerController = _R.nib._VideoPlayerController()
     /// Nib `WeightTableCell`.
     static let weightTableCell = _R.nib._WeightTableCell()
     /// Nib `WorkoutActivitiesCell`.
@@ -2336,6 +2498,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MenuLogoutCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.menuLogoutCell) instead")
+    static func menuLogoutCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.menuLogoutCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "MenuNameController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.menuNameController) instead")
     static func menuNameController(_: Void = ()) -> UIKit.UINib {
@@ -2516,6 +2686,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.startController) instead")
     static func startController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.startController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "VideoPlayerController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.videoPlayerController) instead")
+    static func videoPlayerController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.videoPlayerController)
     }
     #endif
 
@@ -2787,6 +2965,10 @@ struct R: Rswift.Validatable {
       return R.nib.menuLanguagesTitleCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MenuLanguagesTitleCell
     }
 
+    static func menuLogoutCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MenuLogoutCell? {
+      return R.nib.menuLogoutCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MenuLogoutCell
+    }
+
     static func menuNameController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.menuNameController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -2879,6 +3061,10 @@ struct R: Rswift.Validatable {
       return R.nib.startController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func videoPlayerController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.videoPlayerController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func weightTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WeightTableCell? {
       return R.nib.weightTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WeightTableCell
     }
@@ -2946,7 +3132,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 34 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 35 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AwardsTableCell`.
     static let awardsTableCell: Rswift.ReuseIdentifier<PolicyCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
@@ -2984,6 +3170,8 @@ struct R: Rswift.Validatable {
     static let menuFoodTitleCellCell: Rswift.ReuseIdentifier<MenuFoodTitleCellCell> = Rswift.ReuseIdentifier(identifier: "MenuFoodTitleCellCell")
     /// Reuse identifier `MenuLanguagesTitleCell`.
     static let menuLanguagesTitleCell: Rswift.ReuseIdentifier<MenuLanguagesTitleCell> = Rswift.ReuseIdentifier(identifier: "MenuLanguagesTitleCell")
+    /// Reuse identifier `MenuLogoutCell`.
+    static let menuLogoutCell: Rswift.ReuseIdentifier<MenuLogoutCell> = Rswift.ReuseIdentifier(identifier: "MenuLogoutCell")
     /// Reuse identifier `MoodTableCell`.
     static let moodTableCell: Rswift.ReuseIdentifier<MoodTableCell> = Rswift.ReuseIdentifier(identifier: "MoodTableCell")
     /// Reuse identifier `PositionTableCell`.
@@ -3022,7 +3210,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 165 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 169 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -3260,6 +3448,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_email_get_plan = Rswift.StringResource(key: "onboarding_email_get_plan", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Get ready
+      ///
+      /// Locales: en
+      static let video_player_get_ready = Rswift.StringResource(key: "video_player_get_ready", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Gey my personal plan
       ///
       /// Locales: en
@@ -3380,6 +3572,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_sport_newbie = Rswift.StringResource(key: "onboarding_sport_newbie", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Next exercise
+      ///
+      /// Locales: en
+      static let video_player_next = Rswift.StringResource(key: "video_player_next", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Not at all
       ///
       /// Locales: en
@@ -3520,6 +3716,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let workout_detail_start = Rswift.StringResource(key: "workout_detail_start", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Start your workout
+      ///
+      /// Locales: en
+      static let video_player_start = Rswift.StringResource(key: "video_player_start", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Submit
       ///
       /// Locales: en
@@ -3684,6 +3884,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let login_and = Rswift.StringResource(key: "login_and", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: reps
+      ///
+      /// Locales: en
+      static let video_player_reps = Rswift.StringResource(key: "video_player_reps", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
 
       /// en translation: %d Carb
       ///
@@ -4592,6 +4796,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("onboarding_email_get_plan", bundle: bundle, comment: "")
       }
 
+      /// en translation: Get ready
+      ///
+      /// Locales: en
+      static func video_player_get_ready(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("video_player_get_ready", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "video_player_get_ready"
+        }
+
+        return NSLocalizedString("video_player_get_ready", bundle: bundle, comment: "")
+      }
+
       /// en translation: Gey my personal plan
       ///
       /// Locales: en
@@ -5044,6 +5263,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("onboarding_sport_newbie", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Next exercise
+      ///
+      /// Locales: en
+      static func video_player_next(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("video_player_next", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "video_player_next"
+        }
+
+        return NSLocalizedString("video_player_next", bundle: bundle, comment: "")
       }
 
       /// en translation: Not at all
@@ -5571,6 +5805,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("workout_detail_start", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Start your workout
+      ///
+      /// Locales: en
+      static func video_player_start(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("video_player_start", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "video_player_start"
+        }
+
+        return NSLocalizedString("video_player_start", bundle: bundle, comment: "")
       }
 
       /// en translation: Submit
@@ -6192,6 +6441,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("login_and", bundle: bundle, comment: "")
       }
 
+      /// en translation: reps
+      ///
+      /// Locales: en
+      static func video_player_reps(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("video_player_reps", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "video_player_reps"
+        }
+
+        return NSLocalizedString("video_player_reps", bundle: bundle, comment: "")
+      }
+
       fileprivate init() {}
     }
 
@@ -6271,6 +6535,7 @@ struct _R: Rswift.Validatable {
       try _QuizeWeightController.validate()
       try _SplashViewController.validate()
       try _StartController.validate()
+      try _VideoPlayerController.validate()
       try _WeightTableCell.validate()
       try _WorkoutController.validate()
       try _WorkoutDetailController.validate()
@@ -6926,6 +7191,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _MenuLogoutCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = MenuLogoutCell
+
+      let bundle = R.hostingBundle
+      let identifier = "MenuLogoutCell"
+      let name = "MenuLogoutCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MenuLogoutCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MenuLogoutCell
+      }
+
+      fileprivate init() {}
+    }
+
     struct _MenuNameController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "MenuNameController"
@@ -7348,6 +7627,32 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "start_gradient_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_gradient_ic' is used in nib 'StartController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "start_login_button_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_login_button_ic' is used in nib 'StartController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "start_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_logo_ic' is used in nib 'StartController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _VideoPlayerController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "VideoPlayerController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "payer_shadow_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'payer_shadow_ic' is used in nib 'VideoPlayerController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "player_bubles_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'player_bubles_ic' is used in nib 'VideoPlayerController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "player_landscape_shadow_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'player_landscape_shadow_ic' is used in nib 'VideoPlayerController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "player_next_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'player_next_ic' is used in nib 'VideoPlayerController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "player_play_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'player_play_ic' is used in nib 'VideoPlayerController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "player_portrait_mute_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'player_portrait_mute_ic' is used in nib 'VideoPlayerController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "player_prev_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'player_prev_ic' is used in nib 'VideoPlayerController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "temp_workout_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'temp_workout_ic' is used in nib 'VideoPlayerController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "top_view_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_flash_ic' is used in nib 'VideoPlayerController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "workout_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'workout_back_ic' is used in nib 'VideoPlayerController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

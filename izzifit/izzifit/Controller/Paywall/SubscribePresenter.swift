@@ -60,11 +60,12 @@ class SubscribePresenter: SubscribePresenterProtocol {
                 }
                 print("Purchase Success: \(product.productId)")
                 
-//                let receiptData = SwiftyStoreKit.localReceiptData
-//                if let receiptString = receiptData?.base64EncodedString(options: []) {
-//                    let mutation = OrderCreateMutation(receipt: receiptString)
-//                    let _ = Network.shared.mutation(model: OrderCreate.self, mutation, controller: self?.view, successHandler: { [weak self] model in
-//
+                let receiptData = SwiftyStoreKit.localReceiptData
+                if let receiptString = receiptData?.base64EncodedString(options: []) {
+                    let mutation = OrderCreateMutation(order: OrderCreateInputRecord(receipt: receiptString), paymentSystem: .paymentSystemNameApple)
+                    let _ = Network.shared.mutation(model: OrderCreateModel.self, mutation, controller: self?.view, successHandler: {  _ in
+
+                        purchaseSuccess(true, nil)
 //                        let _ = Network.shared.query(model: MeDataModel.self, MeQuery(), controller: self?.view) { [weak self] model in
 //                            KeychainService.standard.me = model.me
 //                            self?.view?.stopLoading()
@@ -73,14 +74,14 @@ class SubscribePresenter: SubscribePresenterProtocol {
 //                            self?.view?.stopLoading()
 //                            purchaseSuccess(false, error.localizedDescription)
 //                        }
-//
-//                    }, failureHandler: { [weak self] error in
-//                        self?.view?.stopLoading()
-//                        purchaseSuccess(false, error.localizedDescription)
-//                    })
-//                } else {
-//                    purchaseSuccess(true, nil)
-//                }
+
+                    }, failureHandler: { [weak self] error in
+                        self?.view?.stopLoading()
+                        purchaseSuccess(false, error.localizedDescription)
+                    })
+                } else {
+                    purchaseSuccess(true, nil)
+                }
                 
             case .error(let error):
                 self?.view?.stopLoading()
@@ -127,9 +128,11 @@ class SubscribePresenter: SubscribePresenterProtocol {
                     
                 }
                 let receiptData = SwiftyStoreKit.localReceiptData
-//                if let receiptString = receiptData?.base64EncodedString(options: []) {
-//                    let mutation = OrderCreateMutation(receipt: receiptString)
-//                    let _ = Network.shared.mutation(model: OrderCreate.self, mutation, controller: self?.view, successHandler: { [weak self] model in
+                if let receiptString = receiptData?.base64EncodedString(options: []) {
+                    let mutation = OrderCreateMutation(order: OrderCreateInputRecord(receipt: receiptString), paymentSystem: .paymentSystemNameApple)
+                    let _ = Network.shared.mutation(model: OrderCreateModel.self, mutation, controller: self?.view, successHandler: { _ in
+                        
+                        restoreCompletion(true)
 //                        let _ = Network.shared.query(model: MeDataModel.self, MeQuery(), controller: self?.view) { [weak self] model in
 //                            KeychainService.standard.me = model.me
 //                            self?.view?.stopLoading()
@@ -138,15 +141,15 @@ class SubscribePresenter: SubscribePresenterProtocol {
 //                            self?.view?.stopLoading()
 //                            restoreCompletion(false)
 //                        }
-//
-//                    }, failureHandler: { [weak self] error in
-//                        self?.view?.stopLoading()
-//                        restoreCompletion(false)
-//                    })
-//                } else {
-//                    self?.view?.stopLoading()
-//                    restoreCompletion(false)
-//                }
+
+                    }, failureHandler: { [weak self] error in
+                        self?.view?.stopLoading()
+                        restoreCompletion(false)
+                    })
+                } else {
+                    self?.view?.stopLoading()
+                    restoreCompletion(false)
+                }
                 print("Restore Success: \(results.restoredPurchases)")
                
                 

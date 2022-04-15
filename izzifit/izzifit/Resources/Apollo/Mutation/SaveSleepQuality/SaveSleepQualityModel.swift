@@ -8,5 +8,5 @@
 import Foundation
 
 struct SaveSleepQualityModel: Codable {
-    let saveSleepQuality: Int
+    let saveSleepQuality: Bool
 }

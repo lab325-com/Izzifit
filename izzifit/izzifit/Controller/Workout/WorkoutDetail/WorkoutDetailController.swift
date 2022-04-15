@@ -31,14 +31,12 @@ class WorkoutDetailController: BaseController {
     private var selectedId: String?
     
     private let id: String
-    private let model: WorkoutByIdMainModel?
     
     //----------------------------------------------
     // MARK: - Init
     //----------------------------------------------
     
-    init(id: String, model: WorkoutByIdMainModel?) {
-        self.model = model
+    init(id: String) {
         self.id = id
         super.init(nibName: nil, bundle: nil)
     }
@@ -65,12 +63,8 @@ class WorkoutDetailController: BaseController {
     private func setup() {
         startWorkoutButton.setTitle(RLocalization.workout_detail_start(), for: .normal)
         
-        if model == nil {
-            tableView.isHidden = true
-            presenter.getWorkouts(id: id)
-        } else {
-            presenter.workout = model
-        }
+        tableView.isHidden = true
+        presenter.getWorkouts(id: id)
         
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
@@ -81,6 +75,17 @@ class WorkoutDetailController: BaseController {
         
         
         tableView.register(UINib(nibName: sectionTitleIdentifier, bundle: nil), forHeaderFooterViewReuseIdentifier: sectionTitleIdentifier)
+    }
+    
+    @IBAction func actionStartWorkout(_ sender: UIButton) {
+        guard let exercisesGroup = presenter.workout?.exerciseGroups?.flatMap({$0.exercises}), let model = presenter.workout else { return }
+        
+        var exercises: [ExerciseModel] = []
+        
+        for group in exercisesGroup {
+            exercises.append(contentsOf: group)
+        }
+        WorkoutRouter(presenter: navigationController).pushVideoPlayer(workout: model, exercises: exercises)
     }
 }
 
