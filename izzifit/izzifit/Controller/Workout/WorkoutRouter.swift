@@ -17,4 +17,9 @@ class WorkoutRouter: BaseRouter {
         let controller = WorkoutDetailMuscleController(muscles: muscles)
         push(controller: controller)
     }
+    
+    func pushVideoPlayer(workout: WorkoutByIdMainModel, exercises: [ExerciseModel]) {
+        let controller = VideoPlayerController(workout: workout, exercises: exercises)
+        push(controller: controller)
+    }
 }

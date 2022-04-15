@@ -99,8 +99,7 @@ extension WorkoutController: WorkoutActivitesProtocol {
 
 extension WorkoutController: WorkoutSpecialCellProtocol {
     func workoutSpecialCell(cell: WorkoutSpecialCell, model: WorkoutByIdMainModel) {
-        guard let id = model.id else { return }
-        WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
+        WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: model.id)
     }
 }
 
@@ -110,9 +109,8 @@ extension WorkoutController: WorkoutSpecialCellProtocol {
 
 extension WorkoutController: WorkoutExercisesCellProtocol {
     func workoutExercisesCell(cell: WorkoutExercisesCell, model: WorkoutByIdMainModel) {
-        guard let id = model.id else { return }
         if model.isAvailable == true {
-            WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
+            WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: model.id)
         } else {
             PaywallRouter(presenter: navigationController).presentPaywall(delegate: self)
         }

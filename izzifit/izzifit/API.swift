@@ -1038,6 +1038,59 @@ public final class AskQuestionMutation: GraphQLMutation {
   }
 }
 
+public final class DoExerciseMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation DoExercise($exerciseId: String!, $attemptId: String!) {
+      doExercise(exerciseId: $exerciseId, attemptId: $attemptId)
+    }
+    """
+
+  public let operationName: String = "DoExercise"
+
+  public var exerciseId: String
+  public var attemptId: String
+
+  public init(exerciseId: String, attemptId: String) {
+    self.exerciseId = exerciseId
+    self.attemptId = attemptId
+  }
+
+  public var variables: GraphQLMap? {
+    return ["exerciseId": exerciseId, "attemptId": attemptId]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("doExercise", arguments: ["exerciseId": GraphQLVariable("exerciseId"), "attemptId": GraphQLVariable("attemptId")], type: .scalar(Bool.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(doExercise: Bool? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "doExercise": doExercise])
+    }
+
+    public var doExercise: Bool? {
+      get {
+        return resultMap["doExercise"] as? Bool
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "doExercise")
+      }
+    }
+  }
+}
+
 public final class DrinkWaterMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -1886,6 +1939,57 @@ public final class SaveSleepQualityMutation: GraphQLMutation {
       }
       set {
         resultMap.updateValue(newValue, forKey: "saveSleepQuality")
+      }
+    }
+  }
+}
+
+public final class StartWorkoutMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation StartWorkout($workoutId: String!) {
+      startWorkout(workoutId: $workoutId)
+    }
+    """
+
+  public let operationName: String = "StartWorkout"
+
+  public var workoutId: String
+
+  public init(workoutId: String) {
+    self.workoutId = workoutId
+  }
+
+  public var variables: GraphQLMap? {
+    return ["workoutId": workoutId]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("startWorkout", arguments: ["workoutId": GraphQLVariable("workoutId")], type: .scalar(String.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(startWorkout: String? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "startWorkout": startWorkout])
+    }
+
+    public var startWorkout: String? {
+      get {
+        return resultMap["startWorkout"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "startWorkout")
       }
     }
   }
@@ -3324,7 +3428,7 @@ public final class MealsWidgetQuery: GraphQLQuery {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("energy", type: .scalar(Int.self)),
+          GraphQLField("energy", type: .scalar(Double.self)),
           GraphQLField("energyTotal", type: .scalar(Int.self)),
           GraphQLField("Meals", type: .list(.object(Meal.selections))),
           GraphQLField("Sources", type: .list(.object(Source.selections))),
@@ -3337,7 +3441,7 @@ public final class MealsWidgetQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(energy: Int? = nil, energyTotal: Int? = nil, meals: [Meal?]? = nil, sources: [Source?]? = nil) {
+      public init(energy: Double? = nil, energyTotal: Int? = nil, meals: [Meal?]? = nil, sources: [Source?]? = nil) {
         self.init(unsafeResultMap: ["__typename": "MealsWidget", "energy": energy, "energyTotal": energyTotal, "Meals": meals.flatMap { (value: [Meal?]) -> [ResultMap?] in value.map { (value: Meal?) -> ResultMap? in value.flatMap { (value: Meal) -> ResultMap in value.resultMap } } }, "Sources": sources.flatMap { (value: [Source?]) -> [ResultMap?] in value.map { (value: Source?) -> ResultMap? in value.flatMap { (value: Source) -> ResultMap in value.resultMap } } }])
       }
 
@@ -3350,9 +3454,9 @@ public final class MealsWidgetQuery: GraphQLQuery {
         }
       }
 
-      public var energy: Int? {
+      public var energy: Double? {
         get {
-          return resultMap["energy"] as? Int
+          return resultMap["energy"] as? Double
         }
         set {
           resultMap.updateValue(newValue, forKey: "energy")
@@ -6408,6 +6512,7 @@ public final class WorkoutByIdQuery: GraphQLQuery {
             isFinished
             isRest
             title
+            rapes
           }
           id
           title
@@ -6723,6 +6828,7 @@ public final class WorkoutByIdQuery: GraphQLQuery {
               GraphQLField("isFinished", type: .scalar(Bool.self)),
               GraphQLField("isRest", type: .scalar(Bool.self)),
               GraphQLField("title", type: .scalar(String.self)),
+              GraphQLField("rapes", type: .scalar(Int.self)),
             ]
           }
 
@@ -6732,8 +6838,8 @@ public final class WorkoutByIdQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
-          public init(image: Image? = nil, video: Video? = nil, description: String? = nil, duration: Duration? = nil, id: GraphQLID? = nil, isFinished: Bool? = nil, isRest: Bool? = nil, title: String? = nil) {
-            self.init(unsafeResultMap: ["__typename": "Exercise", "Image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "Video": video.flatMap { (value: Video) -> ResultMap in value.resultMap }, "description": description, "duration": duration.flatMap { (value: Duration) -> ResultMap in value.resultMap }, "id": id, "isFinished": isFinished, "isRest": isRest, "title": title])
+          public init(image: Image? = nil, video: Video? = nil, description: String? = nil, duration: Duration? = nil, id: GraphQLID? = nil, isFinished: Bool? = nil, isRest: Bool? = nil, title: String? = nil, rapes: Int? = nil) {
+            self.init(unsafeResultMap: ["__typename": "Exercise", "Image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "Video": video.flatMap { (value: Video) -> ResultMap in value.resultMap }, "description": description, "duration": duration.flatMap { (value: Duration) -> ResultMap in value.resultMap }, "id": id, "isFinished": isFinished, "isRest": isRest, "title": title, "rapes": rapes])
           }
 
           public var __typename: String {
@@ -6814,6 +6920,15 @@ public final class WorkoutByIdQuery: GraphQLQuery {
             }
             set {
               resultMap.updateValue(newValue, forKey: "title")
+            }
+          }
+
+          public var rapes: Int? {
+            get {
+              return resultMap["rapes"] as? Int
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "rapes")
             }
           }
 

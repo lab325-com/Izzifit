@@ -1,0 +1,3 @@
+mutation StartWorkout($workoutId: String!) {
+    startWorkout(workoutId: $workoutId)
+}

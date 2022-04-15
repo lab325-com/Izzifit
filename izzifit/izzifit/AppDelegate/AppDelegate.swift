@@ -29,6 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return RootRouter.sharedInstance.application(didFinishLaunchingWithOptions: launchOptions as [UIApplication.LaunchOptionsKey: Any]?, window: window ?? UIWindow(frame: UIScreen.main.bounds))
     }
 
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        if RootRouter.sharedInstance.topViewController?.viewControllerName == "VideoPlayerController" {
+            return .allButUpsideDown
+        } else {
+            return .portrait
+        }
+    }
+    
     private func checkingPurchase() {
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
             if let controller = RootRouter.sharedInstance.topViewController as? BaseController {

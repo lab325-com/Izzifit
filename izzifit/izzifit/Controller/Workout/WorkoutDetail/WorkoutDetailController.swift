@@ -76,6 +76,17 @@ class WorkoutDetailController: BaseController {
         
         tableView.register(UINib(nibName: sectionTitleIdentifier, bundle: nil), forHeaderFooterViewReuseIdentifier: sectionTitleIdentifier)
     }
+    
+    @IBAction func actionStartWorkout(_ sender: UIButton) {
+        guard let exercisesGroup = presenter.workout?.exerciseGroups?.flatMap({$0.exercises}), let model = presenter.workout else { return }
+        
+        var exercises: [ExerciseModel] = []
+        
+        for group in exercisesGroup {
+            exercises.append(contentsOf: group)
+        }
+        WorkoutRouter(presenter: navigationController).pushVideoPlayer(workout: model, exercises: exercises)
+    }
 }
 
 //----------------------------------------------
