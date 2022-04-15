@@ -773,7 +773,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 120 images.
+  /// This `R.image` struct is generated, and contains static references to 125 images.
   struct image {
     /// Image `Finish`.
     static let finish = Rswift.ImageResource(bundle: R.hostingBundle, name: "Finish")
@@ -787,8 +787,6 @@ struct R: Rswift.Validatable {
     static let auth_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_see_pass_ic")
     /// Image `ballAward`.
     static let ballAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "ballAward")
-    /// Image `deerStart`.
-    static let deerStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "deerStart")
     /// Image `deersFinish`.
     static let deersFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersFinish")
     /// Image `deersFirst`.
@@ -797,6 +795,8 @@ struct R: Rswift.Validatable {
     static let deersFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersFourth")
     /// Image `deersSecond`.
     static let deersSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersSecond")
+    /// Image `deersStart`.
+    static let deersStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersStart")
     /// Image `deersThird`.
     static let deersThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersThird")
     /// Image `dollar`.
@@ -855,6 +855,14 @@ struct R: Rswift.Validatable {
     static let gameBackTwo = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameBackTwo")
     /// Image `gameBarBack`.
     static let gameBarBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameBarBack")
+    /// Image `gameTabBarEnergy`.
+    static let gameTabBarEnergy = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarEnergy")
+    /// Image `gameTabBarMap`.
+    static let gameTabBarMap = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarMap")
+    /// Image `gameTabBarPrizes`.
+    static let gameTabBarPrizes = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarPrizes")
+    /// Image `gameTabBarSpin`.
+    static let gameTabBarSpin = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarSpin")
     /// Image `goldFinish`.
     static let goldFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "goldFinish")
     /// Image `goldFirst`.
@@ -967,8 +975,10 @@ struct R: Rswift.Validatable {
     static let slotHouse = Rswift.ImageResource(bundle: R.hostingBundle, name: "slotHouse")
     /// Image `snowflake`.
     static let snowflake = Rswift.ImageResource(bundle: R.hostingBundle, name: "snowflake")
-    /// Image `spinBtnBack`.
-    static let spinBtnBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "spinBtnBack")
+    /// Image `spinBtnNormal`.
+    static let spinBtnNormal = Rswift.ImageResource(bundle: R.hostingBundle, name: "spinBtnNormal")
+    /// Image `spinBtnSelected`.
+    static let spinBtnSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "spinBtnSelected")
     /// Image `sportsAward`.
     static let sportsAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "sportsAward")
     /// Image `start_back_ic`.
@@ -1059,13 +1069,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "deerStart", bundle: ..., traitCollection: ...)`
-    static func deerStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.deerStart, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "deersFinish", bundle: ..., traitCollection: ...)`
     static func deersFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.deersFinish, compatibleWith: traitCollection)
@@ -1090,6 +1093,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "deersSecond", bundle: ..., traitCollection: ...)`
     static func deersSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.deersSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "deersStart", bundle: ..., traitCollection: ...)`
+    static func deersStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.deersStart, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1293,6 +1303,34 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "gameBarBack", bundle: ..., traitCollection: ...)`
     static func gameBarBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.gameBarBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "gameTabBarEnergy", bundle: ..., traitCollection: ...)`
+    static func gameTabBarEnergy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gameTabBarEnergy, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "gameTabBarMap", bundle: ..., traitCollection: ...)`
+    static func gameTabBarMap(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gameTabBarMap, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "gameTabBarPrizes", bundle: ..., traitCollection: ...)`
+    static func gameTabBarPrizes(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gameTabBarPrizes, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "gameTabBarSpin", bundle: ..., traitCollection: ...)`
+    static func gameTabBarSpin(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gameTabBarSpin, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1689,9 +1727,16 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "spinBtnBack", bundle: ..., traitCollection: ...)`
-    static func spinBtnBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.spinBtnBack, compatibleWith: traitCollection)
+    /// `UIImage(named: "spinBtnNormal", bundle: ..., traitCollection: ...)`
+    static func spinBtnNormal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.spinBtnNormal, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "spinBtnSelected", bundle: ..., traitCollection: ...)`
+    static func spinBtnSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.spinBtnSelected, compatibleWith: traitCollection)
     }
     #endif
 
@@ -6252,7 +6297,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "gameBackTwo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'gameBackTwo' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "slotBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'slotBack' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "slotHouse", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'slotHouse' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "spinBtnBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'spinBtnBack' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "spinBtnSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'spinBtnSelected' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "start_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_logo_ic' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "top_view_coin_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_coin_ic' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "top_view_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_flash_ic' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }

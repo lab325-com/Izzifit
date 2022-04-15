@@ -37,8 +37,6 @@ class LevelController: BaseController {
                                     animated: true)
     }
     
-    
-    
     private func drawStates() {
         switch player.shipState {
         case .start:

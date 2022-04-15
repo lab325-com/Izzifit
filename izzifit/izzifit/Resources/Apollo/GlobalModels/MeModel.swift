@@ -17,7 +17,7 @@ struct MeMainModel: Codable {
     let darkTheme: Bool?
     let doSport: DoSportType?
     let email: String?
-    let energy: Int?
+    var energy: Int?
     let fitnessPreference: WorkoutDifficulty?
     let gender: GenderType?
     let goal: GoalType?
@@ -31,6 +31,10 @@ struct MeMainModel: Codable {
     let targetWeight: Float?
     let FoodGroup: FoodGroupModel?
     let Avatar: AvatarModel?
+    
+//    mutating func updateEnergy(_ by: Int) {
+//        self.energy = by
+//    }
 }
 
 struct FoodGroupModel: Codable {
