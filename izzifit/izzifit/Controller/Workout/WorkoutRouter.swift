@@ -22,4 +22,9 @@ class WorkoutRouter: BaseRouter {
         let controller = VideoPlayerController(workout: workout, exercises: exercises)
         push(controller: controller)
     }
+    
+    func pushVideoFinished() {
+        let controller = VideoNotFinished()
+        push(controller: controller)
+    }
 }

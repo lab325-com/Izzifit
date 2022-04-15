@@ -1720,7 +1720,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 75 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 76 nibs.
   struct nib {
     /// Nib `ArcticGameComtroller`.
     static let arcticGameComtroller = _R.nib._ArcticGameComtroller()
@@ -1838,6 +1838,8 @@ struct R: Rswift.Validatable {
     static let splashViewController = _R.nib._SplashViewController()
     /// Nib `StartController`.
     static let startController = _R.nib._StartController()
+    /// Nib `VideoNotFinished`.
+    static let videoNotFinished = _R.nib._VideoNotFinished()
     /// Nib `VideoPlayerController`.
     static let videoPlayerController = _R.nib._VideoPlayerController()
     /// Nib `WeightTableCell`.
@@ -2338,6 +2340,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "VideoNotFinished", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.videoNotFinished) instead")
+    static func videoNotFinished(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.videoNotFinished)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "VideoPlayerController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.videoPlayerController) instead")
     static func videoPlayerController(_: Void = ()) -> UIKit.UINib {
@@ -2703,6 +2713,10 @@ struct R: Rswift.Validatable {
 
     static func startController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.startController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func videoNotFinished(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.videoNotFinished.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func videoPlayerController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -7250,6 +7264,17 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "start_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_logo_ic' is used in nib 'StartController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _VideoNotFinished: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "VideoNotFinished"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
 
       fileprivate init() {}
