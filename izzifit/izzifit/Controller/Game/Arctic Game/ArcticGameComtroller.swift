@@ -9,23 +9,21 @@ import UIKit
 
 class ArcticGameComtroller: BaseController {
     
-    
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var coinslabel: UILabel!
     @IBOutlet weak var energyLabel: UILabel!
-    
     @IBOutlet weak var slotBackImgVw: UIImageView!
+    @IBOutlet weak var spinBtn: UIButton!
     
-    var collectionView: UICollectionView!
     
-    
-    var timerCount = 0
-    var timer = Timer()
+   private var collectionView: UICollectionView!
+   private var timerCount = 0
+   private var timer = Timer()
     
     override func viewDidLoad() {
+      //  hiddenNavigationBar = true
         super.viewDidLoad()
-        hiddenNavigationBar = true
         setup()
         setCollectionView()
         
@@ -53,7 +51,6 @@ class ArcticGameComtroller: BaseController {
                                     options: [.transition(.fade(0.25))])
     }
     
-    
     private func setCollectionView() {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -79,6 +76,12 @@ class ArcticGameComtroller: BaseController {
     
     @IBAction func spinAction(_ sender: Any) {
         
+        if var energy = KeychainService.standard.me?.energy {
+            energy -= 1
+            KeychainService.standard.me?.energy = energy
+        }
+        setup()
+        spinBtn.isUserInteractionEnabled = false
         timer = Timer.scheduledTimer(timeInterval: 0.3,
                                      target: self,
                                      selector: #selector(randomSpinSlots),
@@ -101,8 +104,25 @@ class ArcticGameComtroller: BaseController {
                               animated: true)
         }
         guard timerCount == 13 else { return }
+        
+        let resultIndices = getResultIndices(collectionView)
+        print(resultIndices)
         timer.invalidate()
         timerCount = 0
+        spinBtn.isUserInteractionEnabled = true
+    }
+    
+    
+    func getResultIndices(_ collectionView: UICollectionView) -> [Int] {
+        var indicesArray = [Int]()
+        
+        for item in collectionView.visibleCells.indices {
+            
+            let middleIndex = (collectionView.cellForItem(at: [0,item]) as! SlotCollectionCell).tableView.visibleCells[1].tag
+            indicesArray.append(middleIndex)
+        }
+        
+        return indicesArray
     }
 }
 
