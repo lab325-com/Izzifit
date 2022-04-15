@@ -6636,7 +6636,12 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "deersFinish", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'deersFinish' is used in nib 'LevelController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "fishFinish", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fishFinish' is used in nib 'LevelController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "goldFinish", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'goldFinish' is used in nib 'LevelController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "igluFinish", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'igluFinish' is used in nib 'LevelController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "levelBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'levelBack' is used in nib 'LevelController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "shipFinish", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'shipFinish' is used in nib 'LevelController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

@@ -13,7 +13,7 @@ enum Imgs: String {
     case fishStart, fishFirst, fishSecond, fishThird, fishFourth, fishFinish
     case igluStart, igluFirst, igluSecond, igluThird, igluFourth, igluFinish
     case goldStart, goldFirst, goldSecond, goldThird, goldFourth, goldFinish
-    case deerStart, deerFirst, deerSecond, deerThird, deerFourth, deerFinish
+    case deersStart, deersFirst, deersSecond, deersThird, deersFourth, deersFinish
 }
 
 enum Clrs: String {

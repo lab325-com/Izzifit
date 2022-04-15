@@ -129,20 +129,20 @@ class LevelView: UIView {
             goldImgVw.image = image(img: .goldFinish)
         }
         
-        switch player.deerState {
-        case .start:
-            deerImgVw.image = image(img: .deerStart)
-        case .first:
-            deerImgVw.image = image(img: .deerFirst)
-        case .second:
-            deerImgVw.image = image(img: .deerSecond)
-        case .third:
-            deerImgVw.image = image(img: .deerThird)
-        case .fourth:
-            deerImgVw.image = image(img: .deerFourth)
-        case .finish:
-            deerImgVw.image = image(img: .deerFinish)
-        }
+//        switch player.deerState {
+//        case .start:
+//            deerImgVw.image = image(img: .deerStart)
+//        case .first:
+//            deerImgVw.image = image(img: .deerFirst)
+//        case .second:
+//            deerImgVw.image = image(img: .deerSecond)
+//        case .third:
+//            deerImgVw.image = image(img: .deerThird)
+//        case .fourth:
+//            deerImgVw.image = image(img: .deerFourth)
+//        case .finish:
+//            deerImgVw.image = image(img: .deerFinish)
+//        }
     }
     
     required init?(coder: NSCoder) {
