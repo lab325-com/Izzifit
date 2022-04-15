@@ -9,7 +9,12 @@ import Foundation
 import UIKit
 
 enum Imgs: String {
-    case dummy
+    case shipStart, shipFirst, shipSecond, shipThird, shipFourth, shipFinish
+    case fishStart, fishFirst, fishSecond, fishThird, fishFourth, fishFinish
+    case igluStart, igluFirst, igluSecond, igluThird, igluFourth, igluFinish
+    case goldStart, goldFirst, goldSecond, goldThird, goldFourth, goldFinish
+    case deersStart, deersFirst, deersSecond, deersThird, deersFourth, deersFinish
+    case gameTabBarEnergy, gameTabBarMap, gameTabBarPrizes, gameTabBarSpin
 }
 
 enum Clrs: String {
@@ -24,3 +29,4 @@ struct SlotImgs {
     static let moneyBag = UIImage(named: "moneyBag")
     static let snowflake = UIImage(named: "snowflake")
 }
+

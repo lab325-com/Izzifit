@@ -166,6 +166,7 @@ class MainTabBarController: BaseController {
             self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
             self.view.layoutIfNeeded()
         }
+        navigationController?.navigationBar.isHidden = true
         
         TabBarRouter(presenter: navigationController).pushGame()
     }
