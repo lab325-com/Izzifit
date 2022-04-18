@@ -302,7 +302,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 51 files.
+  /// This `R.file` struct is generated, and contains static references to 52 files.
   struct file {
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
@@ -396,6 +396,8 @@ struct R: Rswift.Validatable {
     static let updateProductInMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "UpdateProductInMeal", pathExtension: "graphql")
     /// Resource file `WeightsWidget.graphql`.
     static let weightsWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WeightsWidget", pathExtension: "graphql")
+    /// Resource file `WorkoutAttemptUpdate.graphql`.
+    static let workoutAttemptUpdateGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutAttemptUpdate", pathExtension: "graphql")
     /// Resource file `WorkoutById.graphql`.
     static let workoutByIdGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutById", pathExtension: "graphql")
     /// Resource file `WorkoutTypes.graphql`.
@@ -683,6 +685,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "WorkoutAttemptUpdate", withExtension: "graphql")`
+    static func workoutAttemptUpdateGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.workoutAttemptUpdateGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "WorkoutById", withExtension: "graphql")`
     static func workoutByIdGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.workoutByIdGraphql
@@ -805,7 +813,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 139 images.
+  /// This `R.image` struct is generated, and contains static references to 148 images.
   struct image {
     /// Image `Finish`.
     static let finish = Rswift.ImageResource(bundle: R.hostingBundle, name: "Finish")
@@ -1071,6 +1079,24 @@ struct R: Rswift.Validatable {
     static let top_view_elipse_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_elipse_ic")
     /// Image `top_view_flash_ic`.
     static let top_view_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_flash_ic")
+    /// Image `video_finished_excellent_ic`.
+    static let video_finished_excellent_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_finished_excellent_ic")
+    /// Image `video_finished_hard_ic`.
+    static let video_finished_hard_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_finished_hard_ic")
+    /// Image `video_finished_main_ic`.
+    static let video_finished_main_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_finished_main_ic")
+    /// Image `video_finished_more_ic`.
+    static let video_finished_more_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_finished_more_ic")
+    /// Image `video_not_end_hard_ic`.
+    static let video_not_end_hard_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_not_end_hard_ic")
+    /// Image `video_not_end_long_ic`.
+    static let video_not_end_long_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_not_end_long_ic")
+    /// Image `video_not_end_main_ic`.
+    static let video_not_end_main_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_not_end_main_ic")
+    /// Image `video_not_end_other_ic`.
+    static let video_not_end_other_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_not_end_other_ic")
+    /// Image `video_not_end_watch_ic`.
+    static let video_not_end_watch_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_not_end_watch_ic")
     /// Image `workout_activities_ic`.
     static let workout_activities_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_activities_ic")
     /// Image `workout_arrow_right_ic`.
@@ -2011,6 +2037,69 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_finished_excellent_ic", bundle: ..., traitCollection: ...)`
+    static func video_finished_excellent_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_finished_excellent_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_finished_hard_ic", bundle: ..., traitCollection: ...)`
+    static func video_finished_hard_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_finished_hard_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_finished_main_ic", bundle: ..., traitCollection: ...)`
+    static func video_finished_main_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_finished_main_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_finished_more_ic", bundle: ..., traitCollection: ...)`
+    static func video_finished_more_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_finished_more_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_not_end_hard_ic", bundle: ..., traitCollection: ...)`
+    static func video_not_end_hard_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_not_end_hard_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_not_end_long_ic", bundle: ..., traitCollection: ...)`
+    static func video_not_end_long_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_not_end_long_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_not_end_main_ic", bundle: ..., traitCollection: ...)`
+    static func video_not_end_main_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_not_end_main_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_not_end_other_ic", bundle: ..., traitCollection: ...)`
+    static func video_not_end_other_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_not_end_other_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_not_end_watch_ic", bundle: ..., traitCollection: ...)`
+    static func video_not_end_watch_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_not_end_watch_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "workout_activities_ic", bundle: ..., traitCollection: ...)`
     static func workout_activities_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.workout_activities_ic, compatibleWith: traitCollection)
@@ -2062,7 +2151,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 76 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 78 nibs.
   struct nib {
     /// Nib `ArcticGameComtroller`.
     static let arcticGameComtroller = _R.nib._ArcticGameComtroller()
@@ -2182,6 +2271,8 @@ struct R: Rswift.Validatable {
     static let splashViewController = _R.nib._SplashViewController()
     /// Nib `StartController`.
     static let startController = _R.nib._StartController()
+    /// Nib `VideoFinishedController`.
+    static let videoFinishedController = _R.nib._VideoFinishedController()
     /// Nib `VideoNotFinished`.
     static let videoNotFinished = _R.nib._VideoNotFinished()
     /// Nib `VideoPlayerController`.
@@ -2692,6 +2783,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "VideoFinishedController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.videoFinishedController) instead")
+    static func videoFinishedController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.videoFinishedController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "VideoNotFinished", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.videoNotFinished) instead")
     static func videoNotFinished(_: Void = ()) -> UIKit.UINib {
@@ -3071,6 +3170,10 @@ struct R: Rswift.Validatable {
       return R.nib.startController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func videoFinishedController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.videoFinishedController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func videoNotFinished(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.videoNotFinished.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -3224,7 +3327,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 169 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 185 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -3321,6 +3424,10 @@ struct R: Rswift.Validatable {
       /// en translation: Calories
       ///
       /// Locales: en
+      static let payer_finished_calories = Rswift.StringResource(key: "payer_finished_calories", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Calories
+      ///
+      /// Locales: en
       static let profile_calories = Rswift.StringResource(key: "profile_calories", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Cancel
       ///
@@ -3350,6 +3457,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let write_to_us_comment = Rswift.StringResource(key: "write_to_us_comment", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Congratulations!
+      ///
+      /// Locales: en
+      static let payer_finished_title = Rswift.StringResource(key: "payer_finished_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Continue training
       ///
       /// Locales: en
@@ -3394,10 +3505,18 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_email = Rswift.StringResource(key: "menu_email", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Energy
+      ///
+      /// Locales: en
+      static let payer_finished_energy = Rswift.StringResource(key: "payer_finished_energy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: English
       ///
       /// Locales: en
       static let menu_english = Rswift.StringResource(key: "menu_english", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Excellent
+      ///
+      /// Locales: en
+      static let payer_finished_excellent = Rswift.StringResource(key: "payer_finished_excellent", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Excellent! Good workout %d min
       ///
       /// Locales: en
@@ -3474,6 +3593,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let profile_global_position = Rswift.StringResource(key: "profile_global_position", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Go back and continue
+      ///
+      /// Locales: en
+      static let player_not_finisged_go_back = Rswift.StringResource(key: "player_not_finisged_go_back", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Go next
       ///
       /// Locales: en
@@ -3498,6 +3621,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let energy_header_title = Rswift.StringResource(key: "energy_header_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: How are you feeling?
+      ///
+      /// Locales: en
+      static let payer_finished_feeling = Rswift.StringResource(key: "payer_finished_feeling", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: How are you today?
       ///
       /// Locales: en
@@ -3506,10 +3633,22 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let energy_sleep_title = Rswift.StringResource(key: "energy_sleep_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: I can do more
+      ///
+      /// Locales: en
+      static let payer_finished_cand_do_more = Rswift.StringResource(key: "payer_finished_cand_do_more", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: I do it regularly
       ///
       /// Locales: en
       static let onboarding_sport_regulary = Rswift.StringResource(key: "onboarding_sport_regulary", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: I'm just watching
+      ///
+      /// Locales: en
+      static let player_not_finisged_watching = Rswift.StringResource(key: "player_not_finisged_watching", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: It's hard for me
+      ///
+      /// Locales: en
+      static let player_not_finisged_hard = Rswift.StringResource(key: "player_not_finisged_hard", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Just let me play
       ///
       /// Locales: en
@@ -3606,6 +3745,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_other = Rswift.StringResource(key: "onboarding_other", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Other
+      ///
+      /// Locales: en
+      static let player_not_finisged_other = Rswift.StringResource(key: "player_not_finisged_other", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Password
       ///
       /// Locales: en
@@ -3754,6 +3897,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_targe_weight_title = Rswift.StringResource(key: "onboarding_targe_weight_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Tell us why you interrupted your workout and we will find you the next one that suits you best.
+      ///
+      /// Locales: en
+      static let player_not_finisged_subtTite = Rswift.StringResource(key: "player_not_finisged_subtTite", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Terms of Subscribe
       ///
       /// Locales: en
@@ -3782,6 +3929,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let progress_thu = Rswift.StringResource(key: "progress_thu", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Time
+      ///
+      /// Locales: en
+      static let payer_finished_time = Rswift.StringResource(key: "payer_finished_time", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Too long for me
+      ///
+      /// Locales: en
+      static let player_not_finisged_long = Rswift.StringResource(key: "player_not_finisged_long", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Training
       ///
       /// Locales: en
@@ -3810,6 +3965,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_food_vegetarian = Rswift.StringResource(key: "onboarding_food_vegetarian", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Very hard
+      ///
+      /// Locales: en
+      static let payer_finished_hard = Rswift.StringResource(key: "payer_finished_hard", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: We create your personal nutrition and workout plan
       ///
       /// Locales: en
@@ -3854,6 +4013,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_write_us_title = Rswift.StringResource(key: "menu_write_us_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: You have finished your workout!
+      ///
+      /// Locales: en
+      static let payer_finished_subTitle = Rswift.StringResource(key: "payer_finished_subTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: You have not finished your fasting!
+      ///
+      /// Locales: en
+      static let player_not_finisged_title = Rswift.StringResource(key: "player_not_finisged_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Your age
       ///
       /// Locales: en
@@ -4267,6 +4434,21 @@ struct R: Rswift.Validatable {
       /// en translation: Calories
       ///
       /// Locales: en
+      static func payer_finished_calories(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("payer_finished_calories", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "payer_finished_calories"
+        }
+
+        return NSLocalizedString("payer_finished_calories", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Calories
+      ///
+      /// Locales: en
       static func profile_calories(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("profile_calories", bundle: hostingBundle, comment: "")
@@ -4384,6 +4566,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("write_to_us_comment", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Congratulations!
+      ///
+      /// Locales: en
+      static func payer_finished_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("payer_finished_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "payer_finished_title"
+        }
+
+        return NSLocalizedString("payer_finished_title", bundle: bundle, comment: "")
       }
 
       /// en translation: Continue training
@@ -4551,6 +4748,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("menu_email", bundle: bundle, comment: "")
       }
 
+      /// en translation: Energy
+      ///
+      /// Locales: en
+      static func payer_finished_energy(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("payer_finished_energy", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "payer_finished_energy"
+        }
+
+        return NSLocalizedString("payer_finished_energy", bundle: bundle, comment: "")
+      }
+
       /// en translation: English
       ///
       /// Locales: en
@@ -4564,6 +4776,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("menu_english", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Excellent
+      ///
+      /// Locales: en
+      static func payer_finished_excellent(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("payer_finished_excellent", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "payer_finished_excellent"
+        }
+
+        return NSLocalizedString("payer_finished_excellent", bundle: bundle, comment: "")
       }
 
       /// en translation: Excellent! Good workout %d min
@@ -4855,6 +5082,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("profile_global_position", bundle: bundle, comment: "")
       }
 
+      /// en translation: Go back and continue
+      ///
+      /// Locales: en
+      static func player_not_finisged_go_back(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("player_not_finisged_go_back", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "player_not_finisged_go_back"
+        }
+
+        return NSLocalizedString("player_not_finisged_go_back", bundle: bundle, comment: "")
+      }
+
       /// en translation: Go next
       ///
       /// Locales: en
@@ -4949,6 +5191,21 @@ struct R: Rswift.Validatable {
         return String(format: format, locale: locale, value1)
       }
 
+      /// en translation: How are you feeling?
+      ///
+      /// Locales: en
+      static func payer_finished_feeling(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("payer_finished_feeling", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "payer_finished_feeling"
+        }
+
+        return NSLocalizedString("payer_finished_feeling", bundle: bundle, comment: "")
+      }
+
       /// en translation: How are you today?
       ///
       /// Locales: en
@@ -4979,6 +5236,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("energy_sleep_title", bundle: bundle, comment: "")
       }
 
+      /// en translation: I can do more
+      ///
+      /// Locales: en
+      static func payer_finished_cand_do_more(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("payer_finished_cand_do_more", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "payer_finished_cand_do_more"
+        }
+
+        return NSLocalizedString("payer_finished_cand_do_more", bundle: bundle, comment: "")
+      }
+
       /// en translation: I do it regularly
       ///
       /// Locales: en
@@ -4992,6 +5264,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("onboarding_sport_regulary", bundle: bundle, comment: "")
+      }
+
+      /// en translation: I'm just watching
+      ///
+      /// Locales: en
+      static func player_not_finisged_watching(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("player_not_finisged_watching", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "player_not_finisged_watching"
+        }
+
+        return NSLocalizedString("player_not_finisged_watching", bundle: bundle, comment: "")
+      }
+
+      /// en translation: It's hard for me
+      ///
+      /// Locales: en
+      static func player_not_finisged_hard(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("player_not_finisged_hard", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "player_not_finisged_hard"
+        }
+
+        return NSLocalizedString("player_not_finisged_hard", bundle: bundle, comment: "")
       }
 
       /// en translation: Just let me play
@@ -5352,6 +5654,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("onboarding_other", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Other
+      ///
+      /// Locales: en
+      static func player_not_finisged_other(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("player_not_finisged_other", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "player_not_finisged_other"
+        }
+
+        return NSLocalizedString("player_not_finisged_other", bundle: bundle, comment: "")
       }
 
       /// en translation: Password
@@ -5911,6 +6228,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("onboarding_targe_weight_title", bundle: bundle, comment: "")
       }
 
+      /// en translation: Tell us why you interrupted your workout and we will find you the next one that suits you best.
+      ///
+      /// Locales: en
+      static func player_not_finisged_subtTite(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("player_not_finisged_subtTite", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "player_not_finisged_subtTite"
+        }
+
+        return NSLocalizedString("player_not_finisged_subtTite", bundle: bundle, comment: "")
+      }
+
       /// en translation: Terms of Subscribe
       ///
       /// Locales: en
@@ -6016,6 +6348,36 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("progress_thu", bundle: bundle, comment: "")
       }
 
+      /// en translation: Time
+      ///
+      /// Locales: en
+      static func payer_finished_time(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("payer_finished_time", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "payer_finished_time"
+        }
+
+        return NSLocalizedString("payer_finished_time", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Too long for me
+      ///
+      /// Locales: en
+      static func player_not_finisged_long(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("player_not_finisged_long", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "player_not_finisged_long"
+        }
+
+        return NSLocalizedString("player_not_finisged_long", bundle: bundle, comment: "")
+      }
+
       /// en translation: Training
       ///
       /// Locales: en
@@ -6119,6 +6481,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("onboarding_food_vegetarian", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Very hard
+      ///
+      /// Locales: en
+      static func payer_finished_hard(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("payer_finished_hard", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "payer_finished_hard"
+        }
+
+        return NSLocalizedString("payer_finished_hard", bundle: bundle, comment: "")
       }
 
       /// en translation: We create your personal nutrition and workout plan
@@ -6284,6 +6661,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("menu_write_us_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: You have finished your workout!
+      ///
+      /// Locales: en
+      static func payer_finished_subTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("payer_finished_subTitle", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "payer_finished_subTitle"
+        }
+
+        return NSLocalizedString("payer_finished_subTitle", bundle: bundle, comment: "")
+      }
+
+      /// en translation: You have not finished your fasting!
+      ///
+      /// Locales: en
+      static func player_not_finisged_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("player_not_finisged_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "player_not_finisged_title"
+        }
+
+        return NSLocalizedString("player_not_finisged_title", bundle: bundle, comment: "")
       }
 
       /// en translation: Your age
@@ -6549,6 +6956,8 @@ struct _R: Rswift.Validatable {
       try _QuizeWeightController.validate()
       try _SplashViewController.validate()
       try _StartController.validate()
+      try _VideoFinishedController.validate()
+      try _VideoNotFinished.validate()
       try _VideoPlayerController.validate()
       try _WeightTableCell.validate()
       try _WorkoutController.validate()
@@ -7648,12 +8057,48 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _VideoNotFinished: Rswift.NibResourceType {
+    struct _VideoFinishedController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "VideoFinishedController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_finished_excellent_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_finished_excellent_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_finished_hard_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_finished_hard_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_finished_main_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_finished_main_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_finished_more_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_finished_more_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "workout_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'workout_flash_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _VideoNotFinished: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "VideoNotFinished"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_not_end_hard_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_not_end_hard_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_not_end_long_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_not_end_long_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_not_end_main_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_not_end_main_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_not_end_other_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_not_end_other_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_not_end_watch_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_not_end_watch_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}

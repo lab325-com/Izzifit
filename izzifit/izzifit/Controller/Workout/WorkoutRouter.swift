@@ -23,8 +23,13 @@ class WorkoutRouter: BaseRouter {
         push(controller: controller)
     }
     
-    func pushVideoFinished() {
-        let controller = VideoNotFinished()
+    func pushVideoNotFinished(delegate: VideoNotFinishedProtocol, attemptId: String) {
+        let controller = VideoNotFinished(delegate: delegate, attemptId: attemptId)
+        push(controller: controller)
+    }
+    
+    func pushVideoFinished(attemptId: String, workout: WorkoutByIdMainModel) {
+        let controller = VideoFinishedController(attemptId: attemptId, workout: workout)
         push(controller: controller)
     }
 }

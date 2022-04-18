@@ -5607,7 +5607,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "feedBack",
+            "name": "feedback",
             "description": null,
             "type": {
               "kind": "NON_NULL",

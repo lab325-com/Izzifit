@@ -378,6 +378,32 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     private func nextVideo() {
         if let _ = exercises[safe: currentIndex + 1] {
             currentIndex += 1
+        } else if pogresses.first(where: {$0.progress != 1.0}) != nil {
+            
+            player = nil
+            NotificationCenter.default.removeObserver(self)
+            timer?.invalidate()
+            timer = nil
+            timerRest?.invalidate()
+            timerRest = nil
+            timerPlayer?.invalidate()
+            timerPlayer = nil
+            
+            guard let atteptId = presenter.attemptId else { return }
+            
+            WorkoutRouter(presenter: navigationController).pushVideoNotFinished(delegate: self, attemptId: atteptId)
+        } else {
+            player = nil
+            NotificationCenter.default.removeObserver(self)
+            timer?.invalidate()
+            timer = nil
+            timerRest?.invalidate()
+            timerRest = nil
+            timerPlayer?.invalidate()
+            timerPlayer = nil
+            
+            guard let atteptId = presenter.attemptId else { return }
+            WorkoutRouter(presenter: navigationController).pushVideoFinished(attemptId: atteptId, workout: workout)
         }
     }
     
@@ -490,7 +516,9 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
                 
                 self.circleView.progressNew(duration: 1.0, toValue: progress, fromValue: CGFloat((timeCurrect - 1.0) / Float(timeAll)))
                 
-                self.pogresses[safe: self.currentIndex]?.progress = progress
+                if self.pogresses[safe: self.currentIndex]?.progress ?? 0.0 < progress {
+                    self.pogresses[safe: self.currentIndex]?.progress = progress
+                }
             }
         }
     }
@@ -517,7 +545,9 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
                 
                 self.circleView.progressNew(duration: 1.0, toValue: progress, fromValue: CGFloat((timeCurrect - 1.0) / Float(timeAll)))
                 
-                self.pogresses[safe: self.currentIndex]?.progress = progress
+                if self.pogresses[safe: self.currentIndex]?.progress ?? 0.0 < progress {
+                    self.pogresses[safe: self.currentIndex]?.progress = progress
+                }
             }
         }
     }
@@ -545,5 +575,15 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     
     @objc func foregroundNotification() {
         updatePlayer()
+    }
+}
+
+//----------------------------------------------
+// MARK: - VideoNotFinishedProtocol
+//----------------------------------------------
+
+extension VideoPlayerController: VideoNotFinishedProtocol {
+    func videoNotFinishedGoBack(controller: VideoNotFinished) {
+        currentIndex = 0
     }
 }

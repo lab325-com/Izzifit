@@ -1,0 +1,3 @@
+mutation WorkoutAttemptUpdate($attemptId: String!, $record: WorkoutAttemptUpdateInput!) {
+    workoutAttemptUpdate(attemptId: $attemptId, record: $record)
+}
