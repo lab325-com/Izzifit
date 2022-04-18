@@ -16,6 +16,9 @@ class ArcticGameComtroller: BaseController {
     @IBOutlet weak var slotBackImgVw: UIImageView!
     @IBOutlet weak var spinBtn: UIButton!
     
+    @IBOutlet weak var resultLbl: UILabel!
+    
+    @IBOutlet weak var resultLblTopConstraint: NSLayoutConstraint!
     
     private var collectionView: UICollectionView!
     private var timerCount = 0
@@ -38,6 +41,7 @@ class ArcticGameComtroller: BaseController {
     }
     
     private func setup() {
+        resultLblTopConstraint.constant =  view.w / 9.37
         coinslabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
         energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
         
