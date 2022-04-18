@@ -17,12 +17,13 @@ class ArcticGameComtroller: BaseController {
     @IBOutlet weak var spinBtn: UIButton!
     
     
-   private var collectionView: UICollectionView!
-   private var timerCount = 0
-   private var timer = Timer()
+    private var collectionView: UICollectionView!
+    private var timerCount = 0
+    private var timer = Timer()
+    private var spinManager = SpinLogicManager()
     
     override func viewDidLoad() {
-      //  hiddenNavigationBar = true
+        //  hiddenNavigationBar = true
         super.viewDidLoad()
         setup()
         setCollectionView()
@@ -76,17 +77,17 @@ class ArcticGameComtroller: BaseController {
     
     @IBAction func spinAction(_ sender: Any) {
         
-        if var energy = KeychainService.standard.me?.energy {
-            energy -= 1
-            KeychainService.standard.me?.energy = energy
+        spinManager.spinAction(coinsLbl: coinslabel,
+                               energyLbl: energyLabel,
+                               collectionView: collectionView,
+                               spinBtn: spinBtn) {
+            
+            timer = Timer.scheduledTimer(timeInterval: 0.3,
+                                         target: self,
+                                         selector: #selector(randomSpinSlots),
+                                         userInfo: nil,
+                                         repeats: true)
         }
-        setup()
-        spinBtn.isUserInteractionEnabled = false
-        timer = Timer.scheduledTimer(timeInterval: 0.3,
-                                     target: self,
-                                     selector: #selector(randomSpinSlots),
-                                     userInfo: nil,
-                                     repeats: true)
     }
     
     @objc
@@ -104,26 +105,10 @@ class ArcticGameComtroller: BaseController {
                               animated: true)
         }
         guard timerCount == 13 else { return }
-        
-        let resultIndices = getResultIndices(collectionView)
-        print(resultIndices)
         timer.invalidate()
         timerCount = 0
-        spinBtn.isUserInteractionEnabled = true
     }
     
-    
-    func getResultIndices(_ collectionView: UICollectionView) -> [Int] {
-        var indicesArray = [Int]()
-        
-        for item in collectionView.visibleCells.indices {
-            
-            let middleIndex = (collectionView.cellForItem(at: [0,item]) as! SlotCollectionCell).tableView.visibleCells[1].tag
-            indicesArray.append(middleIndex)
-        }
-        
-        return indicesArray
-    }
 }
 
 extension ArcticGameComtroller: UICollectionViewDelegate, UICollectionViewDataSource {

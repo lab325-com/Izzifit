@@ -25,8 +25,8 @@ class SlotCollectionCell: UICollectionViewCell {
         super.init(frame: frame)
         backgroundColor = .clear
         
-        tableView.register(SlotTableCell.self,
-                           forCellReuseIdentifier: SlotTableCell.id)
+        tableView.register(SlotTableViewCell.self,
+                           forCellReuseIdentifier: SlotTableViewCell.id)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
@@ -52,8 +52,8 @@ extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SlotTableCell.id,
-                                                 for: indexPath) as! SlotTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SlotTableViewCell.id,
+                                                 for: indexPath) as! SlotTableViewCell
         cell.fillCellby(tagBtn: array[indexPath.row])
         cell.tag = array[indexPath.row]
         return cell

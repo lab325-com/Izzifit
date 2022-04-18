@@ -157,7 +157,6 @@ class MainTabBarController: BaseController {
             self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
             self.view.layoutIfNeeded()
         }
-
         TabBarRouter(presenter: navigationController).pushProfile()
     }
     
@@ -167,7 +166,6 @@ class MainTabBarController: BaseController {
             self.view.layoutIfNeeded()
         }
         navigationController?.navigationBar.isHidden = true
-        
         TabBarRouter(presenter: navigationController).pushGame()
     }
     @IBAction func actionMenu(_ sender: UIButton) {
