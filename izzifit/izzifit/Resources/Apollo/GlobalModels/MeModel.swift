@@ -13,7 +13,7 @@ struct MeModel: Codable {
 
 struct MeMainModel: Codable {
     let age: Int?
-    let coins: Int?
+    var coins: Int?
     let darkTheme: Bool?
     let doSport: DoSportType?
     let email: String?

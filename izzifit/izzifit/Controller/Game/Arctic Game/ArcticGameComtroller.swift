@@ -83,6 +83,7 @@ class ArcticGameComtroller: BaseController {
         
         spinManager.spinAction(coinsLbl: coinslabel,
                                energyLbl: energyLabel,
+                               resultLbl: resultLbl,
                                collectionView: collectionView,
                                spinBtn: spinBtn) {
             

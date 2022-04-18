@@ -51,13 +51,12 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slotHouse" translatesAutoresizingMaskIntoConstraints="NO" id="rVY-Lm-t4W">
                     <rect key="frame" x="1" y="180" width="373" height="405"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYp-3c-605">
-                    <rect key="frame" x="157.66666666666666" y="220" width="60" height="26"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYp-3c-605">
+                    <rect key="frame" x="147.66666666666666" y="220" width="80" height="0.0"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="26" id="Gdd-pC-p8J"/>
-                        <constraint firstAttribute="width" constant="60" id="rsg-2j-Ge7"/>
+                        <constraint firstAttribute="width" constant="80" id="rsg-2j-Ge7"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="20"/>
+                    <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="15"/>
                     <color key="textColor" name="AccentColor"/>
                     <nil key="highlightedColor"/>
                 </label>
