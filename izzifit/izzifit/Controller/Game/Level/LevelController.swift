@@ -8,23 +8,30 @@
 import UIKit
 
 class LevelController: BaseController {
-
+    
     @IBOutlet weak var scrollView: UIScrollView!
-
     @IBOutlet weak var shipBtn: UIButton!
     @IBOutlet weak var fishBtn: UIButton!
     @IBOutlet weak var igluBtn: UIButton!
     @IBOutlet weak var goldBtn: UIButton!
     @IBOutlet weak var deerBtn: UIButton!
     
+    
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var energyLbl: UILabel!
+    @IBOutlet weak var coinsLbl: UILabel!
+    
+    
     private var player = PlayerModel(shipState: .start,
-                             fishState: .finish,
-                             igluState: .fourth,
-                             goldState: .third,
-                             deerState: .second)
+                                     fishState: .finish,
+                                     igluState: .fourth,
+                                     goldState: .third,
+                                     deerState: .second)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         hiddenNavigationBar = true
         drawStates()
     }
@@ -33,8 +40,24 @@ class LevelController: BaseController {
         super.viewDidAppear(animated)
         let x = (439 - UIScreen.main.bounds.size.width) / 2
         self.scrollView.setContentOffset(CGPoint(x: x,
-                                            y: 0),
-                                    animated: true)
+                                                 y: 0),
+                                         animated: true)
+    }
+    
+    private func setup() {
+        
+        coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        energyLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        
+        if let name = KeychainService.standard.me?.name {
+            nameLabel.text = RLocalization.energy_header_title(name)
+        } else {
+            nameLabel.isHidden = true
+        }
+        
+        avatarImageView.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
+                                    placeholder: RImage.placeholder_food_ic(),
+                                    options: [.transition(.fade(0.25))])
     }
     
     private func drawStates() {
