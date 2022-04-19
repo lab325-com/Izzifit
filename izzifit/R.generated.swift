@@ -302,7 +302,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 51 files.
+  /// This `R.file` struct is generated, and contains static references to 52 files.
   struct file {
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
@@ -396,6 +396,8 @@ struct R: Rswift.Validatable {
     static let updateProductInMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "UpdateProductInMeal", pathExtension: "graphql")
     /// Resource file `WeightsWidget.graphql`.
     static let weightsWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WeightsWidget", pathExtension: "graphql")
+    /// Resource file `WorkoutAttemptUpdate.graphql`.
+    static let workoutAttemptUpdateGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutAttemptUpdate", pathExtension: "graphql")
     /// Resource file `WorkoutById.graphql`.
     static let workoutByIdGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutById", pathExtension: "graphql")
     /// Resource file `WorkoutTypes.graphql`.
@@ -683,6 +685,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "WorkoutAttemptUpdate", withExtension: "graphql")`
+    static func workoutAttemptUpdateGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.workoutAttemptUpdateGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "WorkoutById", withExtension: "graphql")`
     static func workoutByIdGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.workoutByIdGraphql
@@ -805,7 +813,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 140 images.
+  /// This `R.image` struct is generated, and contains static references to 149 images.
   struct image {
     /// Image `Finish`.
     static let finish = Rswift.ImageResource(bundle: R.hostingBundle, name: "Finish")
@@ -1073,6 +1081,24 @@ struct R: Rswift.Validatable {
     static let top_view_elipse_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_elipse_ic")
     /// Image `top_view_flash_ic`.
     static let top_view_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_flash_ic")
+    /// Image `video_finished_excellent_ic`.
+    static let video_finished_excellent_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_finished_excellent_ic")
+    /// Image `video_finished_hard_ic`.
+    static let video_finished_hard_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_finished_hard_ic")
+    /// Image `video_finished_main_ic`.
+    static let video_finished_main_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_finished_main_ic")
+    /// Image `video_finished_more_ic`.
+    static let video_finished_more_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_finished_more_ic")
+    /// Image `video_not_end_hard_ic`.
+    static let video_not_end_hard_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_not_end_hard_ic")
+    /// Image `video_not_end_long_ic`.
+    static let video_not_end_long_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_not_end_long_ic")
+    /// Image `video_not_end_main_ic`.
+    static let video_not_end_main_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_not_end_main_ic")
+    /// Image `video_not_end_other_ic`.
+    static let video_not_end_other_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_not_end_other_ic")
+    /// Image `video_not_end_watch_ic`.
+    static let video_not_end_watch_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_not_end_watch_ic")
     /// Image `workout_activities_ic`.
     static let workout_activities_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_activities_ic")
     /// Image `workout_arrow_right_ic`.
@@ -2020,6 +2046,69 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_finished_excellent_ic", bundle: ..., traitCollection: ...)`
+    static func video_finished_excellent_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_finished_excellent_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_finished_hard_ic", bundle: ..., traitCollection: ...)`
+    static func video_finished_hard_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_finished_hard_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_finished_main_ic", bundle: ..., traitCollection: ...)`
+    static func video_finished_main_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_finished_main_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_finished_more_ic", bundle: ..., traitCollection: ...)`
+    static func video_finished_more_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_finished_more_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_not_end_hard_ic", bundle: ..., traitCollection: ...)`
+    static func video_not_end_hard_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_not_end_hard_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_not_end_long_ic", bundle: ..., traitCollection: ...)`
+    static func video_not_end_long_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_not_end_long_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_not_end_main_ic", bundle: ..., traitCollection: ...)`
+    static func video_not_end_main_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_not_end_main_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_not_end_other_ic", bundle: ..., traitCollection: ...)`
+    static func video_not_end_other_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_not_end_other_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "video_not_end_watch_ic", bundle: ..., traitCollection: ...)`
+    static func video_not_end_watch_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.video_not_end_watch_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "workout_activities_ic", bundle: ..., traitCollection: ...)`
     static func workout_activities_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.workout_activities_ic, compatibleWith: traitCollection)
@@ -2071,7 +2160,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 76 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 78 nibs.
   struct nib {
     /// Nib `ArcticGameComtroller`.
     static let arcticGameComtroller = _R.nib._ArcticGameComtroller()
@@ -2191,6 +2280,10 @@ struct R: Rswift.Validatable {
     static let splashViewController = _R.nib._SplashViewController()
     /// Nib `StartController`.
     static let startController = _R.nib._StartController()
+    /// Nib `VideoFinishedController`.
+    static let videoFinishedController = _R.nib._VideoFinishedController()
+    /// Nib `VideoNotFinished`.
+    static let videoNotFinished = _R.nib._VideoNotFinished()
     /// Nib `VideoPlayerController`.
     static let videoPlayerController = _R.nib._VideoPlayerController()
     /// Nib `WeightTableCell`.
@@ -2699,6 +2792,22 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "VideoFinishedController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.videoFinishedController) instead")
+    static func videoFinishedController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.videoFinishedController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "VideoNotFinished", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.videoNotFinished) instead")
+    static func videoNotFinished(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.videoNotFinished)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "VideoPlayerController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.videoPlayerController) instead")
     static func videoPlayerController(_: Void = ()) -> UIKit.UINib {
@@ -3068,6 +3177,14 @@ struct R: Rswift.Validatable {
 
     static func startController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.startController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func videoFinishedController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.videoFinishedController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func videoNotFinished(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.videoNotFinished.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func videoPlayerController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -6848,6 +6965,8 @@ struct _R: Rswift.Validatable {
       try _QuizeWeightController.validate()
       try _SplashViewController.validate()
       try _StartController.validate()
+      try _VideoFinishedController.validate()
+      try _VideoNotFinished.validate()
       try _VideoPlayerController.validate()
       try _WeightTableCell.validate()
       try _WorkoutController.validate()
@@ -7944,6 +8063,53 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "start_gradient_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_gradient_ic' is used in nib 'StartController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "start_login_button_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_login_button_ic' is used in nib 'StartController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "start_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_logo_ic' is used in nib 'StartController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _VideoFinishedController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "VideoFinishedController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_finished_excellent_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_finished_excellent_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_finished_hard_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_finished_hard_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_finished_main_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_finished_main_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_finished_more_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_finished_more_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "workout_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'workout_flash_ic' is used in nib 'VideoFinishedController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _VideoNotFinished: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "VideoNotFinished"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_not_end_hard_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_not_end_hard_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_not_end_long_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_not_end_long_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_not_end_main_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_not_end_main_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_not_end_other_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_not_end_other_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "video_not_end_watch_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'video_not_end_watch_ic' is used in nib 'VideoNotFinished', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

@@ -137,7 +137,7 @@ class EnergyController: BaseController {
 extension EnergyController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8 + presenter.workoutWidgets.count
+        return 7 + presenter.workoutWidgets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

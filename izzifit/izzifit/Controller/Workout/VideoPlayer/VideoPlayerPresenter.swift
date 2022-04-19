@@ -13,7 +13,11 @@ import UIKit
 // MARK: - Outputs Protocol
 //----------------------------------------------
 protocol VideoPlayerOutputProtocol: BaseController {
-    
+    func successUpdate()
+}
+
+extension VideoPlayerOutputProtocol {
+    func successUpdate() {}
 }
 
 //----------------------------------------------
@@ -29,7 +33,7 @@ protocol VideoPlayerPresenterProtocol: AnyObject {
 class VideoPlayerPresenter: VideoPlayerPresenterProtocol {
     
     private weak var view: VideoPlayerOutputProtocol?
-    private var attemptId: String?
+    var attemptId: String?
     
     required init(view: VideoPlayerOutputProtocol) {
         self.view = view
@@ -56,6 +60,19 @@ class VideoPlayerPresenter: VideoPlayerPresenterProtocol {
         } failureHandler: { _ in
             
         }
-
     }
+    
+    func updateEnd(of type: WorkoutAttemptFeedbackType, attemptId: String) {
+        
+        view?.startLoader()
+        let mutation = WorkoutAttemptUpdateMutation(attemptId: attemptId, record: WorkoutAttemptUpdateInput(feedback: type))
+        let _ = Network.shared.mutation(model: WorkoutAttemptUpdateModel.self, mutation, controller: view, successHandler: { [weak self] model in
+            self?.view?.stopLoading()
+            self?.view?.successUpdate()
+        }, failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+        })
+    }
+    
+    
 }

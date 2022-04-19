@@ -799,6 +799,85 @@ public struct UpdateProductInMealRecordInput: GraphQLMapConvertible {
   }
 }
 
+public struct WorkoutAttemptUpdateInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - feedback
+  public init(feedback: WorkoutAttemptFeedbackType) {
+    graphQLMap = ["feedback": feedback]
+  }
+
+  public var feedback: WorkoutAttemptFeedbackType {
+    get {
+      return graphQLMap["feedback"] as! WorkoutAttemptFeedbackType
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "feedback")
+    }
+  }
+}
+
+public enum WorkoutAttemptFeedbackType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case workoutAttemptFeedbackTypeHard
+  case workoutAttemptFeedbackTypeLong
+  case workoutAttemptFeedbackTypeWatching
+  case workoutAttemptFeedbackTypeOther
+  case workoutAttemptFeedbackTypeExcellent
+  case workoutAttemptFeedbackTypeCanDoMore
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "WORKOUT_ATTEMPT_FEEDBACK_TYPE_HARD": self = .workoutAttemptFeedbackTypeHard
+      case "WORKOUT_ATTEMPT_FEEDBACK_TYPE_LONG": self = .workoutAttemptFeedbackTypeLong
+      case "WORKOUT_ATTEMPT_FEEDBACK_TYPE_WATCHING": self = .workoutAttemptFeedbackTypeWatching
+      case "WORKOUT_ATTEMPT_FEEDBACK_TYPE_OTHER": self = .workoutAttemptFeedbackTypeOther
+      case "WORKOUT_ATTEMPT_FEEDBACK_TYPE_EXCELLENT": self = .workoutAttemptFeedbackTypeExcellent
+      case "WORKOUT_ATTEMPT_FEEDBACK_TYPE_CAN_DO_MORE": self = .workoutAttemptFeedbackTypeCanDoMore
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .workoutAttemptFeedbackTypeHard: return "WORKOUT_ATTEMPT_FEEDBACK_TYPE_HARD"
+      case .workoutAttemptFeedbackTypeLong: return "WORKOUT_ATTEMPT_FEEDBACK_TYPE_LONG"
+      case .workoutAttemptFeedbackTypeWatching: return "WORKOUT_ATTEMPT_FEEDBACK_TYPE_WATCHING"
+      case .workoutAttemptFeedbackTypeOther: return "WORKOUT_ATTEMPT_FEEDBACK_TYPE_OTHER"
+      case .workoutAttemptFeedbackTypeExcellent: return "WORKOUT_ATTEMPT_FEEDBACK_TYPE_EXCELLENT"
+      case .workoutAttemptFeedbackTypeCanDoMore: return "WORKOUT_ATTEMPT_FEEDBACK_TYPE_CAN_DO_MORE"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: WorkoutAttemptFeedbackType, rhs: WorkoutAttemptFeedbackType) -> Bool {
+    switch (lhs, rhs) {
+      case (.workoutAttemptFeedbackTypeHard, .workoutAttemptFeedbackTypeHard): return true
+      case (.workoutAttemptFeedbackTypeLong, .workoutAttemptFeedbackTypeLong): return true
+      case (.workoutAttemptFeedbackTypeWatching, .workoutAttemptFeedbackTypeWatching): return true
+      case (.workoutAttemptFeedbackTypeOther, .workoutAttemptFeedbackTypeOther): return true
+      case (.workoutAttemptFeedbackTypeExcellent, .workoutAttemptFeedbackTypeExcellent): return true
+      case (.workoutAttemptFeedbackTypeCanDoMore, .workoutAttemptFeedbackTypeCanDoMore): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [WorkoutAttemptFeedbackType] {
+    return [
+      .workoutAttemptFeedbackTypeHard,
+      .workoutAttemptFeedbackTypeLong,
+      .workoutAttemptFeedbackTypeWatching,
+      .workoutAttemptFeedbackTypeOther,
+      .workoutAttemptFeedbackTypeExcellent,
+      .workoutAttemptFeedbackTypeCanDoMore,
+    ]
+  }
+}
+
 public enum ProductMeasure: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
   case productMeasureTypeGram
@@ -2041,6 +2120,59 @@ public final class UpdateProductInMealMutation: GraphQLMutation {
       }
       set {
         resultMap.updateValue(newValue, forKey: "updateProductInMeal")
+      }
+    }
+  }
+}
+
+public final class WorkoutAttemptUpdateMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation WorkoutAttemptUpdate($attemptId: String!, $record: WorkoutAttemptUpdateInput!) {
+      workoutAttemptUpdate(attemptId: $attemptId, record: $record)
+    }
+    """
+
+  public let operationName: String = "WorkoutAttemptUpdate"
+
+  public var attemptId: String
+  public var record: WorkoutAttemptUpdateInput
+
+  public init(attemptId: String, record: WorkoutAttemptUpdateInput) {
+    self.attemptId = attemptId
+    self.record = record
+  }
+
+  public var variables: GraphQLMap? {
+    return ["attemptId": attemptId, "record": record]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("workoutAttemptUpdate", arguments: ["attemptId": GraphQLVariable("attemptId"), "record": GraphQLVariable("record")], type: .scalar(Bool.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(workoutAttemptUpdate: Bool? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "workoutAttemptUpdate": workoutAttemptUpdate])
+    }
+
+    public var workoutAttemptUpdate: Bool? {
+      get {
+        return resultMap["workoutAttemptUpdate"] as? Bool
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "workoutAttemptUpdate")
       }
     }
   }

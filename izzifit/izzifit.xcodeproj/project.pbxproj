@@ -55,6 +55,8 @@
 		02354E942809356B005A8272 /* DoExercise.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02354E932809356B005A8272 /* DoExercise.graphql */; };
 		02354E96280935A1005A8272 /* DoExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02354E95280935A1005A8272 /* DoExerciseModel.swift */; };
 		02354E98280935D6005A8272 /* VideoPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02354E97280935D6005A8272 /* VideoPlayerPresenter.swift */; };
+		02354E9C28098B8C005A8272 /* VideoNotFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02354E9A28098B8C005A8272 /* VideoNotFinished.swift */; };
+		02354E9D28098B8C005A8272 /* VideoNotFinished.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02354E9B28098B8C005A8272 /* VideoNotFinished.xib */; };
 		0239712427E1CD6E0087113A /* WriteToUsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239712227E1CD6E0087113A /* WriteToUsController.swift */; };
 		0239712527E1CD6E0087113A /* WriteToUsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0239712327E1CD6E0087113A /* WriteToUsController.xib */; };
 		023CDC2D280408400056F022 /* MenuLogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CDC2B280408400056F022 /* MenuLogoutCell.swift */; };
@@ -159,6 +161,10 @@
 		0290B39527D212CA00381B42 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39427D212CA00381B42 /* UIView+Extension.swift */; };
 		0290B39927D2340800381B42 /* EnerdyTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39727D2340800381B42 /* EnerdyTodayCell.swift */; };
 		0290B39A27D2340800381B42 /* EnerdyTodayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0290B39827D2340800381B42 /* EnerdyTodayCell.xib */; };
+		029EDBCF280D3FCB00FC8748 /* VideoFinishedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029EDBCD280D3FCB00FC8748 /* VideoFinishedController.swift */; };
+		029EDBD0280D3FCB00FC8748 /* VideoFinishedController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 029EDBCE280D3FCB00FC8748 /* VideoFinishedController.xib */; };
+		029EDBD3280D727A00FC8748 /* WorkoutAttemptUpdate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 029EDBD2280D727A00FC8748 /* WorkoutAttemptUpdate.graphql */; };
+		029EDBD5280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029EDBD4280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift */; };
 		02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA327C393A300D31FB4 /* EnergyController.swift */; };
 		02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDA427C393A300D31FB4 /* EnergyController.xib */; };
 		02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */; };
@@ -380,6 +386,8 @@
 		02354E932809356B005A8272 /* DoExercise.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoExercise.graphql; sourceTree = "<group>"; };
 		02354E95280935A1005A8272 /* DoExerciseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoExerciseModel.swift; sourceTree = "<group>"; };
 		02354E97280935D6005A8272 /* VideoPlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerPresenter.swift; sourceTree = "<group>"; };
+		02354E9A28098B8C005A8272 /* VideoNotFinished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNotFinished.swift; sourceTree = "<group>"; };
+		02354E9B28098B8C005A8272 /* VideoNotFinished.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoNotFinished.xib; sourceTree = "<group>"; };
 		0239712227E1CD6E0087113A /* WriteToUsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteToUsController.swift; sourceTree = "<group>"; };
 		0239712327E1CD6E0087113A /* WriteToUsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WriteToUsController.xib; sourceTree = "<group>"; };
 		023CDC2B280408400056F022 /* MenuLogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLogoutCell.swift; sourceTree = "<group>"; };
@@ -486,6 +494,10 @@
 		0290B39427D212CA00381B42 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		0290B39727D2340800381B42 /* EnerdyTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnerdyTodayCell.swift; sourceTree = "<group>"; };
 		0290B39827D2340800381B42 /* EnerdyTodayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnerdyTodayCell.xib; sourceTree = "<group>"; };
+		029EDBCD280D3FCB00FC8748 /* VideoFinishedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFinishedController.swift; sourceTree = "<group>"; };
+		029EDBCE280D3FCB00FC8748 /* VideoFinishedController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoFinishedController.xib; sourceTree = "<group>"; };
+		029EDBD2280D727A00FC8748 /* WorkoutAttemptUpdate.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutAttemptUpdate.graphql; sourceTree = "<group>"; };
+		029EDBD4280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAttemptUpdateModel.swift; sourceTree = "<group>"; };
 		02A5CDA327C393A300D31FB4 /* EnergyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyController.swift; sourceTree = "<group>"; };
 		02A5CDA427C393A300D31FB4 /* EnergyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyController.xib; sourceTree = "<group>"; };
 		02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
@@ -898,6 +910,15 @@
 				02354E95280935A1005A8272 /* DoExerciseModel.swift */,
 			);
 			path = DoExercise;
+			sourceTree = "<group>";
+		};
+		02354E9928098B59005A8272 /* VideoNotFinished */ = {
+			isa = PBXGroup;
+			children = (
+				02354E9A28098B8C005A8272 /* VideoNotFinished.swift */,
+				02354E9B28098B8C005A8272 /* VideoNotFinished.xib */,
+			);
+			path = VideoNotFinished;
 			sourceTree = "<group>";
 		};
 		0239712127E1CD3B0087113A /* WriteToUsController */ = {
@@ -1448,6 +1469,24 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		029EDBCC280D3FA700FC8748 /* VideoFinished */ = {
+			isa = PBXGroup;
+			children = (
+				029EDBCD280D3FCB00FC8748 /* VideoFinishedController.swift */,
+				029EDBCE280D3FCB00FC8748 /* VideoFinishedController.xib */,
+			);
+			path = VideoFinished;
+			sourceTree = "<group>";
+		};
+		029EDBD1280D726400FC8748 /* WorkoutAttemptUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				029EDBD2280D727A00FC8748 /* WorkoutAttemptUpdate.graphql */,
+				029EDBD4280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift */,
+			);
+			path = WorkoutAttemptUpdate;
+			sourceTree = "<group>";
+		};
 		02A5CDA227C3938200D31FB4 /* Energy */ = {
 			isa = PBXGroup;
 			children = (
@@ -1467,6 +1506,8 @@
 				02C487F527F184770010D4FA /* WorkoutDetail */,
 				02BC128A27F3299300678305 /* WorkoutDetailMuscle */,
 				023CDC3D2805BF390056F022 /* VideoPlayer */,
+				02354E9928098B59005A8272 /* VideoNotFinished */,
+				029EDBCC280D3FA700FC8748 /* VideoFinished */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -1641,6 +1682,7 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				029EDBD1280D726400FC8748 /* WorkoutAttemptUpdate */,
 				02354E9228093554005A8272 /* DoExercise */,
 				02354E8D280934B7005A8272 /* StartWorkout */,
 				02AC22242800665000440DFB /* OrderCreate */,
@@ -2382,6 +2424,7 @@
 				FE1403B427E1EDC2002F5819 /* ProfileController.xib in Resources */,
 				02D066C027BBB57D00D12C5F /* Inter-Medium.ttf in Resources */,
 				FE7CF8B727E48F760099682E /* PositionTableCell.xib in Resources */,
+				029EDBD0280D3FCB00FC8748 /* VideoFinishedController.xib in Resources */,
 				02C3DD6C27BEDB46004E5C65 /* ProfileUpdate.graphql in Resources */,
 				020CB3DA27E9F43D00F97A76 /* UpdateProductInMeal.graphql in Resources */,
 				0227DABD27C6768F008AB26B /* MenuWeightController.xib in Resources */,
@@ -2392,6 +2435,7 @@
 				0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */,
 				0227DA9727C619F7008AB26B /* MenuCell.xib in Resources */,
 				02AB486527E06DEE00F35EE2 /* FoodRecomendedCell.xib in Resources */,
+				029EDBD3280D727A00FC8748 /* WorkoutAttemptUpdate.graphql in Resources */,
 				02D066EA27BC1BC900D12C5F /* QuizeWeightController.xib in Resources */,
 				02B1E71A27DA003B00C9E610 /* EnergyTrainingCell.xib in Resources */,
 				023CDC2E280408400056F022 /* MenuLogoutCell.xib in Resources */,
@@ -2445,6 +2489,7 @@
 				02F2D94027D0BF5C00E9FB68 /* AskQuestion.graphql in Resources */,
 				025463BB27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql in Resources */,
 				0227DAB827C67334008AB26B /* MenuHeightController.xib in Resources */,
+				02354E9D28098B8C005A8272 /* VideoNotFinished.xib in Resources */,
 				02BC129427F358EE00678305 /* WorkoutDetailMuscleСell.xib in Resources */,
 				02B3017227EB22EA0045C607 /* SaveMood.graphql in Resources */,
 				02A5CDAB27C393DC00D31FB4 /* WorkoutController.xib in Resources */,
@@ -2524,7 +2569,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
 		};
 		02D066AB27BBA8A800D12C5F /* RSwift */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2595,6 +2640,7 @@
 				02AB486A27E07EFB00F35EE2 /* FoodTopTitleCell.swift in Sources */,
 				0290B39327D2045400381B42 /* ShadowsView.swift in Sources */,
 				02AB486427E06DEE00F35EE2 /* FoodRecomendedCell.swift in Sources */,
+				029EDBCF280D3FCB00FC8748 /* VideoFinishedController.swift in Sources */,
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
 				FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */,
 				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
@@ -2658,11 +2704,13 @@
 				02AC22282800677B00440DFB /* OrderCreateModel.swift in Sources */,
 				020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */,
 				020CB3DC27E9F46600F97A76 /* UpdateProductInMealModel.swift in Sources */,
+				029EDBD5280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift in Sources */,
 				0227DABC27C6768F008AB26B /* MenuWeightController.swift in Sources */,
 				02B225C027BD7B4F0035CFA2 /* LoginModel.swift in Sources */,
 				02BACF1627F4585B00B7562C /* RecommendWorkoutsModel.swift in Sources */,
 				0227DAB727C67334008AB26B /* MenuHeightController.swift in Sources */,
 				02D066D327BBD12600D12C5F /* QuizeGenderController.swift in Sources */,
+				02354E9C28098B8C005A8272 /* VideoNotFinished.swift in Sources */,
 				02A5CDC227C4247300D31FB4 /* QuizeFoodCell.swift in Sources */,
 				024779CD27DCB8BF00AAFE3D /* Date+Extension.swift in Sources */,
 				026338A027DB6D0200DC0325 /* EnergyProgressesPresenter.swift in Sources */,
@@ -2927,7 +2975,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
@@ -2961,7 +3009,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
@@ -3056,7 +3104,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
