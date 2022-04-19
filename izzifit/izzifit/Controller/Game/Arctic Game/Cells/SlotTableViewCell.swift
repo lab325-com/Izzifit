@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SlotTableCell: UITableViewCell {
+class SlotTableViewCell: UITableViewCell {
     
     static let id = "SlotTableCell"
     
@@ -28,7 +28,7 @@ class SlotTableCell: UITableViewCell {
         borderView.layer.cornerRadius = 5
         borderView.layer.masksToBounds = true
         borderView.layer.borderWidth = 1
-        borderView.layer.borderColor = clr(color: .grayText)?.cgColor
+        borderView.layer.borderColor = UIColor.blue.cgColor
         
         ui.layout(vw: borderView,
                   view: contentView,
@@ -36,7 +36,6 @@ class SlotTableCell: UITableViewCell {
                   bottomC: 0,
                   leadingC: 0,
                   trailingC: 0)
-    
         
         ui.setButton(button: slotBtn,
                      view: contentView,

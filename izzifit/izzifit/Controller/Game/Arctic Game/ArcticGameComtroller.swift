@@ -15,14 +15,23 @@ class ArcticGameComtroller: BaseController {
     @IBOutlet weak var energyLabel: UILabel!
     @IBOutlet weak var slotBackImgVw: UIImageView!
     @IBOutlet weak var spinBtn: UIButton!
+    @IBOutlet weak var slotHouseImgVw: UIImageView!
+    @IBOutlet weak var resultLbl: UILabel!
     
+    @IBOutlet weak var shadowViewBottomConstraint: NSLayoutConstraint!
     
-   private var collectionView: UICollectionView!
-   private var timerCount = 0
-   private var timer = Timer()
+    @IBOutlet weak var slotHouseImgVwTopConstraint: NSLayoutConstraint!
+    //
+   
+    @IBOutlet weak var resultLblTopConstraint: NSLayoutConstraint!
+    
+    private var collectionView: UICollectionView!
+    private var timerCount = 0
+    private var timer = Timer()
+    private var spinManager = SpinLogicManager()
     
     override func viewDidLoad() {
-      //  hiddenNavigationBar = true
+        //  hiddenNavigationBar = true
         super.viewDidLoad()
         setup()
         setCollectionView()
@@ -37,6 +46,17 @@ class ArcticGameComtroller: BaseController {
     }
     
     private func setup() {
+//        spinBtn.titleLabel?.font = UIFont
+        
+        var div: CGFloat = 0
+        if UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0 > 0 {
+            div = (UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0) - 20
+        }
+        resultLblTopConstraint.constant =  view.w / 9.37
+        slotHouseImgVwTopConstraint.constant = view.h / 4.51
+//        slotBackImgVw.topAnchor.constraint(equalTo: slotHouseImgVw.topAnchor, constant: view.h / 6 +   div).isActive = true
+        slotBackImgVw.centerYAnchor.constraint(equalTo: slotHouseImgVw.centerYAnchor, constant: (view.h / 10.68) / 2).isActive = true
+        shadowViewBottomConstraint.constant = view.h / 10
         coinslabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
         energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
         
@@ -54,10 +74,10 @@ class ArcticGameComtroller: BaseController {
     private func setCollectionView() {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: view.w / 5.55,
-                                 height: view.w / 2.04)
+        layout.itemSize = CGSize(width: view.h / 12.01,
+                                 height: view.h / 4.41)
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = view.w / 37.5
+        layout.minimumLineSpacing = view.h / 81.2
         collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: layout)
         collectionView.backgroundColor = . clear
@@ -65,28 +85,35 @@ class ArcticGameComtroller: BaseController {
         collectionView.delegate = self
         collectionView.register(SlotCollectionCell.self,
                                 forCellWithReuseIdentifier: SlotCollectionCell.id)
+//
+//        switch UIDevice.current.model. {
+//
+//        default:
+//            <#code#>
+//        }
         
         view.ui.genericlLayout(object: collectionView,
                                parentView: slotBackImgVw,
-                               topC: -15,
-                               bottomC: 15,
-                               leadingC: view.w / 33.5,
-                               trailingC: 0)
+                               width: view.h / 3.60,
+                               height: view.h / 5.77,
+                               centerV: -view.h / 40,
+                               centerH: view.h / 81.2)
     }
     
     @IBAction func spinAction(_ sender: Any) {
         
-        if var energy = KeychainService.standard.me?.energy {
-            energy -= 1
-            KeychainService.standard.me?.energy = energy
+        spinManager.spinAction(coinsLbl: coinslabel,
+                               energyLbl: energyLabel,
+                               resultLbl: resultLbl,
+                               collectionView: collectionView,
+                               spinBtn: spinBtn) {
+            
+            timer = Timer.scheduledTimer(timeInterval: 0.3,
+                                         target: self,
+                                         selector: #selector(randomSpinSlots),
+                                         userInfo: nil,
+                                         repeats: true)
         }
-        setup()
-        spinBtn.isUserInteractionEnabled = false
-        timer = Timer.scheduledTimer(timeInterval: 0.3,
-                                     target: self,
-                                     selector: #selector(randomSpinSlots),
-                                     userInfo: nil,
-                                     repeats: true)
     }
     
     @objc
@@ -104,26 +131,10 @@ class ArcticGameComtroller: BaseController {
                               animated: true)
         }
         guard timerCount == 13 else { return }
-        
-        let resultIndices = getResultIndices(collectionView)
-        print(resultIndices)
         timer.invalidate()
         timerCount = 0
-        spinBtn.isUserInteractionEnabled = true
     }
     
-    
-    func getResultIndices(_ collectionView: UICollectionView) -> [Int] {
-        var indicesArray = [Int]()
-        
-        for item in collectionView.visibleCells.indices {
-            
-            let middleIndex = (collectionView.cellForItem(at: [0,item]) as! SlotCollectionCell).tableView.visibleCells[1].tag
-            indicesArray.append(middleIndex)
-        }
-        
-        return indicesArray
-    }
 }
 
 extension ArcticGameComtroller: UICollectionViewDelegate, UICollectionViewDataSource {
