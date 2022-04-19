@@ -111,7 +111,7 @@
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_finished_more_ic" translatesAutoresizingMaskIntoConstraints="NO" id="6zp-0j-TmA">
                                     <rect key="frame" x="9" y="8" width="32" height="32"/>
                                 </imageView>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mdD-qn-KMV">
+                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mdD-qn-KMV">
                                     <rect key="frame" x="286.33333333333331" y="0.0" width="24.666666666666686" height="48"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_water_flash_ic" translatesAutoresizingMaskIntoConstraints="NO" id="QLE-Rt-ay0">
@@ -166,7 +166,7 @@
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_finished_excellent_ic" translatesAutoresizingMaskIntoConstraints="NO" id="FZV-rS-HCd">
                                     <rect key="frame" x="9" y="8" width="32" height="32"/>
                                 </imageView>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="niy-DL-acH">
+                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="niy-DL-acH">
                                     <rect key="frame" x="286.33333333333331" y="0.0" width="24.666666666666686" height="48"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_water_flash_ic" translatesAutoresizingMaskIntoConstraints="NO" id="mO5-eu-uEB">
@@ -221,7 +221,7 @@
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_finished_hard_ic" translatesAutoresizingMaskIntoConstraints="NO" id="Pof-LL-rbK">
                                     <rect key="frame" x="9" y="8" width="32" height="32"/>
                                 </imageView>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zLT-qo-Gmh">
+                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zLT-qo-Gmh">
                                     <rect key="frame" x="286.33333333333331" y="0.0" width="24.666666666666686" height="48"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_water_flash_ic" translatesAutoresizingMaskIntoConstraints="NO" id="Qrf-7h-af0">
