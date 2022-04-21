@@ -302,7 +302,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 52 files.
+  /// This `R.file` struct is generated, and contains static references to 53 files.
   struct file {
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
@@ -322,6 +322,8 @@ struct R: Rswift.Validatable {
     static let drinkWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DrinkWidget", pathExtension: "graphql")
     /// Resource file `FoodGroups.graphql`.
     static let foodGroupsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "FoodGroups", pathExtension: "graphql")
+    /// Resource file `GoogleService-Info.plist`.
+    static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
     /// Resource file `Inter-Black.ttf`.
     static let interBlackTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Black", pathExtension: "ttf")
     /// Resource file `Inter-Bold.ttf`.
@@ -460,6 +462,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "FoodGroups", withExtension: "graphql")`
     static func foodGroupsGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.foodGroupsGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GoogleService-Info", withExtension: "plist")`
+    static func googleServiceInfoPlist(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.googleServiceInfoPlist
       return fileResource.bundle.url(forResource: fileResource)
     }
 

@@ -8,6 +8,7 @@
 import UIKit
 import Rswift
 import SwiftyStoreKit
+import Firebase
 
 //----------------------------------------------
 // MARK: - Typealias
@@ -23,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        FirebaseApp.configure()
         checkingPurchase()
         
         return RootRouter.sharedInstance.application(didFinishLaunchingWithOptions: launchOptions as [UIApplication.LaunchOptionsKey: Any]?, window: window ?? UIWindow(frame: UIScreen.main.bounds))
