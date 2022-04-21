@@ -38,6 +38,7 @@ class WorkoutExercisesCell: UICollectionViewCell {
 
     func setupCell(model: [WorkoutByIdMainModel]) {
         self.models = model
+        self.collectionView.reloadData()
     }
 }
 
