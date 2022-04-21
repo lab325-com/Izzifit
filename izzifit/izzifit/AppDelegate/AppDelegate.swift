@@ -9,6 +9,7 @@ import UIKit
 import Rswift
 import SwiftyStoreKit
 import Firebase
+import Siren
 
 //----------------------------------------------
 // MARK: - Typealias
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         checkingPurchase()
+        forceUpdate()
         
         return RootRouter.sharedInstance.application(didFinishLaunchingWithOptions: launchOptions as [UIApplication.LaunchOptionsKey: Any]?, window: window ?? UIWindow(frame: UIScreen.main.bounds))
     }
@@ -79,6 +81,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 default:
                     break
                 }
+            }
+        }
+    }
+    
+    private func forceUpdate() {
+        let siren = Siren.shared
+        let rules = Rules(promptFrequency: .immediately, forAlertType: .force)
+        siren.rulesManager = RulesManager(globalRules: rules)
+        siren.wail(performCheck: .onForeground) { (results) in
+            switch results {
+            case .success(let updateResults):
+                if updateResults.alertAction == .appStore {
+                    guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1609221440") else { return }
+                    if #available(iOS 10, *) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    } else {
+                        UIApplication.shared.openURL(url)
+                    }
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }

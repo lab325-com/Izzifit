@@ -8,4 +8,6 @@ target 'izzifit' do
   # Pods for izzifit
   pod 'R.swift'
   pod 'SpreadsheetView'
+  pod 'Siren'
+  
 end
