@@ -63,6 +63,9 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     private let exercises: [ExerciseModel]
     
     private var pogresses: [PlainHorizontalProgressBar] = []
+    private var playerItemBufferEmptyObserver: NSKeyValueObservation?
+    private var playerItemBufferKeepUpObserver: NSKeyValueObservation?
+    private var playerItemBufferFullObserver: NSKeyValueObservation?
     
     private var currentIndex = 0 {
         didSet {
@@ -170,6 +173,7 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     
     private func setup() {
         
+        
         NotificationCenter.default.addObserver(self, selector: #selector(backgorundNotification), name: UIApplication.didEnterBackgroundNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(foregroundNotification), name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -213,6 +217,7 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
             self.circleView.createCircularPath(backColor: UIColor(red: 0.247, green: 0.245, blue: 0.338, alpha: 0.2), frontColor: UIColor(rgb: 0xFF42A8), radius: 70, lineWidth: 8)
         }
         
+        obserVideo()
     }
     
     
@@ -380,27 +385,13 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
             currentIndex += 1
         } else if pogresses.first(where: {$0.progress != 1.0}) != nil {
             
-            player = nil
-            NotificationCenter.default.removeObserver(self)
-            timer?.invalidate()
-            timer = nil
-            timerRest?.invalidate()
-            timerRest = nil
-            timerPlayer?.invalidate()
-            timerPlayer = nil
+            removeAll()
             
             guard let atteptId = presenter.attemptId else { return }
             
             WorkoutRouter(presenter: navigationController).pushVideoNotFinished(delegate: self, attemptId: atteptId)
         } else {
-            player = nil
-            NotificationCenter.default.removeObserver(self)
-            timer?.invalidate()
-            timer = nil
-            timerRest?.invalidate()
-            timerRest = nil
-            timerPlayer?.invalidate()
-            timerPlayer = nil
+            removeAll()
             
             guard let atteptId = presenter.attemptId else { return }
             WorkoutRouter(presenter: navigationController).pushVideoFinished(attemptId: atteptId, workout: workout)
@@ -438,6 +429,26 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
                 view.layer.backgroundColor = UIColor(rgb: 0xFFFFFF, alpha: 0.2).cgColor
             }
         }
+    }
+    
+    private func removeAll() {
+        player = nil
+        NotificationCenter.default.removeObserver(self)
+        timer?.invalidate()
+        timer = nil
+        timerRest?.invalidate()
+        timerRest = nil
+        timerPlayer?.invalidate()
+        timerPlayer = nil
+        
+        playerItemBufferEmptyObserver?.invalidate()
+        playerItemBufferEmptyObserver = nil
+            
+        playerItemBufferKeepUpObserver?.invalidate()
+        playerItemBufferKeepUpObserver = nil
+            
+        playerItemBufferFullObserver?.invalidate()
+        playerItemBufferFullObserver = nil
     }
     
     //----------------------------------------------
@@ -482,15 +493,7 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     }
     
     @IBAction func actionBack(_ sender: UIButton) {
-        player = nil
-        NotificationCenter.default.removeObserver(self)
-        timer?.invalidate()
-        timer = nil
-        timerRest?.invalidate()
-        timerRest = nil
-        timerPlayer?.invalidate()
-        timerPlayer = nil
-        
+        removeAll()
         actionBack()
     }
     
@@ -585,5 +588,38 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
 extension VideoPlayerController: VideoNotFinishedProtocol {
     func videoNotFinishedGoBack(controller: VideoNotFinished) {
         currentIndex = 0
+    }
+}
+
+extension VideoPlayerController {
+    func obserVideo() {
+        
+        playerItemBufferEmptyObserver = player?.currentItem?.observe(\AVPlayerItem.isPlaybackBufferEmpty, options: [.new]) { [weak self] (_, _) in
+            guard let self = self else { return }
+            if self.palyerType == .plaing {
+                self.timerPlayer?.invalidate()
+                self.timerPlayer = nil
+            }
+            debugPrint("load---->>>loading")
+        }
+        
+        playerItemBufferKeepUpObserver = player?.currentItem?.observe(\AVPlayerItem.isPlaybackLikelyToKeepUp, options: [.new]) { [weak self] (_, _) in
+            guard let self = self else { return }
+            if self.palyerType == .plaing, self.timerPlayer == nil {
+                self.timerPlayer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.getPlayerTimer), userInfo: nil, repeats: true)
+                self.timerPlayer?.fire()
+            }
+            debugPrint("load---->>>dissmisLoad")
+        }
+        
+        playerItemBufferFullObserver = player?.currentItem?.observe(\AVPlayerItem.isPlaybackBufferFull, options: [.new]) { [weak self] (_, _) in
+            guard let self = self else { return }
+            
+            if self.palyerType == .plaing, self.timerPlayer == nil {
+                self.timerPlayer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.getPlayerTimer), userInfo: nil, repeats: true)
+                self.timerPlayer?.fire()
+            }
+            debugPrint("load---->>>dissmisLoad")
+        }
     }
 }

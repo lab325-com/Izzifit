@@ -411,6 +411,7 @@ public enum GoalType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
   case goalTypeLoseWeight
   case goalTypeMuscle
   case goalTypeFun
+  case goalTypePlay
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
@@ -420,6 +421,7 @@ public enum GoalType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
       case "GOAL_TYPE_LOSE_WEIGHT": self = .goalTypeLoseWeight
       case "GOAL_TYPE_MUSCLE": self = .goalTypeMuscle
       case "GOAL_TYPE_FUN": self = .goalTypeFun
+      case "GOAL_TYPE_PLAY": self = .goalTypePlay
       default: self = .__unknown(rawValue)
     }
   }
@@ -430,6 +432,7 @@ public enum GoalType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
       case .goalTypeLoseWeight: return "GOAL_TYPE_LOSE_WEIGHT"
       case .goalTypeMuscle: return "GOAL_TYPE_MUSCLE"
       case .goalTypeFun: return "GOAL_TYPE_FUN"
+      case .goalTypePlay: return "GOAL_TYPE_PLAY"
       case .__unknown(let value): return value
     }
   }
@@ -440,6 +443,7 @@ public enum GoalType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
       case (.goalTypeLoseWeight, .goalTypeLoseWeight): return true
       case (.goalTypeMuscle, .goalTypeMuscle): return true
       case (.goalTypeFun, .goalTypeFun): return true
+      case (.goalTypePlay, .goalTypePlay): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -451,6 +455,7 @@ public enum GoalType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
       .goalTypeLoseWeight,
       .goalTypeMuscle,
       .goalTypeFun,
+      .goalTypePlay,
     ]
   }
 }
@@ -2288,7 +2293,7 @@ public final class CaloriesWidgetQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("Calories", type: .list(.object(Calory.selections))),
-          GraphQLField("target", type: .scalar(Int.self)),
+          GraphQLField("target", type: .scalar(Double.self)),
         ]
       }
 
@@ -2298,7 +2303,7 @@ public final class CaloriesWidgetQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(calories: [Calory?]? = nil, target: Int? = nil) {
+      public init(calories: [Calory?]? = nil, target: Double? = nil) {
         self.init(unsafeResultMap: ["__typename": "CaloriesWidget", "Calories": calories.flatMap { (value: [Calory?]) -> [ResultMap?] in value.map { (value: Calory?) -> ResultMap? in value.flatMap { (value: Calory) -> ResultMap in value.resultMap } } }, "target": target])
       }
 
@@ -2320,9 +2325,9 @@ public final class CaloriesWidgetQuery: GraphQLQuery {
         }
       }
 
-      public var target: Int? {
+      public var target: Double? {
         get {
-          return resultMap["target"] as? Int
+          return resultMap["target"] as? Double
         }
         set {
           resultMap.updateValue(newValue, forKey: "target")
@@ -2764,7 +2769,7 @@ public final class DrinkWidgetQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("doneCups", type: .scalar(Int.self)),
-          GraphQLField("energy", type: .scalar(Int.self)),
+          GraphQLField("energy", type: .scalar(Double.self)),
           GraphQLField("energyTotal", type: .scalar(Int.self)),
           GraphQLField("left", type: .scalar(Int.self)),
           GraphQLField("totalCups", type: .scalar(Int.self)),
@@ -2777,7 +2782,7 @@ public final class DrinkWidgetQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(doneCups: Int? = nil, energy: Int? = nil, energyTotal: Int? = nil, `left`: Int? = nil, totalCups: Int? = nil) {
+      public init(doneCups: Int? = nil, energy: Double? = nil, energyTotal: Int? = nil, `left`: Int? = nil, totalCups: Int? = nil) {
         self.init(unsafeResultMap: ["__typename": "DrinkWidget", "doneCups": doneCups, "energy": energy, "energyTotal": energyTotal, "left": `left`, "totalCups": totalCups])
       }
 
@@ -2799,9 +2804,9 @@ public final class DrinkWidgetQuery: GraphQLQuery {
         }
       }
 
-      public var energy: Int? {
+      public var energy: Double? {
         get {
-          return resultMap["energy"] as? Int
+          return resultMap["energy"] as? Double
         }
         set {
           resultMap.updateValue(newValue, forKey: "energy")

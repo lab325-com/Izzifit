@@ -4,6 +4,7 @@
 
 CONFIGURATION_NAME = Debug
 HOST_NAME = https:\/\/api.front.dev.izzifit.mob325.com/graphql
+//  https:\/\/api.front.prod.izzifit.mob325.com
 SUPPORT_EMAIL = support@lill.co
 APP_NAME = Lill
 HOST_REST_NAME = https:\/\/api.front.dev.lill.mob325.com/
