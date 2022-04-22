@@ -20,6 +20,15 @@ struct SpinLogicManager {
         }
     }
     
+   static let array: [Int] = {
+        var array = [Int]()
+        for _ in 0...2800 {
+            let random = Int(arc4random_uniform(5))
+            array.append(random)
+        }
+        return array
+    }()
+    
     
     func spinAction(coinsLbl: UILabel,
                     energyLbl: UILabel,

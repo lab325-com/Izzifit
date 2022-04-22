@@ -10,14 +10,6 @@ import UIKit
 class SlotCollectionCell: UICollectionViewCell {
     
     static let id = "SlotCell"
-    var array: [Int] = {
-        var array = [Int]()
-        for i in 0...4 {
-            array.append(i)
-        }
-        array.shuffle()
-        return array
-    }()
     
     let tableView = UITableView()
     
@@ -48,14 +40,14 @@ class SlotCollectionCell: UICollectionViewCell {
 
 extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return SpinLogicManager.array.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SlotTableViewCell.id,
                                                  for: indexPath) as! SlotTableViewCell
-        cell.fillCellby(tagBtn: array[indexPath.row])
-        cell.tag = array[indexPath.row]
+        cell.fillCellby(tagBtn: SpinLogicManager.array[indexPath.row])
+        cell.tag = SpinLogicManager.array[indexPath.row]
         return cell
     }
     
