@@ -177,7 +177,7 @@ struct SpinLogicManager {
 }
 
 enum SpinCombination {
-    case pairHummers,setHummers
+    case pairHummers, setHummers
     case pairDollars, setDollars
     case pairSnowflakes, setSnowflakes
     case pairMoneyBags, setMoneyBags
