@@ -13,7 +13,7 @@ struct DrinkWidgetModel: Codable {
 
 struct DrinkWidgetMainModel: Codable {
     let doneCups: Int
-    let energy: Int
+    let energy: Float
     let energyTotal: Int
     let left: Int
     let totalCups: Int

@@ -54,7 +54,7 @@ class WorkoutController: BaseController {
         setup()
         setupCollection()
     }
-    
+
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
@@ -63,14 +63,7 @@ class WorkoutController: BaseController {
         
         collectionView.isHidden = true
         
-        coinLabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        flashLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
-        
-        if let name = KeychainService.standard.me?.name {
-            nameLabel.text = RLocalization.energy_header_title(name)
-        } else {
-            nameLabel.isHidden = true
-        }
+        updateMe()
         
         topView.layer.cornerRadius = 30
         topView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -95,6 +88,17 @@ class WorkoutController: BaseController {
                                            bundle: nil),
                                 forCellWithReuseIdentifier: workoutExercisesIdentifier)
         
+    }
+    
+    func updateMe() {
+        coinLabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        flashLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        
+        if let name = KeychainService.standard.me?.name {
+            nameLabel.text = RLocalization.energy_header_title(name)
+        } else {
+            nameLabel.isHidden = true
+        }
     }
 }
 

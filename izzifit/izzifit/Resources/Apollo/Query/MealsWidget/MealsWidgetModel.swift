@@ -12,7 +12,7 @@ struct MealsWidgetModel: Codable {
 }
 
 struct MealsWidgetMainModel: Codable {
-    let energy: Int?
+    let energy: Float?
     let energyTotal: Int?
     let meals: [MealModel?]?
     let sources: [SourceModel?]?

@@ -90,12 +90,15 @@ class MainTabBarController: BaseController {
             containerProfileView.isHidden = true
             containerMenuView.isHidden = true
             self.addContainer(child: energy, to: containerEnergyView)
+            energy.updateMe()
+            energy.getMe()      
         case .workout:
             containerEnergyView.isHidden = true
             containerWorkoutView.isHidden = false
             containerProfileView.isHidden = true
             containerMenuView.isHidden = true
             self.addContainer(child: workout, to: containerWorkoutView)
+            workout.updateMe()
         case .profile:
             
             containerEnergyView.isHidden = true

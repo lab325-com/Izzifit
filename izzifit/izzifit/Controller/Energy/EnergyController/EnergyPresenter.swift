@@ -216,12 +216,25 @@ class EnergyPresenter: EnergyPresenterProtocol {
     private func updateToday() {
         let query5 = ProgressQuery()
         let _ = Network.shared.query(model: TodayProgressModel.self, query5, controller: view, successHandler: { [weak self] model in
+            
+            self?.getMe()
             self?.todayProgress = model.progress
             self?.view?.stopLoading()
-            self?.view?.success()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
             self?.view?.failure()
         })
+    }
+    
+    func getMe() {
+        let query = MeQuery()
+        let _ = Network.shared.query(model: MeModel.self, query, controller: view) { [weak self] model in
+            
+            KeychainService.standard.me = model.me
+            self?.view?.success()
+        } failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+            self?.view?.failure()
+        }
     }
 }
