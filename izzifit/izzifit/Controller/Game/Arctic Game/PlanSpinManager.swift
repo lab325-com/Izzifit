@@ -14,10 +14,15 @@ struct SlotRowModel {
 
 protocol PlanSpinProtocol {
     var combinations: [[Int]] { get }
-    var globalSpinCounter: Int { get set }
-    func get40SlotsUponRandomSlotInt(startElement: Int, tableView: UITableView) -> [SlotRowModel] // cнизу вверх
-    func spin(to elementIndex: Int, check currentRandomSlotModel: SlotRowModel, tableView: UITableView) -> Int // Indexpath.row of necessary element - это мы отдаем вместо randomSlotInt
+    var firstSpinCounter: Int { get set }
+    func get40SlotsUponRandomSlotInt(startElement: Int) -> [SlotRowModel] // cнизу вверх
+    func spin(to elementIndex: Int, check currentRandomSlotModel: SlotRowModel) -> Int // Indexpath.row of necessary element - это мы отдаем вместо randomSlotInt
 }
+//[0: SlotImgs.dollar,
+// 1: SlotImgs.snowflake,
+// 2: SlotImgs.moneyBag,
+// 3: SlotImgs.hammer,
+// 4: SlotImgs.lightning]
 
 class PlanSpinManager: PlanSpinProtocol {
     var combinations: [[Int]] = [[0,1,2],
@@ -31,32 +36,43 @@ class PlanSpinManager: PlanSpinProtocol {
                                  [2,3,1],
                                  [4,4,4]]
     
-    var globalSpinCounter: Int = 0
+    var firstSpinCounter: Int = 0
+    var secondSpinCounter: Int = 0
+    var thirdSpinCounter: Int = 0
     
-    var currentCombination: [Int]  {
-        combinations[globalSpinCounter]
+    var firstCurrentCombination: [Int]  {
+        combinations[firstSpinCounter]
     }
     
-    func get40SlotsUponRandomSlotInt(startElement: Int,
-                                     tableView: UITableView) -> [SlotRowModel] {
+    var secondCurrentCombination: [Int] {
+        combinations[secondSpinCounter]
+    }
+    
+    var thirdCurrentCombination: [Int] {
+        combinations[thirdSpinCounter]
+    }
+    
+    
+    // баг   комбинация с индексом 3 отдает два одинкавых числа - хотя не должна
+    func get40SlotsUponRandomSlotInt(startElement: Int) -> [SlotRowModel] {
         var array = [SlotRowModel]()
-        for n in 1...39{
+        for n in 1...39 {
             array.append(SlotRowModel(indexPathRow: startElement - n,
                                       slotInt: SpinLogicManager.array[(startElement - n)]))
         }
         return array
     }
     
-    func spin(to elementIndex: Int, check currentRandomSlotModel: SlotRowModel, tableView: UITableView) -> Int {
-        guard elementIndex != currentRandomSlotModel.slotInt else { return currentRandomSlotModel.slotInt }
+    func spin(to elementIndex: Int,
+              check currentRandomSlotModel: SlotRowModel) -> Int {
+        guard elementIndex != currentRandomSlotModel.slotInt else { return currentRandomSlotModel.indexPathRow }
         
-        let arrayUponSlot = get40SlotsUponRandomSlotInt(startElement: currentRandomSlotModel.indexPathRow,
-                                                        tableView: tableView)
+        let arrayUponSlot = get40SlotsUponRandomSlotInt(startElement: currentRandomSlotModel.indexPathRow)
         for slot in arrayUponSlot {
             if slot.slotInt == elementIndex {
                 return slot.indexPathRow
             }
         }
-        return currentRandomSlotModel.slotInt
+        return currentRandomSlotModel.indexPathRow
     }
 }

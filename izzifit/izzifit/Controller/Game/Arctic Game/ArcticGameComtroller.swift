@@ -20,12 +20,15 @@ class ArcticGameComtroller: BaseController {
     
     @IBOutlet weak var shadowViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var slotHouseImgVwTopConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var resultLblTopConstraint: NSLayoutConstraint!
     
     private var collectionView: UICollectionView!
-    private var timerCount = 21
-    private var timer = Timer()
+    private var firstTimerCount = 25
+    private var secondTimerCount = 25
+    private var thirdTimerCount = 23
+    private var firstTimer = Timer()
+    private var secondTimer = Timer()
+    private var thirdTimer = Timer()
     private var spinManager = SpinLogicManager()
     private var planManager = PlanSpinManager()
     
@@ -46,14 +49,8 @@ class ArcticGameComtroller: BaseController {
     
     private func setup() {
         //        spinBtn.titleLabel?.font = UIFont
-        
-        var div: CGFloat = 0
-        if UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0 > 0 {
-            div = (UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0) - 20
-        }
         resultLblTopConstraint.constant =  view.w / 9.37
         slotHouseImgVwTopConstraint.constant = view.h / 4.51
-        //        slotBackImgVw.topAnchor.constraint(equalTo: slotHouseImgVw.topAnchor, constant: view.h / 6 +   div).isActive = true
         slotBackImgVw.centerYAnchor.constraint(equalTo: slotHouseImgVw.centerYAnchor, constant: (view.h / 10.33) / 2).isActive = true
         shadowViewBottomConstraint.constant = view.h / 10
         coinslabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
@@ -106,62 +103,123 @@ class ArcticGameComtroller: BaseController {
     
     @IBAction func spinAction(_ sender: Any) {
         
-        planManager.globalSpinCounter += 1
         spinManager.spinAction(coinsLbl: coinslabel,
                                energyLbl: energyLabel,
                                resultLbl: resultLbl,
                                collectionView: collectionView,
                                spinBtn: spinBtn) {
             
-            timer = Timer.scheduledTimer(timeInterval: 0.15,
-                                         target: self,
-                                         selector: #selector(randomSpinSlots),
-                                         userInfo: nil,
-                                         repeats: true)
+            firstTimer = Timer.scheduledTimer(timeInterval: 0.15,
+                                              target: self,
+                                              selector: #selector(firstTableSpin),
+                                              userInfo: nil,
+                                              repeats: true)
             
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                self.secondTimer = Timer.scheduledTimer(timeInterval: 0.15,
+                                                        target: self,
+                                                        selector: #selector(self.secondTableSpin),
+                                                        userInfo: nil,
+                                                        repeats: true)
+            }
             
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.thirdTimer = Timer.scheduledTimer(timeInterval: 0.15,
+                                                       target: self,
+                                                       selector: #selector(self.thirdTableSpin),
+                                                       userInfo: nil,
+                                                       repeats: true)
+            }
         }
     }
     
     @objc
-    func randomSpinSlots() {
-        timerCount -= 1
-        var timeCoefficient = 0.0
-        for i in collectionView.visibleCells.indices {
-            switch i {
-            case 1: timeCoefficient = 0.0
-            case 2: timeCoefficient = 0.0
-            default: break
+    func firstTableSpin() {
+        firstTimerCount -= 1
+            let from = ((self.firstTimerCount ) * 100)
+            let to = from + 100
+            let randomSlotInt = Int.random(in: from...to)
+            let table = (self.collectionView.cellForItem(at: [0,0]) as! SlotCollectionCell).tableView
+            if self.firstTimerCount == 3 {
+                let spinTo = self.planManager.firstCurrentCombination[0]
+                let slotInt = Int.random(in: 100...200)
+                let currentRowModel = SlotRowModel(indexPathRow: slotInt,
+                                                   slotInt: SpinLogicManager.array[slotInt])
+                let necessaryIndex = self.planManager.spin(to: spinTo,
+                                                           check: currentRowModel)
+                table.scrollToRow(at: [0,necessaryIndex],
+                                  at: .middle,
+                                  animated: true)
+            } else {
+                table.scrollToRow(at: [0,randomSlotInt],
+                                  at: .middle,
+                                  animated: true)
             }
-            
-       //     DispatchQueue.main.asyncAfter(deadline: .now() + timeCoefficient) {
-                let to = ((self.timerCount ) * 100) + 100
-                let from = to - 100
-                let randomSlotInt = Int.random(in: from...to)
-                let table = (self.collectionView.cellForItem(at: [0,i]) as! SlotCollectionCell).tableView
-                if self.timerCount == 3 {
-                    let spinTo = self.planManager.currentCombination[i]
-                    let slotInt = Int.random(in: 100...200)
-                    let currentRowModel = SlotRowModel(indexPathRow: slotInt,
-                                                       slotInt: SpinLogicManager.array[slotInt])
-                 let necessaryIndex = self.planManager.spin(to: spinTo,
-                                     check: currentRowModel,
-                                     tableView: table)
-                    
-                    table.scrollToRow(at: [0,necessaryIndex],
-                                      at: .middle,
-                                      animated: true)
-           
-                } else {
-                    table.scrollToRow(at: [0,randomSlotInt],
-                                      at: .middle,
-                                      animated: true)
-                }
-          //  }
+        guard firstTimerCount == 3 else { return }
+        firstTimer.invalidate()
+        firstTimerCount = 25
+        planManager.firstSpinCounter += 1
+    }
+    
+    @objc
+    func secondTableSpin() {
+        secondTimerCount -= 1
+        
+        let from = ((self.secondTimerCount ) * 100)
+        let to = from + 100
+        let randomSlotInt = Int.random(in: from...to)
+        
+        let table = (self.collectionView.cellForItem(at: [0,1]) as! SlotCollectionCell).tableView
+        if self.secondTimerCount == 3 {
+            let spinTo = self.planManager.secondCurrentCombination[1]
+            let slotInt = Int.random(in: 100...200)
+            let currentRowModel = SlotRowModel(indexPathRow: slotInt,
+                                               slotInt: SpinLogicManager.array[slotInt])
+            let necessaryIndex = self.planManager.spin(to: spinTo,
+                                                       check: currentRowModel)
+            table.scrollToRow(at: [0,necessaryIndex],
+                              at: .middle,
+                              animated: true)
+        } else {
+            table.scrollToRow(at: [0,randomSlotInt],
+                              at: .middle,
+                              animated: true)
         }
-        guard timerCount == 3 else { return }
-        timer.invalidate()
-        timerCount = 21
+    guard secondTimerCount == 3 else { return }
+    secondTimer.invalidate()
+    secondTimerCount = 25
+    planManager.secondSpinCounter += 1
+    }
+    
+    @objc
+    func thirdTableSpin() {
+        thirdTimerCount -= 1
+        
+        let from = ((self.thirdTimerCount ) * 100)
+        let to = from + 100
+        let randomSlotInt = Int.random(in: from...to)
+        
+        let table = (self.collectionView.cellForItem(at: [0,2]) as! SlotCollectionCell).tableView
+        if self.thirdTimerCount == 3 {
+            let spinTo = self.planManager.thirdCurrentCombination[2]
+            let slotInt = Int.random(in: 100...200)
+            let currentRowModel = SlotRowModel(indexPathRow: slotInt,
+                                               slotInt: SpinLogicManager.array[slotInt])
+            let necessaryIndex = self.planManager.spin(to: spinTo,
+                                                       check: currentRowModel)
+            table.scrollToRow(at: [0,necessaryIndex],
+                              at: .middle,
+                              animated: true)
+        } else {
+            table.scrollToRow(at: [0,randomSlotInt],
+                              at: .middle,
+                              animated: true)
+        }
+        
+    guard thirdTimerCount == 3 else { return }
+    thirdTimer.invalidate()
+    thirdTimerCount = 25
+    planManager.thirdSpinCounter += 1
     }
 }
 
