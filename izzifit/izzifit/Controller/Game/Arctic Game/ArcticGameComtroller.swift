@@ -23,10 +23,13 @@ class ArcticGameComtroller: BaseController {
     @IBOutlet weak var resultLblTopConstraint: NSLayoutConstraint!
     
     private var collectionView: UICollectionView!
-    private var firstTimerCount = 25
+    private var twoXTimerCount = 303
+    private var contentOffset: CGFloat = 1
+    private var firstTimerCount = 123
     private var secondTimerCount = 25
-    private var thirdTimerCount = 23
+    private var thirdTimerCount = 25
     private var firstTimer = Timer()
+    private var twoXTimer = Timer()
     private var secondTimer = Timer()
     private var thirdTimer = Timer()
     private var spinManager = SpinLogicManager()
@@ -109,9 +112,9 @@ class ArcticGameComtroller: BaseController {
                                collectionView: collectionView,
                                spinBtn: spinBtn) {
             
-            firstTimer = Timer.scheduledTimer(timeInterval: 0.15,
+            firstTimer = Timer.scheduledTimer(timeInterval: 0.03,
                                               target: self,
-                                              selector: #selector(firstTableSpin),
+                                              selector: #selector(firstSmoothTableSpin),
                                               userInfo: nil,
                                               repeats: true)
             
@@ -132,6 +135,62 @@ class ArcticGameComtroller: BaseController {
             }
         }
     }
+    
+    
+//    x
+//    2x
+//    3x
+//    4x
+//    scrollTo
+//    4x
+//    3x
+//    2x
+//    x
+    
+    @objc
+    func firstSmoothTableSpin() {
+        firstTimerCount -= 1
+        let animateCounter: CGFloat = CGFloat(123 - firstTimerCount)
+        let table = (self.collectionView.cellForItem(at: [0,0]) as! SlotCollectionCell).tableView
+        
+        UIView.animate(withDuration: 0.03,
+                       delay: 0.0,
+                       options: .curveEaseIn) {
+            print("A\(animateCounter)")
+            print(table.contentOffset.y)
+            table.contentOffset.y = (animateCounter * 1) + self.contentOffset
+            table.layoutIfNeeded()
+        } completion: { bool in
+        }
+        
+        guard firstTimerCount == 3 else { return }
+        firstTimer.invalidate()
+         contentOffset = (animateCounter * 1) + contentOffset
+//        twoXTimer = Timer.scheduledTimer(timeInterval: 0.01,
+//                                         target: self,
+//                                         selector: #selector(twoXSpin),
+//                                         userInfo: nil,
+//                                         repeats: true)
+        firstTimerCount = 123
+    }
+//
+//    @objc
+//    func twoXSpin() {
+//        twoXTimerCount -= 1
+//        let animateCounter: CGFloat = CGFloat(303 - twoXTimerCount)
+//        let table = (self.collectionView.cellForItem(at: [0,0]) as! SlotCollectionCell).tableView
+//
+//        UIView.animate(withDuration: 0.01,
+//                       delay: 0.0,
+//                       options: .curveEaseInOut) {
+//            table.contentOffset.y = CGFloat( animateCounter * 1)
+//            table.layoutIfNeeded()
+//        } completion: { bool in
+//        }
+//
+//
+//    }
+    
     
     @objc
     func firstTableSpin() {
