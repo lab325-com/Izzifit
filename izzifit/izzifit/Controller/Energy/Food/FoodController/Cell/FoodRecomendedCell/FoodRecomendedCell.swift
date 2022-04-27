@@ -12,7 +12,7 @@ protocol FoodRecomendedProtocol: AnyObject {
     func foodRecomendedAdd(cell: FoodRecomendedCell, isUpdate: Bool, model: ProductsMainModel)
 }
 
-class FoodRecomendedCell: UITableViewCell {
+class FoodRecomendedCell: BaseTableViewCell {
     
     @IBOutlet weak var avatarImageView: UIImageView!
     

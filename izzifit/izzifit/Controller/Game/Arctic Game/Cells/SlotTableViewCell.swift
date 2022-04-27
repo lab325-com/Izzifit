@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SlotTableViewCell: UITableViewCell {
+class SlotTableViewCell: BaseTableViewCell {
     
     static let id = "SlotTableCell"
     
@@ -20,7 +20,7 @@ class SlotTableViewCell: UITableViewCell {
                         3: SlotImgs.hammer,
                         4: SlotImgs.lightning]
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: BaseTableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         backgroundColor = .clear

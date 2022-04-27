@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PolicyCell: UITableViewCell {
+class PolicyCell: BaseTableViewCell {
     
     //----------------------------------------------
     // MARK: - IBOutlet

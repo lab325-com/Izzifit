@@ -11,7 +11,7 @@ protocol WorkoutDetailDescriptionProtocol: AnyObject {
     func workoutDetailDescriptionMuscle(cell: WorkoutDetailDescriptionCell, muscles: [String])
 }
 
-class WorkoutDetailDescriptionCell: UITableViewCell {
+class WorkoutDetailDescriptionCell: BaseTableViewCell {
     
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var mainMuscleGroupsLabel: UILabel!

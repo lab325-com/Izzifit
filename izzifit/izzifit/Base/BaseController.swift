@@ -35,7 +35,7 @@ class BaseController: UIViewController, NVActivityIndicatorViewable {
     //----------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addActionSound()
         navigationController?.navigationItem.hidesBackButton = true
         
         if setupBackButton {
@@ -212,5 +212,46 @@ extension BaseController {
                 self.view.layoutIfNeeded()
             })
         }
+    }
+}
+
+extension BaseController {
+    func addActionSound(){
+        for view in self.view.subviews as [UIView] {
+            if let btn = view as? UIButton {
+                btn.addTarget(self, action: #selector(playTapInButton), for: .touchUpInside)
+            }
+        }
+    }
+    
+    @objc func playTapInButton() {
+        AudioManager.sharedManager.playSound()
+    }
+}
+
+class BaseTableViewCell: UITableViewCell {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        //DispatchQueue.main.async {
+            self.addActionSound()
+        //}
+    }
+    
+    private func addActionSound(){
+        for view in self.contentView.subviews as [UIView] {
+            if let btn = view as? UIButton {
+                btn.addTarget(self, action: #selector(playTapInButton), for: .touchUpInside)
+            }
+            
+            for viewTwo in view.subviews as [UIView] {
+                if let btn = viewTwo as? UIButton {
+                    btn.addTarget(self, action: #selector(playTapInButton), for: .touchUpInside)
+                }
+            }
+        }
+    }
+    
+    @objc func playTapInButton() {
+        AudioManager.sharedManager.playSound()
     }
 }

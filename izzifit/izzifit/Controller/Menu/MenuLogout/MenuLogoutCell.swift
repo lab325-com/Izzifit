@@ -11,7 +11,7 @@ protocol MenuLogoutCellDeleagate: AnyObject {
     func menuLogoutCell(cell: MenuLogoutCell)
 }
 
-class MenuLogoutCell: UITableViewCell {
+class MenuLogoutCell: BaseTableViewCell {
 
     @IBOutlet weak var logOutButton: UIButton!
     

@@ -12,7 +12,7 @@ protocol EnergyWeightProtocol: AnyObject {
 }
 
 
-class EnergyWeightCell: UITableViewCell {
+class EnergyWeightCell: BaseTableViewCell {
 
     @IBOutlet weak var mainTitleLabel: UILabel!
     

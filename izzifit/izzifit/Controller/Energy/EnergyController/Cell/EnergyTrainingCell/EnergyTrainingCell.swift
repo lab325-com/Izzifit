@@ -40,7 +40,7 @@ protocol EnergyTrainingProtocol: AnyObject {
     func energyTrainingSelect(cell: EnergyTrainingCell, model: WorkoutsWidgetMainModel)
 }
 
-class EnergyTrainingCell: UITableViewCell {
+class EnergyTrainingCell: BaseTableViewCell {
 
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var countEnergyLabel: UILabel!

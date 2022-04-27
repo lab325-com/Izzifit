@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MenuLanguagesTitleCell: UITableViewCell {
+class MenuLanguagesTitleCell: BaseTableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

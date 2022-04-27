@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class WeightTableCell: UITableViewCell {
+class WeightTableCell: BaseTableViewCell {
     //----------------------------------------------
     // MARK: - IBOutlet
     //----------------------------------------------

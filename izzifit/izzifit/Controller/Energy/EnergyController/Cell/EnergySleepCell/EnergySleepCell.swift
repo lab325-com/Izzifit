@@ -11,7 +11,7 @@ protocol EnergySleepCellProtocol: AnyObject {
     func energySleepCellSeleep(cell: EnergySleepCell, sleep: SleepQualityType)
 }
 
-class EnergySleepCell: UITableViewCell {
+class EnergySleepCell: BaseTableViewCell {
 
     @IBOutlet weak var mainTitleLabel: UILabel!
     
@@ -60,10 +60,12 @@ class EnergySleepCell: UITableViewCell {
     }
     
     @IBAction func actionGood(_ sender: UIButton) {
+        AudioManager.sharedManager.playSound()
         delegate?.energySleepCellSeleep(cell: self, sleep: .sleepQualityTypeGood)
     }
     
     @IBAction func actionBad(_ sender: UIButton) {
+        AudioManager.sharedManager.playSound()
         delegate?.energySleepCellSeleep(cell: self, sleep: .sleepQualityTypeBad)
     }
 }

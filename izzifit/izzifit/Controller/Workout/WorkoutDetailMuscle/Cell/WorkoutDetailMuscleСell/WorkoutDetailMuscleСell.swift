@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WorkoutDetailMuscleСell: UITableViewCell {
+class WorkoutDetailMuscleСell: BaseTableViewCell {
 
     @IBOutlet weak var mainLabel: UILabel!
     

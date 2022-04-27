@@ -8,7 +8,7 @@
 import UIKit
 import CoreAudio
 
-class MoodTableCell: UITableViewCell {
+class MoodTableCell: BaseTableViewCell {
     
     //----------------------------------------------
     // MARK: - IBOutlet

@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class WorkoutDetailTrainCell: UITableViewCell {
+class WorkoutDetailTrainCell: BaseTableViewCell {
 
     @IBOutlet weak var globalStackView: UIStackView!
     

@@ -12,7 +12,7 @@ protocol MenuCellDelegate: AnyObject {
     func menuCellProfile(cell: MenuCell, reminders: Bool)
 }
 
-class MenuCell: UITableViewCell {
+class MenuCell: BaseTableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!

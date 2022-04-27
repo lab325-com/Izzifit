@@ -77,6 +77,7 @@ class StartController: BaseController {
     }
     
     @IBAction func actionStart(_ sender: UIButton) {
+        AudioManager.sharedManager.playSound()
         presenter.login()
     }
 }

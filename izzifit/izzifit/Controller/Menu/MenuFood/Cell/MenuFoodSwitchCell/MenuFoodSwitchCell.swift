@@ -17,7 +17,7 @@ extension MenuFoodSwitchDelegate {
     func menuFoodSwitchMusclee(cell: MenuFoodSwitchCell, model: MusclesMainModel) {}
 }
 
-class MenuFoodSwitchCell: UITableViewCell {
+class MenuFoodSwitchCell: BaseTableViewCell {
 
     @IBOutlet weak var mainTextLabel: UILabel!
     @IBOutlet weak var switcher: UISwitch!

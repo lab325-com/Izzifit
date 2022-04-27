@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PositionTableCell: UITableViewCell {
+class PositionTableCell: BaseTableViewCell {
 
     static let id = "PositionTableCell"
     @IBOutlet weak var rankLbl: UILabel! {

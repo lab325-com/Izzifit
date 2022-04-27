@@ -18,7 +18,7 @@ extension QuizeFoodCellDelegate {
     func quizeFoodCellSelectedFitness(cell: QuizeFoodCell, type: WorkoutDifficulty) {}
 }
 
-class QuizeFoodCell: UITableViewCell {
+class QuizeFoodCell: BaseTableViewCell {
     
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

@@ -11,7 +11,7 @@ protocol EnergyChooseActivityProtocol: AnyObject {
     func energyChooseActivitySelect(cell: EnergyChooseActivityCell, model: WorkoutsWidgetMainModel)
 }
 
-class EnergyChooseActivityCell: UITableViewCell {
+class EnergyChooseActivityCell: BaseTableViewCell {
     
     //----------------------------------------------
     // MARK: - IBOutlet
@@ -100,6 +100,7 @@ extension EnergyChooseActivityCell: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        AudioManager.sharedManager.playSound()
         delegate?.energyChooseActivitySelect(cell: self, model: models[indexPath.row])
     }
 }
