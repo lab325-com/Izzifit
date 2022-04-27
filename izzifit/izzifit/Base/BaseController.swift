@@ -29,13 +29,18 @@ class BaseController: UIViewController, NVActivityIndicatorViewable {
     var isNeedBottomPagging = true
     var addTapOnScreen = true
     var setupBackButton = true
+    var needSoundTap = true
     
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        addActionSound()
+        
+        if needSoundTap {
+            addActionSound()
+        }
+        
         navigationController?.navigationItem.hidesBackButton = true
         
         if setupBackButton {

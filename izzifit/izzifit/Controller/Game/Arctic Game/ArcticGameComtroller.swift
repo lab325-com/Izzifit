@@ -31,7 +31,7 @@ class ArcticGameComtroller: BaseController {
     private var spinManager = SpinLogicManager()
     
     override func viewDidLoad() {
-        //  hiddenNavigationBar = true
+        needSoundTap = false
         super.viewDidLoad()
         setup()
         setCollectionView()
