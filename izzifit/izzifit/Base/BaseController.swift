@@ -215,6 +215,10 @@ extension BaseController {
     }
 }
 
+//----------------------------------------------
+// MARK: - Audio
+//----------------------------------------------
+
 extension BaseController {
     func addActionSound(){
         for view in self.view.subviews as [UIView] {
@@ -229,29 +233,3 @@ extension BaseController {
     }
 }
 
-class BaseTableViewCell: UITableViewCell {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        //DispatchQueue.main.async {
-            self.addActionSound()
-        //}
-    }
-    
-    private func addActionSound(){
-        for view in self.contentView.subviews as [UIView] {
-            if let btn = view as? UIButton {
-                btn.addTarget(self, action: #selector(playTapInButton), for: .touchUpInside)
-            }
-            
-            for viewTwo in view.subviews as [UIView] {
-                if let btn = viewTwo as? UIButton {
-                    btn.addTarget(self, action: #selector(playTapInButton), for: .touchUpInside)
-                }
-            }
-        }
-    }
-    
-    @objc func playTapInButton() {
-        AudioManager.sharedManager.playSound()
-    }
-}

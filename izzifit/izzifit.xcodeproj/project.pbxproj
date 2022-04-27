@@ -142,6 +142,7 @@
 		0256999128197A7500BA1535 /* 16_coins_pack_x3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0256998528197A7500BA1535 /* 16_coins_pack_x3.wav */; };
 		0256999228197A7500BA1535 /* 19_super_win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0256998628197A7500BA1535 /* 19_super_win.wav */; };
 		0256999328197A7500BA1535 /* 10_spin_tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0256998728197A7500BA1535 /* 10_spin_tap.wav */; };
+		0256999528197C6C00BA1535 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256999428197C6C00BA1535 /* BaseTableViewCell.swift */; };
 		0263388D27DB299600DC0325 /* EnergyProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263388B27DB299600DC0325 /* EnergyProgressController.swift */; };
 		0263388E27DB299600DC0325 /* EnergyProgressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0263388C27DB299600DC0325 /* EnergyProgressController.xib */; };
 		0263389027DB29AF00DC0325 /* EnergyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263388F27DB29AF00DC0325 /* EnergyRouter.swift */; };
@@ -492,6 +493,7 @@
 		0256998528197A7500BA1535 /* 16_coins_pack_x3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16_coins_pack_x3.wav; sourceTree = "<group>"; };
 		0256998628197A7500BA1535 /* 19_super_win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 19_super_win.wav; sourceTree = "<group>"; };
 		0256998728197A7500BA1535 /* 10_spin_tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10_spin_tap.wav; sourceTree = "<group>"; };
+		0256999428197C6C00BA1535 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		0263388B27DB299600DC0325 /* EnergyProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyProgressController.swift; sourceTree = "<group>"; };
 		0263388C27DB299600DC0325 /* EnergyProgressController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyProgressController.xib; sourceTree = "<group>"; };
 		0263388F27DB29AF00DC0325 /* EnergyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyRouter.swift; sourceTree = "<group>"; };
@@ -1043,6 +1045,7 @@
 			isa = PBXGroup;
 			children = (
 				0249D24827B3A67800F265C1 /* BaseController.swift */,
+				0256999428197C6C00BA1535 /* BaseTableViewCell.swift */,
 				0249D24727B3A67700F265C1 /* BaseRouter.swift */,
 				0249D24927B3A67900F265C1 /* RootRouter.swift */,
 				0249D24027B3A64300F265C1 /* LoadFromXibProtocol.swift */,
@@ -2736,6 +2739,7 @@
 				0290B39327D2045400381B42 /* ShadowsView.swift in Sources */,
 				02AB486427E06DEE00F35EE2 /* FoodRecomendedCell.swift in Sources */,
 				029EDBCF280D3FCB00FC8748 /* VideoFinishedController.swift in Sources */,
+				0256999528197C6C00BA1535 /* BaseTableViewCell.swift in Sources */,
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
 				FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */,
 				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
