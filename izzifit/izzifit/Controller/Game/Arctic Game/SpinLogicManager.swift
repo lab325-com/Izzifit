@@ -53,16 +53,16 @@ struct SpinLogicManager {
         
         runTimer()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             let currentElements = self.getResultIndices(collectionView)
             
-            if let tupleResult = recognizeSetCombinations(currentElements) {
-                print(tupleResult)
-                // теперь тут будет по первому элементу тупла функция по начислению бонусов
-                accrueBonuses(by: tupleResult.0, resultLbl: resultLbl)
-                // функция котороая красит бордер ячеек по второму элементу тупла
-                paintBlueBorder(tupleResult.1,collectionView: collectionView)
-            }
+//            if let tupleResult = recognizeSetCombinations(currentElements) {
+//                print(tupleResult)
+//                // теперь тут будет по первому элементу тупла функция по начислению бонусов
+//                accrueBonuses(by: tupleResult.0, resultLbl: resultLbl)
+//                // функция котороая красит бордер ячеек по второму элементу тупла
+//                paintBlueBorder(tupleResult.1,collectionView: collectionView)
+//            }
             // мне нужен массив/сет  элементов, которые должны окраситься в синюю коемку ( borderView)
             // мне нужна  spinCombination
             

@@ -23,6 +23,8 @@ class SlotCollectionCell: UICollectionViewCell {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+        tableView.scrollToRow(at: [0,2798],
+                              at: .middle, animated: true)
         self.addSubview(tableView)
         
         ui.layout(tableView: tableView,
