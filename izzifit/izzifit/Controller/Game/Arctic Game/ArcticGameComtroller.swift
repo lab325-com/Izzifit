@@ -27,31 +27,43 @@ class ArcticGameComtroller: BaseController {
     private var firstTimerCount = 153
     private var secondTimerCount = 153
     private var thirdTimerCount = 153
+    
+    var table1ContentOffset: CGFloat = 0
+    var table2ContentOffset: CGFloat = 0
+    var table3ContentOffset: CGFloat = 0
+    
     private var firstTimer = Timer()
     private var secondTimer = Timer()
     private var thirdTimer = Timer()
     private var spinManager = SpinLogicManager()
     private var planManager = PlanSpinManager()
-    
+    var countOfStrides: CGFloat = 0
     private lazy var table1: UITableView = {
         (collectionView.cellForItem(at: [0,0]) as! SlotCollectionCell).tableView
     }()
     
     private lazy var table2: UITableView = {
-        (collectionView.cellForItem(at: [0,1]) as! SlotCollectionCell).tableView
+     let table =   (collectionView.cellForItem(at: [0,1]) as! SlotCollectionCell).tableView
+        table.isScrollEnabled = false
+        return table
     }()
     
     private lazy var table3: UITableView = {
         (collectionView.cellForItem(at: [0,2]) as! SlotCollectionCell).tableView
     }()
     
+    private lazy var counter: OffsetCounter = {
+        OffsetCounter(strideOffset: table1.sizeHeight / 2.9)
+    }()
+    
     @objc
     func xSpin() {
         firstTimerCount -= 1
         var multiplier: CGFloat = 0
-        
         switch firstTimerCount {
-        case 147...152: multiplier = 1
+        case 152: table1ContentOffset = table1.contentOffset.y
+            multiplier = 1
+        case 147...151: multiplier = 1
         case 142...146: multiplier = 2
         case 137...141: multiplier = 3
         case 132...136: multiplier = 4
@@ -71,16 +83,24 @@ class ArcticGameComtroller: BaseController {
         case 14...18: multiplier = 3
         case 9...13: multiplier = 2
         case 3...8: multiplier = 1
-        default: multiplier = 24
+        default: multiplier = counter.defaultSpeed
         }
-        
-        UIView.animate(withDuration: 0.03,
+        table1ContentOffset -= multiplier
+        UIView.animate(withDuration: 0.3,
                        delay: 0.0,
                        options: .curveEaseIn) {
-            self.table1.contentOffset.y =  self.table1.contentOffset.y - multiplier
+            self.table1.contentOffset.y = self.table1ContentOffset
             self.table1.layoutIfNeeded()
-        } completion: { bool in }
-        
+        } completion: { bool in
+        }
+       
+
+//        UIView.animate(withDuration: 0.3) {
+//        //    print(self.table1ContentOffset)
+//            self.table1.contentOffset.y = self.table1ContentOffset
+//            self.table1.layoutIfNeeded()
+//        }
+//
         guard firstTimerCount == 3 else { return }
         firstTimerCount = 153
         firstTimer.invalidate()
@@ -88,11 +108,18 @@ class ArcticGameComtroller: BaseController {
     
     @objc
     func x2Spin() {
+        table2.setNeedsLayout()
+        table2.layoutIfNeeded()
         secondTimerCount -= 1
         var multiplier: CGFloat = 0
         
         switch secondTimerCount {
-        case 147...152: multiplier = 1
+        case 152: table2ContentOffset = table2.contentOffset.y
+            print(table2.contentOffset.y)
+            print(table2.contentSize)
+            print(countOfStrides)
+            multiplier = 1
+        case 147...151: multiplier = 1
         case 142...146: multiplier = 2
         case 137...141: multiplier = 3
         case 132...136: multiplier = 4
@@ -112,27 +139,80 @@ class ArcticGameComtroller: BaseController {
         case 14...18: multiplier = 3
         case 9...13: multiplier = 2
         case 3...8: multiplier = 1
-        default: multiplier = 24
+        default: multiplier =  counter.defaultSpeed
         }
         
+        countOfStrides += multiplier
+        table2ContentOffset -= multiplier
         UIView.animate(withDuration: 0.03,
                        delay: 0.0,
                        options: .curveEaseIn) {
-            self.table2.contentOffset.y =  self.table2.contentOffset.y - multiplier
+            self.table2.contentOffset.y = self.table2ContentOffset
             self.table2.layoutIfNeeded()
-        } completion: { bool in }
+        } completion: { bool in
+            guard self.secondTimerCount == 3 else { return }
+            self.secondTimerCount = 153
+            self.secondTimer.invalidate()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                if self.secondTimerCount == 153 {
+                    print(self.table2ContentOffset)
+                    print(self.table2.contentOffset.y)
+                    
+                    UIView.animate(withDuration: 1.0) {
+                        self.table2.scrollToRow(at: [0,2798],
+                                           at: .middle,
+                                           animated: true)
+                        
+                        self.view.layoutIfNeeded()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            print(self.table2.contentOffset.y)
+                        }
+                    }
+    //                UIView.animate(withDuration: 0.5) {
+    //
+    //                }
+                }
+            }
+         
+        }
         
-        guard secondTimerCount == 3 else { return }
-        secondTimerCount = 153
-        secondTimer.invalidate()
+        
+       
+//
+//        UIView.animate(withDuration: 0.3) {
+////            print(self.table2ContentOffset)
+//            self.table2.contentOffset.y = self.table2ContentOffset
+//            self.table2.layoutIfNeeded()
+//        }
+//
+      
     }
+    
+    @objc
+    func testSpin() {
+        UIView.animate(withDuration: 0.3) {
+            self.table3.contentOffset.y = self.table3.contentOffset.y - 57.59
+        }
+    }
+    
+    @objc
+    func test2Spin() {
+        UIView.animate(withDuration: 0.3) {
+            self.table2.contentOffset.y = 121752.43
+//            print(self.table2.)
+        }
+    }
+    
+    
     @objc
     func x3Spin() {
         thirdTimerCount -= 1
-        var multiplier: CGFloat = 0
         
-        switch thirdTimerCount {
-        case 147...152: multiplier = 1
+        var multiplier: CGFloat = 0
+        switch thirdTimerCount { // cуммарно должно выйти 550
+        case 152: table3ContentOffset = table3.contentOffset.y
+            multiplier = 1
+        case 147...151: multiplier = 1
         case 142...146: multiplier = 2
         case 137...141: multiplier = 3
         case 132...136: multiplier = 4
@@ -152,28 +232,48 @@ class ArcticGameComtroller: BaseController {
         case 14...18: multiplier = 3
         case 9...13: multiplier = 2
         case 3...8: multiplier = 1
-        default: multiplier = 24
+        default: multiplier = counter.defaultSpeed
         }
+        countOfStrides += multiplier
         
-        UIView.animate(withDuration: 0.03,
+        UIView.animate(withDuration: 0.3,
                        delay: 0.0,
                        options: .curveEaseIn) {
-            self.table3.contentOffset.y =  self.table3.contentOffset.y - multiplier
+            self.table3.contentOffset.y = self.table3ContentOffset - multiplier
             self.table3.layoutIfNeeded()
-        } completion: { bool in }
+        } completion: { bool in
+            self.table3ContentOffset -= multiplier
+            print(self.table3ContentOffset)
+        }
+//        table3ContentOffset -= multiplier
+//
+//        UIView.animate(withDuration: 0.3) {
+//            print(self.table3ContentOffset)
+//            self.table3.contentOffset.y = self.table3ContentOffset
+//            self.table3.layoutIfNeeded()
+//        }
         
         guard thirdTimerCount == 3 else { return }
         thirdTimerCount = 153
         thirdTimer.invalidate()
+        print(self.table3.contentOffset.y)
+        print(self.countOfStrides)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setCollectionView()
         setup()
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+//            self.table3ContentOffset = self.table3.contentOffset.y
+//            self.table2ContentOffset = self.table2.contentOffset.y
+//            self.table1ContentOffset = self.table1.contentOffset.y
+//        }
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
@@ -223,19 +323,20 @@ class ArcticGameComtroller: BaseController {
     }
     
     @IBAction func spinAction(_ sender: Any) {
-        
+
+     
         spinManager.spinAction(coinsLbl: coinslabel,
                                energyLbl: energyLabel,
                                resultLbl: resultLbl,
                                collectionView: collectionView,
                                spinBtn: spinBtn) {
-            
+
             firstTimer = Timer.scheduledTimer(timeInterval: 0.03,
                                               target: self,
                                               selector: #selector(xSpin),
                                               userInfo: nil,
                                               repeats: true)
-            
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                 self.secondTimer = Timer.scheduledTimer(timeInterval: 0.03,
                                                         target: self,
@@ -243,16 +344,31 @@ class ArcticGameComtroller: BaseController {
                                                         userInfo: nil,
                                                         repeats: true)
             }
-            
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.thirdTimer = Timer.scheduledTimer(timeInterval: 0.03,
                                                        target: self,
-                                                       selector: #selector(self.x3Spin),
+                                                       selector: #selector(self.testSpin),
                                                        userInfo: nil,
-                                                       repeats: true)
+                                                       repeats: false)
             }
         }
     }
+}
+
+
+extension ArcticGameComtroller: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { 3 }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlotCollectionCell.id, for: indexPath) as! SlotCollectionCell
+        return cell
+    }
+}
+    
+    
+    
     
     
     //    x
@@ -265,75 +381,65 @@ class ArcticGameComtroller: BaseController {
     //    2x
     //    x
     
-    
-    @objc
-    func secondTableSpin() {
-        secondTimerCount -= 1
-        
-        let from = ((self.secondTimerCount ) * 100)
-        let to = from + 100
-        let randomSlotInt = Int.random(in: from...to)
-        
-        let table = (self.collectionView.cellForItem(at: [0,1]) as! SlotCollectionCell).tableView
-        if self.secondTimerCount == 3 {
-            let spinTo = self.planManager.secondCurrentCombination[1]
-            let slotInt = Int.random(in: 100...200)
-            let currentRowModel = SlotRowModel(indexPathRow: slotInt,
-                                               slotInt: SpinLogicManager.array[slotInt])
-            let necessaryIndex = self.planManager.spin(to: spinTo,
-                                                       check: currentRowModel)
-            table.scrollToRow(at: [0,necessaryIndex],
-                              at: .middle,
-                              animated: true)
-        } else {
-            table.scrollToRow(at: [0,randomSlotInt],
-                              at: .middle,
-                              animated: true)
-        }
-        guard secondTimerCount == 3 else { return }
-        secondTimer.invalidate()
-        secondTimerCount = 25
-        planManager.secondSpinCounter += 1
-    }
-    
-    @objc
-    func thirdTableSpin() {
-        thirdTimerCount -= 1
-        
-        let from = ((self.thirdTimerCount ) * 100)
-        let to = from + 100
-        let randomSlotInt = Int.random(in: from...to)
-        
-        let table = (self.collectionView.cellForItem(at: [0,2]) as! SlotCollectionCell).tableView
-        if self.thirdTimerCount == 3 {
-            let spinTo = self.planManager.thirdCurrentCombination[2]
-            let slotInt = Int.random(in: 100...200)
-            let currentRowModel = SlotRowModel(indexPathRow: slotInt,
-                                               slotInt: SpinLogicManager.array[slotInt])
-            let necessaryIndex = self.planManager.spin(to: spinTo,
-                                                       check: currentRowModel)
-            table.scrollToRow(at: [0,necessaryIndex],
-                              at: .middle,
-                              animated: true)
-        } else {
-            table.scrollToRow(at: [0,randomSlotInt],
-                              at: .middle,
-                              animated: true)
-        }
-        
-        guard thirdTimerCount == 3 else { return }
-        thirdTimer.invalidate()
-        thirdTimerCount = 25
-        planManager.thirdSpinCounter += 1
-    }
-}
-
-extension ArcticGameComtroller: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { 3 }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlotCollectionCell.id, for: indexPath) as! SlotCollectionCell
-        return cell
-    }
-}
+//
+//    @objc
+//    func secondTableSpin() {
+//        secondTimerCount -= 1
+//
+//        let from = ((self.secondTimerCount ) * 100)
+//        let to = from + 100
+//        let randomSlotInt = Int.random(in: from...to)
+//
+//        let table = (self.collectionView.cellForItem(at: [0,1]) as! SlotCollectionCell).tableView
+//        if self.secondTimerCount == 3 {
+//            let spinTo = self.planManager.secondCurrentCombination[1]
+//            let slotInt = Int.random(in: 100...200)
+//            let currentRowModel = SlotRowModel(indexPathRow: slotInt,
+//                                               slotInt: SpinLogicManager.array[slotInt])
+//            let necessaryIndex = self.planManager.spin(to: spinTo,
+//                                                       check: currentRowModel)
+//            table.scrollToRow(at: [0,necessaryIndex],
+//                              at: .middle,
+//                              animated: true)
+//        } else {
+//            table.scrollToRow(at: [0,randomSlotInt],
+//                              at: .middle,
+//                              animated: true)
+//        }
+//        guard secondTimerCount == 3 else { return }
+//        secondTimer.invalidate()
+//        secondTimerCount = 25
+//        planManager.secondSpinCounter += 1
+//    }
+//
+//    @objc
+//    func thirdTableSpin() {
+//        thirdTimerCount -= 1
+//
+//        let from = ((self.thirdTimerCount ) * 100)
+//        let to = from + 100
+//        let randomSlotInt = Int.random(in: from...to)
+//
+//        let table = (self.collectionView.cellForItem(at: [0,2]) as! SlotCollectionCell).tableView
+//        if self.thirdTimerCount == 3 {
+//            let spinTo = self.planManager.thirdCurrentCombination[2]
+//            let slotInt = Int.random(in: 100...200)
+//            let currentRowModel = SlotRowModel(indexPathRow: slotInt,
+//                                               slotInt: SpinLogicManager.array[slotInt])
+//            let necessaryIndex = self.planManager.spin(to: spinTo,
+//                                                       check: currentRowModel)
+//            table.scrollToRow(at: [0,necessaryIndex],
+//                              at: .middle,
+//                              animated: true)
+//        } else {
+//            table.scrollToRow(at: [0,randomSlotInt],
+//                              at: .middle,
+//                              animated: true)
+//        }
+//
+//        guard thirdTimerCount == 3 else { return }
+//        thirdTimer.invalidate()
+//        thirdTimerCount = 25
+//        planManager.thirdSpinCounter += 1
+//    }
+//}

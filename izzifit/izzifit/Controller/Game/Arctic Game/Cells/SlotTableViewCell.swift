@@ -4,7 +4,6 @@
 //
 //  Created by O l e h on 08.04.2022.
 //
-
 import UIKit
 
 class SlotTableViewCell: UITableViewCell {
@@ -13,6 +12,7 @@ class SlotTableViewCell: UITableViewCell {
     
     let slotBtn = UIButton()
     let borderView = UIView()
+    var tagBtn = Int()
     
     var slotImgsDict = [0: SlotImgs.dollar,
                         1: SlotImgs.snowflake,
@@ -40,7 +40,6 @@ class SlotTableViewCell: UITableViewCell {
         ui.setButton(button: slotBtn,
                      view: contentView,
                      controlState: .normal)
-      
      
         ui.btnLayout(button: slotBtn,
                      view: contentView,
@@ -54,6 +53,12 @@ class SlotTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        slotBtn.tag = tagBtn
+        slotBtn.setImage(slotImgsDict[tagBtn]!,
+                         for: .normal)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -62,8 +67,6 @@ class SlotTableViewCell: UITableViewCell {
                                                                      bottom: 10,
                                                                      right: 8))
     }
-    
-    
     
     func fillCellby(tagBtn: Int) {
         slotBtn.tag = tagBtn

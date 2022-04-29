@@ -23,6 +23,11 @@ class SlotCollectionCell: UICollectionViewCell {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 0
+        tableView.estimatedSectionFooterHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
+        tableView.contentSize = CGSize(width: 61.3,
+                                       height: 161299)
         tableView.scrollToRow(at: [0,2798],
                               at: .middle, animated: true)
         self.addSubview(tableView)
@@ -42,6 +47,7 @@ class SlotCollectionCell: UICollectionViewCell {
 
 extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(SpinLogicManager.array.count)
         return SpinLogicManager.array.count
     }
     
@@ -50,11 +56,12 @@ extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
                                                  for: indexPath) as! SlotTableViewCell
         cell.fillCellby(tagBtn: SpinLogicManager.array[indexPath.row])
         cell.tag = SpinLogicManager.array[indexPath.row]
+        cell.tagBtn = SpinLogicManager.array[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return  tableView.bounds.size.height / 2.9
+        return tableView.sizeHeight / 2.9
     }
 }
 

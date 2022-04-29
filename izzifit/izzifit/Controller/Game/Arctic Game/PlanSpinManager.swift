@@ -52,7 +52,6 @@ class PlanSpinManager: PlanSpinProtocol {
         combinations[thirdSpinCounter]
     }
     
-    
     // баг   комбинация с индексом 3 отдает два одинкавых числа - хотя не должна
     func get40SlotsUponRandomSlotInt(startElement: Int) -> [SlotRowModel] {
         var array = [SlotRowModel]()
