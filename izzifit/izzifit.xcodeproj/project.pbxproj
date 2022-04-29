@@ -322,11 +322,13 @@
 		FA1A6D8028081CE80040518A /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D7E28081CE80040518A /* LevelController.swift */; };
 		FA1A6D8128081CE80040518A /* LevelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1A6D7F28081CE80040518A /* LevelController.xib */; };
 		FA1A6D8B28097F0D0040518A /* GameTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */; };
+		FA42F7AA2812EF24003AB66B /* PlanSpinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42F7A92812EF24003AB66B /* PlanSpinManager.swift */; };
 		FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */; };
 		FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */; };
 		FA62C54E27F5B58800AC463A /* WeightsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */; };
 		FA65636A28068D030045EDBC /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65636928068D030045EDBC /* LevelView.swift */; };
 		FA6628A327F184C200FBB946 /* Moods.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA6628A227F184C200FBB946 /* Moods.graphql */; };
+		FA6699CA281ABCF600B394E0 /* OffsetCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */; };
 		FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */; };
 		FAA8E88A27F449060081A12A /* CaloriesWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAA8E88927F449060081A12A /* CaloriesWidget.graphql */; };
 		FAA8E88C27F450A80081A12A /* CaloriesWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8E88B27F450A80081A12A /* CaloriesWidgetModel.swift */; };
@@ -676,11 +678,13 @@
 		FA1A6D7E28081CE80040518A /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
 		FA1A6D7F28081CE80040518A /* LevelController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelController.xib; sourceTree = "<group>"; };
 		FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTabBarController.swift; sourceTree = "<group>"; };
+		FA42F7A92812EF24003AB66B /* PlanSpinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanSpinManager.swift; sourceTree = "<group>"; };
 		FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometryManager.swift; sourceTree = "<group>"; };
 		FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WeightsWidget.graphql; sourceTree = "<group>"; };
 		FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsWidgetModel.swift; sourceTree = "<group>"; };
 		FA65636928068D030045EDBC /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		FA6628A227F184C200FBB946 /* Moods.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moods.graphql; sourceTree = "<group>"; };
+		FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetCounter.swift; sourceTree = "<group>"; };
 		FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		FAA8E88927F449060081A12A /* CaloriesWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CaloriesWidget.graphql; sourceTree = "<group>"; };
 		FAA8E88B27F450A80081A12A /* CaloriesWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesWidgetModel.swift; sourceTree = "<group>"; };
@@ -2279,6 +2283,8 @@
 				FAB6546E27FEDFA70057A221 /* ArcticGameComtroller.swift */,
 				FAB6546F27FEDFA70057A221 /* ArcticGameComtroller.xib */,
 				FAB6547227FF39420057A221 /* SpinLogicManager.swift */,
+				FA42F7A92812EF24003AB66B /* PlanSpinManager.swift */,
+				FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */,
 				02B22AC2281C1502006AB1EA /* ArcticGamePresenter.swift */,
 			);
 			path = "Arctic Game";
@@ -2803,6 +2809,7 @@
 				0251D24927E221ED0098A54D /* ProductsMainModel.swift in Sources */,
 				FAA9DBEB27D9ECD4004A14FB /* WorkoutTypesModel.swift in Sources */,
 				02354E912809350D005A8272 /* StartWorkoutModel.swift in Sources */,
+				FA42F7AA2812EF24003AB66B /* PlanSpinManager.swift in Sources */,
 				0249D24B27B3A67900F265C1 /* BaseController.swift in Sources */,
 				0290B39527D212CA00381B42 /* UIView+Extension.swift in Sources */,
 				0251D24E27E2225C0098A54D /* RecentProductsModel.swift in Sources */,
@@ -2883,6 +2890,7 @@
 				0249D24C27B3A67900F265C1 /* RootRouter.swift in Sources */,
 				02C3DD6527BEDA82004E5C65 /* QuizeProgressController.swift in Sources */,
 				0268753327D8E54E00FFEA6A /* EnergyChooseActivityCell.swift in Sources */,
+				FA6699CA281ABCF600B394E0 /* OffsetCounter.swift in Sources */,
 				023D171E27BE258A005F95C0 /* UITapGesture+Extension.swift in Sources */,
 				0249D28227B3AAAE00F265C1 /* LoginController.swift in Sources */,
 				0249D28B27B3AB6300F265C1 /* AppConfigurationBridge.m in Sources */,

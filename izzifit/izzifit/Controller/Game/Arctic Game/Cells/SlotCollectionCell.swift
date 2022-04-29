@@ -10,14 +10,6 @@ import UIKit
 class SlotCollectionCell: UICollectionViewCell {
     
     static let id = "SlotCell"
-    var array: [Int] = {
-        var array = [Int]()
-        for i in 0...4 {
-            array.append(i)
-        }
-        array.shuffle()
-        return array
-    }()
     
     let tableView = UITableView()
     
@@ -31,6 +23,16 @@ class SlotCollectionCell: UICollectionViewCell {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 0
+        tableView.isScrollEnabled = false
+        tableView.estimatedSectionFooterHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
+        tableView.contentSize = CGSize(width: 61.3,
+                                       height: 161299)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.tableView.scrollToRow(at: [0,2798],
+                                at: .middle, animated: true)
+        }
         self.addSubview(tableView)
         
         ui.layout(tableView: tableView,
@@ -48,19 +50,21 @@ class SlotCollectionCell: UICollectionViewCell {
 
 extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        
+        return SpinLogicManager.array.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SlotTableViewCell.id,
                                                  for: indexPath) as! SlotTableViewCell
-        cell.fillCellby(tagBtn: array[indexPath.row])
-        cell.tag = array[indexPath.row]
+        cell.fillCellby(tagBtn: SpinLogicManager.array[indexPath.row])
+        cell.tag = SpinLogicManager.array[indexPath.row]
+        cell.tagBtn = SpinLogicManager.array[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return  tableView.bounds.size.height / 2.9
+        return tableView.sizeHeight / 2.9
     }
 }
 

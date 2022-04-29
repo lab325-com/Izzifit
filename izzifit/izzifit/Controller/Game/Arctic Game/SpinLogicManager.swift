@@ -20,6 +20,14 @@ struct SpinLogicManager {
         }
     }
     
+    static let array: [Int] = {
+        var array = [Int]()
+        for _ in 0...2800 {
+            let random = Int(arc4random_uniform(5))
+            array.append(random)
+        }
+        return array
+    }()
     
     func spinAction(coinsLbl: UILabel,
                     energyLbl: UILabel,
@@ -44,16 +52,16 @@ struct SpinLogicManager {
         
         runTimer()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             let currentElements = self.getResultIndices(collectionView)
             
-            if let tupleResult = recognizeSetCombinations(currentElements) {
-                print(tupleResult)
-                // теперь тут будет по первому элементу тупла функция по начислению бонусов
-                accrueBonuses(by: tupleResult.0, resultLbl: resultLbl)
-                // функция котороая красит бордер ячеек по второму элементу тупла
-                paintBlueBorder(tupleResult.1,collectionView: collectionView)
-            }
+            //            if let tupleResult = recognizeSetCombinations(currentElements) {
+            //                print(tupleResult)
+            //                // теперь тут будет по первому элементу тупла функция по начислению бонусов
+            //                accrueBonuses(by: tupleResult.0, resultLbl: resultLbl)
+            //                // функция котороая красит бордер ячеек по второму элементу тупла
+            //                paintBlueBorder(tupleResult.1,collectionView: collectionView)
+            //            }
             // мне нужен массив/сет  элементов, которые должны окраситься в синюю коемку ( borderView)
             // мне нужна  spinCombination
             
@@ -124,9 +132,7 @@ struct SpinLogicManager {
                 }
             }
         }
-        
         guard count == 1 else { return nil }
-        
         return (combination, res)
     }
     
@@ -158,7 +164,6 @@ struct SpinLogicManager {
     }
     
     private func paintBlueBorder(_ set: Set<Int>, collectionView: UICollectionView) {
-        
         for int in set {
             let table = ( collectionView.cellForItem(at: [0,int]) as! SlotCollectionCell).tableView
             let cell = (table.visibleCells[1] as! SlotTableViewCell)
@@ -168,7 +173,7 @@ struct SpinLogicManager {
 }
 
 enum SpinCombination {
-    case pairHummers,setHummers
+    case pairHummers, setHummers
     case pairDollars, setDollars
     case pairSnowflakes, setSnowflakes
     case pairMoneyBags, setMoneyBags
