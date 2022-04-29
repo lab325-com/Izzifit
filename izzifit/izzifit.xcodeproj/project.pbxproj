@@ -227,6 +227,9 @@
 		02B22AC1281C0B3D006AB1EA /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B22AC0281C0B3D006AB1EA /* MapModel.swift */; };
 		02B22AC3281C1502006AB1EA /* ArcticGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B22AC2281C1502006AB1EA /* ArcticGamePresenter.swift */; };
 		02B22AC8281C18F2006AB1EA /* Spin.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B22AC7281C18F2006AB1EA /* Spin.graphql */; };
+		02B22ACA281C2614006AB1EA /* SpinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B22AC9281C2614006AB1EA /* SpinModel.swift */; };
+		02B22ACD281C27D8006AB1EA /* UpgradeBuilding.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B22ACC281C27D8006AB1EA /* UpgradeBuilding.graphql */; };
+		02B22ACF281C2882006AB1EA /* UpgradeBuildingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B22ACE281C2882006AB1EA /* UpgradeBuildingModel.swift */; };
 		02B3016F27EAFB310045C607 /* DrinkWaterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3016E27EAFB310045C607 /* DrinkWaterModel.swift */; };
 		02B3017227EB22EA0045C607 /* SaveMood.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B3017127EB22EA0045C607 /* SaveMood.graphql */; };
 		02B3017427EB23190045C607 /* SaveMoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3017327EB23190045C607 /* SaveMoodModel.swift */; };
@@ -582,6 +585,9 @@
 		02B22AC0281C0B3D006AB1EA /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		02B22AC2281C1502006AB1EA /* ArcticGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGamePresenter.swift; sourceTree = "<group>"; };
 		02B22AC7281C18F2006AB1EA /* Spin.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Spin.graphql; sourceTree = "<group>"; };
+		02B22AC9281C2614006AB1EA /* SpinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinModel.swift; sourceTree = "<group>"; };
+		02B22ACC281C27D8006AB1EA /* UpgradeBuilding.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UpgradeBuilding.graphql; sourceTree = "<group>"; };
+		02B22ACE281C2882006AB1EA /* UpgradeBuildingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeBuildingModel.swift; sourceTree = "<group>"; };
 		02B3016E27EAFB310045C607 /* DrinkWaterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkWaterModel.swift; sourceTree = "<group>"; };
 		02B3017127EB22EA0045C607 /* SaveMood.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SaveMood.graphql; sourceTree = "<group>"; };
 		02B3017327EB23190045C607 /* SaveMoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMoodModel.swift; sourceTree = "<group>"; };
@@ -1756,6 +1762,7 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				02B22ACB281C279D006AB1EA /* UpgradeBuilding */,
 				029EDBD1280D726400FC8748 /* WorkoutAttemptUpdate */,
 				02354E9228093554005A8272 /* DoExercise */,
 				02354E8D280934B7005A8272 /* StartWorkout */,
@@ -1787,8 +1794,18 @@
 			isa = PBXGroup;
 			children = (
 				02B22AC7281C18F2006AB1EA /* Spin.graphql */,
+				02B22AC9281C2614006AB1EA /* SpinModel.swift */,
 			);
 			path = Spin;
+			sourceTree = "<group>";
+		};
+		02B22ACB281C279D006AB1EA /* UpgradeBuilding */ = {
+			isa = PBXGroup;
+			children = (
+				02B22ACC281C27D8006AB1EA /* UpgradeBuilding.graphql */,
+				02B22ACE281C2882006AB1EA /* UpgradeBuildingModel.swift */,
+			);
+			path = UpgradeBuilding;
 			sourceTree = "<group>";
 		};
 		02B3017027EB22CF0045C607 /* SaveMood */ = {
@@ -2534,6 +2551,7 @@
 				0256997B2819611600BA1535 /* 1_tap_main.wav in Resources */,
 				02B225B927BD63FC0035CFA2 /* QuizeEmailController.xib in Resources */,
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
+				02B22ACD281C27D8006AB1EA /* UpgradeBuilding.graphql in Resources */,
 				02BC128E27F329E200678305 /* WorkoutDetailMuscleController.xib in Resources */,
 				0256999228197A7500BA1535 /* 19_super_win.wav in Resources */,
 				023FBC3D27FACC8C004D0CEA /* PaywallController.xib in Resources */,
@@ -2840,6 +2858,7 @@
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
 				02AC22282800677B00440DFB /* OrderCreateModel.swift in Sources */,
 				020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */,
+				02B22ACA281C2614006AB1EA /* SpinModel.swift in Sources */,
 				020CB3DC27E9F46600F97A76 /* UpdateProductInMealModel.swift in Sources */,
 				029EDBD5280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift in Sources */,
 				0227DABC27C6768F008AB26B /* MenuWeightController.swift in Sources */,
@@ -2907,6 +2926,7 @@
 				02B225B327BD5D300035CFA2 /* QuizeSportController.swift in Sources */,
 				025463B927CF8F5D00D433DB /* ToggleMuscleInWorkoutsModel.swift in Sources */,
 				0227DAC627C6A455008AB26B /* MenuFoodController.swift in Sources */,
+				02B22ACF281C2882006AB1EA /* UpgradeBuildingModel.swift in Sources */,
 				02D066E227BBEBA000D12C5F /* QuizeHeightController.swift in Sources */,
 				02B22AC3281C1502006AB1EA /* ArcticGamePresenter.swift in Sources */,
 				023CDC3528047BEB0056F022 /* QuizeGoalPresenter.swift in Sources */,

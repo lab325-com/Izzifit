@@ -16,7 +16,7 @@ struct MapMainModel: Codable {
     let name: String
     let buildings: [BuildingsModel]
     
-    let spins: [SpinsModel]
+    let spins: [MapSpinsModel]
     let spinObjects: [SpinObjectsModel]
 
     enum CodingKeys: String, CodingKey {
@@ -35,7 +35,7 @@ struct BuildingsModel: Codable {
     let level: Int
 }
 
-struct SpinsModel: Codable {
+struct MapSpinsModel: Codable {
     let id: String
     let spinObjectIds: [Int]
 }
