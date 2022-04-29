@@ -223,6 +223,10 @@
 		02B225BE27BD7B110035CFA2 /* Login.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B225BD27BD7B110035CFA2 /* Login.graphql */; };
 		02B225C027BD7B4F0035CFA2 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225BF27BD7B4F0035CFA2 /* LoginModel.swift */; };
 		02B225C227BD7D4D0035CFA2 /* MeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225C127BD7D4D0035CFA2 /* MeModel.swift */; };
+		02B22ABF281C0A70006AB1EA /* Map.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B22ABE281C0A70006AB1EA /* Map.graphql */; };
+		02B22AC1281C0B3D006AB1EA /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B22AC0281C0B3D006AB1EA /* MapModel.swift */; };
+		02B22AC3281C1502006AB1EA /* ArcticGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B22AC2281C1502006AB1EA /* ArcticGamePresenter.swift */; };
+		02B22AC8281C18F2006AB1EA /* Spin.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B22AC7281C18F2006AB1EA /* Spin.graphql */; };
 		02B3016F27EAFB310045C607 /* DrinkWaterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3016E27EAFB310045C607 /* DrinkWaterModel.swift */; };
 		02B3017227EB22EA0045C607 /* SaveMood.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B3017127EB22EA0045C607 /* SaveMood.graphql */; };
 		02B3017427EB23190045C607 /* SaveMoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3017327EB23190045C607 /* SaveMoodModel.swift */; };
@@ -572,6 +576,10 @@
 		02B225BD27BD7B110035CFA2 /* Login.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Login.graphql; sourceTree = "<group>"; };
 		02B225BF27BD7B4F0035CFA2 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		02B225C127BD7D4D0035CFA2 /* MeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeModel.swift; sourceTree = "<group>"; };
+		02B22ABE281C0A70006AB1EA /* Map.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Map.graphql; sourceTree = "<group>"; };
+		02B22AC0281C0B3D006AB1EA /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
+		02B22AC2281C1502006AB1EA /* ArcticGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGamePresenter.swift; sourceTree = "<group>"; };
+		02B22AC7281C18F2006AB1EA /* Spin.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Spin.graphql; sourceTree = "<group>"; };
 		02B3016E27EAFB310045C607 /* DrinkWaterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkWaterModel.swift; sourceTree = "<group>"; };
 		02B3017127EB22EA0045C607 /* SaveMood.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SaveMood.graphql; sourceTree = "<group>"; };
 		02B3017327EB23190045C607 /* SaveMoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMoodModel.swift; sourceTree = "<group>"; };
@@ -1218,6 +1226,8 @@
 		0249D29A27B3D78900F265C1 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+				02B22AC4281C1890006AB1EA /* Spin */,
+				02B22ABD281C0A5B006AB1EA /* Map */,
 				023CDC3628047C720056F022 /* AvailableGoals */,
 				02E9047C27F5A360008CFFB4 /* Workouts */,
 				02BACF1227F4574800B7562C /* RecommendWorkouts */,
@@ -1760,6 +1770,23 @@
 			path = Mutation;
 			sourceTree = "<group>";
 		};
+		02B22ABD281C0A5B006AB1EA /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				02B22ABE281C0A70006AB1EA /* Map.graphql */,
+				02B22AC0281C0B3D006AB1EA /* MapModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		02B22AC4281C1890006AB1EA /* Spin */ = {
+			isa = PBXGroup;
+			children = (
+				02B22AC7281C18F2006AB1EA /* Spin.graphql */,
+			);
+			path = Spin;
+			sourceTree = "<group>";
+		};
 		02B3017027EB22CF0045C607 /* SaveMood */ = {
 			isa = PBXGroup;
 			children = (
@@ -2252,6 +2279,7 @@
 				FAB6546E27FEDFA70057A221 /* ArcticGameComtroller.swift */,
 				FAB6546F27FEDFA70057A221 /* ArcticGameComtroller.xib */,
 				FAB6547227FF39420057A221 /* SpinLogicManager.swift */,
+				02B22AC2281C1502006AB1EA /* ArcticGamePresenter.swift */,
 			);
 			path = "Arctic Game";
 			sourceTree = "<group>";
@@ -2463,6 +2491,7 @@
 				025463AD27CE6E9800D433DB /* MenuFitnessController.xib in Resources */,
 				FAA8E88A27F449060081A12A /* CaloriesWidget.graphql in Resources */,
 				0256998A28197A7500BA1535 /* 17_energy_x2.wav in Resources */,
+				02B22ABF281C0A70006AB1EA /* Map.graphql in Resources */,
 				02F0C18227EDBDDB005DE3E2 /* EnergyUpdateWeightController.xib in Resources */,
 				02D1631F27FADC2F007C6686 /* Inter-BoldItalic.ttf in Resources */,
 				FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */,
@@ -2567,6 +2596,7 @@
 				02B3017227EB22EA0045C607 /* SaveMood.graphql in Resources */,
 				02A5CDAB27C393DC00D31FB4 /* WorkoutController.xib in Resources */,
 				02D066BE27BBB57D00D12C5F /* Inter-ExtraLight.ttf in Resources */,
+				02B22AC8281C18F2006AB1EA /* Spin.graphql in Resources */,
 				0268753427D8E54E00FFEA6A /* EnergyChooseActivityCell.xib in Resources */,
 				02354E8F280934CE005A8272 /* StartWorkout.graphql in Resources */,
 				02BACF1427F4579C00B7562C /* RecommendWorkouts.graphql in Resources */,
@@ -2741,6 +2771,7 @@
 				029EDBCF280D3FCB00FC8748 /* VideoFinishedController.swift in Sources */,
 				0256999528197C6C00BA1535 /* BaseTableViewCell.swift in Sources */,
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
+				02B22AC1281C0B3D006AB1EA /* MapModel.swift in Sources */,
 				FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */,
 				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
 				0263388D27DB299600DC0325 /* EnergyProgressController.swift in Sources */,
@@ -2869,6 +2900,7 @@
 				025463B927CF8F5D00D433DB /* ToggleMuscleInWorkoutsModel.swift in Sources */,
 				0227DAC627C6A455008AB26B /* MenuFoodController.swift in Sources */,
 				02D066E227BBEBA000D12C5F /* QuizeHeightController.swift in Sources */,
+				02B22AC3281C1502006AB1EA /* ArcticGamePresenter.swift in Sources */,
 				023CDC3528047BEB0056F022 /* QuizeGoalPresenter.swift in Sources */,
 				0249D26627B3A88C00F265C1 /* Int+Extension.swift in Sources */,
 				0290B39927D2340800381B42 /* EnerdyTodayCell.swift in Sources */,

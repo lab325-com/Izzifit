@@ -302,7 +302,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 66 files.
+  /// This `R.file` struct is generated, and contains static references to 68 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -372,6 +372,8 @@ struct R: Rswift.Validatable {
     static let interThinTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Thin", pathExtension: "ttf")
     /// Resource file `Login.graphql`.
     static let loginGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Login", pathExtension: "graphql")
+    /// Resource file `Map.graphql`.
+    static let mapGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Map", pathExtension: "graphql")
     /// Resource file `Me.graphql`.
     static let meGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Me", pathExtension: "graphql")
     /// Resource file `MealsWidget.graphql`.
@@ -414,6 +416,8 @@ struct R: Rswift.Validatable {
     static let sleepWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SleepWidget", pathExtension: "graphql")
     /// Resource file `SourcesByMeal.graphql`.
     static let sourcesByMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SourcesByMeal", pathExtension: "graphql")
+    /// Resource file `Spin.graphql`.
+    static let spinGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Spin", pathExtension: "graphql")
     /// Resource file `StartWorkout.graphql`.
     static let startWorkoutGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "StartWorkout", pathExtension: "graphql")
     /// Resource file `ToggleMuscleInWorkouts.graphql`.
@@ -641,6 +645,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "Map", withExtension: "graphql")`
+    static func mapGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.mapGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "Me", withExtension: "graphql")`
     static func meGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.meGraphql
@@ -764,6 +774,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "SourcesByMeal", withExtension: "graphql")`
     static func sourcesByMealGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.sourcesByMealGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Spin", withExtension: "graphql")`
+    static func spinGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.spinGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 

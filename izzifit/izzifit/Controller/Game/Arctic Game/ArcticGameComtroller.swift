@@ -29,6 +29,7 @@ class ArcticGameComtroller: BaseController {
     private var timerCount = 0
     private var timer = Timer()
     private var spinManager = SpinLogicManager()
+    private lazy var presenter = ArcticGamePresenter(view: self)
     
     override func viewDidLoad() {
         needSoundTap = false
@@ -72,6 +73,7 @@ class ArcticGameComtroller: BaseController {
     }
     
     private func setCollectionView() {
+        presenter.getMap()
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.h / 12.01,
@@ -145,5 +147,15 @@ extension ArcticGameComtroller: UICollectionViewDelegate, UICollectionViewDataSo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlotCollectionCell.id, for: indexPath) as! SlotCollectionCell
         
         return cell
+    }
+}
+
+//----------------------------------------------
+// MARK: - ArcticGameOutputProtocol
+//----------------------------------------------
+
+extension ArcticGameComtroller: ArcticGameOutputProtocol {
+    func success() {
+        ///reload
     }
 }

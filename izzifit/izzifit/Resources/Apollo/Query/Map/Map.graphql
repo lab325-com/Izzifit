@@ -1,0 +1,25 @@
+query Map($mapId: String) {
+	map(mapId: $mapId) {
+        id
+        name
+        Buildings {
+            id
+            name
+            maxLevel
+            level
+        }
+        Spins {
+            id
+            spinObjectIds
+        }
+        SpinObjects {
+            id
+            type
+            Image {
+                urlIosFull
+            }
+        }
+	}
+}
+
+
