@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,7 +43,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WO7-pX-rWH">
-                    <rect key="frame" x="24" y="820" width="380" height="48"/>
+                    <rect key="frame" x="24" y="846" width="380" height="48"/>
                     <color key="backgroundColor" red="1" green="0.25882352939999997" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="khH-Ju-rZ1"/>
@@ -148,7 +148,7 @@
                     </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQS-hy-YFB">
-                    <rect key="frame" x="0.0" y="655" width="428" height="51"/>
+                    <rect key="frame" x="0.0" y="681" width="428" height="51"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wtu-oA-Vy3">
                             <rect key="frame" x="0.0" y="0.0" width="2250" height="51"/>
@@ -3121,7 +3121,7 @@
                     </connections>
                 </scrollView>
                 <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBc-He-JSY">
-                    <rect key="frame" x="0.0" y="655" width="428" height="51"/>
+                    <rect key="frame" x="0.0" y="681" width="428" height="51"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yK8-YN-uWO">
                             <rect key="frame" x="0.0" y="0.0" width="4680" height="51"/>
@@ -9280,7 +9280,7 @@
                     </connections>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IY6-y2-gKI">
-                    <rect key="frame" x="213" y="647" width="2" height="40"/>
+                    <rect key="frame" x="213" y="673" width="2" height="40"/>
                     <color key="backgroundColor" red="1" green="0.25882352941176467" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="2" id="5Mr-jz-qff"/>
@@ -9288,10 +9288,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6p-Hv-kIA">
-                    <rect key="frame" x="0.0" y="233.33333333333334" width="428" height="421.66666666666663"/>
+                    <rect key="frame" x="0.0" y="233.33333333333334" width="428" height="447.66666666666663"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlj-fB-PuF">
-                            <rect key="frame" x="152.33333333333334" y="181.66666666666666" width="123.33333333333334" height="58.333333333333343"/>
+                            <rect key="frame" x="152.33333333333334" y="194.66666666666666" width="123.33333333333334" height="58.333333333333343"/>
                             <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="48"/>
                             <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -9331,7 +9331,7 @@
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5y7-sc-Mnd" secondAttribute="trailing" constant="20" id="VrL-tS-v5h"/>
                 <constraint firstItem="IY6-y2-gKI" firstAttribute="centerX" secondItem="UQS-hy-YFB" secondAttribute="centerX" id="W0t-0e-oDF"/>
                 <constraint firstItem="HhF-wH-LHF" firstAttribute="leading" secondItem="UND-fC-0WC" secondAttribute="leading" id="Y4O-oJ-SRj"/>
-                <constraint firstItem="UND-fC-0WC" firstAttribute="bottom" secondItem="WO7-pX-rWH" secondAttribute="bottom" constant="24" id="YAO-DV-yIQ"/>
+                <constraint firstAttribute="bottom" secondItem="WO7-pX-rWH" secondAttribute="bottom" constant="32" id="YAO-DV-yIQ"/>
                 <constraint firstItem="5SL-vU-AHd" firstAttribute="top" secondItem="UND-fC-0WC" secondAttribute="top" constant="16" id="ZDA-xo-d4a"/>
                 <constraint firstItem="m0n-ng-yVO" firstAttribute="width" secondItem="ARI-cj-49K" secondAttribute="width" id="b5t-Im-MYO"/>
                 <constraint firstItem="X6p-Hv-kIA" firstAttribute="top" secondItem="5y7-sc-Mnd" secondAttribute="bottom" id="cN8-fx-Faj"/>
