@@ -30,6 +30,7 @@ class LevelController: BaseController {
                                      deerState: .second)
     
     override func viewDidLoad() {
+        needSoundTap = false
         super.viewDidLoad()
         setup()
         hiddenNavigationBar = true

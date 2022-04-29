@@ -1,0 +1,8 @@
+query Spin($spinId: String) {
+	spin(spinId: $spinId) {
+        type
+        amount
+	}
+}
+
+

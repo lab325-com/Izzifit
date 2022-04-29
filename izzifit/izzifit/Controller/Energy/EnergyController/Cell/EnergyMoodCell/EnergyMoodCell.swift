@@ -11,7 +11,7 @@ protocol EnergyMoodProtocol: AnyObject {
     func energyMoodSelected(cell: EnergyMoodCell, type: MoodType)
 }
 
-class EnergyMoodCell: UITableViewCell {
+class EnergyMoodCell: BaseTableViewCell {
 
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
@@ -74,14 +74,17 @@ class EnergyMoodCell: UITableViewCell {
     }
     
     @IBAction func actionGood(_ sender: UIButton) {
+        AudioManager.sharedManager.playSound()
         delegate?.energyMoodSelected(cell: self, type: .moodTypeGood)
     }
     
     @IBAction func actionNotBad(_ sender: UIButton) {
+        AudioManager.sharedManager.playSound()
         delegate?.energyMoodSelected(cell: self, type: .moodTypeNotBad)
     }
     
     @IBAction func actionBadly(_ sender: UIButton) {
+        AudioManager.sharedManager.playSound()
         delegate?.energyMoodSelected(cell: self, type: .moodTypeBadly)
     }
 }

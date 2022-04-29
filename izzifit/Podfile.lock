@@ -2,23 +2,27 @@ PODS:
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
+  - Siren (5.8.1)
   - SpreadsheetView (0.9.1)
 
 DEPENDENCIES:
   - R.swift
+  - Siren
   - SpreadsheetView
 
 SPEC REPOS:
   trunk:
     - R.swift
     - R.swift.Library
+    - Siren
     - SpreadsheetView
 
 SPEC CHECKSUMS:
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  Siren: de768099aff1f1c9acda4247064788a4940b4bf3
   SpreadsheetView: 688dbd19f2b355df0eb09e486266fd913a013449
 
-PODFILE CHECKSUM: 4604f3495eba3457be05e2716fe5c8a19c6ba133
+PODFILE CHECKSUM: 12e7376b1c2d0bb4bd24875be1e83376fc85717f
 
 COCOAPODS: 1.11.3

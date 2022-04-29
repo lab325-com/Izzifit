@@ -29,12 +29,17 @@ class BaseController: UIViewController, NVActivityIndicatorViewable {
     var isNeedBottomPagging = true
     var addTapOnScreen = true
     var setupBackButton = true
+    var needSoundTap = true
     
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if needSoundTap {
+            addActionSound()
+        }
         
         navigationController?.navigationItem.hidesBackButton = true
         
@@ -214,3 +219,22 @@ extension BaseController {
         }
     }
 }
+
+//----------------------------------------------
+// MARK: - Audio
+//----------------------------------------------
+
+extension BaseController {
+    func addActionSound(){
+        for view in self.view.subviews as [UIView] {
+            if let btn = view as? UIButton {
+                btn.addTarget(self, action: #selector(playTapInButton), for: .touchUpInside)
+            }
+        }
+    }
+    
+    @objc func playTapInButton() {
+        AudioManager.sharedManager.playSound()
+    }
+}
+

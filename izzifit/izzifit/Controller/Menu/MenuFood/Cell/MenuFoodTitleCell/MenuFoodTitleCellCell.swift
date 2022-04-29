@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MenuFoodTitleCellCell: UITableViewCell {
+class MenuFoodTitleCellCell: BaseTableViewCell {
 
     @IBOutlet weak var mainTitleLabel: UILabel!
     

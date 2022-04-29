@@ -11,7 +11,7 @@ protocol EnergyDrinkWaterProtocol: AnyObject {
     func energyDrinkWaterSelectIndex(cell: EnergyDrinkWaterCell, index: Int)
 }
 
-class EnergyDrinkWaterCell: UITableViewCell {
+class EnergyDrinkWaterCell: BaseTableViewCell {
 
     @IBOutlet weak var waterStackView: UIStackView!
     

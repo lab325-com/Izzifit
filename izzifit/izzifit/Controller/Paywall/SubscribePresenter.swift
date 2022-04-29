@@ -181,6 +181,7 @@ class SubscribePresenter: SubscribePresenterProtocol {
                     let model = PaymentsModel(product: product.productIdentifier, prettyPrice: priceString, period: period, number: number, price: Double(truncating: product.price), currencySymbol: product.priceLocale.currencySymbol)
                     self?.paymentsInfo.append(model)
                 } else {
+                    self?.view?.stopLoading()
                     debugPrint(">>>>>>>>>>>>>>>>>>>incorrect product!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 }
             }

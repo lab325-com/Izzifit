@@ -29,7 +29,7 @@ class OffsetCounter: OffsetCounterProtocol {
     
     init(strideOffset: CGFloat) {
         print(strideOffset)
-        self.oneCellStrideOffset = 44.01
+        self.oneCellStrideOffset = strideOffset
     }
     
    lazy var defaultSpeed: CGFloat = {

@@ -72,29 +72,13 @@ class EnergyController: BaseController {
         setup()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if !currentDate.isInToday {
-            currentDate = Date()
-            presenter.getWidgets(date: getDate())
-        }
-    }
-    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
     
     private func setup() {
         
-        cointLabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
-        
-        if let name = KeychainService.standard.me?.name {
-            nameLabel.text = RLocalization.energy_header_title(name)
-        } else {
-            nameLabel.isHidden = true
-        }
+        updateMe()
         
         tableView.isHidden = true
         
@@ -127,6 +111,26 @@ class EnergyController: BaseController {
         dateFormmater.locale = Locale(identifier: "en_US_POSIX")
         dateFormmater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return dateFormmater.string(from: currentDate)
+    }
+    
+    func getMe() {
+        presenter.getMe()
+    }
+    
+    func updateMe() {
+        if !currentDate.isInToday {
+            currentDate = Date()
+            presenter.getWidgets(date: getDate())
+        }
+        
+        cointLabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        
+        if let name = KeychainService.standard.me?.name {
+            nameLabel.text = RLocalization.energy_header_title(name)
+        } else {
+            nameLabel.isHidden = true
+        }
     }
 }
 
@@ -215,6 +219,7 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
 
 extension EnergyController: EnergyOutputProtocol {
     func success() {
+        updateMe()
         tableView.isHidden = false
         tableView.reloadData()
     }

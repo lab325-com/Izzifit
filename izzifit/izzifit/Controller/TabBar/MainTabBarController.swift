@@ -52,6 +52,7 @@ class MainTabBarController: BaseController {
             if tab == oldValue {
                 return
             }
+            AudioManager.sharedManager.playSound()
             changeTab()
         }
     }
@@ -90,12 +91,15 @@ class MainTabBarController: BaseController {
             containerProfileView.isHidden = true
             containerMenuView.isHidden = true
             self.addContainer(child: energy, to: containerEnergyView)
+            energy.updateMe()
+            energy.getMe()
         case .workout:
             containerEnergyView.isHidden = true
             containerWorkoutView.isHidden = false
             containerProfileView.isHidden = true
             containerMenuView.isHidden = true
             self.addContainer(child: workout, to: containerWorkoutView)
+            workout.updateMe()
         case .profile:
             
             containerEnergyView.isHidden = true
@@ -153,6 +157,7 @@ class MainTabBarController: BaseController {
     }
     
     @IBAction func actionProfile(_ sender: UIButton) {
+        AudioManager.sharedManager.playSound()
         UIView.animate(withDuration: 0.3) {
             self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
             self.view.layoutIfNeeded()
@@ -161,6 +166,7 @@ class MainTabBarController: BaseController {
     }
     
     @IBAction func actionGame(_ sender: Any) {
+        AudioManager.sharedManager.playSound()
         UIView.animate(withDuration: 0.3) {
             self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
             self.view.layoutIfNeeded()
@@ -168,17 +174,15 @@ class MainTabBarController: BaseController {
         navigationController?.navigationBar.isHidden = true
         TabBarRouter(presenter: navigationController).pushGame()
     }
+    
     @IBAction func actionMenu(_ sender: UIButton) {
+        AudioManager.sharedManager.playSound()
         UIView.animate(withDuration: 0.3) {
             self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
             self.view.layoutIfNeeded()
         }
 
         TabBarRouter(presenter: navigationController).pushMenu()
-    }
-    
-    @IBAction func actionLogOut(_ sender: UIButton) {
-        RootRouter.sharedInstance.logout()
     }
 }
 

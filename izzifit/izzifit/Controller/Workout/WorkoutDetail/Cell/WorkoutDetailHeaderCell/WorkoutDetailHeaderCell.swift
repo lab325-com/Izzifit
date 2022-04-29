@@ -13,7 +13,7 @@ protocol WorkoutDetailHeaderProtocol: AnyObject {
     func workoutDetailHeaderBack(cell: WorkoutDetailHeaderCell)
 }
 
-class WorkoutDetailHeaderCell: UITableViewCell {
+class WorkoutDetailHeaderCell: BaseTableViewCell {
 
     @IBOutlet weak var workOutImageView: UIImageView!
     

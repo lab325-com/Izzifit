@@ -151,7 +151,7 @@ extension WorkoutDetailController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        AudioManager.sharedManager.playSound()
         if indexPath.section != 0, let id = presenter.workout?.exerciseGroups?[safe: indexPath.section - 1]?.exercises?[safe: indexPath.row]?.id {
             selectedId = selectedId == id ? nil : id
             

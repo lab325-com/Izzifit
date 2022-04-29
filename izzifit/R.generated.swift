@@ -302,8 +302,34 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 52 files.
+  /// This `R.file` struct is generated, and contains static references to 68 files.
   struct file {
+    /// Resource file `10_spin_tap.wav`.
+    static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
+    /// Resource file `11_spinner_main.wav`.
+    static let _spinner_mainWav = Rswift.FileResource(bundle: R.hostingBundle, name: "11_spinner_main", pathExtension: "wav")
+    /// Resource file `13_coins_x2.wav`.
+    static let _coins_x2Wav = Rswift.FileResource(bundle: R.hostingBundle, name: "13_coins_x2", pathExtension: "wav")
+    /// Resource file `14_coins_x3.wav`.
+    static let _coins_x3Wav = Rswift.FileResource(bundle: R.hostingBundle, name: "14_coins_x3", pathExtension: "wav")
+    /// Resource file `15_coins_pack_x2.wav`.
+    static let _coins_pack_x2Wav = Rswift.FileResource(bundle: R.hostingBundle, name: "15_coins_pack_x2", pathExtension: "wav")
+    /// Resource file `16_coins_pack_x3.wav`.
+    static let _coins_pack_x3Wav = Rswift.FileResource(bundle: R.hostingBundle, name: "16_coins_pack_x3", pathExtension: "wav")
+    /// Resource file `17_energy_x2.wav`.
+    static let _energy_x2Wav = Rswift.FileResource(bundle: R.hostingBundle, name: "17_energy_x2", pathExtension: "wav")
+    /// Resource file `18_energy_x3.wav`.
+    static let _energy_x3Wav = Rswift.FileResource(bundle: R.hostingBundle, name: "18_energy_x3", pathExtension: "wav")
+    /// Resource file `19_super_win.wav`.
+    static let _super_winWav = Rswift.FileResource(bundle: R.hostingBundle, name: "19_super_win", pathExtension: "wav")
+    /// Resource file `1_tap_main.wav`.
+    static let _tap_mainWav = Rswift.FileResource(bundle: R.hostingBundle, name: "1_tap_main", pathExtension: "wav")
+    /// Resource file `20_upgrade_building.wav`.
+    static let _upgrade_buildingWav = Rswift.FileResource(bundle: R.hostingBundle, name: "20_upgrade_building", pathExtension: "wav")
+    /// Resource file `21_building.wav`.
+    static let _buildingWav = Rswift.FileResource(bundle: R.hostingBundle, name: "21_building", pathExtension: "wav")
+    /// Resource file `22_complete_building.wav`.
+    static let _complete_buildingWav = Rswift.FileResource(bundle: R.hostingBundle, name: "22_complete_building", pathExtension: "wav")
     /// Resource file `AddProductToMeal.graphql`.
     static let addProductToMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "AddProductToMeal", pathExtension: "graphql")
     /// Resource file `AskQuestion.graphql`.
@@ -322,6 +348,8 @@ struct R: Rswift.Validatable {
     static let drinkWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DrinkWidget", pathExtension: "graphql")
     /// Resource file `FoodGroups.graphql`.
     static let foodGroupsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "FoodGroups", pathExtension: "graphql")
+    /// Resource file `GoogleService-Info.plist`.
+    static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
     /// Resource file `Inter-Black.ttf`.
     static let interBlackTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Black", pathExtension: "ttf")
     /// Resource file `Inter-Bold.ttf`.
@@ -344,6 +372,8 @@ struct R: Rswift.Validatable {
     static let interThinTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Thin", pathExtension: "ttf")
     /// Resource file `Login.graphql`.
     static let loginGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Login", pathExtension: "graphql")
+    /// Resource file `Map.graphql`.
+    static let mapGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Map", pathExtension: "graphql")
     /// Resource file `Me.graphql`.
     static let meGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Me", pathExtension: "graphql")
     /// Resource file `MealsWidget.graphql`.
@@ -386,6 +416,8 @@ struct R: Rswift.Validatable {
     static let sleepWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SleepWidget", pathExtension: "graphql")
     /// Resource file `SourcesByMeal.graphql`.
     static let sourcesByMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SourcesByMeal", pathExtension: "graphql")
+    /// Resource file `Spin.graphql`.
+    static let spinGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Spin", pathExtension: "graphql")
     /// Resource file `StartWorkout.graphql`.
     static let startWorkoutGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "StartWorkout", pathExtension: "graphql")
     /// Resource file `ToggleMuscleInWorkouts.graphql`.
@@ -408,6 +440,84 @@ struct R: Rswift.Validatable {
     static let workoutsWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutsWidget", pathExtension: "graphql")
     /// Resource file `progress.graphql`.
     static let progressGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "progress", pathExtension: "graphql")
+
+    /// `bundle.url(forResource: "10_spin_tap", withExtension: "wav")`
+    static func _spin_tapWav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file._spin_tapWav
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "11_spinner_main", withExtension: "wav")`
+    static func _spinner_mainWav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file._spinner_mainWav
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "13_coins_x2", withExtension: "wav")`
+    static func _coins_x2Wav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file._coins_x2Wav
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "14_coins_x3", withExtension: "wav")`
+    static func _coins_x3Wav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file._coins_x3Wav
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "15_coins_pack_x2", withExtension: "wav")`
+    static func _coins_pack_x2Wav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file._coins_pack_x2Wav
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "16_coins_pack_x3", withExtension: "wav")`
+    static func _coins_pack_x3Wav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file._coins_pack_x3Wav
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "17_energy_x2", withExtension: "wav")`
+    static func _energy_x2Wav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file._energy_x2Wav
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "18_energy_x3", withExtension: "wav")`
+    static func _energy_x3Wav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file._energy_x3Wav
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "19_super_win", withExtension: "wav")`
+    static func _super_winWav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file._super_winWav
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "1_tap_main", withExtension: "wav")`
+    static func _tap_mainWav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file._tap_mainWav
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "20_upgrade_building", withExtension: "wav")`
+    static func _upgrade_buildingWav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file._upgrade_buildingWav
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "21_building", withExtension: "wav")`
+    static func _buildingWav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file._buildingWav
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "22_complete_building", withExtension: "wav")`
+    static func _complete_buildingWav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file._complete_buildingWav
+      return fileResource.bundle.url(forResource: fileResource)
+    }
 
     /// `bundle.url(forResource: "AddProductToMeal", withExtension: "graphql")`
     static func addProductToMealGraphql(_: Void = ()) -> Foundation.URL? {
@@ -460,6 +570,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "FoodGroups", withExtension: "graphql")`
     static func foodGroupsGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.foodGroupsGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GoogleService-Info", withExtension: "plist")`
+    static func googleServiceInfoPlist(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.googleServiceInfoPlist
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -526,6 +642,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Login", withExtension: "graphql")`
     static func loginGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.loginGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Map", withExtension: "graphql")`
+    static func mapGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.mapGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -652,6 +774,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "SourcesByMeal", withExtension: "graphql")`
     static func sourcesByMealGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.sourcesByMealGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Spin", withExtension: "graphql")`
+    static func spinGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.spinGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 

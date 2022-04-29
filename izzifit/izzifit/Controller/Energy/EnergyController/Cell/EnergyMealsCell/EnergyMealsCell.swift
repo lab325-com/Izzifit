@@ -11,7 +11,7 @@ protocol EnergyMealsDeleagate: AnyObject {
     func energyMealsAdd(cell: EnergyMealsCell, type: MealType)
 }
 
-class EnergyMealsCell: UITableViewCell {
+class EnergyMealsCell: BaseTableViewCell {
     
     //----------------------------------------------
     // MARK: - IBOutlet
@@ -187,24 +187,28 @@ class EnergyMealsCell: UITableViewCell {
     }
     
     @IBAction func actionBreakfast(_ sender: UIButton) {
+        AudioManager.sharedManager.playSound()
         //if let breakfest = model?.meals?.first(where: {$0?.type == MealType.mealTypeBreakfast}), breakfest?.eatenAt == nil {
             delegate?.energyMealsAdd(cell: self, type: .mealTypeBreakfast)
         //}
     }
     
     @IBAction func actionLunch(_ sender: UIButton) {
+        AudioManager.sharedManager.playSound()
         //if let lunch = model?.meals?.first(where: {$0?.type == MealType.mealTypeLunch}), lunch?.eatenAt == nil {
             delegate?.energyMealsAdd(cell: self, type: .mealTypeLunch)
         //}
     }
     
     @IBAction func actionSnack(_ sender: UIButton) {
+        AudioManager.sharedManager.playSound()
         //if let snack = model?.meals?.first(where: {$0?.type == MealType.mealTypeSnack}), snack?.eatenAt == nil {
             delegate?.energyMealsAdd(cell: self, type: .mealTypeSnack)
        // }
     }
     
     @IBAction func actionDinner(_ sender: UIButton) {
+        AudioManager.sharedManager.playSound()
         //if let dinner = model?.meals?.first(where: {$0?.type == MealType.mealTypeDinner}), dinner?.eatenAt == nil {
             delegate?.energyMealsAdd(cell: self, type: .mealTypeDinner)
         //}

@@ -160,6 +160,7 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        AudioManager.sharedManager.playSound()
         
         guard let type = SettingsType.allCases[safe: indexPath.row] else { return }
         

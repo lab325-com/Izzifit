@@ -294,9 +294,11 @@ class PaywallController: BaseController {
     }
     
     @IBAction func actionSubscription(_ sender: UIButton) {
-        presenter.purchase(id: priceType.productId) { result, error in
+        presenter.purchase(id: priceType.productId) { [weak self] result, error in
+            guard let `self` = self else { return }
             if result {
                 self.delegate?.paywallSuccess(controller: self)
+                self.dismiss(animated: true)
             }
         }
     }
@@ -307,6 +309,7 @@ class PaywallController: BaseController {
             
             if result {
                 self.delegate?.paywallSuccess(controller: self)
+                self.dismiss(animated: true)
             }
         }
     }

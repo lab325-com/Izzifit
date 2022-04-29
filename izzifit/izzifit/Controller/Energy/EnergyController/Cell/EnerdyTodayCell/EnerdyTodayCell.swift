@@ -11,7 +11,7 @@ protocol EnergyTodayProtocol: AnyObject {
     func energyTodayProgress(cell: EnerdyTodayCell)
 }
 
-class EnerdyTodayCell: UITableViewCell {
+class EnerdyTodayCell: BaseTableViewCell {
 
     @IBOutlet weak var stackView: UIStackView!
     
@@ -26,7 +26,7 @@ class EnerdyTodayCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+    
         progressView.layer.cornerRadius = 4
         progressView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
     }
@@ -39,6 +39,7 @@ class EnerdyTodayCell: UITableViewCell {
     
     
     func setupCell(model: TodayProgressMainModel) {
+        
         progressPercentLabel.text = RLocalization.energy_progress_percent(model.progress ?? 0)
         
         if let progress = model.progress {

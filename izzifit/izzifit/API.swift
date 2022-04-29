@@ -411,6 +411,7 @@ public enum GoalType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
   case goalTypeLoseWeight
   case goalTypeMuscle
   case goalTypeFun
+  case goalTypePlay
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
@@ -420,6 +421,7 @@ public enum GoalType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
       case "GOAL_TYPE_LOSE_WEIGHT": self = .goalTypeLoseWeight
       case "GOAL_TYPE_MUSCLE": self = .goalTypeMuscle
       case "GOAL_TYPE_FUN": self = .goalTypeFun
+      case "GOAL_TYPE_PLAY": self = .goalTypePlay
       default: self = .__unknown(rawValue)
     }
   }
@@ -430,6 +432,7 @@ public enum GoalType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
       case .goalTypeLoseWeight: return "GOAL_TYPE_LOSE_WEIGHT"
       case .goalTypeMuscle: return "GOAL_TYPE_MUSCLE"
       case .goalTypeFun: return "GOAL_TYPE_FUN"
+      case .goalTypePlay: return "GOAL_TYPE_PLAY"
       case .__unknown(let value): return value
     }
   }
@@ -440,6 +443,7 @@ public enum GoalType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
       case (.goalTypeLoseWeight, .goalTypeLoseWeight): return true
       case (.goalTypeMuscle, .goalTypeMuscle): return true
       case (.goalTypeFun, .goalTypeFun): return true
+      case (.goalTypePlay, .goalTypePlay): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -451,6 +455,7 @@ public enum GoalType: RawRepresentable, Equatable, Hashable, CaseIterable, Apoll
       .goalTypeLoseWeight,
       .goalTypeMuscle,
       .goalTypeFun,
+      .goalTypePlay,
     ]
   }
 }
@@ -878,6 +883,61 @@ public enum WorkoutAttemptFeedbackType: RawRepresentable, Equatable, Hashable, C
   }
 }
 
+public enum SpinObjectType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case spinObjectTypeCoin
+  case spinObjectTypeManyCoin
+  case spinObjectTypeEnergy
+  case spinObjectTypeManyEnergy
+  case spinObjectTypeBuild
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "SPIN_OBJECT_TYPE_COIN": self = .spinObjectTypeCoin
+      case "SPIN_OBJECT_TYPE_MANY_COIN": self = .spinObjectTypeManyCoin
+      case "SPIN_OBJECT_TYPE_ENERGY": self = .spinObjectTypeEnergy
+      case "SPIN_OBJECT_TYPE_MANY_ENERGY": self = .spinObjectTypeManyEnergy
+      case "SPIN_OBJECT_TYPE_BUILD": self = .spinObjectTypeBuild
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .spinObjectTypeCoin: return "SPIN_OBJECT_TYPE_COIN"
+      case .spinObjectTypeManyCoin: return "SPIN_OBJECT_TYPE_MANY_COIN"
+      case .spinObjectTypeEnergy: return "SPIN_OBJECT_TYPE_ENERGY"
+      case .spinObjectTypeManyEnergy: return "SPIN_OBJECT_TYPE_MANY_ENERGY"
+      case .spinObjectTypeBuild: return "SPIN_OBJECT_TYPE_BUILD"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: SpinObjectType, rhs: SpinObjectType) -> Bool {
+    switch (lhs, rhs) {
+      case (.spinObjectTypeCoin, .spinObjectTypeCoin): return true
+      case (.spinObjectTypeManyCoin, .spinObjectTypeManyCoin): return true
+      case (.spinObjectTypeEnergy, .spinObjectTypeEnergy): return true
+      case (.spinObjectTypeManyEnergy, .spinObjectTypeManyEnergy): return true
+      case (.spinObjectTypeBuild, .spinObjectTypeBuild): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [SpinObjectType] {
+    return [
+      .spinObjectTypeCoin,
+      .spinObjectTypeManyCoin,
+      .spinObjectTypeEnergy,
+      .spinObjectTypeManyEnergy,
+      .spinObjectTypeBuild,
+    ]
+  }
+}
+
 public enum ProductMeasure: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
   case productMeasureTypeGram
@@ -1009,6 +1069,51 @@ public enum SourceEntityType: RawRepresentable, Equatable, Hashable, CaseIterabl
       .sourceEntityTypeProteins,
       .sourceEntityTypeFats,
       .sourceEntityTypeCarbs,
+    ]
+  }
+}
+
+public enum SpinObjectRewardType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case spinObjectRewardTypeCoin
+  case spinObjectRewardTypeEnergy
+  case spinObjectRewardTypeBuild
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "SPIN_OBJECT_REWARD_TYPE_COIN": self = .spinObjectRewardTypeCoin
+      case "SPIN_OBJECT_REWARD_TYPE_ENERGY": self = .spinObjectRewardTypeEnergy
+      case "SPIN_OBJECT_REWARD_TYPE_BUILD": self = .spinObjectRewardTypeBuild
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .spinObjectRewardTypeCoin: return "SPIN_OBJECT_REWARD_TYPE_COIN"
+      case .spinObjectRewardTypeEnergy: return "SPIN_OBJECT_REWARD_TYPE_ENERGY"
+      case .spinObjectRewardTypeBuild: return "SPIN_OBJECT_REWARD_TYPE_BUILD"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: SpinObjectRewardType, rhs: SpinObjectRewardType) -> Bool {
+    switch (lhs, rhs) {
+      case (.spinObjectRewardTypeCoin, .spinObjectRewardTypeCoin): return true
+      case (.spinObjectRewardTypeEnergy, .spinObjectRewardTypeEnergy): return true
+      case (.spinObjectRewardTypeBuild, .spinObjectRewardTypeBuild): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [SpinObjectRewardType] {
+    return [
+      .spinObjectRewardTypeCoin,
+      .spinObjectRewardTypeEnergy,
+      .spinObjectRewardTypeBuild,
     ]
   }
 }
@@ -2288,7 +2393,7 @@ public final class CaloriesWidgetQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("Calories", type: .list(.object(Calory.selections))),
-          GraphQLField("target", type: .scalar(Int.self)),
+          GraphQLField("target", type: .scalar(Double.self)),
         ]
       }
 
@@ -2298,7 +2403,7 @@ public final class CaloriesWidgetQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(calories: [Calory?]? = nil, target: Int? = nil) {
+      public init(calories: [Calory?]? = nil, target: Double? = nil) {
         self.init(unsafeResultMap: ["__typename": "CaloriesWidget", "Calories": calories.flatMap { (value: [Calory?]) -> [ResultMap?] in value.map { (value: Calory?) -> ResultMap? in value.flatMap { (value: Calory) -> ResultMap in value.resultMap } } }, "target": target])
       }
 
@@ -2320,9 +2425,9 @@ public final class CaloriesWidgetQuery: GraphQLQuery {
         }
       }
 
-      public var target: Int? {
+      public var target: Double? {
         get {
-          return resultMap["target"] as? Int
+          return resultMap["target"] as? Double
         }
         set {
           resultMap.updateValue(newValue, forKey: "target")
@@ -2764,7 +2869,7 @@ public final class DrinkWidgetQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("doneCups", type: .scalar(Int.self)),
-          GraphQLField("energy", type: .scalar(Int.self)),
+          GraphQLField("energy", type: .scalar(Double.self)),
           GraphQLField("energyTotal", type: .scalar(Int.self)),
           GraphQLField("left", type: .scalar(Int.self)),
           GraphQLField("totalCups", type: .scalar(Int.self)),
@@ -2777,7 +2882,7 @@ public final class DrinkWidgetQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(doneCups: Int? = nil, energy: Int? = nil, energyTotal: Int? = nil, `left`: Int? = nil, totalCups: Int? = nil) {
+      public init(doneCups: Int? = nil, energy: Double? = nil, energyTotal: Int? = nil, `left`: Int? = nil, totalCups: Int? = nil) {
         self.init(unsafeResultMap: ["__typename": "DrinkWidget", "doneCups": doneCups, "energy": energy, "energyTotal": energyTotal, "left": `left`, "totalCups": totalCups])
       }
 
@@ -2799,9 +2904,9 @@ public final class DrinkWidgetQuery: GraphQLQuery {
         }
       }
 
-      public var energy: Int? {
+      public var energy: Double? {
         get {
-          return resultMap["energy"] as? Int
+          return resultMap["energy"] as? Double
         }
         set {
           resultMap.updateValue(newValue, forKey: "energy")
@@ -3003,6 +3108,377 @@ public final class FoodGroupsQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "urlIosPrev")
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class MapQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query Map($mapId: String) {
+      map(mapId: $mapId) {
+        __typename
+        id
+        name
+        Buildings {
+          __typename
+          id
+          name
+          maxLevel
+          level
+        }
+        Spins {
+          __typename
+          id
+          spinObjectIds
+        }
+        SpinObjects {
+          __typename
+          id
+          type
+          Image {
+            __typename
+            urlIosFull
+          }
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "Map"
+
+  public var mapId: String?
+
+  public init(mapId: String? = nil) {
+    self.mapId = mapId
+  }
+
+  public var variables: GraphQLMap? {
+    return ["mapId": mapId]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("map", arguments: ["mapId": GraphQLVariable("mapId")], type: .object(Map.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(map: Map? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "map": map.flatMap { (value: Map) -> ResultMap in value.resultMap }])
+    }
+
+    public var map: Map? {
+      get {
+        return (resultMap["map"] as? ResultMap).flatMap { Map(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "map")
+      }
+    }
+
+    public struct Map: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Map"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .scalar(GraphQLID.self)),
+          GraphQLField("name", type: .scalar(String.self)),
+          GraphQLField("Buildings", type: .list(.object(Building.selections))),
+          GraphQLField("Spins", type: .list(.object(Spin.selections))),
+          GraphQLField("SpinObjects", type: .list(.object(SpinObject.selections))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: GraphQLID? = nil, name: String? = nil, buildings: [Building?]? = nil, spins: [Spin?]? = nil, spinObjects: [SpinObject?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Map", "id": id, "name": name, "Buildings": buildings.flatMap { (value: [Building?]) -> [ResultMap?] in value.map { (value: Building?) -> ResultMap? in value.flatMap { (value: Building) -> ResultMap in value.resultMap } } }, "Spins": spins.flatMap { (value: [Spin?]) -> [ResultMap?] in value.map { (value: Spin?) -> ResultMap? in value.flatMap { (value: Spin) -> ResultMap in value.resultMap } } }, "SpinObjects": spinObjects.flatMap { (value: [SpinObject?]) -> [ResultMap?] in value.map { (value: SpinObject?) -> ResultMap? in value.flatMap { (value: SpinObject) -> ResultMap in value.resultMap } } }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID? {
+        get {
+          return resultMap["id"] as? GraphQLID
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var name: String? {
+        get {
+          return resultMap["name"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+
+      public var buildings: [Building?]? {
+        get {
+          return (resultMap["Buildings"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Building?] in value.map { (value: ResultMap?) -> Building? in value.flatMap { (value: ResultMap) -> Building in Building(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Building?]) -> [ResultMap?] in value.map { (value: Building?) -> ResultMap? in value.flatMap { (value: Building) -> ResultMap in value.resultMap } } }, forKey: "Buildings")
+        }
+      }
+
+      public var spins: [Spin?]? {
+        get {
+          return (resultMap["Spins"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Spin?] in value.map { (value: ResultMap?) -> Spin? in value.flatMap { (value: ResultMap) -> Spin in Spin(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Spin?]) -> [ResultMap?] in value.map { (value: Spin?) -> ResultMap? in value.flatMap { (value: Spin) -> ResultMap in value.resultMap } } }, forKey: "Spins")
+        }
+      }
+
+      public var spinObjects: [SpinObject?]? {
+        get {
+          return (resultMap["SpinObjects"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [SpinObject?] in value.map { (value: ResultMap?) -> SpinObject? in value.flatMap { (value: ResultMap) -> SpinObject in SpinObject(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [SpinObject?]) -> [ResultMap?] in value.map { (value: SpinObject?) -> ResultMap? in value.flatMap { (value: SpinObject) -> ResultMap in value.resultMap } } }, forKey: "SpinObjects")
+        }
+      }
+
+      public struct Building: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Building"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .scalar(GraphQLID.self)),
+            GraphQLField("name", type: .scalar(String.self)),
+            GraphQLField("maxLevel", type: .scalar(Int.self)),
+            GraphQLField("level", type: .scalar(Int.self)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID? = nil, name: String? = nil, maxLevel: Int? = nil, level: Int? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Building", "id": id, "name": name, "maxLevel": maxLevel, "level": level])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID? {
+          get {
+            return resultMap["id"] as? GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var name: String? {
+          get {
+            return resultMap["name"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "name")
+          }
+        }
+
+        public var maxLevel: Int? {
+          get {
+            return resultMap["maxLevel"] as? Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "maxLevel")
+          }
+        }
+
+        public var level: Int? {
+          get {
+            return resultMap["level"] as? Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "level")
+          }
+        }
+      }
+
+      public struct Spin: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Spin"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .scalar(GraphQLID.self)),
+            GraphQLField("spinObjectIds", type: .list(.scalar(Int.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID? = nil, spinObjectIds: [Int?]? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Spin", "id": id, "spinObjectIds": spinObjectIds])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID? {
+          get {
+            return resultMap["id"] as? GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var spinObjectIds: [Int?]? {
+          get {
+            return resultMap["spinObjectIds"] as? [Int?]
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "spinObjectIds")
+          }
+        }
+      }
+
+      public struct SpinObject: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["SpinObject"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .scalar(GraphQLID.self)),
+            GraphQLField("type", type: .scalar(SpinObjectType.self)),
+            GraphQLField("Image", type: .object(Image.selections)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID? = nil, type: SpinObjectType? = nil, image: Image? = nil) {
+          self.init(unsafeResultMap: ["__typename": "SpinObject", "id": id, "type": type, "Image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID? {
+          get {
+            return resultMap["id"] as? GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var type: SpinObjectType? {
+          get {
+            return resultMap["type"] as? SpinObjectType
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "type")
+          }
+        }
+
+        public var image: Image? {
+          get {
+            return (resultMap["Image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "Image")
+          }
+        }
+
+        public struct Image: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Image"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("urlIosFull", type: .scalar(String.self)),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(urlIosFull: String? = nil) {
+            self.init(unsafeResultMap: ["__typename": "Image", "urlIosFull": urlIosFull])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var urlIosFull: String? {
+            get {
+              return resultMap["urlIosFull"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "urlIosFull")
+            }
           }
         }
       }
@@ -6237,6 +6713,110 @@ public final class SourcesByMealQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+    }
+  }
+}
+
+public final class SpinQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query Spin($spinId: String) {
+      spin(spinId: $spinId) {
+        __typename
+        type
+        amount
+      }
+    }
+    """
+
+  public let operationName: String = "Spin"
+
+  public var spinId: String?
+
+  public init(spinId: String? = nil) {
+    self.spinId = spinId
+  }
+
+  public var variables: GraphQLMap? {
+    return ["spinId": spinId]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("spin", arguments: ["spinId": GraphQLVariable("spinId")], type: .list(.object(Spin.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(spin: [Spin?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "spin": spin.flatMap { (value: [Spin?]) -> [ResultMap?] in value.map { (value: Spin?) -> ResultMap? in value.flatMap { (value: Spin) -> ResultMap in value.resultMap } } }])
+    }
+
+    public var spin: [Spin?]? {
+      get {
+        return (resultMap["spin"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Spin?] in value.map { (value: ResultMap?) -> Spin? in value.flatMap { (value: ResultMap) -> Spin in Spin(unsafeResultMap: value) } } }
+      }
+      set {
+        resultMap.updateValue(newValue.flatMap { (value: [Spin?]) -> [ResultMap?] in value.map { (value: Spin?) -> ResultMap? in value.flatMap { (value: Spin) -> ResultMap in value.resultMap } } }, forKey: "spin")
+      }
+    }
+
+    public struct Spin: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["SpinReward"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("type", type: .scalar(SpinObjectRewardType.self)),
+          GraphQLField("amount", type: .scalar(Int.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(type: SpinObjectRewardType? = nil, amount: Int? = nil) {
+        self.init(unsafeResultMap: ["__typename": "SpinReward", "type": type, "amount": amount])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var type: SpinObjectRewardType? {
+        get {
+          return resultMap["type"] as? SpinObjectRewardType
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "type")
+        }
+      }
+
+      public var amount: Int? {
+        get {
+          return resultMap["amount"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "amount")
         }
       }
     }

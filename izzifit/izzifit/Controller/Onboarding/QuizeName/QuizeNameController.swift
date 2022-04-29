@@ -83,6 +83,7 @@ class QuizeNameController: BaseController {
     
     @IBAction func actionGoNext(_ sender: UIButton) {
         if nameField.text!.count > 0 {
+            AudioManager.sharedManager.playSound()
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setName(nameField.text!)
             PreferencesManager.sharedManager.tempPorifle = model

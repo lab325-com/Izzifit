@@ -31,20 +31,22 @@ class ArcticGameComtroller: BaseController {
     var table1ContentOffset: CGFloat = 0
     var table2ContentOffset: CGFloat = 0
     var table3ContentOffset: CGFloat = 0
+    private lazy var presenter = ArcticGamePresenter(view: self)
     
     private var firstTimer = Timer()
     private var secondTimer = Timer()
     private var thirdTimer = Timer()
     private var spinManager = SpinLogicManager()
+
     private var planManager = PlanSpinManager()
     var countOfStrides: CGFloat = 0
+    
     private lazy var table1: UITableView = {
         (collectionView.cellForItem(at: [0,0]) as! SlotCollectionCell).tableView
     }()
     
     private lazy var table2: UITableView = {
-     let table =   (collectionView.cellForItem(at: [0,1]) as! SlotCollectionCell).tableView
-        table.isScrollEnabled = false
+     let table =  (collectionView.cellForItem(at: [0,1]) as! SlotCollectionCell).tableView
         return table
     }()
     
@@ -86,7 +88,7 @@ class ArcticGameComtroller: BaseController {
         default: multiplier = counter.defaultSpeed
         }
         table1ContentOffset -= multiplier
-        UIView.animate(withDuration: 0.3,
+        UIView.animate(withDuration: 0.03,
                        delay: 0.0,
                        options: .curveEaseIn) {
             self.table1.contentOffset.y = self.table1ContentOffset
@@ -108,8 +110,6 @@ class ArcticGameComtroller: BaseController {
     
     @objc
     func x2Spin() {
-        table2.setNeedsLayout()
-        table2.layoutIfNeeded()
         secondTimerCount -= 1
         var multiplier: CGFloat = 0
         
@@ -150,66 +150,21 @@ class ArcticGameComtroller: BaseController {
             self.table2.contentOffset.y = self.table2ContentOffset
             self.table2.layoutIfNeeded()
         } completion: { bool in
-            guard self.secondTimerCount == 3 else { return }
-            self.secondTimerCount = 153
-            self.secondTimer.invalidate()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                if self.secondTimerCount == 153 {
-                    print(self.table2ContentOffset)
-                    print(self.table2.contentOffset.y)
-                    
-                    UIView.animate(withDuration: 1.0) {
-                        self.table2.scrollToRow(at: [0,2798],
-                                           at: .middle,
-                                           animated: true)
-                        
-                        self.view.layoutIfNeeded()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                            print(self.table2.contentOffset.y)
-                        }
-                    }
-    //                UIView.animate(withDuration: 0.5) {
-    //
-    //                }
-                }
-            }
-         
+    
         }
-        
-        
-       
-//
-//        UIView.animate(withDuration: 0.3) {
-////            print(self.table2ContentOffset)
-//            self.table2.contentOffset.y = self.table2ContentOffset
-//            self.table2.layoutIfNeeded()
-//        }
-//
+        guard self.secondTimerCount == 3 else { return }
+        self.secondTimerCount = 153
+        self.secondTimer.invalidate()
       
     }
-    
-    @objc
-    func testSpin() {
-        UIView.animate(withDuration: 0.3) {
-            self.table3.contentOffset.y = self.table3.contentOffset.y - 57.59
-        }
-    }
-    
-    @objc
-    func test2Spin() {
-        UIView.animate(withDuration: 0.3) {
-            self.table2.contentOffset.y = 121752.43
-//            print(self.table2.)
-        }
-    }
-    
+        
     
     @objc
     func x3Spin() {
         thirdTimerCount -= 1
-        
         var multiplier: CGFloat = 0
-        switch thirdTimerCount { // cуммарно должно выйти 550
+        
+        switch thirdTimerCount {
         case 152: table3ContentOffset = table3.contentOffset.y
             multiplier = 1
         case 147...151: multiplier = 1
@@ -232,36 +187,32 @@ class ArcticGameComtroller: BaseController {
         case 14...18: multiplier = 3
         case 9...13: multiplier = 2
         case 3...8: multiplier = 1
-        default: multiplier = counter.defaultSpeed
+        default: multiplier =  counter.defaultSpeed
         }
-        countOfStrides += multiplier
         
-        UIView.animate(withDuration: 0.3,
+        table3ContentOffset -= multiplier
+        UIView.animate(withDuration: 0.03,
                        delay: 0.0,
                        options: .curveEaseIn) {
-            self.table3.contentOffset.y = self.table3ContentOffset - multiplier
+            self.table3.contentOffset.y = self.table3ContentOffset
             self.table3.layoutIfNeeded()
         } completion: { bool in
-            self.table3ContentOffset -= multiplier
-            print(self.table3ContentOffset)
+    
         }
-//        table3ContentOffset -= multiplier
-//
-//        UIView.animate(withDuration: 0.3) {
-//            print(self.table3ContentOffset)
-//            self.table3.contentOffset.y = self.table3ContentOffset
-//            self.table3.layoutIfNeeded()
-//        }
-        
-        guard thirdTimerCount == 3 else { return }
-        thirdTimerCount = 153
-        thirdTimer.invalidate()
-        print(self.table3.contentOffset.y)
-        print(self.countOfStrides)
+        guard self.thirdTimerCount == 3 else { return }
+        self.thirdTimerCount = 153
+        self.thirdTimer.invalidate()
+      
     }
+
+
     
     override func viewDidLoad() {
+        needSoundTap = false
         super.viewDidLoad()
+        
+        presenter.getMap()
+
         
         setCollectionView()
         setup()
@@ -348,9 +299,9 @@ class ArcticGameComtroller: BaseController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.thirdTimer = Timer.scheduledTimer(timeInterval: 0.03,
                                                        target: self,
-                                                       selector: #selector(self.testSpin),
+                                                       selector: #selector(self.x3Spin),
                                                        userInfo: nil,
-                                                       repeats: false)
+                                                       repeats: true)
             }
         }
     }
@@ -443,3 +394,13 @@ extension ArcticGameComtroller: UICollectionViewDelegate, UICollectionViewDataSo
 //        planManager.thirdSpinCounter += 1
 //    }
 //}
+//----------------------------------------------
+// MARK: - ArcticGameOutputProtocol
+//----------------------------------------------
+
+extension ArcticGameComtroller: ArcticGameOutputProtocol {
+    func success() {
+        ///reload
+    }
+}
+

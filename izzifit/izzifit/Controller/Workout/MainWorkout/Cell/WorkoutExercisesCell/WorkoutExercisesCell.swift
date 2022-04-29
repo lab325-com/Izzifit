@@ -38,6 +38,7 @@ class WorkoutExercisesCell: UICollectionViewCell {
 
     func setupCell(model: [WorkoutByIdMainModel]) {
         self.models = model
+        self.collectionView.reloadData()
     }
 }
 
@@ -73,6 +74,7 @@ extension WorkoutExercisesCell: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        AudioManager.sharedManager.playSound()
         delegate?.workoutExercisesCell(cell: self, model: models[indexPath.row])
     }
 }

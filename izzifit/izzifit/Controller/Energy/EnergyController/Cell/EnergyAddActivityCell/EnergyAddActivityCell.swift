@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EnergyAddActivityCell: UITableViewCell {
+class EnergyAddActivityCell: BaseTableViewCell {
 
     @IBOutlet weak var addActivityButton: UIButton!
     

@@ -77,6 +77,7 @@ extension WorkoutActivitiesCell: UICollectionViewDataSource {
 
 extension WorkoutActivitiesCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        AudioManager.sharedManager.playSound()
         if indexPath.row == 0 {
             selectedId = nil
         } else {

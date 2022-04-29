@@ -24,12 +24,15 @@ class SlotCollectionCell: UICollectionViewCell {
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = 0
+        tableView.isScrollEnabled = false
         tableView.estimatedSectionFooterHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
         tableView.contentSize = CGSize(width: 61.3,
                                        height: 161299)
-        tableView.scrollToRow(at: [0,2798],
-                              at: .middle, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.tableView.scrollToRow(at: [0,2798],
+                                at: .middle, animated: true)
+        }
         self.addSubview(tableView)
         
         ui.layout(tableView: tableView,
@@ -47,7 +50,7 @@ class SlotCollectionCell: UICollectionViewCell {
 
 extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(SpinLogicManager.array.count)
+        
         return SpinLogicManager.array.count
     }
     

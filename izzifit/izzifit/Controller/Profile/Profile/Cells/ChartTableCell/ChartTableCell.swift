@@ -13,7 +13,7 @@ struct CaloriesObjectModel {
     var target: CGFloat
 }
 
-class ChartTableCell: UITableViewCell {
+class ChartTableCell: BaseTableViewCell {
     
     //----------------------------------------------
     // MARK: - IBOutlet
