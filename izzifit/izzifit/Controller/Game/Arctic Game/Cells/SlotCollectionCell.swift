@@ -11,9 +11,16 @@ class SlotCollectionCell: UICollectionViewCell {
     
     static let id = "SlotCell"
     
+    var section = Int()
+    
     let tableView = UITableView()
     private lazy var contentSizeHeight: CGFloat = {
         CGFloat((h / 12.78) * 2801)
+    }()
+    private lazy var arrays: [[Int]] = {
+        [OffsetCounter.firstArray,
+         OffsetCounter.secondArray,
+         OffsetCounter.thirdArray]
     }()
     
     override init(frame: CGRect) {
@@ -62,15 +69,15 @@ class SlotCollectionCell: UICollectionViewCell {
 extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return SpinLogicManager.array.count
+        return 2801
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SlotTableViewCell.id,
                                                  for: indexPath) as! SlotTableViewCell
-        cell.fillCellby(tagBtn: SpinLogicManager.array[indexPath.row])
-        cell.tag = SpinLogicManager.array[indexPath.row]
-        cell.tagBtn = SpinLogicManager.array[indexPath.row]
+        cell.fillCellby(tagBtn: arrays[section][indexPath.row])
+        cell.tag = arrays[section][indexPath.row]
+        cell.tagBtn = arrays[section][indexPath.row]
         return cell
     }
     
