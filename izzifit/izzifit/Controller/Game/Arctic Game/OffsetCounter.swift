@@ -47,7 +47,6 @@ class OffsetCounter: OffsetCounterProtocol {
             array.append(random)
         }
         return array
-
     }()
 
     static var secondArray: [Int] = {
@@ -70,8 +69,25 @@ class OffsetCounter: OffsetCounterProtocol {
     }()
 
     var speedIteraror: CGFloat = 48.0
-    var raceBrakeDistance: CGFloat = 552.0
-    var startRaceDistance: CGFloat = 768.0
+    
+    internal lazy var raceBrakeDistance: CGFloat = {
+        var distance = CGFloat()
+        var first = StrideConstants.firstStride * 12
+        var second = StrideConstants.secondStride * 10
+        var third = StrideConstants.thirdStride * 10
+        var fourth = StrideConstants.fourthStride * 10
+        var fifth = StrideConstants.fifthStride * 10
+        var sixth = StrideConstants.sixthStride * 10
+        var seventh = StrideConstants.seventhStride * 10
+        var eighth = StrideConstants.eighthStride * 10
+        var nineth = StrideConstants.ninethStride * 10
+        var tenth = StrideConstants.tenthStride * 10
+        distance = first + second + third + fourth + fifth + sixth + seventh + eighth + nineth + tenth
+        return distance
+    }()// 552  ( 6 * 1) x 2 // принтани на 8 плюс - должно быть 552
+    lazy var startRaceDistance: CGFloat = {
+        StrideConstants.minSpeedStride * 48
+    }() // принтани на 8 плюс - должно быть 768
 
     func distanceToTargetCell() -> CGFloat {
         return 0.0
@@ -84,6 +100,18 @@ class OffsetCounter: OffsetCounterProtocol {
     func calculateVelocityStride() -> CGFloat {
         return 0.0
     }
+}
 
-
+struct StrideConstants {
+    static var firstStride = UIScreen.main.bounds.size.height / 736
+    static var secondStride = UIScreen.main.bounds.size.height / 368
+    static var thirdStride = UIScreen.main.bounds.size.height / 245.4
+    static var fourthStride = UIScreen.main.bounds.size.height / 184
+    static var fifthStride = UIScreen.main.bounds.size.height / 147.2
+    static var sixthStride = UIScreen.main.bounds.size.height / 122.6
+    static var seventhStride = UIScreen.main.bounds.size.height / 105.1
+    static var eighthStride = UIScreen.main.bounds.size.height / 92
+    static var ninethStride = UIScreen.main.bounds.size.height / 81.7
+    static var tenthStride = UIScreen.main.bounds.size.height / 73.6
+    static var minSpeedStride = UIScreen.main.bounds.size.height / 46
 }

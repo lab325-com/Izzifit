@@ -12,6 +12,9 @@ class SlotCollectionCell: UICollectionViewCell {
     static let id = "SlotCell"
     
     let tableView = UITableView()
+    private lazy var contentSizeHeight: CGFloat = {
+        CGFloat((h / 12.78) * 2801)
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,16 +26,23 @@ class SlotCollectionCell: UICollectionViewCell {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+     
         tableView.estimatedRowHeight = 0
         tableView.isScrollEnabled = false
         tableView.estimatedSectionFooterHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
+        
+        // TO DO:  Возможно здесь придется считать пропорционально размеру экрана
         tableView.contentSize = CGSize(width: 61.3,
-                                       height: 161299)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                       height: contentSizeHeight)
+        print(contentSizeHeight)
+    
+        DispatchQueue.main.async {
             self.tableView.scrollToRow(at: [0,2798],
-                                at: .middle, animated: true)
+                                  at: .middle,
+                                  animated: true)
         }
+     
         self.addSubview(tableView)
         
         ui.layout(tableView: tableView,
@@ -41,6 +51,7 @@ class SlotCollectionCell: UICollectionViewCell {
                   bottomC: 0,
                   leadingC: 0,
                   trailingC: 0)
+      
     }
     
     required init?(coder: NSCoder) {
@@ -67,4 +78,6 @@ extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
         return tableView.sizeHeight / 2.9
     }
 }
+
+
 
