@@ -52,16 +52,16 @@ struct SpinLogicManager {
         
         runTimer()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            let currentElements = self.getResultIndices(collectionView)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.8) {
+//            let currentElements = self.getResultIndices(collectionView)
             
-            //            if let tupleResult = recognizeSetCombinations(currentElements) {
-            //                print(tupleResult)
-            //                // теперь тут будет по первому элементу тупла функция по начислению бонусов
-            //                accrueBonuses(by: tupleResult.0, resultLbl: resultLbl)
-            //                // функция котороая красит бордер ячеек по второму элементу тупла
-            //                paintBlueBorder(tupleResult.1,collectionView: collectionView)
-            //            }
+//            if let tupleResult = recognizeSetCombinations(currentElements) {
+//                print(tupleResult)
+//                // теперь тут будет по первому элементу тупла функция по начислению бонусов
+//                accrueBonuses(by: tupleResult.0, resultLbl: resultLbl)
+//                // функция котороая красит бордер ячеек по второму элементу тупла
+//                paintBlueBorder(tupleResult.1,collectionView: collectionView)
+//            }
             // мне нужен массив/сет  элементов, которые должны окраситься в синюю коемку ( borderView)
             // мне нужна  spinCombination
             
@@ -71,7 +71,7 @@ struct SpinLogicManager {
         }
     }
     
-    private func accrueBonuses(by combination: SpinCombination, resultLbl: UILabel) {
+    func accrueBonuses(by combination: SpinCombination, resultLbl: UILabel) {
         switch combination {
         case .pairHummers:
             KeychainService.standard.me?.energy! += 5
@@ -136,7 +136,7 @@ struct SpinLogicManager {
         return (combination, res)
     }
     
-    private func recognizeSetCombinations(_ resultIndices: [Int]) -> (SpinCombination, Set<Int>)? {
+func recognizeSetCombinations(_ resultIndices: [Int]) -> (SpinCombination, Set<Int>)? {
         switch resultIndices {
         case [0,0,0]: return (.setDollars, [0,1,2])
         case [1,1,1]: return (.setSnowflakes,[0,1,2])
@@ -156,17 +156,19 @@ struct SpinLogicManager {
         var indicesArray = [Int]()
         
         for item in collectionView.visibleCells.indices {
-            
             let middleIndex = (collectionView.cellForItem(at: [0,item]) as! SlotCollectionCell).tableView.visibleCells[1].tag
             indicesArray.append(middleIndex)
         }
+        
         return indicesArray
     }
     
-    private func paintBlueBorder(_ set: Set<Int>, collectionView: UICollectionView) {
+    func paintBlueBorder(_ set: Set<Int>,
+                         indexPathes: [Int],
+                         collectionView: UICollectionView) {
         for int in set {
             let table = ( collectionView.cellForItem(at: [0,int]) as! SlotCollectionCell).tableView
-            let cell = (table.visibleCells[1] as! SlotTableViewCell)
+            let cell = (table.cellForRow(at: [0, indexPathes[int]]) as! SlotTableViewCell)
             cell.borderView.isHidden = false
         }
     }

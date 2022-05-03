@@ -234,7 +234,23 @@ class ArcticGameComtroller: BaseController {
         } completion: { bool in
         }
         guard self.thirdTimerCount == 3 else { return }
-        combinationCounter += 1
+     
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            if let tupleResult = self.spinManager.recognizeSetCombinations(self.counter.combinations[self.combinationCounter]) {
+                print(tupleResult)
+                // теперь тут будет по первому элементу тупла функция по начислению бонусов
+                self.spinManager.accrueBonuses(by: tupleResult.0, resultLbl: self.resultLbl)
+                // функция котороая красит бордер ячеек по второму элементу тупла
+                self.spinManager.paintBlueBorder(tupleResult.1,
+                                                 indexPathes: [self.counter.firstIndexPathRow,
+                                                               self.counter.startSecondIndexPathRow,
+                                                               self.counter.startThirdIndexPathRow],
+                                                 collectionView: self.collectionView)
+            }
+            self.combinationCounter += 1
+        }
+        
         self.thirdTimerCount = 153
         self.thirdTimer.invalidate()
     }
