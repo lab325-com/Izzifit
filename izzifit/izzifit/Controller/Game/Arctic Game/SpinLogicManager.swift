@@ -35,7 +35,7 @@ struct SpinLogicManager {
                     collectionView: UICollectionView,
                     spinBtn: UIButton,
                     runTimer: () -> ()) {
-        
+   
         resultLbl.text = ""
         decreaseEnergy()
         // реши вопрос с обновлением энергии и вообще обновлением сущности
@@ -49,19 +49,22 @@ struct SpinLogicManager {
                 table.reloadData()
             }
         }
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            AudioManager.sharedManager.playSound(type: .spinnerMain_11)
+        }
+       
         runTimer()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            let currentElements = self.getResultIndices(collectionView)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.8) {
+//            let currentElements = self.getResultIndices(collectionView)
             
-            //            if let tupleResult = recognizeSetCombinations(currentElements) {
-            //                print(tupleResult)
-            //                // теперь тут будет по первому элементу тупла функция по начислению бонусов
-            //                accrueBonuses(by: tupleResult.0, resultLbl: resultLbl)
-            //                // функция котороая красит бордер ячеек по второму элементу тупла
-            //                paintBlueBorder(tupleResult.1,collectionView: collectionView)
-            //            }
+//            if let tupleResult = recognizeSetCombinations(currentElements) {
+//                print(tupleResult)
+//                // теперь тут будет по первому элементу тупла функция по начислению бонусов
+//                accrueBonuses(by: tupleResult.0, resultLbl: resultLbl)
+//                // функция котороая красит бордер ячеек по второму элементу тупла
+//                paintBlueBorder(tupleResult.1,collectionView: collectionView)
+//            }
             // мне нужен массив/сет  элементов, которые должны окраситься в синюю коемку ( borderView)
             // мне нужна  spinCombination
             
@@ -71,21 +74,25 @@ struct SpinLogicManager {
         }
     }
     
-    private func accrueBonuses(by combination: SpinCombination, resultLbl: UILabel) {
+    func accrueBonuses(by combination: SpinCombination, resultLbl: UILabel) {
         switch combination {
         case .pairHummers:
             KeychainService.standard.me?.energy! += 5
             resultLbl.text = "+4⚡️"
+            
         case .setHummers:
             // бесплатный апгрейд элемента ландшафта
             resultLbl.text = "upgrade"
+            AudioManager.sharedManager.playSound(type: .superWin_19)
             // напиши тут алерт вы выиграли апгрейд элемента ландшафта с выбором элемента исходя из всех ему доступных
         case .pairDollars:
             KeychainService.standard.me?.coins! += 1000
             resultLbl.text = "+1000💵"
+            AudioManager.sharedManager.playSound(type: .coinsX2_13)
         case .setDollars:
             KeychainService.standard.me?.coins! += 4000
             resultLbl.text = "+4000💵"
+            AudioManager.sharedManager.playSound(type: .coinsX3_14)
         case .pairSnowflakes:
             KeychainService.standard.me?.energy! += 5
             resultLbl.text = "+4⚡️"
@@ -96,15 +103,19 @@ struct SpinLogicManager {
         case .pairMoneyBags:
             KeychainService.standard.me?.coins! += 3000
             resultLbl.text = "+3000💵"
+            AudioManager.sharedManager.playSound(type: .coinsPackX2_15)
         case .setMoneyBags:
             KeychainService.standard.me?.coins! += 10000
             resultLbl.text = "+10000💵"
+            AudioManager.sharedManager.playSound(type: .coinsPackX3_16)
         case .pairLightning:
             KeychainService.standard.me?.energy! += 4 // 3
             resultLbl.text = "+3⚡️"
+            AudioManager.sharedManager.playSound(type: .energyX2_17)
         case .setLightning:
             KeychainService.standard.me?.energy! += 13 // 12
             resultLbl.text = "+12⚡️"
+            AudioManager.sharedManager.playSound(type: .energyX3_18)
         }
     }
     
@@ -136,7 +147,7 @@ struct SpinLogicManager {
         return (combination, res)
     }
     
-    private func recognizeSetCombinations(_ resultIndices: [Int]) -> (SpinCombination, Set<Int>)? {
+func recognizeSetCombinations(_ resultIndices: [Int]) -> (SpinCombination, Set<Int>)? {
         switch resultIndices {
         case [0,0,0]: return (.setDollars, [0,1,2])
         case [1,1,1]: return (.setSnowflakes,[0,1,2])
@@ -156,17 +167,19 @@ struct SpinLogicManager {
         var indicesArray = [Int]()
         
         for item in collectionView.visibleCells.indices {
-            
             let middleIndex = (collectionView.cellForItem(at: [0,item]) as! SlotCollectionCell).tableView.visibleCells[1].tag
             indicesArray.append(middleIndex)
         }
+        
         return indicesArray
     }
     
-    private func paintBlueBorder(_ set: Set<Int>, collectionView: UICollectionView) {
+    func paintBlueBorder(_ set: Set<Int>,
+                         indexPathes: [Int],
+                         collectionView: UICollectionView) {
         for int in set {
             let table = ( collectionView.cellForItem(at: [0,int]) as! SlotCollectionCell).tableView
-            let cell = (table.visibleCells[1] as! SlotTableViewCell)
+            let cell = (table.cellForRow(at: [0, indexPathes[int]]) as! SlotTableViewCell)
             cell.borderView.isHidden = false
         }
     }
