@@ -316,6 +316,7 @@ class ArcticGameComtroller: BaseController {
     
     @IBAction func spinAction(_ sender: Any) {
         
+        AudioManager.sharedManager.playSound(type: .spinTap_10)
         
         spinManager.spinAction(coinsLbl: coinslabel,
                                energyLbl: energyLabel,

@@ -35,7 +35,7 @@ struct SpinLogicManager {
                     collectionView: UICollectionView,
                     spinBtn: UIButton,
                     runTimer: () -> ()) {
-        
+   
         resultLbl.text = ""
         decreaseEnergy()
         // реши вопрос с обновлением энергии и вообще обновлением сущности
@@ -49,7 +49,10 @@ struct SpinLogicManager {
                 table.reloadData()
             }
         }
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            AudioManager.sharedManager.playSound(type: .spinnerMain_11)
+        }
+       
         runTimer()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.8) {
@@ -76,16 +79,20 @@ struct SpinLogicManager {
         case .pairHummers:
             KeychainService.standard.me?.energy! += 5
             resultLbl.text = "+4⚡️"
+            
         case .setHummers:
             // бесплатный апгрейд элемента ландшафта
             resultLbl.text = "upgrade"
+            AudioManager.sharedManager.playSound(type: .superWin_19)
             // напиши тут алерт вы выиграли апгрейд элемента ландшафта с выбором элемента исходя из всех ему доступных
         case .pairDollars:
             KeychainService.standard.me?.coins! += 1000
             resultLbl.text = "+1000💵"
+            AudioManager.sharedManager.playSound(type: .coinsX2_13)
         case .setDollars:
             KeychainService.standard.me?.coins! += 4000
             resultLbl.text = "+4000💵"
+            AudioManager.sharedManager.playSound(type: .coinsX3_14)
         case .pairSnowflakes:
             KeychainService.standard.me?.energy! += 5
             resultLbl.text = "+4⚡️"
@@ -96,15 +103,19 @@ struct SpinLogicManager {
         case .pairMoneyBags:
             KeychainService.standard.me?.coins! += 3000
             resultLbl.text = "+3000💵"
+            AudioManager.sharedManager.playSound(type: .coinsPackX2_15)
         case .setMoneyBags:
             KeychainService.standard.me?.coins! += 10000
             resultLbl.text = "+10000💵"
+            AudioManager.sharedManager.playSound(type: .coinsPackX3_16)
         case .pairLightning:
             KeychainService.standard.me?.energy! += 4 // 3
             resultLbl.text = "+3⚡️"
+            AudioManager.sharedManager.playSound(type: .energyX2_17)
         case .setLightning:
             KeychainService.standard.me?.energy! += 13 // 12
             resultLbl.text = "+12⚡️"
+            AudioManager.sharedManager.playSound(type: .energyX3_18)
         }
     }
     
