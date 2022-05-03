@@ -26,8 +26,16 @@ protocol OffsetCounterProtocol {
 class OffsetCounter: OffsetCounterProtocol {
 
     var oneCellStrideOffset: CGFloat
-    
-    var combinations: [[Int]] = [[0,1,2],
+    var minimalCellsScrollStrideCount = 23
+    var firstIndexPathRow = 2798
+    var startSecondIndexPathRow = 2798
+    var startThirdIndexPathRow = 2798
+    //[0: SlotImgs.dollar,
+    // 1: SlotImgs.snowflake,
+    // 2: SlotImgs.moneyBag,
+    // 3: SlotImgs.hammer,
+    // 4: SlotImgs.lightning]
+    var combinations: [[Int]] = [[2,1,0],
                                  [0,0,0],
                                  [1,2,0],
                                  [1,1,1],
@@ -38,12 +46,20 @@ class OffsetCounter: OffsetCounterProtocol {
                                  [2,3,1],
                                  [4,4,4]]
     
-    var combinationCounter = 0
-    
     init(strideOffset: CGFloat) {
         print(strideOffset)
         self.oneCellStrideOffset = strideOffset
     }
+//
+//    var firstCombinationCounter = -1 {
+//        didSet {
+//            firstSpeed = spiningStride(to: combinations[firstCombinationCounter][0],
+//                                       from: 0,
+//                                       currentArray: OffsetCounter.firstArray)
+//        }
+//    }
+//
+//    var firstSpeed: CGFloat = 0
     
    lazy var defaultSpeed: CGFloat = {
        var totalDistance = raceBrakeDistance + startRaceDistance
@@ -83,26 +99,13 @@ class OffsetCounter: OffsetCounterProtocol {
 
     var speedIteraror: CGFloat = 48.0
     
-    internal lazy var raceBrakeDistance: CGFloat = {
-        var distance = CGFloat()
-        var first = StrideConstants.firstStride * 12
-        var second = StrideConstants.secondStride * 10
-        var third = StrideConstants.thirdStride * 10
-        var fourth = StrideConstants.fourthStride * 10
-        var fifth = StrideConstants.fifthStride * 10
-        var sixth = StrideConstants.sixthStride * 10
-        var seventh = StrideConstants.seventhStride * 10
-        var eighth = StrideConstants.eighthStride * 10
-        var nineth = StrideConstants.ninethStride * 10
-        var tenth = StrideConstants.tenthStride * 10
-        distance = first + second + third + fourth + fifth + sixth + seventh + eighth + nineth + tenth
-        return distance
-    }()// 552  ( 6 * 1) x 2 // принтани на 8 плюс - должно быть 552
-    lazy var startRaceDistance: CGFloat = {
-        StrideConstants.minSpeedStride * 48
-    }() // принтани на 8 плюс - должно быть 768
+    internal lazy var raceBrakeDistance: CGFloat = 552
+    var startRaceDistance: CGFloat = 768
 
     func distanceToTargetCell() -> CGFloat {
+        
+        // проверка на соответствие элемента который должен отобразиться
+        
         return 0.0
     }
 
@@ -110,21 +113,90 @@ class OffsetCounter: OffsetCounterProtocol {
         return 0.0
     }
 
+    func spiningStride(to elementIndex: Int,
+                       from tableInt: Int,
+                       currentArray: [Int]) -> CGFloat {
+        var indexPathRow = Int()
+        
+        switch tableInt {
+        case 0: indexPathRow = firstIndexPathRow
+        case 1: indexPathRow = startSecondIndexPathRow
+        case 2: indexPathRow = startThirdIndexPathRow
+        default: break
+        }
+        let newIndex = indexPathRow - 23
+        let toElement = SlotRowModel(indexPathRow: newIndex,
+                                     slotInt: currentArray[newIndex])
+        guard elementIndex != toElement.slotInt else {
+            indexPathRow -= 23
+            switch tableInt {
+            case 0: firstIndexPathRow = indexPathRow
+            case 1: startSecondIndexPathRow = indexPathRow
+            case 2: startThirdIndexPathRow = indexPathRow
+            default: break
+            }
+            return defaultSpeed}
+     
+        let arrayModels = get40SlotsUponRandomSlotInt(startElement: toElement.indexPathRow,
+                                                      currentArray: currentArray)
+        
+        if let matchedElemenIndex = returnMatchedIndexPathRow(matchElement: elementIndex,
+                                                              arrayModels: arrayModels) {
+            print("MMM\(matchedElemenIndex)")
+            let totalDistanceInCells = indexPathRow - matchedElemenIndex
+            indexPathRow -= totalDistanceInCells
+            
+            switch tableInt {
+            case 0: firstIndexPathRow = indexPathRow
+            case 1: startSecondIndexPathRow = indexPathRow
+            case 2: startThirdIndexPathRow = indexPathRow
+            default: break
+            }
+            
+           
+            let totalDistance = CGFloat(totalDistanceInCells) * oneCellStrideOffset
+            let raceDistance = totalDistance - raceBrakeDistance
+            let speedStride = raceDistance / speedIteraror
+            return speedStride
+        }
+        return 0.0
+    }
+    
+    func returnMatchedIndexPathRow(matchElement: Int,
+                                   arrayModels: [SlotRowModel]) -> Int? {
+        for slot in arrayModels {
+            if slot.slotInt == matchElement {
+                return slot.indexPathRow
+            }
+        }
+        return nil
+    }
+    
+    func get40SlotsUponRandomSlotInt(startElement: Int,
+                                     currentArray: [Int]) -> [SlotRowModel] {
+        var array = [SlotRowModel]()
+        for n in 1...39 {
+            array.append(SlotRowModel(indexPathRow: startElement - n,
+                                      slotInt: currentArray[(startElement - n)]))
+        }
+        return array
+    }
+    
     func calculateVelocityStride() -> CGFloat {
         return 0.0
     }
 }
 
 struct StrideConstants {
-    static var firstStride = UIScreen.main.bounds.size.height / 736
-    static var secondStride = UIScreen.main.bounds.size.height / 368
-    static var thirdStride = UIScreen.main.bounds.size.height / 245.4
-    static var fourthStride = UIScreen.main.bounds.size.height / 184
-    static var fifthStride = UIScreen.main.bounds.size.height / 147.2
-    static var sixthStride = UIScreen.main.bounds.size.height / 122.6
-    static var seventhStride = UIScreen.main.bounds.size.height / 105.1
-    static var eighthStride = UIScreen.main.bounds.size.height / 92
-    static var ninethStride = UIScreen.main.bounds.size.height / 81.7
-    static var tenthStride = UIScreen.main.bounds.size.height / 73.6
-    static var minSpeedStride = UIScreen.main.bounds.size.height / 46
+    static var firstStride: CGFloat = 1 //UIScreen.main.bounds.size.height / 736
+    static var secondStride: CGFloat = 2 //UIScreen.main.bounds.size.height / 368
+    static var thirdStride: CGFloat =  3//UIScreen.main.bounds.size.height / 245.4
+    static var fourthStride: CGFloat = 4//UIScreen.main.bounds.size.height / 184
+    static var fifthStride: CGFloat = 5//UIScreen.main.bounds.size.height / 147.2
+    static var sixthStride: CGFloat = 6//UIScreen.main.bounds.size.height / 122.6
+    static var seventhStride: CGFloat = 7//UIScreen.main.bounds.size.height / 105.1
+    static var eighthStride: CGFloat = 8//UIScreen.main.bounds.size.height / 92
+    static var ninethStride: CGFloat = 9//UIScreen.main.bounds.size.height / 81.7
+    static var tenthStride: CGFloat = 10//UIScreen.main.bounds.size.height / 73.6
+    static var minSpeedStride: CGFloat = 16//UIScreen.main.bounds.size.height / 46
 }

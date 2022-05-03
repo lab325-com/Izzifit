@@ -37,7 +37,7 @@ class ArcticGameComtroller: BaseController {
     private var secondTimer = Timer()
     private var thirdTimer = Timer()
     private var spinManager = SpinLogicManager()
-
+    
     private var planManager = PlanSpinManager()
     var countOfStrides: CGFloat = 0
     
@@ -46,7 +46,7 @@ class ArcticGameComtroller: BaseController {
     }()
     
     private lazy var table2: UITableView = {
-     let table =  (collectionView.cellForItem(at: [0,1]) as! SlotCollectionCell).tableView
+        let table =  (collectionView.cellForItem(at: [0,1]) as! SlotCollectionCell).tableView
         return table
     }()
     
@@ -58,10 +58,41 @@ class ArcticGameComtroller: BaseController {
         OffsetCounter(strideOffset: table1.sizeHeight / 2.9)
     }()
     
+    private lazy var firstSpeed: CGFloat = {
+        counter.spiningStride(to: counter.combinations[combinationCounter][0],
+                              from: 0,
+                              currentArray: OffsetCounter.firstArray)
+    }()
+    private lazy var secondSpeed: CGFloat = {
+        counter.spiningStride(to: counter.combinations[combinationCounter][1],
+                              from: 1,
+                              currentArray: OffsetCounter.secondArray)
+    }()
+    private lazy var thirdSpeed: CGFloat = {
+        counter.spiningStride(to: counter.combinations[combinationCounter][2],
+                              from: 2,
+                              currentArray: OffsetCounter.thirdArray)
+    }()
+    
+    private var combinationCounter = 0 {
+        didSet {
+            firstSpeed = counter.spiningStride(to: counter.combinations[combinationCounter][0],
+                                               from: 0,
+                                               currentArray: OffsetCounter.firstArray)
+            secondSpeed = counter.spiningStride(to: counter.combinations[combinationCounter][1],
+                                                from: 1,
+                                                currentArray: OffsetCounter.secondArray)
+            thirdSpeed = counter.spiningStride(to: counter.combinations[combinationCounter][2],
+                                               from: 2,
+                                               currentArray: OffsetCounter.thirdArray)
+        }
+    }
+    
     @objc
     func xSpin() {
         firstTimerCount -= 1
         var multiplier: CGFloat = 0
+        
         switch firstTimerCount {
         case 152: table1ContentOffset = table1.contentOffset.y
             multiplier = 1
@@ -85,7 +116,7 @@ class ArcticGameComtroller: BaseController {
         case 14...18: multiplier = 3
         case 9...13: multiplier = 2
         case 3...8: multiplier = 1
-        default: multiplier = counter.defaultSpeed
+        default: multiplier = firstSpeed
         }
         table1ContentOffset -= multiplier
         UIView.animate(withDuration: 0.03,
@@ -95,17 +126,21 @@ class ArcticGameComtroller: BaseController {
             self.table1.layoutIfNeeded()
         } completion: { bool in
         }
-       
-
-//        UIView.animate(withDuration: 0.3) {
-//        //    print(self.table1ContentOffset)
-//            self.table1.contentOffset.y = self.table1ContentOffset
-//            self.table1.layoutIfNeeded()
-//        }
-//
+        
+        
+        //        UIView.animate(withDuration: 0.3) {
+        //        //    print(self.table1ContentOffset)
+        //            self.table1.contentOffset.y = self.table1ContentOffset
+        //            self.table1.layoutIfNeeded()
+        //        }
+        //
         guard firstTimerCount == 3 else { return }
+        
         firstTimerCount = 153
         firstTimer.invalidate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            print(self.table1.indexPathsForVisibleRows![1])
+        }
     }
     
     @objc
@@ -139,7 +174,7 @@ class ArcticGameComtroller: BaseController {
         case 14...18: multiplier = 3
         case 9...13: multiplier = 2
         case 3...8: multiplier = 1
-        default: multiplier =  counter.defaultSpeed
+        default: multiplier =  secondSpeed
         }
         
         countOfStrides += multiplier
@@ -150,14 +185,14 @@ class ArcticGameComtroller: BaseController {
             self.table2.contentOffset.y = self.table2ContentOffset
             self.table2.layoutIfNeeded()
         } completion: { bool in
-    
+            
         }
         guard self.secondTimerCount == 3 else { return }
         self.secondTimerCount = 153
         self.secondTimer.invalidate()
-      
-    }
         
+    }
+    
     
     @objc
     func x3Spin() {
@@ -187,7 +222,7 @@ class ArcticGameComtroller: BaseController {
         case 14...18: multiplier = StrideConstants.thirdStride
         case 9...13: multiplier = StrideConstants.secondStride
         case 3...8: multiplier = StrideConstants.firstStride
-        default: multiplier =  counter.defaultSpeed
+        default: multiplier =  thirdSpeed
         }
         
         table3ContentOffset -= multiplier
@@ -197,34 +232,24 @@ class ArcticGameComtroller: BaseController {
             self.table3.contentOffset.y = self.table3ContentOffset
             self.table3.layoutIfNeeded()
         } completion: { bool in
-    
         }
         guard self.thirdTimerCount == 3 else { return }
+        combinationCounter += 1
         self.thirdTimerCount = 153
         self.thirdTimer.invalidate()
-      
     }
-
-
     
     override func viewDidLoad() {
         needSoundTap = false
         super.viewDidLoad()
         
         presenter.getMap()
-
         
         setCollectionView()
         setup()
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-//            self.table3ContentOffset = self.table3.contentOffset.y
-//            self.table2ContentOffset = self.table2.contentOffset.y
-//            self.table1ContentOffset = self.table1.contentOffset.y
-//        }
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
@@ -274,20 +299,20 @@ class ArcticGameComtroller: BaseController {
     }
     
     @IBAction func spinAction(_ sender: Any) {
-
-     
+        
+        
         spinManager.spinAction(coinsLbl: coinslabel,
                                energyLbl: energyLabel,
                                resultLbl: resultLbl,
                                collectionView: collectionView,
                                spinBtn: spinBtn) {
-
+            
             firstTimer = Timer.scheduledTimer(timeInterval: 0.03,
                                               target: self,
                                               selector: #selector(xSpin),
                                               userInfo: nil,
                                               repeats: true)
-
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                 self.secondTimer = Timer.scheduledTimer(timeInterval: 0.03,
                                                         target: self,
@@ -295,7 +320,7 @@ class ArcticGameComtroller: BaseController {
                                                         userInfo: nil,
                                                         repeats: true)
             }
-
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.thirdTimer = Timer.scheduledTimer(timeInterval: 0.03,
                                                        target: self,
@@ -318,21 +343,21 @@ extension ArcticGameComtroller: UICollectionViewDelegate, UICollectionViewDataSo
         return cell
     }
 }
-    
-    
-    
-    
-    
-    //    x
-    //    2x
-    //    3x
-    //    4x
-    //    scrollTo
-    //    4x
-    //    3x
-    //    2x
-    //    x
-    
+
+
+
+
+
+//    x
+//    2x
+//    3x
+//    4x
+//    scrollTo
+//    4x
+//    3x
+//    2x
+//    x
+
 //
 //    @objc
 //    func secondTableSpin() {

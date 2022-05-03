@@ -42,6 +42,7 @@ class SlotCollectionCell: UICollectionViewCell {
         // TO DO:  Возможно здесь придется считать пропорционально размеру экрана
         tableView.contentSize = CGSize(width: 61.3,
                                        height: contentSizeHeight)
+        print(h)
         print(contentSizeHeight)
     
         DispatchQueue.main.async {
