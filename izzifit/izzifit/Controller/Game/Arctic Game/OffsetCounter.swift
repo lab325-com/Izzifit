@@ -26,7 +26,9 @@ protocol OffsetCounterProtocol {
 class OffsetCounter: OffsetCounterProtocol {
 
     var oneCellStrideOffset: CGFloat
-    var minimalCellsScrollStrideCount = 23
+    lazy var minimalCellsScrollStrideCount: Int = {
+      Int((raceBrakeDistance + startRaceDistance) / oneCellStrideOffset) + 1
+    }()
     var firstIndexPathRow = 2798
     var startSecondIndexPathRow = 2798
     var startThirdIndexPathRow = 2798
@@ -50,16 +52,6 @@ class OffsetCounter: OffsetCounterProtocol {
         print(strideOffset)
         self.oneCellStrideOffset = strideOffset
     }
-//
-//    var firstCombinationCounter = -1 {
-//        didSet {
-//            firstSpeed = spiningStride(to: combinations[firstCombinationCounter][0],
-//                                       from: 0,
-//                                       currentArray: OffsetCounter.firstArray)
-//        }
-//    }
-//
-//    var firstSpeed: CGFloat = 0
     
    lazy var defaultSpeed: CGFloat = {
        var totalDistance = raceBrakeDistance + startRaceDistance
@@ -99,13 +91,10 @@ class OffsetCounter: OffsetCounterProtocol {
 
     var speedIteraror: CGFloat = 48.0
     
-    internal lazy var raceBrakeDistance: CGFloat = 552
+    var raceBrakeDistance: CGFloat = 552
     var startRaceDistance: CGFloat = 768
 
     func distanceToTargetCell() -> CGFloat {
-        
-        // проверка на соответствие элемента который должен отобразиться
-        
         return 0.0
     }
 
@@ -124,11 +113,11 @@ class OffsetCounter: OffsetCounterProtocol {
         case 2: indexPathRow = startThirdIndexPathRow
         default: break
         }
-        let newIndex = indexPathRow - 23
+        let newIndex = indexPathRow - minimalCellsScrollStrideCount//23 // ошибка здесь
         let toElement = SlotRowModel(indexPathRow: newIndex,
                                      slotInt: currentArray[newIndex])
         guard elementIndex != toElement.slotInt else {
-            indexPathRow -= 23
+            indexPathRow -= minimalCellsScrollStrideCount//23
             switch tableInt {
             case 0: firstIndexPathRow = indexPathRow
             case 1: startSecondIndexPathRow = indexPathRow
@@ -188,15 +177,15 @@ class OffsetCounter: OffsetCounterProtocol {
 }
 
 struct StrideConstants {
-    static var firstStride: CGFloat = 1 //UIScreen.main.bounds.size.height / 736
+    static var firstStride: CGFloat = 1 // UIScreen.main.bounds.size.height / 736
     static var secondStride: CGFloat = 2 //UIScreen.main.bounds.size.height / 368
-    static var thirdStride: CGFloat =  3//UIScreen.main.bounds.size.height / 245.4
-    static var fourthStride: CGFloat = 4//UIScreen.main.bounds.size.height / 184
-    static var fifthStride: CGFloat = 5//UIScreen.main.bounds.size.height / 147.2
-    static var sixthStride: CGFloat = 6//UIScreen.main.bounds.size.height / 122.6
-    static var seventhStride: CGFloat = 7//UIScreen.main.bounds.size.height / 105.1
+    static var thirdStride: CGFloat = 3 // UIScreen.main.bounds.size.height / 245.4
+    static var fourthStride: CGFloat = 4 //UIScreen.main.bounds.size.height / 184
+    static var fifthStride: CGFloat = 5 //UIScreen.main.bounds.size.height / 147.2
+    static var sixthStride: CGFloat = 6 //UIScreen.main.bounds.size.height / 122.6
+    static var seventhStride: CGFloat = 7 //UIScreen.main.bounds.size.height / 105.1
     static var eighthStride: CGFloat = 8//UIScreen.main.bounds.size.height / 92
-    static var ninethStride: CGFloat = 9//UIScreen.main.bounds.size.height / 81.7
+    static var ninethStride: CGFloat = 9// UIScreen.main.bounds.size.height / 81.7
     static var tenthStride: CGFloat = 10//UIScreen.main.bounds.size.height / 73.6
     static var minSpeedStride: CGFloat = 16//UIScreen.main.bounds.size.height / 46
 }
