@@ -11,7 +11,17 @@ class SlotCollectionCell: UICollectionViewCell {
     
     static let id = "SlotCell"
     
+    var section = Int()
+    
     let tableView = UITableView()
+    private lazy var contentSizeHeight: CGFloat = {
+        CGFloat((h / 12.78) * 2801)
+    }()
+    private lazy var arrays: [[Int]] = {
+        [OffsetCounter.firstArray,
+         OffsetCounter.secondArray,
+         OffsetCounter.thirdArray]
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,16 +33,24 @@ class SlotCollectionCell: UICollectionViewCell {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+     
         tableView.estimatedRowHeight = 0
         tableView.isScrollEnabled = false
         tableView.estimatedSectionFooterHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
+        
+        // TO DO:  Возможно здесь придется считать пропорционально размеру экрана
         tableView.contentSize = CGSize(width: 61.3,
-                                       height: 161299)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                       height: contentSizeHeight)
+        print(h)
+        print(contentSizeHeight)
+    
+        DispatchQueue.main.async {
             self.tableView.scrollToRow(at: [0,2798],
-                                at: .middle, animated: true)
+                                  at: .middle,
+                                  animated: true)
         }
+     
         self.addSubview(tableView)
         
         ui.layout(tableView: tableView,
@@ -41,6 +59,7 @@ class SlotCollectionCell: UICollectionViewCell {
                   bottomC: 0,
                   leadingC: 0,
                   trailingC: 0)
+      
     }
     
     required init?(coder: NSCoder) {
@@ -51,15 +70,15 @@ class SlotCollectionCell: UICollectionViewCell {
 extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return SpinLogicManager.array.count
+        return 2801
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SlotTableViewCell.id,
                                                  for: indexPath) as! SlotTableViewCell
-        cell.fillCellby(tagBtn: SpinLogicManager.array[indexPath.row])
-        cell.tag = SpinLogicManager.array[indexPath.row]
-        cell.tagBtn = SpinLogicManager.array[indexPath.row]
+        cell.fillCellby(tagBtn: arrays[section][indexPath.row])
+        cell.tag = arrays[section][indexPath.row]
+        cell.tagBtn = arrays[section][indexPath.row]
         return cell
     }
     
@@ -67,4 +86,6 @@ extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
         return tableView.sizeHeight / 2.9
     }
 }
+
+
 
