@@ -14,6 +14,8 @@ import UIKit
 //----------------------------------------------
 protocol ArcticGameOutputProtocol: BaseController {
     func success()
+    func successSpin()
+    func successUpgrade()
 }
 
 //----------------------------------------------
@@ -23,6 +25,8 @@ protocol ArcticGameProtocol: AnyObject {
     init(view: ArcticGameOutputProtocol)
     
     func getMap()
+    func getSpin(spinId: String)
+    func upgrateBuild(buildingId: String)
 }
 
 class ArcticGamePresenter: ArcticGameProtocol {
@@ -30,6 +34,7 @@ class ArcticGamePresenter: ArcticGameProtocol {
     private weak var view: ArcticGameOutputProtocol?
     
     var map: MapMainModel?
+    var spins: [SpinMainModel] = []
     
     required init(view: ArcticGameOutputProtocol) {
         self.view = view
@@ -41,6 +46,30 @@ class ArcticGamePresenter: ArcticGameProtocol {
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
             self?.map = model.map
             self?.view?.success()
+            self?.view?.stopLoading()
+        }, failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+        })
+    }
+    
+    func getSpin(spinId: String) {
+        view?.startLoader()
+        let query = SpinQuery(spinId: spinId)
+        let _ = Network.shared.query(model: SpinModel.self, query, controller: view, successHandler: { [weak self] model in
+            self?.spins = model.spin
+            self?.view?.successSpin()
+            self?.view?.stopLoading()
+        }, failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+        })
+    }
+    
+    func upgrateBuild(buildingId: String) {
+        view?.startLoader()
+        
+        let mutation = UpgradeBuildingMutation(buildingId: buildingId)
+        let _ = Network.shared.mutation(model: UpgradeBuildingModel.self, mutation, controller: view, successHandler: { [weak self] model in
+            self?.view?.successUpgrade()
             self?.view?.stopLoading()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()

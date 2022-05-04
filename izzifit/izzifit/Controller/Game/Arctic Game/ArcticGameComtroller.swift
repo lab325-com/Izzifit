@@ -365,6 +365,14 @@ extension ArcticGameComtroller: UICollectionViewDelegate, UICollectionViewDataSo
 //----------------------------------------------
 
 extension ArcticGameComtroller: ArcticGameOutputProtocol {
+    func successUpgrade() {
+        ///reload
+    }
+    
+    func successSpin() {
+        ///reload
+    }
+    
     func success() {
         ///reload
     }

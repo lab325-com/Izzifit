@@ -2230,6 +2230,57 @@ public final class UpdateProductInMealMutation: GraphQLMutation {
   }
 }
 
+public final class UpgradeBuildingMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation UpgradeBuilding($buildingId: String!) {
+      upgradeBuilding(buildingId: $buildingId)
+    }
+    """
+
+  public let operationName: String = "UpgradeBuilding"
+
+  public var buildingId: String
+
+  public init(buildingId: String) {
+    self.buildingId = buildingId
+  }
+
+  public var variables: GraphQLMap? {
+    return ["buildingId": buildingId]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("upgradeBuilding", arguments: ["buildingId": GraphQLVariable("buildingId")], type: .scalar(Bool.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(upgradeBuilding: Bool? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "upgradeBuilding": upgradeBuilding])
+    }
+
+    public var upgradeBuilding: Bool? {
+      get {
+        return resultMap["upgradeBuilding"] as? Bool
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "upgradeBuilding")
+      }
+    }
+  }
+}
+
 public final class WorkoutAttemptUpdateMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
