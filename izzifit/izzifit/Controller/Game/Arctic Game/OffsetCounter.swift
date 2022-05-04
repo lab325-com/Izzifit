@@ -63,7 +63,7 @@ class OffsetCounter: OffsetCounterProtocol {
     static var firstArray: [Int] = {
         var array = [Int]()
         for _ in 0...2800 {
-            let random = Int(arc4random_uniform(5))
+            let random = Int.random(in: 1...5)
             array.append(random)
         }
         return array
@@ -72,7 +72,7 @@ class OffsetCounter: OffsetCounterProtocol {
     static var secondArray: [Int] = {
         var array = [Int]()
         for _ in 0...2800 {
-            let random = Int(arc4random_uniform(5))
+            let random = Int.random(in: 1...5)
             array.append(random)
         }
         return array
@@ -82,7 +82,7 @@ class OffsetCounter: OffsetCounterProtocol {
     static var thirdArray: [Int] = {
         var array = [Int]()
         for _ in 0...2800 {
-            let random = Int(arc4random_uniform(5))
+            let random = Int.random(in: 1...5)
             array.append(random)
         }
         return array

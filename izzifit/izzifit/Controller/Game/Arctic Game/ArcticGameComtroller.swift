@@ -244,8 +244,10 @@ class ArcticGameComtroller: BaseController {
                                                                self.counter.startThirdIndexPathRow],
                                                  collectionView: self.collectionView)
             }
+            let lastSpinIndex = self.counter.combinations.count - 1
+            
             switch self.combinationCounter {
-            case 8: self.combinationCounter = 0
+            case lastSpinIndex: self.combinationCounter = 0
             default:  self.combinationCounter += 1
             }
         }
@@ -257,8 +259,11 @@ class ArcticGameComtroller: BaseController {
     override func viewDidLoad() {
         needSoundTap = false
         super.viewDidLoad()
-        
-        presenter.getMap()
+        DispatchQueue.main.async {
+            self.presenter.getMap { spins in
+                self.counter.combinations = spins
+            }
+        }
         
         setCollectionView()
         setup()

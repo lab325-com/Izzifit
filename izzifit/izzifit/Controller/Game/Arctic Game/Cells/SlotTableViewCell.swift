@@ -14,11 +14,11 @@ class SlotTableViewCell: BaseTableViewCell {
     let borderView = UIView()
     var tagBtn = Int()
     
-    var slotImgsDict = [0: SlotImgs.dollar,
-                        1: SlotImgs.snowflake,
-                        2: SlotImgs.moneyBag,
-                        3: SlotImgs.hammer,
-                        4: SlotImgs.lightning]
+    var slotImgsDict = [1: SlotImgs.dollar,
+                        2: SlotImgs.snowflake,
+                        3: SlotImgs.moneyBag,
+                        4: SlotImgs.hammer,
+                        5: SlotImgs.lightning]
     
     override init(style: BaseTableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

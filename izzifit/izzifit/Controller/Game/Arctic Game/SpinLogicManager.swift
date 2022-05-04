@@ -139,11 +139,11 @@ struct SpinLogicManager {
     
 func recognizeSetCombinations(_ resultIndices: [Int]) -> (SpinCombination, Set<Int>)? {
         switch resultIndices {
-        case [0,0,0]: return (.setDollars, [0,1,2])
-        case [1,1,1]: return (.setSnowflakes,[0,1,2])
-        case [2,2,2]: return (.setMoneyBags, [0,1,2])
-        case [3,3,3]: return (.setHummers, [0,1,2])
-        case [4,4,4]: return (.setLightning, [0,1,2])
+        case [1,1,1]: return (.setDollars, [0,1,2])
+        case [2,2,2]: return (.setSnowflakes,[0,1,2])
+        case [3,3,3]: return (.setMoneyBags, [0,1,2])
+        case [4,4,4]: return (.setHummers, [0,1,2])
+        case [5,5,5]: return (.setLightning, [0,1,2])
         default: break
         }
         
