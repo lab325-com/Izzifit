@@ -14,7 +14,12 @@ class ArcticGameComtroller: BaseController {
     @IBOutlet weak var coinslabel: UILabel!
     @IBOutlet weak var energyLabel: UILabel!
     @IBOutlet weak var slotBackImgVw: UIImageView!
-    @IBOutlet weak var spinBtn: UIButton!
+    @IBOutlet weak var spinBtn: UIButton! {
+        didSet {
+            spinBtn.setImage(UIImage(named: "spinBtnNormal"), for: .normal)
+            spinBtn.setImage(UIImage(named: "spinBtnSelected"), for: .selected)
+        }
+    }
     @IBOutlet weak var slotHouseImgVw: UIImageView!
     @IBOutlet weak var resultLbl: UILabel!
     
@@ -126,14 +131,7 @@ class ArcticGameComtroller: BaseController {
             self.table1.layoutIfNeeded()
         } completion: { bool in
         }
-        
-        
-        //        UIView.animate(withDuration: 0.3) {
-        //        //    print(self.table1ContentOffset)
-        //            self.table1.contentOffset.y = self.table1ContentOffset
-        //            self.table1.layoutIfNeeded()
-        //        }
-        //
+
         guard firstTimerCount == 3 else { return }
         
         firstTimerCount = 153
@@ -190,9 +188,7 @@ class ArcticGameComtroller: BaseController {
         guard self.secondTimerCount == 3 else { return }
         self.secondTimerCount = 153
         self.secondTimer.invalidate()
-        
     }
-    
     
     @objc
     func x3Spin() {
@@ -313,7 +309,7 @@ class ArcticGameComtroller: BaseController {
                                parentView: slotBackImgVw,
                                width: view.h / 3.60,
                                height: view.h / 5.77,
-                               centerV: -view.h / 40,
+                               centerV: -view.h / 48, //40
                                centerH: view.h / 81.2)
     }
     

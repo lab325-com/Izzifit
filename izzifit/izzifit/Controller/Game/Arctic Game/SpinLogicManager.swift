@@ -41,6 +41,7 @@ struct SpinLogicManager {
         // реши вопрос с обновлением энергии и вообще обновлением сущности
         energyLbl.text = String(user.energy!)
         spinBtn.isUserInteractionEnabled = false
+        spinBtn.isSelected.toggle()
         for item in collectionView.visibleCells.indices {
             let table = ( collectionView.cellForItem(at: [0,item]) as! SlotCollectionCell).tableView
             for i in  0...2 {
@@ -57,6 +58,7 @@ struct SpinLogicManager {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.8) {
             spinBtn.isUserInteractionEnabled = true
+            spinBtn.isSelected.toggle()
             coinsLbl.text = String(user.coins!)
             energyLbl.text = String(user.energy!)
         }
