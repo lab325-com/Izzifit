@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -40,7 +40,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzR-Nc-56i">
-                    <rect key="frame" x="24" y="790" width="366" height="48"/>
+                    <rect key="frame" x="24" y="816" width="366" height="48"/>
                     <color key="backgroundColor" red="1" green="0.25882352939999997" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="IjV-4Y-EFQ"/>
@@ -221,7 +221,7 @@
             <viewLayoutGuide key="safeArea" id="ZVk-dE-nHu"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="ZVk-dE-nHu" firstAttribute="bottom" secondItem="CzR-Nc-56i" secondAttribute="bottom" constant="24" id="5av-M4-l1y"/>
+                <constraint firstAttribute="bottom" secondItem="CzR-Nc-56i" secondAttribute="bottom" constant="32" id="5av-M4-l1y"/>
                 <constraint firstItem="ac6-Jt-ogT" firstAttribute="top" secondItem="ZVk-dE-nHu" secondAttribute="top" constant="16" id="8Xw-EP-6dc"/>
                 <constraint firstItem="SP0-cQ-lwO" firstAttribute="centerY" secondItem="ac6-Jt-ogT" secondAttribute="centerY" id="ETi-f4-zHC"/>
                 <constraint firstItem="ng3-fp-xTB" firstAttribute="top" secondItem="ff4-83-nk6" secondAttribute="top" id="EcK-FM-FNQ"/>
