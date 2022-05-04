@@ -70,7 +70,6 @@
                     <rect key="frame" x="70.666666666666671" y="602" width="233.66666666666663" height="72"/>
                     <fontDescription key="fontDescription" name="Inter-Black" family="Inter" pointSize="38"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="SPIN" backgroundImage="spinBtnSelected"/>
                     <connections>
                         <action selector="spinAction:" destination="-1" eventType="touchUpInside" id="BuD-tF-2gQ"/>
                     </connections>
@@ -193,11 +192,10 @@
         <image name="gameBackTwo" width="375" height="809"/>
         <image name="slotBack" width="236" height="187"/>
         <image name="slotHouse" width="364" height="402"/>
-        <image name="spinBtnSelected" width="234" height="72"/>
         <image name="top_view_coin_ic" width="22" height="22"/>
         <image name="top_view_flash_ic" width="20" height="22"/>
         <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

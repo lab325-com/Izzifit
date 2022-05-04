@@ -41,6 +41,7 @@ struct SpinLogicManager {
         // реши вопрос с обновлением энергии и вообще обновлением сущности
         energyLbl.text = String(user.energy!)
         spinBtn.isUserInteractionEnabled = false
+        spinBtn.isSelected.toggle()
         for item in collectionView.visibleCells.indices {
             let table = ( collectionView.cellForItem(at: [0,item]) as! SlotCollectionCell).tableView
             for i in  0...2 {
@@ -52,23 +53,12 @@ struct SpinLogicManager {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             AudioManager.sharedManager.playSound(type: .spinnerMain_11)
         }
-       
+        
         runTimer()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.8) {
-//            let currentElements = self.getResultIndices(collectionView)
-            
-//            if let tupleResult = recognizeSetCombinations(currentElements) {
-//                print(tupleResult)
-//                // теперь тут будет по первому элементу тупла функция по начислению бонусов
-//                accrueBonuses(by: tupleResult.0, resultLbl: resultLbl)
-//                // функция котороая красит бордер ячеек по второму элементу тупла
-//                paintBlueBorder(tupleResult.1,collectionView: collectionView)
-//            }
-            // мне нужен массив/сет  элементов, которые должны окраситься в синюю коемку ( borderView)
-            // мне нужна  spinCombination
-            
             spinBtn.isUserInteractionEnabled = true
+            spinBtn.isSelected.toggle()
             coinsLbl.text = String(user.coins!)
             energyLbl.text = String(user.energy!)
         }
@@ -99,7 +89,7 @@ struct SpinLogicManager {
         case .setSnowflakes:
             KeychainService.standard.me?.energy! += 21
             KeychainService.standard.me?.coins! += 4000
-            resultLbl.text = "21⚡️/n+4000💵"
+            resultLbl.text = "21⚡️\n+4000💵"
         case .pairMoneyBags:
             KeychainService.standard.me?.coins! += 3000
             resultLbl.text = "+3000💵"

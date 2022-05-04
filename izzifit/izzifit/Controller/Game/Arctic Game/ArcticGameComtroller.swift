@@ -14,7 +14,12 @@ class ArcticGameComtroller: BaseController {
     @IBOutlet weak var coinslabel: UILabel!
     @IBOutlet weak var energyLabel: UILabel!
     @IBOutlet weak var slotBackImgVw: UIImageView!
-    @IBOutlet weak var spinBtn: UIButton!
+    @IBOutlet weak var spinBtn: UIButton! {
+        didSet {
+            spinBtn.setImage(UIImage(named: "spinBtnNormal"), for: .normal)
+            spinBtn.setImage(UIImage(named: "spinBtnSelected"), for: .selected)
+        }
+    }
     @IBOutlet weak var slotHouseImgVw: UIImageView!
     @IBOutlet weak var resultLbl: UILabel!
     
@@ -95,27 +100,27 @@ class ArcticGameComtroller: BaseController {
         
         switch firstTimerCount {
         case 152: table1ContentOffset = table1.contentOffset.y
-            multiplier = 1
-        case 147...151: multiplier = 1
-        case 142...146: multiplier = 2
-        case 137...141: multiplier = 3
-        case 132...136: multiplier = 4
-        case 127...131: multiplier = 5
-        case 122...126: multiplier = 6
-        case 117...121: multiplier = 7
-        case 112...116: multiplier = 8
-        case 107...111: multiplier = 9
-        case 102...106: multiplier = 10
-        case 49...53: multiplier = 10
-        case 44...48: multiplier = 9
-        case 39...43: multiplier = 8
-        case 33...38: multiplier = 7
-        case 29...32: multiplier = 6
-        case 24...28: multiplier = 5
-        case 19...23: multiplier = 4
-        case 14...18: multiplier = 3
-        case 9...13: multiplier = 2
-        case 3...8: multiplier = 1
+            multiplier = StrideConstants.firstStride
+        case 147...151: multiplier = StrideConstants.firstStride
+        case 142...146: multiplier = StrideConstants.secondStride
+        case 137...141: multiplier = StrideConstants.thirdStride
+        case 132...136: multiplier = StrideConstants.fourthStride
+        case 127...131: multiplier = StrideConstants.fifthStride
+        case 122...126: multiplier = StrideConstants.sixthStride
+        case 117...121: multiplier = StrideConstants.seventhStride
+        case 112...116: multiplier = StrideConstants.eighthStride
+        case 107...111: multiplier = StrideConstants.ninethStride
+        case 102...106: multiplier = StrideConstants.tenthStride
+        case 49...53: multiplier = StrideConstants.tenthStride
+        case 44...48: multiplier = StrideConstants.ninethStride
+        case 39...43: multiplier = StrideConstants.eighthStride
+        case 33...38: multiplier = StrideConstants.seventhStride
+        case 29...32: multiplier = StrideConstants.sixthStride
+        case 24...28: multiplier = StrideConstants.fifthStride
+        case 19...23: multiplier = StrideConstants.fourthStride
+        case 14...18: multiplier = StrideConstants.thirdStride
+        case 9...13: multiplier = StrideConstants.secondStride
+        case 3...8: multiplier = StrideConstants.firstStride
         default: multiplier = firstSpeed
         }
         table1ContentOffset -= multiplier
@@ -126,14 +131,7 @@ class ArcticGameComtroller: BaseController {
             self.table1.layoutIfNeeded()
         } completion: { bool in
         }
-        
-        
-        //        UIView.animate(withDuration: 0.3) {
-        //        //    print(self.table1ContentOffset)
-        //            self.table1.contentOffset.y = self.table1ContentOffset
-        //            self.table1.layoutIfNeeded()
-        //        }
-        //
+
         guard firstTimerCount == 3 else { return }
         
         firstTimerCount = 153
@@ -153,27 +151,27 @@ class ArcticGameComtroller: BaseController {
             print(table2.contentOffset.y)
             print(table2.contentSize)
             print(countOfStrides)
-            multiplier = 1
-        case 147...151: multiplier = 1
-        case 142...146: multiplier = 2
-        case 137...141: multiplier = 3
-        case 132...136: multiplier = 4
-        case 127...131: multiplier = 5
-        case 122...126: multiplier = 6
-        case 117...121: multiplier = 7
-        case 112...116: multiplier = 8
-        case 107...111: multiplier = 9
-        case 102...106: multiplier = 10
-        case 49...53: multiplier = 10
-        case 44...48: multiplier = 9
-        case 39...43: multiplier = 8
-        case 33...38: multiplier = 7
-        case 29...32: multiplier = 6
-        case 24...28: multiplier = 5
-        case 19...23: multiplier = 4
-        case 14...18: multiplier = 3
-        case 9...13: multiplier = 2
-        case 3...8: multiplier = 1
+            multiplier = StrideConstants.firstStride
+        case 147...151: multiplier = StrideConstants.firstStride
+        case 142...146: multiplier = StrideConstants.secondStride
+        case 137...141: multiplier = StrideConstants.thirdStride
+        case 132...136: multiplier = StrideConstants.fourthStride
+        case 127...131: multiplier = StrideConstants.fifthStride
+        case 122...126: multiplier = StrideConstants.sixthStride
+        case 117...121: multiplier = StrideConstants.seventhStride
+        case 112...116: multiplier = StrideConstants.eighthStride
+        case 107...111: multiplier = StrideConstants.ninethStride
+        case 102...106: multiplier = StrideConstants.tenthStride
+        case 49...53: multiplier = StrideConstants.tenthStride
+        case 44...48: multiplier = StrideConstants.ninethStride
+        case 39...43: multiplier = StrideConstants.eighthStride
+        case 33...38: multiplier = StrideConstants.seventhStride
+        case 29...32: multiplier = StrideConstants.sixthStride
+        case 24...28: multiplier = StrideConstants.fifthStride
+        case 19...23: multiplier = StrideConstants.fourthStride
+        case 14...18: multiplier = StrideConstants.thirdStride
+        case 9...13: multiplier = StrideConstants.secondStride
+        case 3...8: multiplier = StrideConstants.firstStride
         default: multiplier =  secondSpeed
         }
         
@@ -190,9 +188,7 @@ class ArcticGameComtroller: BaseController {
         guard self.secondTimerCount == 3 else { return }
         self.secondTimerCount = 153
         self.secondTimer.invalidate()
-        
     }
-    
     
     @objc
     func x3Spin() {
@@ -201,7 +197,7 @@ class ArcticGameComtroller: BaseController {
         
         switch thirdTimerCount {
         case 152: table3ContentOffset = table3.contentOffset.y
-            multiplier = 1
+            multiplier = StrideConstants.firstStride
         case 147...151: multiplier = StrideConstants.firstStride
         case 142...146: multiplier = StrideConstants.secondStride
         case 137...141: multiplier = StrideConstants.thirdStride
@@ -248,7 +244,10 @@ class ArcticGameComtroller: BaseController {
                                                                self.counter.startThirdIndexPathRow],
                                                  collectionView: self.collectionView)
             }
-            self.combinationCounter += 1
+            switch self.combinationCounter {
+            case 8: self.combinationCounter = 0
+            default:  self.combinationCounter += 1
+            }
         }
         
         self.thirdTimerCount = 153
@@ -310,7 +309,7 @@ class ArcticGameComtroller: BaseController {
                                parentView: slotBackImgVw,
                                width: view.h / 3.60,
                                height: view.h / 5.77,
-                               centerV: -view.h / 40,
+                               centerV: -view.h / 48, //40
                                centerH: view.h / 81.2)
     }
     
@@ -361,82 +360,6 @@ extension ArcticGameComtroller: UICollectionViewDelegate, UICollectionViewDataSo
     }
 }
 
-
-
-
-
-//    x
-//    2x
-//    3x
-//    4x
-//    scrollTo
-//    4x
-//    3x
-//    2x
-//    x
-
-//
-//    @objc
-//    func secondTableSpin() {
-//        secondTimerCount -= 1
-//
-//        let from = ((self.secondTimerCount ) * 100)
-//        let to = from + 100
-//        let randomSlotInt = Int.random(in: from...to)
-//
-//        let table = (self.collectionView.cellForItem(at: [0,1]) as! SlotCollectionCell).tableView
-//        if self.secondTimerCount == 3 {
-//            let spinTo = self.planManager.secondCurrentCombination[1]
-//            let slotInt = Int.random(in: 100...200)
-//            let currentRowModel = SlotRowModel(indexPathRow: slotInt,
-//                                               slotInt: SpinLogicManager.array[slotInt])
-//            let necessaryIndex = self.planManager.spin(to: spinTo,
-//                                                       check: currentRowModel)
-//            table.scrollToRow(at: [0,necessaryIndex],
-//                              at: .middle,
-//                              animated: true)
-//        } else {
-//            table.scrollToRow(at: [0,randomSlotInt],
-//                              at: .middle,
-//                              animated: true)
-//        }
-//        guard secondTimerCount == 3 else { return }
-//        secondTimer.invalidate()
-//        secondTimerCount = 25
-//        planManager.secondSpinCounter += 1
-//    }
-//
-//    @objc
-//    func thirdTableSpin() {
-//        thirdTimerCount -= 1
-//
-//        let from = ((self.thirdTimerCount ) * 100)
-//        let to = from + 100
-//        let randomSlotInt = Int.random(in: from...to)
-//
-//        let table = (self.collectionView.cellForItem(at: [0,2]) as! SlotCollectionCell).tableView
-//        if self.thirdTimerCount == 3 {
-//            let spinTo = self.planManager.thirdCurrentCombination[2]
-//            let slotInt = Int.random(in: 100...200)
-//            let currentRowModel = SlotRowModel(indexPathRow: slotInt,
-//                                               slotInt: SpinLogicManager.array[slotInt])
-//            let necessaryIndex = self.planManager.spin(to: spinTo,
-//                                                       check: currentRowModel)
-//            table.scrollToRow(at: [0,necessaryIndex],
-//                              at: .middle,
-//                              animated: true)
-//        } else {
-//            table.scrollToRow(at: [0,randomSlotInt],
-//                              at: .middle,
-//                              animated: true)
-//        }
-//
-//        guard thirdTimerCount == 3 else { return }
-//        thirdTimer.invalidate()
-//        thirdTimerCount = 25
-//        planManager.thirdSpinCounter += 1
-//    }
-//}
 //----------------------------------------------
 // MARK: - ArcticGameOutputProtocol
 //----------------------------------------------

@@ -15,6 +15,7 @@ enum Imgs: String {
     case goldStart, goldFirst, goldSecond, goldThird, goldFourth, goldFinish
     case deersStart, deersFirst, deersSecond, deersThird, deersFourth, deersFinish
     case gameTabBarEnergy, gameTabBarMap, gameTabBarPrizes, gameTabBarSpin
+    case spinBtnNormal, spinBtnSelected
 }
 
 enum Clrs: String {
