@@ -64,30 +64,30 @@ class ArcticGameComtroller: BaseController {
     }()
     
     private lazy var firstSpeed: CGFloat = {
-        counter.spiningStride(to: counter.combinations[combinationCounter][0],
+        counter.spiningStride(to: counter.combinations[combinationCounter].spinObjectIds[0],
                               from: 0,
                               currentArray: OffsetCounter.firstArray)
     }()
     private lazy var secondSpeed: CGFloat = {
-        counter.spiningStride(to: counter.combinations[combinationCounter][1],
+        counter.spiningStride(to: counter.combinations[combinationCounter].spinObjectIds[1],
                               from: 1,
                               currentArray: OffsetCounter.secondArray)
     }()
     private lazy var thirdSpeed: CGFloat = {
-        counter.spiningStride(to: counter.combinations[combinationCounter][2],
+        counter.spiningStride(to: counter.combinations[combinationCounter].spinObjectIds[2],
                               from: 2,
                               currentArray: OffsetCounter.thirdArray)
     }()
     
     private var combinationCounter = 0 {
         didSet {
-            firstSpeed = counter.spiningStride(to: counter.combinations[combinationCounter][0],
+            firstSpeed = counter.spiningStride(to: counter.combinations[combinationCounter].spinObjectIds[0],
                                                from: 0,
                                                currentArray: OffsetCounter.firstArray)
-            secondSpeed = counter.spiningStride(to: counter.combinations[combinationCounter][1],
+            secondSpeed = counter.spiningStride(to: counter.combinations[combinationCounter].spinObjectIds[1],
                                                 from: 1,
                                                 currentArray: OffsetCounter.secondArray)
-            thirdSpeed = counter.spiningStride(to: counter.combinations[combinationCounter][2],
+            thirdSpeed = counter.spiningStride(to: counter.combinations[combinationCounter].spinObjectIds[2],
                                                from: 2,
                                                currentArray: OffsetCounter.thirdArray)
         }
@@ -230,28 +230,8 @@ class ArcticGameComtroller: BaseController {
         } completion: { bool in
         }
         guard self.thirdTimerCount == 3 else { return }
-     
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            if let tupleResult = self.spinManager.recognizeSetCombinations(self.counter.combinations[self.combinationCounter]) {
-                print(tupleResult)
-                // теперь тут будет по первому элементу тупла функция по начислению бонусов
-                self.spinManager.accrueBonuses(by: tupleResult.0, resultLbl: self.resultLbl)
-                // функция котороая красит бордер ячеек по второму элементу тупла
-                self.spinManager.paintBlueBorder(tupleResult.1,
-                                                 indexPathes: [self.counter.firstIndexPathRow,
-                                                               self.counter.startSecondIndexPathRow,
-                                                               self.counter.startThirdIndexPathRow],
-                                                 collectionView: self.collectionView)
-            }
-            let lastSpinIndex = self.counter.combinations.count - 1
-            
-            switch self.combinationCounter {
-            case lastSpinIndex: self.combinationCounter = 0
-            default:  self.combinationCounter += 1
-            }
-        }
-        
+        presenter.getSpin(spinId: counter.combinations[self.combinationCounter].id)
+    
         self.thirdTimerCount = 153
         self.thirdTimer.invalidate()
     }
@@ -264,7 +244,6 @@ class ArcticGameComtroller: BaseController {
                 self.counter.combinations = spins
             }
         }
-        
         setCollectionView()
         setup()
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
@@ -289,7 +268,6 @@ class ArcticGameComtroller: BaseController {
         } else {
             nameLabel.isHidden = true
         }
-        
         avatarImageView.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
                                     placeholder: RImage.placeholder_food_ic(),
                                     options: [.transition(.fade(0.25))])
@@ -319,7 +297,7 @@ class ArcticGameComtroller: BaseController {
     }
     
     @IBAction func spinAction(_ sender: Any) {
-        
+        guard KeychainService.standard.me?.energy ?? 0.0 > 0.0 else { return }
         AudioManager.sharedManager.playSound(type: .spinTap_10)
         
         spinManager.spinAction(coinsLbl: coinslabel,
@@ -373,9 +351,43 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
     func successUpgrade() {
         ///reload
     }
+    func successSpin(model: [SpinMainModel]) {
+        for award in model {
+            switch award.type{
+            case .spinObjectRewardTypeCoin:
+                KeychainService.standard.me?.coins! += award.amount
+            case .spinObjectRewardTypeEnergy:
+                KeychainService.standard.me?.energy! += Float(award.amount)
+            case .spinObjectRewardTypeBuild:
+                let alert = UIAlertController(title: "Free Building",
+                                              message: "This could be your design",
+                                              preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true)
+            case .__unknown(_): print("")
+            }
+        }
+        let lastSpinIndex = self.counter.combinations.count - 1
+        switch self.combinationCounter {
+        case lastSpinIndex: self.combinationCounter = 0
+        default:  self.combinationCounter += 1
+        }
+     
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            if let tupleResult = self.spinManager.recognizeSetCombinations(self.counter.combinations[self.combinationCounter].spinObjectIds) {
+                print(tupleResult)
+                // теперь тут будет по первому элементу тупла функция по начислению бонусов
+                self.spinManager.accrueBonuses(by: tupleResult.0, resultLbl: self.resultLbl)
+                // функция котороая красит бордер ячеек по второму элементу тупла
+                self.spinManager.paintBlueBorder(tupleResult.1,
+                                                 indexPathes: [self.counter.firstIndexPathRow,
+                                                               self.counter.startSecondIndexPathRow,
+                                                               self.counter.startThirdIndexPathRow],
+                                                 collectionView: self.collectionView)
+            }
     
-    func successSpin() {
-        ///reload
+        }
     }
     
     func success() {
