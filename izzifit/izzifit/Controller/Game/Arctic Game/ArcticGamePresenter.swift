@@ -14,7 +14,7 @@ import UIKit
 //----------------------------------------------
 protocol ArcticGameOutputProtocol: BaseController {
     func success()
-    func successSpin()
+    func successSpin(model: [SpinMainModel])
     func successUpgrade()
 }
 
@@ -24,7 +24,7 @@ protocol ArcticGameOutputProtocol: BaseController {
 protocol ArcticGameProtocol: AnyObject {
     init(view: ArcticGameOutputProtocol)
     
-    func getMap()
+    func getMap(completion: @escaping ([MapSpinsModel]) -> ())
     func getSpin(spinId: String)
     func upgrateBuild(buildingId: String)
 }
@@ -32,19 +32,18 @@ protocol ArcticGameProtocol: AnyObject {
 class ArcticGamePresenter: ArcticGameProtocol {
     ///702FB234-1112-437A-9998-9BF039199C17
     private weak var view: ArcticGameOutputProtocol?
-    
-    var map: MapMainModel?
-    var spins: [SpinMainModel] = []
-    
     required init(view: ArcticGameOutputProtocol) {
         self.view = view
     }
     
-    func getMap() {
+    func getMap(completion: @escaping ([MapSpinsModel]) -> ()) {
         view?.startLoader()
         let query = MapQuery()
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
-            self?.map = model.map
+            DispatchQueue.main.async {
+                completion(model.map.spins)
+            }
+            
             self?.view?.success()
             self?.view?.stopLoading()
         }, failureHandler: { [weak self] error in
@@ -56,8 +55,7 @@ class ArcticGamePresenter: ArcticGameProtocol {
         view?.startLoader()
         let query = SpinQuery(spinId: spinId)
         let _ = Network.shared.query(model: SpinModel.self, query, controller: view, successHandler: { [weak self] model in
-            self?.spins = model.spin
-            self?.view?.successSpin()
+            self?.view?.successSpin(model: model.spin)
             self?.view?.stopLoading()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()

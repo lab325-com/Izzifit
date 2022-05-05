@@ -3,7 +3,7 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 CONFIGURATION_NAME = Debug
-HOST_NAME = https:\/\/api.front.prod.izzifit.mob325.com/graphql //https:\/\/api.front.dev.izzifit.mob325.com/graphql
+HOST_NAME = https:\/\/api.front.prod.izzifit.mob325.com/graphql
 SUPPORT_EMAIL = support@lill.co
 APP_NAME = Lill
 HOST_REST_NAME = https:\/\/api.front.dev.lill.mob325.com/

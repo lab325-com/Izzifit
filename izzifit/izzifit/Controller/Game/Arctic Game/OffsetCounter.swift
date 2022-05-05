@@ -37,16 +37,7 @@ class OffsetCounter: OffsetCounterProtocol {
     // 2: SlotImgs.moneyBag,
     // 3: SlotImgs.hammer,
     // 4: SlotImgs.lightning]
-    var combinations: [[Int]] = [[2,0,0],
-                                 [0,0,0],
-                                 [1,1,0],
-                                 [1,1,1],
-                                 [2,2,1],
-                                 [2,2,2],
-                                 [1,3,3],
-                                 [3,3,3],
-                                 [4,4,1],
-                                 [4,4,4]]
+    var combinations: [MapSpinsModel] = []
     
     init(strideOffset: CGFloat) {
         print(strideOffset)
@@ -63,7 +54,7 @@ class OffsetCounter: OffsetCounterProtocol {
     static var firstArray: [Int] = {
         var array = [Int]()
         for _ in 0...2800 {
-            let random = Int(arc4random_uniform(5))
+            let random = Int.random(in: 1...5)
             array.append(random)
         }
         return array
@@ -72,7 +63,7 @@ class OffsetCounter: OffsetCounterProtocol {
     static var secondArray: [Int] = {
         var array = [Int]()
         for _ in 0...2800 {
-            let random = Int(arc4random_uniform(5))
+            let random = Int.random(in: 1...5)
             array.append(random)
         }
         return array
@@ -82,7 +73,7 @@ class OffsetCounter: OffsetCounterProtocol {
     static var thirdArray: [Int] = {
         var array = [Int]()
         for _ in 0...2800 {
-            let random = Int(arc4random_uniform(5))
+            let random = Int.random(in: 1...5)
             array.append(random)
         }
         return array
