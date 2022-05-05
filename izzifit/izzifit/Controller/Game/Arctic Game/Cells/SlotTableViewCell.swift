@@ -5,6 +5,7 @@
 //  Created by O l e h on 08.04.2022.
 //
 import UIKit
+import Kingfisher
 
 class SlotTableViewCell: BaseTableViewCell {
     
@@ -15,15 +16,16 @@ class SlotTableViewCell: BaseTableViewCell {
     var tagBtn = Int()
     
     var slotImgsDict = [1: SlotImgs.dollar,
-                        2: SlotImgs.snowflake,
-                        3: SlotImgs.moneyBag,
-                        4: SlotImgs.hammer,
-                        5: SlotImgs.lightning]
+                        2: SlotImgs.moneyBag,
+                        3: SlotImgs.lightning ,
+                        4: SlotImgs.snowflake,
+                        5: SlotImgs.hammer]
     
     override init(style: BaseTableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         backgroundColor = .clear
+        
         slotBtn.isUserInteractionEnabled = false
         borderView.layer.cornerRadius = 5
         borderView.layer.masksToBounds = true
@@ -52,13 +54,7 @@ class SlotTableViewCell: BaseTableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func prepareForReuse() {
-        slotBtn.tag = tagBtn
-        slotBtn.setImage(slotImgsDict[tagBtn]!,
-                         for: .normal)
-    }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -68,10 +64,14 @@ class SlotTableViewCell: BaseTableViewCell {
                                                                      right: 8))
     }
     
-    func fillCellby(tagBtn: Int) {
+    func fillCellby(tagBtn: Int, model: MapModel?) {
         slotBtn.tag = tagBtn
-        slotBtn.setImage(slotImgsDict[tagBtn]!,
-                         for: .normal)
+        
+        let image = model?.map.spinObjects.first(where: {$0.id == "\(tagBtn)"})?.image.urlIosFull
+        
+        //slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal)
+        slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal, placeholder: slotImgsDict[tagBtn]!, options: [.transition(.fade(0.25))])
+        
         borderView.isHidden = true
         slotBtn.clipsToBounds = true
     }

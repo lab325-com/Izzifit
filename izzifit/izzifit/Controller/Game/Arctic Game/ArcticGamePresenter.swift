@@ -36,10 +36,13 @@ class ArcticGamePresenter: ArcticGameProtocol {
         self.view = view
     }
     
+    var maps: MapModel?
+    
     func getMap(completion: @escaping ([MapSpinsModel]) -> ()) {
         view?.startLoader()
         let query = MapQuery()
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
+            self?.maps = model
             DispatchQueue.main.async {
                 completion(model.map.spins)
             }
