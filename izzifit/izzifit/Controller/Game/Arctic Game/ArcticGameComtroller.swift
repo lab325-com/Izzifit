@@ -368,11 +368,7 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
             case .__unknown(_): print("")
             }
         }
-        let lastSpinIndex = self.counter.combinations.count - 1
-        switch self.combinationCounter {
-        case lastSpinIndex: self.combinationCounter = 0
-        default:  self.combinationCounter += 1
-        }
+  
      
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             if let tupleResult = self.spinManager.recognizeSetCombinations(self.counter.combinations[self.combinationCounter].spinObjectIds) {
@@ -386,7 +382,11 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
                                                                self.counter.startThirdIndexPathRow],
                                                  collectionView: self.collectionView)
             }
-    
+            let lastSpinIndex = self.counter.combinations.count - 1
+            switch self.combinationCounter {
+            case lastSpinIndex: self.combinationCounter = 0
+            default:  self.combinationCounter += 1
+            }
         }
     }
     
