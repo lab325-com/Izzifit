@@ -168,7 +168,7 @@ class FoodController: BaseController {
         let proteins = presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeProteins})
         let attributedString1 = NSMutableAttributedString(string: RLocalization.food_main_proteins(), attributes: searchSource == .protein ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
         
-        let attributedString2 = NSMutableAttributedString(string:" \(proteins?.eaten ?? 0)", attributes: searchSource == .protein ? attrsWhite as [NSAttributedString.Key : Any] : attrs2 as [NSAttributedString.Key : Any])
+        let attributedString2 = NSMutableAttributedString(string:" \(proteins?.eaten  ?? 0)", attributes: searchSource == .protein ? attrsWhite as [NSAttributedString.Key : Any] : attrs2 as [NSAttributedString.Key : Any])
         
         let attributedString3 = NSMutableAttributedString(string:"/\(proteins?.needed ?? 0)g", attributes: searchSource == .protein ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
         
@@ -180,9 +180,9 @@ class FoodController: BaseController {
         let fats = presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeFats})
         let attributedString4 = NSMutableAttributedString(string: RLocalization.food_main_fats(), attributes: searchSource == .fats ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
         
-        let attributedString5 = NSMutableAttributedString(string:" \(fats?.needed ?? 0)", attributes: searchSource == .fats ? attrsWhite as [NSAttributedString.Key : Any] : attrs2 as [NSAttributedString.Key : Any])
+        let attributedString5 = NSMutableAttributedString(string:" \(fats?.eaten  ?? 0)", attributes: searchSource == .fats ? attrsWhite as [NSAttributedString.Key : Any] : attrs2 as [NSAttributedString.Key : Any])
         
-        let attributedString6 = NSMutableAttributedString(string:"/\(fats?.eaten ?? 0)g", attributes: searchSource == .fats ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
+        let attributedString6 = NSMutableAttributedString(string:"/\(fats?.needed ?? 0)g", attributes: searchSource == .fats ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
         
         attributedString4.append(attributedString5)
         attributedString4.append(attributedString6)
@@ -192,9 +192,9 @@ class FoodController: BaseController {
         let carbs = presenter.sourceByMeal.first(where: {$0.name == .sourceEntityTypeCarbs})
         let attributedString7 = NSMutableAttributedString(string: RLocalization.food_main_carbs(), attributes: searchSource == .carbs ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
         
-        let attributedString8 = NSMutableAttributedString(string:" \(carbs?.needed ?? 0)", attributes: searchSource == .carbs ? attrsWhite as [NSAttributedString.Key : Any] : attrs2 as [NSAttributedString.Key : Any])
+        let attributedString8 = NSMutableAttributedString(string:" \(carbs?.eaten  ?? 0)", attributes: searchSource == .carbs ? attrsWhite as [NSAttributedString.Key : Any] : attrs2 as [NSAttributedString.Key : Any])
         
-        let attributedString9 = NSMutableAttributedString(string:"/\(carbs?.eaten ?? 0)g", attributes: searchSource == .carbs ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
+        let attributedString9 = NSMutableAttributedString(string:"/\(carbs?.needed ?? 0)g", attributes: searchSource == .carbs ? attrsWhite as [NSAttributedString.Key : Any] : attrs1 as [NSAttributedString.Key : Any])
         
         attributedString7.append(attributedString8)
         attributedString7.append(attributedString9)
