@@ -42,6 +42,9 @@ class GameTabBarController: UITabBarController {
     
     private func setupTabBar() {
         UITabBar.appearance().barTintColor = .clear
+        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().clipsToBounds = true
         tabBar.tintColor = .clear
     }
 }
