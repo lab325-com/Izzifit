@@ -238,6 +238,7 @@ class ArcticGameComtroller: BaseController {
     
     override func viewDidLoad() {
         needSoundTap = false
+        hiddenNavigationBar = true
         super.viewDidLoad()
         DispatchQueue.main.async {
             self.presenter.getMap { spins in
