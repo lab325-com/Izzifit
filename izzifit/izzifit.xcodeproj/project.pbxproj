@@ -347,6 +347,7 @@
 		FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC55B9927EB944E001DA24C /* RankModel.swift */; };
 		FACB1E862804325500058773 /* LevelStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1E852804325500058773 /* LevelStates.swift */; };
 		FADA6BD127F188B200913F67 /* MoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA6BD027F188B200913F67 /* MoodsModel.swift */; };
+		FAF4350428257920008691CD /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = FAF4350328257920008691CD /* Gifu */; };
 		FE1403B327E1EDC2002F5819 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1403B127E1EDC2002F5819 /* ProfileController.swift */; };
 		FE1403B427E1EDC2002F5819 /* ProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE1403B227E1EDC2002F5819 /* ProfileController.xib */; };
 		FE1403BD27E2019C002F5819 /* ChartTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1403BB27E2019C002F5819 /* ChartTableCell.swift */; };
@@ -741,6 +742,7 @@
 				0249D27D27B3AA7000F265C1 /* Toast in Frameworks */,
 				02A464A22811658800B00381 /* FirebaseAnalytics in Frameworks */,
 				8C4F7F85C1CC5538D3E379C8 /* Pods_izzifit.framework in Frameworks */,
+				FAF4350428257920008691CD /* Gifu in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2455,6 +2457,7 @@
 				02E6D85A27FC259E00E29509 /* SwiftyStoreKit */,
 				02A464A12811658800B00381 /* FirebaseAnalytics */,
 				02A464A32811658800B00381 /* FirebaseCrashlytics */,
+				FAF4350328257920008691CD /* Gifu */,
 			);
 			productName = izzifit;
 			productReference = 0249D22727B3A4EF00F265C1 /* izzifit.app */;
@@ -2493,6 +2496,7 @@
 				0227DA8A27C4CA77008AB26B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 				02A464A02811658800B00381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FAF4350228257920008691CD /* XCRemoteSwiftPackageReference "Gifu" */,
 			);
 			productRefGroup = 0249D22827B3A4EF00F265C1 /* Products */;
 			projectDirPath = "";
@@ -3375,6 +3379,14 @@
 				kind = branch;
 			};
 		};
+		FAF4350228257920008691CD /* XCRemoteSwiftPackageReference "Gifu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kaishin/Gifu.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3427,6 +3439,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
 			productName = SwiftyStoreKit;
+		};
+		FAF4350328257920008691CD /* Gifu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAF4350228257920008691CD /* XCRemoteSwiftPackageReference "Gifu" */;
+			productName = Gifu;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

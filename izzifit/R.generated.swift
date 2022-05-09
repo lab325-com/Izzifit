@@ -1033,12 +1033,12 @@ struct R: Rswift.Validatable {
     static let gameBackTwo = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameBackTwo")
     /// Image `gameBarBack`.
     static let gameBarBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameBarBack")
+    /// Image `gameTabBarBuild`.
+    static let gameTabBarBuild = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarBuild")
     /// Image `gameTabBarEnergy`.
     static let gameTabBarEnergy = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarEnergy")
     /// Image `gameTabBarMap`.
     static let gameTabBarMap = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarMap")
-    /// Image `gameTabBarPrizes`.
-    static let gameTabBarPrizes = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarPrizes")
     /// Image `gameTabBarSpin`.
     static let gameTabBarSpin = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarSpin")
     /// Image `goldFinish`.
@@ -1538,6 +1538,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "gameTabBarBuild", bundle: ..., traitCollection: ...)`
+    static func gameTabBarBuild(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gameTabBarBuild, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "gameTabBarEnergy", bundle: ..., traitCollection: ...)`
     static func gameTabBarEnergy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.gameTabBarEnergy, compatibleWith: traitCollection)
@@ -1548,13 +1555,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "gameTabBarMap", bundle: ..., traitCollection: ...)`
     static func gameTabBarMap(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.gameTabBarMap, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "gameTabBarPrizes", bundle: ..., traitCollection: ...)`
-    static func gameTabBarPrizes(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.gameTabBarPrizes, compatibleWith: traitCollection)
     }
     #endif
 

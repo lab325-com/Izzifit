@@ -11,13 +11,15 @@ class GameTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTabBar()
         setupVCs()
+        setupTabBar()
+        
+        print(viewControllers![0].view.sizeHeight)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if selectedViewController == ArcticGameComtroller() {
-          
+            
         }
     }
     
@@ -30,18 +32,16 @@ class GameTabBarController: UITabBarController {
     }
     
     private func setupVCs() {
-        viewControllers = [createNavController(for:  ArcticGameComtroller(),
-                                               image: view.image(img: .gameTabBarMap)!),
-                           createNavController(for: LevelController(),
+        viewControllers = [createNavController(for: LevelController(),
+                                               image: view.image(img: .gameTabBarEnergy)!),
+                           createNavController(for:  ArcticGameComtroller(),
                                                image: view.image(img: .gameTabBarSpin)!),
                            createNavController(for: LevelController(),
-                                               image: view.image(img: .gameTabBarEnergy)!),
-                           createNavController(for: LevelController(),
-                                               image: view.image(img: .gameTabBarPrizes)!) ]
+                                               image: view.image(img: .gameTabBarBuild)!)]
     }
     
     private func setupTabBar() {
-        UITabBar.appearance().barTintColor = .white
-        tabBar.tintColor = .white
+        UITabBar.appearance().barTintColor = .clear
+        tabBar.tintColor = .clear
     }
 }
