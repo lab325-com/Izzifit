@@ -340,6 +340,8 @@
 		FAA9DBEB27D9ECD4004A14FB /* WorkoutTypesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */; };
 		FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAA9DBEA27D9ECD4004A14FB /* WorkoutTypes.graphql */; };
 		FAA9DBEE27D9ECFF004A14FB /* WorkoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */; };
+		FAB59C17282A7D63005AE70B /* BuildPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB59C16282A7D63005AE70B /* BuildPopUpView.xib */; };
+		FAB59C19282A7D8D005AE70B /* BuildPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB59C18282A7D8D005AE70B /* BuildPopUpView.swift */; };
 		FAB6547027FEDFA70057A221 /* ArcticGameComtroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6546E27FEDFA70057A221 /* ArcticGameComtroller.swift */; };
 		FAB6547127FEDFA70057A221 /* ArcticGameComtroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB6546F27FEDFA70057A221 /* ArcticGameComtroller.xib */; };
 		FAB6547327FF39420057A221 /* SpinLogicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6547227FF39420057A221 /* SpinLogicManager.swift */; };
@@ -702,6 +704,8 @@
 		FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTypesModel.swift; sourceTree = "<group>"; };
 		FAA9DBEA27D9ECD4004A14FB /* WorkoutTypes.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutTypes.graphql; sourceTree = "<group>"; };
 		FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPresenter.swift; sourceTree = "<group>"; };
+		FAB59C16282A7D63005AE70B /* BuildPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuildPopUpView.xib; sourceTree = "<group>"; };
+		FAB59C18282A7D8D005AE70B /* BuildPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildPopUpView.swift; sourceTree = "<group>"; };
 		FAB6546E27FEDFA70057A221 /* ArcticGameComtroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGameComtroller.swift; sourceTree = "<group>"; };
 		FAB6546F27FEDFA70057A221 /* ArcticGameComtroller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArcticGameComtroller.xib; sourceTree = "<group>"; };
 		FAB6547227FF39420057A221 /* SpinLogicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinLogicManager.swift; sourceTree = "<group>"; };
@@ -2288,9 +2292,19 @@
 			path = WorkoutTypes;
 			sourceTree = "<group>";
 		};
+		FAB59C15282A7BFB005AE70B /* BuildPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				FAB59C16282A7D63005AE70B /* BuildPopUpView.xib */,
+				FAB59C18282A7D8D005AE70B /* BuildPopUpView.swift */,
+			);
+			path = BuildPopUp;
+			sourceTree = "<group>";
+		};
 		FAB6546B27FEDF1A0057A221 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				FAB59C15282A7BFB005AE70B /* BuildPopUp */,
 				FAB6546D27FEDF340057A221 /* Arctic Game */,
 				FAB6546C27FEDF290057A221 /* Level */,
 				FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */,
@@ -2618,6 +2632,7 @@
 				FE7CF8BC27E4A7ED0099682E /* WeightTableCell.xib in Resources */,
 				02D5703C27E9AE4C00F14911 /* WorkoutsWidget.graphql in Resources */,
 				020CB3E427EA201300F97A76 /* DrinkWater.graphql in Resources */,
+				FAB59C17282A7D63005AE70B /* BuildPopUpView.xib in Resources */,
 				02E9047E27F5A38F008CFFB4 /* Workouts.graphql in Resources */,
 				0239712527E1CD6E0087113A /* WriteToUsController.xib in Resources */,
 				FEE119C027E9B9270058EE6D /* MoodTableCell.xib in Resources */,
@@ -2946,6 +2961,7 @@
 				02B225B327BD5D300035CFA2 /* QuizeSportController.swift in Sources */,
 				025463B927CF8F5D00D433DB /* ToggleMuscleInWorkoutsModel.swift in Sources */,
 				0227DAC627C6A455008AB26B /* MenuFoodController.swift in Sources */,
+				FAB59C19282A7D8D005AE70B /* BuildPopUpView.swift in Sources */,
 				02B22ACF281C2882006AB1EA /* UpgradeBuildingModel.swift in Sources */,
 				02D066E227BBEBA000D12C5F /* QuizeHeightController.swift in Sources */,
 				02B22AC3281C1502006AB1EA /* ArcticGamePresenter.swift in Sources */,

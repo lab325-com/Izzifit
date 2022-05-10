@@ -957,12 +957,32 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 150 images.
+  /// This `R.image` struct is generated, and contains static references to 190 images.
   struct image {
     /// Image `Finish`.
     static let finish = Rswift.ImageResource(bundle: R.hostingBundle, name: "Finish")
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
+    /// Image `Selected1Scale`.
+    static let selected1Scale = Rswift.ImageResource(bundle: R.hostingBundle, name: "Selected1Scale")
+    /// Image `Selected2Scale`.
+    static let selected2Scale = Rswift.ImageResource(bundle: R.hostingBundle, name: "Selected2Scale")
+    /// Image `Selected3Scale`.
+    static let selected3Scale = Rswift.ImageResource(bundle: R.hostingBundle, name: "Selected3Scale")
+    /// Image `Selected4Scale`.
+    static let selected4Scale = Rswift.ImageResource(bundle: R.hostingBundle, name: "Selected4Scale")
+    /// Image `Selected5Scale`.
+    static let selected5Scale = Rswift.ImageResource(bundle: R.hostingBundle, name: "Selected5Scale")
+    /// Image `Unselected1Scale`.
+    static let unselected1Scale = Rswift.ImageResource(bundle: R.hostingBundle, name: "Unselected1Scale")
+    /// Image `Unselected2Scale`.
+    static let unselected2Scale = Rswift.ImageResource(bundle: R.hostingBundle, name: "Unselected2Scale")
+    /// Image `Unselected3Scale`.
+    static let unselected3Scale = Rswift.ImageResource(bundle: R.hostingBundle, name: "Unselected3Scale")
+    /// Image `Unselected4Scale`.
+    static let unselected4Scale = Rswift.ImageResource(bundle: R.hostingBundle, name: "Unselected4Scale")
+    /// Image `Unselected5Scale`.
+    static let unselected5Scale = Rswift.ImageResource(bundle: R.hostingBundle, name: "Unselected5Scale")
     /// Image `Upgrade`.
     static let upgrade = Rswift.ImageResource(bundle: R.hostingBundle, name: "Upgrade")
     /// Image `arrow_right_ic`.
@@ -971,8 +991,12 @@ struct R: Rswift.Validatable {
     static let auth_note_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_note_see_pass_ic")
     /// Image `auth_see_pass_ic`.
     static let auth_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_see_pass_ic")
+    /// Image `backBtn`.
+    static let backBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "backBtn")
     /// Image `ballAward`.
     static let ballAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "ballAward")
+    /// Image `buildPopUpBack`.
+    static let buildPopUpBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "buildPopUpBack")
     /// Image `construction3.gif`.
     static let construction3Gif = Rswift.ImageResource(bundle: R.hostingBundle, name: "construction3.gif")
     /// Image `deersFinish`.
@@ -1167,6 +1191,58 @@ struct R: Rswift.Validatable {
     static let player_prev_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_prev_ic")
     /// Image `player_stop_ic`.
     static let player_stop_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "player_stop_ic")
+    /// Image `pop1Deers`.
+    static let pop1Deers = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop1Deers")
+    /// Image `pop1Fish`.
+    static let pop1Fish = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop1Fish")
+    /// Image `pop1Gold`.
+    static let pop1Gold = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop1Gold")
+    /// Image `pop1Iglu`.
+    static let pop1Iglu = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop1Iglu")
+    /// Image `pop1Ship`.
+    static let pop1Ship = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop1Ship")
+    /// Image `pop2Deers`.
+    static let pop2Deers = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop2Deers")
+    /// Image `pop2Fish`.
+    static let pop2Fish = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop2Fish")
+    /// Image `pop2Gold`.
+    static let pop2Gold = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop2Gold")
+    /// Image `pop2Iglu`.
+    static let pop2Iglu = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop2Iglu")
+    /// Image `pop2Ship`.
+    static let pop2Ship = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop2Ship")
+    /// Image `pop3Deers`.
+    static let pop3Deers = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop3Deers")
+    /// Image `pop3Fish`.
+    static let pop3Fish = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop3Fish")
+    /// Image `pop3Gold`.
+    static let pop3Gold = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop3Gold")
+    /// Image `pop3Iglu`.
+    static let pop3Iglu = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop3Iglu")
+    /// Image `pop3Ship`.
+    static let pop3Ship = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop3Ship")
+    /// Image `pop4Deers`.
+    static let pop4Deers = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop4Deers")
+    /// Image `pop4Fish`.
+    static let pop4Fish = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop4Fish")
+    /// Image `pop4Gold`.
+    static let pop4Gold = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop4Gold")
+    /// Image `pop4Iglu`.
+    static let pop4Iglu = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop4Iglu")
+    /// Image `pop4Ship`.
+    static let pop4Ship = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop4Ship")
+    /// Image `pop5Deers`.
+    static let pop5Deers = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop5Deers")
+    /// Image `pop5Fish`.
+    static let pop5Fish = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop5Fish")
+    /// Image `pop5Gold`.
+    static let pop5Gold = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop5Gold")
+    /// Image `pop5Iglu`.
+    static let pop5Iglu = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop5Iglu")
+    /// Image `pop5Ship`.
+    static let pop5Ship = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop5Ship")
+    /// Image `popStartState`.
+    static let popStartState = Rswift.ImageResource(bundle: R.hostingBundle, name: "popStartState")
     /// Image `progress_back_ic`.
     static let progress_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_back_ic")
     /// Image `progress_cube_ic`.
@@ -1227,6 +1303,8 @@ struct R: Rswift.Validatable {
     static let top_view_elipse_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_elipse_ic")
     /// Image `top_view_flash_ic`.
     static let top_view_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_flash_ic")
+    /// Image `upgradeBtn`.
+    static let upgradeBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "upgradeBtn")
     /// Image `video_finished_excellent_ic`.
     static let video_finished_excellent_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_finished_excellent_ic")
     /// Image `video_finished_hard_ic`.
@@ -1259,6 +1337,8 @@ struct R: Rswift.Validatable {
     static let workout_fire_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_fire_ic")
     /// Image `workout_flash_ic`.
     static let workout_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_flash_ic")
+    /// Image `yellowPointer`.
+    static let yellowPointer = Rswift.ImageResource(bundle: R.hostingBundle, name: "yellowPointer")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "Finish", bundle: ..., traitCollection: ...)`
@@ -1271,6 +1351,76 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "MoodChartBack", bundle: ..., traitCollection: ...)`
     static func moodChartBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.moodChartBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Selected1Scale", bundle: ..., traitCollection: ...)`
+    static func selected1Scale(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.selected1Scale, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Selected2Scale", bundle: ..., traitCollection: ...)`
+    static func selected2Scale(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.selected2Scale, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Selected3Scale", bundle: ..., traitCollection: ...)`
+    static func selected3Scale(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.selected3Scale, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Selected4Scale", bundle: ..., traitCollection: ...)`
+    static func selected4Scale(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.selected4Scale, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Selected5Scale", bundle: ..., traitCollection: ...)`
+    static func selected5Scale(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.selected5Scale, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Unselected1Scale", bundle: ..., traitCollection: ...)`
+    static func unselected1Scale(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.unselected1Scale, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Unselected2Scale", bundle: ..., traitCollection: ...)`
+    static func unselected2Scale(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.unselected2Scale, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Unselected3Scale", bundle: ..., traitCollection: ...)`
+    static func unselected3Scale(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.unselected3Scale, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Unselected4Scale", bundle: ..., traitCollection: ...)`
+    static func unselected4Scale(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.unselected4Scale, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Unselected5Scale", bundle: ..., traitCollection: ...)`
+    static func unselected5Scale(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.unselected5Scale, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1303,9 +1453,23 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "backBtn", bundle: ..., traitCollection: ...)`
+    static func backBtn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.backBtn, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "ballAward", bundle: ..., traitCollection: ...)`
     static func ballAward(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ballAward, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "buildPopUpBack", bundle: ..., traitCollection: ...)`
+    static func buildPopUpBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.buildPopUpBack, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1989,6 +2153,188 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop1Deers", bundle: ..., traitCollection: ...)`
+    static func pop1Deers(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop1Deers, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop1Fish", bundle: ..., traitCollection: ...)`
+    static func pop1Fish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop1Fish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop1Gold", bundle: ..., traitCollection: ...)`
+    static func pop1Gold(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop1Gold, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop1Iglu", bundle: ..., traitCollection: ...)`
+    static func pop1Iglu(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop1Iglu, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop1Ship", bundle: ..., traitCollection: ...)`
+    static func pop1Ship(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop1Ship, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop2Deers", bundle: ..., traitCollection: ...)`
+    static func pop2Deers(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop2Deers, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop2Fish", bundle: ..., traitCollection: ...)`
+    static func pop2Fish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop2Fish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop2Gold", bundle: ..., traitCollection: ...)`
+    static func pop2Gold(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop2Gold, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop2Iglu", bundle: ..., traitCollection: ...)`
+    static func pop2Iglu(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop2Iglu, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop2Ship", bundle: ..., traitCollection: ...)`
+    static func pop2Ship(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop2Ship, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop3Deers", bundle: ..., traitCollection: ...)`
+    static func pop3Deers(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop3Deers, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop3Fish", bundle: ..., traitCollection: ...)`
+    static func pop3Fish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop3Fish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop3Gold", bundle: ..., traitCollection: ...)`
+    static func pop3Gold(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop3Gold, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop3Iglu", bundle: ..., traitCollection: ...)`
+    static func pop3Iglu(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop3Iglu, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop3Ship", bundle: ..., traitCollection: ...)`
+    static func pop3Ship(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop3Ship, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop4Deers", bundle: ..., traitCollection: ...)`
+    static func pop4Deers(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop4Deers, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop4Fish", bundle: ..., traitCollection: ...)`
+    static func pop4Fish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop4Fish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop4Gold", bundle: ..., traitCollection: ...)`
+    static func pop4Gold(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop4Gold, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop4Iglu", bundle: ..., traitCollection: ...)`
+    static func pop4Iglu(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop4Iglu, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop4Ship", bundle: ..., traitCollection: ...)`
+    static func pop4Ship(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop4Ship, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop5Deers", bundle: ..., traitCollection: ...)`
+    static func pop5Deers(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop5Deers, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop5Fish", bundle: ..., traitCollection: ...)`
+    static func pop5Fish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop5Fish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop5Gold", bundle: ..., traitCollection: ...)`
+    static func pop5Gold(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop5Gold, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop5Iglu", bundle: ..., traitCollection: ...)`
+    static func pop5Iglu(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop5Iglu, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop5Ship", bundle: ..., traitCollection: ...)`
+    static func pop5Ship(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop5Ship, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "popStartState", bundle: ..., traitCollection: ...)`
+    static func popStartState(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.popStartState, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "progress_back_ic", bundle: ..., traitCollection: ...)`
     static func progress_back_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.progress_back_ic, compatibleWith: traitCollection)
@@ -2199,6 +2545,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "upgradeBtn", bundle: ..., traitCollection: ...)`
+    static func upgradeBtn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.upgradeBtn, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "video_finished_excellent_ic", bundle: ..., traitCollection: ...)`
     static func video_finished_excellent_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.video_finished_excellent_ic, compatibleWith: traitCollection)
@@ -2310,15 +2663,24 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "yellowPointer", bundle: ..., traitCollection: ...)`
+    static func yellowPointer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.yellowPointer, compatibleWith: traitCollection)
+    }
+    #endif
+
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 78 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 79 nibs.
   struct nib {
     /// Nib `ArcticGameComtroller`.
     static let arcticGameComtroller = _R.nib._ArcticGameComtroller()
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
+    /// Nib `BuildPopUpView`.
+    static let buildPopUpView = _R.nib._BuildPopUpView()
     /// Nib `ChartCollectionCell`.
     static let chartCollectionCell = _R.nib._ChartCollectionCell()
     /// Nib `ChartTableCell`.
@@ -2485,6 +2847,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.awardsTableCell) instead")
     static func awardsTableCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.awardsTableCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "BuildPopUpView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.buildPopUpView) instead")
+    static func buildPopUpView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.buildPopUpView)
     }
     #endif
 
@@ -3102,6 +3472,10 @@ struct R: Rswift.Validatable {
 
     static func awardsTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PolicyCell? {
       return R.nib.awardsTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PolicyCell
+    }
+
+    static func buildPopUpView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.buildPopUpView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func chartCollectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ChartCollectionCell? {
@@ -7072,6 +7446,7 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _ArcticGameComtroller.validate()
+      try _BuildPopUpView.validate()
       try _EnerdyTodayCell.validate()
       try _EnergyChooseActivityCell.validate()
       try _EnergyChooseActivityCollectionCell.validate()
@@ -7167,6 +7542,34 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PolicyCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PolicyCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _BuildPopUpView: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "BuildPopUpView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "Unselected1Scale", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Unselected1Scale' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Unselected2Scale", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Unselected2Scale' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Unselected3Scale", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Unselected3Scale' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Unselected4Scale", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Unselected4Scale' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Unselected5Scale", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Unselected5Scale' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "backBtn", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'backBtn' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "buildPopUpBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'buildPopUpBack' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "pop1Gold", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'pop1Gold' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "pop2Gold", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'pop2Gold' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "top_view_coin_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_coin_ic' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "upgradeBtn", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'upgradeBtn' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "yellowPointer", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'yellowPointer' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}

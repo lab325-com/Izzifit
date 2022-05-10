@@ -24,6 +24,8 @@ class LevelController: BaseController {
     @IBOutlet weak var energyLbl: UILabel!
     @IBOutlet weak var coinsLbl: UILabel!
     
+    private var buildPopUpVw = BuildPopUpView()
+    
     private lazy var btns = [shipBtn,
                              fishBtn,
                              igluBtn,
@@ -65,6 +67,14 @@ class LevelController: BaseController {
     
     @objc
     func animate(sender: UIButton) {
+//                view.ui.genericlLayout(object: buildPopUpVw,
+//                                       parentView: view,
+//                                       topC: 0,
+//                                       bottomC: 0,
+//                                       leadingC: 0,
+//                                       trailingC: 0)
+//                view.layoutIfNeeded()
+        
         view.ui.genericlLayout(object: animation,
                                parentView: sender,
                                width: 200,
@@ -72,10 +82,10 @@ class LevelController: BaseController {
                                centerV: 0,
                                centerH: 0)
         view.layoutIfNeeded()
-        
+
         animation.isHidden.toggle()
         animation.startAnimatingGIF()
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.6) {
             self.animation.stopAnimatingGIF()
             self.animation.isHidden.toggle()
