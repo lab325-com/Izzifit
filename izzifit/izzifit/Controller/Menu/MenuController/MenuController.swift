@@ -162,21 +162,21 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         AudioManager.sharedManager.playSound()
         
-        guard let type = SettingsType.allCases[safe: indexPath.row] else { return }
+        guard let type = SettingsType.allCases[safe: indexPath.row], let model = KeychainService.standard.me else { return }
         
         switch type {
         case .name:
-            MenuRouter(presenter: navigationController).pushNameMenu()
+            MenuRouter(presenter: navigationController).pushNameMenu(name: model.name)
         case .age:
-            MenuRouter(presenter: navigationController).pushAgeMenu()
+            MenuRouter(presenter: navigationController).pushAgeMenu(age: model.age)
         case .email:
-            MenuRouter(presenter: navigationController).pushEmailMenu()
+            MenuRouter(presenter: navigationController).pushEmailMenu(email: model.email)
         case .height:
-            MenuRouter(presenter: navigationController).pushHeightMenu()
+            MenuRouter(presenter: navigationController).pushHeightMenu(growth: model.growth)
         case .weight:
-            MenuRouter(presenter: navigationController).pushWeightMenu()
+            MenuRouter(presenter: navigationController).pushWeightMenu(weight: model.weight)
         case .targetWeight:
-            MenuRouter(presenter: navigationController).pushMenuTargetWeight()
+            MenuRouter(presenter: navigationController).pushMenuTargetWeight(targetWeight: model.targetWeight)
         case .foodPreferences:
             MenuRouter(presenter: navigationController).pushMenuFood()
         case .fitnessPreferences:

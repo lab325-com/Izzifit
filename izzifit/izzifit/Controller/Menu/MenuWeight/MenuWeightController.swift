@@ -83,7 +83,21 @@ class MenuWeightController: BaseController {
     }
     
     private lazy var presenter = MenuPresenter(view: self)
+    private let weight: Float?
     
+    //----------------------------------------------
+    // MARK: - Init
+    //----------------------------------------------
+    
+    init(weight: Float?) {
+        self.weight = weight
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
@@ -121,8 +135,22 @@ class MenuWeightController: BaseController {
     }
     
     private func initScrollOffset() {
-        scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
-        scrollKGView.contentOffset.x = 9*baseKG - halfWeight
+        if let weight = weight {
+            if weight >= 66 && weight <= 485 {
+                scrolLBView.contentOffset.x = CGFloat(9*weight) - halfWeight - 6*9
+            } else {
+                scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
+            }
+            
+            if weight >= 30 && weight <= 220 {
+                scrollKGView.contentOffset.x = CGFloat(9*weight) - halfWeight
+            } else {
+                scrollKGView.contentOffset.x = 9*baseKG - halfWeight
+            }
+        } else {
+            scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
+            scrollKGView.contentOffset.x = 9*baseKG - halfWeight
+        }
     }
     
     private func calcValue() -> CGFloat {

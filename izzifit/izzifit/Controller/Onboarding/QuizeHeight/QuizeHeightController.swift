@@ -49,7 +49,7 @@ class QuizeHeightController: BaseController {
     
     private var smData = Array(120...230)
     
-    private var ftData = Array(3...7)
+    private var ftData = Array(4...7)
     private var inchData = Array(1...11)
     
     private var quizeType: QuizeHeightType = .sm {
@@ -75,6 +75,12 @@ class QuizeHeightController: BaseController {
         super.viewDidLoad()
 
         setup()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        AnalyticsHelper.sendFirebaseScreenEvent(screen: .onboarding_height_screen)
     }
     
     //----------------------------------------------
@@ -135,13 +141,18 @@ class QuizeHeightController: BaseController {
         if quizeType == .sm {
             let index = pickerView.selectedRow(inComponent: 0)
             model.setSmHeight(smData[index])
+            AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_height": smData[index], "type": "sm"])
         } else {
             let indexFt = pickerView.selectedRow(inComponent: 0)
             let indexInch = pickerView.selectedRow(inComponent: 1)
             
             model.setFtHeight(ft: ftData[indexFt], inch: inchData[indexInch])
+                
+            AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_height": "\(ftData[indexFt]), \(inchData[indexInch])", "type": "ft"])
         }
         PreferencesManager.sharedManager.tempPorifle = model
+        
+        
         OnboardingRouter(presenter: navigationController).pushWeight()
     }
 }
@@ -185,6 +196,18 @@ extension QuizeHeightController: UIPickerViewDataSource, UIPickerViewDelegate {
         pickerLabel?.textColor = UIColor(rgb: 0x3F3E56)
         
         return pickerLabel!
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if quizeType == .ft {
+            if pickerView.selectedRow(inComponent: 0) == ftData.count - 1, component == 1, row > 5 {
+                pickerView.selectRow(5, inComponent: 1, animated: false)
+            }
+            
+            if pickerView.selectedRow(inComponent: 1) == inchData.count - 1, component == 0, row == ftData.count - 1 {
+                pickerView.selectRow(5, inComponent: 1, animated: false)
+            }
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {

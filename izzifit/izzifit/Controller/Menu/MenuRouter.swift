@@ -8,33 +8,33 @@
 import Foundation
 
 class MenuRouter: BaseRouter {
-    func pushNameMenu() {
-        let controller = MenuNameController()
+    func pushNameMenu(name: String?) {
+        let controller = MenuNameController(name: name)
         push(controller: controller)
     }
     
-    func pushAgeMenu() {
-        let controller = MenuAgeController()
+    func pushAgeMenu(age: Int?) {
+        let controller = MenuAgeController(age: age)
         push(controller: controller)
     }
     
-    func pushEmailMenu() {
-        let controller = MenuEmailController()
+    func pushEmailMenu(email: String?) {
+        let controller = MenuEmailController(email: email)
         push(controller: controller)
     }
     
-    func pushHeightMenu() {
-        let controller = MenuHeightController()
+    func pushHeightMenu(growth: Int?) {
+        let controller = MenuHeightController(growth: growth)
         push(controller: controller)
     }
     
-    func pushWeightMenu() {
-        let controller = MenuWeightController()
+    func pushWeightMenu(weight: Float?) {
+        let controller = MenuWeightController(weight: weight)
         push(controller: controller)
     }
     
-    func pushMenuTargetWeight() {
-        let controller = MenuTargetWeightController()
+    func pushMenuTargetWeight(targetWeight: Float?) {
+        let controller = MenuTargetWeightController(targetWeight: targetWeight)
         push(controller: controller)
     }
     

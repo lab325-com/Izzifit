@@ -51,6 +51,13 @@ class QuizeNameController: BaseController {
         setup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        AnalyticsHelper.sendFirebaseScreenEvent(screen: .onboarding_screen)
+        AnalyticsHelper.sendFirebaseEvents(events: .open)
+    }
+    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
@@ -83,6 +90,7 @@ class QuizeNameController: BaseController {
     
     @IBAction func actionGoNext(_ sender: UIButton) {
         if nameField.text!.count > 0 {
+            AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_name": nameField.text!])
             AudioManager.sharedManager.playSound()
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setName(nameField.text!)

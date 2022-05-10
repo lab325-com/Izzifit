@@ -22,6 +22,20 @@ class MenuEmailController: BaseController {
     //----------------------------------------------
     
     private lazy var presenter = MenuPresenter(view: self)
+    private let email: String?
+    
+    //----------------------------------------------
+    // MARK: - Init
+    //----------------------------------------------
+    
+    init(email: String?) {
+        self.email = email
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //----------------------------------------------
     // MARK: - Life cycle
@@ -41,6 +55,7 @@ class MenuEmailController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        emailField.text = email
         goNextButton.alpha = 0.5
 
         emailField.becomeFirstResponder()
@@ -62,7 +77,7 @@ class MenuEmailController: BaseController {
     }
     
     @IBAction func actionGoNext(_ sender: UIButton) {
-        if emailField.text!.count > 0 {
+        if emailField.text!.count > 0, emailField.text! != email {
             presenter.profileUpdate(email: emailField.text!)
         }
     }

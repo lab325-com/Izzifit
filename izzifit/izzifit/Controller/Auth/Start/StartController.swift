@@ -41,11 +41,18 @@ class StartController: BaseController {
         setup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        AnalyticsHelper.sendFirebaseScreenEvent(screen: .login_screen)
+        AnalyticsHelper.sendFirebaseEvents(events: .open)
+    }
+    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
     
     private func setup() {
+        
         loginLabel.text = RLocalization.login_button()
         mainLabel.text = RLocalization.login_title()
         
@@ -88,10 +95,12 @@ class StartController: BaseController {
 
 extension StartController: StartOutputProtocol {
     func successGoMain() {
+        AnalyticsHelper.sendFirebaseEvents(events: .source, params: ["start": true])
         RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
     }
     
     func successGoOnboarding() {
+        AnalyticsHelper.sendFirebaseEvents(events: .source, params: ["start": true])
         OnboardingRouter(presenter: navigationController).pushName()
     }
 }

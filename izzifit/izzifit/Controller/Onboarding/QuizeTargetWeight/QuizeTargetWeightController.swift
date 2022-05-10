@@ -93,6 +93,12 @@ class QuizeTargetWeightController: BaseController {
         setup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        AnalyticsHelper.sendFirebaseScreenEvent(screen: .onboarding_target_weight_screen)
+    }
+    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
@@ -165,7 +171,7 @@ class QuizeTargetWeightController: BaseController {
         model.setTargetWeightMetric(type)
         model.setTargetWeight(Double(currentCountLabel.text!)!)
         PreferencesManager.sharedManager.tempPorifle = model
-        
+        AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_target_weight": Double(currentCountLabel.text!)!])
         OnboardingRouter(presenter: navigationController).pushFood()
     }
 }

@@ -180,6 +180,7 @@
 		029EDBD0280D3FCB00FC8748 /* VideoFinishedController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 029EDBCE280D3FCB00FC8748 /* VideoFinishedController.xib */; };
 		029EDBD3280D727A00FC8748 /* WorkoutAttemptUpdate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 029EDBD2280D727A00FC8748 /* WorkoutAttemptUpdate.graphql */; };
 		029EDBD5280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029EDBD4280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift */; };
+		02A27B59282A657400B435B0 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A27B58282A657400B435B0 /* AnalyticsHelper.swift */; };
 		02A4649E2811641800B00381 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02A4649D2811641800B00381 /* GoogleService-Info.plist */; };
 		02A464A22811658800B00381 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 02A464A12811658800B00381 /* FirebaseAnalytics */; };
 		02A464A42811658800B00381 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 02A464A32811658800B00381 /* FirebaseCrashlytics */; };
@@ -540,6 +541,7 @@
 		029EDBCE280D3FCB00FC8748 /* VideoFinishedController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoFinishedController.xib; sourceTree = "<group>"; };
 		029EDBD2280D727A00FC8748 /* WorkoutAttemptUpdate.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutAttemptUpdate.graphql; sourceTree = "<group>"; };
 		029EDBD4280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAttemptUpdateModel.swift; sourceTree = "<group>"; };
+		02A27B58282A657400B435B0 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		02A4649D2811641800B00381 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		02A5CDA327C393A300D31FB4 /* EnergyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyController.swift; sourceTree = "<group>"; };
 		02A5CDA427C393A300D31FB4 /* EnergyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyController.xib; sourceTree = "<group>"; };
@@ -1108,6 +1110,7 @@
 		0249D25927B3A87100F265C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				02A27B57282A655F00B435B0 /* Analytics */,
 				025699792819610700BA1535 /* Audio */,
 				FEBFD7AF27E0F14F0027ADD2 /* CodeDriving UI */,
 				0290B39127D2044500381B42 /* Views */,
@@ -1565,6 +1568,14 @@
 				029EDBD4280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift */,
 			);
 			path = WorkoutAttemptUpdate;
+			sourceTree = "<group>";
+		};
+		02A27B57282A655F00B435B0 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				02A27B58282A657400B435B0 /* AnalyticsHelper.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		02A5CDA227C3938200D31FB4 /* Energy */ = {
@@ -2857,6 +2868,7 @@
 				02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
 				02AC22282800677B00440DFB /* OrderCreateModel.swift in Sources */,
+				02A27B59282A657400B435B0 /* AnalyticsHelper.swift in Sources */,
 				020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */,
 				02B22ACA281C2614006AB1EA /* SpinModel.swift in Sources */,
 				020CB3DC27E9F46600F97A76 /* UpdateProductInMealModel.swift in Sources */,

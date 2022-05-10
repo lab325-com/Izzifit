@@ -45,6 +45,12 @@ class QuizeFoodController: BaseController {
         setup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        AnalyticsHelper.sendFirebaseScreenEvent(screen: .onboarding_food_screen)
+    }
+    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
@@ -76,6 +82,7 @@ class QuizeFoodController: BaseController {
    
     @IBAction func actionGoNext(_ sender: UIButton) {
         if let type = selectedType {
+            AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_food_group": type.name ?? ""])
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setFood(type)
             PreferencesManager.sharedManager.tempPorifle = model
@@ -84,6 +91,7 @@ class QuizeFoodController: BaseController {
     }
     
     @IBAction func actionSkip(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_food_group": "skip"])
         var model = PreferencesManager.sharedManager.tempPorifle
         model.setFood(nil)
         PreferencesManager.sharedManager.tempPorifle = model

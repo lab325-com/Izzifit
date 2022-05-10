@@ -63,6 +63,12 @@ class QuizeGenderController: BaseController {
         setup()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        AnalyticsHelper.sendFirebaseScreenEvent(screen: .onboarding_gender_screen)
+    }
+    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
@@ -130,6 +136,7 @@ class QuizeGenderController: BaseController {
     
     @IBAction func actionGetPlan(_ sender: UIButton) {
         if let type = type {
+            AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_gender": type.api.rawValue])
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setGender(type)
             PreferencesManager.sharedManager.tempPorifle = model

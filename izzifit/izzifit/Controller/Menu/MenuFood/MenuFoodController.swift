@@ -181,6 +181,7 @@ extension MenuFoodController: QuizeFoodOutputProtocol {
     }
     
     func successProducts(models: [ProductsMainModel]) {
+        selectedProducts.removeAll()
         self.products = models
         tableView.reloadData()
     }

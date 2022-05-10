@@ -23,6 +23,20 @@ class MenuAgeController: BaseController {
     //----------------------------------------------
     
     private lazy var presenter = MenuPresenter(view: self)
+    private let age: Int?
+    
+    //----------------------------------------------
+    // MARK: - Init
+    //----------------------------------------------
+    
+    init(age: Int?) {
+        self.age = age
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //----------------------------------------------
     // MARK: - Life cycle
@@ -42,6 +56,10 @@ class MenuAgeController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        if let age = age {
+            ageTextField.text = "\(age)"
+        }
+        
         mainTitleLabel.text = RLocalization.onboarding_age_title()
         goNextButton.setTitle(RLocalization.menu_save_changes(), for: .normal)
         
@@ -78,7 +96,7 @@ class MenuAgeController: BaseController {
     }
     
     @IBAction func actionGoNext(_ sender: UIButton) {
-        if sender.alpha == 1.0, let age = Int(ageTextField.text!) {
+        if sender.alpha == 1.0, let age = Int(ageTextField.text!), age != self.age {
             presenter.profileUpdate(age: age)
         }
     }
