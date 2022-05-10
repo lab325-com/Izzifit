@@ -333,6 +333,8 @@
 		FA6628A327F184C200FBB946 /* Moods.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA6628A227F184C200FBB946 /* Moods.graphql */; };
 		FA6699CA281ABCF600B394E0 /* OffsetCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */; };
 		FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */; };
+		FA8CC858282919B80022BFE2 /* construction3.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA8CC857282919B80022BFE2 /* construction3.gif */; };
+		FA8CC85A28291CA50022BFE2 /* GifImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8CC85928291CA50022BFE2 /* GifImageView.swift */; };
 		FAA8E88A27F449060081A12A /* CaloriesWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAA8E88927F449060081A12A /* CaloriesWidget.graphql */; };
 		FAA8E88C27F450A80081A12A /* CaloriesWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8E88B27F450A80081A12A /* CaloriesWidgetModel.swift */; };
 		FAA9DBEB27D9ECD4004A14FB /* WorkoutTypesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */; };
@@ -693,6 +695,8 @@
 		FA6628A227F184C200FBB946 /* Moods.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moods.graphql; sourceTree = "<group>"; };
 		FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetCounter.swift; sourceTree = "<group>"; };
 		FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		FA8CC857282919B80022BFE2 /* construction3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = construction3.gif; sourceTree = "<group>"; };
+		FA8CC85928291CA50022BFE2 /* GifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImageView.swift; sourceTree = "<group>"; };
 		FAA8E88927F449060081A12A /* CaloriesWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CaloriesWidget.graphql; sourceTree = "<group>"; };
 		FAA8E88B27F450A80081A12A /* CaloriesWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesWidgetModel.swift; sourceTree = "<group>"; };
 		FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTypesModel.swift; sourceTree = "<group>"; };
@@ -1110,6 +1114,7 @@
 		0249D25927B3A87100F265C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA8CC856282919450022BFE2 /* Animation */,
 				025699792819610700BA1535 /* Audio */,
 				FEBFD7AF27E0F14F0027ADD2 /* CodeDriving UI */,
 				0290B39127D2044500381B42 /* Views */,
@@ -1137,6 +1142,7 @@
 				023D171D27BE258A005F95C0 /* UITapGesture+Extension.swift */,
 				0290B39427D212CA00381B42 /* UIView+Extension.swift */,
 				02E3F9D92808478D006F5A99 /* CMTime+Extension.swift */,
+				FA8CC85928291CA50022BFE2 /* GifImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2256,6 +2262,14 @@
 			path = Moods;
 			sourceTree = "<group>";
 		};
+		FA8CC856282919450022BFE2 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				FA8CC857282919B80022BFE2 /* construction3.gif */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		FAA8E88827F448760081A12A /* CaloriesWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -2547,6 +2561,7 @@
 				FE1403B427E1EDC2002F5819 /* ProfileController.xib in Resources */,
 				02D066C027BBB57D00D12C5F /* Inter-Medium.ttf in Resources */,
 				FE7CF8B727E48F760099682E /* PositionTableCell.xib in Resources */,
+				FA8CC858282919B80022BFE2 /* construction3.gif in Resources */,
 				029EDBD0280D3FCB00FC8748 /* VideoFinishedController.xib in Resources */,
 				0256999028197A7500BA1535 /* 22_complete_building.wav in Resources */,
 				02C3DD6C27BEDB46004E5C65 /* ProfileUpdate.graphql in Resources */,
@@ -2874,6 +2889,7 @@
 				02354E9C28098B8C005A8272 /* VideoNotFinished.swift in Sources */,
 				02A5CDC227C4247300D31FB4 /* QuizeFoodCell.swift in Sources */,
 				024779CD27DCB8BF00AAFE3D /* Date+Extension.swift in Sources */,
+				FA8CC85A28291CA50022BFE2 /* GifImageView.swift in Sources */,
 				026338A027DB6D0200DC0325 /* EnergyProgressesPresenter.swift in Sources */,
 				FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */,
 				021A6F4727BF8FFA0000D863 /* ProfileUpdateModel.swift in Sources */,

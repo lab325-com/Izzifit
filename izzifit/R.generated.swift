@@ -302,7 +302,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 69 files.
+  /// This `R.file` struct is generated, and contains static references to 70 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -440,6 +440,8 @@ struct R: Rswift.Validatable {
     static let workoutsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Workouts", pathExtension: "graphql")
     /// Resource file `WorkoutsWidget.graphql`.
     static let workoutsWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutsWidget", pathExtension: "graphql")
+    /// Resource file `construction3.gif`.
+    static let construction3Gif = Rswift.FileResource(bundle: R.hostingBundle, name: "construction3", pathExtension: "gif")
     /// Resource file `progress.graphql`.
     static let progressGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "progress", pathExtension: "graphql")
 
@@ -851,6 +853,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "construction3", withExtension: "gif")`
+    static func construction3Gif(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.construction3Gif
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "progress", withExtension: "graphql")`
     static func progressGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.progressGraphql
@@ -949,7 +957,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 149 images.
+  /// This `R.image` struct is generated, and contains static references to 150 images.
   struct image {
     /// Image `Finish`.
     static let finish = Rswift.ImageResource(bundle: R.hostingBundle, name: "Finish")
@@ -965,6 +973,8 @@ struct R: Rswift.Validatable {
     static let auth_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_see_pass_ic")
     /// Image `ballAward`.
     static let ballAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "ballAward")
+    /// Image `construction3.gif`.
+    static let construction3Gif = Rswift.ImageResource(bundle: R.hostingBundle, name: "construction3.gif")
     /// Image `deersFinish`.
     static let deersFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersFinish")
     /// Image `deersFirst`.
@@ -1296,6 +1306,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ballAward", bundle: ..., traitCollection: ...)`
     static func ballAward(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ballAward, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "construction3.gif", bundle: ..., traitCollection: ...)`
+    static func construction3Gif(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.construction3Gif, compatibleWith: traitCollection)
     }
     #endif
 
