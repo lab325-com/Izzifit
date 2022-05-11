@@ -22,6 +22,20 @@ class MenuNameController: BaseController {
     //----------------------------------------------
     
     private lazy var presenter = MenuPresenter(view: self)
+    private let name: String?
+    
+    //----------------------------------------------
+    // MARK: - Init
+    //----------------------------------------------
+    
+    init(name: String?) {
+        self.name = name
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //----------------------------------------------
     // MARK: - Life cycle
@@ -41,6 +55,8 @@ class MenuNameController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        nameField.text = name
+        
         saveButton.alpha = 0.5
 
         nameField.becomeFirstResponder()
@@ -65,7 +81,7 @@ class MenuNameController: BaseController {
     }
     
     @IBAction func actionGoNext(_ sender: UIButton) {
-        if nameField.text!.count > 0 {
+        if nameField.text!.count > 0, name != nameField.text {
             presenter.profileUpdate(name: nameField.text!)
         }
     }

@@ -163,10 +163,12 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellEnergyMood) as? EnergyMoodCell else { return UITableViewCell() }
-            cell.delegate = self
+            
             if let model = presenter.moodWidget {
                 cell.setupCell(model: model)
             }
+            
+            cell.delegate = self
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellMealsIdentifier) as? EnergyMealsCell else { return UITableViewCell() }

@@ -88,7 +88,7 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
                 timerPlayerTime = (exercises[safe: currentIndex]?.duration?.minutes ?? 0) * 60 + (exercises[safe: currentIndex]?.duration?.seconds ?? 0)
             }
             
-            workoutImageView.kf.setImage(with: URL(string: exercises[safe: currentIndex]?.image?.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_ic(), options: [.transition(.fade(0.25))])
+            workoutImageView.kf.setImage(with: URL(string: exercises[safe: currentIndex + 1]?.image?.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_ic(), options: [.transition(.fade(0.25))])
             
             repsLabel.text = "\(exercises[safe: currentIndex]?.rapes ?? 0) \(RLocalization.video_player_reps())"
             updateNext()
@@ -188,9 +188,9 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
             player = AVPlayer(url: url)
         }
         
+        workoutImageView.kf.setImage(with: URL(string: exercises[safe: currentIndex + 1]?.image?.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_ic(), options: [.transition(.fade(0.25))])
+        
         if let model = exercises[safe: currentIndex] {
-            workoutImageView.kf.setImage(with: URL(string: model.image?.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_ic(), options: [.transition(.fade(0.25))])
-            
             if model.isRest == true {
                 timeRest = (model.duration?.minutes ?? 0) * 60 + (model.duration?.seconds ?? 0)
             } else {

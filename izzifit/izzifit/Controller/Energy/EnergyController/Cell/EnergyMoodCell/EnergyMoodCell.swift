@@ -25,6 +25,7 @@ class EnergyMoodCell: BaseTableViewCell {
     @IBOutlet weak var badlyView: UIView!
     
     weak var delegate: EnergyMoodProtocol?
+    private var mood: MoodType?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,6 +53,8 @@ class EnergyMoodCell: BaseTableViewCell {
     func setupCell(model: MoodWidgetMainModel) {
         countLabel.text = "\(model.energy ?? 0)/\(model.energyTotal ?? 0)"
         
+        mood = model.mood
+        
         switch model.mood {
         case .moodTypeGood:
             goodView.layer.borderColor = UIColor(red: 1, green: 0.258, blue: 0.659, alpha: 1).cgColor
@@ -74,16 +77,28 @@ class EnergyMoodCell: BaseTableViewCell {
     }
     
     @IBAction func actionGood(_ sender: UIButton) {
+        if mood == .moodTypeGood {
+            return
+        }
+        
         AudioManager.sharedManager.playSound()
         delegate?.energyMoodSelected(cell: self, type: .moodTypeGood)
     }
     
     @IBAction func actionNotBad(_ sender: UIButton) {
+        if mood == .moodTypeNotBad {
+            return
+        }
+        
         AudioManager.sharedManager.playSound()
         delegate?.energyMoodSelected(cell: self, type: .moodTypeNotBad)
     }
     
     @IBAction func actionBadly(_ sender: UIButton) {
+        if mood == .moodTypeBadly {
+            return
+        }
+        
         AudioManager.sharedManager.playSound()
         delegate?.energyMoodSelected(cell: self, type: .moodTypeBadly)
     }

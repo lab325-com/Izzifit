@@ -34,7 +34,7 @@ class MenuHeightController: BaseController {
     
     private var smData = Array(120...230)
     
-    private var ftData = Array(3...7)
+    private var ftData = Array(4...7)
     private var inchData = Array(1...11)
     
     private var quizeType: QuizeHeightType = .sm {
@@ -52,7 +52,21 @@ class MenuHeightController: BaseController {
     }
     
     private lazy var presenter = MenuPresenter(view: self)
+    private let growth : Int?
     
+    //----------------------------------------------
+    // MARK: - Init
+    //----------------------------------------------
+    
+    init(growth: Int?) {
+        self.growth = growth
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
@@ -69,7 +83,9 @@ class MenuHeightController: BaseController {
     //----------------------------------------------
     
     private func setup() {
-        if let gender = PreferencesManager.sharedManager.tempPorifle.gender {
+        if let growth = growth, growth - 120 >= 0, let _ = smData[safe: growth - 120] {
+            pickerView.selectRow(growth - 120, inComponent: 0, animated: false)
+        } else if let gender = PreferencesManager.sharedManager.tempPorifle.gender {
             switch gender {
             case .female:
                 pickerView.selectRow(40, inComponent: 0, animated: false)
@@ -171,6 +187,18 @@ extension MenuHeightController: UIPickerViewDataSource, UIPickerViewDelegate {
         pickerLabel?.textColor = UIColor(rgb: 0x3F3E56)
         
         return pickerLabel!
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if quizeType == .ft {
+            if pickerView.selectedRow(inComponent: 0) == ftData.count - 1, component == 1, row > 5 {
+                pickerView.selectRow(5, inComponent: 1, animated: false)
+            }
+            
+            if pickerView.selectedRow(inComponent: 1) == inchData.count - 1, component == 0, row == ftData.count - 1 {
+                pickerView.selectRow(5, inComponent: 1, animated: false)
+            }
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {

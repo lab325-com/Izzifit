@@ -82,6 +82,20 @@ class MenuTargetWeightController: BaseController {
     }
     
     private lazy var presenter = MenuPresenter(view: self)
+    private let targetWeight: Float?
+    
+    //----------------------------------------------
+    // MARK: - Init
+    //----------------------------------------------
+    
+    init(targetWeight: Float?) {
+        self.targetWeight = targetWeight
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //----------------------------------------------
     // MARK: - Life cycle
@@ -125,9 +139,21 @@ class MenuTargetWeightController: BaseController {
         scrolLBView.isHidden = type == .kg
         scrollKGView.isHidden = type == .lb
         
-        if type == .lb {
-            scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
+        
+        if let weight = targetWeight {
+            if weight >= 66 && weight <= 485 {
+                scrolLBView.contentOffset.x = CGFloat(9*weight) - halfWeight - 6*9
+            } else {
+                scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
+            }
+            
+            if weight >= 30 && weight <= 220 {
+                scrollKGView.contentOffset.x = CGFloat(9*weight) - halfWeight
+            } else {
+                scrollKGView.contentOffset.x = 9*baseKG - halfWeight
+            }
         } else {
+            scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
             scrollKGView.contentOffset.x = 9*baseKG - halfWeight
         }
     }

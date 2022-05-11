@@ -30,6 +30,12 @@ class QuizeEmailController: BaseController {
         setup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        AnalyticsHelper.sendFirebaseScreenEvent(screen: .onboarding_email_screen)
+    }
+    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
@@ -70,6 +76,7 @@ class QuizeEmailController: BaseController {
     
     @IBAction func actionGoNext(_ sender: UIButton) {
         if emailField.text!.count > 0, textFieldValidatorEmail( emailField.text!) {
+            AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_email": emailField.text!])
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setEmail(emailField.text!)
             PreferencesManager.sharedManager.tempPorifle = model

@@ -41,7 +41,9 @@ class StartPresenter: StartPresenterProtocol {
         let _ = Network.shared.mutation(model: LoginModel.self, mutation, controller: view, successHandler: { [weak self] model in
             KeychainService.standard.newAuthToken = AuthModel(token: model.login.token)
             self?.me(token: model.login.token)
+            AnalyticsHelper.sendFirebaseEvents(events: .status, params: ["ok": true])
         }, failureHandler: { [weak self] error in
+            AnalyticsHelper.sendFirebaseEvents(events: .status, params: ["failure": true, "error": error.localizedDescription])
             self?.view?.stopLoading()
         })
     }

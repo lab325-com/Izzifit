@@ -149,6 +149,7 @@ extension MenuFitnessController: MenuFitnessOutputProtocol {
     }
     
     func success(models: [MusclesMainModel]) {
+        selectedMuscles.removeAll()
         muscles = models
         tableView.reloadData()
     }

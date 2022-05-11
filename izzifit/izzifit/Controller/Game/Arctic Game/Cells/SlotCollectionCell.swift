@@ -14,6 +14,9 @@ class SlotCollectionCell: UICollectionViewCell {
     var section = Int()
     
     let tableView = UITableView()
+    
+    private var model: MapModel?
+    
     private lazy var contentSizeHeight: CGFloat = {
         CGFloat((h / 12.78) * 2801)
     }()
@@ -62,6 +65,13 @@ class SlotCollectionCell: UICollectionViewCell {
       
     }
     
+    func setupCell(model: MapModel?) {
+        if self.model == nil {
+            self.model = model
+            tableView.reloadData()
+        }
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -76,7 +86,7 @@ extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SlotTableViewCell.id,
                                                  for: indexPath) as! SlotTableViewCell
-        cell.fillCellby(tagBtn: arrays[section][indexPath.row])
+        cell.fillCellby(tagBtn: arrays[section][indexPath.row], model: model)
         cell.tag = arrays[section][indexPath.row]
         cell.tagBtn = arrays[section][indexPath.row]
         return cell
