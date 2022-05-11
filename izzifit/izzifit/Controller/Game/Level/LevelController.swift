@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Gifu
 
 class LevelController: BaseController {
     
@@ -16,12 +17,20 @@ class LevelController: BaseController {
     @IBOutlet weak var goldBtn: UIButton!
     @IBOutlet weak var deerBtn: UIButton!
     
+    let animation = GIFImageView()
     
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var energyLbl: UILabel!
     @IBOutlet weak var coinsLbl: UILabel!
     
+    private var buildPopUpVw = BuildPopUpView()
+    
+    private lazy var btns = [shipBtn,
+                             fishBtn,
+                             igluBtn,
+                             goldBtn,
+                             deerBtn]
     
     private var player = PlayerModel(shipState: .start,
                                      fishState: .finish,
@@ -35,6 +44,8 @@ class LevelController: BaseController {
         setup()
         hiddenNavigationBar = true
         drawStates()
+        activateAnimation()
+        addTargets()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,8 +56,60 @@ class LevelController: BaseController {
                                          animated: true)
     }
     
-    private func setup() {
+    private func addTargets() {
+        for btn in btns {
+            guard let bt = btn else {return}
+            bt.addTarget(self,
+                         action: #selector(animate(sender:)),
+                         for: .touchUpInside)
+        }
+    }
+    
+    @objc
+    func animate(sender: UIButton) {
+                view.ui.genericlLayout(object: buildPopUpVw,
+                                       parentView: view,
+                                       topC: 0,
+                                       bottomC: 0,
+                                       leadingC: 0,
+                                       trailingC: 0)
+                view.layoutIfNeeded()
         
+        buildPopUpVw.upgradeBtn.addTarget(self,
+                                          action: #selector(anim),
+                                          for: .touchUpInside)
+        
+        view.ui.genericlLayout(object: animation,
+                               parentView: sender,
+                               width: 200,
+                               height: 200,
+                               centerV: 0,
+                               centerH: 0)
+        view.layoutIfNeeded()
+    }
+    
+    @objc func anim() {
+        buildPopUpVw.removeFromSuperview()
+        view.layoutIfNeeded()
+        animation.isHidden.toggle()
+        animation.startAnimatingGIF()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.6) {
+            self.animation.stopAnimatingGIF()
+            self.animation.isHidden.toggle()
+            self.animation.removeFromSuperview()
+        }
+    }
+    
+    private func activateAnimation() {
+        animation.prepareForAnimation(withGIFNamed: "construction3")
+        animation.isHidden.toggle()
+    }
+    
+    private func setup() {
+        for i in 0...4 {
+            btns[i]?.tag = i
+        }
         coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         energyLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
         
