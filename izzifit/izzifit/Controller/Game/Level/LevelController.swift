@@ -67,13 +67,17 @@ class LevelController: BaseController {
     
     @objc
     func animate(sender: UIButton) {
-//                view.ui.genericlLayout(object: buildPopUpVw,
-//                                       parentView: view,
-//                                       topC: 0,
-//                                       bottomC: 0,
-//                                       leadingC: 0,
-//                                       trailingC: 0)
-//                view.layoutIfNeeded()
+                view.ui.genericlLayout(object: buildPopUpVw,
+                                       parentView: view,
+                                       topC: 0,
+                                       bottomC: 0,
+                                       leadingC: 0,
+                                       trailingC: 0)
+                view.layoutIfNeeded()
+        
+        buildPopUpVw.upgradeBtn.addTarget(self,
+                                          action: #selector(anim),
+                                          for: .touchUpInside)
         
         view.ui.genericlLayout(object: animation,
                                parentView: sender,
@@ -82,7 +86,11 @@ class LevelController: BaseController {
                                centerV: 0,
                                centerH: 0)
         view.layoutIfNeeded()
-
+    }
+    
+    @objc func anim() {
+        buildPopUpVw.removeFromSuperview()
+        view.layoutIfNeeded()
         animation.isHidden.toggle()
         animation.startAnimatingGIF()
 
