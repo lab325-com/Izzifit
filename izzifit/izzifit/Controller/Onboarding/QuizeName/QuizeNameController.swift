@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuizeNameController: BaseController {
+class QuizeNameController: BaseController, UITextFieldDelegate {
     
     //----------------------------------------------
     // MARK: - IBOutlet
@@ -70,6 +70,24 @@ class QuizeNameController: BaseController {
         countLabel.text = RLocalization.onboarding_count(1, 9)
         nameTitleLabel.text = RLocalization.onboarding_name()
         goNextButton.setTitle(RLocalization.onboarding_go_next(), for: .normal)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if range.location == 0 && string == " " { // prevent space on first character
+            return false
+        }
+        
+        if textField.text?.last == " " && string == " " { // allowed only single space
+            return false
+        }
+        
+        if string == " " { return true } // now allowing space between name
+        
+        if string.rangeOfCharacter(from: CharacterSet.letters.inverted) != nil {
+            return false
+        }
+        
+        return true
     }
     
     //----------------------------------------------

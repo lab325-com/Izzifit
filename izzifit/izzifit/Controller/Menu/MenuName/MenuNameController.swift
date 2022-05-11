@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MenuNameController: BaseController {
+class MenuNameController: BaseController, UITextFieldDelegate {
     
     //----------------------------------------------
     // MARK: - IBOutlet
@@ -64,6 +64,24 @@ class MenuNameController: BaseController {
         saveButton.setTitle(RLocalization.menu_save_changes(), for: .normal)
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if range.location == 0 && string == " " { // prevent space on first character
+            return false
+        }
+        
+        if textField.text?.last == " " && string == " " { // allowed only single space
+            return false
+        }
+        
+        if string == " " { return true } // now allowing space between name
+        
+        if string.rangeOfCharacter(from: CharacterSet.letters.inverted) != nil {
+            return false
+        }
+        
+        return true
+    }
+    
     //----------------------------------------------
     // MARK: - Actions
     //----------------------------------------------
@@ -77,6 +95,7 @@ class MenuNameController: BaseController {
             let text = nameField.text!
             nameField.text = String(text.dropLast())
         }
+        
         saveButton.alpha = sender.text!.count == 0 ? 0.5 : 1.0
     }
     

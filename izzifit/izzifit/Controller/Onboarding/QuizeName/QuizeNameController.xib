@@ -86,6 +86,7 @@
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <action selector="textFieldChange:" destination="-1" eventType="editingChanged" id="ccQ-BB-kZV"/>
+                        <outlet property="delegate" destination="-1" id="is2-Wf-c9C"/>
                     </connections>
                 </textField>
             </subviews>

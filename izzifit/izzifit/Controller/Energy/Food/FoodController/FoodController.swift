@@ -132,6 +132,7 @@ class FoodController: BaseController {
         
         tableView.isHidden = true
         
+        topLabel.text = currentMealType.text
         presenter.getProducts(mealTypes: currentMealType, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "")
         
         addProductButton.layer.borderWidth = 2
