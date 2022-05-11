@@ -9,39 +9,103 @@ import UIKit
 
 class GameTabBarController: UITabBarController {
     
+    var kBarHeight: CGFloat = 110
+    var firstLaunch = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTabBar()
         setupVCs()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if selectedViewController == ArcticGameComtroller() {
-          
-        }
+        setupTabBar()
+        
+        print(viewControllers![0].view.sizeHeight)
     }
     
     private func createNavController(for rootViewController: UIViewController, image: UIImage) -> UIViewController {
-        let navController = UINavigationController(rootViewController: rootViewController)
-        navController.tabBarItem.image = image
-        navController.navigationBar.isHidden = true
-        navController.tabBarItem.imageInsets = UIEdgeInsets.init(top: 10, left: 0, bottom: 0, right: 0)
-        return navController
+        let vc = rootViewController
+        vc.tabBarItem.isEnabled = false
+        return vc
     }
     
     private func setupVCs() {
-        viewControllers = [createNavController(for:  ArcticGameComtroller(),
-                                               image: view.image(img: .gameTabBarMap)!),
-                           createNavController(for: LevelController(),
+        viewControllers = [createNavController(for: LevelController(),
+                                               image: view.image(img: .gameTabBarEnergy)!),
+                           createNavController(for:  ArcticGameComtroller(),
                                                image: view.image(img: .gameTabBarSpin)!),
                            createNavController(for: LevelController(),
-                                               image: view.image(img: .gameTabBarEnergy)!),
-                           createNavController(for: LevelController(),
-                                               image: view.image(img: .gameTabBarPrizes)!) ]
+                                               image: view.image(img: .gameTabBarBuild)!)]
     }
     
     private func setupTabBar() {
-        UITabBar.appearance().barTintColor = .white
-        tabBar.tintColor = .white
+        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().clipsToBounds = true
+
+        selectedIndex = 1
+        
+        let backBtn = UIButton()
+        let spinBtn = UIButton()
+        let buildBtn = UIButton()
+        
+        view.ui.setButton(button: backBtn,
+                          view: view,
+                          image: view.image(img: .gameTabBarEnergy),
+                          controlState: .normal)
+        view.ui.setButton(button: spinBtn,
+                          view: view,
+                          image: view.image(img: .gameTabBarSpin),
+                          controlState: .normal)
+        view.ui.setButton(button: buildBtn,
+                          view: view,
+                          image: view.image(img: .gameTabBarBuild),
+                          controlState: .normal)
+        
+        let sideConstant = (view.sizeWidth / 3 ) - 70
+        
+        view.ui.btnLayout(button: backBtn,
+                          view: view,
+                          width: 70,
+                          height: 80,
+                          bottomC: 30,
+                          leadingC: sideConstant)
+        
+        view.ui.btnLayout(button: spinBtn,
+                          view: view,
+                          width: 70,
+                          height: 80,
+                          bottomC: 30,
+                          centerH: 0)
+
+        view.ui.btnLayout(button: buildBtn,
+                          view: view,
+                          width: 70,
+                          height: 80,
+                          bottomC: 30,
+                          trailingC: sideConstant)
+        
+        backBtn.addTarget(self,
+                          action: #selector(actionBack),
+                          for: .touchUpInside)
+        
+        spinBtn.addTarget(self,
+                          action: #selector(spin),
+                          for: .touchUpInside)
+        
+        buildBtn.addTarget(self,
+                           action: #selector(build),
+                           for: .touchUpInside)
+    }
+    
+    @objc
+    func actionBack() {
+      navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func spin() {
+        selectedIndex = 1
+    }
+    @objc
+    func build() {
+        selectedIndex = 2
     }
 }

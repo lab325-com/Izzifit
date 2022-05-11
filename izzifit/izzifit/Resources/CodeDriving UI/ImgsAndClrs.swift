@@ -14,14 +14,13 @@ enum Imgs: String {
     case igluStart, igluFirst, igluSecond, igluThird, igluFourth, igluFinish
     case goldStart, goldFirst, goldSecond, goldThird, goldFourth, goldFinish
     case deersStart, deersFirst, deersSecond, deersThird, deersFourth, deersFinish
-    case gameTabBarEnergy, gameTabBarMap, gameTabBarPrizes, gameTabBarSpin
+    case gameTabBarEnergy, gameTabBarMap, gameTabBarBuild, gameTabBarSpin
     case spinBtnNormal, spinBtnSelected
 }
 
 enum Clrs: String {
     case profileCellBack, textTitleBlack, chartPurple, pinkTarget, grayText, intensivePurple
 }
-
 
 struct SlotImgs {
     static let dollar = UIImage(named: "dollar")
