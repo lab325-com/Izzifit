@@ -114,7 +114,7 @@ class LevelController: BaseController {
         energyLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
         
         if let name = KeychainService.standard.me?.name {
-            nameLabel.text = RLocalization.energy_header_title(name)
+            nameLabel.text = name
         } else {
             nameLabel.isHidden = true
         }
