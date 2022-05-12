@@ -74,7 +74,6 @@ class LevelController: BaseController {
         presenter.getBuildings()
         setup()
         hiddenNavigationBar = true
-        drawStates()
         activateAnimation()
         addTargets()
     }
@@ -106,9 +105,24 @@ class LevelController: BaseController {
                                        trailingC: 0)
                 view.layoutIfNeeded()
         
+        guard let count = presenter.freeBuildingsCount else { return}
+        switch count {
+        case 0:
+            buildPopUpVw.hummerBtn.isHidden = true
+            buildPopUpVw.hummerCountLbl.isHidden = true
+        default:
+            buildPopUpVw.hummerBtn.isHidden = false
+            buildPopUpVw.hummerCountLbl.isHidden = false
+            buildPopUpVw.hummerCountLbl.text = "x\(count)"
+        }
+        
         buildPopUpVw.upgradeBtn.addTarget(self,
                                           action: #selector(anim),
                                           for: .touchUpInside)
+        
+        buildPopUpVw.mainBtn.addTarget(self,
+                                       action: #selector(closePopUp),
+                                       for: .touchUpInside)
         
         view.ui.genericlLayout(object: animation,
                                parentView: sender,
@@ -117,6 +131,10 @@ class LevelController: BaseController {
                                centerV: 0,
                                centerH: 0)
         view.layoutIfNeeded()
+    }
+    
+    @objc func closePopUp() {
+        buildPopUpVw.removeFromSuperview()
     }
     
     @objc func anim() {
@@ -271,9 +289,39 @@ extension LevelController: LevelOutputProtocol {
     func successBuildings(model: [BuildingsModel]) {
         backIsLoaded = true
         print(model)
+        for building in model {
+            var state: LevelStates
+            let level = building.level
+            switch level {
+            case 0: state = .start
+            case 1: state = .first
+            case 2: state = .second
+            case 3: state = .third
+            case 4: state = .fourth
+            case 5: state = .finish
+            default: state = .finish
+            }
+            
+            switch building.name {
+            case BuildingType.ship.rawValue: player.shipState = state
+            case BuildingType.fishing.rawValue: player.fishState = state
+            case BuildingType.house.rawValue: player.igluState = state
+            case BuildingType.hay.rawValue: player.goldState = state
+            case BuildingType.sled.rawValue: player.deerState = state
+            default: break
+            }
+        }
+        
+        drawStates()
     }
     
     func successBuild() { }
 }
 
+
+
+
+enum BuildingType: String {
+    case ship, fishing, house, hay, sled
+}
 
