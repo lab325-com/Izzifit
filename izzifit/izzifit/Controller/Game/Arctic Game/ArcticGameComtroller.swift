@@ -27,6 +27,29 @@ class ArcticGameComtroller: BaseController {
     @IBOutlet weak var slotHouseImgVwTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var resultLblTopConstraint: NSLayoutConstraint!
     
+    
+    @IBOutlet weak var hummerBtn: UIButton! {
+        didSet {
+            hummerBtn.isUserInteractionEnabled = false
+        }
+    }
+    
+    private var backIsLoaded = false {
+        didSet {
+            guard let count = presenter.freeBuildingsCount else { return}
+            switch count {
+            case 0:
+                hummerBtn.isHidden = true
+                hummerCountLbl.isHidden = true
+            default:
+                hummerBtn.isHidden = false
+                hummerCountLbl.isHidden = true
+                hummerCountLbl.text = "x\(count)"
+            }
+        }
+    }
+    @IBOutlet weak var hummerCountLbl: UILabel!
+    
     private var collectionView: UICollectionView!
     // Рассмотри возможность реализации без таймеров, а просто через цикл и asyncAfter
     private var firstTimerCount = 153
@@ -91,6 +114,29 @@ class ArcticGameComtroller: BaseController {
                                                from: 2,
                                                currentArray: OffsetCounter.thirdArray)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hummerBtn.isHidden = true
+        hummerCountLbl.isHidden = true
+    }
+    
+    override func viewDidLoad() {
+        needSoundTap = false
+        hiddenNavigationBar = true
+        super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.presenter.getMap { spins in
+                self.backIsLoaded = true
+                self.counter.combinations = spins
+            }
+        }
+        setCollectionView()
+        setup()
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
     }
     
     @objc
@@ -236,21 +282,6 @@ class ArcticGameComtroller: BaseController {
         self.thirdTimer.invalidate()
     }
     
-    override func viewDidLoad() {
-        needSoundTap = false
-        hiddenNavigationBar = true
-        super.viewDidLoad()
-        DispatchQueue.main.async {
-            self.presenter.getMap { spins in
-                self.counter.combinations = spins
-            }
-        }
-        setCollectionView()
-        setup()
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
-        swipeRight.direction = .right
-        self.view.addGestureRecognizer(swipeRight)
-    }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         actionBack()
@@ -355,7 +386,7 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
     }
     func successSpin(model: [SpinMainModel]) {
         for award in model {
-            switch award.type{
+            switch award.type {
             case .spinObjectRewardTypeCoin:
                 KeychainService.standard.me?.coins! += award.amount
             case .spinObjectRewardTypeEnergy:

@@ -9,7 +9,14 @@ import UIKit
 
 class BuildPopUpView: UIView,LoadFromXibProtocol {
     
- //   @IBOutlet var contentView: UIView!
+    @IBOutlet weak var popUpTopConstraint: NSLayoutConstraint! {
+        didSet {
+            popUpTopConstraint.constant = h / 4.66
+        }
+    }
+    @IBOutlet weak var hummerBtn: UIButton!
+    @IBOutlet weak var hummerCountLbl: UILabel!
+    
     @IBOutlet weak var mainLbl: UILabel!
     @IBOutlet weak var mainBtn: UIButton!
     @IBOutlet weak var previousStateImgVw: UIImageView!

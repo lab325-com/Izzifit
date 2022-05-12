@@ -23,6 +23,28 @@ class LevelController: BaseController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var energyLbl: UILabel!
     @IBOutlet weak var coinsLbl: UILabel!
+    @IBOutlet weak var hummerBtn: UIButton! {
+        didSet {
+            hummerBtn.isUserInteractionEnabled = false
+        }
+    }
+    
+    private var backIsLoaded = false {
+        didSet {
+            guard let count = presenter.freeBuildingsCount else { return}
+            switch count {
+            case 0:
+                hummerBtn.isHidden = true
+                hummerCountLbl.isHidden = true
+            default:
+                hummerBtn.isHidden = false
+                hummerCountLbl.isHidden = false
+                hummerCountLbl.text = "x\(count)"
+            }
+        }
+    }
+    
+    @IBOutlet weak var hummerCountLbl: UILabel!
     
     private var buildPopUpVw = BuildPopUpView()
     
@@ -38,9 +60,18 @@ class LevelController: BaseController {
                                      goldState: .third,
                                      deerState: .second)
     
+    private lazy var presenter = LevelPresenter(view: self)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hummerBtn.isHidden = true
+        hummerCountLbl.isHidden = true
+    }
+    
     override func viewDidLoad() {
         needSoundTap = false
         super.viewDidLoad()
+        presenter.getBuildings()
         setup()
         hiddenNavigationBar = true
         drawStates()
@@ -107,6 +138,7 @@ class LevelController: BaseController {
     }
     
     private func setup() {
+       
         for i in 0...4 {
             btns[i]?.tag = i
         }
@@ -231,3 +263,17 @@ class LevelController: BaseController {
         }
     }
 }
+
+extension LevelController: LevelOutputProtocol {
+    
+    func success() { }
+    
+    func successBuildings(model: [BuildingsModel]) {
+        backIsLoaded = true
+        print(model)
+    }
+    
+    func successBuild() { }
+}
+
+

@@ -11,6 +11,9 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
+        <array key="Inter-BoldItalic.ttf">
+            <string>Inter-BoldItalic</string>
+        </array>
         <array key="Inter-ExtraBold.ttf">
             <string>Inter-ExtraBold</string>
         </array>
@@ -18,6 +21,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuildPopUpView" customModule="izzifit" customModuleProvider="target">
             <connections>
+                <outlet property="fifthScaleImgVw" destination="7Au-Gf-JeN" id="3oS-oz-INN"/>
+                <outlet property="firstScaleImgVw" destination="vlC-tb-vAZ" id="Zee-ZZ-kQn"/>
+                <outlet property="fourthScaleImgVw" destination="2t2-5j-9Dv" id="gA5-pB-xcw"/>
+                <outlet property="hummerBtn" destination="7Ok-WA-2Bp" id="DqS-bV-9ht"/>
+                <outlet property="hummerCountLbl" destination="s5a-rJ-zCN" id="2Mb-2C-zrr"/>
+                <outlet property="mainBtn" destination="gSd-hL-weP" id="KYQ-vR-hd0"/>
+                <outlet property="mainLbl" destination="ZIB-tF-fRa" id="Hg4-sC-WDb"/>
+                <outlet property="nextStateImgVw" destination="u6A-tw-d1y" id="zWx-0F-z04"/>
+                <outlet property="popUpTopConstraint" destination="dwu-vi-2wu" id="0Vl-ZV-2f7"/>
+                <outlet property="previousStateImgVw" destination="uEF-fA-REF" id="Oin-JS-8eq"/>
+                <outlet property="priceLbl" destination="Nl7-N2-NEF" id="pIq-f2-FAy"/>
+                <outlet property="secondScaleImgVw" destination="ZLL-la-nNz" id="y7I-AD-9BW"/>
+                <outlet property="thirdScaleImgVw" destination="5Oo-ws-oT3" id="dKP-Mg-Bt2"/>
                 <outlet property="upgradeBtn" destination="VYv-U1-PQk" id="W0d-i9-eDL"/>
             </connections>
         </placeholder>
@@ -48,14 +64,13 @@
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" image="upgradeBtn"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSd-hL-weP">
-                    <rect key="frame" x="302" y="267" width="48" height="48"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSd-hL-weP">
+                    <rect key="frame" x="311.66666666666669" y="268.66666666666669" width="48" height="48"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" image="backBtn"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 899" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nl7-N2-NEF">
-                    <rect key="frame" x="246.33333333333334" y="469.66666666666669" width="43.333333333333343" height="19.666666666666686"/>
+                    <rect key="frame" x="246.33333333333334" y="470" width="43.333333333333343" height="19.666666666666686"/>
                     <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -119,19 +134,34 @@
                     </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pop2Gold" translatesAutoresizingMaskIntoConstraints="NO" id="u6A-tw-d1y">
-                    <rect key="frame" x="208" y="328" width="114" height="93"/>
+                    <rect key="frame" x="208" y="328.33333333333331" width="114" height="93"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="114" id="lVD-Tx-4C0"/>
                         <constraint firstAttribute="height" constant="93" id="sgV-dH-jrI"/>
                     </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pop1Gold" translatesAutoresizingMaskIntoConstraints="NO" id="uEF-fA-REF">
-                    <rect key="frame" x="53" y="328" width="114" height="93"/>
+                    <rect key="frame" x="53" y="328.33333333333331" width="114" height="93"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="93" id="O6i-D1-nY8"/>
                         <constraint firstAttribute="width" constant="114" id="ftE-j3-7kz"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ok-WA-2Bp">
+                    <rect key="frame" x="45.666666666666657" y="296.66666666666669" width="44" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="47" id="MAE-Ke-GUL"/>
+                        <constraint firstAttribute="width" constant="44" id="j0Q-rA-dcE"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="freeHummer"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5a-rJ-zCN">
+                    <rect key="frame" x="62.333333333333336" y="321" width="19.333333333333336" height="19.666666666666686"/>
+                    <fontDescription key="fontDescription" name="Inter-BoldItalic" family="Inter" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="0.30368010851801658" colorSpace="custom" customColorSpace="sRGB"/>
@@ -147,12 +177,18 @@
                 <constraint firstItem="u6A-tw-d1y" firstAttribute="centerY" secondItem="bjm-LR-5I3" secondAttribute="centerY" id="MEc-AN-4nB"/>
                 <constraint firstItem="VYv-U1-PQk" firstAttribute="top" secondItem="bjm-LR-5I3" secondAttribute="bottom" constant="74" id="Q3I-sK-D4l"/>
                 <constraint firstItem="faH-vE-RCK" firstAttribute="centerY" secondItem="Nl7-N2-NEF" secondAttribute="centerY" id="Qno-ug-DW4"/>
-                <constraint firstItem="Kos-DB-zrA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="UDV-8G-Pgt"/>
+                <constraint firstItem="7Ok-WA-2Bp" firstAttribute="top" secondItem="Kos-DB-zrA" secondAttribute="top" constant="28" id="S6A-Hs-3Kt"/>
+                <constraint firstItem="gSd-hL-weP" firstAttribute="top" secondItem="Kos-DB-zrA" secondAttribute="top" id="Vue-BY-uSD"/>
                 <constraint firstItem="Nl7-N2-NEF" firstAttribute="centerY" secondItem="VYv-U1-PQk" secondAttribute="centerY" id="X2z-40-jwu"/>
                 <constraint firstItem="mmg-Gk-wzj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YTO-9I-FU8"/>
                 <constraint firstItem="VYv-U1-PQk" firstAttribute="trailing" secondItem="Nl7-N2-NEF" secondAttribute="trailing" constant="19" id="ZEr-bv-Z2e"/>
                 <constraint firstItem="VYv-U1-PQk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cCi-uV-lc1"/>
+                <constraint firstItem="Kos-DB-zrA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="224.66999999999999" id="dwu-vi-2wu"/>
+                <constraint firstItem="gSd-hL-weP" firstAttribute="trailing" secondItem="Kos-DB-zrA" secondAttribute="trailing" constant="12" id="hSB-vP-HkG"/>
+                <constraint firstItem="7Ok-WA-2Bp" firstAttribute="leading" secondItem="Kos-DB-zrA" secondAttribute="leading" constant="18" id="mmm-gg-M6L"/>
+                <constraint firstItem="s5a-rJ-zCN" firstAttribute="bottom" secondItem="7Ok-WA-2Bp" secondAttribute="bottom" constant="-3" id="qfF-7E-hzf"/>
                 <constraint firstItem="uEF-fA-REF" firstAttribute="centerY" secondItem="bjm-LR-5I3" secondAttribute="centerY" id="toB-42-jwM"/>
+                <constraint firstItem="s5a-rJ-zCN" firstAttribute="trailing" secondItem="7Ok-WA-2Bp" secondAttribute="trailing" constant="-8" id="waR-sC-V5k"/>
                 <constraint firstItem="VYv-U1-PQk" firstAttribute="top" secondItem="mmg-Gk-wzj" secondAttribute="bottom" constant="17" id="wvp-rn-OOh"/>
             </constraints>
             <point key="canvasLocation" x="139" y="79"/>
@@ -166,6 +202,7 @@
         <image name="Unselected5Scale" width="43" height="12"/>
         <image name="backBtn" width="48" height="48"/>
         <image name="buildPopUpBack" width="310.33334350585938" height="266.66665649414062"/>
+        <image name="freeHummer" width="48" height="49"/>
         <image name="pop1Gold" width="114" height="58"/>
         <image name="pop2Gold" width="114" height="58"/>
         <image name="top_view_coin_ic" width="22" height="22"/>

@@ -2491,7 +2491,7 @@ public final class CaloriesWidgetQuery: GraphQLQuery {
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("amount", type: .scalar(Int.self)),
+            GraphQLField("amount", type: .scalar(Double.self)),
             GraphQLField("createdAt", type: .scalar(String.self)),
           ]
         }
@@ -2502,7 +2502,7 @@ public final class CaloriesWidgetQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(amount: Int? = nil, createdAt: String? = nil) {
+        public init(amount: Double? = nil, createdAt: String? = nil) {
           self.init(unsafeResultMap: ["__typename": "Calories", "amount": amount, "createdAt": createdAt])
         }
 
@@ -2515,9 +2515,9 @@ public final class CaloriesWidgetQuery: GraphQLQuery {
           }
         }
 
-        public var amount: Int? {
+        public var amount: Double? {
           get {
-            return resultMap["amount"] as? Int
+            return resultMap["amount"] as? Double
           }
           set {
             resultMap.updateValue(newValue, forKey: "amount")
@@ -3196,6 +3196,7 @@ public final class MapQuery: GraphQLQuery {
             urlIosFull
           }
         }
+        freeBuildingsCount
       }
     }
     """
@@ -3251,6 +3252,7 @@ public final class MapQuery: GraphQLQuery {
           GraphQLField("Buildings", type: .list(.object(Building.selections))),
           GraphQLField("Spins", type: .list(.object(Spin.selections))),
           GraphQLField("SpinObjects", type: .list(.object(SpinObject.selections))),
+          GraphQLField("freeBuildingsCount", type: .scalar(Int.self)),
         ]
       }
 
@@ -3260,8 +3262,8 @@ public final class MapQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: GraphQLID? = nil, name: String? = nil, buildings: [Building?]? = nil, spins: [Spin?]? = nil, spinObjects: [SpinObject?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Map", "id": id, "name": name, "Buildings": buildings.flatMap { (value: [Building?]) -> [ResultMap?] in value.map { (value: Building?) -> ResultMap? in value.flatMap { (value: Building) -> ResultMap in value.resultMap } } }, "Spins": spins.flatMap { (value: [Spin?]) -> [ResultMap?] in value.map { (value: Spin?) -> ResultMap? in value.flatMap { (value: Spin) -> ResultMap in value.resultMap } } }, "SpinObjects": spinObjects.flatMap { (value: [SpinObject?]) -> [ResultMap?] in value.map { (value: SpinObject?) -> ResultMap? in value.flatMap { (value: SpinObject) -> ResultMap in value.resultMap } } }])
+      public init(id: GraphQLID? = nil, name: String? = nil, buildings: [Building?]? = nil, spins: [Spin?]? = nil, spinObjects: [SpinObject?]? = nil, freeBuildingsCount: Int? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Map", "id": id, "name": name, "Buildings": buildings.flatMap { (value: [Building?]) -> [ResultMap?] in value.map { (value: Building?) -> ResultMap? in value.flatMap { (value: Building) -> ResultMap in value.resultMap } } }, "Spins": spins.flatMap { (value: [Spin?]) -> [ResultMap?] in value.map { (value: Spin?) -> ResultMap? in value.flatMap { (value: Spin) -> ResultMap in value.resultMap } } }, "SpinObjects": spinObjects.flatMap { (value: [SpinObject?]) -> [ResultMap?] in value.map { (value: SpinObject?) -> ResultMap? in value.flatMap { (value: SpinObject) -> ResultMap in value.resultMap } } }, "freeBuildingsCount": freeBuildingsCount])
       }
 
       public var __typename: String {
@@ -3315,6 +3317,15 @@ public final class MapQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue.flatMap { (value: [SpinObject?]) -> [ResultMap?] in value.map { (value: SpinObject?) -> ResultMap? in value.flatMap { (value: SpinObject) -> ResultMap in value.resultMap } } }, forKey: "SpinObjects")
+        }
+      }
+
+      public var freeBuildingsCount: Int? {
+        get {
+          return resultMap["freeBuildingsCount"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "freeBuildingsCount")
         }
       }
 
