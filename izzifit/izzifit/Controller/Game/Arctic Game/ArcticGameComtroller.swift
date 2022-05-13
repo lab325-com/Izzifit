@@ -128,6 +128,7 @@ class ArcticGameComtroller: BaseController {
     }
     
     override func viewDidLoad() {
+        AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
         needSoundTap = false
         hiddenNavigationBar = true
         super.viewDidLoad()
@@ -299,7 +300,7 @@ class ArcticGameComtroller: BaseController {
         shadowViewBottomConstraint.constant = view.h / 10
         
         if let name = KeychainService.standard.me?.name {
-            nameLabel.text = RLocalization.energy_header_title(name)
+            nameLabel.text = name
         } else {
             nameLabel.isHidden = true
         }
@@ -334,6 +335,7 @@ class ArcticGameComtroller: BaseController {
     @IBAction func spinAction(_ sender: Any) {
         guard KeychainService.standard.me?.energy ?? 0.0 > 0.0 else { return }
         AudioManager.sharedManager.playSound(type: .spinTap_10)
+        AnalyticsHelper.sendFirebaseEvents(events: .spin_tap)
         
         spinManager.spinAction(coinsLbl: coinslabel,
                                energyLbl: energyLabel,
@@ -404,14 +406,11 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
             case .__unknown(_): print("")
             }
         }
-  
      
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             if let tupleResult = self.spinManager.recognizeSetCombinations(self.counter.combinations[self.combinationCounter].spinObjectIds) {
                 print(tupleResult)
-                // теперь тут будет по первому элементу тупла функция по начислению бонусов
                 self.spinManager.accrueBonuses(by: tupleResult.0, resultLbl: self.resultLbl)
-                // функция котороая красит бордер ячеек по второму элементу тупла
                 self.spinManager.paintBlueBorder(tupleResult.1,
                                                  indexPathes: [self.counter.firstIndexPathRow,
                                                                self.counter.startSecondIndexPathRow,

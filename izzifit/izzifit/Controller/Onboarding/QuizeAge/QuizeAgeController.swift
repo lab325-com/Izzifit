@@ -34,8 +34,6 @@ class QuizeAgeController: BaseController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        AnalyticsHelper.sendFirebaseScreenEvent(screen: .onboarding_age_screen)
     }
     
     //----------------------------------------------
@@ -81,7 +79,7 @@ class QuizeAgeController: BaseController {
     
     @IBAction func actionGoNext(_ sender: UIButton) {
         if sender.alpha == 1.0, let age = Int(ageTextField.text!) {
-            AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_age": age])
+            AnalyticsHelper.sendFirebaseEvents(events: .onb_set_age)
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setAge(age)
             PreferencesManager.sharedManager.tempPorifle = model

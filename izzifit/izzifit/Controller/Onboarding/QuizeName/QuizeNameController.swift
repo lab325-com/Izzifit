@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuizeNameController: BaseController {
+class QuizeNameController: BaseController, UITextFieldDelegate {
     
     //----------------------------------------------
     // MARK: - IBOutlet
@@ -53,9 +53,6 @@ class QuizeNameController: BaseController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        AnalyticsHelper.sendFirebaseScreenEvent(screen: .onboarding_screen)
-        AnalyticsHelper.sendFirebaseEvents(events: .open)
     }
     
     //----------------------------------------------
@@ -63,6 +60,8 @@ class QuizeNameController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        
+        AnalyticsHelper.sendFirebaseEvents(events: .onb_start)
         backButton.isHidden = isHiddenBackButton
         goNextButton.alpha = 0.5
 
@@ -70,6 +69,24 @@ class QuizeNameController: BaseController {
         countLabel.text = RLocalization.onboarding_count(1, 9)
         nameTitleLabel.text = RLocalization.onboarding_name()
         goNextButton.setTitle(RLocalization.onboarding_go_next(), for: .normal)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if range.location == 0 && string == " " { // prevent space on first character
+            return false
+        }
+        
+        if textField.text?.last == " " && string == " " { // allowed only single space
+            return false
+        }
+        
+        if string == " " { return true } // now allowing space between name
+        
+        if string.rangeOfCharacter(from: CharacterSet.letters.inverted) != nil {
+            return false
+        }
+        
+        return true
     }
     
     //----------------------------------------------
@@ -90,7 +107,8 @@ class QuizeNameController: BaseController {
     
     @IBAction func actionGoNext(_ sender: UIButton) {
         if nameField.text!.count > 0 {
-            AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_name": nameField.text!])
+            AnalyticsHelper.sendFirebaseEvents(events: .onb_set_name)
+            
             AudioManager.sharedManager.playSound()
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setName(nameField.text!)

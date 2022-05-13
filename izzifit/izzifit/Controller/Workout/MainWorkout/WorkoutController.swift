@@ -37,6 +37,7 @@ class WorkoutController: BaseController {
     var selectedTypeId: Int? {
         didSet {
             if selectedTypeId != oldValue {
+                AnalyticsHelper.sendFirebaseEvents(events: .exe_filter_tap, params: ["id": selectedTypeId ?? 0])
                 presenter.getWorkoutsAll(categoryId: selectedTypeId)
             }
         }
@@ -60,7 +61,7 @@ class WorkoutController: BaseController {
     //----------------------------------------------
     
     private func setup() {
-        
+        AnalyticsHelper.sendFirebaseEvents(events: .exe_open)
         collectionView.isHidden = true
         
         updateMe()
@@ -95,7 +96,7 @@ class WorkoutController: BaseController {
         flashLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
         
         if let name = KeychainService.standard.me?.name {
-            nameLabel.text = RLocalization.energy_header_title(name)
+            nameLabel.text = name
         } else {
             nameLabel.isHidden = true
         }

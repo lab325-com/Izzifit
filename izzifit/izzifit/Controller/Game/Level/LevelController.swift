@@ -69,6 +69,7 @@ class LevelController: BaseController {
     }
     
     override func viewDidLoad() {
+        
         needSoundTap = false
         super.viewDidLoad()
         presenter.getBuildings()
@@ -97,13 +98,34 @@ class LevelController: BaseController {
     
     @objc
     func showPopUp(sender: UIButton) {
-                view.ui.genericlLayout(object: buildPopUpVw,
+        
+        var price = Int()
+        var buildType: BuildingType
+        
+        switch sender.tag {
+        case 0: price = player.shipState.rawValue
+                buildType = .ship
+        case 1: price = player.fishState.rawValue
+                buildType = .fishing
+        case 2: price = player.igluState.rawValue
+                buildType = .house
+        case 3: price = player.goldState.rawValue
+                buildType = .hay
+        case 4: price = player.deerState.rawValue
+                buildType = .sled
+        default: buildType = .ship
+        }
+        
+        guard KeychainService.standard.me?.coins ?? 0 >= price else { return }
+                
+        view.ui.genericlLayout(object: buildPopUpVw,
                                        parentView: view,
                                        topC: 0,
                                        bottomC: 0,
                                        leadingC: 0,
                                        trailingC: 0)
-                view.layoutIfNeeded()
+        view.layoutIfNeeded()
+        
         guard let count = presenter.freeBuildingsCount else { return}
         switch count {
         case 0:
@@ -115,22 +137,7 @@ class LevelController: BaseController {
             buildPopUpVw.hummerCountLbl.text = "x\(count)"
         }
         
-        var price = Int()
-        var buildType: BuildingType
-        
-        switch sender.tag {
-        case 0: price = player.shipState.rawValue
-                buildType = .ship 
-        case 1: price = player.fishState.rawValue
-                buildType = .fishing
-        case 2: price = player.igluState.rawValue
-                buildType = .house
-        case 3: price = player.goldState.rawValue
-                buildType = .hay
-        case 4: price = player.deerState.rawValue
-                buildType = .sled
-        default: buildType = .ship
-        }
+        AnalyticsHelper.sendFirebaseEvents(events: .map_building_tap, params: ["building" : buildType.rawValue])
         
         buildPopUpVw.priceLbl.text = "\(price)"
         buildPopUpVw.draw(buildType, state: LevelStates(rawValue: price) ?? .start)
@@ -156,6 +163,7 @@ class LevelController: BaseController {
     }
     
     @objc func useFreeHummer() {
+        AnalyticsHelper.sendFirebaseEvents(events: .map_hummer_use)
         buildPopUpVw.priceLbl.text = "Free"
         guard var count = presenter.freeBuildingsCount else { return }
         presenter.freeBuildingsCount! -= 1
@@ -186,6 +194,48 @@ class LevelController: BaseController {
             self.animation.stopAnimatingGIF()
             self.animation.isHidden.toggle()
             self.animation.removeFromSuperview()
+            
+            var price = Int()
+            var buildType: BuildingType
+            
+            switch sender.tag {
+            case 0: price = self.player.shipState.rawValue
+                    buildType = .ship
+            case 1: price = self.player.fishState.rawValue
+                    buildType = .fishing
+            case 2: price = self.player.igluState.rawValue
+                    buildType = .house
+            case 3: price = self.player.goldState.rawValue
+                    buildType = .hay
+            case 4: price = self.player.deerState.rawValue
+                    buildType = .sled
+            default: buildType = .ship
+            }
+            
+            let state = LevelStates(rawValue: price)
+            switch state {
+            case .start:
+                AnalyticsHelper.sendFirebaseEvents(events: .map_building_updgrade,
+                                                   params: ["building" : buildType.rawValue,
+                                                            "upgradeLevel": "\(LevelStates.first.rawValue)"])
+            case .first:
+                AnalyticsHelper.sendFirebaseEvents(events: .map_building_updgrade,
+                                                   params: ["building" : buildType.rawValue,
+                                                            "upgradeLevel": "\(LevelStates.second.rawValue)"])
+            case .second:
+                AnalyticsHelper.sendFirebaseEvents(events: .map_building_updgrade,
+                                                   params: ["building" : buildType.rawValue,
+                                                            "upgradeLevel": "\(LevelStates.third.rawValue)"])
+            case .third:
+                AnalyticsHelper.sendFirebaseEvents(events: .map_building_updgrade,
+                                                   params: ["building" : buildType.rawValue,
+                                                            "upgradeLevel": "\(LevelStates.fourth.rawValue)"])
+            case .fourth:
+                AnalyticsHelper.sendFirebaseEvents(events: .map_building_complete,
+                                                   params: ["building" : buildType.rawValue])
+            case .finish: break
+            case .none: break
+            }
         }
         presenter.upgradeBuild(buildingId: buildingId)
     }
@@ -204,7 +254,7 @@ class LevelController: BaseController {
         energyLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
         
         if let name = KeychainService.standard.me?.name {
-            nameLabel.text = RLocalization.energy_header_title(name)
+            nameLabel.text = name
         } else {
             nameLabel.isHidden = true
         }

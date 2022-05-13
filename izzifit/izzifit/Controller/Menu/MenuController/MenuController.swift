@@ -95,6 +95,7 @@ class MenuController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        AnalyticsHelper.sendFirebaseEvents(events: .settings_open)
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
         
@@ -117,11 +118,13 @@ class MenuController: BaseController {
     }
     
     @IBAction func actionPrivacy(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "privacy", "screen": "menu"])
         guard let url = URL(string: "https://stackoverflow.com") else { return }
         UIApplication.shared.open(url)
     }
     
     @IBAction func actionTerms(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "terms", "screen": "menu"])
         guard let url = URL(string: "https://stackoverflow.com") else { return }
         UIApplication.shared.open(url)
     }

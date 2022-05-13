@@ -70,6 +70,7 @@ class VideoNotFinished: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_skip)
         
         mainTitleLabel.text = RLocalization.player_not_finisged_title()
         subTitleLabel.text = RLocalization.player_not_finisged_subtTite()

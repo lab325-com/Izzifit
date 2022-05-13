@@ -179,14 +179,17 @@ class LoginController: BaseController {
         
         if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: privacyPolicyRange) {
             print("user tapped on privacy policy text")
+            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "privacy", "screen": "login"])
             guard let url = URL(string: "https://stackoverflow.com") else { return }
             UIApplication.shared.open(url)
         } else if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: termsAndConditionRange) {
             print("user tapped on terms and conditions text")
+            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "terms", "screen": "login"])
             guard let url = URL(string: "https://stackoverflow.com") else { return }
             UIApplication.shared.open(url)
         } else if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: termsAndSubscribeRange) {
             print("user tapped on terms and subscribe text")
+            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "subscribe", "screen": "login"])
             guard let url = URL(string: "https://stackoverflow.com") else { return }
             UIApplication.shared.open(url)
         }

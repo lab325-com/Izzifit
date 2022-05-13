@@ -957,7 +957,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 190 images.
+  /// This `R.image` struct is generated, and contains static references to 192 images.
   struct image {
     /// Image `Finish`.
     static let finish = Rswift.ImageResource(bundle: R.hostingBundle, name: "Finish")
@@ -1061,10 +1061,14 @@ struct R: Rswift.Validatable {
     static let food_clear_search_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "food_clear_search_ic")
     /// Image `food_search_ic`.
     static let food_search_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "food_search_ic")
+    /// Image `freeHummer`.
+    static let freeHummer = Rswift.ImageResource(bundle: R.hostingBundle, name: "freeHummer")
     /// Image `gameBackOne`.
     static let gameBackOne = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameBackOne")
     /// Image `gameBackTwo`.
     static let gameBackTwo = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameBackTwo")
+    /// Image `gameBarBackSafeArea`.
+    static let gameBarBackSafeArea = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameBarBackSafeArea")
     /// Image `gameBarBack`.
     static let gameBarBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameBarBack")
     /// Image `gameTabBarBuild`.
@@ -1698,6 +1702,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "freeHummer", bundle: ..., traitCollection: ...)`
+    static func freeHummer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.freeHummer, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "gameBackOne", bundle: ..., traitCollection: ...)`
     static func gameBackOne(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.gameBackOne, compatibleWith: traitCollection)
@@ -1715,6 +1726,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "gameBarBack", bundle: ..., traitCollection: ...)`
     static func gameBarBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.gameBarBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "gameBarBackSafeArea", bundle: ..., traitCollection: ...)`
+    static func gameBarBackSafeArea(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gameBarBackSafeArea, compatibleWith: traitCollection)
     }
     #endif
 
@@ -7518,8 +7536,10 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "dummyFace", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'dummyFace' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "freeHummer", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'freeHummer' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "gameBackOne", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'gameBackOne' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "gameBackTwo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'gameBackTwo' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "gameBarBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'gameBarBack' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "slotBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'slotBack' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "slotHouse", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'slotHouse' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "spinBtnNormal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'spinBtnNormal' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
@@ -7563,6 +7583,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "Unselected5Scale", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Unselected5Scale' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
         if UIKit.UIImage(named: "backBtn", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'backBtn' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
         if UIKit.UIImage(named: "buildPopUpBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'buildPopUpBack' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "freeHummer", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'freeHummer' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
         if UIKit.UIImage(named: "pop1Gold", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'pop1Gold' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
         if UIKit.UIImage(named: "pop2Gold", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'pop2Gold' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
         if UIKit.UIImage(named: "top_view_coin_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_coin_ic' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
@@ -7934,14 +7955,15 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "deersFinish", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'deersFinish' is used in nib 'LevelController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "deersStart", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'deersStart' is used in nib 'LevelController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "dummyFace", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'dummyFace' is used in nib 'LevelController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "fishFinish", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fishFinish' is used in nib 'LevelController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "goldFinish", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'goldFinish' is used in nib 'LevelController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "igluFinish", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'igluFinish' is used in nib 'LevelController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "fishStart", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fishStart' is used in nib 'LevelController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "freeHummer", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'freeHummer' is used in nib 'LevelController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "goldStart", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'goldStart' is used in nib 'LevelController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "igluStart", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'igluStart' is used in nib 'LevelController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "levelBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'levelBack' is used in nib 'LevelController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "levelShadowViewBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'levelShadowViewBack' is used in nib 'LevelController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "shipFinish", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'shipFinish' is used in nib 'LevelController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "shipStart", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'shipStart' is used in nib 'LevelController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "top_view_coin_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_coin_ic' is used in nib 'LevelController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "top_view_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_flash_ic' is used in nib 'LevelController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {

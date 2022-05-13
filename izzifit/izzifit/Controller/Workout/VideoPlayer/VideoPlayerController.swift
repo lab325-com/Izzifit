@@ -463,6 +463,7 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     
     @IBAction func previsAction(_ sender: Any) {
         if let _ = exercises[safe: currentIndex - 1] {
+            AnalyticsHelper.sendFirebaseEvents(events: .workout_prev_exe)
             currentIndex -= 1
         }
     }
@@ -477,8 +478,10 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
         case .getReadyPause:
             palyerType = .getReady
         case .plaing:
+            AnalyticsHelper.sendFirebaseEvents(events: .workout_pause, params: ["id": exercises[safe: currentIndex]?.id ?? 0])
             palyerType = .playingPause
         case .playingPause:
+            AnalyticsHelper.sendFirebaseEvents(events: .workout_countinue, params: ["id": exercises[safe: currentIndex]?.id ?? 0])
             palyerType = .plaing
         case .rest:
             palyerType = .restPause
@@ -489,6 +492,7 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     }
     
     @IBAction func actionNext(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_next_exe)
         nextVideo()
     }
     

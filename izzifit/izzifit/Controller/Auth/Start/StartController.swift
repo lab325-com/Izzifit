@@ -43,8 +43,6 @@ class StartController: BaseController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        AnalyticsHelper.sendFirebaseScreenEvent(screen: .login_screen)
-        AnalyticsHelper.sendFirebaseEvents(events: .open)
     }
     
     //----------------------------------------------
@@ -70,11 +68,13 @@ class StartController: BaseController {
     //----------------------------------------------
     
     @IBAction func actionPrivacy(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "privacy", "screen": "start"])
         guard let url = URL(string: "https://stackoverflow.com") else { return }
         UIApplication.shared.open(url)
     }
     
     @IBAction func actionTerms(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "terms", "screen": "start"])
         guard let url = URL(string: "https://stackoverflow.com") else { return }
         UIApplication.shared.open(url)
     }
@@ -84,6 +84,7 @@ class StartController: BaseController {
     }
     
     @IBAction func actionStart(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .login_skip)
         AudioManager.sharedManager.playSound()
         presenter.login()
     }
@@ -95,12 +96,10 @@ class StartController: BaseController {
 
 extension StartController: StartOutputProtocol {
     func successGoMain() {
-        AnalyticsHelper.sendFirebaseEvents(events: .source, params: ["start": true])
         RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
     }
     
     func successGoOnboarding() {
-        AnalyticsHelper.sendFirebaseEvents(events: .source, params: ["start": true])
         OnboardingRouter(presenter: navigationController).pushName()
     }
 }

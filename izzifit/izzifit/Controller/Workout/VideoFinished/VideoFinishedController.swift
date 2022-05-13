@@ -66,6 +66,8 @@ class VideoFinishedController: BaseController {
     }
 
     private func setup() {
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_finish)
+        
         mainLabel.text = RLocalization.payer_finished_title()
         subtitleLabel.text = RLocalization.payer_finished_subTitle()
         caorriesLabel.text = RLocalization.payer_finished_calories()
@@ -101,14 +103,17 @@ class VideoFinishedController: BaseController {
     }
     
     @IBAction func actionCanDoMore(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_mark_tap, params: ["type": "workoutAttemptFeedbackTypeCanDoMore"])
         preseneter.updateEnd(of: .workoutAttemptFeedbackTypeCanDoMore, attemptId: attemptId)
     }
     
     @IBAction func actionExcelent(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_mark_tap, params: ["type": "workoutAttemptFeedbackTypeExcellent"])
         preseneter.updateEnd(of: .workoutAttemptFeedbackTypeExcellent, attemptId: attemptId)
     }
     
     @IBAction func actionHard(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_mark_tap, params: ["type": "workoutAttemptFeedbackTypeHard"])
         preseneter.updateEnd(of: .workoutAttemptFeedbackTypeHard, attemptId: attemptId)
     }
 }

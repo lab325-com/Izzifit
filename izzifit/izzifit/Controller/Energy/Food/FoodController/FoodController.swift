@@ -132,6 +132,7 @@ class FoodController: BaseController {
         
         tableView.isHidden = true
         
+        topLabel.text = currentMealType.text
         presenter.getProducts(mealTypes: currentMealType, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "")
         
         addProductButton.layer.borderWidth = 2
@@ -428,6 +429,7 @@ extension FoodController: UIPickerViewDataSource, UIPickerViewDelegate {
 extension FoodController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         //addProductView.isHidden = false
+        AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_food_search)
         stackProteinView.isHidden = true
         searchTypeScroll.isHidden = false
         
