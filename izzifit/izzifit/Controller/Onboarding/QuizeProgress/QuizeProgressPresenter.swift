@@ -62,11 +62,11 @@ class QuizeProgressPresenter: QuizeProgressPresenterProtocol {
         let mutation = ProfileUpdateMutation(record: profileUpdateInput)
         
         let _ = Network.shared.mutation(model: ProfileUpdateModel.self, mutation, controller: view, successHandler: { [weak self] model in
-            AnalyticsHelper.sendFirebaseEvents(events: .status, params: ["ok": true])
+            AnalyticsHelper.sendFirebaseEvents(events: .onb_finish)
             KeychainService.standard.me = model.profileUpdate
             self?.view?.success()
         }, failureHandler: { [weak self] error in
-            AnalyticsHelper.sendFirebaseEvents(events: .status, params: ["failure": true, "error": error.localizedDescription])
+            AnalyticsHelper.sendFirebaseEvents(events: .onb_close)
             self?.view?.failure()
         })
     }

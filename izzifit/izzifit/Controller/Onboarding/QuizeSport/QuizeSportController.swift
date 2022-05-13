@@ -97,8 +97,6 @@ class QuizeSportController: BaseController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        AnalyticsHelper.sendFirebaseScreenEvent(screen: .onboarding_sport_screen)
     }
     
     //----------------------------------------------
@@ -169,7 +167,7 @@ class QuizeSportController: BaseController {
     
     @IBAction func actionGoNext(_ sender: UIButton) {
         if let type = type {
-            AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_activity": type.api.rawValue])
+            AnalyticsHelper.sendFirebaseEvents(events: .onb_set_activity)
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setSport(type)
             PreferencesManager.sharedManager.tempPorifle = model
@@ -178,7 +176,7 @@ class QuizeSportController: BaseController {
     }
     
     @IBAction func actionSkip(_ sender: UIButton) {
-        AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_activity": "skip"])
+        AnalyticsHelper.sendFirebaseEvents(events: .onb_skip_step)
         var model = PreferencesManager.sharedManager.tempPorifle
         model.setSport(nil)
         PreferencesManager.sharedManager.tempPorifle = model

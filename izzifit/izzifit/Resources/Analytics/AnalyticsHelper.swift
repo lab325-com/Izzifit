@@ -10,26 +10,71 @@ import Firebase
 import FirebaseAnalytics
 
 enum FirebaseScreenEvents: String {
-    case login_screen
-    case onboarding_screen
-    case onboarding_gender_screen
-    case onboarding_goal_screen
-    case onboarding_age_screen
-    case onboarding_height_screen
-    case onboarding_weight_screen
-    case onboarding_target_weight_screen
-    case onboarding_food_screen
-    case onboarding_sport_screen
-    case onboarding_email_screen
-    case onboarding_progress_screen
+    case screens
 }
 
 enum FirebaseEvents: String {
-    case open
-    case source
-    case status
-    case step
-    case complete
+    case app_open
+    case login_skip
+    case login_false
+    
+    case onb_start
+    case onb_finish
+    case onb_close
+    case onb_skip_step
+    case onb_set_name
+    case onb_set_gender
+    case onb_set_goal
+    case onb_set_age
+    case onb_set_height
+    case onb_set_weight
+    case onb_set_target_weight
+    case onb_set_diet
+    case onb_set_activity
+    case onb_set_email
+    
+    case pay_open
+    case pay_close
+    case pay_purchase
+    case pay_purchase_success
+    case pay_purchase_false
+    
+    case dash_open
+    case dash_water_tap
+    case dash_sleep_tap
+    case dash_emotion_tap
+    case dash_activity_tap
+    case dash_training_tap
+    case dash_update_weight_tap
+    case dash_meal_breakfast_tap
+    case dash_meal_lunch_tap
+    case dash_meal_snack_tap
+    case dash_meal_dinner_tap
+    case dash_meal_food_search
+    case dash_meal_food_true
+    case dash_meal_food_add
+    case dash_meal_fodd_add_own
+    
+    case exe_open
+    case exe_filter_tap
+    case exe_tap
+    
+    case workout_open
+    case workout_start
+    case workout_finish
+    case workout_mark_tap
+    case workout_pause
+    case workout_next_exe
+    case workout_prev_exe
+    case workout_skip
+    case workout_countinue
+    
+    case profile_open
+    
+    case settings_open
+    case settings_change
+    
+    case other_legal_open
 }
 
 class AnalyticsHelper: NSObject {

@@ -38,8 +38,6 @@ class QuizeProgressController: BaseController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        AnalyticsHelper.sendFirebaseScreenEvent(screen: .onboarding_progress_screen)
     }
     
     //----------------------------------------------
@@ -82,14 +80,12 @@ extension QuizeProgressController: QuizeProgressOutputProtocol {
     func success() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) { [weak self] in
             guard let `self` = self else { return }
-            AnalyticsHelper.sendFirebaseEvents(events: .complete, params: ["ok": true])
             PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self)
         }
     }
     
     func failure() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            AnalyticsHelper.sendFirebaseEvents(events: .complete, params: ["ok": false])
             self.actionBack()
         }
     }

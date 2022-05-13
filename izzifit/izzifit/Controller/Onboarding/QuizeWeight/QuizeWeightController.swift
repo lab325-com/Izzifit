@@ -110,8 +110,6 @@ class QuizeWeightController: BaseController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        AnalyticsHelper.sendFirebaseScreenEvent(screen: .onboarding_weight_screen)
     }
     
     //----------------------------------------------
@@ -177,7 +175,8 @@ class QuizeWeightController: BaseController {
         model.setWeightMetric(type)
         model.setWeight(Double(currentCountLabel.text!)!)
         PreferencesManager.sharedManager.tempPorifle = model
-        AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_weight": Double(currentCountLabel.text!)!])
+        
+        AnalyticsHelper.sendFirebaseEvents(events: .onb_set_weight)
         OnboardingRouter(presenter: navigationController).pushTargetWeight()
     }
 }

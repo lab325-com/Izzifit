@@ -53,9 +53,6 @@ class QuizeNameController: BaseController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        AnalyticsHelper.sendFirebaseScreenEvent(screen: .onboarding_screen)
-        AnalyticsHelper.sendFirebaseEvents(events: .open)
     }
     
     //----------------------------------------------
@@ -63,6 +60,8 @@ class QuizeNameController: BaseController, UITextFieldDelegate {
     //----------------------------------------------
     
     private func setup() {
+        
+        AnalyticsHelper.sendFirebaseEvents(events: .onb_start)
         backButton.isHidden = isHiddenBackButton
         goNextButton.alpha = 0.5
 
@@ -108,7 +107,8 @@ class QuizeNameController: BaseController, UITextFieldDelegate {
     
     @IBAction func actionGoNext(_ sender: UIButton) {
         if nameField.text!.count > 0 {
-            AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_name": nameField.text!])
+            AnalyticsHelper.sendFirebaseEvents(events: .onb_set_name)
+            
             AudioManager.sharedManager.playSound()
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setName(nameField.text!)

@@ -110,6 +110,7 @@ extension WorkoutController: WorkoutSpecialCellProtocol {
 extension WorkoutController: WorkoutExercisesCellProtocol {
     func workoutExercisesCell(cell: WorkoutExercisesCell, model: WorkoutByIdMainModel) {
         if model.isAvailable == true {
+            AnalyticsHelper.sendFirebaseEvents(events: .exe_tap, params: ["id": model.id])
             WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: model.id)
         } else {
             PaywallRouter(presenter: navigationController).presentPaywall(delegate: self)

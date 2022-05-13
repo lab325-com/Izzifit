@@ -61,6 +61,8 @@ class WorkoutDetailController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_open)
+        
         startWorkoutButton.setTitle(RLocalization.workout_detail_start(), for: .normal)
         
         tableView.isHidden = true
@@ -78,6 +80,7 @@ class WorkoutDetailController: BaseController {
     }
     
     @IBAction func actionStartWorkout(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_start)
         guard let exercisesGroup = presenter.workout?.exerciseGroups?.flatMap({$0.exercises}), let model = presenter.workout else { return }
         
         var exercises: [ExerciseModel] = []

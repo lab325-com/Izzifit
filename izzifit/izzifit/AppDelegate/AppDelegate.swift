@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         checkingPurchase()
         forceUpdate()
         
+        AnalyticsHelper.sendFirebaseEvents(events: .app_open)
         return RootRouter.sharedInstance.application(didFinishLaunchingWithOptions: launchOptions as [UIApplication.LaunchOptionsKey: Any]?, window: window ?? UIWindow(frame: UIScreen.main.bounds))
     }
 

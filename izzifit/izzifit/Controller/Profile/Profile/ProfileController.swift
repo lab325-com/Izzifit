@@ -30,6 +30,7 @@ class ProfileController: BaseController {
     }
     
     private func setup() {
+        AnalyticsHelper.sendFirebaseEvents(events: .profile_open)
         profileLbl.text = RLocalization.profile()
         coinsLabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
         energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"

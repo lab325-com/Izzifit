@@ -106,6 +106,7 @@ class PaywallController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_open)
         continueButton.setTitle("", for: .normal)
         
         firstView.layer.borderWidth = 2
@@ -264,14 +265,17 @@ class PaywallController: BaseController {
         
         if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: privacyPolicyRange) {
             print("user tapped on privacy policy text")
+            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "privacy", "screen": "paywall"])
             guard let url = URL(string: "https://stackoverflow.com") else { return }
             UIApplication.shared.open(url)
         } else if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: termsAndConditionRange) {
             print("user tapped on terms and conditions text")
+            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "terms", "screen": "paywall"])
             guard let url = URL(string: "https://stackoverflow.com") else { return }
             UIApplication.shared.open(url)
         } else if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: termsAndSubscribeRange) {
             print("user tapped on terms and subscribe text")
+            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "subscribe", "screen": "paywall"])
             guard let url = URL(string: "https://stackoverflow.com") else { return }
             UIApplication.shared.open(url)
         }
@@ -290,6 +294,7 @@ class PaywallController: BaseController {
     }
     
     @IBAction func actionBack(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_close)
         self.delegate?.paywallActionBack(controller: self)
     }
     

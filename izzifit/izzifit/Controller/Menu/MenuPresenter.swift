@@ -40,66 +40,82 @@ class MenuPresenter: MenuPresenterProtocol {
         var profile = ProfileUpdateInput()
         
         if let fitnessPreference = fitnessPreference {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "fitnessPreference"])
             profile.fitnessPreference = fitnessPreference
         }
         
         if let growthMeasure = growthMeasure {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "growthMeasure"])
             profile.growthMeasure = growthMeasure
         }
         
         if let foodGroupId = foodGroupId {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "foodGroupId"])
             profile.foodGroupId = foodGroupId
         }
         
         if let notifications = notifications {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "notifications"])
             profile.notifications = notifications
         }
         
         if let weightMeasure = weightMeasure {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "weightMeasure"])
             profile.weightMeasure = weightMeasure
         }
         
         if let targetWeight = targetWeight {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "targetWeight"])
             profile.targetWeight = targetWeight
         }
         
         if let weight = weight {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "weight"])
             profile.weight = weight
         }
         
         if let doSport = doSport {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "doSport"])
             profile.doSport = doSport
         }
         
         if let darkTheme = darkTheme {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "darkTheme"])
             profile.darkTheme = darkTheme
         }
         
         if let reminders = reminders {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "reminders"])
             profile.reminders = reminders
         }
         
         if let email = email {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "email"])
             profile.email = email
         }
         
         if let age = age {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "age"])
             profile.age = age
         }
         
         if let growth = growth {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "growth"])
             profile.growth = growth
         }
         
         if let goal = goal {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "goal"])
             profile.goal = goal
         }
         
         if let gender = gender {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "gender"])
             profile.gender = gender
         }
         
         if let name = name {
+            AnalyticsHelper.sendFirebaseEvents(events: .settings_change, params: ["change": "name"])
             profile.name = name
         }
         

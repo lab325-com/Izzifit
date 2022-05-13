@@ -58,8 +58,8 @@ class QuizeGoalController: BaseController {
     
     private var goalType: QuizeGoalType? {
         didSet {
+            AnalyticsHelper.sendFirebaseEvents(events: .onb_set_goal)
             updateType()
-            AnalyticsHelper.sendFirebaseEvents(events: .step, params: ["set_goal": goalType?.api.rawValue ?? ""])
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setGoal(goalType!)
             PreferencesManager.sharedManager.tempPorifle = model
@@ -81,8 +81,6 @@ class QuizeGoalController: BaseController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        AnalyticsHelper.sendFirebaseScreenEvent(screen: .onboarding_goal_screen)
     }
     
     //----------------------------------------------

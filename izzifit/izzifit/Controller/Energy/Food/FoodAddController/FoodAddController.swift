@@ -156,10 +156,14 @@ class FoodAddController: BaseController {
     }
     
     @IBAction func actionUpdateOrAdd(_ sender: UIButton) {
-        if isUpdate, let gramm = Int(grammTextField.text!), grammTextField.text!.count > 0 {
-            presenter.update(mealId: mealId, productId: model.id ?? "", amount: gramm)
-        } else if let gramm = Int(grammTextField.text!), grammTextField.text!.count > 0 {
-            presenter.add(mealId: mealId, productId: model.id ?? "", amount: gramm)
+        if  let gramm = Int(grammTextField.text!), grammTextField.text!.count > 0, gramm <= 1000 {
+            if isUpdate {
+                AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_fodd_add_own, params: ["gramm": gramm])
+                presenter.update(mealId: mealId, productId: model.id ?? "", amount: gramm)
+            } else {
+                AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_food_add, params: ["gramm": gramm])
+                presenter.add(mealId: mealId, productId: model.id ?? "", amount: gramm)
+            }
         }
     }
     
@@ -179,6 +183,24 @@ extension FoodAddController: UITextFieldDelegate {
         textView.backgroundColor = UIColor.white
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor(red: 0.84, green: 0.702, blue: 0.979, alpha: 1).cgColor
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if range.location == 0 && string == " " { // prevent space on first character
+            return false
+        }
+        
+        if textField.text?.last == " " && string == " " { // allowed only single space
+            return false
+        }
+        
+        if string == " " { return true } // now allowing space between name
+        
+        if let gramm = Int(textField.text! + string), gramm == 0 || gramm > 1000  {
+            return false
+        }
+        
+        return true
     }
 }
 

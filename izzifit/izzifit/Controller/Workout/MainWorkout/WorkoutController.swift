@@ -37,6 +37,7 @@ class WorkoutController: BaseController {
     var selectedTypeId: Int? {
         didSet {
             if selectedTypeId != oldValue {
+                AnalyticsHelper.sendFirebaseEvents(events: .exe_filter_tap, params: ["id": selectedTypeId ?? 0])
                 presenter.getWorkoutsAll(categoryId: selectedTypeId)
             }
         }
@@ -60,7 +61,7 @@ class WorkoutController: BaseController {
     //----------------------------------------------
     
     private func setup() {
-        
+        AnalyticsHelper.sendFirebaseEvents(events: .exe_open)
         collectionView.isHidden = true
         
         updateMe()

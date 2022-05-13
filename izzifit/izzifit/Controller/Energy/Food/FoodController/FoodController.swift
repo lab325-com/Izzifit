@@ -429,6 +429,7 @@ extension FoodController: UIPickerViewDataSource, UIPickerViewDelegate {
 extension FoodController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         //addProductView.isHidden = false
+        AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_food_search)
         stackProteinView.isHidden = true
         searchTypeScroll.isHidden = false
         
