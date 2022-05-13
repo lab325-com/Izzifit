@@ -44,5 +44,6 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
         private func setup() {
             addSubviewLoadedFromXib()
         }
+    
 }
 

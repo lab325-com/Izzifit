@@ -48,6 +48,7 @@ class ArcticGameComtroller: BaseController {
             }
         }
     }
+    
     @IBOutlet weak var hummerCountLbl: UILabel!
     
     private var collectionView: UICollectionView!
@@ -118,8 +119,12 @@ class ArcticGameComtroller: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Поменяй
         hummerBtn.isHidden = true
         hummerCountLbl.isHidden = true
+        
+        coinslabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
     }
     
     override func viewDidLoad() {
@@ -292,8 +297,6 @@ class ArcticGameComtroller: BaseController {
         slotHouseImgVwTopConstraint.constant = view.h / 4.51
         slotBackImgVw.centerYAnchor.constraint(equalTo: slotHouseImgVw.centerYAnchor, constant: (view.h / 10.33) / 2).isActive = true
         shadowViewBottomConstraint.constant = view.h / 10
-        coinslabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
         
         if let name = KeychainService.standard.me?.name {
             nameLabel.text = RLocalization.energy_header_title(name)

@@ -59,7 +59,7 @@
                                 <constraint firstAttribute="width" constant="120" id="EUV-8V-Deo"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="shipFinish"/>
+                            <state key="normal" image="shipStart"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIo-Qm-0VY">
                             <rect key="frame" x="59" y="298" width="140" height="101"/>
@@ -68,7 +68,7 @@
                                 <constraint firstAttribute="width" constant="140" id="cxg-FR-GUk"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="fishFinish"/>
+                            <state key="normal" image="fishStart"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6H2-mJ-PWK">
                             <rect key="frame" x="209" y="375" width="170" height="138"/>
@@ -77,7 +77,7 @@
                                 <constraint firstAttribute="width" constant="170" id="KDd-wz-f7C"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="igluFinish"/>
+                            <state key="normal" image="igluStart"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hv4-Wv-c7i">
                             <rect key="frame" x="44" y="515" width="165" height="84"/>
@@ -86,7 +86,7 @@
                                 <constraint firstAttribute="height" constant="84" id="k6C-nr-ri3"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="goldFinish"/>
+                            <state key="normal" image="goldStart"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U73-Gb-06i">
                             <rect key="frame" x="205" y="595" width="146" height="104"/>
@@ -95,7 +95,7 @@
                                 <constraint firstAttribute="width" constant="146" id="ilh-WQ-w9r"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="deersFinish"/>
+                            <state key="normal" image="deersStart"/>
                         </button>
                     </subviews>
                     <constraints>
@@ -243,15 +243,15 @@
         </view>
     </objects>
     <resources>
-        <image name="deersFinish" width="146" height="104"/>
+        <image name="deersStart" width="146" height="104"/>
         <image name="dummyFace" width="40" height="40"/>
-        <image name="fishFinish" width="140" height="101"/>
+        <image name="fishStart" width="140" height="101"/>
         <image name="freeHummer" width="48" height="49"/>
-        <image name="goldFinish" width="165" height="84"/>
-        <image name="igluFinish" width="170" height="138"/>
+        <image name="goldStart" width="165" height="84"/>
+        <image name="igluStart" width="170" height="138"/>
         <image name="levelBack" width="439" height="926"/>
         <image name="levelShadowViewBack" width="375" height="88"/>
-        <image name="shipFinish" width="120" height="120"/>
+        <image name="shipStart" width="120" height="120"/>
         <image name="top_view_coin_ic" width="22" height="22"/>
         <image name="top_view_flash_ic" width="20" height="22"/>
         <systemColor name="systemBackgroundColor">

@@ -15,6 +15,7 @@ protocol LevelOutputProtocol: BaseController {
     func success()
     func successBuildings(model: [BuildingsModel])
     func successBuild()
+    func successMe()
 }
 
 //----------------------------------------------
@@ -34,12 +35,13 @@ class LevelPresenter: LevelProtocol {
     }
     
     var freeBuildingsCount: Int?
-    
+    var buildings = [BuildingsModel]()
     func getBuildings() {
         view?.startLoader()
         let query = MapQuery()
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
            self?.freeBuildingsCount = model.map.freeBuildingsCount
+            self?.buildings = model.map.buildings
             self?.view?.successBuildings(model: model.map.buildings)
             self?.view?.stopLoading()
         }, failureHandler: { [weak self] error in
@@ -53,10 +55,23 @@ class LevelPresenter: LevelProtocol {
         let mutation = UpgradeBuildingMutation(buildingId: buildingId)
         let _ = Network.shared.mutation(model: UpgradeBuildingModel.self, mutation, controller: view, successHandler: { [weak self] model in
             self?.view?.successBuild()
-            self?.view?.stopLoading()
+            self?.getMe()
+            self?.getBuildings()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
         })
+    }
+    
+    func getMe() {
+        let query = MeQuery()
+        let _ = Network.shared.query(model: MeModel.self, query, controller: view) { [weak self] model in
+            
+            KeychainService.standard.me = model.me
+            self?.view?.successMe()
+        } failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+       
+        }
     }
 }
 
