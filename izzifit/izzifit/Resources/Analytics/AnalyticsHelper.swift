@@ -75,6 +75,16 @@ enum FirebaseEvents: String {
     case settings_change
     
     case other_legal_open
+    
+    case spin_open
+    case  spin_tap
+    case spin_reward
+    
+    case map_open
+    case map_building_tap
+    case map_building_updgrade
+    case map_hummer_use
+    case map_building_complete
 }
 
 class AnalyticsHelper: NSObject {

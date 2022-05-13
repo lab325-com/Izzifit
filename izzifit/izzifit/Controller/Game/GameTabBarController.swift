@@ -16,8 +16,6 @@ class GameTabBarController: UITabBarController {
         super.viewDidLoad()
         setupVCs()
         setupTabBar()
-        
-        print(viewControllers![0].view.sizeHeight)
     }
     
     private func createNavController(for rootViewController: UIViewController, image: UIImage) -> UIViewController {
@@ -63,23 +61,23 @@ class GameTabBarController: UITabBarController {
         
         view.ui.btnLayout(button: backBtn,
                           view: view,
-                          width: 70,
-                          height: 80,
-                          bottomC: 30,
+                          width: view.h / 11.6,
+                          height: view.h / 10.15,
+                          bottomC: view.h / 27.06,
                           leadingC: sideConstant)
         
         view.ui.btnLayout(button: spinBtn,
                           view: view,
-                          width: 70,
-                          height: 80,
-                          bottomC: 30,
+                          width: view.h / 11.6,
+                          height: view.h / 10.15,
+                          bottomC: view.h / 27.06,
                           centerH: 0)
 
         view.ui.btnLayout(button: buildBtn,
                           view: view,
-                          width: 70,
-                          height: 80,
-                          bottomC: 30,
+                          width: view.h / 11.6,
+                          height: view.h / 10.15,
+                          bottomC: view.h / 27.06,
                           trailingC: sideConstant)
         
         backBtn.addTarget(self,
@@ -93,6 +91,7 @@ class GameTabBarController: UITabBarController {
         buildBtn.addTarget(self,
                            action: #selector(build),
                            for: .touchUpInside)
+        tabBar.isHidden = true
     }
     
     @objc
@@ -107,5 +106,6 @@ class GameTabBarController: UITabBarController {
     @objc
     func build() {
         selectedIndex = 2
+        AnalyticsHelper.sendFirebaseEvents(events: .map_open)
     }
 }

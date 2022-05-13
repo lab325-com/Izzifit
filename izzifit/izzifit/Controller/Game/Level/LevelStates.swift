@@ -8,8 +8,13 @@
 import Foundation
 
 
-enum LevelStates {
-    case start, first, second, third, fourth, finish
+enum LevelStates: Int {
+    case start = 1000
+    case first = 2000
+    case second = 3000
+    case third = 4000
+    case fourth = 5000
+    case finish 
 }
 
 struct PlayerModel {

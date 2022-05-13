@@ -16,6 +16,13 @@ enum Imgs: String {
     case deersStart, deersFirst, deersSecond, deersThird, deersFourth, deersFinish
     case gameTabBarEnergy, gameTabBarMap, gameTabBarBuild, gameTabBarSpin
     case spinBtnNormal, spinBtnSelected
+    
+    case popStartState
+    case pop1Ship, pop2Ship, pop3Ship, pop4Ship, pop5Ship
+    case pop1Fish, pop2Fish, pop3Fish, pop4Fish, pop5Fish
+    case pop1Iglu, pop2Iglu, pop3Iglu, pop4Iglu, pop5Iglu
+    case pop1Gold, pop2Gold, pop3Gold, pop4Gold, pop5Gold
+    case pop1Deers, pop2Deers, pop3Deers, pop4Deers, pop5Deers
 }
 
 enum Clrs: String {

@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Inter-BoldItalic.ttf">
+            <string>Inter-BoldItalic</string>
+        </array>
         <array key="Inter-Medium.ttf">
             <string>Inter-Medium</string>
         </array>
@@ -25,6 +28,8 @@
                 <outlet property="energyLbl" destination="1bU-QO-3d5" id="z2k-ij-8eJ"/>
                 <outlet property="fishBtn" destination="XIo-Qm-0VY" id="Cqr-I8-A12"/>
                 <outlet property="goldBtn" destination="Hv4-Wv-c7i" id="VTf-ts-mrC"/>
+                <outlet property="hummerBtn" destination="IG0-LK-f1C" id="eDl-9P-z3n"/>
+                <outlet property="hummerCountLbl" destination="Mwj-5D-O6D" id="Syn-oP-O2o"/>
                 <outlet property="igluBtn" destination="6H2-mJ-PWK" id="YOg-oT-zCK"/>
                 <outlet property="nameLabel" destination="Hi5-ZV-QgD" id="970-2k-QwJ"/>
                 <outlet property="scrollView" destination="xAl-BH-3VN" id="5Qw-74-Rsr"/>
@@ -37,7 +42,7 @@
             <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAl-BH-3VN">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAl-BH-3VN">
                     <rect key="frame" x="0.0" y="44" width="428" height="882"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="levelBack" translatesAutoresizingMaskIntoConstraints="NO" id="3oM-6o-p50">
@@ -54,7 +59,7 @@
                                 <constraint firstAttribute="width" constant="120" id="EUV-8V-Deo"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="shipFinish"/>
+                            <state key="normal" image="shipStart"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIo-Qm-0VY">
                             <rect key="frame" x="59" y="298" width="140" height="101"/>
@@ -63,7 +68,7 @@
                                 <constraint firstAttribute="width" constant="140" id="cxg-FR-GUk"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="fishFinish"/>
+                            <state key="normal" image="fishStart"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6H2-mJ-PWK">
                             <rect key="frame" x="209" y="375" width="170" height="138"/>
@@ -72,7 +77,7 @@
                                 <constraint firstAttribute="width" constant="170" id="KDd-wz-f7C"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="igluFinish"/>
+                            <state key="normal" image="igluStart"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hv4-Wv-c7i">
                             <rect key="frame" x="44" y="515" width="165" height="84"/>
@@ -81,7 +86,7 @@
                                 <constraint firstAttribute="height" constant="84" id="k6C-nr-ri3"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="goldFinish"/>
+                            <state key="normal" image="goldStart"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U73-Gb-06i">
                             <rect key="frame" x="205" y="595" width="146" height="104"/>
@@ -90,7 +95,7 @@
                                 <constraint firstAttribute="width" constant="146" id="ilh-WQ-w9r"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="deersFinish"/>
+                            <state key="normal" image="deersStart"/>
                         </button>
                     </subviews>
                     <constraints>
@@ -102,7 +107,7 @@
                         <constraint firstItem="3oM-6o-p50" firstAttribute="centerX" secondItem="4d5-QO-QEp" secondAttribute="centerX" id="Pxb-gt-SHY"/>
                         <constraint firstItem="3oM-6o-p50" firstAttribute="trailing" secondItem="U73-Gb-06i" secondAttribute="trailing" constant="88" id="QUP-Pp-Kag"/>
                         <constraint firstItem="3oM-6o-p50" firstAttribute="trailing" secondItem="4d5-QO-QEp" secondAttribute="trailing" id="U5p-j1-xsC"/>
-                        <constraint firstItem="3oM-6o-p50" firstAttribute="bottom" secondItem="4d5-QO-QEp" secondAttribute="bottom" id="W10-fm-Vfc"/>
+                        <constraint firstItem="3oM-6o-p50" firstAttribute="bottom" secondItem="4d5-QO-QEp" secondAttribute="bottom" constant="35" id="W10-fm-Vfc"/>
                         <constraint firstItem="3oM-6o-p50" firstAttribute="top" secondItem="4d5-QO-QEp" secondAttribute="top" id="YT5-2M-pAa"/>
                         <constraint firstItem="Hv4-Wv-c7i" firstAttribute="top" secondItem="3oM-6o-p50" secondAttribute="top" constant="515" id="c0H-7c-5Ci"/>
                         <constraint firstItem="3oM-6o-p50" firstAttribute="leading" secondItem="4d5-QO-QEp" secondAttribute="leading" id="dFD-DJ-2EE"/>
@@ -119,10 +124,10 @@
                         <constraint firstAttribute="height" constant="88" id="TtV-Eg-cAC"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0y5-Mu-bfm" customClass="ShadowView" customModule="izzifit" customModuleProvider="target">
+                <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="0y5-Mu-bfm" customClass="ShadowView" customModule="izzifit" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="28" width="428" height="60"/>
                     <subviews>
-                        <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tR4-1k-Nu9">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tR4-1k-Nu9">
                             <rect key="frame" x="19" y="12" width="40" height="40"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummyFace" translatesAutoresizingMaskIntoConstraints="NO" id="08n-3C-ZI8">
@@ -144,14 +149,14 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Alex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hi5-ZV-QgD">
-                            <rect key="frame" x="67" y="20" width="41.666666666666657" height="24.333333333333329"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hi5-ZV-QgD">
+                            <rect key="frame" x="67" y="20" width="41.666666666666657" height="24"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WS8-YR-FfJ">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WS8-YR-FfJ">
                             <rect key="frame" x="282.66666666666669" y="21" width="127.33333333333331" height="22"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_view_coin_ic" translatesAutoresizingMaskIntoConstraints="NO" id="eOu-e8-Slm">
@@ -181,6 +186,7 @@
                         <constraint firstAttribute="trailing" secondItem="WS8-YR-FfJ" secondAttribute="trailing" constant="18" id="3YI-z4-4nb"/>
                         <constraint firstItem="WS8-YR-FfJ" firstAttribute="centerY" secondItem="Hi5-ZV-QgD" secondAttribute="centerY" id="L9L-hR-S0v"/>
                         <constraint firstItem="tR4-1k-Nu9" firstAttribute="leading" secondItem="0y5-Mu-bfm" secondAttribute="leading" constant="19" id="M2n-tw-CVP"/>
+                        <constraint firstItem="Hi5-ZV-QgD" firstAttribute="top" secondItem="0y5-Mu-bfm" secondAttribute="top" constant="20" id="PhR-gN-HkM"/>
                         <constraint firstItem="Hi5-ZV-QgD" firstAttribute="leading" secondItem="tR4-1k-Nu9" secondAttribute="trailing" constant="8" id="fxM-aI-pNN"/>
                         <constraint firstAttribute="bottom" secondItem="tR4-1k-Nu9" secondAttribute="bottom" constant="8" id="pRe-gg-T5Y"/>
                         <constraint firstItem="WS8-YR-FfJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hi5-ZV-QgD" secondAttribute="trailing" constant="10" id="vfn-Qt-Ahc"/>
@@ -198,33 +204,54 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IG0-LK-f1C">
+                    <rect key="frame" x="26" y="106" width="44" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="e8N-w0-JQ1"/>
+                        <constraint firstAttribute="height" constant="47" id="y3h-xB-bRw"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="freeHummer"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwj-5D-O6D">
+                    <rect key="frame" x="48.666666666666664" y="133.33333333333334" width="19.333333333333336" height="19.666666666666657"/>
+                    <fontDescription key="fontDescription" name="Inter-BoldItalic" family="Inter" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="xAl-BH-3VN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DV7-2n-7gc"/>
+                <constraint firstItem="Mwj-5D-O6D" firstAttribute="trailing" secondItem="IG0-LK-f1C" secondAttribute="trailing" constant="-2" id="FDl-MY-Mpp"/>
                 <constraint firstItem="0y5-Mu-bfm" firstAttribute="leading" secondItem="vRB-YO-0ax" secondAttribute="leading" id="Mnj-eD-NsE"/>
                 <constraint firstAttribute="trailing" secondItem="vRB-YO-0ax" secondAttribute="trailing" id="Pe4-Dk-DwH"/>
                 <constraint firstItem="0y5-Mu-bfm" firstAttribute="trailing" secondItem="vRB-YO-0ax" secondAttribute="trailing" id="UF3-pL-bZV"/>
                 <constraint firstItem="vRB-YO-0ax" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WCX-fk-di1"/>
                 <constraint firstItem="xAl-BH-3VN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="d27-T3-uVq"/>
+                <constraint firstItem="IG0-LK-f1C" firstAttribute="top" secondItem="vRB-YO-0ax" secondAttribute="bottom" constant="18" id="k3k-GH-kEE"/>
+                <constraint firstItem="Mwj-5D-O6D" firstAttribute="bottom" secondItem="IG0-LK-f1C" secondAttribute="bottom" id="kD9-A5-gHz"/>
+                <constraint firstItem="IG0-LK-f1C" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="26" id="oJA-qO-VxR"/>
                 <constraint firstAttribute="bottom" secondItem="xAl-BH-3VN" secondAttribute="bottom" id="rJb-o5-mAG"/>
                 <constraint firstItem="0y5-Mu-bfm" firstAttribute="bottom" secondItem="vRB-YO-0ax" secondAttribute="bottom" id="wE7-6a-OjO"/>
                 <constraint firstAttribute="trailing" secondItem="xAl-BH-3VN" secondAttribute="trailing" id="wIc-fJ-jUa"/>
+                <constraint firstItem="0y5-Mu-bfm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="xd0-1e-4Nh"/>
                 <constraint firstItem="vRB-YO-0ax" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yU6-TM-CWz"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="78.348214285714278"/>
         </view>
     </objects>
     <resources>
-        <image name="deersFinish" width="146" height="104"/>
+        <image name="deersStart" width="146" height="104"/>
         <image name="dummyFace" width="40" height="40"/>
-        <image name="fishFinish" width="140" height="101"/>
-        <image name="goldFinish" width="165" height="84"/>
-        <image name="igluFinish" width="170" height="138"/>
+        <image name="fishStart" width="140" height="101"/>
+        <image name="freeHummer" width="48" height="49"/>
+        <image name="goldStart" width="165" height="84"/>
+        <image name="igluStart" width="170" height="138"/>
         <image name="levelBack" width="439" height="926"/>
         <image name="levelShadowViewBack" width="375" height="88"/>
-        <image name="shipFinish" width="120" height="120"/>
+        <image name="shipStart" width="120" height="120"/>
         <image name="top_view_coin_ic" width="22" height="22"/>
         <image name="top_view_flash_ic" width="20" height="22"/>
         <systemColor name="systemBackgroundColor">

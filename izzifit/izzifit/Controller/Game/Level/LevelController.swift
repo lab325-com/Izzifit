@@ -23,6 +23,28 @@ class LevelController: BaseController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var energyLbl: UILabel!
     @IBOutlet weak var coinsLbl: UILabel!
+    @IBOutlet weak var hummerBtn: UIButton! {
+        didSet {
+            hummerBtn.isUserInteractionEnabled = false
+        }
+    }
+    
+    private var backIsLoaded = false {
+        didSet {
+            guard let count = presenter.freeBuildingsCount else { return}
+            switch count {
+            case 0:
+                hummerBtn.isHidden = true
+                hummerCountLbl.isHidden = true
+            default:
+                hummerBtn.isHidden = false
+                hummerCountLbl.isHidden = false
+                hummerCountLbl.text = "x\(count)"
+            }
+        }
+    }
+    
+    @IBOutlet weak var hummerCountLbl: UILabel!
     
     private var buildPopUpVw = BuildPopUpView()
     
@@ -38,12 +60,21 @@ class LevelController: BaseController {
                                      goldState: .third,
                                      deerState: .second)
     
+    private lazy var presenter = LevelPresenter(view: self)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hummerBtn.isHidden = true
+        hummerCountLbl.isHidden = true
+    }
+    
     override func viewDidLoad() {
+        
         needSoundTap = false
         super.viewDidLoad()
+        presenter.getBuildings()
         setup()
         hiddenNavigationBar = true
-        drawStates()
         activateAnimation()
         addTargets()
     }
@@ -60,24 +91,67 @@ class LevelController: BaseController {
         for btn in btns {
             guard let bt = btn else {return}
             bt.addTarget(self,
-                         action: #selector(animate(sender:)),
+                         action: #selector(showPopUp(sender:)),
                          for: .touchUpInside)
         }
     }
     
     @objc
-    func animate(sender: UIButton) {
-                view.ui.genericlLayout(object: buildPopUpVw,
+    func showPopUp(sender: UIButton) {
+        
+        var price = Int()
+        var buildType: BuildingType
+        
+        switch sender.tag {
+        case 0: price = player.shipState.rawValue
+                buildType = .ship
+        case 1: price = player.fishState.rawValue
+                buildType = .fishing
+        case 2: price = player.igluState.rawValue
+                buildType = .house
+        case 3: price = player.goldState.rawValue
+                buildType = .hay
+        case 4: price = player.deerState.rawValue
+                buildType = .sled
+        default: buildType = .ship
+        }
+        
+        guard KeychainService.standard.me?.coins ?? 0 >= price else { return }
+                
+        view.ui.genericlLayout(object: buildPopUpVw,
                                        parentView: view,
                                        topC: 0,
                                        bottomC: 0,
                                        leadingC: 0,
                                        trailingC: 0)
-                view.layoutIfNeeded()
+        view.layoutIfNeeded()
         
+        guard let count = presenter.freeBuildingsCount else { return}
+        switch count {
+        case 0:
+            buildPopUpVw.hummerBtn.isHidden = true
+            buildPopUpVw.hummerCountLbl.isHidden = true
+        default:
+            buildPopUpVw.hummerBtn.isHidden = false
+            buildPopUpVw.hummerCountLbl.isHidden = false
+            buildPopUpVw.hummerCountLbl.text = "x\(count)"
+        }
+        
+        AnalyticsHelper.sendFirebaseEvents(events: .map_building_tap, params: ["building" : buildType.rawValue])
+        
+        buildPopUpVw.priceLbl.text = "\(price)"
+        buildPopUpVw.draw(buildType, state: LevelStates(rawValue: price) ?? .start)
+        buildPopUpVw.upgradeBtn.tag = sender.tag
         buildPopUpVw.upgradeBtn.addTarget(self,
-                                          action: #selector(anim),
+                                          action: #selector(upgradeBuilding(sender:)),
                                           for: .touchUpInside)
+        
+        buildPopUpVw.hummerBtn.addTarget(self,
+                                         action: #selector(useFreeHummer),
+                                         for: .touchUpInside)
+        buildPopUpVw.mainBtn.addTarget(self,
+                                       action: #selector(closePopUp),
+                                       for: .touchUpInside)
         
         view.ui.genericlLayout(object: animation,
                                parentView: sender,
@@ -88,7 +162,29 @@ class LevelController: BaseController {
         view.layoutIfNeeded()
     }
     
-    @objc func anim() {
+    @objc func useFreeHummer() {
+        AnalyticsHelper.sendFirebaseEvents(events: .map_hummer_use)
+        buildPopUpVw.priceLbl.text = "Free"
+        guard var count = presenter.freeBuildingsCount else { return }
+        presenter.freeBuildingsCount! -= 1
+        count -= 1
+        
+        switch count {
+        case 0:
+            buildPopUpVw.hummerBtn.isHidden = true
+            buildPopUpVw.hummerCountLbl.isHidden = true
+        default:
+            buildPopUpVw.hummerCountLbl.text = "x\(count)"
+        }
+    }
+    
+    @objc func closePopUp() {
+        buildPopUpVw.removeFromSuperview()
+    }
+    
+    @objc func upgradeBuilding(sender: UIButton) {
+        guard let buildingId = presenter.buildings[safe: sender.tag]?.id else {return}
+        
         buildPopUpVw.removeFromSuperview()
         view.layoutIfNeeded()
         animation.isHidden.toggle()
@@ -98,7 +194,50 @@ class LevelController: BaseController {
             self.animation.stopAnimatingGIF()
             self.animation.isHidden.toggle()
             self.animation.removeFromSuperview()
+            
+            var price = Int()
+            var buildType: BuildingType
+            
+            switch sender.tag {
+            case 0: price = self.player.shipState.rawValue
+                    buildType = .ship
+            case 1: price = self.player.fishState.rawValue
+                    buildType = .fishing
+            case 2: price = self.player.igluState.rawValue
+                    buildType = .house
+            case 3: price = self.player.goldState.rawValue
+                    buildType = .hay
+            case 4: price = self.player.deerState.rawValue
+                    buildType = .sled
+            default: buildType = .ship
+            }
+            
+            let state = LevelStates(rawValue: price)
+            switch state {
+            case .start:
+                AnalyticsHelper.sendFirebaseEvents(events: .map_building_updgrade,
+                                                   params: ["building" : buildType.rawValue,
+                                                            "upgradeLevel": "\(LevelStates.first.rawValue)"])
+            case .first:
+                AnalyticsHelper.sendFirebaseEvents(events: .map_building_updgrade,
+                                                   params: ["building" : buildType.rawValue,
+                                                            "upgradeLevel": "\(LevelStates.second.rawValue)"])
+            case .second:
+                AnalyticsHelper.sendFirebaseEvents(events: .map_building_updgrade,
+                                                   params: ["building" : buildType.rawValue,
+                                                            "upgradeLevel": "\(LevelStates.third.rawValue)"])
+            case .third:
+                AnalyticsHelper.sendFirebaseEvents(events: .map_building_updgrade,
+                                                   params: ["building" : buildType.rawValue,
+                                                            "upgradeLevel": "\(LevelStates.fourth.rawValue)"])
+            case .fourth:
+                AnalyticsHelper.sendFirebaseEvents(events: .map_building_complete,
+                                                   params: ["building" : buildType.rawValue])
+            case .finish: break
+            case .none: break
+            }
         }
+        presenter.upgradeBuild(buildingId: buildingId)
     }
     
     private func activateAnimation() {
@@ -107,6 +246,7 @@ class LevelController: BaseController {
     }
     
     private func setup() {
+       
         for i in 0...4 {
             btns[i]?.tag = i
         }
@@ -125,109 +265,95 @@ class LevelController: BaseController {
     }
     
     private func drawStates() {
+        
         switch player.shipState {
-        case .start:
-            shipBtn.setImage(view.image(img: .shipStart),
-                             for: .normal)
-        case .first:
-            shipBtn.setImage(view.image(img: .shipFirst),
-                             for: .normal)
-        case .second:
-            shipBtn.setImage(view.image(img: .shipSecond),
-                             for: .normal)
-        case .third:
-            shipBtn.setImage(view.image(img: .shipThird),
-                             for: .normal)
-        case .fourth:
-            shipBtn.setImage(view.image(img: .shipFourth),
-                             for: .normal)
-        case .finish:
-            shipBtn.setImage(view.image(img: .shipFinish),
-                             for: .normal)
+        case .start: shipBtn.setImage(view.image(img: .shipStart),for: .normal)
+        case .first: shipBtn.setImage(view.image(img: .shipFirst), for: .normal)
+        case .second: shipBtn.setImage(view.image(img: .shipSecond),for: .normal)
+        case .third: shipBtn.setImage(view.image(img: .shipThird),for: .normal)
+        case .fourth: shipBtn.setImage(view.image(img: .shipFourth), for: .normal)
+        case .finish: shipBtn.setImage(view.image(img: .shipFinish),for: .normal)
         }
         
         switch player.fishState {
-        case .start:
-            fishBtn.setImage(view.image(img: .fishStart),
-                             for: .normal)
-        case .first:
-            fishBtn.setImage(view.image(img: .fishFirst),
-                             for: .normal)
-        case .second:
-            fishBtn.setImage(view.image(img: .fishSecond),
-                             for: .normal)
-        case .third:
-            fishBtn.setImage(view.image(img: .fishThird),
-                             for: .normal)
-        case .fourth:
-            fishBtn.setImage(view.image(img: .fishFourth),
-                             for: .normal)
-        case .finish:
-            fishBtn.setImage(view.image(img: .fishFinish),
-                             for: .normal)
+        case .start: fishBtn.setImage(view.image(img: .fishStart), for: .normal)
+        case .first: fishBtn.setImage(view.image(img: .fishFirst),for: .normal)
+        case .second: fishBtn.setImage(view.image(img: .fishSecond),for: .normal)
+        case .third: fishBtn.setImage(view.image(img: .fishThird),for: .normal)
+        case .fourth: fishBtn.setImage(view.image(img: .fishFourth),for: .normal)
+        case .finish: fishBtn.setImage(view.image(img: .fishFinish),for: .normal)
         }
         
         switch player.igluState {
-        case .start:
-            igluBtn.setImage(view.image(img: .igluStart),
-                             for: .normal)
-        case .first:
-            igluBtn.setImage(view.image(img: .igluFirst),
-                             for: .normal)
-        case .second:
-            igluBtn.setImage(view.image(img: .igluSecond),
-                             for: .normal)
-        case .third:
-            igluBtn.setImage(view.image(img: .igluThird),
-                             for: .normal)
-        case .fourth:
-            igluBtn.setImage(view.image(img: .igluFourth),
-                             for: .normal)
-        case .finish:
-            igluBtn.setImage(view.image(img: .igluFinish),
-                             for: .normal)
+        case .start: igluBtn.setImage(view.image(img: .igluStart),for: .normal)
+        case .first: igluBtn.setImage(view.image(img: .igluFirst),for: .normal)
+        case .second: igluBtn.setImage(view.image(img: .igluSecond),for: .normal)
+        case .third: igluBtn.setImage(view.image(img: .igluThird), for: .normal)
+        case .fourth: igluBtn.setImage(view.image(img: .igluFourth),for: .normal)
+        case .finish: igluBtn.setImage(view.image(img: .igluFinish), for: .normal)
         }
         
         switch player.goldState {
-        case .start:
-            goldBtn.setImage(view.image(img: .goldStart),
-                             for: .normal)
-        case .first:
-            goldBtn.setImage(view.image(img: .goldFirst),
-                             for: .normal)
-        case .second:
-            goldBtn.setImage(view.image(img: .goldSecond),
-                             for: .normal)
-        case .third:
-            goldBtn.setImage(view.image(img: .goldThird),
-                             for: .normal)
-        case .fourth:
-            goldBtn.setImage(view.image(img: .goldFourth),
-                             for: .normal)
-        case .finish:
-            goldBtn.setImage(view.image(img: .goldFinish),
-                             for: .normal)
+        case .start: goldBtn.setImage(view.image(img: .goldStart),for: .normal)
+        case .first: goldBtn.setImage(view.image(img: .goldFirst), for: .normal)
+        case .second: goldBtn.setImage(view.image(img: .goldSecond),for: .normal)
+        case .third: goldBtn.setImage(view.image(img: .goldThird),for: .normal)
+        case .fourth: goldBtn.setImage(view.image(img: .goldFourth),for: .normal)
+        case .finish: goldBtn.setImage(view.image(img: .goldFinish),for: .normal)
         }
         
         switch player.deerState {
-        case .start:
-            deerBtn.setImage(view.image(img: .deersStart),
-                             for: .normal)
-        case .first:
-            deerBtn.setImage(view.image(img: .deersFirst),
-                             for: .normal)
-        case .second:
-            deerBtn.setImage(view.image(img: .deersSecond),
-                             for: .normal)
-        case .third:
-            deerBtn.setImage(view.image(img: .deersThird),
-                             for: .normal)
-        case .fourth:
-            deerBtn.setImage(view.image(img: .deersFourth),
-                             for: .normal)
-        case .finish:
-            deerBtn.setImage(view.image(img: .deersFinish),
-                             for: .normal)
+        case .start: deerBtn.setImage(view.image(img: .deersStart), for: .normal)
+        case .first: deerBtn.setImage(view.image(img: .deersFirst), for: .normal)
+        case .second: deerBtn.setImage(view.image(img: .deersSecond),for: .normal)
+        case .third: deerBtn.setImage(view.image(img: .deersThird), for: .normal)
+        case .fourth: deerBtn.setImage(view.image(img: .deersFourth),for: .normal)
+        case .finish: deerBtn.setImage(view.image(img: .deersFinish),for: .normal)
         }
     }
 }
+
+extension LevelController: LevelOutputProtocol {
+    
+    func success() { }
+    
+    func successBuildings(model: [BuildingsModel]) {
+        backIsLoaded = true
+        print(model)
+        for building in model {
+            var state: LevelStates
+            let level = building.level
+            switch level {
+            case 0: state = .start
+            case 1: state = .first
+            case 2: state = .second
+            case 3: state = .third
+            case 4: state = .fourth
+            case 5: state = .finish
+            default: state = .finish
+            }
+            
+            switch building.name {
+            case BuildingType.ship.rawValue: player.shipState = state
+            case BuildingType.fishing.rawValue: player.fishState = state
+            case BuildingType.house.rawValue: player.igluState = state
+            case BuildingType.hay.rawValue: player.goldState = state
+            case BuildingType.sled.rawValue: player.deerState = state
+            default: break
+            }
+        }
+        drawStates()
+    }
+    
+    func successBuild() { }
+    
+    func successMe() {
+        coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        energyLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
+    }
+}
+
+enum BuildingType: String {
+    case ship, fishing, house, hay, sled
+}
+

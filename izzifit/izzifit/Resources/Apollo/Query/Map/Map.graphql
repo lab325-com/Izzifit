@@ -19,6 +19,7 @@ query Map($mapId: String) {
                 urlIosFull
             }
         }
+      freeBuildingsCount
 	}
 }
 

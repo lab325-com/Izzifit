@@ -18,6 +18,7 @@ struct MapMainModel: Codable {
     
     let spins: [MapSpinsModel]
     let spinObjects: [SpinObjectsModel]
+    let freeBuildingsCount: Int
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -25,6 +26,7 @@ struct MapMainModel: Codable {
         case buildings = "Buildings"
         case spins = "Spins"
         case spinObjects = "SpinObjects"
+        case freeBuildingsCount = "freeBuildingsCount"
     }
 }
 

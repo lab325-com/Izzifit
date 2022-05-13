@@ -27,6 +27,30 @@ class ArcticGameComtroller: BaseController {
     @IBOutlet weak var slotHouseImgVwTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var resultLblTopConstraint: NSLayoutConstraint!
     
+    
+    @IBOutlet weak var hummerBtn: UIButton! {
+        didSet {
+            hummerBtn.isUserInteractionEnabled = false
+        }
+    }
+    
+    private var backIsLoaded = false {
+        didSet {
+            guard let count = presenter.freeBuildingsCount else { return}
+            switch count {
+            case 0:
+                hummerBtn.isHidden = true
+                hummerCountLbl.isHidden = true
+            default:
+                hummerBtn.isHidden = false
+                hummerCountLbl.isHidden = true
+                hummerCountLbl.text = "x\(count)"
+            }
+        }
+    }
+    
+    @IBOutlet weak var hummerCountLbl: UILabel!
+    
     private var collectionView: UICollectionView!
     // Рассмотри возможность реализации без таймеров, а просто через цикл и asyncAfter
     private var firstTimerCount = 153
@@ -91,6 +115,34 @@ class ArcticGameComtroller: BaseController {
                                                from: 2,
                                                currentArray: OffsetCounter.thirdArray)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Поменяй
+        hummerBtn.isHidden = true
+        hummerCountLbl.isHidden = true
+        
+        coinslabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
+    }
+    
+    override func viewDidLoad() {
+        AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
+        needSoundTap = false
+        hiddenNavigationBar = true
+        super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.presenter.getMap { spins in
+                self.backIsLoaded = true
+                self.counter.combinations = spins
+            }
+        }
+        setCollectionView()
+        setup()
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
     }
     
     @objc
@@ -236,21 +288,6 @@ class ArcticGameComtroller: BaseController {
         self.thirdTimer.invalidate()
     }
     
-    override func viewDidLoad() {
-        needSoundTap = false
-        hiddenNavigationBar = true
-        super.viewDidLoad()
-        DispatchQueue.main.async {
-            self.presenter.getMap { spins in
-                self.counter.combinations = spins
-            }
-        }
-        setCollectionView()
-        setup()
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
-        swipeRight.direction = .right
-        self.view.addGestureRecognizer(swipeRight)
-    }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         actionBack()
@@ -261,8 +298,6 @@ class ArcticGameComtroller: BaseController {
         slotHouseImgVwTopConstraint.constant = view.h / 4.51
         slotBackImgVw.centerYAnchor.constraint(equalTo: slotHouseImgVw.centerYAnchor, constant: (view.h / 10.33) / 2).isActive = true
         shadowViewBottomConstraint.constant = view.h / 10
-        coinslabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
         
         if let name = KeychainService.standard.me?.name {
             nameLabel.text = name
@@ -300,6 +335,7 @@ class ArcticGameComtroller: BaseController {
     @IBAction func spinAction(_ sender: Any) {
         guard KeychainService.standard.me?.energy ?? 0.0 > 0.0 else { return }
         AudioManager.sharedManager.playSound(type: .spinTap_10)
+        AnalyticsHelper.sendFirebaseEvents(events: .spin_tap)
         
         spinManager.spinAction(coinsLbl: coinslabel,
                                energyLbl: energyLabel,
@@ -355,7 +391,7 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
     }
     func successSpin(model: [SpinMainModel]) {
         for award in model {
-            switch award.type{
+            switch award.type {
             case .spinObjectRewardTypeCoin:
                 KeychainService.standard.me?.coins! += award.amount
             case .spinObjectRewardTypeEnergy:
@@ -370,14 +406,11 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
             case .__unknown(_): print("")
             }
         }
-  
      
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             if let tupleResult = self.spinManager.recognizeSetCombinations(self.counter.combinations[self.combinationCounter].spinObjectIds) {
                 print(tupleResult)
-                // теперь тут будет по первому элементу тупла функция по начислению бонусов
                 self.spinManager.accrueBonuses(by: tupleResult.0, resultLbl: self.resultLbl)
-                // функция котороая красит бордер ячеек по второму элементу тупла
                 self.spinManager.paintBlueBorder(tupleResult.1,
                                                  indexPathes: [self.counter.firstIndexPathRow,
                                                                self.counter.startSecondIndexPathRow,
