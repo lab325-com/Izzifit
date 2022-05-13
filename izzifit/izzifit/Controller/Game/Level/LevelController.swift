@@ -90,13 +90,13 @@ class LevelController: BaseController {
         for btn in btns {
             guard let bt = btn else {return}
             bt.addTarget(self,
-                         action: #selector(animate(sender:)),
+                         action: #selector(showPopUp(sender:)),
                          for: .touchUpInside)
         }
     }
     
     @objc
-    func animate(sender: UIButton) {
+    func showPopUp(sender: UIButton) {
                 view.ui.genericlLayout(object: buildPopUpVw,
                                        parentView: view,
                                        topC: 0,
@@ -104,7 +104,6 @@ class LevelController: BaseController {
                                        leadingC: 0,
                                        trailingC: 0)
                 view.layoutIfNeeded()
-        
         guard let count = presenter.freeBuildingsCount else { return}
         switch count {
         case 0:
@@ -117,20 +116,27 @@ class LevelController: BaseController {
         }
         
         var price = Int()
+        var buildType: BuildingType
         
         switch sender.tag {
         case 0: price = player.shipState.rawValue
+                buildType = .ship 
         case 1: price = player.fishState.rawValue
+                buildType = .fishing
         case 2: price = player.igluState.rawValue
+                buildType = .house
         case 3: price = player.goldState.rawValue
+                buildType = .hay
         case 4: price = player.deerState.rawValue
-        default: break
+                buildType = .sled
+        default: buildType = .ship
         }
         
         buildPopUpVw.priceLbl.text = "\(price)"
+        buildPopUpVw.draw(buildType, state: LevelStates(rawValue: price) ?? .start)
         buildPopUpVw.upgradeBtn.tag = sender.tag
         buildPopUpVw.upgradeBtn.addTarget(self,
-                                          action: #selector(anim(sender:)),
+                                          action: #selector(upgradeBuilding(sender:)),
                                           for: .touchUpInside)
         
         buildPopUpVw.hummerBtn.addTarget(self,
@@ -168,7 +174,7 @@ class LevelController: BaseController {
         buildPopUpVw.removeFromSuperview()
     }
     
-    @objc func anim(sender: UIButton) {
+    @objc func upgradeBuilding(sender: UIButton) {
         guard let buildingId = presenter.buildings[safe: sender.tag]?.id else {return}
         
         buildPopUpVw.removeFromSuperview()
@@ -181,10 +187,7 @@ class LevelController: BaseController {
             self.animation.isHidden.toggle()
             self.animation.removeFromSuperview()
         }
-        
-        
         presenter.upgradeBuild(buildingId: buildingId)
-        
     }
     
     private func activateAnimation() {
