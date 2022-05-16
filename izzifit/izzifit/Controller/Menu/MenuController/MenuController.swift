@@ -119,13 +119,13 @@ class MenuController: BaseController {
     
     @IBAction func actionPrivacy(_ sender: UIButton) {
         AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "privacy", "screen": "menu"])
-        guard let url = URL(string: "https://stackoverflow.com") else { return }
+        guard let url = URL(string: "https://mob325.com/izzifit/privacy_policy.html") else { return }
         UIApplication.shared.open(url)
     }
     
     @IBAction func actionTerms(_ sender: UIButton) {
         AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "terms", "screen": "menu"])
-        guard let url = URL(string: "https://stackoverflow.com") else { return }
+        guard let url = URL(string: "https://mob325.com/izzifit/terms_and_conditions.html") else { return }
         UIApplication.shared.open(url)
     }
     

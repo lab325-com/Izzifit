@@ -134,14 +134,14 @@ class PaywallController: BaseController {
         
         let attributedString2 = NSMutableAttributedString(string:" \(RLocalization.login_privacy_policy())\n\(RLocalization.login_terms_use())", attributes:attrs2 as [NSAttributedString.Key : Any])
         
-        let attributedString3 = NSMutableAttributedString(string:" \( RLocalization.login_and()) ", attributes:attrs1 as [NSAttributedString.Key : Any])
+        //let attributedString3 = NSMutableAttributedString(string:" \( RLocalization.login_and()) ", attributes:attrs1 as [NSAttributedString.Key : Any])
         
-        let attributedString4 = NSMutableAttributedString(string:RLocalization.login_terms_of_subscribe(), attributes:attrs2 as [NSAttributedString.Key : Any])
+        //let attributedString4 = NSMutableAttributedString(string:RLocalization.login_terms_of_subscribe(), attributes:attrs2 as [NSAttributedString.Key : Any])
         
         
         attributedString1.append(attributedString2)
-        attributedString1.append(attributedString3)
-        attributedString1.append(attributedString4)
+        //attributedString1.append(attributedString3)
+        //attributedString1.append(attributedString4)
         
         self.privacyLabel.attributedText = attributedString1
         privacyLabel.textAlignment = .center
@@ -266,17 +266,17 @@ class PaywallController: BaseController {
         if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: privacyPolicyRange) {
             print("user tapped on privacy policy text")
             AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "privacy", "screen": "paywall"])
-            guard let url = URL(string: "https://stackoverflow.com") else { return }
+            guard let url = URL(string: "https://mob325.com/izzifit/privacy_policy.html") else { return }
             UIApplication.shared.open(url)
         } else if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: termsAndConditionRange) {
             print("user tapped on terms and conditions text")
             AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "terms", "screen": "paywall"])
-            guard let url = URL(string: "https://stackoverflow.com") else { return }
+            guard let url = URL(string: "https://mob325.com/izzifit/terms_and_conditions.html") else { return }
             UIApplication.shared.open(url)
         } else if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: termsAndSubscribeRange) {
             print("user tapped on terms and subscribe text")
             AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "subscribe", "screen": "paywall"])
-            guard let url = URL(string: "https://stackoverflow.com") else { return }
+            guard let url = URL(string: "https://mob325.com/izzifit/terms_and_conditions.html") else { return }
             UIApplication.shared.open(url)
         }
     }
