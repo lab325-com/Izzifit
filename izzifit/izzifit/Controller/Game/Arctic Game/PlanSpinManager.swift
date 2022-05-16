@@ -15,8 +15,8 @@ struct SlotRowModel {
 protocol PlanSpinProtocol {
     var combinations: [[Int]] { get }
     var firstSpinCounter: Int { get set }
-    func get40SlotsUponRandomSlotInt(startElement: Int) -> [SlotRowModel] // cнизу вверх
-    func spin(to elementIndex: Int, check currentRandomSlotModel: SlotRowModel) -> Int // Indexpath.row of necessary element - это мы отдаем вместо randomSlotInt
+//    func get40SlotsUponRandomSlotInt(startElement: Int) -> [SlotRowModel] // cнизу вверх
+//    func spin(to elementIndex: Int, check currentRandomSlotModel: SlotRowModel) -> Int // Indexpath.row of necessary element - это мы отдаем вместо randomSlotInt
 }
 //[0: SlotImgs.dollar,
 // 1: SlotImgs.snowflake,
@@ -53,25 +53,26 @@ class PlanSpinManager: PlanSpinProtocol {
     }
     
     // баг   комбинация с индексом 3 отдает два одинкавых числа - хотя не должна
-    func get40SlotsUponRandomSlotInt(startElement: Int) -> [SlotRowModel] {
-        var array = [SlotRowModel]()
-        for n in 1...39 {
-            array.append(SlotRowModel(indexPathRow: startElement - n,
-                                      slotInt: SpinLogicManager.array[(startElement - n)]))
-        }
-        return array
-    }
-    
-    func spin(to elementIndex: Int,
-              check currentRandomSlotModel: SlotRowModel) -> Int {
-        guard elementIndex != currentRandomSlotModel.slotInt else { return currentRandomSlotModel.indexPathRow }
-        
-        let arrayUponSlot = get40SlotsUponRandomSlotInt(startElement: currentRandomSlotModel.indexPathRow)
-        for slot in arrayUponSlot {
-            if slot.slotInt == elementIndex {
-                return slot.indexPathRow
-            }
-        }
-        return currentRandomSlotModel.indexPathRow
-    }
+//    func get40SlotsUponRandomSlotInt(startElement: Int) -> [SlotRowModel] {
+//        var array = [SlotRowModel]()
+//        for n in 1...39 {
+//            array.append(SlotRowModel(indexPathRow: startElement - n,
+//                                      slotInt: SpinLogicManager.array[(startElement - n)]))
+//        }
+//        return array
+//    }
+////
+//    func spin(to elementIndex: Int,
+//              check currentRandomSlotModel: SlotRowModel) -> Int {
+//        guard elementIndex != currentRandomSlotModel.slotInt else { return currentRandomSlotModel.indexPathRow }
+//
+//        let arrayUponSlot = get40SlotsUponRandomSlotInt(startElement: currentRandomSlotModel.indexPathRow)
+//        for slot in arrayUponSlot {
+//            if slot.slotInt == elementIndex {
+//                return slot.indexPathRow
+//            }
+//        }
+//        return currentRandomSlotModel.indexPathRow
+//    }
 }
+    

@@ -53,9 +53,9 @@ class ArcticGameComtroller: BaseController {
     
     private var collectionView: UICollectionView!
     // Рассмотри возможность реализации без таймеров, а просто через цикл и asyncAfter
-    private var firstTimerCount = 153
-    private var secondTimerCount = 153
-    private var thirdTimerCount = 153
+    private var firstTimerCount = 152
+    private var secondTimerCount = 152
+    private var thirdTimerCount = 152
     
     var table1ContentOffset: CGFloat = 0
     var table2ContentOffset: CGFloat = 0
@@ -136,6 +136,7 @@ class ArcticGameComtroller: BaseController {
             self.presenter.getMap { spins in
                 self.backIsLoaded = true
                 self.counter.combinations = spins
+                print(spins.count)
             }
         }
         setCollectionView()
@@ -151,9 +152,9 @@ class ArcticGameComtroller: BaseController {
         var multiplier: CGFloat = 0
         
         switch firstTimerCount {
-        case 152: table1ContentOffset = table1.contentOffset.y
+        case 151: table1ContentOffset = table1.contentOffset.y
             multiplier = StrideConstants.firstStride
-        case 147...151: multiplier = StrideConstants.firstStride
+        case 147...150: multiplier = StrideConstants.firstStride
         case 142...146: multiplier = StrideConstants.secondStride
         case 137...141: multiplier = StrideConstants.thirdStride
         case 132...136: multiplier = StrideConstants.fourthStride
@@ -181,12 +182,11 @@ class ArcticGameComtroller: BaseController {
                        options: .curveEaseIn) {
             self.table1.contentOffset.y = self.table1ContentOffset
             self.table1.layoutIfNeeded()
-        } completion: { bool in
-        }
+        } completion: { bool in }
 
         guard firstTimerCount == 3 else { return }
         
-        firstTimerCount = 153
+        firstTimerCount = 152
         firstTimer.invalidate()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             print(self.table1.indexPathsForVisibleRows![1])
@@ -199,12 +199,12 @@ class ArcticGameComtroller: BaseController {
         var multiplier: CGFloat = 0
         
         switch secondTimerCount {
-        case 152: table2ContentOffset = table2.contentOffset.y
+        case 151: table2ContentOffset = table2.contentOffset.y
             print(table2.contentOffset.y)
             print(table2.contentSize)
             print(countOfStrides)
             multiplier = StrideConstants.firstStride
-        case 147...151: multiplier = StrideConstants.firstStride
+        case 147...150: multiplier = StrideConstants.firstStride
         case 142...146: multiplier = StrideConstants.secondStride
         case 137...141: multiplier = StrideConstants.thirdStride
         case 132...136: multiplier = StrideConstants.fourthStride
@@ -238,7 +238,7 @@ class ArcticGameComtroller: BaseController {
             
         }
         guard self.secondTimerCount == 3 else { return }
-        self.secondTimerCount = 153
+        self.secondTimerCount = 152
         self.secondTimer.invalidate()
     }
     
@@ -248,9 +248,9 @@ class ArcticGameComtroller: BaseController {
         var multiplier: CGFloat = 0
         
         switch thirdTimerCount {
-        case 152: table3ContentOffset = table3.contentOffset.y
+        case 151: table3ContentOffset = table3.contentOffset.y
             multiplier = StrideConstants.firstStride
-        case 147...151: multiplier = StrideConstants.firstStride
+        case 147...150: multiplier = StrideConstants.firstStride
         case 142...146: multiplier = StrideConstants.secondStride
         case 137...141: multiplier = StrideConstants.thirdStride
         case 132...136: multiplier = StrideConstants.fourthStride
@@ -282,12 +282,13 @@ class ArcticGameComtroller: BaseController {
         } completion: { bool in
         }
         guard self.thirdTimerCount == 3 else { return }
-        presenter.getSpin(spinId: counter.combinations[self.combinationCounter].id)
-    
-        self.thirdTimerCount = 153
+        
+        self.thirdTimerCount = 152
         self.thirdTimer.invalidate()
+        
+        guard combinationCounter < counter.combinations.count else { return }
+        presenter.getSpin(spinId: counter.combinations[self.combinationCounter].id)
     }
-    
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         actionBack()
@@ -332,7 +333,22 @@ class ArcticGameComtroller: BaseController {
                                centerH: view.h / 81.2)
     }
     
+    private func spinsRunOut() {
+        let alert = UIAlertController(title: "Congratulation",
+                                      message: "You can upgrade all the buildings. The new level is coming soon.",
+                                      preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK",
+                                     style: .default)
+        alert.addAction(okAction)
+        present(alert,
+                animated: true)
+    }
+    
+    
     @IBAction func spinAction(_ sender: Any) {
+        
+        guard counter.combinations.count > combinationCounter else { spinsRunOut()
+            return }
         guard KeychainService.standard.me?.energy ?? 0.0 > 0.0 else { return }
         AudioManager.sharedManager.playSound(type: .spinTap_10)
         AnalyticsHelper.sendFirebaseEvents(events: .spin_tap)

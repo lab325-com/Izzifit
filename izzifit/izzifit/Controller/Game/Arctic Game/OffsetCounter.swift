@@ -29,9 +29,9 @@ class OffsetCounter: OffsetCounterProtocol {
     lazy var minStridesCount: Int = {
       Int((raceBrakeDistance + forsageDistance) / oneCellStrideOffset) + 1
     }()
-    var firstIndexPathRow = 2798
-    var startSecondIndexPathRow = 2798
-    var startThirdIndexPathRow = 2798
+    var firstIndexPathRow = 8998
+    var startSecondIndexPathRow = 8998
+    var startThirdIndexPathRow = 8998
     //[0: SlotImgs.dollar,
     // 1: SlotImgs.snowflake,
     // 2: SlotImgs.moneyBag,
@@ -53,7 +53,7 @@ class OffsetCounter: OffsetCounterProtocol {
     
     static var firstArray: [Int] = {
         var array = [Int]()
-        for _ in 0...2800 {
+        for _ in 0...9000 {
             let random = Int.random(in: 1...5)
             array.append(random)
         }
@@ -62,7 +62,7 @@ class OffsetCounter: OffsetCounterProtocol {
 
     static var secondArray: [Int] = {
         var array = [Int]()
-        for _ in 0...2800 {
+        for _ in 0...9000 {
             let random = Int.random(in: 1...5)
             array.append(random)
         }
@@ -72,7 +72,7 @@ class OffsetCounter: OffsetCounterProtocol {
 
     static var thirdArray: [Int] = {
         var array = [Int]()
-        for _ in 0...2800 {
+        for _ in 0...9000 {
             let random = Int.random(in: 1...5)
             array.append(random)
         }
