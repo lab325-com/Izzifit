@@ -97,46 +97,46 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="mej-T5-efx">
                     <rect key="frame" x="16" y="322" width="382" height="15"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzM-aE-obI">
-                            <rect key="frame" x="0.0" y="0.0" width="55.5" height="15"/>
-                            <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="12"/>
-                            <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="0.51951464179421769" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xf-Lc-IGV">
-                            <rect key="frame" x="55.5" y="0.0" width="64" height="15"/>
+                            <rect key="frame" x="0.0" y="0.0" width="64" height="15"/>
                             <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="12"/>
                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.51951464179999995" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TUE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYl-c8-DD1">
-                            <rect key="frame" x="119.5" y="0.0" width="53" height="15"/>
+                            <rect key="frame" x="64" y="0.0" width="53" height="15"/>
                             <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="12"/>
                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.51951464179999995" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mP-uK-61l">
-                            <rect key="frame" x="172.5" y="0.0" width="62" height="15"/>
+                            <rect key="frame" x="117" y="0.0" width="62" height="15"/>
                             <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="12"/>
                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.51951464179999995" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeJ-Ee-5pZ">
-                            <rect key="frame" x="234.5" y="0.0" width="56.5" height="15"/>
+                            <rect key="frame" x="179" y="0.0" width="56.5" height="15"/>
                             <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="12"/>
                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.51951464179999995" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FRI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvw-MU-sj5">
-                            <rect key="frame" x="291" y="0.0" width="40" height="15"/>
+                            <rect key="frame" x="235.5" y="0.0" width="40" height="15"/>
                             <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="12"/>
                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.51951464179999995" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYV-X4-PES">
-                            <rect key="frame" x="331" y="0.0" width="51" height="15"/>
+                            <rect key="frame" x="275.5" y="0.0" width="51" height="15"/>
                             <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="12"/>
                             <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.51951464179999995" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzM-aE-obI">
+                            <rect key="frame" x="326.5" y="0.0" width="55.5" height="15"/>
+                            <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="12"/>
+                            <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="0.51951464179421769" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
