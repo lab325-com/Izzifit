@@ -18,12 +18,18 @@ class SlotCollectionCell: UICollectionViewCell {
     private var model: MapModel?
     
     private lazy var contentSizeHeight: CGFloat = {
-        CGFloat((h / 12.78) * 2801)
+        CGFloat((h / 12.78) * 9001)
     }()
     private lazy var arrays: [[Int]] = {
         [OffsetCounter.firstArray,
          OffsetCounter.secondArray,
          OffsetCounter.thirdArray]
+    }()
+    
+    lazy var rowHeight: CGFloat = {
+        print(tableView.sizeHeight)
+        print(tableView.sizeHeight / 2.9)
+        return tableView.sizeHeight / 2.9
     }()
     
     override init(frame: CGRect) {
@@ -49,7 +55,7 @@ class SlotCollectionCell: UICollectionViewCell {
         print(contentSizeHeight)
     
         DispatchQueue.main.async {
-            self.tableView.scrollToRow(at: [0,2798],
+            self.tableView.scrollToRow(at: [0,8998],
                                   at: .middle,
                                   animated: true)
         }
@@ -80,7 +86,7 @@ class SlotCollectionCell: UICollectionViewCell {
 extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 2801
+        return 9001
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
