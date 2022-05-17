@@ -29,21 +29,6 @@ class LevelController: BaseController {
         }
     }
     
-    private var backIsLoaded = false {
-        didSet {
-            guard let count = presenter.freeBuildingsCount else { return}
-            switch count {
-            case 0:
-                hummerBtn.isHidden = true
-                hummerCountLbl.isHidden = true
-            default:
-                hummerBtn.isHidden = false
-                hummerCountLbl.isHidden = false
-                hummerCountLbl.text = "x\(count)"
-            }
-        }
-    }
-    
     @IBOutlet weak var hummerCountLbl: UILabel!
     
     private var buildPopUpVw = BuildPopUpView()
@@ -64,12 +49,10 @@ class LevelController: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        hummerBtn.isHidden = true
-        hummerCountLbl.isHidden = true
+        checkAvailableHummers()
     }
     
     override func viewDidLoad() {
-        
         needSoundTap = false
         super.viewDidLoad()
         presenter.getBuildings()
@@ -86,6 +69,20 @@ class LevelController: BaseController {
                                                  y: 0),
                                          animated: true)
     }
+    
+    private func checkAvailableHummers() {
+        guard let count = presenter.freeBuildingsCount else { return}
+        switch count {
+        case 0:
+            hummerBtn.isHidden = true
+            hummerCountLbl.isHidden = true
+        default:
+            hummerBtn.isHidden = false
+            hummerCountLbl.isHidden = false
+            hummerCountLbl.text = "x\(count)"
+        }
+    }
+    
     
     private func addTargets() {
         for btn in btns {
@@ -318,7 +315,7 @@ extension LevelController: LevelOutputProtocol {
     func success() { }
     
     func successBuildings(model: [BuildingsModel]) {
-        backIsLoaded = true
+      checkAvailableHummers()
         print(model)
         for building in model {
             var state: LevelStates

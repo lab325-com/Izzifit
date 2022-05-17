@@ -28,7 +28,7 @@ class EnerdyTodayCell: BaseTableViewCell {
         super.awakeFromNib()
     
         progressView.layer.cornerRadius = 4
-        progressView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+        progressView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMaxXMinYCorner]
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

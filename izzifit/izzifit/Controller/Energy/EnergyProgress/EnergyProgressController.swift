@@ -135,9 +135,9 @@ extension EnergyProgressController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  cellIdentifier, for: indexPath) as! ProgressCell
-        if currentFirstWeekDay <= 0 {
-            cell.setupCell(progress: 0, isHidden: false, day: indexPath.row - currentFirstWeekDay + 1)
-        } else {
+        //if currentFirstWeekDay <= 0 {
+          //  cell.setupCell(progress: 0, isHidden: false, day: indexPath.row - currentFirstWeekDay + 1)
+        //} else {
             if currentDay.isInThisMonth {
                 if indexPath.row >= todayNumberDays + currentFirstWeekDay {
                     cell.setupCell(progress: 0, isHidden: Array(0..<currentFirstWeekDay).contains(indexPath.row), day: indexPath.row - currentFirstWeekDay + 1)
@@ -148,7 +148,7 @@ extension EnergyProgressController: UICollectionViewDelegate, UICollectionViewDa
             } else {
                 cell.setupCell(progress: 0, isHidden: Array(0..<currentFirstWeekDay).contains(indexPath.row), day: indexPath.row - currentFirstWeekDay + 1)
             }
-        }
+        //}
         return cell
     }
 }

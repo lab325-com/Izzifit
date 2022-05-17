@@ -47,7 +47,12 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
             waterStackView.addArrangedSubview(button)
         }
         
-        for index in model.doneCups..<model.totalCups {
+        var doneCups = model.doneCups
+        if doneCups > model.totalCups {
+            doneCups = model.totalCups
+        }
+        
+        for index in doneCups..<model.totalCups {
             let button = UIButton()
             button.setImage(RImage.energy_water_empty_ic(), for: .normal)
             button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)

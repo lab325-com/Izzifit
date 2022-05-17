@@ -26,29 +26,9 @@ class ArcticGameComtroller: BaseController {
     @IBOutlet weak var shadowViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var slotHouseImgVwTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var resultLblTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var logoImgVwTopConstraint: NSLayoutConstraint!
     
-    
-    @IBOutlet weak var hummerBtn: UIButton! {
-        didSet {
-            hummerBtn.isUserInteractionEnabled = false
-        }
-    }
-    
-    private var backIsLoaded = false {
-        didSet {
-            guard let count = presenter.freeBuildingsCount else { return}
-            switch count {
-            case 0:
-                hummerBtn.isHidden = true
-                hummerCountLbl.isHidden = true
-            default:
-                hummerBtn.isHidden = false
-                hummerCountLbl.isHidden = true
-                hummerCountLbl.text = "x\(count)"
-            }
-        }
-    }
-    
+    @IBOutlet weak var hummerBtn: UIButton!
     @IBOutlet weak var hummerCountLbl: UILabel!
     
     private var collectionView: UICollectionView!
@@ -120,11 +100,23 @@ class ArcticGameComtroller: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Поменяй
-        hummerBtn.isHidden = true
-        hummerCountLbl.isHidden = true
+        checkAvailableHummers()
         
         coinslabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
         energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
+    }
+    private func checkAvailableHummers() {
+        hummerBtn.isUserInteractionEnabled = false
+    guard let count = presenter.freeBuildingsCount else { return }
+    switch count {
+    case 0:
+        hummerBtn.isHidden = true
+        hummerCountLbl.isHidden = true
+    default:
+        hummerBtn.isHidden = false
+        hummerCountLbl.isHidden = false
+        hummerCountLbl.text = "x\(count)"
+    }
     }
     
     override func viewDidLoad() {
@@ -134,14 +126,13 @@ class ArcticGameComtroller: BaseController {
         super.viewDidLoad()
         DispatchQueue.main.async {
             self.presenter.getMap { spins in
-                self.backIsLoaded = true
-                self.counter.combinations = spins
-                print(spins.count)
-            }
+                self.checkAvailableHummers()
+                self.counter.combinations = spins            }
         }
         setCollectionView()
         setup()
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        let swipeRight = UISwipeGestureRecognizer(target: self,
+                                                  action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
     }
@@ -299,6 +290,7 @@ class ArcticGameComtroller: BaseController {
         slotHouseImgVwTopConstraint.constant = view.h / 4.51
         slotBackImgVw.centerYAnchor.constraint(equalTo: slotHouseImgVw.centerYAnchor, constant: (view.h / 10.33) / 2).isActive = true
         shadowViewBottomConstraint.constant = view.h / 10
+        logoImgVwTopConstraint.constant = view.h / 35.3
         
         if let name = KeychainService.standard.me?.name {
             nameLabel.text = name
