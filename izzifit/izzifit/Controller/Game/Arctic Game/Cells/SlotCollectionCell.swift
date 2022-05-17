@@ -68,7 +68,6 @@ class SlotCollectionCell: UICollectionViewCell {
                   bottomC: 0,
                   leadingC: 0,
                   trailingC: 0)
-      
     }
     
     func setupCell(model: MapModel?) {

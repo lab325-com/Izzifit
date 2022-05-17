@@ -64,12 +64,13 @@ struct SpinLogicManager {
         }
     }
     
-    func accrueBonuses(by combination: SpinCombination, resultLbl: UILabel) {
+    func accrueBonuses(by combination: SpinCombination, resultLbl: UILabel,_ threeHummers: () -> Void) {
         AnalyticsHelper.sendFirebaseEvents(events: .spin_reward, params: ["award" : combination.rawValue])
         switch combination {
         case .pairHummers: resultLbl.text = "+4⚡️"
         case .setHummers: resultLbl.text = "upgrade"
                           AudioManager.sharedManager.playSound(type: .superWin_19)
+            threeHummers()
         case .pairDollars: resultLbl.text = "+1000💵"
             AudioManager.sharedManager.playSound(type: .coinsX2_13)
         case .setDollars: resultLbl.text = "+4000💵"
@@ -103,10 +104,10 @@ struct SpinLogicManager {
                 res.update(with: index)
                 switch array[index] {
                 case 1: combination = .pairDollars
-                case 2: combination = .pairSnowflakes
-                case 3: combination = .pairMoneyBags
-                case 4: combination = .pairHummers
-                case 5: combination = .pairLightning
+                case 2: combination = .pairMoneyBags
+                case 3: combination = .pairLightning
+                case 4: combination = .pairSnowflakes
+                case 5: combination = .pairHummers
                 default: break
                 }
             }
@@ -118,10 +119,10 @@ struct SpinLogicManager {
 func recognizeSetCombinations(_ resultIndices: [Int]) -> (SpinCombination, Set<Int>)? {
         switch resultIndices {
         case [1,1,1]: return (.setDollars, [0,1,2])
-        case [2,2,2]: return (.setSnowflakes,[0,1,2])
-        case [3,3,3]: return (.setMoneyBags, [0,1,2])
-        case [4,4,4]: return (.setHummers, [0,1,2])
-        case [5,5,5]: return (.setLightning, [0,1,2])
+        case [2,2,2]: return (.setMoneyBags,[0,1,2])
+        case [3,3,3]: return (.setLightning, [0,1,2])
+        case [4,4,4]: return (.setSnowflakes, [0,1,2])
+        case [5,5,5]: return (.setHummers, [0,1,2])
         default: break
         }
         guard let pairResultTuple = matchedIndicesAndCombination(of: resultIndices) else { return nil }

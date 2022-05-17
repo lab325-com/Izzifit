@@ -101,6 +101,8 @@ class ArcticGameComtroller: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hummerBtn.isHidden = true
+        hummerCountLbl.isHidden = true
         checkAvailableHummers()
         // Поменяй
         avatarImageView.isHidden = true
@@ -130,6 +132,8 @@ class ArcticGameComtroller: BaseController {
         hummerCountLbl.text = "x\(count)"
     }
     }
+    
+    
     
     override func viewDidLoad() {
         AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
@@ -245,6 +249,15 @@ class ArcticGameComtroller: BaseController {
         self.secondTimer.invalidate()
     }
     
+    func threeHummersCombination() {
+        guard var count = presenter.freeBuildingsCount else { return }
+        count += 1
+        hummerCountLbl.text = "x\(count)"
+        hummerBtn.isHidden = false
+        hummerCountLbl.isHidden = false
+    }
+    
+    
     @objc
     func x3Spin() {
         thirdTimerCount -= 1
@@ -309,6 +322,7 @@ class ArcticGameComtroller: BaseController {
         } else {
             barBackVw.nameLbl.isHidden = true
         }
+        
         barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
                                     placeholder: RImage.placeholder_food_ic(),
                                     options: [.transition(.fade(0.25))])
@@ -319,10 +333,12 @@ class ArcticGameComtroller: BaseController {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.h / 12.01,
                                  height: view.h / 4.41)
+        
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = view.h / 81.2
         collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: layout)
+        
         collectionView.backgroundColor = . clear
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -357,8 +373,8 @@ class ArcticGameComtroller: BaseController {
         AudioManager.sharedManager.playSound(type: .spinTap_10)
         AnalyticsHelper.sendFirebaseEvents(events: .spin_tap)
         // поменяй лейблы
-        spinManager.spinAction(coinsLbl: resultLbl,
-                               energyLbl: resultLbl,
+        spinManager.spinAction(coinsLbl: barBackVw.coinsLbl,
+                               energyLbl: barBackVw.energyCountLbl,
                                resultLbl: resultLbl,
                                collectionView: collectionView,
                                spinBtn: spinBtn) {
@@ -430,7 +446,9 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             if let tupleResult = self.spinManager.recognizeSetCombinations(self.counter.combinations[self.combinationCounter].spinObjectIds) {
                 print(tupleResult)
-                self.spinManager.accrueBonuses(by: tupleResult.0, resultLbl: self.resultLbl)
+                self.spinManager.accrueBonuses(by: tupleResult.0, resultLbl: self.resultLbl) {
+                    self.threeHummersCombination()
+                }
                 self.spinManager.paintBlueBorder(tupleResult.1,
                                                  indexPathes: [self.counter.firstIndexPathRow,
                                                                self.counter.startSecondIndexPathRow,

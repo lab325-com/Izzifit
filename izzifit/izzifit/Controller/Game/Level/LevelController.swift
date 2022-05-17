@@ -49,6 +49,8 @@ class LevelController: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        buildPopUpVw.hummerBtn.isHidden = true
+        buildPopUpVw.hummerCountLbl.isHidden = true
         checkAvailableHummers()
     }
     
@@ -113,7 +115,7 @@ class LevelController: BaseController {
         default: buildType = .ship
         }
         
-        guard KeychainService.standard.me?.coins ?? 0 >= price else { return }
+        guard KeychainService.standard.me?.coins ?? 0 >= price || presenter.freeBuildingsCount ?? 0 > 0 else { return }
                 
         view.ui.genericlLayout(object: buildPopUpVw,
                                        parentView: view,
@@ -123,16 +125,7 @@ class LevelController: BaseController {
                                        trailingC: 0)
         view.layoutIfNeeded()
         
-        guard let count = presenter.freeBuildingsCount else { return}
-        switch count {
-        case 0:
-            buildPopUpVw.hummerBtn.isHidden = true
-            buildPopUpVw.hummerCountLbl.isHidden = true
-        default:
-            buildPopUpVw.hummerBtn.isHidden = false
-            buildPopUpVw.hummerCountLbl.isHidden = false
-            buildPopUpVw.hummerCountLbl.text = "x\(count)"
-        }
+        checkAvailableHummers()
         
         AnalyticsHelper.sendFirebaseEvents(events: .map_building_tap, params: ["building" : buildType.rawValue])
         
