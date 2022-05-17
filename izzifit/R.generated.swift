@@ -7544,8 +7544,6 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "slotHouse", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'slotHouse' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "spinBtnNormal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'spinBtnNormal' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "start_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_logo_ic' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "top_view_coin_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_coin_ic' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "top_view_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_flash_ic' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "AccentColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'AccentColor' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
         }

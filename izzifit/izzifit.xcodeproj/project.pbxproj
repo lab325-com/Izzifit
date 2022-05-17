@@ -330,12 +330,12 @@
 		FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */; };
 		FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */; };
 		FA62C54E27F5B58800AC463A /* WeightsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */; };
-		FA65636A28068D030045EDBC /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65636928068D030045EDBC /* LevelView.swift */; };
 		FA6628A327F184C200FBB946 /* Moods.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA6628A227F184C200FBB946 /* Moods.graphql */; };
 		FA6699CA281ABCF600B394E0 /* OffsetCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */; };
 		FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */; };
 		FA8CC858282919B80022BFE2 /* construction3.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA8CC857282919B80022BFE2 /* construction3.gif */; };
 		FA8CC85A28291CA50022BFE2 /* GifImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8CC85928291CA50022BFE2 /* GifImageView.swift */; };
+		FA9400052833989C00CE5021 /* GameBarBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9400042833989C00CE5021 /* GameBarBackView.swift */; };
 		FAA8E88A27F449060081A12A /* CaloriesWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAA8E88927F449060081A12A /* CaloriesWidget.graphql */; };
 		FAA8E88C27F450A80081A12A /* CaloriesWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8E88B27F450A80081A12A /* CaloriesWidgetModel.swift */; };
 		FAA9DBEB27D9ECD4004A14FB /* WorkoutTypesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */; };
@@ -696,12 +696,12 @@
 		FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometryManager.swift; sourceTree = "<group>"; };
 		FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WeightsWidget.graphql; sourceTree = "<group>"; };
 		FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsWidgetModel.swift; sourceTree = "<group>"; };
-		FA65636928068D030045EDBC /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		FA6628A227F184C200FBB946 /* Moods.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moods.graphql; sourceTree = "<group>"; };
 		FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetCounter.swift; sourceTree = "<group>"; };
 		FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		FA8CC857282919B80022BFE2 /* construction3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = construction3.gif; sourceTree = "<group>"; };
 		FA8CC85928291CA50022BFE2 /* GifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImageView.swift; sourceTree = "<group>"; };
+		FA9400042833989C00CE5021 /* GameBarBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBarBackView.swift; sourceTree = "<group>"; };
 		FAA8E88927F449060081A12A /* CaloriesWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CaloriesWidget.graphql; sourceTree = "<group>"; };
 		FAA8E88B27F450A80081A12A /* CaloriesWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesWidgetModel.swift; sourceTree = "<group>"; };
 		FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTypesModel.swift; sourceTree = "<group>"; };
@@ -2287,6 +2287,14 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
+		FA9400032833986400CE5021 /* GameBarBackView */ = {
+			isa = PBXGroup;
+			children = (
+				FA9400042833989C00CE5021 /* GameBarBackView.swift */,
+			);
+			path = GameBarBackView;
+			sourceTree = "<group>";
+		};
 		FAA8E88827F448760081A12A /* CaloriesWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -2329,7 +2337,6 @@
 			isa = PBXGroup;
 			children = (
 				FACB1E852804325500058773 /* LevelStates.swift */,
-				FA65636928068D030045EDBC /* LevelView.swift */,
 				FAE6764C282E7E200020678E /* LevelPresenter.swift */,
 				FA1A6D7E28081CE80040518A /* LevelController.swift */,
 				FA1A6D7F28081CE80040518A /* LevelController.xib */,
@@ -2340,6 +2347,7 @@
 		FAB6546D27FEDF340057A221 /* Arctic Game */ = {
 			isa = PBXGroup;
 			children = (
+				FA9400032833986400CE5021 /* GameBarBackView */,
 				FAB6547E27FFFD330057A221 /* Cells */,
 				FAB6546E27FEDFA70057A221 /* ArcticGameComtroller.swift */,
 				FAB6546F27FEDFA70057A221 /* ArcticGameComtroller.xib */,
@@ -2952,7 +2960,6 @@
 				0249D26D27B3A96E00F265C1 /* AuthModel.swift in Sources */,
 				02B1E71927DA003B00C9E610 /* EnergyTrainingCell.swift in Sources */,
 				0227DAA927C64F33008AB26B /* MenuRouter.swift in Sources */,
-				FA65636A28068D030045EDBC /* LevelView.swift in Sources */,
 				0273F56927D60EF600B19449 /* SleepWidgetModel.swift in Sources */,
 				023FBC3F27FACCC0004D0CEA /* PaywallRouter.swift in Sources */,
 				0251D24027E215C60098A54D /* ProductsByMealModel.swift in Sources */,
@@ -3008,6 +3015,7 @@
 				02BC127727F1CF5800678305 /* WorkoutDetailDescriptionCell.swift in Sources */,
 				FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */,
 				021A6F4A27BF91050000D863 /* CircularProgressBarView.swift in Sources */,
+				FA9400052833989C00CE5021 /* GameBarBackView.swift in Sources */,
 				FAA9DBEE27D9ECFF004A14FB /* WorkoutPresenter.swift in Sources */,
 				021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */,
 				02BACF1027F4554900B7562C /* WorkoutSpecialCell.swift in Sources */,

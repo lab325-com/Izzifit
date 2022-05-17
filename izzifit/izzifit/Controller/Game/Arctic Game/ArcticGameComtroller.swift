@@ -9,10 +9,11 @@ import UIKit
 
 class ArcticGameComtroller: BaseController {
     
+    private var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
+    
+    @IBOutlet weak var gameBackImgVw: UIImageView!
+    @IBOutlet weak var barBackImgVw: UIImageView!
     @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var coinslabel: UILabel!
-    @IBOutlet weak var energyLabel: UILabel!
     @IBOutlet weak var slotBackImgVw: UIImageView!
     @IBOutlet weak var spinBtn: UIButton! {
         didSet {
@@ -51,16 +52,17 @@ class ArcticGameComtroller: BaseController {
     var countOfStrides: CGFloat = 0
     
     private lazy var table1: UITableView = {
-        (collectionView.cellForItem(at: [0,0]) as! SlotCollectionCell).tableView
+        guard let cell = collectionView.cellForItem(at: [0,0]) as? SlotCollectionCell else { return UITableView() }
+        return cell.tableView
     }()
     
     private lazy var table2: UITableView = {
-        let table =  (collectionView.cellForItem(at: [0,1]) as! SlotCollectionCell).tableView
-        return table
-    }()
+        guard let cell = collectionView.cellForItem(at: [0,1]) as? SlotCollectionCell else { return UITableView() }
+        return cell.tableView    }()
     
     private lazy var table3: UITableView = {
-        (collectionView.cellForItem(at: [0,2]) as! SlotCollectionCell).tableView
+        guard let cell = collectionView.cellForItem(at: [0,2]) as? SlotCollectionCell else { return UITableView() }
+        return cell.tableView
     }()
     
     private lazy var counter: OffsetCounter = {
@@ -99,11 +101,21 @@ class ArcticGameComtroller: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Поменяй
         checkAvailableHummers()
+        // Поменяй
+        avatarImageView.isHidden = true
+        barBackImgVw.isHidden = true
+
         
-        coinslabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        view.ui.genericlLayout(object: barBackVw,
+                               parentView: gameBackImgVw,
+                               height: 88,
+                               topC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
+        
+        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        barBackVw.energyCountLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
     }
     private func checkAvailableHummers() {
         hummerBtn.isUserInteractionEnabled = false
@@ -293,11 +305,11 @@ class ArcticGameComtroller: BaseController {
         logoImgVwTopConstraint.constant = view.h / 35.3
         
         if let name = KeychainService.standard.me?.name {
-            nameLabel.text = name
+            barBackVw.nameLbl.text = name
         } else {
-            nameLabel.isHidden = true
+            barBackVw.nameLbl.isHidden = true
         }
-        avatarImageView.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
+        barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
                                     placeholder: RImage.placeholder_food_ic(),
                                     options: [.transition(.fade(0.25))])
     }
@@ -344,9 +356,9 @@ class ArcticGameComtroller: BaseController {
         guard KeychainService.standard.me?.energy ?? 0.0 > 0.0 else { return }
         AudioManager.sharedManager.playSound(type: .spinTap_10)
         AnalyticsHelper.sendFirebaseEvents(events: .spin_tap)
-        
-        spinManager.spinAction(coinsLbl: coinslabel,
-                               energyLbl: energyLabel,
+        // поменяй лейблы
+        spinManager.spinAction(coinsLbl: resultLbl,
+                               energyLbl: resultLbl,
                                resultLbl: resultLbl,
                                collectionView: collectionView,
                                spinBtn: spinBtn) {
