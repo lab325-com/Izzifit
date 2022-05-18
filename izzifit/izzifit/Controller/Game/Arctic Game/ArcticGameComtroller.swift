@@ -128,6 +128,7 @@ class ArcticGameComtroller: BaseController {
         resultLblTopConstraint.constant =  view.h / 17.65
         resultLbl.font = UIFont(name: "Inter-Black",
                                 size: view.h/54.13)
+        
         slotHouseImgVwTopConstraint.constant = view.h / 4.51
         slotBackImgVw.centerYAnchor.constraint(equalTo: slotHouseImgVw.centerYAnchor, constant: (view.h / 10.33) / 2).isActive = true
         shadowViewBottomConstraint.constant = view.h / 10
@@ -138,7 +139,6 @@ class ArcticGameComtroller: BaseController {
         
         awardCountLbl.font = UIFont(name: "Inter-Bold",
                                     size: view.h/40.6 )
-        
         
         awardCountLbl.text = "100"
         
