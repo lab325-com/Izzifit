@@ -7,8 +7,11 @@
 
 import UIKit
 import Gifu
+import SwiftUI
 
 class LevelController: BaseController {
+    
+    private var barBackVw = GameBarBackView(backImage: UIImage(named: "levelShadowViewBack")!)
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var shipBtn: UIButton!
@@ -18,19 +21,10 @@ class LevelController: BaseController {
     @IBOutlet weak var deerBtn: UIButton!
     
     let animation = GIFImageView()
-    
-    @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var energyLbl: UILabel!
-    @IBOutlet weak var coinsLbl: UILabel!
-    @IBOutlet weak var hummerBtn: UIButton! {
-        didSet {
-            hummerBtn.isUserInteractionEnabled = false
-        }
-    }
-    
+
+    @IBOutlet weak var hummerBtn: UIButton!
     @IBOutlet weak var hummerCountLbl: UILabel!
-    
+
     private var buildPopUpVw = BuildPopUpView()
     
     private lazy var btns = [shipBtn,
@@ -49,6 +43,18 @@ class LevelController: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hummerBtn.isUserInteractionEnabled = false
+        
+        view.ui.genericlLayout(object: barBackVw,
+                               parentView: self.view,
+                               height: view.h / 9.2,
+                               topC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
+        
+        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        barBackVw.energyCountLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        
         buildPopUpVw.hummerBtn.isHidden = true
         buildPopUpVw.hummerCountLbl.isHidden = true
         checkAvailableHummers()
@@ -240,16 +246,13 @@ class LevelController: BaseController {
         for i in 0...4 {
             btns[i]?.tag = i
         }
-        coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        energyLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
-        
         if let name = KeychainService.standard.me?.name {
-            nameLabel.text = name
+            barBackVw.nameLbl.text = name
         } else {
-            nameLabel.isHidden = true
+            barBackVw.nameLbl.isHidden = true
         }
         
-        avatarImageView.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
+        barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
                                     placeholder: RImage.placeholder_food_ic(),
                                     options: [.transition(.fade(0.25))])
     }
@@ -338,8 +341,8 @@ extension LevelController: LevelOutputProtocol {
     func successBuild() { }
     
     func successMe() {
-        coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        energyLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        barBackVw.energyCountLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
     }
 }
 
