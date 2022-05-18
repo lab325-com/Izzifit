@@ -22,7 +22,7 @@ protocol EnergyOutputProtocol: BaseController {
 //----------------------------------------------
 protocol EnergyPresenterProtocol: AnyObject {
     init(view: EnergyOutputProtocol)
-    func getWidgets(date: String)
+    func getWidgets(date: String, loader: Bool)
     
     func setWater(index: Int, date: String)
     func setMood(mood: MoodType, date: String)
@@ -48,9 +48,11 @@ class EnergyPresenter: EnergyPresenterProtocol {
     var workoutWidgets: [WorkoutsWidgetMainModel] = []
     var chooseWorkoutWidgets: [WorkoutsWidgetMainModel] = []
     
-    func getWidgets(date: String) {
+    func getWidgets(date: String, loader: Bool = true) {
         
-        view?.startLoader()
+        if loader {
+            view?.startLoader()
+        }
         
         let group = DispatchGroup()
         

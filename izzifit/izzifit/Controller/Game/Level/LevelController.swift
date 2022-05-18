@@ -349,7 +349,7 @@ extension LevelController: LevelOutputProtocol {
     
     func successMe() {
         coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        energyLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        energyLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }
 }
 

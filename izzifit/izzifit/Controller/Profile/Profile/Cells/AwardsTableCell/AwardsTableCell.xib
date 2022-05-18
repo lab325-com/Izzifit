@@ -34,6 +34,9 @@
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="actionPrivacy:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="c3h-gZ-wHd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPe-c0-tA7">
                                 <rect key="frame" x="120" y="0.0" width="120" height="15"/>
@@ -45,6 +48,9 @@
                                 <state key="normal" title="Terms of Use">
                                     <color key="titleColor" name="textTitleBlack"/>
                                 </state>
+                                <connections>
+                                    <action selector="actionTerms:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="l7k-zM-ld0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KH-6w-KlN">
                                 <rect key="frame" x="240" y="0.0" width="120" height="15"/>
@@ -56,6 +62,9 @@
                                 <state key="normal" title="Write to us">
                                     <color key="titleColor" name="textTitleBlack"/>
                                 </state>
+                                <connections>
+                                    <action selector="actionWriteToUs:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bLS-JI-vHQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>

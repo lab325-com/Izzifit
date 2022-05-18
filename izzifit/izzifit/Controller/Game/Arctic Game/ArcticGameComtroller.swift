@@ -124,7 +124,7 @@ class ArcticGameComtroller: BaseController {
         hummerCountLbl.isHidden = true
         
         coinslabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        energyLabel.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }
     
     override func viewDidLoad() {

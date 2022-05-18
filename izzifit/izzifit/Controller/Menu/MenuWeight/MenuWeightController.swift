@@ -114,7 +114,10 @@ class MenuWeightController: BaseController {
     //----------------------------------------------
     
     private func setup() {
-        initScrollOffset()
+        DispatchQueue.main.async {
+            self.initScrollOffset()
+        }
+        
         
         mainTitleLabel.text = RLocalization.onboarding_weight_title()
         kgLabel.text = RLocalization.onboarding_weight_kg()
@@ -225,6 +228,9 @@ extension MenuWeightController: UIScrollViewDelegate {
 
 extension MenuWeightController: MenuOutputProtocol {
     func success() {
+        NotificationCenter.default.post(name: Constants.Notifications.updateEnergyNotification,
+                                        object: self,
+                                        userInfo: nil)
         actionBack()
     }
     

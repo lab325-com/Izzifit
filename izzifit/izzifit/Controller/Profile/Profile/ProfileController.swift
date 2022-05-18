@@ -33,7 +33,7 @@ class ProfileController: BaseController {
         AnalyticsHelper.sendFirebaseEvents(events: .profile_open)
         profileLbl.text = RLocalization.profile()
         coinsLabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        energyLabel.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
         
         if let name = KeychainService.standard.me?.name {
             nameLabel.text = name
@@ -112,6 +112,7 @@ extension ProfileController: UITableViewDataSource {
             return weightCell
         default:
             let awardsCell = tableView.dequeueReusableCell(withIdentifier: PolicyCell.id) as! PolicyCell
+            awardsCell.delegate = self
             return awardsCell
         }
     }
@@ -132,5 +133,23 @@ extension ProfileController: ProfileOutputProtocol {
         profileTableView.reloadData()
     }
     func failure() {
+    }
+}
+
+extension ProfileController: PolicyCellDelegate {
+    func policyCellPolicy(cell: PolicyCell) {
+        AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "privacy", "screen": "profile"])
+        guard let url = URL(string: "https://mob325.com/izzifit/privacy_policy.html") else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    func policyCellTerms(cell: PolicyCell) {
+        AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "terms", "screen": "profile"])
+        guard let url = URL(string: "https://mob325.com/izzifit/terms_and_conditions.html") else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    func policyCellWriteToUs(cell: PolicyCell) {
+        MenuRouter(presenter: navigationController).pushMenuQuiestion()
     }
 }

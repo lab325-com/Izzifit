@@ -172,6 +172,12 @@
 		0273F56927D60EF600B19449 /* SleepWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F56827D60EF600B19449 /* SleepWidgetModel.swift */; };
 		0273F56C27D6513200B19449 /* MealsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0273F56B27D6513200B19449 /* MealsWidget.graphql */; };
 		0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F56D27D6561100B19449 /* MealsWidgetModel.swift */; };
+		028EE3BF2834EE0C00F3D148 /* AppsFlyerLib in Frameworks */ = {isa = PBXBuildFile; productRef = 028EE3BE2834EE0C00F3D148 /* AppsFlyerLib */; };
+		028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C02834EE5100F3D148 /* AdSupport.framework */; };
+		028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C22834EE5C00F3D148 /* iAd.framework */; };
+		028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C42834EE6300F3D148 /* AdServices.framework */; };
+		028EE3C72835023A00F3D148 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028EE3C62835023A00F3D148 /* Constant.swift */; };
+		028EE3C92835031400F3D148 /* EnergyController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028EE3C82835031400F3D148 /* EnergyController+TableView.swift */; };
 		0290B39327D2045400381B42 /* ShadowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39227D2045400381B42 /* ShadowsView.swift */; };
 		0290B39527D212CA00381B42 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39427D212CA00381B42 /* UIView+Extension.swift */; };
 		0290B39927D2340800381B42 /* EnerdyTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39727D2340800381B42 /* EnerdyTodayCell.swift */; };
@@ -539,6 +545,11 @@
 		0273F56827D60EF600B19449 /* SleepWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepWidgetModel.swift; sourceTree = "<group>"; };
 		0273F56B27D6513200B19449 /* MealsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MealsWidget.graphql; sourceTree = "<group>"; };
 		0273F56D27D6561100B19449 /* MealsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsWidgetModel.swift; sourceTree = "<group>"; };
+		028EE3C02834EE5100F3D148 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		028EE3C22834EE5C00F3D148 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		028EE3C42834EE6300F3D148 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
+		028EE3C62835023A00F3D148 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		028EE3C82835031400F3D148 /* EnergyController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnergyController+TableView.swift"; sourceTree = "<group>"; };
 		0290B39227D2045400381B42 /* ShadowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowsView.swift; sourceTree = "<group>"; };
 		0290B39427D212CA00381B42 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		0290B39727D2340800381B42 /* EnerdyTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnerdyTodayCell.swift; sourceTree = "<group>"; };
@@ -743,8 +754,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */,
+				028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */,
+				028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */,
 				0249D27827B3AA3B00F265C1 /* Apollo in Frameworks */,
 				0249D27A27B3AA3B00F265C1 /* ApolloWebSocket in Frameworks */,
+				028EE3BF2834EE0C00F3D148 /* AppsFlyerLib in Frameworks */,
 				0249D25627B3A7AD00F265C1 /* NVActivityIndicatorView in Frameworks */,
 				02E6D85B27FC259E00E29509 /* SwiftyStoreKit in Frameworks */,
 				0249D25827B3A7AD00F265C1 /* NVActivityIndicatorViewExtended in Frameworks */,
@@ -1134,6 +1149,7 @@
 				0249D26A27B3A94200F265C1 /* Apollo */,
 				0249D26727B3A91300F265C1 /* Service */,
 				0249D25A27B3A87F00F265C1 /* Extension */,
+				028EE3C62835023A00F3D148 /* Constant.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1415,6 +1431,7 @@
 			children = (
 				02FAF0AD27D36D7C002CD678 /* EnergyPresenter.swift */,
 				02A5CDA327C393A300D31FB4 /* EnergyController.swift */,
+				028EE3C82835031400F3D148 /* EnergyController+TableView.swift */,
 				02A5CDA427C393A300D31FB4 /* EnergyController.xib */,
 				0290B39627D233E700381B42 /* Cell */,
 				02F0C17E27EDBDB3005DE3E2 /* EnergyUpdateWeight */,
@@ -2236,6 +2253,9 @@
 		DB1BDA7364672EBF249DB7B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				028EE3C42834EE6300F3D148 /* AdServices.framework */,
+				028EE3C22834EE5C00F3D148 /* iAd.framework */,
+				028EE3C02834EE5100F3D148 /* AdSupport.framework */,
 				FDA5E332399E73031D583774 /* Pods_izzifit.framework */,
 			);
 			name = Frameworks;
@@ -2500,6 +2520,7 @@
 				02A464A12811658800B00381 /* FirebaseAnalytics */,
 				02A464A32811658800B00381 /* FirebaseCrashlytics */,
 				FAF4350328257920008691CD /* Gifu */,
+				028EE3BE2834EE0C00F3D148 /* AppsFlyerLib */,
 			);
 			productName = izzifit;
 			productReference = 0249D22727B3A4EF00F265C1 /* izzifit.app */;
@@ -2539,6 +2560,7 @@
 				02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 				02A464A02811658800B00381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FAF4350228257920008691CD /* XCRemoteSwiftPackageReference "Gifu" */,
+				028EE3BD2834EE0C00F3D148 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */,
 			);
 			productRefGroup = 0249D22827B3A4EF00F265C1 /* Products */;
 			projectDirPath = "";
@@ -2891,6 +2913,7 @@
 				FE7CF8B627E48F760099682E /* PositionTableCell.swift in Sources */,
 				02A5CDBC27C3DD3300D31FB4 /* PasswordForgotRequestModel.swift in Sources */,
 				0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */,
+				028EE3C92835031400F3D148 /* EnergyController+TableView.swift in Sources */,
 				0249D26327B3A88C00F265C1 /* UIApplicathion+Extension.swift in Sources */,
 				020D281F27E863DD00010122 /* FoodAddController.swift in Sources */,
 				FEBFD7B127E0F16A0027ADD2 /* SetUIManager.swift in Sources */,
@@ -2904,6 +2927,7 @@
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
 				02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
+				028EE3C72835023A00F3D148 /* Constant.swift in Sources */,
 				02AC22282800677B00440DFB /* OrderCreateModel.swift in Sources */,
 				02A27B59282A657400B435B0 /* AnalyticsHelper.swift in Sources */,
 				020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */,
@@ -3411,6 +3435,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		028EE3BD2834EE0C00F3D148 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		02A464A02811658800B00381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -3472,6 +3504,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0249D27B27B3AA7000F265C1 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		028EE3BE2834EE0C00F3D148 /* AppsFlyerLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 028EE3BD2834EE0C00F3D148 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */;
+			productName = AppsFlyerLib;
 		};
 		02A464A12811658800B00381 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -226,6 +226,9 @@ extension MenuTargetWeightController: UIScrollViewDelegate {
 
 extension MenuTargetWeightController: MenuOutputProtocol {
     func success() {
+        NotificationCenter.default.post(name: Constants.Notifications.updateEnergyNotification,
+                                        object: self,
+                                        userInfo: nil)
         actionBack()
     }
     
