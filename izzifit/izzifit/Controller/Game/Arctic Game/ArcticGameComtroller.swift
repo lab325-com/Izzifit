@@ -21,6 +21,7 @@ class ArcticGameComtroller: BaseController {
             spinBtn.setImage(UIImage(named: "spinBtnSelected"), for: .selected)
         }
     }
+    
     @IBOutlet weak var slotHouseImgVw: UIImageView!
     @IBOutlet weak var resultLbl: UILabel!
     
@@ -31,6 +32,11 @@ class ArcticGameComtroller: BaseController {
     
     @IBOutlet weak var hummerBtn: UIButton!
     @IBOutlet weak var hummerCountLbl: UILabel!
+    @IBOutlet weak var resultStackView: UIStackView!
+    
+    @IBOutlet weak var awardImgVw: UIImageView!
+    @IBOutlet weak var awardTitleLbl: UILabel!
+    @IBOutlet weak var awardCountLbl: UILabel!
     
     private var collectionView: UICollectionView!
     // Рассмотри возможность реализации без таймеров, а просто через цикл и asyncAfter
@@ -47,7 +53,6 @@ class ArcticGameComtroller: BaseController {
     private var secondTimer = Timer()
     private var thirdTimer = Timer()
     private var spinManager = SpinLogicManager()
-    
     private var planManager = PlanSpinManager()
     var countOfStrides: CGFloat = 0
     
@@ -107,8 +112,6 @@ class ArcticGameComtroller: BaseController {
         // Поменяй
         avatarImageView.isHidden = true
         barBackImgVw.isHidden = true
-
-        
         view.ui.genericlLayout(object: barBackVw,
                                parentView: gameBackImgVw,
                                height: view.h / 9.2,
@@ -119,18 +122,59 @@ class ArcticGameComtroller: BaseController {
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
     }
-    private func checkAvailableHummers() {
-    hummerBtn.isUserInteractionEnabled = false
-    guard let count = presenter.freeBuildingsCount else { return }
-    switch count {
-    case 0:
-        hummerBtn.isHidden = true
-        hummerCountLbl.isHidden = true
-    default:
-        hummerBtn.isHidden = false
-        hummerCountLbl.isHidden = false
-        hummerCountLbl.text = "x\(count)"
+    
+    private func setup() {
+        resultStackView.isHidden = true
+        resultLblTopConstraint.constant =  view.h / 17.65
+        resultLbl.font = UIFont(name: "Inter-Black",
+                                size: view.h/54.13)
+        slotHouseImgVwTopConstraint.constant = view.h / 4.51
+        slotBackImgVw.centerYAnchor.constraint(equalTo: slotHouseImgVw.centerYAnchor, constant: (view.h / 10.33) / 2).isActive = true
+        shadowViewBottomConstraint.constant = view.h / 10
+        logoImgVwTopConstraint.constant = view.h / 35.3
+        
+        awardTitleLbl.font = UIFont(name: "Inter-BoldItalic",
+                                    size: view.h / 101.5)
+        
+        awardCountLbl.font = UIFont(name: "Inter-Bold",
+                                    size: view.h/40.6 )
+        
+        
+        awardCountLbl.text = "100"
+        
+        NSLayoutConstraint.activate([
+            resultLbl.heightAnchor.constraint(equalToConstant: view.h/54.13),
+            resultStackView.centerYAnchor.constraint(equalTo: resultLbl.centerYAnchor),
+            resultStackView.centerXAnchor.constraint(equalTo: resultLbl.centerXAnchor),
+            awardImgVw.heightAnchor.constraint(equalToConstant: view.h/30.07),
+            awardImgVw.widthAnchor.constraint(equalToConstant: view.h/26.19),
+            awardTitleLbl.heightAnchor.constraint(equalToConstant: view.h / 100)
+        ])
+        
+        
+        
+        if let name = KeychainService.standard.me?.name {
+            barBackVw.nameLbl.text = name
+        } else {
+            barBackVw.nameLbl.isHidden = true
+        }
+        barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
+                                          placeholder: RImage.placeholder_food_ic(),
+                                          options: [.transition(.fade(0.25))])
     }
+    
+    private func checkAvailableHummers() {
+        hummerBtn.isUserInteractionEnabled = false
+        guard let count = presenter.freeBuildingsCount else { return }
+        switch count {
+        case 0:
+            hummerBtn.isHidden = true
+            hummerCountLbl.isHidden = true
+        default:
+            hummerBtn.isHidden = false
+            hummerCountLbl.isHidden = false
+            hummerCountLbl.text = "x\(count)"
+        }
     }
     
     override func viewDidLoad() {
@@ -182,6 +226,7 @@ class ArcticGameComtroller: BaseController {
         case 3...8: multiplier = StrideConstants.firstStride
         default: multiplier = firstSpeed
         }
+        
         table1ContentOffset -= multiplier
         UIView.animate(withDuration: 0.03,
                        delay: 0.0,
@@ -189,7 +234,7 @@ class ArcticGameComtroller: BaseController {
             self.table1.contentOffset.y = self.table1ContentOffset
             self.table1.layoutIfNeeded()
         } completion: { bool in }
-
+        
         guard firstTimerCount == 3 else { return }
         
         firstTimerCount = 152
@@ -309,26 +354,6 @@ class ArcticGameComtroller: BaseController {
         actionBack()
     }
     
-    private func setup() {
-        resultLblTopConstraint.constant =  view.h / 17.65
-        resultLbl.font = UIFont(name: "Inter-Black",
-                                size: view.h/54.13)
-        slotHouseImgVwTopConstraint.constant = view.h / 4.51
-        slotBackImgVw.centerYAnchor.constraint(equalTo: slotHouseImgVw.centerYAnchor, constant: (view.h / 10.33) / 2).isActive = true
-        shadowViewBottomConstraint.constant = view.h / 10
-        logoImgVwTopConstraint.constant = view.h / 35.3
-        
-        if let name = KeychainService.standard.me?.name {
-            barBackVw.nameLbl.text = name
-        } else {
-            barBackVw.nameLbl.isHidden = true
-        }
-        
-        barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
-                                    placeholder: RImage.placeholder_food_ic(),
-                                    options: [.transition(.fade(0.25))])
-    }
-    
     private func setCollectionView() {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -371,6 +396,8 @@ class ArcticGameComtroller: BaseController {
         guard counter.combinations.count > combinationCounter else { spinsRunOut()
             return }
         guard KeychainService.standard.me?.energy ?? 0.0 > 0.0 else { return }
+        resultLbl.text = ""
+        resultStackView.isHidden = true
         AudioManager.sharedManager.playSound(type: .spinTap_10)
         AnalyticsHelper.sendFirebaseEvents(events: .spin_tap)
         // поменяй лейблы
@@ -380,11 +407,11 @@ class ArcticGameComtroller: BaseController {
                                collectionView: collectionView,
                                spinBtn: spinBtn) {
             
-            firstTimer = Timer.scheduledTimer(timeInterval: 0.03,
-                                              target: self,
-                                              selector: #selector(xSpin),
-                                              userInfo: nil,
-                                              repeats: true)
+       firstTimer = Timer.scheduledTimer(timeInterval: 0.03,
+                                         target: self,
+                                         selector: #selector(xSpin),
+                                         userInfo: nil,
+                                         repeats: true)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                 self.secondTimer = Timer.scheduledTimer(timeInterval: 0.03,
@@ -443,11 +470,15 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
             case .__unknown(_): print("")
             }
         }
-     
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             if let tupleResult = self.spinManager.recognizeSetCombinations(self.counter.combinations[self.combinationCounter].spinObjectIds) {
                 print(tupleResult)
-                self.spinManager.accrueBonuses(by: tupleResult.0, resultLbl: self.resultLbl) {
+                self.spinManager.accrueBonuses(by: tupleResult.0,
+                                               hiddenStack: self.resultStackView,
+                                               awardImgVw: self.awardImgVw,
+                                               awardTitleLbl: self.awardTitleLbl,
+                                               awardCountLbl: self.awardCountLbl ) {
                     self.threeHummersCombination()
                 }
                 self.spinManager.paintBlueBorder(tupleResult.1,

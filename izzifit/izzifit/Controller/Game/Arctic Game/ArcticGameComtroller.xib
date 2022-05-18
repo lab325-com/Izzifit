@@ -12,6 +12,9 @@
         <array key="Inter-Black.ttf">
             <string>Inter-Black</string>
         </array>
+        <array key="Inter-Bold.ttf">
+            <string>Inter-Bold</string>
+        </array>
         <array key="Inter-BoldItalic.ttf">
             <string>Inter-BoldItalic</string>
         </array>
@@ -20,6 +23,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArcticGameComtroller" customModule="izzifit" customModuleProvider="target">
             <connections>
                 <outlet property="avatarImageView" destination="igw-K3-aO6" id="TOS-sf-3Kn"/>
+                <outlet property="awardCountLbl" destination="7po-aY-woa" id="9tf-ds-dxD"/>
+                <outlet property="awardImgVw" destination="VKi-Kd-Lue" id="jre-cV-yaL"/>
+                <outlet property="awardTitleLbl" destination="yvr-z1-24g" id="VoA-w6-52D"/>
                 <outlet property="barBackImgVw" destination="zaY-Ms-Ehh" id="Scr-Pp-f9d"/>
                 <outlet property="gameBackImgVw" destination="ZKm-QR-xxP" id="oli-V8-Cuh"/>
                 <outlet property="hummerBtn" destination="ebZ-PH-ISm" id="3lI-cP-TOJ"/>
@@ -27,6 +33,7 @@
                 <outlet property="logoImgVwTopConstraint" destination="3GG-VA-cVa" id="t3J-VP-bKq"/>
                 <outlet property="resultLbl" destination="lYp-3c-605" id="TTf-vE-Cad"/>
                 <outlet property="resultLblTopConstraint" destination="LPh-zh-a99" id="vA6-tM-PRp"/>
+                <outlet property="resultStackView" destination="BBy-2U-Cbj" id="jal-Yn-ukE"/>
                 <outlet property="shadowViewBottomConstraint" destination="hJX-6H-pgR" id="Zn2-TG-dLg"/>
                 <outlet property="slotBackImgVw" destination="wx9-Aq-jrW" id="vuJ-HK-8ht"/>
                 <outlet property="slotHouseImgVw" destination="rVY-Lm-t4W" id="FEW-2C-10A"/>
@@ -135,6 +142,41 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_logo_ic" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-31-lpX">
                     <rect key="frame" x="129.66666666666666" y="117" width="125.66666666666666" height="56"/>
                 </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BBy-2U-Cbj">
+                    <rect key="frame" x="145" y="212.66666666666666" width="95" height="31"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moneyBag" translatesAutoresizingMaskIntoConstraints="NO" id="VKi-Kd-Lue">
+                            <rect key="frame" x="0.0" y="0.0" width="27" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="27" id="KUT-iJ-E5D"/>
+                                <constraint firstAttribute="height" constant="31" id="zdb-fU-tHa"/>
+                            </constraints>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sjn-pY-G08">
+                            <rect key="frame" x="31" y="0.0" width="64" height="31"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="COINS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvr-z1-24g">
+                                    <rect key="frame" x="0.0" y="0.0" width="25.666666666666668" height="7.666666666666667"/>
+                                    <fontDescription key="fontDescription" name="Inter-BoldItalic" family="Inter" pointSize="8"/>
+                                    <color key="textColor" red="0.41568627450980389" green="0.32549019607843138" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="10500" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7po-aY-woa">
+                                    <rect key="frame" x="0.0" y="6.6666666666666661" width="64" height="24.333333333333336"/>
+                                    <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="20"/>
+                                    <color key="textColor" red="0.41568627450000001" green="0.32549019610000002" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="yvr-z1-24g" firstAttribute="top" secondItem="sjn-pY-G08" secondAttribute="top" id="Zyi-J7-H9f"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="sjn-pY-G08" firstAttribute="height" secondItem="VKi-Kd-Lue" secondAttribute="height" id="5U3-CE-CZI"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -187,6 +229,7 @@
         <image name="gameBackOne" width="506" height="474"/>
         <image name="gameBackTwo" width="375" height="809"/>
         <image name="gameBarBack" width="1125" height="264"/>
+        <image name="moneyBag" width="47.333332061767578" height="62"/>
         <image name="slotBack" width="236" height="187"/>
         <image name="slotHouse" width="364" height="402"/>
         <image name="spinBtnNormal" width="234" height="75"/>

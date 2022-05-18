@@ -64,27 +64,66 @@ struct SpinLogicManager {
         }
     }
     
-    func accrueBonuses(by combination: SpinCombination, resultLbl: UILabel,_ threeHummers: () -> Void) {
+    func accrueBonuses(by combination: SpinCombination,
+                       hiddenStack: UIStackView,
+                       awardImgVw: UIImageView,
+                       awardTitleLbl: UILabel,
+                       awardCountLbl: UILabel,
+                       _ threeHummers: () -> Void) {
         AnalyticsHelper.sendFirebaseEvents(events: .spin_reward, params: ["award" : combination.rawValue])
         switch combination {
-        case .pairHummers: resultLbl.text = "+4⚡️"
-        case .setHummers: resultLbl.text = "upgrade"
+        case .pairHummers:awardImgVw.image = SlotImgs.hammer
+                          awardTitleLbl.text = "SPINS"
+                          awardCountLbl.text = "4"
+                           hiddenStack.isHidden.toggle()
+        case .setHummers: awardImgVw.image = SlotImgs.hammer
+                          awardTitleLbl.text = "BUILD"
+                          awardCountLbl.text = "1"
                           AudioManager.sharedManager.playSound(type: .superWin_19)
-            threeHummers()
-        case .pairDollars: resultLbl.text = "+1000💵"
-            AudioManager.sharedManager.playSound(type: .coinsX2_13)
-        case .setDollars: resultLbl.text = "+4000💵"
-            AudioManager.sharedManager.playSound(type: .coinsX3_14)
-        case .pairSnowflakes: resultLbl.text = "+4⚡️"
-        case .setSnowflakes: resultLbl.text = "21⚡️\n+4000💵"
-        case .pairMoneyBags: resultLbl.text = "+3000💵"
+                          threeHummers()
+                          hiddenStack.isHidden.toggle()
+        case .pairDollars: awardImgVw.image = SlotImgs.dollar
+                           awardTitleLbl.text = "COINS"
+                           awardCountLbl.text = "1000"
+                           AudioManager.sharedManager.playSound(type: .coinsX2_13)
+                           hiddenStack.isHidden.toggle()
+        case .setDollars: awardImgVw.image = SlotImgs.dollar
+                          awardTitleLbl.text = "COINS"
+                          awardCountLbl.text = "4000"
+                          AudioManager.sharedManager.playSound(type: .coinsX3_14)
+                           hiddenStack.isHidden.toggle()
+        case .pairSnowflakes: awardImgVw.image = SlotImgs.snowflake
+                              awardTitleLbl.text = "SPINS"
+                              awardCountLbl.text = "4"
+                              hiddenStack.isHidden.toggle()
+        case .setSnowflakes:  awardImgVw.image = SlotImgs.snowflake
+                              awardTitleLbl.text = "SPINS"
+                              awardCountLbl.text = "21"
+                              hiddenStack.isHidden.toggle()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+                                     awardTitleLbl.text = "COINS"
+                                     awardCountLbl.text = "4000"
+            }
+        case .pairMoneyBags: awardImgVw.image = SlotImgs.moneyBag
+                             awardTitleLbl.text = "COINS"
+                             awardCountLbl.text = "3000"
+                             hiddenStack.isHidden.toggle()
             AudioManager.sharedManager.playSound(type: .coinsPackX2_15)
-        case .setMoneyBags: resultLbl.text = "+10000💵"
+        case .setMoneyBags:  awardImgVw.image = SlotImgs.moneyBag
+                             awardTitleLbl.text = "COINS"
+                             awardCountLbl.text = "10000"
+                             hiddenStack.isHidden.toggle()
             AudioManager.sharedManager.playSound(type: .coinsPackX3_16)
-        case .pairLightning: resultLbl.text = "+3⚡️"
+        case .pairLightning: awardImgVw.image = SlotImgs.lightning
+                             awardTitleLbl.text = "SPINS"
+                             awardCountLbl.text = "3"
             AudioManager.sharedManager.playSound(type: .energyX2_17)
-        case .setLightning: resultLbl.text = "+12⚡️"
+            hiddenStack.isHidden.toggle()
+        case .setLightning:  awardImgVw.image = SlotImgs.lightning
+                             awardTitleLbl.text = "SPINS"
+                             awardCountLbl.text = "12"
             AudioManager.sharedManager.playSound(type: .energyX3_18)
+            hiddenStack.isHidden.toggle()
         }
     }
     
