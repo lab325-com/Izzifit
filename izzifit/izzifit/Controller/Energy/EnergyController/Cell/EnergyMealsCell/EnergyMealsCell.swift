@@ -123,7 +123,7 @@ class EnergyMealsCell: BaseTableViewCell {
     func setupCell(model: MealsWidgetMainModel) {
         self.model = model
         
-        countLabel.text = "\(model.energy ?? 0)/\(model.energyTotal ?? 0)"
+        countLabel.text = "\(Int(model.energy ?? 0))/\(model.energyTotal ?? 0)"
         
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else { return }
