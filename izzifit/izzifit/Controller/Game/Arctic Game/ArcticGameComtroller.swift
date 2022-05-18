@@ -111,7 +111,7 @@ class ArcticGameComtroller: BaseController {
         
         view.ui.genericlLayout(object: barBackVw,
                                parentView: gameBackImgVw,
-                               height: 88,
+                               height: view.h / 9.2,
                                topC: 0,
                                leadingC: 0,
                                trailingC: 0)
@@ -120,7 +120,7 @@ class ArcticGameComtroller: BaseController {
         barBackVw.energyCountLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
     }
     private func checkAvailableHummers() {
-        hummerBtn.isUserInteractionEnabled = false
+    hummerBtn.isUserInteractionEnabled = false
     guard let count = presenter.freeBuildingsCount else { return }
     switch count {
     case 0:
@@ -133,8 +133,6 @@ class ArcticGameComtroller: BaseController {
     }
     }
     
-    
-    
     override func viewDidLoad() {
         AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
         needSoundTap = false
@@ -143,7 +141,8 @@ class ArcticGameComtroller: BaseController {
         DispatchQueue.main.async {
             self.presenter.getMap { spins in
                 self.checkAvailableHummers()
-                self.counter.combinations = spins            }
+                self.counter.combinations = spins
+            }
         }
         setCollectionView()
         setup()
@@ -311,7 +310,9 @@ class ArcticGameComtroller: BaseController {
     }
     
     private func setup() {
-        resultLblTopConstraint.constant =  view.w / 9.37
+        resultLblTopConstraint.constant =  view.h / 17.65
+        resultLbl.font = UIFont(name: "Inter-Black",
+                                size: view.h/54.13)
         slotHouseImgVwTopConstraint.constant = view.h / 4.51
         slotBackImgVw.centerYAnchor.constraint(equalTo: slotHouseImgVw.centerYAnchor, constant: (view.h / 10.33) / 2).isActive = true
         shadowViewBottomConstraint.constant = view.h / 10

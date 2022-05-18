@@ -36,12 +36,12 @@ class GameBarBackView: UIView {
         
         ui.genericlLayout(object: avatarImgVw,
                           parentView: mainImgVw,
-                          width: 40,
-                          height: 40,
-                          bottomC: 8,
-                          leadingC: 19)
+                          width: h / 20.3,
+                          height: h / 20.3,
+                          bottomC: h / 101.5,
+                          leadingC: w / 19.73)
         
-        avatarImgVw.layer.cornerRadius = 20
+        avatarImgVw.layer.cornerRadius = (h/20.3)/2
         avatarImgVw.layer.masksToBounds = true
         
         ui.setLabel(label: nameLbl,
