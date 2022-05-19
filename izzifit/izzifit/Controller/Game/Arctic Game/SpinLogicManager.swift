@@ -69,12 +69,14 @@ struct SpinLogicManager {
                        awardImgVw: UIImageView,
                        awardTitleLbl: UILabel,
                        awardCountLbl: UILabel,
+                       coinsAmount: Int,
+                       spinsAmount: Int,
                        _ threeHummers: () -> Void) {
         AnalyticsHelper.sendFirebaseEvents(events: .spin_reward, params: ["award" : combination.rawValue])
         switch combination {
         case .pairHummers:awardImgVw.image = SlotImgs.hammer
                           awardTitleLbl.text = "SPINS"
-                          awardCountLbl.text = "4"
+                          awardCountLbl.text = "\(spinsAmount)"
                            hiddenStack.isHidden.toggle()
         case .setHummers: awardImgVw.image = SlotImgs.hammer
                           awardTitleLbl.text = "BUILD"
@@ -84,44 +86,44 @@ struct SpinLogicManager {
                           hiddenStack.isHidden.toggle()
         case .pairDollars: awardImgVw.image = SlotImgs.dollar
                            awardTitleLbl.text = "COINS"
-                           awardCountLbl.text = "1000"
+                           awardCountLbl.text = "\(coinsAmount)"
                            AudioManager.sharedManager.playSound(type: .coinsX2_13)
                            hiddenStack.isHidden.toggle()
         case .setDollars: awardImgVw.image = SlotImgs.dollar
                           awardTitleLbl.text = "COINS"
-                          awardCountLbl.text = "4000"
+                          awardCountLbl.text = "\(coinsAmount)"
                           AudioManager.sharedManager.playSound(type: .coinsX3_14)
                            hiddenStack.isHidden.toggle()
         case .pairSnowflakes: awardImgVw.image = SlotImgs.snowflake
                               awardTitleLbl.text = "SPINS"
-                              awardCountLbl.text = "4"
+                              awardCountLbl.text = "\(spinsAmount)"
                               hiddenStack.isHidden.toggle()
         case .setSnowflakes:  awardImgVw.image = SlotImgs.snowflake
                               awardTitleLbl.text = "SPINS"
-                              awardCountLbl.text = "21"
+                              awardCountLbl.text = "\(spinsAmount)"
                               hiddenStack.isHidden.toggle()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
                                      awardTitleLbl.text = "COINS"
-                                     awardCountLbl.text = "4000"
+                                     awardCountLbl.text = "\(coinsAmount)"
             }
         case .pairMoneyBags: awardImgVw.image = SlotImgs.moneyBag
                              awardTitleLbl.text = "COINS"
-                             awardCountLbl.text = "3000"
+                             awardCountLbl.text = "\(coinsAmount)"
                              hiddenStack.isHidden.toggle()
             AudioManager.sharedManager.playSound(type: .coinsPackX2_15)
         case .setMoneyBags:  awardImgVw.image = SlotImgs.moneyBag
                              awardTitleLbl.text = "COINS"
-                             awardCountLbl.text = "10000"
+                             awardCountLbl.text = "\(coinsAmount)"
                              hiddenStack.isHidden.toggle()
             AudioManager.sharedManager.playSound(type: .coinsPackX3_16)
         case .pairLightning: awardImgVw.image = SlotImgs.lightning
                              awardTitleLbl.text = "SPINS"
-                             awardCountLbl.text = "3"
+                             awardCountLbl.text = "\(coinsAmount)"
             AudioManager.sharedManager.playSound(type: .energyX2_17)
             hiddenStack.isHidden.toggle()
         case .setLightning:  awardImgVw.image = SlotImgs.lightning
                              awardTitleLbl.text = "SPINS"
-                             awardCountLbl.text = "12"
+                             awardCountLbl.text = "\(coinsAmount)"
             AudioManager.sharedManager.playSound(type: .energyX3_18)
             hiddenStack.isHidden.toggle()
         }

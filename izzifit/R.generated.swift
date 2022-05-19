@@ -957,7 +957,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 192 images.
+  /// This `R.image` struct is generated, and contains static references to 193 images.
   struct image {
     /// Image `Finish`.
     static let finish = Rswift.ImageResource(bundle: R.hostingBundle, name: "Finish")
@@ -1247,6 +1247,8 @@ struct R: Rswift.Validatable {
     static let pop5Ship = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop5Ship")
     /// Image `popStartState`.
     static let popStartState = Rswift.ImageResource(bundle: R.hostingBundle, name: "popStartState")
+    /// Image `progressActive `.
+    static let progressActive = Rswift.ImageResource(bundle: R.hostingBundle, name: "progressActive ")
     /// Image `progress_back_ic`.
     static let progress_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_back_ic")
     /// Image `progress_cube_ic`.
@@ -2349,6 +2351,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "popStartState", bundle: ..., traitCollection: ...)`
     static func popStartState(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.popStartState, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "progressActive ", bundle: ..., traitCollection: ...)`
+    static func progressActive(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progressActive, compatibleWith: traitCollection)
     }
     #endif
 

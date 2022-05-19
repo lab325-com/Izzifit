@@ -37,3 +37,10 @@ struct SlotImgs {
     static let snowflake = UIImage(named: "snowflake")
 }
 
+struct ScaleImgs {
+    static let scale1Selected = UIImage(named: "Selected1Scale")
+    static let scale2Selected = UIImage(named: "Selected2Scale")
+    static let scale3Selected = UIImage(named: "Selected3Scale")
+    static let scale4Selected = UIImage(named: "Selected4Scale")
+    static let scale5Selected = UIImage(named: "Selected5Scale")
+}

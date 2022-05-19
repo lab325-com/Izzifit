@@ -454,12 +454,16 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
         ///reload
     }
     func successSpin(model: [SpinMainModel]) {
+        var coinsAmount = Int()
+        var spinsAmount = Int()
         for award in model {
             switch award.type {
             case .spinObjectRewardTypeCoin:
                 KeychainService.standard.me?.coins! += award.amount
+                coinsAmount = award.amount
             case .spinObjectRewardTypeEnergy:
                 KeychainService.standard.me?.energy! += Float(award.amount)
+                spinsAmount = award.amount
             case .spinObjectRewardTypeBuild:
                 let alert = UIAlertController(title: "Free Building",
                                               message: "This could be your design",
@@ -478,7 +482,9 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
                                                hiddenStack: self.resultStackView,
                                                awardImgVw: self.awardImgVw,
                                                awardTitleLbl: self.awardTitleLbl,
-                                               awardCountLbl: self.awardCountLbl ) {
+                                               awardCountLbl: self.awardCountLbl,
+                                               coinsAmount: coinsAmount,
+                                               spinsAmount: spinsAmount) {
                     self.threeHummersCombination()
                 }
                 self.spinManager.paintBlueBorder(tupleResult.1,

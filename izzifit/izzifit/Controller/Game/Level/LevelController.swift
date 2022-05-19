@@ -121,7 +121,17 @@ class LevelController: BaseController {
         default: buildType = .ship
         }
         
-        guard KeychainService.standard.me?.coins ?? 0 >= price || presenter.freeBuildingsCount ?? 0 > 0 else { return }
+        guard KeychainService.standard.me?.coins ?? 0 >= price || presenter.freeBuildingsCount ?? 0 > 0 || price != 0 else {
+            let alert = UIAlertController(title: "Sorry",
+                                          message: " You don't have enough money",
+                                          preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK",
+                                         style: .default)
+            alert.addAction(okAction)
+            present(alert,animated: true)
+            
+            return }
                 
         view.ui.genericlLayout(object: buildPopUpVw,
                                        parentView: view,
@@ -130,8 +140,21 @@ class LevelController: BaseController {
                                        leadingC: 0,
                                        trailingC: 0)
         view.layoutIfNeeded()
-        
         checkAvailableHummers()
+        
+        if let count = presenter.freeBuildingsCount {
+        switch count {
+        case 0:
+            buildPopUpVw.hummerBtn.isHidden = true
+            buildPopUpVw.hummerCountLbl.isHidden = true
+        default:
+            buildPopUpVw.hummerBtn.isHidden = false
+            buildPopUpVw.hummerCountLbl.isHidden = false
+            buildPopUpVw.hummerCountLbl.text = "x\(count)"
+         }
+        }
+        
+        buildPopUpVw.fillStates(by: LevelStates(rawValue: price) ?? .finish)
         
         AnalyticsHelper.sendFirebaseEvents(events: .map_building_tap, params: ["building" : buildType.rawValue])
         
@@ -174,11 +197,14 @@ class LevelController: BaseController {
         }
     }
     
-    @objc func closePopUp() {
-        buildPopUpVw.removeFromSuperview()
+    @objc func closePopUp() { buildPopUpVw.removeFromSuperview()
+        buildPopUpVw.reloadInputViews()
     }
     
     @objc func upgradeBuilding(sender: UIButton) {
+        for btn in btns {
+            btn?.isUserInteractionEnabled.toggle()
+        }
         guard let buildingId = presenter.buildings[safe: sender.tag]?.id else {return}
         
         buildPopUpVw.removeFromSuperview()
@@ -232,7 +258,12 @@ class LevelController: BaseController {
             case .finish: break
             case .none: break
             }
+            
+            for btn in self.btns {
+                btn?.isUserInteractionEnabled.toggle()
+            }
         }
+        buildPopUpVw.removeFromSuperview()
         presenter.upgradeBuild(buildingId: buildingId)
     }
     
@@ -242,7 +273,7 @@ class LevelController: BaseController {
     }
     
     private func setup() {
-       
+        
         for i in 0...4 {
             btns[i]?.tag = i
         }
@@ -251,7 +282,6 @@ class LevelController: BaseController {
         } else {
             barBackVw.nameLbl.isHidden = true
         }
-        
         barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
                                     placeholder: RImage.placeholder_food_ic(),
                                     options: [.transition(.fade(0.25))])
@@ -336,6 +366,7 @@ extension LevelController: LevelOutputProtocol {
             }
         }
         drawStates()
+        buildPopUpVw.reloadInputViews()
     }
     
     func successBuild() { }
