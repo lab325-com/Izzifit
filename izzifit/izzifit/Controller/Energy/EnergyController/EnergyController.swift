@@ -128,6 +128,7 @@ class EnergyController: BaseController {
     }
     
     func updateMe() {
+        //presenter.getWidgetList()
         if !currentDate.isInToday {
             currentDate = Date()
             presenter.getWidgets(date: getDate())

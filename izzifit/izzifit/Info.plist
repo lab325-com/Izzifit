@@ -22,5 +22,7 @@
 		<string>Inter-Thin</string>
 		<string>Inter-BoldItalic</string>
 	</array>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Your data will be used to provide you with tailored personalized experience.</string>
 </dict>
 </plist>

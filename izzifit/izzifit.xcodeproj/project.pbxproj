@@ -273,6 +273,8 @@
 		02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C487FB27F184E80010D4FA /* WorkoutRouter.swift */; };
 		02C4880027F198100010D4FA /* WorkoutDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C487FE27F198100010D4FA /* WorkoutDetailHeaderCell.swift */; };
 		02C4880127F198100010D4FA /* WorkoutDetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C487FF27F198100010D4FA /* WorkoutDetailHeaderCell.xib */; };
+		02C5C4632836548000DA189C /* WidgetList.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02C5C4622836548000DA189C /* WidgetList.graphql */; };
+		02C5C46528365E1B00DA189C /* WidgetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5C46428365E1B00DA189C /* WidgetList.swift */; };
 		02D066A827BBA72100D12C5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02D066AA27BBA72100D12C5F /* Localizable.strings */; };
 		02D066AD27BBA8F400D12C5F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066AC27BBA8F400D12C5F /* R.generated.swift */; };
 		02D066B227BBB32400D12C5F /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066B027BBB32400D12C5F /* StartController.swift */; };
@@ -643,6 +645,8 @@
 		02C487FB27F184E80010D4FA /* WorkoutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRouter.swift; sourceTree = "<group>"; };
 		02C487FE27F198100010D4FA /* WorkoutDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailHeaderCell.swift; sourceTree = "<group>"; };
 		02C487FF27F198100010D4FA /* WorkoutDetailHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutDetailHeaderCell.xib; sourceTree = "<group>"; };
+		02C5C4622836548000DA189C /* WidgetList.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WidgetList.graphql; sourceTree = "<group>"; };
+		02C5C46428365E1B00DA189C /* WidgetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetList.swift; sourceTree = "<group>"; };
 		02D066A927BBA72100D12C5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		02D066AC27BBA8F400D12C5F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		02D066B027BBB32400D12C5F /* StartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
@@ -1269,6 +1273,7 @@
 		0249D29A27B3D78900F265C1 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+				02C5C4612836545D00DA189C /* WidgetList */,
 				02B22AC4281C1890006AB1EA /* Spin */,
 				02B22ABD281C0A5B006AB1EA /* Map */,
 				023CDC3628047C720056F022 /* AvailableGoals */,
@@ -2039,6 +2044,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		02C5C4612836545D00DA189C /* WidgetList */ = {
+			isa = PBXGroup;
+			children = (
+				02C5C4622836548000DA189C /* WidgetList.graphql */,
+				02C5C46428365E1B00DA189C /* WidgetList.swift */,
+			);
+			path = WidgetList;
+			sourceTree = "<group>";
+		};
 		02D066A527BBA6E600D12C5F /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -2621,6 +2635,7 @@
 				02B225B927BD63FC0035CFA2 /* QuizeEmailController.xib in Resources */,
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
 				02B22ACD281C27D8006AB1EA /* UpgradeBuilding.graphql in Resources */,
+				02C5C4632836548000DA189C /* WidgetList.graphql in Resources */,
 				02BC128E27F329E200678305 /* WorkoutDetailMuscleController.xib in Resources */,
 				0256999228197A7500BA1535 /* 19_super_win.wav in Resources */,
 				023FBC3D27FACC8C004D0CEA /* PaywallController.xib in Resources */,
@@ -2906,6 +2921,7 @@
 				02C4880027F198100010D4FA /* WorkoutDetailHeaderCell.swift in Sources */,
 				020CB3D727E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift in Sources */,
 				0227DAA127C63D51008AB26B /* QuizeFoodPresenter.swift in Sources */,
+				02C5C46528365E1B00DA189C /* WidgetList.swift in Sources */,
 				0227DAB227C67179008AB26B /* MenuEmailController.swift in Sources */,
 				02BACF1827F4588100B7562C /* WorkoutByIdMainModel.swift in Sources */,
 				0273F55E27D5F7CB00B19449 /* EnergyMealsCell.swift in Sources */,
@@ -3211,7 +3227,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3246,7 +3262,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3342,7 +3358,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;

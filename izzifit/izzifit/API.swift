@@ -1118,6 +1118,71 @@ public enum SpinObjectRewardType: RawRepresentable, Equatable, Hashable, CaseIte
   }
 }
 
+public enum WidgetEntityType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case widgetEntityTypeMeals
+  case widgetEntityTypeSleep
+  case widgetEntityTypeMood
+  case widgetEntityTypeWorkouts
+  case widgetEntityTypeChooseWorkouts
+  case widgetEntityTypeWater
+  case widgetEntityTypeWeight
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "WIDGET_ENTITY_TYPE_MEALS": self = .widgetEntityTypeMeals
+      case "WIDGET_ENTITY_TYPE_SLEEP": self = .widgetEntityTypeSleep
+      case "WIDGET_ENTITY_TYPE_MOOD": self = .widgetEntityTypeMood
+      case "WIDGET_ENTITY_TYPE_WORKOUTS": self = .widgetEntityTypeWorkouts
+      case "WIDGET_ENTITY_TYPE_CHOOSE_WORKOUTS": self = .widgetEntityTypeChooseWorkouts
+      case "WIDGET_ENTITY_TYPE_WATER": self = .widgetEntityTypeWater
+      case "WIDGET_ENTITY_TYPE_WEIGHT": self = .widgetEntityTypeWeight
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .widgetEntityTypeMeals: return "WIDGET_ENTITY_TYPE_MEALS"
+      case .widgetEntityTypeSleep: return "WIDGET_ENTITY_TYPE_SLEEP"
+      case .widgetEntityTypeMood: return "WIDGET_ENTITY_TYPE_MOOD"
+      case .widgetEntityTypeWorkouts: return "WIDGET_ENTITY_TYPE_WORKOUTS"
+      case .widgetEntityTypeChooseWorkouts: return "WIDGET_ENTITY_TYPE_CHOOSE_WORKOUTS"
+      case .widgetEntityTypeWater: return "WIDGET_ENTITY_TYPE_WATER"
+      case .widgetEntityTypeWeight: return "WIDGET_ENTITY_TYPE_WEIGHT"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: WidgetEntityType, rhs: WidgetEntityType) -> Bool {
+    switch (lhs, rhs) {
+      case (.widgetEntityTypeMeals, .widgetEntityTypeMeals): return true
+      case (.widgetEntityTypeSleep, .widgetEntityTypeSleep): return true
+      case (.widgetEntityTypeMood, .widgetEntityTypeMood): return true
+      case (.widgetEntityTypeWorkouts, .widgetEntityTypeWorkouts): return true
+      case (.widgetEntityTypeChooseWorkouts, .widgetEntityTypeChooseWorkouts): return true
+      case (.widgetEntityTypeWater, .widgetEntityTypeWater): return true
+      case (.widgetEntityTypeWeight, .widgetEntityTypeWeight): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [WidgetEntityType] {
+    return [
+      .widgetEntityTypeMeals,
+      .widgetEntityTypeSleep,
+      .widgetEntityTypeMood,
+      .widgetEntityTypeWorkouts,
+      .widgetEntityTypeChooseWorkouts,
+      .widgetEntityTypeWater,
+      .widgetEntityTypeWeight,
+    ]
+  }
+}
+
 public final class AddProductToMealMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -7248,6 +7313,92 @@ public final class WeightsWidgetQuery: GraphQLQuery {
           set {
             resultMap.updateValue(newValue, forKey: "weight")
           }
+        }
+      }
+    }
+  }
+}
+
+public final class WidgetListQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query WidgetList {
+      widgetList {
+        __typename
+        type
+      }
+    }
+    """
+
+  public let operationName: String = "WidgetList"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("widgetList", type: .list(.object(WidgetList.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(widgetList: [WidgetList?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "widgetList": widgetList.flatMap { (value: [WidgetList?]) -> [ResultMap?] in value.map { (value: WidgetList?) -> ResultMap? in value.flatMap { (value: WidgetList) -> ResultMap in value.resultMap } } }])
+    }
+
+    public var widgetList: [WidgetList?]? {
+      get {
+        return (resultMap["widgetList"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [WidgetList?] in value.map { (value: ResultMap?) -> WidgetList? in value.flatMap { (value: ResultMap) -> WidgetList in WidgetList(unsafeResultMap: value) } } }
+      }
+      set {
+        resultMap.updateValue(newValue.flatMap { (value: [WidgetList?]) -> [ResultMap?] in value.map { (value: WidgetList?) -> ResultMap? in value.flatMap { (value: WidgetList) -> ResultMap in value.resultMap } } }, forKey: "widgetList")
+      }
+    }
+
+    public struct WidgetList: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Widget"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("type", type: .scalar(WidgetEntityType.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(type: WidgetEntityType? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Widget", "type": type])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var type: WidgetEntityType? {
+        get {
+          return resultMap["type"] as? WidgetEntityType
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "type")
         }
       }
     }
