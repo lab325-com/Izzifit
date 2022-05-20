@@ -31,10 +31,20 @@ struct MeMainModel: Codable {
     let targetWeight: Float?
     let FoodGroup: FoodGroupModel?
     let Avatar: AvatarModel?
-    
+    let Subscription: SubscriptionModel?
 //    mutating func updateEnergy(_ by: Int) {
 //        self.energy = by
 //    }
+}
+
+struct SubscriptionModel: Codable {
+    let id: String
+    let Plan: PlanModel?
+    let expiresAt: String?
+}
+
+struct PlanModel: Codable {
+    let externalId: String?
 }
 
 struct FoodGroupModel: Codable {

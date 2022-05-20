@@ -1120,51 +1120,47 @@ public enum SpinObjectRewardType: RawRepresentable, Equatable, Hashable, CaseIte
 
 public enum WidgetEntityType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
-  case widgetEntityTypeMeals
+  case widgetEntityTypeActivity
+  case widgetEntityTypeWater
   case widgetEntityTypeSleep
   case widgetEntityTypeMood
-  case widgetEntityTypeWorkouts
-  case widgetEntityTypeChooseWorkouts
-  case widgetEntityTypeWater
-  case widgetEntityTypeWeight
+  case widgetEntityTypeMeals
+  case widgetEntityTypeWorkoutMuscles
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
   public init?(rawValue: RawValue) {
     switch rawValue {
-      case "WIDGET_ENTITY_TYPE_MEALS": self = .widgetEntityTypeMeals
+      case "WIDGET_ENTITY_TYPE_ACTIVITY": self = .widgetEntityTypeActivity
+      case "WIDGET_ENTITY_TYPE_WATER": self = .widgetEntityTypeWater
       case "WIDGET_ENTITY_TYPE_SLEEP": self = .widgetEntityTypeSleep
       case "WIDGET_ENTITY_TYPE_MOOD": self = .widgetEntityTypeMood
-      case "WIDGET_ENTITY_TYPE_WORKOUTS": self = .widgetEntityTypeWorkouts
-      case "WIDGET_ENTITY_TYPE_CHOOSE_WORKOUTS": self = .widgetEntityTypeChooseWorkouts
-      case "WIDGET_ENTITY_TYPE_WATER": self = .widgetEntityTypeWater
-      case "WIDGET_ENTITY_TYPE_WEIGHT": self = .widgetEntityTypeWeight
+      case "WIDGET_ENTITY_TYPE_MEALS": self = .widgetEntityTypeMeals
+      case "WIDGET_ENTITY_TYPE_WORKOUT_MUSCLES": self = .widgetEntityTypeWorkoutMuscles
       default: self = .__unknown(rawValue)
     }
   }
 
   public var rawValue: RawValue {
     switch self {
-      case .widgetEntityTypeMeals: return "WIDGET_ENTITY_TYPE_MEALS"
+      case .widgetEntityTypeActivity: return "WIDGET_ENTITY_TYPE_ACTIVITY"
+      case .widgetEntityTypeWater: return "WIDGET_ENTITY_TYPE_WATER"
       case .widgetEntityTypeSleep: return "WIDGET_ENTITY_TYPE_SLEEP"
       case .widgetEntityTypeMood: return "WIDGET_ENTITY_TYPE_MOOD"
-      case .widgetEntityTypeWorkouts: return "WIDGET_ENTITY_TYPE_WORKOUTS"
-      case .widgetEntityTypeChooseWorkouts: return "WIDGET_ENTITY_TYPE_CHOOSE_WORKOUTS"
-      case .widgetEntityTypeWater: return "WIDGET_ENTITY_TYPE_WATER"
-      case .widgetEntityTypeWeight: return "WIDGET_ENTITY_TYPE_WEIGHT"
+      case .widgetEntityTypeMeals: return "WIDGET_ENTITY_TYPE_MEALS"
+      case .widgetEntityTypeWorkoutMuscles: return "WIDGET_ENTITY_TYPE_WORKOUT_MUSCLES"
       case .__unknown(let value): return value
     }
   }
 
   public static func == (lhs: WidgetEntityType, rhs: WidgetEntityType) -> Bool {
     switch (lhs, rhs) {
-      case (.widgetEntityTypeMeals, .widgetEntityTypeMeals): return true
+      case (.widgetEntityTypeActivity, .widgetEntityTypeActivity): return true
+      case (.widgetEntityTypeWater, .widgetEntityTypeWater): return true
       case (.widgetEntityTypeSleep, .widgetEntityTypeSleep): return true
       case (.widgetEntityTypeMood, .widgetEntityTypeMood): return true
-      case (.widgetEntityTypeWorkouts, .widgetEntityTypeWorkouts): return true
-      case (.widgetEntityTypeChooseWorkouts, .widgetEntityTypeChooseWorkouts): return true
-      case (.widgetEntityTypeWater, .widgetEntityTypeWater): return true
-      case (.widgetEntityTypeWeight, .widgetEntityTypeWeight): return true
+      case (.widgetEntityTypeMeals, .widgetEntityTypeMeals): return true
+      case (.widgetEntityTypeWorkoutMuscles, .widgetEntityTypeWorkoutMuscles): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -1172,13 +1168,12 @@ public enum WidgetEntityType: RawRepresentable, Equatable, Hashable, CaseIterabl
 
   public static var allCases: [WidgetEntityType] {
     return [
-      .widgetEntityTypeMeals,
+      .widgetEntityTypeActivity,
+      .widgetEntityTypeWater,
       .widgetEntityTypeSleep,
       .widgetEntityTypeMood,
-      .widgetEntityTypeWorkouts,
-      .widgetEntityTypeChooseWorkouts,
-      .widgetEntityTypeWater,
-      .widgetEntityTypeWeight,
+      .widgetEntityTypeMeals,
+      .widgetEntityTypeWorkoutMuscles,
     ]
   }
 }
@@ -1665,6 +1660,20 @@ public final class ProfileUpdateMutation: GraphQLMutation {
           id
           name
         }
+        Avatar {
+          __typename
+          id
+          url
+        }
+        Subscription {
+          __typename
+          id
+          Plan {
+            __typename
+            externalId
+          }
+          expiresAt
+        }
       }
     }
     """
@@ -1733,6 +1742,8 @@ public final class ProfileUpdateMutation: GraphQLMutation {
           GraphQLField("weight", type: .scalar(Double.self)),
           GraphQLField("targetWeight", type: .scalar(Double.self)),
           GraphQLField("FoodGroup", type: .object(FoodGroup.selections)),
+          GraphQLField("Avatar", type: .object(Avatar.selections)),
+          GraphQLField("Subscription", type: .object(Subscription.selections)),
         ]
       }
 
@@ -1742,8 +1753,8 @@ public final class ProfileUpdateMutation: GraphQLMutation {
         self.resultMap = unsafeResultMap
       }
 
-      public init(age: Int? = nil, coins: Int? = nil, darkTheme: Bool? = nil, doSport: DoSportType? = nil, email: String? = nil, energy: Double? = nil, fitnessPreference: WorkoutDifficulty? = nil, gender: GenderType? = nil, goal: GoalType? = nil, growth: Int? = nil, id: GraphQLID? = nil, name: String? = nil, notifications: Bool? = nil, reminders: Bool? = nil, showOnBoarding: Bool? = nil, weight: Double? = nil, targetWeight: Double? = nil, foodGroup: FoodGroup? = nil) {
-        self.init(unsafeResultMap: ["__typename": "MeModel", "age": age, "coins": coins, "darkTheme": darkTheme, "doSport": doSport, "email": email, "energy": energy, "fitnessPreference": fitnessPreference, "gender": gender, "goal": goal, "growth": growth, "id": id, "name": name, "notifications": notifications, "reminders": reminders, "showOnBoarding": showOnBoarding, "weight": weight, "targetWeight": targetWeight, "FoodGroup": foodGroup.flatMap { (value: FoodGroup) -> ResultMap in value.resultMap }])
+      public init(age: Int? = nil, coins: Int? = nil, darkTheme: Bool? = nil, doSport: DoSportType? = nil, email: String? = nil, energy: Double? = nil, fitnessPreference: WorkoutDifficulty? = nil, gender: GenderType? = nil, goal: GoalType? = nil, growth: Int? = nil, id: GraphQLID? = nil, name: String? = nil, notifications: Bool? = nil, reminders: Bool? = nil, showOnBoarding: Bool? = nil, weight: Double? = nil, targetWeight: Double? = nil, foodGroup: FoodGroup? = nil, avatar: Avatar? = nil, subscription: Subscription? = nil) {
+        self.init(unsafeResultMap: ["__typename": "MeModel", "age": age, "coins": coins, "darkTheme": darkTheme, "doSport": doSport, "email": email, "energy": energy, "fitnessPreference": fitnessPreference, "gender": gender, "goal": goal, "growth": growth, "id": id, "name": name, "notifications": notifications, "reminders": reminders, "showOnBoarding": showOnBoarding, "weight": weight, "targetWeight": targetWeight, "FoodGroup": foodGroup.flatMap { (value: FoodGroup) -> ResultMap in value.resultMap }, "Avatar": avatar.flatMap { (value: Avatar) -> ResultMap in value.resultMap }, "Subscription": subscription.flatMap { (value: Subscription) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -1917,6 +1928,24 @@ public final class ProfileUpdateMutation: GraphQLMutation {
         }
       }
 
+      public var avatar: Avatar? {
+        get {
+          return (resultMap["Avatar"] as? ResultMap).flatMap { Avatar(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "Avatar")
+        }
+      }
+
+      public var subscription: Subscription? {
+        get {
+          return (resultMap["Subscription"] as? ResultMap).flatMap { Subscription(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "Subscription")
+        }
+      }
+
       public struct FoodGroup: GraphQLSelectionSet {
         public static let possibleTypes: [String] = ["FoodGroup"]
 
@@ -2030,6 +2059,153 @@ public final class ProfileUpdateMutation: GraphQLMutation {
             }
             set {
               resultMap.updateValue(newValue, forKey: "urlIosPrev")
+            }
+          }
+        }
+      }
+
+      public struct Avatar: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Avatar"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .scalar(GraphQLID.self)),
+            GraphQLField("url", type: .scalar(String.self)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID? = nil, url: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Avatar", "id": id, "url": url])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID? {
+          get {
+            return resultMap["id"] as? GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var url: String? {
+          get {
+            return resultMap["url"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "url")
+          }
+        }
+      }
+
+      public struct Subscription: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Subscription"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .scalar(GraphQLID.self)),
+            GraphQLField("Plan", type: .object(Plan.selections)),
+            GraphQLField("expiresAt", type: .scalar(String.self)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID? = nil, plan: Plan? = nil, expiresAt: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Subscription", "id": id, "Plan": plan.flatMap { (value: Plan) -> ResultMap in value.resultMap }, "expiresAt": expiresAt])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID? {
+          get {
+            return resultMap["id"] as? GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var plan: Plan? {
+          get {
+            return (resultMap["Plan"] as? ResultMap).flatMap { Plan(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "Plan")
+          }
+        }
+
+        public var expiresAt: String? {
+          get {
+            return resultMap["expiresAt"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "expiresAt")
+          }
+        }
+
+        public struct Plan: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Plan"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("externalId", type: .scalar(String.self)),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(externalId: String? = nil) {
+            self.init(unsafeResultMap: ["__typename": "Plan", "externalId": externalId])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var externalId: String? {
+            get {
+              return resultMap["externalId"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "externalId")
             }
           }
         }
@@ -3653,6 +3829,15 @@ public final class MeQuery: GraphQLQuery {
           id
           url
         }
+        Subscription {
+          __typename
+          id
+          Plan {
+            __typename
+            externalId
+          }
+          expiresAt
+        }
       }
     }
     """
@@ -3715,6 +3900,7 @@ public final class MeQuery: GraphQLQuery {
           GraphQLField("targetWeight", type: .scalar(Double.self)),
           GraphQLField("FoodGroup", type: .object(FoodGroup.selections)),
           GraphQLField("Avatar", type: .object(Avatar.selections)),
+          GraphQLField("Subscription", type: .object(Subscription.selections)),
         ]
       }
 
@@ -3724,8 +3910,8 @@ public final class MeQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(age: Int? = nil, coins: Int? = nil, darkTheme: Bool? = nil, doSport: DoSportType? = nil, email: String? = nil, energy: Double? = nil, fitnessPreference: WorkoutDifficulty? = nil, gender: GenderType? = nil, goal: GoalType? = nil, growth: Int? = nil, id: GraphQLID? = nil, name: String? = nil, notifications: Bool? = nil, reminders: Bool? = nil, showOnBoarding: Bool? = nil, weight: Double? = nil, targetWeight: Double? = nil, foodGroup: FoodGroup? = nil, avatar: Avatar? = nil) {
-        self.init(unsafeResultMap: ["__typename": "MeModel", "age": age, "coins": coins, "darkTheme": darkTheme, "doSport": doSport, "email": email, "energy": energy, "fitnessPreference": fitnessPreference, "gender": gender, "goal": goal, "growth": growth, "id": id, "name": name, "notifications": notifications, "reminders": reminders, "showOnBoarding": showOnBoarding, "weight": weight, "targetWeight": targetWeight, "FoodGroup": foodGroup.flatMap { (value: FoodGroup) -> ResultMap in value.resultMap }, "Avatar": avatar.flatMap { (value: Avatar) -> ResultMap in value.resultMap }])
+      public init(age: Int? = nil, coins: Int? = nil, darkTheme: Bool? = nil, doSport: DoSportType? = nil, email: String? = nil, energy: Double? = nil, fitnessPreference: WorkoutDifficulty? = nil, gender: GenderType? = nil, goal: GoalType? = nil, growth: Int? = nil, id: GraphQLID? = nil, name: String? = nil, notifications: Bool? = nil, reminders: Bool? = nil, showOnBoarding: Bool? = nil, weight: Double? = nil, targetWeight: Double? = nil, foodGroup: FoodGroup? = nil, avatar: Avatar? = nil, subscription: Subscription? = nil) {
+        self.init(unsafeResultMap: ["__typename": "MeModel", "age": age, "coins": coins, "darkTheme": darkTheme, "doSport": doSport, "email": email, "energy": energy, "fitnessPreference": fitnessPreference, "gender": gender, "goal": goal, "growth": growth, "id": id, "name": name, "notifications": notifications, "reminders": reminders, "showOnBoarding": showOnBoarding, "weight": weight, "targetWeight": targetWeight, "FoodGroup": foodGroup.flatMap { (value: FoodGroup) -> ResultMap in value.resultMap }, "Avatar": avatar.flatMap { (value: Avatar) -> ResultMap in value.resultMap }, "Subscription": subscription.flatMap { (value: Subscription) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -3908,6 +4094,15 @@ public final class MeQuery: GraphQLQuery {
         }
       }
 
+      public var subscription: Subscription? {
+        get {
+          return (resultMap["Subscription"] as? ResultMap).flatMap { Subscription(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "Subscription")
+        }
+      }
+
       public struct FoodGroup: GraphQLSelectionSet {
         public static let possibleTypes: [String] = ["FoodGroup"]
 
@@ -4071,6 +4266,104 @@ public final class MeQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "url")
+          }
+        }
+      }
+
+      public struct Subscription: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Subscription"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .scalar(GraphQLID.self)),
+            GraphQLField("Plan", type: .object(Plan.selections)),
+            GraphQLField("expiresAt", type: .scalar(String.self)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID? = nil, plan: Plan? = nil, expiresAt: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Subscription", "id": id, "Plan": plan.flatMap { (value: Plan) -> ResultMap in value.resultMap }, "expiresAt": expiresAt])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID? {
+          get {
+            return resultMap["id"] as? GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var plan: Plan? {
+          get {
+            return (resultMap["Plan"] as? ResultMap).flatMap { Plan(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "Plan")
+          }
+        }
+
+        public var expiresAt: String? {
+          get {
+            return resultMap["expiresAt"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "expiresAt")
+          }
+        }
+
+        public struct Plan: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Plan"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("externalId", type: .scalar(String.self)),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(externalId: String? = nil) {
+            self.init(unsafeResultMap: ["__typename": "Plan", "externalId": externalId])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var externalId: String? {
+            get {
+              return resultMap["externalId"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "externalId")
+            }
           }
         }
       }
@@ -7324,10 +7617,7 @@ public final class WidgetListQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query WidgetList {
-      widgetList {
-        __typename
-        type
-      }
+      widgetList
     }
     """
 
@@ -7341,7 +7631,7 @@ public final class WidgetListQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("widgetList", type: .list(.object(WidgetList.selections))),
+        GraphQLField("widgetList", type: .list(.scalar(WidgetEntityType.self))),
       ]
     }
 
@@ -7351,55 +7641,16 @@ public final class WidgetListQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(widgetList: [WidgetList?]? = nil) {
-      self.init(unsafeResultMap: ["__typename": "Query", "widgetList": widgetList.flatMap { (value: [WidgetList?]) -> [ResultMap?] in value.map { (value: WidgetList?) -> ResultMap? in value.flatMap { (value: WidgetList) -> ResultMap in value.resultMap } } }])
+    public init(widgetList: [WidgetEntityType?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "widgetList": widgetList])
     }
 
-    public var widgetList: [WidgetList?]? {
+    public var widgetList: [WidgetEntityType?]? {
       get {
-        return (resultMap["widgetList"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [WidgetList?] in value.map { (value: ResultMap?) -> WidgetList? in value.flatMap { (value: ResultMap) -> WidgetList in WidgetList(unsafeResultMap: value) } } }
+        return resultMap["widgetList"] as? [WidgetEntityType?]
       }
       set {
-        resultMap.updateValue(newValue.flatMap { (value: [WidgetList?]) -> [ResultMap?] in value.map { (value: WidgetList?) -> ResultMap? in value.flatMap { (value: WidgetList) -> ResultMap in value.resultMap } } }, forKey: "widgetList")
-      }
-    }
-
-    public struct WidgetList: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Widget"]
-
-      public static var selections: [GraphQLSelection] {
-        return [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("type", type: .scalar(WidgetEntityType.self)),
-        ]
-      }
-
-      public private(set) var resultMap: ResultMap
-
-      public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
-      }
-
-      public init(type: WidgetEntityType? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Widget", "type": type])
-      }
-
-      public var __typename: String {
-        get {
-          return resultMap["__typename"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "__typename")
-        }
-      }
-
-      public var type: WidgetEntityType? {
-        get {
-          return resultMap["type"] as? WidgetEntityType
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "type")
-        }
+        resultMap.updateValue(newValue, forKey: "widgetList")
       }
     }
   }

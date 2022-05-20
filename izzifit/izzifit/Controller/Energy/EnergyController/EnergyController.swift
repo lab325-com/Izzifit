@@ -72,6 +72,11 @@ class EnergyController: BaseController {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.getWidgetList()
+    }
+    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
@@ -125,10 +130,10 @@ class EnergyController: BaseController {
     
     func getMe() {
         presenter.getMe()
+        presenter.getWidgetList()
     }
     
     func updateMe() {
-        //presenter.getWidgetList()
         if !currentDate.isInToday {
             currentDate = Date()
             presenter.getWidgets(date: getDate())
@@ -161,6 +166,10 @@ extension EnergyController: EnergyOutputProtocol {
     func success() {
         updateMe()
         tableView.isHidden = false
+        tableView.reloadData()
+    }
+    
+    func successWidgetList() {
         tableView.reloadData()
     }
     
