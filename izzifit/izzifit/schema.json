@@ -4688,7 +4688,7 @@
             "args": [],
             "type": {
               "kind": "SCALAR",
-              "name": "ID",
+              "name": "Int",
               "ofType": null
             },
             "isDeprecated": false,

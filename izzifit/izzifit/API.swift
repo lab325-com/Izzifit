@@ -7077,7 +7077,7 @@ public final class SourcesByMealQuery: GraphQLQuery {
           GraphQLField("eaten", type: .scalar(Int.self)),
           GraphQLField("name", type: .scalar(SourceEntityType.self)),
           GraphQLField("needed", type: .scalar(Int.self)),
-          GraphQLField("id", type: .scalar(GraphQLID.self)),
+          GraphQLField("id", type: .scalar(Int.self)),
         ]
       }
 
@@ -7087,7 +7087,7 @@ public final class SourcesByMealQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(eaten: Int? = nil, name: SourceEntityType? = nil, needed: Int? = nil, id: GraphQLID? = nil) {
+      public init(eaten: Int? = nil, name: SourceEntityType? = nil, needed: Int? = nil, id: Int? = nil) {
         self.init(unsafeResultMap: ["__typename": "SourceByMeal", "eaten": eaten, "name": name, "needed": needed, "id": id])
       }
 
@@ -7127,9 +7127,9 @@ public final class SourcesByMealQuery: GraphQLQuery {
         }
       }
 
-      public var id: GraphQLID? {
+      public var id: Int? {
         get {
-          return resultMap["id"] as? GraphQLID
+          return resultMap["id"] as? Int
         }
         set {
           resultMap.updateValue(newValue, forKey: "id")
