@@ -302,7 +302,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 70 files.
+  /// This `R.file` struct is generated, and contains static references to 71 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -430,6 +430,8 @@ struct R: Rswift.Validatable {
     static let upgradeBuildingGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "UpgradeBuilding", pathExtension: "graphql")
     /// Resource file `WeightsWidget.graphql`.
     static let weightsWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WeightsWidget", pathExtension: "graphql")
+    /// Resource file `WidgetList.graphql`.
+    static let widgetListGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WidgetList", pathExtension: "graphql")
     /// Resource file `WorkoutAttemptUpdate.graphql`.
     static let workoutAttemptUpdateGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutAttemptUpdate", pathExtension: "graphql")
     /// Resource file `WorkoutById.graphql`.
@@ -820,6 +822,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "WeightsWidget", withExtension: "graphql")`
     static func weightsWidgetGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.weightsWidgetGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "WidgetList", withExtension: "graphql")`
+    static func widgetListGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.widgetListGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 

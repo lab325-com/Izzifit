@@ -1,0 +1,5 @@
+query WidgetList {
+    widgetList {
+        type
+    }
+}

@@ -119,8 +119,9 @@ class ArcticGameComtroller: BaseController {
                                leadingC: 0,
                                trailingC: 0)
         
+
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        barBackVw.energyCountLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }
     
     private func setup() {

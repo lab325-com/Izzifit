@@ -61,7 +61,7 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
         }
         
         mlLeftLabel.text = RLocalization.water_widget_ml_left(model.left)
-        countLabel.text = "\(model.energy)/\(model.energyTotal)"
+        countLabel.text = "\(Int(model.energy))/\(model.energyTotal)"
     }
     
     @objc func buttonAction(sender: UIButton!) {

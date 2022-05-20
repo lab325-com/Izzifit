@@ -372,8 +372,9 @@ extension LevelController: LevelOutputProtocol {
     func successBuild() { }
     
     func successMe() {
+
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        barBackVw.energyCountLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }
 }
 

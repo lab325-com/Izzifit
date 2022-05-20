@@ -13,7 +13,7 @@ protocol EnergyControllerProtocol: AnyObject {
 }
 
 class EnergyController: BaseController {
-
+    
     //----------------------------------------------
     // MARK: - IBOutlet
     //----------------------------------------------
@@ -32,19 +32,19 @@ class EnergyController: BaseController {
     // MARK: - Property
     //----------------------------------------------
     
-    private let cellIdentifier = String(describing: EnerdyTodayCell.self)
-    private let cellWaterIdentifier = String(describing: EnergyDrinkWaterCell.self)
-    private let cellEnergyMood = String(describing: EnergyMoodCell.self)
-    private let cellMealsIdentifier = String(describing: EnergyMealsCell.self)
-    private let cellSleepIdentifier = String(describing: EnergySleepCell.self)
-    private let cellWeightIdentifier = String(describing: EnergyWeightCell.self)
-    private let cellChooseActivity = String(describing: EnergyChooseActivityCell.self)
-    private let cellTraining = String(describing: EnergyTrainingCell.self)
-    private let cellAddActivity = String(describing: EnergyAddActivityCell.self)
+    let cellIdentifier = String(describing: EnerdyTodayCell.self)
+    let cellWaterIdentifier = String(describing: EnergyDrinkWaterCell.self)
+    let cellEnergyMood = String(describing: EnergyMoodCell.self)
+    let cellMealsIdentifier = String(describing: EnergyMealsCell.self)
+    let cellSleepIdentifier = String(describing: EnergySleepCell.self)
+    let cellWeightIdentifier = String(describing: EnergyWeightCell.self)
+    let cellChooseActivity = String(describing: EnergyChooseActivityCell.self)
+    let cellTraining = String(describing: EnergyTrainingCell.self)
+    let cellAddActivity = String(describing: EnergyAddActivityCell.self)
     
-    private lazy var presenter = EnergyPresenter(view: self)
-
-    private var currentDate = Date()
+    lazy var presenter = EnergyPresenter(view: self)
+    
+    var currentDate = Date()
     
     
     weak var delegate: EnergyControllerProtocol?
@@ -68,7 +68,7 @@ class EnergyController: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setup()
     }
     
@@ -77,6 +77,11 @@ class EnergyController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        tableView.isHidden = true
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(updateEnegyNotification),
+                                               name: Constants.Notifications.updateEnergyNotification,
+                                               object: nil)
         
         AnalyticsHelper.sendFirebaseEvents(events: .dash_open)
         updateMe()
@@ -107,7 +112,11 @@ class EnergyController: BaseController {
         avatarImageView.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""), placeholder: RImage.placeholder_food_ic(), options: [.transition(.fade(0.25))])
     }
     
-    private func getDate() -> String {
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func getDate() -> String {
         let dateFormmater = DateFormatter()
         dateFormmater.locale = Locale(identifier: "en_US_POSIX")
         dateFormmater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -119,13 +128,14 @@ class EnergyController: BaseController {
     }
     
     func updateMe() {
+        //presenter.getWidgetList()
         if !currentDate.isInToday {
             currentDate = Date()
             presenter.getWidgets(date: getDate())
         }
         
         cointLabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        energyLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        energyLabel.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
         
         if let name = KeychainService.standard.me?.name {
             nameLabel.text = name
@@ -133,86 +143,13 @@ class EnergyController: BaseController {
             nameLabel.isHidden = true
         }
     }
-}
-
-//----------------------------------------------
-// MARK: - UITableViewDelegate, UITableViewDataSource
-//----------------------------------------------
-
-extension EnergyController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7 + presenter.workoutWidgets.count
-    }
+    //----------------------------------------------
+    // MARK: - Notifications
+    //----------------------------------------------
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as? EnerdyTodayCell else { return UITableViewCell() }
-            
-            cell.delegate = self
-            if let model = presenter.todayProgress {
-                cell.setupCell(model: model)
-            }
-            return cell
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellWaterIdentifier) as? EnergyDrinkWaterCell else { return UITableViewCell() }
-            cell.delegate = self
-            if let model = presenter.drinkWidget {
-                cell.setupCell(model: model)
-            }
-            return cell
-        case 2:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellEnergyMood) as? EnergyMoodCell else { return UITableViewCell() }
-            
-            if let model = presenter.moodWidget {
-                cell.setupCell(model: model)
-            }
-            
-            cell.delegate = self
-            return cell
-        case 3:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellMealsIdentifier) as? EnergyMealsCell else { return UITableViewCell() }
-            if let model = presenter.mealsWidget {
-                cell.delegate = self
-                cell.setupCell(model: model)
-            }
-            return cell
-        case 4:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSleepIdentifier) as? EnergySleepCell else { return UITableViewCell() }
-            cell.delegate = self
-            if let model = presenter.sleepWidget {
-                cell.setupCell(model: model)
-            }
-            return cell
-        case 5:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellWeightIdentifier) as? EnergyWeightCell else { return UITableViewCell() }
-            cell.delegate = self
-            if let model = presenter.weightWidget {
-                cell.setupCell(model: model)
-            }
-            return cell
-        case 6:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellChooseActivity) as? EnergyChooseActivityCell else { return UITableViewCell() }
-            cell.delegate = self
-            cell.setupCell(models: presenter.chooseWorkoutWidgets)
-            return cell
-        case 7..<7 + presenter.workoutWidgets.count:
-            if presenter.workoutWidgets.count == 0 {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellAddActivity) as? EnergyAddActivityCell else { return UITableViewCell() }
-                return cell
-            } else {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellTraining) as? EnergyTrainingCell else { return UITableViewCell() }
-                cell.delegate = self
-                cell.setupCell(model: presenter.workoutWidgets[indexPath.row - 7])
-                return cell
-            }
-        case 7 + presenter.workoutWidgets.count:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellAddActivity) as? EnergyAddActivityCell else { return UITableViewCell() }
-            return cell
-        default:
-            return UITableViewCell()
-        }
+    @objc func updateEnegyNotification(_ notification: Notification) {
+        presenter.getWidgets(date: getDate())
     }
 }
 
@@ -229,126 +166,5 @@ extension EnergyController: EnergyOutputProtocol {
     
     func failure() {
         
-    }
-}
-
-//----------------------------------------------
-// MARK: - EnergyTodayProtocol
-//----------------------------------------------
-
-extension EnergyController: EnergyTodayProtocol {
-    func energyTodayProgress(cell: EnerdyTodayCell) {
-        EnergyRouter(presenter: navigationController).pushProgrress()
-    }
-}
-
-//----------------------------------------------
-// MARK: - EnergyMealsDeleagate
-//----------------------------------------------
-
-extension EnergyController: EnergyMealsDeleagate {
-    func energyMealsAdd(cell: EnergyMealsCell, type: MealType) {
-        guard let meals = presenter.mealsWidget else { return }
-        switch type {
-        case .mealTypeBreakfast:
-            AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_breakfast_tap)
-        case .mealTypeLunch:
-            AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_lunch_tap)
-        case .mealTypeSnack:
-            AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_snack_tap)
-        case .mealTypeDinner:
-            AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_dinner_tap)
-        case .__unknown(_):
-            break
-        }
-        
-        EnergyRouter(presenter: navigationController).pushFood(mealsWidget: meals, currentMealType: type, delegate: self)
-    }
-}
-
-//----------------------------------------------
-// MARK: - EnergyDrinkWaterProtocol
-//----------------------------------------------
-
-extension EnergyController: EnergyDrinkWaterProtocol {
-    func energyDrinkWaterSelectIndex(cell: EnergyDrinkWaterCell, index: Int) {
-        AnalyticsHelper.sendFirebaseEvents(events: .dash_water_tap)
-        presenter.setWater(index: index, date: getDate())
-    }
-}
-
-//----------------------------------------------
-// MARK: - EnergyMoodProtocol
-//----------------------------------------------
-
-extension EnergyController: EnergyMoodProtocol {
-    func energyMoodSelected(cell: EnergyMoodCell, type: MoodType) {
-        AnalyticsHelper.sendFirebaseEvents(events: .dash_emotion_tap)
-        presenter.setMood(mood: type, date: getDate())
-    }
-}
-
-//----------------------------------------------
-// MARK: - EnergySleepCellProtocol
-//----------------------------------------------
-
-extension EnergyController: EnergySleepCellProtocol {
-    func energySleepCellSeleep(cell: EnergySleepCell, sleep: SleepQualityType) {
-        AnalyticsHelper.sendFirebaseEvents(events: .dash_sleep_tap)
-        presenter.setSeleep(sleep: sleep, date: getDate())
-    }
-}
-
-//----------------------------------------------
-// MARK: - EnergyWeightProtocol
-//----------------------------------------------
-
-extension EnergyController: EnergyWeightProtocol {
-    func energyWeightUpdate(cell: EnergyWeightCell) {
-        EnergyRouter(presenter: navigationController).presentUpdateWieght(delegate: self)
-    }
-}
-
-//----------------------------------------------
-// MARK: - EnergyUpdateWeightProtocol
-//----------------------------------------------
-
-extension EnergyController: EnergyUpdateWeightProtocol {
-    func energyUpdateWeight(controller: EnergyUpdateWeightController) {
-        AnalyticsHelper.sendFirebaseEvents(events: .dash_update_weight_tap)
-        presenter.updateWeight()
-    }
-}
-
-//----------------------------------------------
-// MARK: - EnergyChooseActivityProtocol
-//----------------------------------------------
-
-extension EnergyController: EnergyChooseActivityProtocol {
-    func energyChooseActivitySelect(cell: EnergyChooseActivityCell, model: WorkoutsWidgetMainModel) {
-        AnalyticsHelper.sendFirebaseEvents(events: .dash_activity_tap)
-        delegate?.energControllerSetProfile(controller: self, model: model)
-    }
-}
-
-//----------------------------------------------
-// MARK: - EnergyTrainingProtocol
-//----------------------------------------------
-
-extension EnergyController: EnergyTrainingProtocol {
-    func energyTrainingSelect(cell: EnergyTrainingCell, model: WorkoutsWidgetMainModel) {
-        guard let id = model.id else { return }
-        AnalyticsHelper.sendFirebaseEvents(events: .dash_training_tap)
-        WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
-    }
-}
-
-//----------------------------------------------
-// MARK: - FoodControllerProtocol
-//----------------------------------------------
-
-extension EnergyController: FoodControllerProtocol {
-    func foodControllerUpdate(controller: FoodController) {
-        presenter.getWidgets(date: getDate())
     }
 }

@@ -172,6 +172,12 @@
 		0273F56927D60EF600B19449 /* SleepWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F56827D60EF600B19449 /* SleepWidgetModel.swift */; };
 		0273F56C27D6513200B19449 /* MealsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0273F56B27D6513200B19449 /* MealsWidget.graphql */; };
 		0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F56D27D6561100B19449 /* MealsWidgetModel.swift */; };
+		028EE3BF2834EE0C00F3D148 /* AppsFlyerLib in Frameworks */ = {isa = PBXBuildFile; productRef = 028EE3BE2834EE0C00F3D148 /* AppsFlyerLib */; };
+		028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C02834EE5100F3D148 /* AdSupport.framework */; };
+		028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C22834EE5C00F3D148 /* iAd.framework */; };
+		028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C42834EE6300F3D148 /* AdServices.framework */; };
+		028EE3C72835023A00F3D148 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028EE3C62835023A00F3D148 /* Constant.swift */; };
+		028EE3C92835031400F3D148 /* EnergyController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028EE3C82835031400F3D148 /* EnergyController+TableView.swift */; };
 		0290B39327D2045400381B42 /* ShadowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39227D2045400381B42 /* ShadowsView.swift */; };
 		0290B39527D212CA00381B42 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39427D212CA00381B42 /* UIView+Extension.swift */; };
 		0290B39927D2340800381B42 /* EnerdyTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39727D2340800381B42 /* EnerdyTodayCell.swift */; };
@@ -267,6 +273,8 @@
 		02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C487FB27F184E80010D4FA /* WorkoutRouter.swift */; };
 		02C4880027F198100010D4FA /* WorkoutDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C487FE27F198100010D4FA /* WorkoutDetailHeaderCell.swift */; };
 		02C4880127F198100010D4FA /* WorkoutDetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C487FF27F198100010D4FA /* WorkoutDetailHeaderCell.xib */; };
+		02C5C4632836548000DA189C /* WidgetList.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02C5C4622836548000DA189C /* WidgetList.graphql */; };
+		02C5C46528365E1B00DA189C /* WidgetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5C46428365E1B00DA189C /* WidgetList.swift */; };
 		02D066A827BBA72100D12C5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02D066AA27BBA72100D12C5F /* Localizable.strings */; };
 		02D066AD27BBA8F400D12C5F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066AC27BBA8F400D12C5F /* R.generated.swift */; };
 		02D066B227BBB32400D12C5F /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D066B027BBB32400D12C5F /* StartController.swift */; };
@@ -539,6 +547,11 @@
 		0273F56827D60EF600B19449 /* SleepWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepWidgetModel.swift; sourceTree = "<group>"; };
 		0273F56B27D6513200B19449 /* MealsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MealsWidget.graphql; sourceTree = "<group>"; };
 		0273F56D27D6561100B19449 /* MealsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsWidgetModel.swift; sourceTree = "<group>"; };
+		028EE3C02834EE5100F3D148 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		028EE3C22834EE5C00F3D148 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		028EE3C42834EE6300F3D148 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
+		028EE3C62835023A00F3D148 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		028EE3C82835031400F3D148 /* EnergyController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnergyController+TableView.swift"; sourceTree = "<group>"; };
 		0290B39227D2045400381B42 /* ShadowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowsView.swift; sourceTree = "<group>"; };
 		0290B39427D212CA00381B42 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		0290B39727D2340800381B42 /* EnerdyTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnerdyTodayCell.swift; sourceTree = "<group>"; };
@@ -632,6 +645,8 @@
 		02C487FB27F184E80010D4FA /* WorkoutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRouter.swift; sourceTree = "<group>"; };
 		02C487FE27F198100010D4FA /* WorkoutDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailHeaderCell.swift; sourceTree = "<group>"; };
 		02C487FF27F198100010D4FA /* WorkoutDetailHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutDetailHeaderCell.xib; sourceTree = "<group>"; };
+		02C5C4622836548000DA189C /* WidgetList.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WidgetList.graphql; sourceTree = "<group>"; };
+		02C5C46428365E1B00DA189C /* WidgetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetList.swift; sourceTree = "<group>"; };
 		02D066A927BBA72100D12C5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		02D066AC27BBA8F400D12C5F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		02D066B027BBB32400D12C5F /* StartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
@@ -743,8 +758,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */,
+				028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */,
+				028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */,
 				0249D27827B3AA3B00F265C1 /* Apollo in Frameworks */,
 				0249D27A27B3AA3B00F265C1 /* ApolloWebSocket in Frameworks */,
+				028EE3BF2834EE0C00F3D148 /* AppsFlyerLib in Frameworks */,
 				0249D25627B3A7AD00F265C1 /* NVActivityIndicatorView in Frameworks */,
 				02E6D85B27FC259E00E29509 /* SwiftyStoreKit in Frameworks */,
 				0249D25827B3A7AD00F265C1 /* NVActivityIndicatorViewExtended in Frameworks */,
@@ -1134,6 +1153,7 @@
 				0249D26A27B3A94200F265C1 /* Apollo */,
 				0249D26727B3A91300F265C1 /* Service */,
 				0249D25A27B3A87F00F265C1 /* Extension */,
+				028EE3C62835023A00F3D148 /* Constant.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1253,6 +1273,7 @@
 		0249D29A27B3D78900F265C1 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+				02C5C4612836545D00DA189C /* WidgetList */,
 				02B22AC4281C1890006AB1EA /* Spin */,
 				02B22ABD281C0A5B006AB1EA /* Map */,
 				023CDC3628047C720056F022 /* AvailableGoals */,
@@ -1415,6 +1436,7 @@
 			children = (
 				02FAF0AD27D36D7C002CD678 /* EnergyPresenter.swift */,
 				02A5CDA327C393A300D31FB4 /* EnergyController.swift */,
+				028EE3C82835031400F3D148 /* EnergyController+TableView.swift */,
 				02A5CDA427C393A300D31FB4 /* EnergyController.xib */,
 				0290B39627D233E700381B42 /* Cell */,
 				02F0C17E27EDBDB3005DE3E2 /* EnergyUpdateWeight */,
@@ -2022,6 +2044,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		02C5C4612836545D00DA189C /* WidgetList */ = {
+			isa = PBXGroup;
+			children = (
+				02C5C4622836548000DA189C /* WidgetList.graphql */,
+				02C5C46428365E1B00DA189C /* WidgetList.swift */,
+			);
+			path = WidgetList;
+			sourceTree = "<group>";
+		};
 		02D066A527BBA6E600D12C5F /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -2236,6 +2267,9 @@
 		DB1BDA7364672EBF249DB7B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				028EE3C42834EE6300F3D148 /* AdServices.framework */,
+				028EE3C22834EE5C00F3D148 /* iAd.framework */,
+				028EE3C02834EE5100F3D148 /* AdSupport.framework */,
 				FDA5E332399E73031D583774 /* Pods_izzifit.framework */,
 			);
 			name = Frameworks;
@@ -2508,6 +2542,7 @@
 				02A464A12811658800B00381 /* FirebaseAnalytics */,
 				02A464A32811658800B00381 /* FirebaseCrashlytics */,
 				FAF4350328257920008691CD /* Gifu */,
+				028EE3BE2834EE0C00F3D148 /* AppsFlyerLib */,
 			);
 			productName = izzifit;
 			productReference = 0249D22727B3A4EF00F265C1 /* izzifit.app */;
@@ -2547,6 +2582,7 @@
 				02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 				02A464A02811658800B00381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FAF4350228257920008691CD /* XCRemoteSwiftPackageReference "Gifu" */,
+				028EE3BD2834EE0C00F3D148 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */,
 			);
 			productRefGroup = 0249D22827B3A4EF00F265C1 /* Products */;
 			projectDirPath = "";
@@ -2607,6 +2643,7 @@
 				02B225B927BD63FC0035CFA2 /* QuizeEmailController.xib in Resources */,
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
 				02B22ACD281C27D8006AB1EA /* UpgradeBuilding.graphql in Resources */,
+				02C5C4632836548000DA189C /* WidgetList.graphql in Resources */,
 				02BC128E27F329E200678305 /* WorkoutDetailMuscleController.xib in Resources */,
 				0256999228197A7500BA1535 /* 19_super_win.wav in Resources */,
 				023FBC3D27FACC8C004D0CEA /* PaywallController.xib in Resources */,
@@ -2892,6 +2929,7 @@
 				02C4880027F198100010D4FA /* WorkoutDetailHeaderCell.swift in Sources */,
 				020CB3D727E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift in Sources */,
 				0227DAA127C63D51008AB26B /* QuizeFoodPresenter.swift in Sources */,
+				02C5C46528365E1B00DA189C /* WidgetList.swift in Sources */,
 				0227DAB227C67179008AB26B /* MenuEmailController.swift in Sources */,
 				02BACF1827F4588100B7562C /* WorkoutByIdMainModel.swift in Sources */,
 				0273F55E27D5F7CB00B19449 /* EnergyMealsCell.swift in Sources */,
@@ -2899,6 +2937,7 @@
 				FE7CF8B627E48F760099682E /* PositionTableCell.swift in Sources */,
 				02A5CDBC27C3DD3300D31FB4 /* PasswordForgotRequestModel.swift in Sources */,
 				0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */,
+				028EE3C92835031400F3D148 /* EnergyController+TableView.swift in Sources */,
 				0249D26327B3A88C00F265C1 /* UIApplicathion+Extension.swift in Sources */,
 				020D281F27E863DD00010122 /* FoodAddController.swift in Sources */,
 				FEBFD7B127E0F16A0027ADD2 /* SetUIManager.swift in Sources */,
@@ -2912,6 +2951,7 @@
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
 				02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
+				028EE3C72835023A00F3D148 /* Constant.swift in Sources */,
 				02AC22282800677B00440DFB /* OrderCreateModel.swift in Sources */,
 				02A27B59282A657400B435B0 /* AnalyticsHelper.swift in Sources */,
 				020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */,
@@ -3195,7 +3235,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 23;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3230,7 +3270,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 23;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3326,7 +3366,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 23;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3419,6 +3459,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		028EE3BD2834EE0C00F3D148 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		02A464A02811658800B00381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -3480,6 +3528,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0249D27B27B3AA7000F265C1 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		028EE3BE2834EE0C00F3D148 /* AppsFlyerLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 028EE3BD2834EE0C00F3D148 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */;
+			productName = AppsFlyerLib;
 		};
 		02A464A12811658800B00381 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

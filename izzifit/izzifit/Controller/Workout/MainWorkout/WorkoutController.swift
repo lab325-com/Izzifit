@@ -93,7 +93,7 @@ class WorkoutController: BaseController {
     
     func updateMe() {
         coinLabel.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        flashLabel.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        flashLabel.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
         
         if let name = KeychainService.standard.me?.name {
             nameLabel.text = name
