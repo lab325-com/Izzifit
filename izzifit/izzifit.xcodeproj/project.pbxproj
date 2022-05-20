@@ -3240,7 +3240,7 @@
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used to provide you with tailored personalized experience.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -3276,7 +3276,7 @@
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used to provide you with tailored personalized experience.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -3373,7 +3373,7 @@
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used to provide you with tailored personalized experience.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
