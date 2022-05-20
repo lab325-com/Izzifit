@@ -26,5 +26,16 @@ mutation ProfileUpdate($record: ProfileUpdateInput!) {
             id
             name
         }
+        Avatar {
+            id
+            url
+        }
+        Subscription {
+            id
+            Plan {
+                externalId
+            }
+            expiresAt
+        }
     }
 }

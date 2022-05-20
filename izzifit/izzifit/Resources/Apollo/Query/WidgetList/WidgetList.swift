@@ -8,11 +8,7 @@
 import Foundation
 
 struct WidgetListModel: Codable {
-    let widgetList: [WidgetListMainModel]
-}
-
-struct WidgetListMainModel: Codable {
-    let type: WidgetEntityType
+    let widgetList: [WidgetEntityType]?
 }
 
 extension WidgetEntityType: Codable {

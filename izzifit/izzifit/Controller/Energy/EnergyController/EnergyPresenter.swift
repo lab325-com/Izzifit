@@ -14,6 +14,7 @@ import UIKit
 //----------------------------------------------
 protocol EnergyOutputProtocol: BaseController {
     func success()
+    func successWidgetList()
     func failure()
 }
 
@@ -48,7 +49,6 @@ class EnergyPresenter: EnergyPresenterProtocol {
     var weightWidget: SaveWeightWidgetMainModel?
     var workoutWidgets: [WorkoutsWidgetMainModel] = []
     var chooseWorkoutWidgets: [WorkoutsWidgetMainModel] = []
-    var widgetsType: [WidgetEntityType] = []
     
     func getWidgets(date: String, loader: Bool = true) {
         
@@ -245,9 +245,10 @@ class EnergyPresenter: EnergyPresenterProtocol {
     func getWidgetList() {
         let query = WidgetListQuery()
         let _ = Network.shared.query(model: WidgetListModel.self, query, controller: view) { [weak self] model in
-            self?.widgetsType = model.widgetList.compactMap({$0.type})
+            let types = model.widgetList ?? []
+            PreferencesManager.sharedManager.widgetList = types
+            self?.view?.successWidgetList()
         } failureHandler: { _ in
         }
     }
-    
 }

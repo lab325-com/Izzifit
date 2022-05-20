@@ -104,21 +104,26 @@ extension EnergyController: EnergyTodayProtocol {
 
 extension EnergyController: EnergyMealsDeleagate {
     func energyMealsAdd(cell: EnergyMealsCell, type: MealType) {
-        guard let meals = presenter.mealsWidget else { return }
-        switch type {
-        case .mealTypeBreakfast:
-            AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_breakfast_tap)
-        case .mealTypeLunch:
-            AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_lunch_tap)
-        case .mealTypeSnack:
-            AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_snack_tap)
-        case .mealTypeDinner:
-            AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_dinner_tap)
-        case .__unknown(_):
-            break
-        }
         
-        EnergyRouter(presenter: navigationController).pushFood(mealsWidget: meals, currentMealType: type, delegate: self)
+        if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeMeals) && KeychainService.standard.me?.Subscription == nil {
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self)
+        } else {
+            guard let meals = presenter.mealsWidget else { return }
+            switch type {
+            case .mealTypeBreakfast:
+                AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_breakfast_tap)
+            case .mealTypeLunch:
+                AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_lunch_tap)
+            case .mealTypeSnack:
+                AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_snack_tap)
+            case .mealTypeDinner:
+                AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_dinner_tap)
+            case .__unknown(_):
+                break
+            }
+            
+            EnergyRouter(presenter: navigationController).pushFood(mealsWidget: meals, currentMealType: type, delegate: self)
+        }
     }
 }
 
@@ -129,7 +134,12 @@ extension EnergyController: EnergyMealsDeleagate {
 extension EnergyController: EnergyDrinkWaterProtocol {
     func energyDrinkWaterSelectIndex(cell: EnergyDrinkWaterCell, index: Int) {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_water_tap)
-        presenter.setWater(index: index, date: getDate())
+        
+        if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeWater) && KeychainService.standard.me?.Subscription == nil {
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self)
+        } else {
+            presenter.setWater(index: index, date: getDate())
+        }
     }
 }
 
@@ -140,7 +150,12 @@ extension EnergyController: EnergyDrinkWaterProtocol {
 extension EnergyController: EnergyMoodProtocol {
     func energyMoodSelected(cell: EnergyMoodCell, type: MoodType) {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_emotion_tap)
-        presenter.setMood(mood: type, date: getDate())
+        
+        if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeMood) && KeychainService.standard.me?.Subscription == nil {
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self)
+        } else {
+            presenter.setMood(mood: type, date: getDate())
+        }
     }
 }
 
@@ -151,7 +166,13 @@ extension EnergyController: EnergyMoodProtocol {
 extension EnergyController: EnergySleepCellProtocol {
     func energySleepCellSeleep(cell: EnergySleepCell, sleep: SleepQualityType) {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_sleep_tap)
-        presenter.setSeleep(sleep: sleep, date: getDate())
+        
+        if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeSleep) && KeychainService.standard.me?.Subscription == nil {
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self)
+        } else {
+            presenter.setSeleep(sleep: sleep, date: getDate())
+        }
+        
     }
 }
 
@@ -183,7 +204,12 @@ extension EnergyController: EnergyUpdateWeightProtocol {
 extension EnergyController: EnergyChooseActivityProtocol {
     func energyChooseActivitySelect(cell: EnergyChooseActivityCell, model: WorkoutsWidgetMainModel) {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_activity_tap)
-        delegate?.energControllerSetProfile(controller: self, model: model)
+        
+        if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeActivity) && KeychainService.standard.me?.Subscription == nil {
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self)
+        } else {
+            delegate?.energControllerSetProfile(controller: self, model: model)
+        }
     }
 }
 
@@ -206,5 +232,19 @@ extension EnergyController: EnergyTrainingProtocol {
 extension EnergyController: FoodControllerProtocol {
     func foodControllerUpdate(controller: FoodController) {
         presenter.getWidgets(date: getDate())
+    }
+}
+
+//----------------------------------------------
+// MARK: - PaywallProtocol
+//----------------------------------------------
+
+extension EnergyController: PaywallProtocol {
+    func paywallActionBack(controller: PaywallController) {
+        self.dismiss(animated: true)
+    }
+    
+    func paywallSuccess(controller: PaywallController) {
+        
     }
 }

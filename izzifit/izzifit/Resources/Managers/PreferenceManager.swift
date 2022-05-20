@@ -16,6 +16,7 @@ class PreferencesManager : NSObject {
     static let isFirstRun = "isFirstRun"
     static let tempPorifle = "tempPorifle"
     static let foods =  "foods"
+    static let widgetList = "widgetList"
     
     var userDefaults: UserDefaults
     
@@ -122,6 +123,15 @@ class PreferencesManager : NSObject {
         }
         set {
             self.set(newValue, forKey: PreferencesManager.foods)
+        }
+    }
+    
+    var widgetList: [WidgetEntityType] {
+        get {
+            return self.models(forKey: PreferencesManager.widgetList) ?? []
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.widgetList)
         }
     }
 }
