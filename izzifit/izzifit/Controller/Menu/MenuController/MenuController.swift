@@ -90,6 +90,20 @@ class MenuController: BaseController {
         tableView.reloadData()
     }
     
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            guard let userId = KeychainService.standard.me?.id,
+                  let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+                  let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String else { return }
+            let message = "User ID: \(userId)\n\nApp verion: \(version) (\(build))"
+            let alert = UIAlertController(title: "User info", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { action in
+                UIPasteboard.general.string = message
+            }))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
