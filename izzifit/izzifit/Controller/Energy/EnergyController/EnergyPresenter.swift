@@ -28,6 +28,7 @@ protocol EnergyPresenterProtocol: AnyObject {
     func setMood(mood: MoodType, date: String)
     
     func updateWeight()
+    func getWidgetList()
 }
 
 class EnergyPresenter: EnergyPresenterProtocol {
@@ -47,6 +48,7 @@ class EnergyPresenter: EnergyPresenterProtocol {
     var weightWidget: SaveWeightWidgetMainModel?
     var workoutWidgets: [WorkoutsWidgetMainModel] = []
     var chooseWorkoutWidgets: [WorkoutsWidgetMainModel] = []
+    var widgetsType: [WidgetEntityType] = []
     
     func getWidgets(date: String, loader: Bool = true) {
         
@@ -239,4 +241,13 @@ class EnergyPresenter: EnergyPresenterProtocol {
             self?.view?.failure()
         }
     }
+    
+    func getWidgetList() {
+        let query = WidgetListQuery()
+        let _ = Network.shared.query(model: WidgetListModel.self, query, controller: view) { [weak self] model in
+            self?.widgetsType = model.widgetList.compactMap({$0.type})
+        } failureHandler: { _ in
+        }
+    }
+    
 }

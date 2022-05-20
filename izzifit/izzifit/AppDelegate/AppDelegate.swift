@@ -11,6 +11,7 @@ import SwiftyStoreKit
 import Firebase
 import Siren
 import AppsFlyerLib
+import AppTrackingTransparency
 
 //----------------------------------------------
 // MARK: - Typealias
@@ -45,6 +46,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         AnalyticsHelper.sendFirebaseEvents(events: .app_open)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            if #available(iOS 14, *) {
+                ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+                    switch status {
+                    case .authorized:
+                        print("authorized")
+                        break
+                    case .denied:
+                        print("denied")
+                        break
+                    case .notDetermined:
+                        print("Not Determined")
+                    case .restricted:
+                        print("Restricted")
+                    @unknown default:
+                        print("Unknown")
+                    }
+                })
+            }
+        }
+        
         return RootRouter.sharedInstance.application(didFinishLaunchingWithOptions: launchOptions as [UIApplication.LaunchOptionsKey: Any]?, window: window ?? UIWindow(frame: UIScreen.main.bounds))
     }
 
