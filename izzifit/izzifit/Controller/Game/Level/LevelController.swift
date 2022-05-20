@@ -7,8 +7,11 @@
 
 import UIKit
 import Gifu
+import SwiftUI
 
 class LevelController: BaseController {
+    
+    private var barBackVw = GameBarBackView(backImage: UIImage(named: "levelShadowViewBack")!)
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var shipBtn: UIButton!
@@ -18,34 +21,10 @@ class LevelController: BaseController {
     @IBOutlet weak var deerBtn: UIButton!
     
     let animation = GIFImageView()
-    
-    @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var energyLbl: UILabel!
-    @IBOutlet weak var coinsLbl: UILabel!
-    @IBOutlet weak var hummerBtn: UIButton! {
-        didSet {
-            hummerBtn.isUserInteractionEnabled = false
-        }
-    }
-    
-    private var backIsLoaded = false {
-        didSet {
-            guard let count = presenter.freeBuildingsCount else { return}
-            switch count {
-            case 0:
-                hummerBtn.isHidden = true
-                hummerCountLbl.isHidden = true
-            default:
-                hummerBtn.isHidden = false
-                hummerCountLbl.isHidden = false
-                hummerCountLbl.text = "x\(count)"
-            }
-        }
-    }
-    
+
+    @IBOutlet weak var hummerBtn: UIButton!
     @IBOutlet weak var hummerCountLbl: UILabel!
-    
+
     private var buildPopUpVw = BuildPopUpView()
     
     private lazy var btns = [shipBtn,
@@ -64,12 +43,24 @@ class LevelController: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        hummerBtn.isHidden = true
-        hummerCountLbl.isHidden = true
+        hummerBtn.isUserInteractionEnabled = false
+        
+        view.ui.genericlLayout(object: barBackVw,
+                               parentView: self.view,
+                               height: view.h / 9.2,
+                               topC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
+        
+        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        barBackVw.energyCountLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        
+        buildPopUpVw.hummerBtn.isHidden = true
+        buildPopUpVw.hummerCountLbl.isHidden = true
+        checkAvailableHummers()
     }
     
     override func viewDidLoad() {
-        
         needSoundTap = false
         super.viewDidLoad()
         presenter.getBuildings()
@@ -86,6 +77,20 @@ class LevelController: BaseController {
                                                  y: 0),
                                          animated: true)
     }
+    
+    private func checkAvailableHummers() {
+        guard let count = presenter.freeBuildingsCount else { return}
+        switch count {
+        case 0:
+            hummerBtn.isHidden = true
+            hummerCountLbl.isHidden = true
+        default:
+            hummerBtn.isHidden = false
+            hummerCountLbl.isHidden = false
+            hummerCountLbl.text = "x\(count)"
+        }
+    }
+    
     
     private func addTargets() {
         for btn in btns {
@@ -116,7 +121,17 @@ class LevelController: BaseController {
         default: buildType = .ship
         }
         
-        guard KeychainService.standard.me?.coins ?? 0 >= price else { return }
+        guard KeychainService.standard.me?.coins ?? 0 >= price || presenter.freeBuildingsCount ?? 0 > 0 || price != 0 else {
+            let alert = UIAlertController(title: "Sorry",
+                                          message: " You don't have enough money",
+                                          preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK",
+                                         style: .default)
+            alert.addAction(okAction)
+            present(alert,animated: true)
+            
+            return }
                 
         view.ui.genericlLayout(object: buildPopUpVw,
                                        parentView: view,
@@ -125,8 +140,9 @@ class LevelController: BaseController {
                                        leadingC: 0,
                                        trailingC: 0)
         view.layoutIfNeeded()
+        checkAvailableHummers()
         
-        guard let count = presenter.freeBuildingsCount else { return}
+        if let count = presenter.freeBuildingsCount {
         switch count {
         case 0:
             buildPopUpVw.hummerBtn.isHidden = true
@@ -135,7 +151,10 @@ class LevelController: BaseController {
             buildPopUpVw.hummerBtn.isHidden = false
             buildPopUpVw.hummerCountLbl.isHidden = false
             buildPopUpVw.hummerCountLbl.text = "x\(count)"
+         }
         }
+        
+        buildPopUpVw.fillStates(by: LevelStates(rawValue: price) ?? .finish)
         
         AnalyticsHelper.sendFirebaseEvents(events: .map_building_tap, params: ["building" : buildType.rawValue])
         
@@ -178,11 +197,14 @@ class LevelController: BaseController {
         }
     }
     
-    @objc func closePopUp() {
-        buildPopUpVw.removeFromSuperview()
+    @objc func closePopUp() { buildPopUpVw.removeFromSuperview()
+        buildPopUpVw.reloadInputViews()
     }
     
     @objc func upgradeBuilding(sender: UIButton) {
+        for btn in btns {
+            btn?.isUserInteractionEnabled.toggle()
+        }
         guard let buildingId = presenter.buildings[safe: sender.tag]?.id else {return}
         
         buildPopUpVw.removeFromSuperview()
@@ -236,7 +258,12 @@ class LevelController: BaseController {
             case .finish: break
             case .none: break
             }
+            
+            for btn in self.btns {
+                btn?.isUserInteractionEnabled.toggle()
+            }
         }
+        buildPopUpVw.removeFromSuperview()
         presenter.upgradeBuild(buildingId: buildingId)
     }
     
@@ -246,20 +273,16 @@ class LevelController: BaseController {
     }
     
     private func setup() {
-       
+        
         for i in 0...4 {
             btns[i]?.tag = i
         }
-        coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        energyLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
-        
         if let name = KeychainService.standard.me?.name {
-            nameLabel.text = name
+            barBackVw.nameLbl.text = name
         } else {
-            nameLabel.isHidden = true
+            barBackVw.nameLbl.isHidden = true
         }
-        
-        avatarImageView.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
+        barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
                                     placeholder: RImage.placeholder_food_ic(),
                                     options: [.transition(.fade(0.25))])
     }
@@ -318,7 +341,7 @@ extension LevelController: LevelOutputProtocol {
     func success() { }
     
     func successBuildings(model: [BuildingsModel]) {
-        backIsLoaded = true
+      checkAvailableHummers()
         print(model)
         for building in model {
             var state: LevelStates
@@ -343,13 +366,15 @@ extension LevelController: LevelOutputProtocol {
             }
         }
         drawStates()
+        buildPopUpVw.reloadInputViews()
     }
     
     func successBuild() { }
     
     func successMe() {
-        coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        energyLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+
+        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }
 }
 

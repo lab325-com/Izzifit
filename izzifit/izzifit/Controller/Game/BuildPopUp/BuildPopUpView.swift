@@ -30,11 +30,17 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
     @IBOutlet weak var fourthScaleImgVw: UIImageView!
     @IBOutlet weak var fifthScaleImgVw: UIImageView!
     
-    lazy private var states = [fifthScaleImgVw,
+    lazy var states = [firstScaleImgVw,
                                secondScaleImgVw,
                                thirdScaleImgVw,
                                fourthScaleImgVw,
                                fifthScaleImgVw]
+    
+    var selectedStateImgs = [ScaleImgs.scale1Selected,
+                             ScaleImgs.scale2Selected,
+                             ScaleImgs.scale3Selected,
+                             ScaleImgs.scale4Selected,
+                             ScaleImgs.scale5Selected]
     
     @IBOutlet weak var priceLbl: UILabel!
     
@@ -43,6 +49,25 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
         setup()
     }
     
+    
+    func fillStates(by currentState: LevelStates) {
+        var currentStateCounter = Int()
+        
+        switch currentState {
+        case .start: currentStateCounter = -1
+        case .first: currentStateCounter = 0
+        case .second: currentStateCounter = 1
+        case .third: currentStateCounter = 2
+        case .fourth: currentStateCounter = 3
+        case .finish: break
+        }
+        
+        for (index,state) in states.enumerated() {
+            guard index <= currentStateCounter else { return }
+            state?.image = selectedStateImgs[index]
+            layoutIfNeeded()
+        }
+    }
     
     func draw(_ type: BuildingType, state: LevelStates) {
     

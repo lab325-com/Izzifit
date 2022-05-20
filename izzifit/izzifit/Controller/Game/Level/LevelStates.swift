@@ -14,7 +14,7 @@ enum LevelStates: Int {
     case second = 3000
     case third = 4000
     case fourth = 5000
-    case finish 
+    case finish = 0
 }
 
 struct PlayerModel {
