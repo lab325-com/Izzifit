@@ -131,7 +131,12 @@ class LevelController: BaseController {
             alert.addAction(okAction)
             present(alert,animated: true)
             
-            return }
+            if KeychainService.standard.me?.Subscription == nil {
+                PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .goldZero)
+            }
+            
+            return
+        }
                 
         view.ui.genericlLayout(object: buildPopUpVw,
                                        parentView: view,
@@ -367,6 +372,10 @@ extension LevelController: LevelOutputProtocol {
         }
         drawStates()
         buildPopUpVw.reloadInputViews()
+        
+        if KeychainService.standard.me?.Subscription == nil {
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
+        }
     }
     
     func successBuild() { }
@@ -375,6 +384,20 @@ extension LevelController: LevelOutputProtocol {
 
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+    }
+}
+
+//----------------------------------------------
+// MARK: - PaywallProtocol
+//----------------------------------------------
+
+extension LevelController: PaywallProtocol {
+    func paywallActionBack(controller: PaywallController) {
+        self.dismiss(animated: true)
+    }
+    
+    func paywallSuccess(controller: PaywallController) {
+        
     }
 }
 
