@@ -500,6 +500,7 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
             default:  self.combinationCounter += 1
             }
         }
+        
     }
     
     func success() {

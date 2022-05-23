@@ -365,7 +365,7 @@
 		FAF4350428257920008691CD /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = FAF4350328257920008691CD /* Gifu */; };
 		FE1403B327E1EDC2002F5819 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1403B127E1EDC2002F5819 /* ProfileController.swift */; };
 		FE1403B427E1EDC2002F5819 /* ProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE1403B227E1EDC2002F5819 /* ProfileController.xib */; };
-		FE1403BD27E2019C002F5819 /* ChartTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1403BB27E2019C002F5819 /* ChartTableCell.swift */; };
+		FE1403BD27E2019C002F5819 /* CaloriesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1403BB27E2019C002F5819 /* CaloriesTableCell.swift */; };
 		FE1403BE27E2019C002F5819 /* ChartTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE1403BC27E2019C002F5819 /* ChartTableCell.xib */; };
 		FE1403C227E249EB002F5819 /* ChartCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1403C027E249EB002F5819 /* ChartCollectionCell.swift */; };
 		FE1403C327E249EB002F5819 /* ChartCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE1403C127E249EB002F5819 /* ChartCollectionCell.xib */; };
@@ -739,7 +739,7 @@
 		FDA5E332399E73031D583774 /* Pods_izzifit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_izzifit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE1403B127E1EDC2002F5819 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		FE1403B227E1EDC2002F5819 /* ProfileController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileController.xib; sourceTree = "<group>"; };
-		FE1403BB27E2019C002F5819 /* ChartTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableCell.swift; sourceTree = "<group>"; };
+		FE1403BB27E2019C002F5819 /* CaloriesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesTableCell.swift; sourceTree = "<group>"; };
 		FE1403BC27E2019C002F5819 /* ChartTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableCell.xib; sourceTree = "<group>"; };
 		FE1403C027E249EB002F5819 /* ChartCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionCell.swift; sourceTree = "<group>"; };
 		FE1403C127E249EB002F5819 /* ChartCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCollectionCell.xib; sourceTree = "<group>"; };
@@ -2438,7 +2438,7 @@
 			isa = PBXGroup;
 			children = (
 				FE1403BF27E249BA002F5819 /* ChartCollectionCell */,
-				FE1403BB27E2019C002F5819 /* ChartTableCell.swift */,
+				FE1403BB27E2019C002F5819 /* CaloriesTableCell.swift */,
 				FE1403BC27E2019C002F5819 /* ChartTableCell.xib */,
 			);
 			path = ChartTableCell;
@@ -2986,7 +2986,7 @@
 				0249D25127B3A70B00F265C1 /* SplashViewController.swift in Sources */,
 				02FAF0AE27D36D7C002CD678 /* EnergyPresenter.swift in Sources */,
 				02D066CB27BBBB4300D12C5F /* QuizeNameController.swift in Sources */,
-				FE1403BD27E2019C002F5819 /* ChartTableCell.swift in Sources */,
+				FE1403BD27E2019C002F5819 /* CaloriesTableCell.swift in Sources */,
 				023CDC3A28047C930056F022 /* AvailableGoalsModel.swift in Sources */,
 				0268752527D890F000FFEA6A /* TodayProgressModel.swift in Sources */,
 				025463A827CE404F00D433DB /* ToggleProductInRationModel.swift in Sources */,

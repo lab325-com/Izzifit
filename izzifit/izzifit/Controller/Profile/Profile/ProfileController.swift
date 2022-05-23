@@ -60,7 +60,7 @@ class ProfileController: BaseController {
         profileTableView.dataSource = self
         profileTableView.separatorStyle = .none
         profileTableView.register(UINib(nibName: "ChartTableCell", bundle: nil),
-                                  forCellReuseIdentifier: ChartTableCell.id)
+                                  forCellReuseIdentifier: CaloriesTableCell.id)
         profileTableView.register(UINib(nibName: "PositionTableCell", bundle: nil),
                                   forCellReuseIdentifier: PositionTableCell.id)
         profileTableView.register(UINib(nibName: "WeightTableCell", bundle: nil),
@@ -93,7 +93,7 @@ extension ProfileController: UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            let caloriesCell = tableView.dequeueReusableCell(withIdentifier: ChartTableCell.id) as! ChartTableCell
+            let caloriesCell = tableView.dequeueReusableCell(withIdentifier: CaloriesTableCell.id) as! CaloriesTableCell
             if let model = presenter.caloriesWidget?.caloriesWidget {
                 caloriesCell.fillCellBy(model)
             }
