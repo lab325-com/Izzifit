@@ -1034,6 +1034,18 @@
             "deprecationReason": null
           },
           {
+            "name": "reInitESWithFillData",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "example",
             "description": null,
             "args": [],
@@ -3763,7 +3775,13 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "WIDGET_ENTITY_TYPE_MEALS",
+            "name": "WIDGET_ENTITY_TYPE_ACTIVITY",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "WIDGET_ENTITY_TYPE_WATER",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -3781,25 +3799,13 @@
             "deprecationReason": null
           },
           {
-            "name": "WIDGET_ENTITY_TYPE_WORKOUTS",
+            "name": "WIDGET_ENTITY_TYPE_MEALS",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "WIDGET_ENTITY_TYPE_CHOOSE_WORKOUTS",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "WIDGET_ENTITY_TYPE_WATER",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "WIDGET_ENTITY_TYPE_WEIGHT",
+            "name": "WIDGET_ENTITY_TYPE_WORKOUT_MUSCLES",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -4643,6 +4649,16 @@
                     "name": "String",
                     "ofType": null
                   }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "useFreeBuilding",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
                 },
                 "defaultValue": null
               }

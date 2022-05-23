@@ -263,8 +263,10 @@ class LevelController: BaseController {
                 btn?.isUserInteractionEnabled.toggle()
             }
         }
+        
         buildPopUpVw.removeFromSuperview()
-        presenter.upgradeBuild(buildingId: buildingId)
+        presenter.upgradeBuild(buildingId: buildingId,
+                               useFreeBuilding: true)
     }
     
     private func activateAnimation() {
@@ -273,15 +275,14 @@ class LevelController: BaseController {
     }
     
     private func setup() {
+        for i in 0...4 {  btns[i]?.tag = i }
         
-        for i in 0...4 {
-            btns[i]?.tag = i
-        }
         if let name = KeychainService.standard.me?.name {
             barBackVw.nameLbl.text = name
         } else {
             barBackVw.nameLbl.isHidden = true
         }
+        
         barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
                                     placeholder: RImage.placeholder_food_ic(),
                                     options: [.transition(.fade(0.25))])
@@ -366,7 +367,6 @@ extension LevelController: LevelOutputProtocol {
             }
         }
         drawStates()
-        buildPopUpVw.reloadInputViews()
     }
     
     func successBuild() { }

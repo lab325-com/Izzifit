@@ -1120,51 +1120,47 @@ public enum SpinObjectRewardType: RawRepresentable, Equatable, Hashable, CaseIte
 
 public enum WidgetEntityType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
-  case widgetEntityTypeMeals
+  case widgetEntityTypeActivity
+  case widgetEntityTypeWater
   case widgetEntityTypeSleep
   case widgetEntityTypeMood
-  case widgetEntityTypeWorkouts
-  case widgetEntityTypeChooseWorkouts
-  case widgetEntityTypeWater
-  case widgetEntityTypeWeight
+  case widgetEntityTypeMeals
+  case widgetEntityTypeWorkoutMuscles
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
   public init?(rawValue: RawValue) {
     switch rawValue {
-      case "WIDGET_ENTITY_TYPE_MEALS": self = .widgetEntityTypeMeals
+      case "WIDGET_ENTITY_TYPE_ACTIVITY": self = .widgetEntityTypeActivity
+      case "WIDGET_ENTITY_TYPE_WATER": self = .widgetEntityTypeWater
       case "WIDGET_ENTITY_TYPE_SLEEP": self = .widgetEntityTypeSleep
       case "WIDGET_ENTITY_TYPE_MOOD": self = .widgetEntityTypeMood
-      case "WIDGET_ENTITY_TYPE_WORKOUTS": self = .widgetEntityTypeWorkouts
-      case "WIDGET_ENTITY_TYPE_CHOOSE_WORKOUTS": self = .widgetEntityTypeChooseWorkouts
-      case "WIDGET_ENTITY_TYPE_WATER": self = .widgetEntityTypeWater
-      case "WIDGET_ENTITY_TYPE_WEIGHT": self = .widgetEntityTypeWeight
+      case "WIDGET_ENTITY_TYPE_MEALS": self = .widgetEntityTypeMeals
+      case "WIDGET_ENTITY_TYPE_WORKOUT_MUSCLES": self = .widgetEntityTypeWorkoutMuscles
       default: self = .__unknown(rawValue)
     }
   }
 
   public var rawValue: RawValue {
     switch self {
-      case .widgetEntityTypeMeals: return "WIDGET_ENTITY_TYPE_MEALS"
+      case .widgetEntityTypeActivity: return "WIDGET_ENTITY_TYPE_ACTIVITY"
+      case .widgetEntityTypeWater: return "WIDGET_ENTITY_TYPE_WATER"
       case .widgetEntityTypeSleep: return "WIDGET_ENTITY_TYPE_SLEEP"
       case .widgetEntityTypeMood: return "WIDGET_ENTITY_TYPE_MOOD"
-      case .widgetEntityTypeWorkouts: return "WIDGET_ENTITY_TYPE_WORKOUTS"
-      case .widgetEntityTypeChooseWorkouts: return "WIDGET_ENTITY_TYPE_CHOOSE_WORKOUTS"
-      case .widgetEntityTypeWater: return "WIDGET_ENTITY_TYPE_WATER"
-      case .widgetEntityTypeWeight: return "WIDGET_ENTITY_TYPE_WEIGHT"
+      case .widgetEntityTypeMeals: return "WIDGET_ENTITY_TYPE_MEALS"
+      case .widgetEntityTypeWorkoutMuscles: return "WIDGET_ENTITY_TYPE_WORKOUT_MUSCLES"
       case .__unknown(let value): return value
     }
   }
 
   public static func == (lhs: WidgetEntityType, rhs: WidgetEntityType) -> Bool {
     switch (lhs, rhs) {
-      case (.widgetEntityTypeMeals, .widgetEntityTypeMeals): return true
+      case (.widgetEntityTypeActivity, .widgetEntityTypeActivity): return true
+      case (.widgetEntityTypeWater, .widgetEntityTypeWater): return true
       case (.widgetEntityTypeSleep, .widgetEntityTypeSleep): return true
       case (.widgetEntityTypeMood, .widgetEntityTypeMood): return true
-      case (.widgetEntityTypeWorkouts, .widgetEntityTypeWorkouts): return true
-      case (.widgetEntityTypeChooseWorkouts, .widgetEntityTypeChooseWorkouts): return true
-      case (.widgetEntityTypeWater, .widgetEntityTypeWater): return true
-      case (.widgetEntityTypeWeight, .widgetEntityTypeWeight): return true
+      case (.widgetEntityTypeMeals, .widgetEntityTypeMeals): return true
+      case (.widgetEntityTypeWorkoutMuscles, .widgetEntityTypeWorkoutMuscles): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -1172,13 +1168,12 @@ public enum WidgetEntityType: RawRepresentable, Equatable, Hashable, CaseIterabl
 
   public static var allCases: [WidgetEntityType] {
     return [
-      .widgetEntityTypeMeals,
+      .widgetEntityTypeActivity,
+      .widgetEntityTypeWater,
       .widgetEntityTypeSleep,
       .widgetEntityTypeMood,
-      .widgetEntityTypeWorkouts,
-      .widgetEntityTypeChooseWorkouts,
-      .widgetEntityTypeWater,
-      .widgetEntityTypeWeight,
+      .widgetEntityTypeMeals,
+      .widgetEntityTypeWorkoutMuscles,
     ]
   }
 }
@@ -2299,21 +2294,23 @@ public final class UpgradeBuildingMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    mutation UpgradeBuilding($buildingId: String!) {
-      upgradeBuilding(buildingId: $buildingId)
+    mutation UpgradeBuilding($buildingId: String!, $useFreeBuilding: Boolean) {
+      upgradeBuilding(buildingId: $buildingId, useFreeBuilding: $useFreeBuilding)
     }
     """
 
   public let operationName: String = "UpgradeBuilding"
 
   public var buildingId: String
+  public var useFreeBuilding: Bool?
 
-  public init(buildingId: String) {
+  public init(buildingId: String, useFreeBuilding: Bool? = nil) {
     self.buildingId = buildingId
+    self.useFreeBuilding = useFreeBuilding
   }
 
   public var variables: GraphQLMap? {
-    return ["buildingId": buildingId]
+    return ["buildingId": buildingId, "useFreeBuilding": useFreeBuilding]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -2321,7 +2318,7 @@ public final class UpgradeBuildingMutation: GraphQLMutation {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("upgradeBuilding", arguments: ["buildingId": GraphQLVariable("buildingId")], type: .scalar(Bool.self)),
+        GraphQLField("upgradeBuilding", arguments: ["buildingId": GraphQLVariable("buildingId"), "useFreeBuilding": GraphQLVariable("useFreeBuilding")], type: .scalar(Bool.self)),
       ]
     }
 

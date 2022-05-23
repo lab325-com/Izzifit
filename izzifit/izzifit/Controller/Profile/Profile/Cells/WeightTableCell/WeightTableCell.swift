@@ -23,14 +23,11 @@ class WeightTableCell: BaseTableViewCell {
     // MARK: - Property
     //----------------------------------------------
     private var calculator = TrigonometryManager()
+    
     private lazy var chartBackViewStrideX: CGFloat = {
         (w - 99) / 7
     }()
-    
-    private lazy var startPoint: CGPoint = {
-        CGPoint(x: 0,
-                y: 25)
-    }()
+
     
     private var chartShapeLayer: CAShapeLayer = {
         let chartShapeLayer = CAShapeLayer()
@@ -63,10 +60,31 @@ class WeightTableCell: BaseTableViewCell {
         chartBackVw.layer.backgroundColor = UIColor.clear.cgColor
     }
     
+    func calculateMeasureY(value: CGFloat, upper: CGFloat, lower: CGFloat) -> CGFloat {
+        switch value {
+        case let x where x > upper: return 0.0
+        case let x where x < lower: return 89.0
+        default: break
+        }
+        let neededValue = value - lower
+        let measureDistance = upper - lower
+        let measureRatio = measureDistance / 89.0
+        let pointY = neededValue / measureRatio.rounded(toPlaces: 1)
+        let residualValue = 89.0 - pointY.rounded(toPlaces: 1)
+        return residualValue
+    }
+    
     func fillCellBy(_ model: WeightsWidgetMainModel) {
         
         let path = UIBezierPath()
         var chartPoints = [CGPoint]()
+        let weights = createWeights(from: model.targetWeight)
+        let startY = calculateMeasureY(value: CGFloat(model.Weights.first?.weight ?? 30.0),
+                                       upper: CGFloat(weights.first ?? 1),
+                                       lower: CGFloat(weights.last ?? 1))
+        
+        let startPoint = CGPoint(x: 0,
+                                 y: startY)
         
         path.move(to: startPoint)
         // Weight Labels
@@ -76,9 +94,10 @@ class WeightTableCell: BaseTableViewCell {
             if index <= 6 {
                 dateLabelsCollection[index].text = convertDate(item.createdAt)
                 // Draw Graph
-                let currentX = chartBackViewStrideX * CGFloat(index + 1)
-                let currentY = correlateValueToY(Int(item.weight))
-                
+                let currentX = chartBackViewStrideX * CGFloat(index)
+                let currentY = calculateMeasureY(value: CGFloat(item.weight),
+                                                 upper: CGFloat(weights.first ?? 1),
+                                                 lower: CGFloat(weights.last ?? 1))
                 let cgPoint = CGPoint(x: currentX,
                                       y: currentY)
                 chartPoints.append(cgPoint)
@@ -175,6 +194,7 @@ class WeightTableCell: BaseTableViewCell {
         lineLayer.lineDashPattern = [6, 4]
         let linePath = CGMutablePath()
         let lineY = chartBackVw.sizeHeight / 2
+        
         linePath.addLines(between: [CGPoint(x: 0,
                                             y: lineY),
                                     CGPoint(x: chartBackVw.sizeWidth,
@@ -185,11 +205,9 @@ class WeightTableCell: BaseTableViewCell {
     
     private func correlateValueToY(_ targetAmount: Int) -> CGFloat  {
         
-        let decimalTargetAmount = Int(Float(targetAmount) * 0.1)
-        let oneHundredth: CGFloat = CGFloat(decimalTargetAmount) / 100
-        let verticalPointAmount: CGFloat = CGFloat(oneHundredth) * chartBackVw.sizeHeight // 83 - chart height
+        let oneHundredth: CGFloat = CGFloat(targetAmount) / 100
+        let verticalPointAmount: CGFloat = CGFloat(oneHundredth) * chartBackVw.sizeHeight  // 83 - chart height
         let residualValue: CGFloat = chartBackVw.sizeHeight - verticalPointAmount
-        
         return residualValue
     }
     
