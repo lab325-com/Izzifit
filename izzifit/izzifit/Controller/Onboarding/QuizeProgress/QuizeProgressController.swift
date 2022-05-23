@@ -80,7 +80,7 @@ extension QuizeProgressController: QuizeProgressOutputProtocol {
     func success() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) { [weak self] in
             guard let `self` = self else { return }
-            PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self)
+            PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .afterOnboarding)
         }
     }
     

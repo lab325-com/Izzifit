@@ -10,5 +10,6 @@ import Foundation
 struct Constants {
     struct Notifications {
         static let updateEnergyNotification: NSNotification.Name = NSNotification.Name("updateEnergyNotification")
+        static let endRemoteConfigEndNotification: NSNotification.Name = NSNotification.Name("endRemoteConfigEndNotification")
     }
 }

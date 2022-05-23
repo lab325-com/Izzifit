@@ -82,6 +82,12 @@ class EnergyController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        if PreferencesManager.sharedManager.afterOnboarding && KeychainService.standard.me?.Subscription == nil {
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .dashboard)
+        } else {
+            PreferencesManager.sharedManager.afterOnboarding = true
+        }
+        
         tableView.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector:#selector(updateEnegyNotification),

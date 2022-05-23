@@ -20,6 +20,12 @@
 		020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D282127E887A400010122 /* FoodAddPresenter.swift */; };
 		020D282527E89FE700010122 /* AddProductToMeal.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 020D282427E89FE700010122 /* AddProductToMeal.graphql */; };
 		020D282727E8A04400010122 /* AddProductToMealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D282627E8A04400010122 /* AddProductToMealModel.swift */; };
+		0218DA93283B928E000979B5 /* RemoteConfigParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218DA92283B928E000979B5 /* RemoteConfigParameters.swift */; };
+		0218DA96283B92FA000979B5 /* PaywallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218DA95283B92FA000979B5 /* PaywallScreen.swift */; };
+		0218DA99283B9730000979B5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0218DA98283B9730000979B5 /* FirebaseAnalytics */; };
+		0218DA9B283B9730000979B5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0218DA9A283B9730000979B5 /* FirebaseCrashlytics */; };
+		0218DA9D283B9730000979B5 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 0218DA9C283B9730000979B5 /* FirebaseMessaging */; };
+		0218DA9F283B9730000979B5 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 0218DA9E283B9730000979B5 /* FirebaseRemoteConfig */; };
 		021A6F4727BF8FFA0000D863 /* ProfileUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4627BF8FF90000D863 /* ProfileUpdateModel.swift */; };
 		021A6F4A27BF91050000D863 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4927BF91050000D863 /* CircularProgressBarView.swift */; };
 		021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4C27BF99710000D863 /* MainTabBarController.swift */; };
@@ -188,8 +194,6 @@
 		029EDBD5280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029EDBD4280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift */; };
 		02A27B59282A657400B435B0 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A27B58282A657400B435B0 /* AnalyticsHelper.swift */; };
 		02A4649E2811641800B00381 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02A4649D2811641800B00381 /* GoogleService-Info.plist */; };
-		02A464A22811658800B00381 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 02A464A12811658800B00381 /* FirebaseAnalytics */; };
-		02A464A42811658800B00381 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 02A464A32811658800B00381 /* FirebaseCrashlytics */; };
 		02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA327C393A300D31FB4 /* EnergyController.swift */; };
 		02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDA427C393A300D31FB4 /* EnergyController.xib */; };
 		02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */; };
@@ -394,6 +398,8 @@
 		020D282127E887A400010122 /* FoodAddPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAddPresenter.swift; sourceTree = "<group>"; };
 		020D282427E89FE700010122 /* AddProductToMeal.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AddProductToMeal.graphql; sourceTree = "<group>"; };
 		020D282627E8A04400010122 /* AddProductToMealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductToMealModel.swift; sourceTree = "<group>"; };
+		0218DA92283B928E000979B5 /* RemoteConfigParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigParameters.swift; sourceTree = "<group>"; };
+		0218DA95283B92FA000979B5 /* PaywallScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallScreen.swift; sourceTree = "<group>"; };
 		021A6F4627BF8FF90000D863 /* ProfileUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateModel.swift; sourceTree = "<group>"; };
 		021A6F4927BF91050000D863 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		021A6F4C27BF99710000D863 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -766,12 +772,14 @@
 				028EE3BF2834EE0C00F3D148 /* AppsFlyerLib in Frameworks */,
 				0249D25627B3A7AD00F265C1 /* NVActivityIndicatorView in Frameworks */,
 				02E6D85B27FC259E00E29509 /* SwiftyStoreKit in Frameworks */,
+				0218DA99283B9730000979B5 /* FirebaseAnalytics in Frameworks */,
+				0218DA9F283B9730000979B5 /* FirebaseRemoteConfig in Frameworks */,
+				0218DA9D283B9730000979B5 /* FirebaseMessaging in Frameworks */,
 				0249D25827B3A7AD00F265C1 /* NVActivityIndicatorViewExtended in Frameworks */,
-				02A464A42811658800B00381 /* FirebaseCrashlytics in Frameworks */,
 				0227DA8C27C4CA77008AB26B /* Kingfisher in Frameworks */,
 				0249D27027B3A98C00F265C1 /* SwiftKeychainWrapper in Frameworks */,
 				0249D27D27B3AA7000F265C1 /* Toast in Frameworks */,
-				02A464A22811658800B00381 /* FirebaseAnalytics in Frameworks */,
+				0218DA9B283B9730000979B5 /* FirebaseCrashlytics in Frameworks */,
 				8C4F7F85C1CC5538D3E379C8 /* Pods_izzifit.framework in Frameworks */,
 				FAF4350428257920008691CD /* Gifu in Frameworks */,
 			);
@@ -843,6 +851,23 @@
 				020D282627E8A04400010122 /* AddProductToMealModel.swift */,
 			);
 			path = AddProductToMeal;
+			sourceTree = "<group>";
+		};
+		0218DA91283B9273000979B5 /* FirebaseRemote */ = {
+			isa = PBXGroup;
+			children = (
+				0218DA92283B928E000979B5 /* RemoteConfigParameters.swift */,
+				0218DA94283B92E1000979B5 /* Model */,
+			);
+			path = FirebaseRemote;
+			sourceTree = "<group>";
+		};
+		0218DA94283B92E1000979B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0218DA95283B92FA000979B5 /* PaywallScreen.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		021A6F4827BF90F60000D863 /* View */ = {
@@ -1108,6 +1133,7 @@
 			isa = PBXGroup;
 			children = (
 				0249D22A27B3A4EF00F265C1 /* AppDelegate.swift */,
+				0218DA91283B9273000979B5 /* FirebaseRemote */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -2539,10 +2565,12 @@
 				0249D27C27B3AA7000F265C1 /* Toast */,
 				0227DA8B27C4CA77008AB26B /* Kingfisher */,
 				02E6D85A27FC259E00E29509 /* SwiftyStoreKit */,
-				02A464A12811658800B00381 /* FirebaseAnalytics */,
-				02A464A32811658800B00381 /* FirebaseCrashlytics */,
 				FAF4350328257920008691CD /* Gifu */,
 				028EE3BE2834EE0C00F3D148 /* AppsFlyerLib */,
+				0218DA98283B9730000979B5 /* FirebaseAnalytics */,
+				0218DA9A283B9730000979B5 /* FirebaseCrashlytics */,
+				0218DA9C283B9730000979B5 /* FirebaseMessaging */,
+				0218DA9E283B9730000979B5 /* FirebaseRemoteConfig */,
 			);
 			productName = izzifit;
 			productReference = 0249D22727B3A4EF00F265C1 /* izzifit.app */;
@@ -2580,9 +2608,9 @@
 				0249D27B27B3AA7000F265C1 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				0227DA8A27C4CA77008AB26B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
-				02A464A02811658800B00381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FAF4350228257920008691CD /* XCRemoteSwiftPackageReference "Gifu" */,
 				028EE3BD2834EE0C00F3D148 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */,
+				0218DA97283B972F000979B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0249D22827B3A4EF00F265C1 /* Products */;
 			projectDirPath = "";
@@ -2930,6 +2958,7 @@
 				020CB3D727E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift in Sources */,
 				0227DAA127C63D51008AB26B /* QuizeFoodPresenter.swift in Sources */,
 				02C5C46528365E1B00DA189C /* WidgetList.swift in Sources */,
+				0218DA96283B92FA000979B5 /* PaywallScreen.swift in Sources */,
 				0227DAB227C67179008AB26B /* MenuEmailController.swift in Sources */,
 				02BACF1827F4588100B7562C /* WorkoutByIdMainModel.swift in Sources */,
 				0273F55E27D5F7CB00B19449 /* EnergyMealsCell.swift in Sources */,
@@ -3003,6 +3032,7 @@
 				0273F56927D60EF600B19449 /* SleepWidgetModel.swift in Sources */,
 				023FBC3F27FACCC0004D0CEA /* PaywallRouter.swift in Sources */,
 				0251D24027E215C60098A54D /* ProductsByMealModel.swift in Sources */,
+				0218DA93283B928E000979B5 /* RemoteConfigParameters.swift in Sources */,
 				0249D24C27B3A67900F265C1 /* RootRouter.swift in Sources */,
 				02C3DD6527BEDA82004E5C65 /* QuizeProgressController.swift in Sources */,
 				0268753327D8E54E00FFEA6A /* EnergyChooseActivityCell.swift in Sources */,
@@ -3235,7 +3265,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3271,7 +3301,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3368,7 +3398,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3422,6 +3452,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0218DA97283B972F000979B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		0227DA8A27C4CA77008AB26B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -3470,14 +3508,6 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		02A464A02811658800B00381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
-			};
-		};
 		02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
@@ -3497,6 +3527,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0218DA98283B9730000979B5 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0218DA97283B972F000979B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		0218DA9A283B9730000979B5 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0218DA97283B972F000979B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		0218DA9C283B9730000979B5 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0218DA97283B972F000979B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		0218DA9E283B9730000979B5 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0218DA97283B972F000979B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
 		0227DA8B27C4CA77008AB26B /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0227DA8A27C4CA77008AB26B /* XCRemoteSwiftPackageReference "Kingfisher" */;
@@ -3536,16 +3586,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 028EE3BD2834EE0C00F3D148 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */;
 			productName = AppsFlyerLib;
-		};
-		02A464A12811658800B00381 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 02A464A02811658800B00381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		02A464A32811658800B00381 /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 02A464A02811658800B00381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
 		};
 		02E6D85A27FC259E00E29509 /* SwiftyStoreKit */ = {
 			isa = XCSwiftPackageProductDependency;

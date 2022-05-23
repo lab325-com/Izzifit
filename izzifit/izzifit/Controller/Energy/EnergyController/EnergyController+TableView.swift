@@ -106,7 +106,7 @@ extension EnergyController: EnergyMealsDeleagate {
     func energyMealsAdd(cell: EnergyMealsCell, type: MealType) {
         
         if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeMeals) && KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self)
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .meals)
         } else {
             guard let meals = presenter.mealsWidget else { return }
             switch type {
@@ -136,7 +136,7 @@ extension EnergyController: EnergyDrinkWaterProtocol {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_water_tap)
         
         if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeWater) && KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self)
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .drinkWater)
         } else {
             presenter.setWater(index: index, date: getDate())
         }
@@ -152,7 +152,7 @@ extension EnergyController: EnergyMoodProtocol {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_emotion_tap)
         
         if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeMood) && KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self)
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .mood)
         } else {
             presenter.setMood(mood: type, date: getDate())
         }
@@ -168,7 +168,7 @@ extension EnergyController: EnergySleepCellProtocol {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_sleep_tap)
         
         if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeSleep) && KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self)
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .sleep)
         } else {
             presenter.setSeleep(sleep: sleep, date: getDate())
         }
@@ -206,7 +206,7 @@ extension EnergyController: EnergyChooseActivityProtocol {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_activity_tap)
         
         if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeActivity) && KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self)
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .chooseAcivity)
         } else {
             delegate?.energControllerSetProfile(controller: self, model: model)
         }
