@@ -16,6 +16,9 @@ class PreferencesManager : NSObject {
     static let isFirstRun = "isFirstRun"
     static let tempPorifle = "tempPorifle"
     static let foods =  "foods"
+    static let widgetList = "widgetList"
+    static let screensPaywall = "screensPaywall"
+    static let afterOnboarding = "afterOnboarding"
     
     var userDefaults: UserDefaults
     
@@ -122,6 +125,34 @@ class PreferencesManager : NSObject {
         }
         set {
             self.set(newValue, forKey: PreferencesManager.foods)
+        }
+    }
+    
+    var widgetList: [WidgetEntityType] {
+        get {
+            return self.models(forKey: PreferencesManager.widgetList) ?? []
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.widgetList)
+        }
+    }
+    
+    var screensPaywall: [ScreensPaywallModel] {
+        get {
+            return self.models(forKey: PreferencesManager.screensPaywall) ?? []
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.screensPaywall)
+        }
+    }
+    
+    var afterOnboarding: Bool {
+        get {
+            return userDefaults.bool(forKey: PreferencesManager.afterOnboarding)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.afterOnboarding)
+            userDefaults.synchronize()
         }
     }
 }

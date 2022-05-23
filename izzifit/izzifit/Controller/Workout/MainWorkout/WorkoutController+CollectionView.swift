@@ -113,7 +113,7 @@ extension WorkoutController: WorkoutExercisesCellProtocol {
             AnalyticsHelper.sendFirebaseEvents(events: .exe_tap, params: ["id": model.id])
             WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: model.id)
         } else {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self)
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .workout)
         }
     }
 }

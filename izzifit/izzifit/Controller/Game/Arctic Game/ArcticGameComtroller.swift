@@ -396,7 +396,14 @@ class ArcticGameComtroller: BaseController {
         
         guard counter.combinations.count > combinationCounter else { spinsRunOut()
             return }
-        guard KeychainService.standard.me?.energy ?? 0.0 > 0.0 else { return }
+        guard KeychainService.standard.me?.energy ?? 0.0 > 0.0 else {
+            if KeychainService.standard.me?.Subscription == nil {
+                PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
+            }
+            
+            return
+        }
+        
         resultLbl.text = ""
         resultStackView.isHidden = true
         AudioManager.sharedManager.playSound(type: .spinTap_10)
@@ -501,10 +508,27 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
             }
         }
         
+        if KeychainService.standard.me?.Subscription == nil {
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterSpeen)
+        }
     }
     
     func success() {
         collectionView.reloadData()
+    }
+}
+
+//----------------------------------------------
+// MARK: - PaywallProtocol
+//----------------------------------------------
+
+extension ArcticGameComtroller: PaywallProtocol {
+    func paywallActionBack(controller: PaywallController) {
+        self.dismiss(animated: true)
+    }
+    
+    func paywallSuccess(controller: PaywallController) {
+        
     }
 }
 

@@ -72,11 +72,22 @@ class EnergyController: BaseController {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.getWidgetList()
+    }
+    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
     
     private func setup() {
+        if PreferencesManager.sharedManager.afterOnboarding && KeychainService.standard.me?.Subscription == nil {
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .dashboard)
+        } else {
+            PreferencesManager.sharedManager.afterOnboarding = true
+        }
+        
         tableView.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector:#selector(updateEnegyNotification),
@@ -125,10 +136,10 @@ class EnergyController: BaseController {
     
     func getMe() {
         presenter.getMe()
+        presenter.getWidgetList()
     }
     
     func updateMe() {
-        //presenter.getWidgetList()
         if !currentDate.isInToday {
             currentDate = Date()
             presenter.getWidgets(date: getDate())
@@ -161,6 +172,10 @@ extension EnergyController: EnergyOutputProtocol {
     func success() {
         updateMe()
         tableView.isHidden = false
+        tableView.reloadData()
+    }
+    
+    func successWidgetList() {
         tableView.reloadData()
     }
     
