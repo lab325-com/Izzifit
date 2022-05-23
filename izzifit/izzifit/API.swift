@@ -2475,21 +2475,23 @@ public final class UpgradeBuildingMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    mutation UpgradeBuilding($buildingId: String!) {
-      upgradeBuilding(buildingId: $buildingId)
+    mutation UpgradeBuilding($buildingId: String!, $useFreeBuilding: Boolean) {
+      upgradeBuilding(buildingId: $buildingId, useFreeBuilding: $useFreeBuilding)
     }
     """
 
   public let operationName: String = "UpgradeBuilding"
 
   public var buildingId: String
+  public var useFreeBuilding: Bool?
 
-  public init(buildingId: String) {
+  public init(buildingId: String, useFreeBuilding: Bool? = nil) {
     self.buildingId = buildingId
+    self.useFreeBuilding = useFreeBuilding
   }
 
   public var variables: GraphQLMap? {
-    return ["buildingId": buildingId]
+    return ["buildingId": buildingId, "useFreeBuilding": useFreeBuilding]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -2497,7 +2499,7 @@ public final class UpgradeBuildingMutation: GraphQLMutation {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("upgradeBuilding", arguments: ["buildingId": GraphQLVariable("buildingId")], type: .scalar(Bool.self)),
+        GraphQLField("upgradeBuilding", arguments: ["buildingId": GraphQLVariable("buildingId"), "useFreeBuilding": GraphQLVariable("useFreeBuilding")], type: .scalar(Bool.self)),
       ]
     }
 

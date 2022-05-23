@@ -31,9 +31,10 @@ class ChartCollectionCell: UICollectionViewCell {
     }
     
     func fillCellBy(_ model: CaloriesObjectModel) {
-        strokeEnd = model.count
+        strokeEnd = calculateStrokeEnd(model.count)
+        
         dateLbl.text = model.stringDate
-        targetValue = model.target
+        targetValue =  calculateStrokeEnd(model.target)
         
         let shapeLayer = CAShapeLayer()
         shapeLayer.lineWidth = shapeLineWidth
@@ -66,21 +67,46 @@ class ChartCollectionCell: UICollectionViewCell {
         overTargetSL.fillColor = nil
         
         let overTargetPath = UIBezierPath()
-        overTargetPath.move(to: CGPoint(x: x, y: correlateValueToY(targetValue)))
-        overTargetPath.addLine(to: CGPoint(x: x, y: correlateValueToY(strokeEnd)))
+        overTargetPath.move(to: CGPoint(x: x, y: calculateMeasureY(value: model.target)))
+        overTargetPath.addLine(to: CGPoint(x: x, y: calculateMeasureY(value: model.count)))
         
         overTargetSL.path = overTargetPath.cgPath
         layer.addSublayer(overTargetSL)
         
     }
     
-    private func correlateValueToY(_ targetAmount: CGFloat) -> CGFloat  {
+    func calculateMeasureY(value: CGFloat,
+                           upper: CGFloat = 2500,
+                           lower: CGFloat = 0) -> CGFloat {
+       
+        switch value {
+        case let x where x > upper: return 0.0
+        case let x where x < lower: return 83.0
+        default: break
+        }
         
-        let decimalTargetAmount = Int(Float(targetAmount) * 100)
-        let oneHundredth: CGFloat = CGFloat(decimalTargetAmount) / 100
-        let verticalPointAmount: CGFloat = CGFloat(oneHundredth) * 83 // 83 - chartCollectionview height
-        let residualValue: CGFloat = 83 - verticalPointAmount
-        
+        let neededValue = value - lower
+        let measureDistance = upper - lower
+        let measureRatio = measureDistance / 83.0
+        let pointY = neededValue / measureRatio.rounded(toPlaces: 1)
+        let residualValue = 83.0 - pointY.rounded(toPlaces: 1)
         return residualValue
+    }
+    
+    func calculateStrokeEnd(_ countCalories: CGFloat,
+                            upper: CGFloat = 2500,
+                            lower: CGFloat = 0) -> CGFloat {
+       
+        switch countCalories {
+        case let x where x > upper: return 0.0
+        case let x where x < lower: return 1.0
+        default: break
+        }
+        
+        let measureRatio: CGFloat = 25
+        let neededValue = countCalories / measureRatio.rounded(toPlaces: 1)
+        let strokeEnd = neededValue * 0.01
+      
+        return strokeEnd
     }
 }
