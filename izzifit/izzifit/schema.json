@@ -693,26 +693,12 @@
             "deprecationReason": null
           },
           {
-<<<<<<< HEAD
-            "name": "reInitESWithFillData",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-=======
             "name": "WIDGET_ENTITY_TYPE_SLEEP",
             "description": null,
->>>>>>> develop
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-<<<<<<< HEAD
-            "name": "example",
-=======
             "name": "WIDGET_ENTITY_TYPE_MOOD",
             "description": null,
             "isDeprecated": false,
@@ -726,7 +712,6 @@
           },
           {
             "name": "WIDGET_ENTITY_TYPE_WORKOUT_MUSCLES",
->>>>>>> develop
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -4110,11 +4095,7 @@
             "deprecationReason": null
           },
           {
-<<<<<<< HEAD
-            "name": "WIDGET_ENTITY_TYPE_ACTIVITY",
-=======
             "name": "energy",
->>>>>>> develop
             "description": null,
             "args": [],
             "type": {
@@ -4126,9 +4107,6 @@
             "deprecationReason": null
           },
           {
-<<<<<<< HEAD
-            "name": "WIDGET_ENTITY_TYPE_WATER",
-=======
             "name": "email",
             "description": null,
             "args": [],
@@ -4142,7 +4120,6 @@
           },
           {
             "name": "Avatar",
->>>>>>> develop
             "description": null,
             "args": [],
             "type": {
@@ -4154,11 +4131,7 @@
             "deprecationReason": null
           },
           {
-<<<<<<< HEAD
-            "name": "WIDGET_ENTITY_TYPE_SLEEP",
-=======
             "name": "targetWeight",
->>>>>>> develop
             "description": null,
             "args": [],
             "type": {
@@ -4170,11 +4143,7 @@
             "deprecationReason": null
           },
           {
-<<<<<<< HEAD
-            "name": "WIDGET_ENTITY_TYPE_MOOD",
-=======
             "name": "goal",
->>>>>>> develop
             "description": null,
             "args": [],
             "type": {
@@ -4186,11 +4155,7 @@
             "deprecationReason": null
           },
           {
-<<<<<<< HEAD
-            "name": "WIDGET_ENTITY_TYPE_MEALS",
-=======
             "name": "age",
->>>>>>> develop
             "description": null,
             "args": [],
             "type": {
@@ -4202,11 +4167,7 @@
             "deprecationReason": null
           },
           {
-<<<<<<< HEAD
-            "name": "WIDGET_ENTITY_TYPE_WORKOUT_MUSCLES",
-=======
             "name": "growth",
->>>>>>> develop
             "description": null,
             "args": [],
             "type": {
@@ -5064,36 +5025,7 @@
           {
             "name": "name",
             "description": null,
-<<<<<<< HEAD
-            "args": [
-              {
-                "name": "buildingId",
-                "description": null,
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "useFreeBuilding",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-=======
             "args": [],
->>>>>>> develop
             "type": {
               "kind": "SCALAR",
               "name": "String",

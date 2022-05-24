@@ -1,5 +1,6 @@
 
 import UIKit
+import CloudKit
 
 class PaywallSingleController: BaseController {
     
@@ -7,20 +8,43 @@ class PaywallSingleController: BaseController {
     // MARK: - IBOutlet
     //----------------------------------------------
     
+    @IBOutlet weak var subView: UIView!
+    
     @IBOutlet weak var subNameLabel: UILabel!
     @IBOutlet weak var subPriceLabel: UILabel!
     @IBOutlet weak var subSalePriceLabel: UILabel!
     @IBOutlet weak var subSaleDiscountLabel: UILabel!
     @IBOutlet weak var subPerDayPriceLabel: UILabel!
+    @IBOutlet weak var subPerDayLabel: UILabel!
     
     @IBOutlet weak var subscribeButton: UIButton!
     @IBOutlet weak var restoreButton: UIButton!
+    
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     
     @IBOutlet weak var privacyLabel: UILabel!
     
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
+    
+    weak var delegate: PaywallProtocol?
+    
+    private let id: Set<String> = ["izzifit_one_year_50"]
+    private lazy var presenter = SubscribePresenter(view: self)
+    
+    //----------------------------------------------
+    // MARK: - Init
+    //----------------------------------------------
+    
+    init(delegate: PaywallProtocol) {
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //----------------------------------------------
     // MARK: - Life cycle
@@ -37,7 +61,14 @@ class PaywallSingleController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        subView.isHidden = true
+        
+        subNameLabel.text = "Annually"
+        subPerDayLabel.text = "per day"
+        
         createPrivacyLabel()
+        
+        presenter.retriveProduct(id: id)
     }
     
     private func createPrivacyLabel() {
@@ -52,14 +83,7 @@ class PaywallSingleController: BaseController {
         
         let attributedString2 = NSMutableAttributedString(string:" \(RLocalization.login_privacy_policy())\n\(RLocalization.login_terms_use())", attributes:attrs2 as [NSAttributedString.Key : Any])
         
-        //let attributedString3 = NSMutableAttributedString(string:" \( RLocalization.login_and()) ", attributes:attrs1 as [NSAttributedString.Key : Any])
-        
-        //let attributedString4 = NSMutableAttributedString(string:RLocalization.login_terms_of_subscribe(), attributes:attrs2 as [NSAttributedString.Key : Any])
-        
-        
         attributedString1.append(attributedString2)
-        //attributedString1.append(attributedString3)
-        //attributedString1.append(attributedString4)
         
         self.privacyLabel.attributedText = attributedString1
         privacyLabel.textAlignment = .center
@@ -97,11 +121,37 @@ class PaywallSingleController: BaseController {
         }
     }
     
+    @IBAction func actionClose(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    
     @IBAction func actionSubscribe(_ sender: UIButton) {
         
     }
     
     @IBAction func actionRestore(_ sender: UIButton) {
+        
+    }
+}
+
+//----------------------------------------------
+// MARK: - SubscribeOutputProtocol
+//----------------------------------------------
+
+extension PaywallSingleController: SubscribeOutputProtocol {
+    func successRetrive() {
+        subView.isHidden = false
+        activity.isHidden = true
+        
+        if let info = presenter.paymentsInfo.first {
+            subSalePriceLabel.text = String(format: "Sale %@%@", info.currencySymbol ?? "", info.prettyPrice.trimmingCharacters(in: .whitespacesAndNewlines))
+            subSaleDiscountLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", (info.price * 2))
+            subPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 365)
+            subPerDayPriceLabel.text = String(format: "%@%.2f ", info.currencySymbol ?? "", (info.price * 2) / 365)
+        }
+    }
+    
+    func failure(error: String) {
         
     }
 }
