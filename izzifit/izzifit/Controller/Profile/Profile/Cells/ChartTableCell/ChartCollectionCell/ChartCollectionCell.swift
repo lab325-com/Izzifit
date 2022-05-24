@@ -98,8 +98,8 @@ class ChartCollectionCell: UICollectionViewCell {
                             lower: CGFloat = 0) -> CGFloat {
        
         switch countCalories {
-        case let x where x > upper: return 0.0
-        case let x where x < lower: return 1.0
+        case let x where x > upper: return 1.0
+        case let x where x < lower: return 0.0
         default: break
         }
         

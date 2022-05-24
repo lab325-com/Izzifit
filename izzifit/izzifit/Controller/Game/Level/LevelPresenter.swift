@@ -24,7 +24,7 @@ protocol LevelOutputProtocol: BaseController {
 protocol LevelProtocol: AnyObject {
     init(view: LevelOutputProtocol)
     func getBuildings()
-    func upgradeBuild(buildingId: String, useFreeBuilding: Bool)
+    func upgradeBuild(buildingId: String)
 }
 
 class LevelPresenter: LevelProtocol {
@@ -49,7 +49,7 @@ class LevelPresenter: LevelProtocol {
         })
     }
     
-    func upgradeBuild(buildingId: String, useFreeBuilding: Bool) {
+    func upgradeBuild(buildingId: String) {
         view?.startLoader()
         
         let mutation = UpgradeBuildingMutation(buildingId: buildingId)

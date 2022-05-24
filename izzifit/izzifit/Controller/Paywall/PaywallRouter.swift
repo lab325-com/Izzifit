@@ -17,11 +17,8 @@ class PaywallRouter: BaseRouter {
             let controller = PaywallController(delegate: delegate)
             present(controller: controller)
             
-//            let controller = PaywallSingleController(delegate: delegate)
-//            present(controller: controller)
-            
         case .onePrice:
-            let controller = PaywallSingleController(delegate: delegate)
+            let controller = PaywallController(delegate: delegate)
             present(controller: controller)
         case .twoPrice:
             let controller = PaywallController(delegate: delegate)
@@ -29,9 +26,12 @@ class PaywallRouter: BaseRouter {
         case .threePice:
             let controller = PaywallController(delegate: delegate)
             present(controller: controller)
+            
         default:
             let controller = PaywallController(delegate: delegate)
             present(controller: controller)
         }
+        
+        
     }
 }

@@ -13,7 +13,7 @@ struct CaloriesObjectModel {
     var target: CGFloat
 }
 
-class CaloriesTableCell: BaseTableViewCell {
+class ChartTableCell: BaseTableViewCell {
     
     //----------------------------------------------
     // MARK: - IBOutlet
@@ -115,7 +115,7 @@ class CaloriesTableCell: BaseTableViewCell {
 // MARK: - UICollectionViewDataSource
 //----------------------------------------------
 
-extension CaloriesTableCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ChartTableCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         calories.count
@@ -129,4 +129,4 @@ extension CaloriesTableCell: UICollectionViewDelegate, UICollectionViewDataSourc
     }
 }
 
-extension CaloriesTableCell: UICollectionViewDelegateFlowLayout { }
+extension ChartTableCell: UICollectionViewDelegateFlowLayout { }

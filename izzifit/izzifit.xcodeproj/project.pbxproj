@@ -335,19 +335,16 @@
 		FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761AF27DA1F60002881BB /* WorkoutActivitiesCell.swift */; };
 		FA1761C027DA3E96002881BB /* WorkoutActivityCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761BE27DA3E96002881BB /* WorkoutActivityCollectionCell.swift */; };
 		FA1761C127DA3E96002881BB /* WorkoutActivityCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1761BF27DA3E96002881BB /* WorkoutActivityCollectionCell.xib */; };
-		FA1A2561283CA35F00240E28 /* PaywallMultiplyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A255F283CA35F00240E28 /* PaywallMultiplyController.swift */; };
-		FA1A2562283CA35F00240E28 /* PaywallMultiplyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1A2560283CA35F00240E28 /* PaywallMultiplyController.xib */; };
 		FA1A6D8028081CE80040518A /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D7E28081CE80040518A /* LevelController.swift */; };
 		FA1A6D8128081CE80040518A /* LevelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1A6D7F28081CE80040518A /* LevelController.xib */; };
 		FA1A6D8B28097F0D0040518A /* GameTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */; };
-		FA300980283BA71B009C65C5 /* CALayer+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA30097F283BA71B009C65C5 /* CALayer+UIColor.swift */; };
+		FA42CC00283CE52700C6C959 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */; };
 		FA42F7AA2812EF24003AB66B /* PlanSpinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42F7A92812EF24003AB66B /* PlanSpinManager.swift */; };
 		FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */; };
 		FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */; };
 		FA62C54E27F5B58800AC463A /* WeightsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */; };
 		FA6628A327F184C200FBB946 /* Moods.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA6628A227F184C200FBB946 /* Moods.graphql */; };
 		FA6699CA281ABCF600B394E0 /* OffsetCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */; };
-		FA81F5D3283B9FF2002FC037 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81F5D2283B9FF2002FC037 /* CGFloat+Extension.swift */; };
 		FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */; };
 		FA8CC858282919B80022BFE2 /* construction3.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA8CC857282919B80022BFE2 /* construction3.gif */; };
 		FA8CC85A28291CA50022BFE2 /* GifImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8CC85928291CA50022BFE2 /* GifImageView.swift */; };
@@ -369,13 +366,10 @@
 		FACB1E862804325500058773 /* LevelStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1E852804325500058773 /* LevelStates.swift */; };
 		FADA6BD127F188B200913F67 /* MoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA6BD027F188B200913F67 /* MoodsModel.swift */; };
 		FAE6764D282E7E200020678E /* LevelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6764C282E7E200020678E /* LevelPresenter.swift */; };
-		FAF3109A283B7E7D0066C83F /* PaywallSingleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF31098283B7E7D0066C83F /* PaywallSingleController.swift */; };
-		FAF3109B283B7E7D0066C83F /* PaywallSingleController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF31099283B7E7D0066C83F /* PaywallSingleController.xib */; };
-		FAF3109D283B888C0066C83F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3109C283B888B0066C83F /* GradientView.swift */; };
 		FAF4350428257920008691CD /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = FAF4350328257920008691CD /* Gifu */; };
 		FE1403B327E1EDC2002F5819 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1403B127E1EDC2002F5819 /* ProfileController.swift */; };
 		FE1403B427E1EDC2002F5819 /* ProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE1403B227E1EDC2002F5819 /* ProfileController.xib */; };
-		FE1403BD27E2019C002F5819 /* CaloriesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1403BB27E2019C002F5819 /* CaloriesTableCell.swift */; };
+		FE1403BD27E2019C002F5819 /* ChartTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1403BB27E2019C002F5819 /* ChartTableCell.swift */; };
 		FE1403BE27E2019C002F5819 /* ChartTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE1403BC27E2019C002F5819 /* ChartTableCell.xib */; };
 		FE1403C227E249EB002F5819 /* ChartCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1403C027E249EB002F5819 /* ChartCollectionCell.swift */; };
 		FE1403C327E249EB002F5819 /* ChartCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE1403C127E249EB002F5819 /* ChartCollectionCell.xib */; };
@@ -717,19 +711,16 @@
 		FA1761AF27DA1F60002881BB /* WorkoutActivitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutActivitiesCell.swift; sourceTree = "<group>"; };
 		FA1761BE27DA3E96002881BB /* WorkoutActivityCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutActivityCollectionCell.swift; sourceTree = "<group>"; };
 		FA1761BF27DA3E96002881BB /* WorkoutActivityCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutActivityCollectionCell.xib; sourceTree = "<group>"; };
-		FA1A255F283CA35F00240E28 /* PaywallMultiplyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallMultiplyController.swift; sourceTree = "<group>"; };
-		FA1A2560283CA35F00240E28 /* PaywallMultiplyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaywallMultiplyController.xib; sourceTree = "<group>"; };
 		FA1A6D7E28081CE80040518A /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
 		FA1A6D7F28081CE80040518A /* LevelController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelController.xib; sourceTree = "<group>"; };
 		FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTabBarController.swift; sourceTree = "<group>"; };
-		FA30097F283BA71B009C65C5 /* CALayer+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+UIColor.swift"; sourceTree = "<group>"; };
+		FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		FA42F7A92812EF24003AB66B /* PlanSpinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanSpinManager.swift; sourceTree = "<group>"; };
 		FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometryManager.swift; sourceTree = "<group>"; };
 		FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WeightsWidget.graphql; sourceTree = "<group>"; };
 		FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsWidgetModel.swift; sourceTree = "<group>"; };
 		FA6628A227F184C200FBB946 /* Moods.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moods.graphql; sourceTree = "<group>"; };
 		FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetCounter.swift; sourceTree = "<group>"; };
-		FA81F5D2283B9FF2002FC037 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		FA8CC857282919B80022BFE2 /* construction3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = construction3.gif; sourceTree = "<group>"; };
 		FA8CC85928291CA50022BFE2 /* GifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImageView.swift; sourceTree = "<group>"; };
@@ -751,13 +742,10 @@
 		FACB1E852804325500058773 /* LevelStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelStates.swift; sourceTree = "<group>"; };
 		FADA6BD027F188B200913F67 /* MoodsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsModel.swift; sourceTree = "<group>"; };
 		FAE6764C282E7E200020678E /* LevelPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelPresenter.swift; sourceTree = "<group>"; };
-		FAF31098283B7E7D0066C83F /* PaywallSingleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallSingleController.swift; sourceTree = "<group>"; };
-		FAF31099283B7E7D0066C83F /* PaywallSingleController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaywallSingleController.xib; sourceTree = "<group>"; };
-		FAF3109C283B888B0066C83F /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FDA5E332399E73031D583774 /* Pods_izzifit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_izzifit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE1403B127E1EDC2002F5819 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		FE1403B227E1EDC2002F5819 /* ProfileController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileController.xib; sourceTree = "<group>"; };
-		FE1403BB27E2019C002F5819 /* CaloriesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesTableCell.swift; sourceTree = "<group>"; };
+		FE1403BB27E2019C002F5819 /* ChartTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableCell.swift; sourceTree = "<group>"; };
 		FE1403BC27E2019C002F5819 /* ChartTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableCell.xib; sourceTree = "<group>"; };
 		FE1403C027E249EB002F5819 /* ChartCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionCell.swift; sourceTree = "<group>"; };
 		FE1403C127E249EB002F5819 /* ChartCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCollectionCell.xib; sourceTree = "<group>"; };
@@ -1155,7 +1143,6 @@
 		0249D24E27B3A6EE00F265C1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FAF31095283B7CAD0066C83F /* Popups */,
 				FAB6546B27FEDF1A0057A221 /* Game */,
 				0249D25327B3A71700F265C1 /* SplashViewController */,
 				0249D27E27B3AA8B00F265C1 /* Auth */,
@@ -1205,7 +1192,7 @@
 				0249D25C27B3A88C00F265C1 /* Collection+Extension.swift */,
 				024779CC27DCB8BF00AAFE3D /* Date+Extension.swift */,
 				0249D26027B3A88C00F265C1 /* Int+Extension.swift */,
-				FA81F5D2283B9FF2002FC037 /* CGFloat+Extension.swift */,
+				FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */,
 				0249D25D27B3A88C00F265C1 /* UIApplicathion+Extension.swift */,
 				0249D25E27B3A88C00F265C1 /* UIColor+Extension.swift */,
 				0249D25B27B3A88C00F265C1 /* UIScrollView+Extension.swift */,
@@ -1214,7 +1201,6 @@
 				0290B39427D212CA00381B42 /* UIView+Extension.swift */,
 				02E3F9D92808478D006F5A99 /* CMTime+Extension.swift */,
 				FA8CC85928291CA50022BFE2 /* GifImageView.swift */,
-				FA30097F283BA71B009C65C5 /* CALayer+UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1610,7 +1596,6 @@
 		0290B39127D2044500381B42 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FAF3109C283B888B0066C83F /* GradientView.swift */,
 				0290B39227D2045400381B42 /* ShadowsView.swift */,
 			);
 			path = Views;
@@ -2339,15 +2324,6 @@
 			path = WorkoutActivitiesCell;
 			sourceTree = "<group>";
 		};
-		FA1A255E283CA33500240E28 /* PaywallMultiply */ = {
-			isa = PBXGroup;
-			children = (
-				FA1A255F283CA35F00240E28 /* PaywallMultiplyController.swift */,
-				FA1A2560283CA35F00240E28 /* PaywallMultiplyController.xib */,
-			);
-			path = PaywallMultiply;
-			sourceTree = "<group>";
-		};
 		FA62C54A27F5B43800AC463A /* WeightsWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -2464,24 +2440,6 @@
 			path = Rank;
 			sourceTree = "<group>";
 		};
-		FAF31095283B7CAD0066C83F /* Popups */ = {
-			isa = PBXGroup;
-			children = (
-				FA1A255E283CA33500240E28 /* PaywallMultiply */,
-				FAF31096283B7CBB0066C83F /* PaywallSingle */,
-			);
-			path = Popups;
-			sourceTree = "<group>";
-		};
-		FAF31096283B7CBB0066C83F /* PaywallSingle */ = {
-			isa = PBXGroup;
-			children = (
-				FAF31098283B7E7D0066C83F /* PaywallSingleController.swift */,
-				FAF31099283B7E7D0066C83F /* PaywallSingleController.xib */,
-			);
-			path = PaywallSingle;
-			sourceTree = "<group>";
-		};
 		FAFE2C4127DB5A5D00827956 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2506,7 +2464,7 @@
 			isa = PBXGroup;
 			children = (
 				FE1403BF27E249BA002F5819 /* ChartCollectionCell */,
-				FE1403BB27E2019C002F5819 /* CaloriesTableCell.swift */,
+				FE1403BB27E2019C002F5819 /* ChartTableCell.swift */,
 				FE1403BC27E2019C002F5819 /* ChartTableCell.xib */,
 			);
 			path = ChartTableCell;
@@ -2755,7 +2713,6 @@
 				02D066D927BBDC3400D12C5F /* QuizeGoalController.xib in Resources */,
 				0263389C27DB6BDD00DC0325 /* Progresses.graphql in Resources */,
 				02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */,
-				FA1A2562283CA35F00240E28 /* PaywallMultiplyController.xib in Resources */,
 				FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */,
 				020CB3D327E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql in Resources */,
 				02ABCF3627CCC3F400E69C06 /* MenuFoodSwitchCell.xib in Resources */,
@@ -2807,7 +2764,6 @@
 				025463BD27CFB21B00D433DB /* ToggleProductInRation.graphql in Resources */,
 				0251D24C27E2222F0098A54D /* RecentProducts.graphql in Resources */,
 				025463B027CF75BD00D433DB /* Muscles.graphql in Resources */,
-				FAF3109B283B7E7D0066C83F /* PaywallSingleController.xib in Resources */,
 				FE1403C327E249EB002F5819 /* ChartCollectionCell.xib in Resources */,
 				02BC127B27F1E13D00678305 /* WorkoutById.graphql in Resources */,
 				02BC127827F1CF5800678305 /* WorkoutDetailDescriptionCell.xib in Resources */,
@@ -3025,9 +2981,7 @@
 				FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */,
 				02E3F9DA2808478D006F5A99 /* CMTime+Extension.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
-				FAF3109A283B7E7D0066C83F /* PaywallSingleController.swift in Sources */,
 				02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */,
-				FA81F5D3283B9FF2002FC037 /* CGFloat+Extension.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
 				028EE3C72835023A00F3D148 /* Constant.swift in Sources */,
 				02AC22282800677B00440DFB /* OrderCreateModel.swift in Sources */,
@@ -3060,7 +3014,7 @@
 				0249D25127B3A70B00F265C1 /* SplashViewController.swift in Sources */,
 				02FAF0AE27D36D7C002CD678 /* EnergyPresenter.swift in Sources */,
 				02D066CB27BBBB4300D12C5F /* QuizeNameController.swift in Sources */,
-				FE1403BD27E2019C002F5819 /* CaloriesTableCell.swift in Sources */,
+				FE1403BD27E2019C002F5819 /* ChartTableCell.swift in Sources */,
 				023CDC3A28047C930056F022 /* AvailableGoalsModel.swift in Sources */,
 				0268752527D890F000FFEA6A /* TodayProgressModel.swift in Sources */,
 				025463A827CE404F00D433DB /* ToggleProductInRationModel.swift in Sources */,
@@ -3095,7 +3049,6 @@
 				FA62C54E27F5B58800AC463A /* WeightsWidgetModel.swift in Sources */,
 				02354E96280935A1005A8272 /* DoExerciseModel.swift in Sources */,
 				02BC128D27F329E200678305 /* WorkoutDetailMuscleController.swift in Sources */,
-				FA300980283BA71B009C65C5 /* CALayer+UIColor.swift in Sources */,
 				0273F56327D60C7A00B19449 /* EnergySleepCell.swift in Sources */,
 				0249D29E27B3D81700F265C1 /* API.swift in Sources */,
 				024C699F27DF61A200EE8D53 /* EnergyAddActivityCell.swift in Sources */,
@@ -3104,6 +3057,7 @@
 				025463B927CF8F5D00D433DB /* ToggleMuscleInWorkoutsModel.swift in Sources */,
 				0227DAC627C6A455008AB26B /* MenuFoodController.swift in Sources */,
 				FAB59C19282A7D8D005AE70B /* BuildPopUpView.swift in Sources */,
+				FA42CC00283CE52700C6C959 /* CGFloat+Extension.swift in Sources */,
 				02B22ACF281C2882006AB1EA /* UpgradeBuildingModel.swift in Sources */,
 				02D066E227BBEBA000D12C5F /* QuizeHeightController.swift in Sources */,
 				02B22AC3281C1502006AB1EA /* ArcticGamePresenter.swift in Sources */,
@@ -3119,7 +3073,6 @@
 				0263389727DB48D000DC0325 /* CalendarManager.swift in Sources */,
 				02ABCF3B27CCF80300E69C06 /* ProductsModel.swift in Sources */,
 				023D171C27BE1D4D005F95C0 /* AuthRouter.swift in Sources */,
-				FAF3109D283B888C0066C83F /* GradientView.swift in Sources */,
 				FEE119BF27E9B9270058EE6D /* MoodTableCell.swift in Sources */,
 				02E9047127F59E56008CFFB4 /* WorkoutExercisesCell.swift in Sources */,
 				FAE6764D282E7E200020678E /* LevelPresenter.swift in Sources */,
@@ -3160,7 +3113,6 @@
 				02B3017427EB23190045C607 /* SaveMoodModel.swift in Sources */,
 				02F01C5427D794B20066656D /* MoodWidgetModel.swift in Sources */,
 				0263389E27DB6C9A00DC0325 /* ProgressesModel.swift in Sources */,
-				FA1A2561283CA35F00240E28 /* PaywallMultiplyController.swift in Sources */,
 				FE7CF8BB27E4A7ED0099682E /* WeightTableCell.swift in Sources */,
 				FACB1E862804325500058773 /* LevelStates.swift in Sources */,
 				02BC127F27F1FBA500678305 /* WorkoutDetailPresenter.swift in Sources */,
