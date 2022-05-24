@@ -60,7 +60,7 @@ class ChartTableCell: BaseTableViewCell {
     
     func fillCellBy(_ model: CaloriesWidgetMainModel) {
 
-        let targetInt = correlateValueToY(model.target)
+        let targetInt = calculateMeasureY(value: CGFloat(model.target))
         let path = CGMutablePath()
         
         path.addLines(between: [CGPoint(x: 0 , y: targetInt),
@@ -70,16 +70,12 @@ class ChartTableCell: BaseTableViewCell {
         targetLbl.text = RLocalization.profile_target()
         targetLbl.topAnchor.constraint(equalTo: chartCollectionView.topAnchor,
                                        constant: targetInt - 13).isActive = true
-        
-        let hundredthTarget = CGFloat(model.target) * 0.00001
-        
+
         for item in model.Calories {
-            
-            let hundredthCount = CGFloat(item.amount) * 0.00001
-            
-            let newCaloriesItem = CaloriesObjectModel(count: hundredthCount,
+        
+            let newCaloriesItem = CaloriesObjectModel(count: CGFloat(item.amount),
                                                       stringDate: convertDate(item.createdAt),
-                                                      target: hundredthTarget)
+                                                      target: CGFloat(model.target))
             calories.append(newCaloriesItem)
         }
         
@@ -95,18 +91,21 @@ class ChartTableCell: BaseTableViewCell {
         let newDateFormatter = DateFormatter()
         newDateFormatter.dateFormat = "dd.MM"
         return newDateFormatter.string(from: gettedDate ?? Date())
-    }
+  }
     
-  private func correlateValueToY(_ targetAmount: Int) -> CGFloat  {
-        
-        let decimalTargetAmount = Int(Float(targetAmount) * 0.001)
-        
-        let oneHundredth: CGFloat = CGFloat(decimalTargetAmount) / 100
-        
-        let verticalPointAmount: CGFloat = CGFloat(oneHundredth) * 83 // 83 - chartCollectionview height
-        
-        let residualValue: CGFloat = 83 - verticalPointAmount
-        
+    func calculateMeasureY(value: CGFloat,
+                           upper: CGFloat = 2500,
+                           lower: CGFloat = 0) -> CGFloat {
+        switch value {
+        case let x where x > upper: return 0.0
+        case let x where x < lower: return 83.0
+        default: break
+        }
+        let neededValue = value - lower
+        let measureDistance = upper - lower
+        let measureRatio = measureDistance / 83.0
+        let pointY = neededValue / measureRatio.rounded(toPlaces: 1)
+        let residualValue = 83.0 - pointY.rounded(toPlaces: 1)
         return residualValue
     }
 
