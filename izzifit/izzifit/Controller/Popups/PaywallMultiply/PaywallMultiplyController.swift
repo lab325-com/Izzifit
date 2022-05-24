@@ -1,15 +1,6 @@
 
 import UIKit
 
-fileprivate let kLifetime50 = "com.lill.subscription.lifetime.50"
-fileprivate let kYearly50 = "com.lill.subscription.yearly.50"
-
-enum SubType {
-    case firstSub
-    case secondSub
-    case thidrSub
-}
-
 class PaywallMultiplyController: BaseController {
     
     //----------------------------------------------
@@ -56,9 +47,10 @@ class PaywallMultiplyController: BaseController {
     //----------------------------------------------
     
     weak var delegate: PaywallProtocol?
+    var screen: PaywallScreenType?
     private lazy var presenter = SubscribePresenter(view: self)
     
-    private var subType: SubType = .firstSub {
+    private var priceType: PaywallPriceType = .oneYear50 {
         didSet {
             updateSubsView()
         }
@@ -68,8 +60,9 @@ class PaywallMultiplyController: BaseController {
     // MARK: - Init
     //----------------------------------------------
     
-    init(delegate: PaywallProtocol) {
+    init(delegate: PaywallProtocol, screen: PaywallScreenType) {
         self.delegate = delegate
+        self.screen = screen
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -98,10 +91,20 @@ class PaywallMultiplyController: BaseController {
         secondSubView.layer.borderWidth = 2
         thirdSubView.layer.borderWidth = 2
         
+        thirdSubView.isHidden = screen == .threePice ? false : true
+        
+        firstSubPerDayLabel.text = "per day"
+        secondSubPerDayLabel.text = "per day"
+        thirdSubPerDayLabel.text = "per day"
+        
+        firstSubNameLabel.text = "Annually"
+        secondSubNameLabel.text = screen == .threePice ? "3 month" : "1 month"
+        thirdSubNameLabel.text = "1 week"
+        
         createPrivacyLabel()
         updateSubsView()
         
-        presenter.retriveProduct(id: Set(PaywallPriceType.allCases.compactMap({$0.productId})))
+        presenter.retriveProduct(id: screen == .threePice ? Set([PaywallPriceType.oneYear50.productId, PaywallPriceType.theeMonth30.productId, PaywallPriceType.oneWeek.productId]) : Set([PaywallPriceType.oneYear50.productId, PaywallPriceType.oneMonth.productId]))
     }
     
     private func createPrivacyLabel() {
@@ -127,8 +130,8 @@ class PaywallMultiplyController: BaseController {
     }
     
     func updateSubsView() {
-        switch subType {
-        case .firstSub:
+        switch priceType {
+        case .oneYear50:
             firstSubView.layer.borderColor = UIColor(red: 1, green: 0.258, blue: 0.659, alpha: 1).cgColor
             secondSubView.layer.borderColor = UIColor.clear.cgColor
             thirdSubView.layer.borderColor = UIColor.clear.cgColor
@@ -139,7 +142,7 @@ class PaywallMultiplyController: BaseController {
             
             subStackView.sendSubviewToBack(secondSubView)
             subStackView.sendSubviewToBack(thirdSubView)
-        case .secondSub:
+        case .theeMonth:
             firstSubView.layer.borderColor = UIColor.clear.cgColor
             secondSubView.layer.borderColor = UIColor(red: 1, green: 0.258, blue: 0.659, alpha: 1).cgColor
             thirdSubView.layer.borderColor = UIColor.clear.cgColor
@@ -150,7 +153,7 @@ class PaywallMultiplyController: BaseController {
             
             subStackView.sendSubviewToBack(firstSubView)
             subStackView.sendSubviewToBack(thirdSubView)
-        case .thidrSub:
+        case .oneWeek:
             firstSubView.layer.borderColor = UIColor.clear.cgColor
             secondSubView.layer.borderColor = UIColor.clear.cgColor
             thirdSubView.layer.borderColor = UIColor(red: 1, green: 0.258, blue: 0.659, alpha: 1).cgColor
@@ -161,22 +164,26 @@ class PaywallMultiplyController: BaseController {
             
             subStackView.sendSubviewToBack(firstSubView)
             subStackView.sendSubviewToBack(secondSubView)
+        case .oneMonth, .theeMonth30, .oneYear:
+            return
         }
         
         UIView.animate(withDuration: 0.3, delay: 0, options: .allowUserInteraction, animations: {
-            switch self.subType {
-            case .firstSub:
+            switch self.priceType {
+            case .oneYear50:
                 self.firstSubView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
                 self.secondSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.thirdSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            case .secondSub:
+            case .theeMonth:
                 self.firstSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.secondSubView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
                 self.thirdSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            case .thidrSub:
+            case .oneWeek:
                 self.firstSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.secondSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.thirdSubView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            case .oneMonth, .theeMonth30, .oneYear:
+                return
             }
         }) { (_) in }
     }
@@ -214,23 +221,36 @@ class PaywallMultiplyController: BaseController {
     }
     
     @IBAction func actionFirstSub(_ sender: UIButton) {
-        subType = .firstSub
+        priceType = .oneYear50
     }
     
     @IBAction func actionSecondSub(_ sender: UIButton) {
-        subType = .secondSub
+        priceType = .theeMonth
     }
     
     @IBAction func actionThirdSub(_ sender: UIButton) {
-        subType = .thidrSub
+        priceType = .oneWeek
     }
     
     @IBAction func actionSubscribe(_ sender: UIButton) {
-        
+        presenter.purchase(id: priceType.productId) { [weak self] result, error in
+            guard let `self` = self else { return }
+            if result {
+//                self.delegate?.paywallSuccess(controller: self)
+                self.dismiss(animated: true)
+            }
+        }
+
     }
     
     @IBAction func actionRestore(_ sender: UIButton) {
-        
+        presenter.restore { [weak self] result in
+            guard let `self` = self else { return }
+            if result {
+//                self.delegate?.paywallSuccess(controller: self)
+                self.dismiss(animated: true)
+            }
+        }
     }
 }
 
@@ -243,20 +263,45 @@ extension PaywallMultiplyController: SubscribeOutputProtocol {
         subStackView.isHidden = false
         activity.isHidden = true
         
-//        if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneWeek.productId}) {
-//            weekPeriodLabel.text = "\(info.number)\n\(info.period)"
-//            weekPriceLabel.text = info.prettyPrice
-//        }
-//        
-//        if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneYear.productId}) {
-//            yearPeriodLabel.text = "\(info.number)\n\(info.period)"
-//            yearPriceLabel.text = info.prettyPrice
-//        }
-//        
-//        if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.theeMonth.productId}) {
-//            threePeriodLabel.text = "\(info.number)\n\(info.period)"
-//            threeMonthPriceLabel.text = info.prettyPrice
-//        }
+        switch screen {
+        case .threePice:
+            if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneYear50.productId}) {
+                firstSubSalePriceLabel.text = String(format: "Sale %@%@", info.currencySymbol ?? "", info.prettyPrice.trimmingCharacters(in: .whitespacesAndNewlines))
+                firstSubSaleDiscountLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", (info.price * 2))
+                firstSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 365)
+                firstSubPerDayPriceLabel.text = String(format: "%@%.2f ", info.currencySymbol ?? "", (info.price * 2) / 365)
+            }
+            
+            if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.theeMonth30.productId}) {
+                secondSubSalePriceLabel.text = String(format: "Sale %@%@", info.currencySymbol ?? "", info.prettyPrice.trimmingCharacters(in: .whitespacesAndNewlines))
+                secondSubSaleDiscountLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", (info.price * 2))
+                secondSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 90)
+                secondSubPerDayPriceLabel.text = String(format: "%@%.2f ", info.currencySymbol ?? "", (info.price * 2) / 90)
+            }
+            
+            if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneWeek.productId}) {
+                thirdSubSalePriceLabel.text = ""
+                thirdSubSaleDiscountLabel.text = info.prettyPrice
+                thirdSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 14)
+                thirdSubPerDayPriceLabel.text = ""
+            }
+        case .twoPrice:
+            if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneYear50.productId}) {
+                firstSubSalePriceLabel.text = String(format: "Sale %@%@", info.currencySymbol ?? "", info.prettyPrice.trimmingCharacters(in: .whitespacesAndNewlines))
+                firstSubSaleDiscountLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", (info.price * 2))
+                firstSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 365)
+                firstSubPerDayPriceLabel.text = String(format: "%@%.2f ", info.currencySymbol ?? "", (info.price * 2) / 365)
+            }
+            
+            if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneMonth.productId}) {
+                secondSubSalePriceLabel.text = ""
+                secondSubSaleDiscountLabel.text = info.prettyPrice
+                secondSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 30)
+                secondSubPerDayPriceLabel.text = ""
+            }
+        case .base, .onePrice, .none:
+            return
+        }
         
         updateSubsView()
     }
