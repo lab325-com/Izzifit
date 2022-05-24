@@ -335,6 +335,12 @@
 		FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761AF27DA1F60002881BB /* WorkoutActivitiesCell.swift */; };
 		FA1761C027DA3E96002881BB /* WorkoutActivityCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761BE27DA3E96002881BB /* WorkoutActivityCollectionCell.swift */; };
 		FA1761C127DA3E96002881BB /* WorkoutActivityCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1761BF27DA3E96002881BB /* WorkoutActivityCollectionCell.xib */; };
+		FA1A2568283D0C8500240E28 /* PaywallPriceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A2567283D0C8500240E28 /* PaywallPriceType.swift */; };
+		FA1A256E283D0D0400240E28 /* PaywallSingleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A256C283D0D0300240E28 /* PaywallSingleController.swift */; };
+		FA1A256F283D0D0400240E28 /* PaywallSingleController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1A256D283D0D0400240E28 /* PaywallSingleController.xib */; };
+		FA1A2572283D0D0D00240E28 /* PaywallMultiplyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1A2570283D0D0C00240E28 /* PaywallMultiplyController.xib */; };
+		FA1A2573283D0D0D00240E28 /* PaywallMultiplyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A2571283D0D0C00240E28 /* PaywallMultiplyController.swift */; };
+		FA1A2575283D0E1400240E28 /* CALayer+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A2574283D0E1300240E28 /* CALayer+UIColor.swift */; };
 		FA1A6D8028081CE80040518A /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D7E28081CE80040518A /* LevelController.swift */; };
 		FA1A6D8128081CE80040518A /* LevelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1A6D7F28081CE80040518A /* LevelController.xib */; };
 		FA1A6D8B28097F0D0040518A /* GameTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */; };
@@ -711,6 +717,12 @@
 		FA1761AF27DA1F60002881BB /* WorkoutActivitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutActivitiesCell.swift; sourceTree = "<group>"; };
 		FA1761BE27DA3E96002881BB /* WorkoutActivityCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutActivityCollectionCell.swift; sourceTree = "<group>"; };
 		FA1761BF27DA3E96002881BB /* WorkoutActivityCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutActivityCollectionCell.xib; sourceTree = "<group>"; };
+		FA1A2567283D0C8500240E28 /* PaywallPriceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallPriceType.swift; sourceTree = "<group>"; };
+		FA1A256C283D0D0300240E28 /* PaywallSingleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallSingleController.swift; sourceTree = "<group>"; };
+		FA1A256D283D0D0400240E28 /* PaywallSingleController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaywallSingleController.xib; sourceTree = "<group>"; };
+		FA1A2570283D0D0C00240E28 /* PaywallMultiplyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaywallMultiplyController.xib; sourceTree = "<group>"; };
+		FA1A2571283D0D0C00240E28 /* PaywallMultiplyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallMultiplyController.swift; sourceTree = "<group>"; };
+		FA1A2574283D0E1300240E28 /* CALayer+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+UIColor.swift"; sourceTree = "<group>"; };
 		FA1A6D7E28081CE80040518A /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
 		FA1A6D7F28081CE80040518A /* LevelController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelController.xib; sourceTree = "<group>"; };
 		FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTabBarController.swift; sourceTree = "<group>"; };
@@ -1143,6 +1155,7 @@
 		0249D24E27B3A6EE00F265C1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FA1A2569283D0C8E00240E28 /* Popups */,
 				FAB6546B27FEDF1A0057A221 /* Game */,
 				0249D25327B3A71700F265C1 /* SplashViewController */,
 				0249D27E27B3AA8B00F265C1 /* Auth */,
@@ -1169,6 +1182,7 @@
 		0249D25927B3A87100F265C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA1A2566283D0C5900240E28 /* Enum */,
 				02A27B57282A655F00B435B0 /* Analytics */,
 				FA8CC856282919450022BFE2 /* Animation */,
 				025699792819610700BA1535 /* Audio */,
@@ -1189,6 +1203,7 @@
 		0249D25A27B3A87F00F265C1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FA1A2574283D0E1300240E28 /* CALayer+UIColor.swift */,
 				0249D25C27B3A88C00F265C1 /* Collection+Extension.swift */,
 				024779CC27DCB8BF00AAFE3D /* Date+Extension.swift */,
 				0249D26027B3A88C00F265C1 /* Int+Extension.swift */,
@@ -2324,6 +2339,41 @@
 			path = WorkoutActivitiesCell;
 			sourceTree = "<group>";
 		};
+		FA1A2566283D0C5900240E28 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				FA1A2567283D0C8500240E28 /* PaywallPriceType.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		FA1A2569283D0C8E00240E28 /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				FA1A256B283D0CBF00240E28 /* PaywallSingle */,
+				FA1A256A283D0CB300240E28 /* PaywallMultiply */,
+			);
+			path = Popups;
+			sourceTree = "<group>";
+		};
+		FA1A256A283D0CB300240E28 /* PaywallMultiply */ = {
+			isa = PBXGroup;
+			children = (
+				FA1A2571283D0D0C00240E28 /* PaywallMultiplyController.swift */,
+				FA1A2570283D0D0C00240E28 /* PaywallMultiplyController.xib */,
+			);
+			path = PaywallMultiply;
+			sourceTree = "<group>";
+		};
+		FA1A256B283D0CBF00240E28 /* PaywallSingle */ = {
+			isa = PBXGroup;
+			children = (
+				FA1A256C283D0D0300240E28 /* PaywallSingleController.swift */,
+				FA1A256D283D0D0400240E28 /* PaywallSingleController.xib */,
+			);
+			path = PaywallSingle;
+			sourceTree = "<group>";
+		};
 		FA62C54A27F5B43800AC463A /* WeightsWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -2713,6 +2763,7 @@
 				02D066D927BBDC3400D12C5F /* QuizeGoalController.xib in Resources */,
 				0263389C27DB6BDD00DC0325 /* Progresses.graphql in Resources */,
 				02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */,
+				FA1A2572283D0D0D00240E28 /* PaywallMultiplyController.xib in Resources */,
 				FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */,
 				020CB3D327E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql in Resources */,
 				02ABCF3627CCC3F400E69C06 /* MenuFoodSwitchCell.xib in Resources */,
@@ -2764,6 +2815,7 @@
 				025463BD27CFB21B00D433DB /* ToggleProductInRation.graphql in Resources */,
 				0251D24C27E2222F0098A54D /* RecentProducts.graphql in Resources */,
 				025463B027CF75BD00D433DB /* Muscles.graphql in Resources */,
+				FA1A256F283D0D0400240E28 /* PaywallSingleController.xib in Resources */,
 				FE1403C327E249EB002F5819 /* ChartCollectionCell.xib in Resources */,
 				02BC127B27F1E13D00678305 /* WorkoutById.graphql in Resources */,
 				02BC127827F1CF5800678305 /* WorkoutDetailDescriptionCell.xib in Resources */,
@@ -2915,11 +2967,13 @@
 			files = (
 				02AB486A27E07EFB00F35EE2 /* FoodTopTitleCell.swift in Sources */,
 				0290B39327D2045400381B42 /* ShadowsView.swift in Sources */,
+				FA1A256E283D0D0400240E28 /* PaywallSingleController.swift in Sources */,
 				02AB486427E06DEE00F35EE2 /* FoodRecomendedCell.swift in Sources */,
 				029EDBCF280D3FCB00FC8748 /* VideoFinishedController.swift in Sources */,
 				0256999528197C6C00BA1535 /* BaseTableViewCell.swift in Sources */,
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
 				02B22AC1281C0B3D006AB1EA /* MapModel.swift in Sources */,
+				FA1A2573283D0D0D00240E28 /* PaywallMultiplyController.swift in Sources */,
 				FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */,
 				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
 				0263388D27DB299600DC0325 /* EnergyProgressController.swift in Sources */,
@@ -2935,6 +2989,7 @@
 				02ABCF4527CD0EA800E69C06 /* MenuLanguagesTitleCell.swift in Sources */,
 				0227DA9927C62854008AB26B /* MenuPresenter.swift in Sources */,
 				0249D26127B3A88C00F265C1 /* UIScrollView+Extension.swift in Sources */,
+				FA1A2568283D0C8500240E28 /* PaywallPriceType.swift in Sources */,
 				0263389027DB29AF00DC0325 /* EnergyRouter.swift in Sources */,
 				021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */,
 				0227DAC127C6A19C008AB26B /* MenuTargetWeightController.swift in Sources */,
@@ -2958,6 +3013,7 @@
 				02A5CDBE27C3DE9F00D31FB4 /* ImageModel.swift in Sources */,
 				02D066B227BBB32400D12C5F /* StartController.swift in Sources */,
 				02C4880027F198100010D4FA /* WorkoutDetailHeaderCell.swift in Sources */,
+				FA1A2575283D0E1400240E28 /* CALayer+UIColor.swift in Sources */,
 				020CB3D727E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift in Sources */,
 				0227DAA127C63D51008AB26B /* QuizeFoodPresenter.swift in Sources */,
 				02C5C46528365E1B00DA189C /* WidgetList.swift in Sources */,

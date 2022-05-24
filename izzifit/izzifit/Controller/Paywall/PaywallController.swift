@@ -7,23 +7,6 @@
 
 import UIKit
 
-enum PaywallPriceType: CaseIterable {
-    case oneWeek
-    case oneYear
-    case theeMonth
-    
-    var productId: String {
-        switch self {
-        case .oneWeek:
-            return "izzifit_one_week"
-        case .oneYear:
-            return "izzifit_one_year"
-        case .theeMonth:
-            return "izzifit_three_month"
-        }
-    }
-}
-
 protocol PaywallProtocol: AnyObject {
     func paywallActionBack(controller: PaywallController)
     func paywallSuccess(controller: PaywallController)
@@ -208,6 +191,8 @@ class PaywallController: BaseController {
             
             priceStackView.sendSubviewToBack(secondView)
             priceStackView.sendSubviewToBack(firstView)
+        case .oneMonth, .theeMonth30, .oneYear50:
+            return
         }
         
         UIView.animate(withDuration: 0.3, delay: 0, options: .allowUserInteraction, animations: {
@@ -224,12 +209,10 @@ class PaywallController: BaseController {
                 self.firstView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.secondView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.threeView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            case .oneMonth, .theeMonth30, .oneYear50:
+                return
             }
-            
-            
         }) { (_) in }
-        
-        
     }
     
     //----------------------------------------------
