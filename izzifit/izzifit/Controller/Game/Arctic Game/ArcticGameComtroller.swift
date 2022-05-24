@@ -144,7 +144,6 @@ class ArcticGameComtroller: BaseController {
                                     size: view.h/40.6 )
         
         awardCountLbl.text = "100"
-        
         progressImgVw.image = UIImage(named: "progressActive")
      
         NSLayoutConstraint.activate([
@@ -173,6 +172,21 @@ class ArcticGameComtroller: BaseController {
                                bottomCG: view.h / 50.75,//16,
                                trailingToO: slotHouseImgVw.trailingAnchor,
                                trailingCG: view.h / 8.54) //95)
+        
+        
+       
+        
+        UIGraphicsBeginImageContext(progressImgVw.image!.size)
+        progressImgVw.image!.draw(at: CGPoint.zero)
+        let context:CGContext = UIGraphicsGetCurrentContext()!;
+        let bez = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 90, height: 22))
+        context.addPath(bez.cgPath)
+        context.clip();
+        context.clear(CGRect(x: 0,y: 0,width: progressImgVw.image!.size.width,height: progressImgVw.image!.size.height));
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
+        UIGraphicsEndImageContext();
+        
+        progressImgVw.image = newImage
     }
     
     private func checkAvailableHummers() {
