@@ -1263,8 +1263,8 @@ struct R: Rswift.Validatable {
     static let pop5Ship = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop5Ship")
     /// Image `popStartState`.
     static let popStartState = Rswift.ImageResource(bundle: R.hostingBundle, name: "popStartState")
-    /// Image `progressActive `.
-    static let progressActive = Rswift.ImageResource(bundle: R.hostingBundle, name: "progressActive ")
+    /// Image `progressActive`.
+    static let progressActive = Rswift.ImageResource(bundle: R.hostingBundle, name: "progressActive")
     /// Image `progress_back_ic`.
     static let progress_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_back_ic")
     /// Image `progress_cube_ic`.
@@ -2399,7 +2399,7 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "progressActive ", bundle: ..., traitCollection: ...)`
+    /// `UIImage(named: "progressActive", bundle: ..., traitCollection: ...)`
     static func progressActive(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.progressActive, compatibleWith: traitCollection)
     }

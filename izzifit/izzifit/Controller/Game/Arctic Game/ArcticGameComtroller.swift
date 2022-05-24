@@ -33,6 +33,8 @@ class ArcticGameComtroller: BaseController {
     @IBOutlet weak var hummerBtn: UIButton!
     @IBOutlet weak var hummerCountLbl: UILabel!
     @IBOutlet weak var resultStackView: UIStackView!
+    private var progressImgVw = UIImageView()
+    
     
     @IBOutlet weak var awardImgVw: UIImageView!
     @IBOutlet weak var awardTitleLbl: UILabel!
@@ -143,6 +145,8 @@ class ArcticGameComtroller: BaseController {
         
         awardCountLbl.text = "100"
         
+        progressImgVw.image = UIImage(named: "progressActive")
+     
         NSLayoutConstraint.activate([
             resultLbl.heightAnchor.constraint(equalToConstant: view.h/54.13),
             resultStackView.centerYAnchor.constraint(equalTo: resultLbl.centerYAnchor),
@@ -152,8 +156,6 @@ class ArcticGameComtroller: BaseController {
             awardTitleLbl.heightAnchor.constraint(equalToConstant: view.h / 100)
         ])
         
-        
-        
         if let name = KeychainService.standard.me?.name {
             barBackVw.nameLbl.text = name
         } else {
@@ -162,6 +164,15 @@ class ArcticGameComtroller: BaseController {
         barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
                                           placeholder: RImage.placeholder_food_ic(),
                                           options: [.transition(.fade(0.25))])
+        
+        view.ui.genericlLayout(object: progressImgVw,
+                               parentView: view,
+                               width: view.h / 4.77,//170,
+                               height: view.h / 40.6,//20,
+                               bottomToO: slotHouseImgVw.bottomAnchor,
+                               bottomCG: view.h / 50.75,//16,
+                               trailingToO: slotHouseImgVw.trailingAnchor,
+                               trailingCG: view.h / 8.54) //95)
     }
     
     private func checkAvailableHummers() {
@@ -376,7 +387,7 @@ class ArcticGameComtroller: BaseController {
                                parentView: slotBackImgVw,
                                width: view.h / 3.60,
                                height: view.h / 5.77,
-                               centerV: -view.h / 48, //40
+                               centerV: -view.h / 48,
                                centerH: view.h / 81.2)
     }
     
