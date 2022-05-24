@@ -3536,8 +3536,8 @@ struct R: Rswift.Validatable {
       return R.nib.chartCollectionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ChartCollectionCell
     }
 
-    static func chartTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ChartTableCell? {
-      return R.nib.chartTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ChartTableCell
+    static func chartTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CaloriesTableCell? {
+      return R.nib.chartTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CaloriesTableCell
     }
 
     static func enerdyTodayCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnerdyTodayCell? {
@@ -3850,7 +3850,7 @@ struct R: Rswift.Validatable {
     /// Reuse identifier `ChartCollectionCell`.
     static let chartCollectionCell: Rswift.ReuseIdentifier<ChartCollectionCell> = Rswift.ReuseIdentifier(identifier: "ChartCollectionCell")
     /// Reuse identifier `ChartTableCell`.
-    static let chartTableCell: Rswift.ReuseIdentifier<ChartTableCell> = Rswift.ReuseIdentifier(identifier: "ChartTableCell")
+    static let chartTableCell: Rswift.ReuseIdentifier<CaloriesTableCell> = Rswift.ReuseIdentifier(identifier: "ChartTableCell")
     /// Reuse identifier `EnerdyTodayCell`.
     static let enerdyTodayCell: Rswift.ReuseIdentifier<EnerdyTodayCell> = Rswift.ReuseIdentifier(identifier: "EnerdyTodayCell")
     /// Reuse identifier `EnergyAddActivityCell`.
@@ -7651,14 +7651,14 @@ struct _R: Rswift.Validatable {
     }
 
     struct _ChartTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
-      typealias ReusableType = ChartTableCell
+      typealias ReusableType = CaloriesTableCell
 
       let bundle = R.hostingBundle
       let identifier = "ChartTableCell"
       let name = "ChartTableCell"
 
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ChartTableCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ChartTableCell
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CaloriesTableCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CaloriesTableCell
       }
 
       fileprivate init() {}

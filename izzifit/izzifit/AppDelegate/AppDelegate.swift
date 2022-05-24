@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        loadConfig()
         checkingPurchase()
         forceUpdate()
         
@@ -145,6 +146,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func loadConfig() {
+        let remoteConfig = RemoteConfig.remoteConfig()
+        let fetchDuration: TimeInterval = 43200 // 12 hours
+        remoteConfig.fetch(withExpirationDuration: fetchDuration) { (result, error) in
+            remoteConfig.activate() { (changed, error) in
+                DispatchQueue.main.async { [weak self] in
+                    if let paywallScreen = RemoteConfigParameters.paywallScreen.value as? PaywallScreenModel {
+                        PreferencesManager.sharedManager.screensPaywall = paywallScreen.screens
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
+                                                        object: self,
+                                                        userInfo: nil)
+                    }
+                }
             }
         }
     }

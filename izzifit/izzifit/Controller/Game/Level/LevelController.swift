@@ -131,7 +131,12 @@ class LevelController: BaseController {
             alert.addAction(okAction)
             present(alert,animated: true)
             
-            return }
+            if KeychainService.standard.me?.Subscription == nil {
+                PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .goldZero)
+            }
+            
+            return
+        }
                 
         view.ui.genericlLayout(object: buildPopUpVw,
                                        parentView: view,
@@ -263,8 +268,10 @@ class LevelController: BaseController {
                 btn?.isUserInteractionEnabled.toggle()
             }
         }
+        
         buildPopUpVw.removeFromSuperview()
-        presenter.upgradeBuild(buildingId: buildingId)
+        presenter.upgradeBuild(buildingId: buildingId,
+                               useFreeBuilding: true)
     }
     
     private func activateAnimation() {
@@ -273,15 +280,14 @@ class LevelController: BaseController {
     }
     
     private func setup() {
+        for i in 0...4 {  btns[i]?.tag = i }
         
-        for i in 0...4 {
-            btns[i]?.tag = i
-        }
         if let name = KeychainService.standard.me?.name {
             barBackVw.nameLbl.text = name
         } else {
             barBackVw.nameLbl.isHidden = true
         }
+        
         barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
                                     placeholder: RImage.placeholder_food_ic(),
                                     options: [.transition(.fade(0.25))])
@@ -367,14 +373,31 @@ extension LevelController: LevelOutputProtocol {
         }
         drawStates()
         buildPopUpVw.reloadInputViews()
+        
+        if KeychainService.standard.me?.Subscription == nil {
+            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
+        }
     }
     
     func successBuild() { }
     
     func successMe() {
-
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+    }
+}
+
+//----------------------------------------------
+// MARK: - PaywallProtocol
+//----------------------------------------------
+
+extension LevelController: PaywallProtocol {
+    func paywallActionBack(controller: PaywallController) {
+        self.dismiss(animated: true)
+    }
+    
+    func paywallSuccess(controller: PaywallController) {
+        
     }
 }
 
