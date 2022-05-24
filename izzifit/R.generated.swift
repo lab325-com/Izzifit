@@ -965,7 +965,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 193 images.
+  /// This `R.image` struct is generated, and contains static references to 194 images.
   struct image {
     /// Image `Finish`.
     static let finish = Rswift.ImageResource(bundle: R.hostingBundle, name: "Finish")
@@ -1169,6 +1169,8 @@ struct R: Rswift.Validatable {
     static let paywall_selected_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_selected_ic")
     /// Image `paywall_women_ic`.
     static let paywall_women_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_women_ic")
+    /// Image `paywall_women_popup_ic`.
+    static let paywall_women_popup_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_women_popup_ic")
     /// Image `paywall_women_shadow_ic`.
     static let paywall_women_shadow_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_women_shadow_ic")
     /// Image `placeholder_big_sport_ic`.
@@ -2062,6 +2064,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_women_popup_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_women_popup_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_women_popup_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "paywall_women_shadow_ic", bundle: ..., traitCollection: ...)`
     static func paywall_women_shadow_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.paywall_women_shadow_ic, compatibleWith: traitCollection)
@@ -2708,7 +2717,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 79 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 80 nibs.
   struct nib {
     /// Nib `ArcticGameComtroller`.
     static let arcticGameComtroller = _R.nib._ArcticGameComtroller()
@@ -2796,6 +2805,8 @@ struct R: Rswift.Validatable {
     static let moodTableCell = _R.nib._MoodTableCell()
     /// Nib `PaywallController`.
     static let paywallController = _R.nib._PaywallController()
+    /// Nib `PaywallPopupController`.
+    static let paywallPopupController = _R.nib._PaywallPopupController()
     /// Nib `PositionTableCell`.
     static let positionTableCell = _R.nib._PositionTableCell()
     /// Nib `ProfileController`.
@@ -3210,6 +3221,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.paywallController) instead")
     static func paywallController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.paywallController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "PaywallPopupController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.paywallPopupController) instead")
+    static func paywallPopupController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.paywallPopupController)
     }
     #endif
 
@@ -3671,6 +3690,10 @@ struct R: Rswift.Validatable {
 
     static func paywallController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.paywallController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func paywallPopupController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.paywallPopupController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func positionTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PositionTableCell? {
@@ -7513,6 +7536,7 @@ struct _R: Rswift.Validatable {
       try _MenuWriteQuestionController.validate()
       try _MoodTableCell.validate()
       try _PaywallController.validate()
+      try _PaywallPopupController.validate()
       try _ProfileController.validate()
       try _QuizeAgeController.validate()
       try _QuizeEmailController.validate()
@@ -8342,6 +8366,25 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "paywall_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_selected_ic' is used in nib 'PaywallController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "paywall_women_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_women_ic' is used in nib 'PaywallController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "paywall_women_shadow_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_women_shadow_ic' is used in nib 'PaywallController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _PaywallPopupController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "PaywallPopupController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "paywall_above_text_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_above_text_ic' is used in nib 'PaywallPopupController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_back_ic' is used in nib 'PaywallPopupController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_women_popup_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_women_popup_ic' is used in nib 'PaywallPopupController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

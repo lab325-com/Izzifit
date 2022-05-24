@@ -12,4 +12,11 @@ class PaywallRouter: BaseRouter {
         let controller = PaywallController(delegate: delegate)
         present(controller: controller)
     }
+    
+    func presentPaywallSingle() {
+        let controller = PaywallSingleController()
+        controller.modalTransitionStyle = .crossDissolve
+        controller.modalPresentationStyle = .overCurrentContext
+        present(controller: controller, presentStyle: .overFullScreen)
+    }
 }
