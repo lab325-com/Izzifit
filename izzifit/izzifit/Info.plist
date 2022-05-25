@@ -22,5 +22,27 @@
 		<string>Inter-Thin</string>
 		<string>Inter-BoldItalic</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb526935502266511</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>526935502266511</string>
+	<key>FacebookDisplayName</key>
+	<string>Izzifit</string>
+	<key>FacebookClientToken</key>
+	<string>c6293a693585b1b5337200143c8be88a</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 </dict>
 </plist>

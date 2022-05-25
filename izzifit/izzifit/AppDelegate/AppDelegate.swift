@@ -11,6 +11,7 @@ import SwiftyStoreKit
 import Firebase
 import Siren
 import AppsFlyerLib
+import FBSDKCoreKit
 import AppTrackingTransparency
 
 //----------------------------------------------
@@ -27,13 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // Override point for customization after application launch.
-        FirebaseApp.configure()
-        loadConfig()
-        checkingPurchase()
-        forceUpdate()
-        
-        
         /// Appsflyer
         
         AppsFlyerLib.shared().appsFlyerDevKey = "sapALRVCHUnGS6xNLJQPjS"
@@ -45,8 +39,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         #endif
         
+        /// Firebase
         
+        FirebaseApp.configure()
         AnalyticsHelper.sendFirebaseEvents(events: .app_open)
+        
+        /// Facebook
+        
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        AppEvents.shared.activateApp()
+        
+        loadConfig()
+        checkingPurchase()
+        forceUpdate()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             if #available(iOS 14, *) {
@@ -74,6 +79,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         AppsFlyerLib.shared().start()
+    }
+    
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        ApplicationDelegate.shared.application(app,
+                                               open: url,
+                                               sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                                               annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+        
+        return true
     }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {

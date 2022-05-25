@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseAnalytics
+import FBSDKCoreKit
 
 enum FirebaseScreenEvents: String {
     case screens
@@ -77,7 +78,7 @@ enum FirebaseEvents: String {
     case other_legal_open
     
     case spin_open
-    case  spin_tap
+    case spin_tap
     case spin_reward
     
     case map_open
@@ -96,4 +97,8 @@ class AnalyticsHelper: NSObject {
         Analytics.logEvent(AnalyticsEventScreenView,
                            parameters: [AnalyticsParameterScreenName: screen.rawValue])
     }
+    
+//    static func sendFacebookEvent(event: FacebookEvents, values: [String : Any]? = nil) {
+//        Analytics.logEvent(event.rawValue, parameters: values)
+//    }
 }
