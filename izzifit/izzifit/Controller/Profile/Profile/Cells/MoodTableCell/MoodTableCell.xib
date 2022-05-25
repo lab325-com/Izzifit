@@ -52,7 +52,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JZJ-O5-Zpn">
                                 <rect key="frame" x="300" y="46.5" width="28" height="90"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6K-Tk-0Ue">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6K-Tk-0Ue">
                                         <rect key="frame" x="0.0" y="0.0" width="28" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="FnO-xi-k99"/>
@@ -62,7 +62,7 @@
                                         <color key="textColor" name="grayText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfJ-TU-le9">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfJ-TU-le9">
                                         <rect key="frame" x="0.0" y="15" width="28" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="cMr-A2-qmZ"/>
@@ -72,7 +72,7 @@
                                         <color key="textColor" name="grayText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpk-74-NdG">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpk-74-NdG">
                                         <rect key="frame" x="0.0" y="30" width="28" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="Tiz-yh-liE"/>
@@ -82,7 +82,7 @@
                                         <color key="textColor" name="grayText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUC-Dv-Z3Q">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUC-Dv-Z3Q">
                                         <rect key="frame" x="0.0" y="45" width="28" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="PcM-Cs-tgx"/>
@@ -92,7 +92,7 @@
                                         <color key="textColor" name="grayText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO3-B7-74e">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO3-B7-74e">
                                         <rect key="frame" x="0.0" y="60" width="28" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="9z4-Au-GKv"/>
@@ -102,7 +102,7 @@
                                         <color key="textColor" name="grayText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFq-f8-Nvp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFq-f8-Nvp">
                                         <rect key="frame" x="0.0" y="75" width="28" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="0kj-PM-8aT"/>

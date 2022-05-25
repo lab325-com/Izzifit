@@ -410,10 +410,10 @@ class ArcticGameComtroller: BaseController {
         
         guard counter.combinations.count > combinationCounter else { spinsRunOut()
             return }
-        guard KeychainService.standard.me?.energy ?? 0.0 > 0.0 else {
-            if KeychainService.standard.me?.Subscription == nil {
-                PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
-            }
+        guard KeychainService.standard.me?.energy ?? 0.0 > 0.99 else {
+
+            let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
+
             return
         }
         
@@ -527,9 +527,8 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
             }
         }
         
-        if KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterSpeen)
-        }
+        let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterSpeen)
+        
     }
     
     func success() {
@@ -542,11 +541,11 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
 //----------------------------------------------
 
 extension ArcticGameComtroller: PaywallProtocol {
-    func paywallActionBack(controller: PaywallController) {
+    func paywallActionBack(controller: BaseController) {
         self.dismiss(animated: true)
     }
     
-    func paywallSuccess(controller: PaywallController) {
+    func paywallSuccess(controller: BaseController) {
         
     }
 }

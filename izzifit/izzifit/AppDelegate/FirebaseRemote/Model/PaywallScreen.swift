@@ -16,6 +16,7 @@ enum PlaceType: String, Codable {
     case energyZero
     case goldZero
     
+    case workoutTraini //+
     case meals //+
     case drinkWater //+
     case mood //+
@@ -27,7 +28,7 @@ enum PaywallScreenType: String, Codable {
     case base
     case onePrice
     case twoPrice
-    case threePice
+    case threePrice
 }
 
 struct PaywallScreenModel: Codable {

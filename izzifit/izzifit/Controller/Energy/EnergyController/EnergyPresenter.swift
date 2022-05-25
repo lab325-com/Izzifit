@@ -245,8 +245,8 @@ class EnergyPresenter: EnergyPresenterProtocol {
     func getWidgetList() {
         let query = WidgetListQuery()
         let _ = Network.shared.query(model: WidgetListModel.self, query, controller: view) { [weak self] model in
-            let types = model.widgetList ?? []
-            PreferencesManager.sharedManager.widgetList = types
+            //let types = model.widgetList ?? []
+            //PreferencesManager.sharedManager.widgetList = types
             self?.view?.successWidgetList()
         } failureHandler: { _ in
         }

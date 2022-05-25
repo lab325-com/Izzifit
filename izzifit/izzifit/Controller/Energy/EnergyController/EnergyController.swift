@@ -8,10 +8,6 @@
 import UIKit
 import Kingfisher
  
-protocol EnergyControllerProtocol: AnyObject {
-    func energControllerSetProfile(controller: EnergyController, model: WorkoutsWidgetMainModel)
-}
-
 class EnergyController: BaseController {
     
     //----------------------------------------------
@@ -46,22 +42,6 @@ class EnergyController: BaseController {
     
     var currentDate = Date()
     
-    
-    weak var delegate: EnergyControllerProtocol?
-    
-    //----------------------------------------------
-    // MARK: - Init
-    //----------------------------------------------
-    
-    init(delegate: EnergyControllerProtocol) {
-        self.delegate = delegate
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
@@ -82,10 +62,9 @@ class EnergyController: BaseController {
     //----------------------------------------------
     
     private func setup() {
-        if PreferencesManager.sharedManager.afterOnboarding && KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .dashboard)
-        } else {
+        if PreferencesManager.sharedManager.afterOnboarding {
             PreferencesManager.sharedManager.afterOnboarding = true
+            let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .dashboard)
         }
         
         tableView.isHidden = true
@@ -136,7 +115,7 @@ class EnergyController: BaseController {
     
     func getMe() {
         presenter.getMe()
-        presenter.getWidgetList()
+        //presenter.getWidgetList()
     }
     
     func updateMe() {

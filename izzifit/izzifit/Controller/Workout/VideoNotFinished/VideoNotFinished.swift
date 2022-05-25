@@ -98,6 +98,9 @@ class VideoNotFinished: BaseController {
     //----------------------------------------------
 
     @IBAction func acionBack(_ sender: UIButton) {
+        NotificationCenter.default.post(name: Constants.Notifications.updateEnergyNotification,
+                                        object: self,
+                                        userInfo: nil)
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
     }
@@ -130,6 +133,9 @@ class VideoNotFinished: BaseController {
 
 extension VideoNotFinished: VideoPlayerOutputProtocol {
     func successUpdate() {
+        NotificationCenter.default.post(name: Constants.Notifications.updateEnergyNotification,
+                                        object: self,
+                                        userInfo: nil)
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
     }

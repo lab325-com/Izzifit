@@ -64,7 +64,7 @@ struct SpinLogicManager {
             spinBtn.isUserInteractionEnabled = true
             spinBtn.isSelected.toggle()
             coinsLbl.text = String(user.coins!)
-            energyLbl.text = String(user.energy!)
+            energyLbl.text = String(Int(user.energy!))
         }
     }
     

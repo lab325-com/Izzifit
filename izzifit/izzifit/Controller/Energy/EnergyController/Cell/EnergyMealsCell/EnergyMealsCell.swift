@@ -129,19 +129,19 @@ class EnergyMealsCell: BaseTableViewCell {
             guard let `self` = self else { return }
             if let protein = model.sources?.first(where: {$0?.name == SourceEntityType.sourceEntityTypeProteins}) {
                 self.proteinPercentLabel.text = "\(protein?.donePercents ?? 0)%"
-                self.proteinGrammLabel.text = RLocalization.energy_meals_gramm(protein?.needed ?? 0)
+                self.proteinGrammLabel.text = RLocalization.energy_meals_gramm(protein?.left ?? 0)
                 self.circularProgressProteinView.progressAnimation(duration: self.circularViewDuration, toValue: CGFloat((protein?.donePercents ?? 0)) / 100)
             }
             
             if let fats = model.sources?.first(where: {$0?.name == SourceEntityType.sourceEntityTypeFats}) {
                 self.fatsPercentLabel.text = "\(fats?.donePercents ?? 0)%"
-                self.fatsGrammLabel.text = RLocalization.energy_meals_gramm(fats?.needed ?? 0)
+                self.fatsGrammLabel.text = RLocalization.energy_meals_gramm(fats?.left ?? 0)
                 self.circularProgressFatsView.progressAnimation(duration: self.circularViewDuration, toValue: CGFloat((fats?.donePercents ?? 0)) / 100 )
             }
             
             if let carbs = model.sources?.first(where: {$0?.name == SourceEntityType.sourceEntityTypeCarbs}) {
                 self.carbsPercentLabel.text = "\(carbs?.donePercents ?? 0)%"
-                self.carbsGrammLabel.text = RLocalization.energy_meals_gramm(carbs?.needed ?? 0)
+                self.carbsGrammLabel.text = RLocalization.energy_meals_gramm(carbs?.left ?? 0)
                 self.circularProgressCarbsView.progressAnimation(duration: self.circularViewDuration, toValue: CGFloat((carbs?.donePercents ?? 0)) / 100 )
             }
         }

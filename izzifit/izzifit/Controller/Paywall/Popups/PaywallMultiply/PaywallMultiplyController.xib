@@ -46,6 +46,8 @@
                 <outlet property="secondSubPerDayPriceLabel" destination="wyP-tp-H3C" id="6eF-Ec-Waz"/>
                 <outlet property="secondSubPriceLabel" destination="WnQ-qY-5rh" id="f8n-BM-zMX"/>
                 <outlet property="secondSubSaleDiscountLabel" destination="wyl-4O-ZuF" id="QVv-bg-7hM"/>
+                <outlet property="secondSubSaleDiscountLeadingConstraint" destination="dwf-BI-LRl" id="D3A-gO-4v4"/>
+                <outlet property="secondSubSaleDiscountLineView" destination="2U6-eZ-QUC" id="k5s-Ov-3MU"/>
                 <outlet property="secondSubSalePriceLabel" destination="YjN-21-boh" id="CKo-pa-wA5"/>
                 <outlet property="secondSubView" destination="xfh-su-Cd4" id="KZE-LL-PWb"/>
                 <outlet property="subStackView" destination="Cly-EN-HKd" id="yla-kI-2a6"/>
@@ -55,6 +57,8 @@
                 <outlet property="thirdSubPerDayPriceLabel" destination="vLc-01-s26" id="YtQ-0S-law"/>
                 <outlet property="thirdSubPriceLabel" destination="4tC-Am-rFt" id="5XO-TD-G1u"/>
                 <outlet property="thirdSubSaleDiscountLabel" destination="0nN-Yj-OHt" id="9NX-uj-lB0"/>
+                <outlet property="thirdSubSaleDiscountLeadingConstraint" destination="6Dc-Cc-27N" id="1Kb-WC-iG3"/>
+                <outlet property="thirdSubSaleDiscountLineView" destination="ZBU-vJ-lrc" id="pfx-v2-3UM"/>
                 <outlet property="thirdSubSalePriceLabel" destination="r7u-M8-LrB" id="Atx-Kn-jd8"/>
                 <outlet property="thirdSubView" destination="RFa-AT-xYu" id="abd-Uq-VYe"/>
                 <outlet property="titleLabel" destination="QYb-vH-d5d" id="ggh-Xa-Apa"/>

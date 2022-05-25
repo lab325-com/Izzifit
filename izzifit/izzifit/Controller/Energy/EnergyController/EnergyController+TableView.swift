@@ -105,9 +105,7 @@ extension EnergyController: EnergyTodayProtocol {
 extension EnergyController: EnergyMealsDeleagate {
     func energyMealsAdd(cell: EnergyMealsCell, type: MealType) {
         
-        if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeMeals) && KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .meals)
-        } else {
+        if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .meals) {
             guard let meals = presenter.mealsWidget else { return }
             switch type {
             case .mealTypeBreakfast:
@@ -135,9 +133,7 @@ extension EnergyController: EnergyDrinkWaterProtocol {
     func energyDrinkWaterSelectIndex(cell: EnergyDrinkWaterCell, index: Int) {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_water_tap)
         
-        if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeWater) && KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .drinkWater)
-        } else {
+        if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .drinkWater) {
             presenter.setWater(index: index, date: getDate())
         }
     }
@@ -151,9 +147,7 @@ extension EnergyController: EnergyMoodProtocol {
     func energyMoodSelected(cell: EnergyMoodCell, type: MoodType) {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_emotion_tap)
         
-        if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeMood) && KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .mood)
-        } else {
+        if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .mood) {
             presenter.setMood(mood: type, date: getDate())
         }
     }
@@ -167,9 +161,7 @@ extension EnergyController: EnergySleepCellProtocol {
     func energySleepCellSeleep(cell: EnergySleepCell, sleep: SleepQualityType) {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_sleep_tap)
         
-        if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeSleep) && KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .sleep)
-        } else {
+        if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .sleep) {
             presenter.setSeleep(sleep: sleep, date: getDate())
         }
         
@@ -205,10 +197,9 @@ extension EnergyController: EnergyChooseActivityProtocol {
     func energyChooseActivitySelect(cell: EnergyChooseActivityCell, model: WorkoutsWidgetMainModel) {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_activity_tap)
         
-        if PreferencesManager.sharedManager.widgetList.contains(.widgetEntityTypeActivity) && KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .chooseAcivity)
-        } else {
-            delegate?.energControllerSetProfile(controller: self, model: model)
+        if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .chooseAcivity) {
+            guard let id = model.id else { return }
+            WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
         }
     }
 }
@@ -219,9 +210,14 @@ extension EnergyController: EnergyChooseActivityProtocol {
 
 extension EnergyController: EnergyTrainingProtocol {
     func energyTrainingSelect(cell: EnergyTrainingCell, model: WorkoutsWidgetMainModel) {
+        
         guard let id = model.id else { return }
         AnalyticsHelper.sendFirebaseEvents(events: .dash_training_tap)
-        WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
+        
+        if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .workoutTraini) {
+            WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
+        }
+       
     }
 }
 
@@ -240,11 +236,11 @@ extension EnergyController: FoodControllerProtocol {
 //----------------------------------------------
 
 extension EnergyController: PaywallProtocol {
-    func paywallActionBack(controller: PaywallController) {
+    func paywallActionBack(controller: BaseController) {
         self.dismiss(animated: true)
     }
     
-    func paywallSuccess(controller: PaywallController) {
+    func paywallSuccess(controller: BaseController) {
         
     }
 }

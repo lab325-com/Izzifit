@@ -300,6 +300,10 @@ class FoodController: BaseController {
         EnergyRouter(presenter: navigationController).pushWriteToUs()
     }
     
+    @IBAction func textFieldChangeAction(_ sender: UITextField) {
+        startSearh()
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         hideKeyboard()
         

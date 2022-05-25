@@ -41,7 +41,7 @@ class MainTabBarController: BaseController {
     private let heightTabBarConstans: CGFloat = -84
     
     
-    private lazy var energy = EnergyController(delegate: self)
+    private lazy var energy = EnergyController()
     private lazy var workout = WorkoutController()
     private lazy var profile = ProfileController()
     private lazy var menu = MenuController()
@@ -183,15 +183,5 @@ class MainTabBarController: BaseController {
         }
 
         TabBarRouter(presenter: navigationController).pushMenu()
-    }
-}
-
-//----------------------------------------------
-// MARK: - EnergyControllerProtocol
-//----------------------------------------------
-
-extension MainTabBarController: EnergyControllerProtocol {
-    func energControllerSetProfile(controller: EnergyController, model: WorkoutsWidgetMainModel) {
-        tab = .workout
     }
 }
