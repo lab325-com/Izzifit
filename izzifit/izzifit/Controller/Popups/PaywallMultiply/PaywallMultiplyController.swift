@@ -47,7 +47,9 @@ class PaywallMultiplyController: BaseController {
     //----------------------------------------------
     
     weak var delegate: PaywallProtocol?
-    var screen: PaywallScreenType?
+    let screen: PaywallScreenType
+    let place: PlaceType
+    
     private lazy var presenter = SubscribePresenter(view: self)
     
     private var priceType: PaywallPriceType = .oneYear50 {
@@ -60,9 +62,10 @@ class PaywallMultiplyController: BaseController {
     // MARK: - Init
     //----------------------------------------------
     
-    init(delegate: PaywallProtocol, screen: PaywallScreenType) {
+    init(delegate: PaywallProtocol, screen: PaywallScreenType, place: PlaceType) {
         self.delegate = delegate
         self.screen = screen
+        self.place = place
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -85,7 +88,7 @@ class PaywallMultiplyController: BaseController {
     //----------------------------------------------
     
     private func setup() {
-        AnalyticsHelper.sendFirebaseEvents(events: .pay_open)
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_open, params: ["place": place.rawValue, "screen": screen.rawValue])
         subStackView.isHidden = true
         
         firstSubView.layer.borderWidth = 2
@@ -198,27 +201,27 @@ class PaywallMultiplyController: BaseController {
         let privacyPolicyRange = (text as NSString).range(of: RLocalization.login_privacy_policy())
         let termsAndConditionRange = (text as NSString).range(of: RLocalization.login_terms_use())
         let termsAndSubscribeRange = (text as NSString).range(of: RLocalization.login_terms_of_subscribe())
-        
+   
         if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: privacyPolicyRange) {
             print("user tapped on privacy policy text")
-            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "privacy", "screen": "paywall"])
+            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "privacy", "place": place.rawValue, "screen": screen.rawValue])
             guard let url = URL(string: "https://mob325.com/izzifit/privacy_policy.html") else { return }
             UIApplication.shared.open(url)
         } else if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: termsAndConditionRange) {
             print("user tapped on terms and conditions text")
-            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "terms", "screen": "paywall"])
+            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "terms", "place": place.rawValue, "screen": screen.rawValue])
             guard let url = URL(string: "https://mob325.com/izzifit/terms_and_conditions.html") else { return }
             UIApplication.shared.open(url)
         } else if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: termsAndSubscribeRange) {
             print("user tapped on terms and subscribe text")
-            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "subscribe", "screen": "paywall"])
+            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "subscribe", "place": place.rawValue, "screen": screen.rawValue])
             guard let url = URL(string: "https://mob325.com/izzifit/terms_and_conditions.html") else { return }
             UIApplication.shared.open(url)
         }
     }
     
     @IBAction func actionClose(_ sender: UIButton) {
-        AnalyticsHelper.sendFirebaseEvents(events: .pay_close)
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_close, params: ["place": place.rawValue, "screen": screen.rawValue])
         self.delegate?.paywallActionBack(controller: self)
     }
     
@@ -235,7 +238,7 @@ class PaywallMultiplyController: BaseController {
     }
     
     @IBAction func actionSubscribe(_ sender: UIButton) {
-        presenter.purchase(id: priceType.productId) { [weak self] result, error in
+        presenter.purchase(id: priceType.productId, screen: screen, place: place) { [weak self] result, error in
             guard let `self` = self else { return }
             if result {
                 self.delegate?.paywallSuccess(controller: self)
@@ -301,7 +304,7 @@ extension PaywallMultiplyController: SubscribeOutputProtocol {
                 secondSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 30)
                 secondSubPerDayPriceLabel.text = ""
             }
-        case .base, .onePrice, .none:
+        case .base, .onePrice:
             return
         }
         

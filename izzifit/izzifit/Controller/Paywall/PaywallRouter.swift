@@ -18,20 +18,20 @@ class PaywallRouter: BaseRouter {
         
         switch screen {
         case .base:
-            let controller = PaywallController(delegate: delegate)
+            let controller = PaywallController(delegate: delegate, screen: .base, place: place)
             present(controller: controller)
         case .onePrice:
-            let controller = PaywallSingleController(delegate: delegate)
+            let controller = PaywallSingleController(delegate: delegate, screen: .onePrice, place: place)
             present(controller: controller)
         case .twoPrice:
-            let controller = PaywallMultiplyController(delegate: delegate, screen: .twoPrice)
+            let controller = PaywallMultiplyController(delegate: delegate, screen: .twoPrice, place: place)
             present(controller: controller)
         case .threePrice:
-            let controller = PaywallMultiplyController(delegate: delegate, screen: .threePrice)
+            let controller = PaywallMultiplyController(delegate: delegate, screen: .threePrice, place: place)
             present(controller: controller)
         default:
             if place == .afterOnboarding || place == .workout {
-                let controller = PaywallController(delegate: delegate)
+                let controller = PaywallController(delegate: delegate, screen: .base, place: place)
                 present(controller: controller)
             } else {
                 return false

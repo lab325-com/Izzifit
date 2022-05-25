@@ -33,12 +33,17 @@ class PaywallSingleController: BaseController {
     private var priceType: PaywallPriceType = .oneYear50
     private lazy var presenter = SubscribePresenter(view: self)
     
+    let screen: PaywallScreenType
+    let place: PlaceType
+    
     //----------------------------------------------
     // MARK: - Init
     //----------------------------------------------
     
-    init(delegate: PaywallProtocol) {
+    init(delegate: PaywallProtocol, screen: PaywallScreenType, place: PlaceType) {
         self.delegate = delegate
+        self.screen = screen
+        self.place = place
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -61,7 +66,7 @@ class PaywallSingleController: BaseController {
     //----------------------------------------------
     
     private func setup() {
-        AnalyticsHelper.sendFirebaseEvents(events: .pay_open)
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_open,  params: ["place": place.rawValue, "screen": screen.rawValue])
         subView.isHidden = true
         
         subNameLabel.text = "Annually"
@@ -106,29 +111,29 @@ class PaywallSingleController: BaseController {
         
         if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: privacyPolicyRange) {
             print("user tapped on privacy policy text")
-            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "privacy", "screen": "paywall"])
+            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "privacy", "place": place.rawValue, "screen": screen.rawValue])
             guard let url = URL(string: "https://mob325.com/izzifit/privacy_policy.html") else { return }
             UIApplication.shared.open(url)
         } else if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: termsAndConditionRange) {
             print("user tapped on terms and conditions text")
-            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "terms", "screen": "paywall"])
+            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "terms", "place": place.rawValue, "screen": screen.rawValue])
             guard let url = URL(string: "https://mob325.com/izzifit/terms_and_conditions.html") else { return }
             UIApplication.shared.open(url)
         } else if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, inRange: termsAndSubscribeRange) {
             print("user tapped on terms and subscribe text")
-            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "subscribe", "screen": "paywall"])
+            AnalyticsHelper.sendFirebaseEvents(events: .other_legal_open, params: ["open": "subscribe", "place": place.rawValue, "screen": screen.rawValue])
             guard let url = URL(string: "https://mob325.com/izzifit/terms_and_conditions.html") else { return }
             UIApplication.shared.open(url)
         }
     }
     
     @IBAction func actionClose(_ sender: UIButton) {
-        AnalyticsHelper.sendFirebaseEvents(events: .pay_close)
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_close,  params: ["place": place.rawValue, "screen": screen.rawValue])
         self.delegate?.paywallActionBack(controller: self)
     }
     
     @IBAction func actionSubscribe(_ sender: UIButton) {
-        presenter.purchase(id: priceType.productId) { [weak self] result, error in
+        presenter.purchase(id: priceType.productId, screen: screen, place: place) { [weak self] result, error in
             guard let `self` = self else { return }
             if result {
                 self.delegate?.paywallSuccess(controller: self)
