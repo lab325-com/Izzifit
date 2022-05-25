@@ -14,10 +14,10 @@ class PaywallRouter: BaseRouter {
         
         switch screen {
         case .base:
-//            let controller = PaywallController(delegate: delegate)
-//            present(controller: controller)
-            let controller = PaywallSingleController(delegate: delegate)
+            let controller = PaywallController(delegate: delegate)
             present(controller: controller)
+//            let controller = PaywallSingleController(delegate: delegate)
+//            present(controller: controller)
         case .onePrice:
             let controller = PaywallController(delegate: delegate)
             present(controller: controller)
