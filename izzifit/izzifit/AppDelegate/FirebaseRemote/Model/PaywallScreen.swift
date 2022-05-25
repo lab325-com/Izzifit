@@ -16,6 +16,7 @@ enum PlaceType: String, Codable {
     case energyZero
     case goldZero
     
+    case workoutTraini //+
     case meals //+
     case drinkWater //+
     case mood //+

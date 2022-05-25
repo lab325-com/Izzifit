@@ -210,9 +210,14 @@ extension EnergyController: EnergyChooseActivityProtocol {
 
 extension EnergyController: EnergyTrainingProtocol {
     func energyTrainingSelect(cell: EnergyTrainingCell, model: WorkoutsWidgetMainModel) {
+        
         guard let id = model.id else { return }
         AnalyticsHelper.sendFirebaseEvents(events: .dash_training_tap)
-        WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
+        
+        if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .workoutTraini) {
+            WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
+        }
+       
     }
 }
 
