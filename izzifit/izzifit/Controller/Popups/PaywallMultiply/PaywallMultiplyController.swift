@@ -28,6 +28,8 @@ class PaywallMultiplyController: BaseController {
     @IBOutlet weak var secondSubSaleDiscountLabel: UILabel!
     @IBOutlet weak var secondSubPerDayPriceLabel: UILabel!
     @IBOutlet weak var secondSubPerDayLabel: UILabel!
+    @IBOutlet weak var secondSubSaleDiscountLineView: UIView!
+    @IBOutlet weak var secondSubSaleDiscountLeadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var thirdSubView: UIView!
     @IBOutlet weak var thirdSubNameLabel: UILabel!
@@ -36,6 +38,8 @@ class PaywallMultiplyController: BaseController {
     @IBOutlet weak var thirdSubSaleDiscountLabel: UILabel!
     @IBOutlet weak var thirdSubPerDayPriceLabel: UILabel!
     @IBOutlet weak var thirdSubPerDayLabel: UILabel!
+    @IBOutlet weak var thirdSubSaleDiscountLineView: UIView!
+    @IBOutlet weak var thirdSubSaleDiscountLeadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var subscribeButton: UIButton!
     @IBOutlet weak var restoreButton: UIButton!
@@ -143,7 +147,7 @@ class PaywallMultiplyController: BaseController {
             
             subStackView.sendSubviewToBack(secondSubView)
             subStackView.sendSubviewToBack(thirdSubView)
-        case .theeMonth:
+        case .theeMonth, .oneMonth, .theeMonth30:
             firstSubView.layer.borderColor = UIColor.clear.cgColor
             secondSubView.layer.borderColor = UIColor(red: 1, green: 0.258, blue: 0.659, alpha: 1).cgColor
             thirdSubView.layer.borderColor = UIColor.clear.cgColor
@@ -165,7 +169,7 @@ class PaywallMultiplyController: BaseController {
             
             subStackView.sendSubviewToBack(firstSubView)
             subStackView.sendSubviewToBack(secondSubView)
-        case .oneMonth, .theeMonth30, .oneYear:
+        case .oneYear:
             return
         }
         
@@ -175,7 +179,7 @@ class PaywallMultiplyController: BaseController {
                 self.firstSubView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
                 self.secondSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.thirdSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            case .theeMonth:
+            case .theeMonth, .oneMonth, .theeMonth30:
                 self.firstSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.secondSubView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
                 self.thirdSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
@@ -183,7 +187,7 @@ class PaywallMultiplyController: BaseController {
                 self.firstSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.secondSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.thirdSubView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-            case .oneMonth, .theeMonth30, .oneYear:
+            case .oneYear:
                 return
             }
         }) { (_) in }
@@ -227,7 +231,7 @@ class PaywallMultiplyController: BaseController {
     }
     
     @IBAction func actionSecondSub(_ sender: UIButton) {
-        priceType = .theeMonth
+        priceType = screen == .threePrice ? .theeMonth30 : .oneMonth
     }
     
     @IBAction func actionThirdSub(_ sender: UIButton) {
@@ -242,7 +246,6 @@ class PaywallMultiplyController: BaseController {
                 self.dismiss(animated: true)
             }
         }
-
     }
     
     @IBAction func actionRestore(_ sender: UIButton) {
@@ -286,6 +289,8 @@ extension PaywallMultiplyController: SubscribeOutputProtocol {
                 thirdSubSaleDiscountLabel.text = info.prettyPrice
                 thirdSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 14)
                 thirdSubPerDayPriceLabel.text = ""
+                thirdSubSaleDiscountLineView.isHidden = true
+                thirdSubSaleDiscountLeadingConstraint.constant = 0
             }
         case .twoPrice:
             if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneYear50.productId}) {
@@ -297,9 +302,11 @@ extension PaywallMultiplyController: SubscribeOutputProtocol {
             
             if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneMonth.productId}) {
                 secondSubSalePriceLabel.text = ""
-                secondSubSaleDiscountLabel.text = info.prettyPrice
+                secondSubSaleDiscountLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price)
                 secondSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 30)
                 secondSubPerDayPriceLabel.text = ""
+                secondSubSaleDiscountLineView.isHidden = true
+                secondSubSaleDiscountLeadingConstraint.constant = 0
             }
         case .base, .onePrice, .none:
             return
