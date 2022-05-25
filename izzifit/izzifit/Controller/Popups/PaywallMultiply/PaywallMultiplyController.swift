@@ -91,20 +91,20 @@ class PaywallMultiplyController: BaseController {
         secondSubView.layer.borderWidth = 2
         thirdSubView.layer.borderWidth = 2
         
-        thirdSubView.isHidden = screen == .threePice ? false : true
+        thirdSubView.isHidden = screen == .threePrice ? false : true
         
         firstSubPerDayLabel.text = "per day"
         secondSubPerDayLabel.text = "per day"
         thirdSubPerDayLabel.text = "per day"
         
         firstSubNameLabel.text = "Annually"
-        secondSubNameLabel.text = screen == .threePice ? "3 month" : "1 month"
+        secondSubNameLabel.text = screen == .threePrice ? "3 month" : "1 month"
         thirdSubNameLabel.text = "1 week"
         
         createPrivacyLabel()
         updateSubsView()
         
-        presenter.retriveProduct(id: screen == .threePice ? Set([PaywallPriceType.oneYear50.productId, PaywallPriceType.theeMonth30.productId, PaywallPriceType.oneWeek.productId]) : Set([PaywallPriceType.oneYear50.productId, PaywallPriceType.oneMonth.productId]))
+        presenter.retriveProduct(id: screen == .threePrice ? Set([PaywallPriceType.oneYear50.productId, PaywallPriceType.theeMonth30.productId, PaywallPriceType.oneWeek.productId]) : Set([PaywallPriceType.oneYear50.productId, PaywallPriceType.oneMonth.productId]))
     }
     
     private func createPrivacyLabel() {
@@ -264,7 +264,7 @@ extension PaywallMultiplyController: SubscribeOutputProtocol {
         activity.isHidden = true
         
         switch screen {
-        case .threePice:
+        case .threePrice:
             if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneYear50.productId}) {
                 firstSubSalePriceLabel.text = String(format: "Sale %@%@", info.currencySymbol ?? "", info.prettyPrice.trimmingCharacters(in: .whitespacesAndNewlines))
                 firstSubSaleDiscountLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", (info.price * 2))

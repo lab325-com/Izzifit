@@ -16,7 +16,7 @@ class PreferencesManager : NSObject {
     static let isFirstRun = "isFirstRun"
     static let tempPorifle = "tempPorifle"
     static let foods =  "foods"
-    static let widgetList = "widgetList"
+    //static let widgetList = "widgetList"
     static let screensPaywall = "screensPaywall"
     static let afterOnboarding = "afterOnboarding"
     
@@ -128,14 +128,14 @@ class PreferencesManager : NSObject {
         }
     }
     
-    var widgetList: [WidgetEntityType] {
-        get {
-            return self.models(forKey: PreferencesManager.widgetList) ?? []
-        }
-        set {
-            self.set(newValue, forKey: PreferencesManager.widgetList)
-        }
-    }
+//    var widgetList: [WidgetEntityType] {
+//        get {
+//            return self.models(forKey: PreferencesManager.widgetList) ?? []
+//        }
+//        set {
+//            self.set(newValue, forKey: PreferencesManager.widgetList)
+//        }
+//    }
     
     var screensPaywall: [ScreensPaywallModel] {
         get {

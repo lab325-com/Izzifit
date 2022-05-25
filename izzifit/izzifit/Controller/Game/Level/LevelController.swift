@@ -131,10 +131,8 @@ class LevelController: BaseController {
             alert.addAction(okAction)
             present(alert,animated: true)
             
-            if KeychainService.standard.me?.Subscription == nil {
-                PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .goldZero)
-            }
-            
+            let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .goldZero)
+           
             return
         }
                 
@@ -373,9 +371,7 @@ extension LevelController: LevelOutputProtocol {
         drawStates()
         buildPopUpVw.reloadInputViews()
         
-        if KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
-        }
+        let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
     }
     
     func successBuild() { }

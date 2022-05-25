@@ -397,10 +397,8 @@ class ArcticGameComtroller: BaseController {
         guard counter.combinations.count > combinationCounter else { spinsRunOut()
             return }
         guard KeychainService.standard.me?.energy ?? 0.0 > 0.0 else {
-            if KeychainService.standard.me?.Subscription == nil {
-                PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
-            }
-            
+            let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
+        
             return
         }
         
@@ -508,9 +506,8 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
             }
         }
         
-        if KeychainService.standard.me?.Subscription == nil {
-            PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterSpeen)
-        }
+        let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterSpeen)
+        
     }
     
     func success() {

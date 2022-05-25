@@ -8,7 +8,11 @@
 import Foundation
 
 class PaywallRouter: BaseRouter {
-    func presentPaywall(delegate: PaywallProtocol, place: PlaceType) {
+    func presentPaywall(delegate: PaywallProtocol, place: PlaceType) -> Bool {
+        
+        if KeychainService.standard.me?.Subscription != nil {
+            return false
+        }
         
         let screen = PreferencesManager.sharedManager.screensPaywall.first(where: {$0.place == place})?.screen
         
@@ -22,12 +26,18 @@ class PaywallRouter: BaseRouter {
         case .twoPrice:
             let controller = PaywallMultiplyController(delegate: delegate, screen: .twoPrice)
             present(controller: controller)
-        case .threePice:
-            let controller = PaywallMultiplyController(delegate: delegate, screen: .threePice)
+        case .threePrice:
+            let controller = PaywallMultiplyController(delegate: delegate, screen: .threePrice)
             present(controller: controller)
         default:
-            let controller = PaywallController(delegate: delegate)
-            present(controller: controller)
+            if place == .afterOnboarding || place == .workout {
+                let controller = PaywallController(delegate: delegate)
+                present(controller: controller)
+            } else {
+                return false
+            }
         }
+        
+        return true
     }
 }
