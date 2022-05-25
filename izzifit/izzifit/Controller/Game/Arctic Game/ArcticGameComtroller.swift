@@ -173,6 +173,7 @@ class ArcticGameComtroller: BaseController {
                                          bottomCG: view.h / 50.75,//16,
                                          trailingToO: slotHouseImgVw.trailingAnchor,
                                          trailingCG: view.h / 8.54) //95)
+        
         spinManager.showProgress(imgVw: progressImgVw,
                                     img: progressImg ?? UIImage())
     }

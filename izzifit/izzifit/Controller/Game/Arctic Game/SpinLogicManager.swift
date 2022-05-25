@@ -76,8 +76,7 @@ struct SpinLogicManager {
         default: break
         }
         let hiddenPart = 100.0 - spinsRemainder
-        
-        
+    
         imgVw.hideImage(hiddenPart: hiddenPart,
                         img: img)
     }

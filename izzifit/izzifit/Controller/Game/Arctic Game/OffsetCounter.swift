@@ -23,8 +23,6 @@ protocol OffsetCounterProtocol {
     var speedIteraror: CGFloat { get set }
     var raceBrakeDistance: CGFloat { get set }
 
-    func distanceToTargetCell() -> CGFloat
-    func overDistance() -> CGFloat
     func calculateVelocityStride() -> CGFloat
 }
 
@@ -103,14 +101,6 @@ class OffsetCounter: OffsetCounterProtocol {
     lazy var forsageDistance: CGFloat = {
         StrideConstants.minSpeedStride * speedIteraror
     }()
-
-    func distanceToTargetCell() -> CGFloat {
-        return 0.0
-    }
-
-    func overDistance() -> CGFloat {
-        return 0.0
-    }
 
     func spiningStride(to elementIndex: Int,
                        from tableInt: Int,
