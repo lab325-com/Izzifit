@@ -9,5 +9,6 @@ target 'izzifit' do
   pod 'R.swift'
   pod 'SpreadsheetView'
   pod 'Siren'
+  pod 'FBSDKCoreKit'
   
 end
