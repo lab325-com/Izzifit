@@ -230,11 +230,11 @@ extension EnergyController: FoodControllerProtocol {
 //----------------------------------------------
 
 extension EnergyController: PaywallProtocol {
-    func paywallActionBack(controller: PaywallController) {
+    func paywallActionBack(controller: BaseController) {
         self.dismiss(animated: true)
     }
     
-    func paywallSuccess(controller: PaywallController) {
+    func paywallSuccess(controller: BaseController) {
         
     }
 }

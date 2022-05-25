@@ -8,8 +8,8 @@
 import UIKit
 
 protocol PaywallProtocol: AnyObject {
-    func paywallActionBack(controller: PaywallController)
-    func paywallSuccess(controller: PaywallController)
+    func paywallActionBack(controller: BaseController)
+    func paywallSuccess(controller: BaseController)
 }
 
 class PaywallController: BaseController {

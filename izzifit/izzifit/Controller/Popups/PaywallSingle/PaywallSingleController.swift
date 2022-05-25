@@ -61,6 +61,7 @@ class PaywallSingleController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_open)
         subView.isHidden = true
         
         subNameLabel.text = "Annually"
@@ -122,14 +123,15 @@ class PaywallSingleController: BaseController {
     }
     
     @IBAction func actionClose(_ sender: UIButton) {
-        dismiss(animated: true)
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_close)
+        self.delegate?.paywallActionBack(controller: self)
     }
     
     @IBAction func actionSubscribe(_ sender: UIButton) {
         presenter.purchase(id: priceType.productId) { [weak self] result, error in
             guard let `self` = self else { return }
             if result {
-//                self.delegate?.paywallSuccess(controller: self)
+                self.delegate?.paywallSuccess(controller: self)
                 self.dismiss(animated: true)
             }
         }
@@ -139,7 +141,7 @@ class PaywallSingleController: BaseController {
         presenter.restore { [weak self] result in
             guard let `self` = self else { return }
             if result {
-//                self.delegate?.paywallSuccess(controller: self)
+                self.delegate?.paywallSuccess(controller: self)
                 self.dismiss(animated: true)
             }
         }

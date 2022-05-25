@@ -123,12 +123,12 @@ extension WorkoutController: WorkoutExercisesCellProtocol {
 //----------------------------------------------
 
 extension WorkoutController: PaywallProtocol {
-    func paywallSuccess(controller: PaywallController) {
+    func paywallSuccess(controller: BaseController) {
         selectedTypeId = nil
         presenter.getWorkout()
     }
     
-    func paywallActionBack(controller: PaywallController) {
+    func paywallActionBack(controller: BaseController) {
         dismiss(animated: true)
     }
 }

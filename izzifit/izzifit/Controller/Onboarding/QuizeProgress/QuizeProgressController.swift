@@ -96,11 +96,11 @@ extension QuizeProgressController: QuizeProgressOutputProtocol {
 //----------------------------------------------
 
 extension QuizeProgressController: PaywallProtocol {
-    func paywallActionBack(controller: PaywallController) {
+    func paywallActionBack(controller: BaseController) {
         RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
     }
     
-    func paywallSuccess(controller: PaywallController) {
+    func paywallSuccess(controller: BaseController) {
         RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
     }
 }

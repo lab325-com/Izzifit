@@ -85,6 +85,7 @@ class PaywallMultiplyController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_open)
         subStackView.isHidden = true
         
         firstSubView.layer.borderWidth = 2
@@ -217,7 +218,8 @@ class PaywallMultiplyController: BaseController {
     }
     
     @IBAction func actionClose(_ sender: UIButton) {
-        dismiss(animated: true)
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_close)
+        self.delegate?.paywallActionBack(controller: self)
     }
     
     @IBAction func actionFirstSub(_ sender: UIButton) {
@@ -236,7 +238,7 @@ class PaywallMultiplyController: BaseController {
         presenter.purchase(id: priceType.productId) { [weak self] result, error in
             guard let `self` = self else { return }
             if result {
-//                self.delegate?.paywallSuccess(controller: self)
+                self.delegate?.paywallSuccess(controller: self)
                 self.dismiss(animated: true)
             }
         }
@@ -247,7 +249,7 @@ class PaywallMultiplyController: BaseController {
         presenter.restore { [weak self] result in
             guard let `self` = self else { return }
             if result {
-//                self.delegate?.paywallSuccess(controller: self)
+                self.delegate?.paywallSuccess(controller: self)
                 self.dismiss(animated: true)
             }
         }
