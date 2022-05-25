@@ -48,12 +48,17 @@ class SubscribePresenter: SubscribePresenterProtocol {
     
     func purchase(id: String, purchaseSuccess: @escaping (Bool, String?) -> Void) {
         view?.startLoader()
+        
         AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase, params: ["id": id])
+        AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase, values: ["id": id])
+        
         SwiftyStoreKit.purchaseProduct(id, quantity: 1, atomically: true) { [weak self] result in
             switch result {
             case .success(let product):
                 
                 AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase_success, params: ["id": id])
+                AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase_success, values: ["id": id])
+                
                 //self?.sendPrepay()
                 // fetch content from your server, then:
                 if product.needsFinishTransaction {
@@ -100,8 +105,10 @@ class SubscribePresenter: SubscribePresenterProtocol {
                 case .cloudServiceRevoked: errorMessage = "User has revoked permission to use this cloud service"
                 default: errorMessage = (error as NSError).localizedDescription
                 }
+                
                 AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase_false, params: ["error": errorMessage])
-                //AnalyticsHelper.sendFirebaseEvents(events: .purchase_error, params: ["message": errorMessage])
+                AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase_failure, values: ["error": errorMessage])
+
                 purchaseSuccess(false, errorMessage)
             case .deferred(purchase: _):
                 print("handle deferred state")

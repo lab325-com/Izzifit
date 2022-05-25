@@ -88,6 +88,12 @@ enum FirebaseEvents: String {
     case map_building_complete
 }
 
+enum FacebookEvents: String {
+    case fb_pay_purchase
+    case fb_pay_purchase_success
+    case fb_pay_purchase_failure
+}
+
 class AnalyticsHelper: NSObject {
     static func sendFirebaseEvents(events: FirebaseEvents, params: [String : Any]? = nil) {
         Analytics.logEvent(events.rawValue, parameters: params)
@@ -98,7 +104,7 @@ class AnalyticsHelper: NSObject {
                            parameters: [AnalyticsParameterScreenName: screen.rawValue])
     }
     
-//    static func sendFacebookEvent(event: FacebookEvents, values: [String : Any]? = nil) {
-//        Analytics.logEvent(event.rawValue, parameters: values)
-//    }
+    static func sendFacebookEvent(event: FacebookEvents, values: [String : Any]? = nil) {
+        Analytics.logEvent(event.rawValue, parameters: values)
+    }
 }
