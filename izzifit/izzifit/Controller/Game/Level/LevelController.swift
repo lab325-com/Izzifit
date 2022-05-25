@@ -370,11 +370,11 @@ extension LevelController: LevelOutputProtocol {
         }
         drawStates()
         buildPopUpVw.reloadInputViews()
-        
-        let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
     }
     
-    func successBuild() { }
+    func successBuild() {
+        let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
+    }
     
     func successMe() {
 
