@@ -20,6 +20,8 @@ class PaywallRouter: BaseRouter {
         case .base:
             let controller = PaywallController(delegate: delegate, screen: .base, place: place)
             present(controller: controller)
+//            let controller = PaywallSingleController(delegate: delegate)
+//            present(controller: controller)
         case .onePrice:
             let controller = PaywallSingleController(delegate: delegate, screen: .onePrice, place: place)
             present(controller: controller)
