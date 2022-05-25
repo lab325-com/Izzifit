@@ -48,12 +48,20 @@ class SubscribePresenter: SubscribePresenterProtocol {
     
     func purchase(id: String, screen: PaywallScreenType, place: PlaceType, purchaseSuccess: @escaping (Bool, String?) -> Void) {
         view?.startLoader()
+        
         AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase, params: ["id": id, "place": place.rawValue, "screen": screen.rawValue])
+        
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase, params: ["id": id])
+        AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase, values: ["id": id])
+        
         SwiftyStoreKit.purchaseProduct(id, quantity: 1, atomically: true) { [weak self] result in
             switch result {
             case .success(let product):
-                
+              
                 AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase_success, params: ["id": id, "place": place.rawValue, "screen": screen.rawValue])
+                AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase_success, params: ["id": id])
+                AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase_success, values: ["id": id])
+                
                 //self?.sendPrepay()
                 // fetch content from your server, then:
                 if product.needsFinishTransaction {
@@ -102,6 +110,9 @@ class SubscribePresenter: SubscribePresenterProtocol {
                 }
                 AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase_false, params: ["error": errorMessage, "place": place.rawValue, "screen": screen.rawValue])
                 //AnalyticsHelper.sendFirebaseEvents(events: .purchase_error, params: ["message": errorMessage])
+
+                AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase_false, params: ["error": errorMessage])
+                AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase_failure, values: ["error": errorMessage])
                 purchaseSuccess(false, errorMessage)
             case .deferred(purchase: _):
                 print("handle deferred state")
