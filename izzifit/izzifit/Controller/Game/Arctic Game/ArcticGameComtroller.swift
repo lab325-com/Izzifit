@@ -55,8 +55,9 @@ class ArcticGameComtroller: BaseController {
     private var secondTimer = Timer()
     private var thirdTimer = Timer()
     private var spinManager = SpinLogicManager()
-    private var planManager = PlanSpinManager()
     var countOfStrides: CGFloat = 0
+    
+    let progressImg = UIImage(named: "progressActive")
     
     private lazy var table1: UITableView = {
         guard let cell = collectionView.cellForItem(at: [0,0]) as? SlotCollectionCell else { return UITableView() }
@@ -108,6 +109,7 @@ class ArcticGameComtroller: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    
         hummerBtn.isHidden = true
         hummerCountLbl.isHidden = true
         checkAvailableHummers()
@@ -121,12 +123,13 @@ class ArcticGameComtroller: BaseController {
                                leadingC: 0,
                                trailingC: 0)
         
-
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+        
     }
     
     private func setup() {
+
         resultStackView.isHidden = true
         resultLblTopConstraint.constant =  view.h / 17.65
         resultLbl.font = UIFont(name: "Inter-Black",
@@ -144,8 +147,7 @@ class ArcticGameComtroller: BaseController {
                                     size: view.h/40.6 )
         
         awardCountLbl.text = "100"
-        progressImgVw.image = UIImage(named: "progressActive")
-     
+        
         NSLayoutConstraint.activate([
             resultLbl.heightAnchor.constraint(equalToConstant: view.h/54.13),
             resultStackView.centerYAnchor.constraint(equalTo: resultLbl.centerYAnchor),
@@ -163,30 +165,16 @@ class ArcticGameComtroller: BaseController {
         barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
                                           placeholder: RImage.placeholder_food_ic(),
                                           options: [.transition(.fade(0.25))])
-        
         view.ui.genericlLayout(object: progressImgVw,
-                               parentView: view,
-                               width: view.h / 4.77,//170,
-                               height: view.h / 40.6,//20,
-                               bottomToO: slotHouseImgVw.bottomAnchor,
-                               bottomCG: view.h / 50.75,//16,
-                               trailingToO: slotHouseImgVw.trailingAnchor,
-                               trailingCG: view.h / 8.54) //95)
-        
-        
-       
-        
-        UIGraphicsBeginImageContext(progressImgVw.image!.size)
-        progressImgVw.image!.draw(at: CGPoint.zero)
-        let context:CGContext = UIGraphicsGetCurrentContext()!;
-        let bez = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 90, height: 22))
-        context.addPath(bez.cgPath)
-        context.clip();
-        context.clear(CGRect(x: 0,y: 0,width: progressImgVw.image!.size.width,height: progressImgVw.image!.size.height));
-        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
-        UIGraphicsEndImageContext();
-        
-        progressImgVw.image = newImage
+                                         parentView: view,
+                                         width: view.h / 4.77,//170,
+                                         height: view.h / 40.6,//20,
+                                         bottomToO: slotHouseImgVw.bottomAnchor,
+                                         bottomCG: view.h / 50.75,//16,
+                                         trailingToO: slotHouseImgVw.trailingAnchor,
+                                         trailingCG: view.h / 8.54) //95)
+        spinManager.showProgress(imgVw: progressImgVw,
+                                    img: progressImg ?? UIImage())
     }
     
     private func checkAvailableHummers() {
@@ -220,7 +208,8 @@ class ArcticGameComtroller: BaseController {
                                                   action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
-    }
+        }
+    
     
     @objc
     func xSpin() {
@@ -327,7 +316,6 @@ class ArcticGameComtroller: BaseController {
         hummerCountLbl.isHidden = false
     }
     
-    
     @objc
     func x3Spin() {
         thirdTimerCount -= 1
@@ -425,7 +413,6 @@ class ArcticGameComtroller: BaseController {
             if KeychainService.standard.me?.Subscription == nil {
                 PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
             }
-            
             return
         }
         
@@ -440,11 +427,16 @@ class ArcticGameComtroller: BaseController {
                                collectionView: collectionView,
                                spinBtn: spinBtn) {
             
-       firstTimer = Timer.scheduledTimer(timeInterval: 0.03,
-                                         target: self,
-                                         selector: #selector(xSpin),
-                                         userInfo: nil,
-                                         repeats: true)
+            DispatchQueue.main.async {
+                self.spinManager.showProgress(imgVw: self.progressImgVw,
+                                          img: self.progressImg ?? UIImage())
+            }
+            
+            firstTimer = Timer.scheduledTimer(timeInterval: 0.03,
+                                              target: self,
+                                              selector: #selector(xSpin),
+                                              userInfo: nil,
+                                              repeats: true)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                 self.secondTimer = Timer.scheduledTimer(timeInterval: 0.03,
@@ -483,6 +475,7 @@ extension ArcticGameComtroller: UICollectionViewDelegate, UICollectionViewDataSo
 //----------------------------------------------
 
 extension ArcticGameComtroller: ArcticGameOutputProtocol {
+    
     func successUpgrade() {
         ///reload
     }

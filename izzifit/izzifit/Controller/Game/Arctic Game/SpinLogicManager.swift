@@ -20,6 +20,10 @@ struct SpinLogicManager {
         }
     }
     
+    lazy var currentSpinsCount: Int = {
+        Int(user.energy ?? 0.0)
+    }()
+    
     static let array: [Int] = {
         var array = [Int]()
         for _ in 0...2800 {
@@ -62,6 +66,20 @@ struct SpinLogicManager {
             coinsLbl.text = String(user.coins!)
             energyLbl.text = String(user.energy!)
         }
+    }
+    
+    func showProgress(imgVw: UIImageView, img: UIImage ) {
+    
+        var spinsRemainder = CGFloat(KeychainService.standard.me?.energy ?? 0.0)
+        switch spinsRemainder {
+        case let x where x > 100.0: spinsRemainder = 100.0
+        default: break
+        }
+        let hiddenPart = 100.0 - spinsRemainder
+        
+        
+        imgVw.hideImage(hiddenPart: hiddenPart,
+                        img: img)
     }
     
     func accrueBonuses(by combination: SpinCombination,

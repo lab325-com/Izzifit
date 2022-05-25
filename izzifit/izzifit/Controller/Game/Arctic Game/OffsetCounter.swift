@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct SlotRowModel {
+    let indexPathRow: Int
+    let slotInt: Int
+}
+
 protocol OffsetCounterProtocol {
 
     static var firstArray: [Int] { get set }
