@@ -198,7 +198,8 @@ extension EnergyController: EnergyChooseActivityProtocol {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_activity_tap)
         
         if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .chooseAcivity) {
-            delegate?.energControllerSetProfile(controller: self, model: model)
+            guard let id = model.id else { return }
+            WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
         }
     }
 }

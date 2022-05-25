@@ -8,10 +8,6 @@
 import UIKit
 import Kingfisher
  
-protocol EnergyControllerProtocol: AnyObject {
-    func energControllerSetProfile(controller: EnergyController, model: WorkoutsWidgetMainModel)
-}
-
 class EnergyController: BaseController {
     
     //----------------------------------------------
@@ -45,22 +41,6 @@ class EnergyController: BaseController {
     lazy var presenter = EnergyPresenter(view: self)
     
     var currentDate = Date()
-    
-    
-    weak var delegate: EnergyControllerProtocol?
-    
-    //----------------------------------------------
-    // MARK: - Init
-    //----------------------------------------------
-    
-    init(delegate: EnergyControllerProtocol) {
-        self.delegate = delegate
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     //----------------------------------------------
     // MARK: - Life cycle

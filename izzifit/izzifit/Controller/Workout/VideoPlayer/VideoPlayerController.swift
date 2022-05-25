@@ -102,7 +102,7 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     private var timeRest = 0
     private var timerPlayerTime = 0
     
-    private var getReadyTime = 16 {
+    private var getReadyTime = 6 {
         didSet {
             if getReadyTime == 0 {
                 palyerType = .plaing
@@ -157,10 +157,10 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
             }) { [weak self] (context) in
                 guard let `self` = self else { return }
                 
-                if UIDevice.current.orientation.isPortrait {
-                    self.updateUI(isPortait: true)
-                } else {
+                if (UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight) {
                     self.updateUI(isPortait: false)
+                } else {
+                    self.updateUI(isPortait: true)
                 }
                 
                 self.playerLayer.frame = self.videoView.bounds
@@ -282,10 +282,15 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
             circleView.progressAnimation(duration: 0.0, toValue: 0.0)
             timeCircleLabel.text = "00:00"
             
-            mainCircleView.isHidden = UIDevice.current.orientation == .portrait
+            if (UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight) == true {
+                mainCircleView.isHidden = false
+            } else {
+                mainCircleView.isHidden = true
+            }
+            
             restView.isHidden = true
             
-            getReadyTime = 15
+            getReadyTime = 5
             timer?.invalidate()
             timer = nil
             timerRest?.invalidate()
@@ -299,7 +304,13 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
             circleView.progressAnimation(duration: 0.0, toValue: 0.0)
             timeCircleLabel.text = "00:00"
             playButton.setImage(RImage.player_stop_ic(), for: .normal)
-            mainCircleView.isHidden = UIDevice.current.orientation == .portrait
+            
+            if (UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight) == true {
+                mainCircleView.isHidden = false
+            } else {
+                mainCircleView.isHidden = true
+            }
+            
             restView.isHidden = true
             playerLandskapeShaowImageView.isHidden = false
             timerRest?.invalidate()
@@ -311,7 +322,13 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
             circleView.progressAnimation(duration: 0.0, toValue: 0.0)
             timeCircleLabel.text = "00:00"
             playButton.setImage(RImage.player_play_ic(), for: .normal)
-            mainCircleView.isHidden = UIDevice.current.orientation == .portrait
+            
+            if (UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight) == true {
+                mainCircleView.isHidden = false
+            } else {
+                mainCircleView.isHidden = true
+            }
+            
             restView.isHidden = true
             playerLandskapeShaowImageView.isHidden = false
             
@@ -382,14 +399,13 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     
     private func nextVideo() {
         if let _ = exercises[safe: currentIndex + 1] {
+            for (index, element) in pogresses.enumerated() {
+                if index <= currentIndex {
+                    element.progress = 1.0
+                }
+            }
+            
             currentIndex += 1
-        } else if pogresses.first(where: {$0.progress != 1.0}) != nil {
-            
-            removeAll()
-            
-            guard let atteptId = presenter.attemptId else { return }
-            
-            WorkoutRouter(presenter: navigationController).pushVideoNotFinished(delegate: self, attemptId: atteptId)
         } else {
             removeAll()
             
@@ -458,7 +474,11 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     @IBAction func actionMute(_ sender: UIButton) {
         player?.isMuted = !(player?.isMuted ?? false)
         
-        updateUI(isPortait: UIDevice.current.orientation == .portrait)
+        if (UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight) {
+            self.updateUI(isPortait: false)
+        } else {
+            self.updateUI(isPortait: true)
+        }
     }
     
     @IBAction func previsAction(_ sender: Any) {
@@ -498,7 +518,10 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     
     @IBAction func actionBack(_ sender: UIButton) {
         removeAll()
-        actionBack()
+        
+        guard let atteptId = presenter.attemptId else { return }
+        
+        WorkoutRouter(presenter: navigationController).pushVideoNotFinished(delegate: self, attemptId: atteptId)
     }
     
     @objc func getReastTimer() {

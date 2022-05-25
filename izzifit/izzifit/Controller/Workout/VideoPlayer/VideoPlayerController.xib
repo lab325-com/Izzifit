@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -42,24 +42,24 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRc-Pf-7np">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="403"/>
+                    <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="owv-DL-QVV">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="403"/>
+                            <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player_landscape_shadow_ic" translatesAutoresizingMaskIntoConstraints="NO" id="Zx1-uc-JP7">
-                            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                            <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JtH-MD-PBt">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="403"/>
+                            <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSO-kn-Rdo">
-                                    <rect key="frame" x="139.5" y="163" width="135" height="77.5"/>
+                                    <rect key="frame" x="338.66666666666669" y="148.66666666666666" width="134.66666666666669" height="77.666666666666657"/>
                                     <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="64"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -72,16 +72,16 @@
                             </constraints>
                         </view>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="payer_shadow_ic" translatesAutoresizingMaskIntoConstraints="NO" id="dgN-s2-lmz">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="403"/>
+                            <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         </imageView>
                         <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vcS-Cx-pfU">
-                            <rect key="frame" x="319.5" y="359" width="70.5" height="22"/>
+                            <rect key="frame" x="226.33333333333334" y="301" width="70.333333333333343" height="22"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_view_flash_ic" translatesAutoresizingMaskIntoConstraints="NO" id="5b2-fs-w01">
                                     <rect key="frame" x="0.0" y="0.0" width="20" height="22"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24/35" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1B-Va-cet">
-                                    <rect key="frame" x="24" y="0.0" width="46.5" height="22"/>
+                                    <rect key="frame" x="24.000000000000004" y="0.0" width="46.333333333333343" height="22"/>
                                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -89,7 +89,7 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 reps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDP-ns-wpj">
-                            <rect key="frame" x="24" y="359" width="54.5" height="22"/>
+                            <rect key="frame" x="150" y="301" width="54.333333333333343" height="22"/>
                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -99,6 +99,7 @@
                     <constraints>
                         <constraint firstItem="Zx1-uc-JP7" firstAttribute="top" secondItem="IRc-Pf-7np" secondAttribute="top" id="04v-BB-kPJ"/>
                         <constraint firstAttribute="bottom" secondItem="mDP-ns-wpj" secondAttribute="bottom" constant="22" id="1OE-Nd-Wiw">
+                            <variation key="heightClass=compact-widthClass=compact" constant="52"/>
                             <variation key="heightClass=compact-widthClass=regular" constant="52"/>
                         </constraint>
                         <constraint firstItem="JtH-MD-PBt" firstAttribute="top" secondItem="IRc-Pf-7np" secondAttribute="top" id="2kG-1n-CSE"/>
@@ -110,6 +111,7 @@
                         <constraint firstAttribute="bottom" secondItem="dgN-s2-lmz" secondAttribute="bottom" id="EXu-wm-8NR"/>
                         <constraint firstItem="owv-DL-QVV" firstAttribute="top" secondItem="IRc-Pf-7np" secondAttribute="top" id="HNP-pp-7VH"/>
                         <constraint firstItem="mDP-ns-wpj" firstAttribute="leading" secondItem="IRc-Pf-7np" secondAttribute="leading" constant="24" id="JHY-ue-ibr">
+                            <variation key="heightClass=compact-widthClass=compact" constant="150"/>
                             <variation key="heightClass=compact-widthClass=regular" constant="150"/>
                         </constraint>
                         <constraint firstAttribute="trailing" secondItem="dgN-s2-lmz" secondAttribute="trailing" id="LWL-Sm-i47"/>
@@ -118,6 +120,7 @@
                         <constraint firstAttribute="trailing" secondItem="Zx1-uc-JP7" secondAttribute="trailing" id="XiR-pv-InT"/>
                         <constraint firstAttribute="trailing" secondItem="owv-DL-QVV" secondAttribute="trailing" id="csk-Cn-8BQ"/>
                         <constraint firstAttribute="bottom" secondItem="vcS-Cx-pfU" secondAttribute="bottom" constant="22" id="lHT-FI-Gbm">
+                            <variation key="heightClass=compact-widthClass=compact" constant="52"/>
                             <variation key="heightClass=compact-widthClass=regular" constant="52"/>
                         </constraint>
                         <constraint firstAttribute="trailing" secondItem="vcS-Cx-pfU" secondAttribute="trailing" constant="24" id="p7B-Am-5xP"/>
@@ -126,28 +129,39 @@
                         <constraint firstAttribute="bottom" secondItem="Zx1-uc-JP7" secondAttribute="bottom" id="z77-Eu-lcZ"/>
                     </constraints>
                     <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="Zx1-uc-JP7"/>
+                        </mask>
                         <mask key="constraints">
                             <exclude reference="RGd-dV-tWn"/>
                         </mask>
                     </variation>
-                    <variation key="heightClass=compact-widthClass=regular">
+                    <variation key="heightClass=compact-widthClass=compact">
+                        <mask key="subviews">
+                            <include reference="Zx1-uc-JP7"/>
+                        </mask>
                         <mask key="constraints">
                             <include reference="JHY-ue-ibr"/>
                             <include reference="RGd-dV-tWn"/>
                             <exclude reference="p7B-Am-5xP"/>
                         </mask>
                     </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
+                    <variation key="heightClass=compact-widthClass=regular">
                         <mask key="subviews">
-                            <exclude reference="Zx1-uc-JP7"/>
+                            <include reference="Zx1-uc-JP7"/>
+                        </mask>
+                        <mask key="constraints">
+                            <include reference="JHY-ue-ibr"/>
+                            <include reference="RGd-dV-tWn"/>
+                            <exclude reference="p7B-Am-5xP"/>
                         </mask>
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BvS-QJ-L74">
-                    <rect key="frame" x="24" y="411" width="366" height="246"/>
+                    <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoE-yA-AtN">
-                            <rect key="frame" x="103" y="82" width="160" height="82.5"/>
+                            <rect key="frame" x="326" y="146.33333333333334" width="160" height="82.333333333333343"/>
                             <string key="text">Start your
 workout</string>
                             <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="34"/>
@@ -165,7 +179,7 @@ workout</string>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbu-21-Eqq">
-                    <rect key="frame" x="24" y="50" width="30" height="30"/>
+                    <rect key="frame" x="40" y="30" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="IDP-58-Baz"/>
                         <constraint firstAttribute="width" constant="30" id="Mas-Tt-PRZ"/>
@@ -177,26 +191,26 @@ workout</string>
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="mps-Kp-x9c">
-                    <rect key="frame" x="24" y="849" width="366" height="8"/>
+                    <rect key="frame" x="24" y="341" width="764" height="8"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWB-ck-kSS">
-                            <rect key="frame" x="0.0" y="0.0" width="71.5" height="8"/>
+                            <rect key="frame" x="0.0" y="0.0" width="151.33333333333334" height="8"/>
                             <color key="backgroundColor" red="1" green="0.25882352939999997" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cja-Vd-yLB">
-                            <rect key="frame" x="73.5" y="0.0" width="71.5" height="8"/>
+                            <rect key="frame" x="153.33333333333334" y="0.0" width="151.00000000000003" height="8"/>
                             <color key="backgroundColor" red="1" green="0.25882352939999997" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXb-qM-KKr">
-                            <rect key="frame" x="147" y="0.0" width="72" height="8"/>
+                            <rect key="frame" x="306.33333333333331" y="0.0" width="151.33333333333331" height="8"/>
                             <color key="backgroundColor" red="1" green="0.25882352939999997" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ut-I0-1hr">
-                            <rect key="frame" x="221" y="0.0" width="71.5" height="8"/>
+                            <rect key="frame" x="459.66666666666674" y="0.0" width="151" height="8"/>
                             <color key="backgroundColor" red="1" green="0.25882352939999997" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciT-Bn-4jp">
-                            <rect key="frame" x="294.5" y="0.0" width="71.5" height="8"/>
+                            <rect key="frame" x="612.66666666666663" y="0.0" width="151.33333333333337" height="8"/>
                             <color key="backgroundColor" red="1" green="0.25882352939999997" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
@@ -205,19 +219,19 @@ workout</string>
                     </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKf-u1-fBd">
-                    <rect key="frame" x="22" y="745" width="370" height="88"/>
+                    <rect key="frame" x="22" y="661" width="331" height="88"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ora-mj-LHB">
-                            <rect key="frame" x="25" y="20" width="256" height="48"/>
+                            <rect key="frame" x="25" y="20" width="217" height="48"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next exercise | 00:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGw-vd-ZKw">
-                                    <rect key="frame" x="0.0" y="0.0" width="256" height="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="217" height="17"/>
                                     <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                     <color key="textColor" red="0.72941176470588232" green="0.72549019607843135" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deep squats with elastic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCb-s2-Viq">
-                                    <rect key="frame" x="0.0" y="26" width="256" height="22"/>
+                                    <rect key="frame" x="0.0" y="26" width="217" height="22"/>
                                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
                                     <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -225,7 +239,7 @@ workout</string>
                             </subviews>
                         </stackView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_workout_ic" translatesAutoresizingMaskIntoConstraints="NO" id="mny-fv-n9Y">
-                            <rect key="frame" x="306" y="20" width="48" height="48"/>
+                            <rect key="frame" x="267" y="20" width="48" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="48" id="5FB-oV-zbb"/>
                                 <constraint firstAttribute="height" constant="48" id="MSg-zp-RdS"/>
@@ -251,6 +265,14 @@ workout</string>
                             <integer key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <variation key="heightClass=compact-widthClass=compact" hidden="YES">
+                        <mask key="constraints">
+                            <exclude reference="SnZ-OY-LvO"/>
+                            <exclude reference="ird-hG-6Gs"/>
+                            <exclude reference="qoz-xU-mQ1"/>
+                            <exclude reference="0dv-CG-unH"/>
+                        </mask>
+                    </variation>
                     <variation key="heightClass=compact-widthClass=regular" hidden="YES">
                         <mask key="constraints">
                             <exclude reference="SnZ-OY-LvO"/>
@@ -261,7 +283,7 @@ workout</string>
                     </variation>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="San-zq-HgX">
-                    <rect key="frame" x="114" y="665" width="186" height="56"/>
+                    <rect key="frame" x="602" y="263" width="186" height="56"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBz-Ir-EH8">
                             <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
@@ -290,7 +312,7 @@ workout</string>
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsm-QB-YF1">
-                    <rect key="frame" x="23" y="426" width="35" height="35"/>
+                    <rect key="frame" x="753" y="27.666666666666671" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="35" id="mDP-vf-swI"/>
                         <constraint firstAttribute="height" constant="35" id="w7s-7j-s2J"/>
@@ -302,17 +324,20 @@ workout</string>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVq-Qr-5FD">
-                    <rect key="frame" x="137" y="464" width="140" height="140"/>
+                    <rect key="frame" x="54" y="251" width="80" height="80"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIE-YJ-BkJ" customClass="CircularProgressBarView" customModule="izzifit" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AH1-xs-gQY">
-                            <rect key="frame" x="22.5" y="49.5" width="95.5" height="41.5"/>
+                            <rect key="frame" x="14.666666666666668" y="29" width="50.666666666666657" height="22"/>
                             <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="34"/>
                             <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
+                            <variation key="heightClass=compact-widthClass=compact">
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
+                            </variation>
                             <variation key="heightClass=compact-widthClass=regular">
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
                             </variation>
@@ -323,16 +348,23 @@ workout</string>
                         <constraint firstItem="AH1-xs-gQY" firstAttribute="centerX" secondItem="JIE-YJ-BkJ" secondAttribute="centerX" id="08l-Sy-wtz"/>
                         <constraint firstAttribute="bottom" secondItem="JIE-YJ-BkJ" secondAttribute="bottom" id="Fed-Rs-VDp"/>
                         <constraint firstAttribute="height" constant="140" id="KN9-dq-TLc">
+                            <variation key="heightClass=compact-widthClass=compact" constant="80"/>
                             <variation key="heightClass=compact-widthClass=regular" constant="80"/>
                         </constraint>
                         <constraint firstItem="JIE-YJ-BkJ" firstAttribute="top" secondItem="nVq-Qr-5FD" secondAttribute="top" id="LKA-yj-b0D"/>
                         <constraint firstAttribute="trailing" secondItem="JIE-YJ-BkJ" secondAttribute="trailing" id="NSb-2C-qVN"/>
                         <constraint firstAttribute="width" constant="140" id="TWx-vK-Q1U">
+                            <variation key="heightClass=compact-widthClass=compact" constant="80"/>
                             <variation key="heightClass=compact-widthClass=regular" constant="80"/>
                         </constraint>
                         <constraint firstItem="JIE-YJ-BkJ" firstAttribute="leading" secondItem="nVq-Qr-5FD" secondAttribute="leading" id="emn-bK-aaG"/>
                         <constraint firstItem="AH1-xs-gQY" firstAttribute="centerY" secondItem="JIE-YJ-BkJ" secondAttribute="centerY" id="wFB-3O-XfC"/>
                     </constraints>
+                    <variation key="heightClass=compact-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="NSb-2C-qVN"/>
+                        </mask>
+                    </variation>
                     <variation key="heightClass=compact-widthClass=regular">
                         <mask key="constraints">
                             <include reference="NSb-2C-qVN"/>
@@ -340,7 +372,7 @@ workout</string>
                     </variation>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player_bubles_ic" translatesAutoresizingMaskIntoConstraints="NO" id="4TR-Pj-kpl">
-                    <rect key="frame" x="263" y="736.5" width="18" height="8.5"/>
+                    <rect key="frame" x="243.66666666666666" y="652.66666666666663" width="17.999999999999972" height="8.3333333333333712"/>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -353,6 +385,7 @@ workout</string>
                 <constraint firstItem="4TR-Pj-kpl" firstAttribute="centerX" secondItem="K8D-z6-fMM" secondAttribute="centerX" id="BrG-Xf-u3O"/>
                 <constraint firstItem="NKf-u1-fBd" firstAttribute="top" secondItem="San-zq-HgX" secondAttribute="bottom" constant="24" id="Eda-BP-22g"/>
                 <constraint firstItem="lbu-21-Eqq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="F1p-Ix-pwr">
+                    <variation key="heightClass=compact-widthClass=compact" constant="40"/>
                     <variation key="heightClass=compact-widthClass=regular" constant="40"/>
                 </constraint>
                 <constraint firstAttribute="trailing" secondItem="xsm-QB-YF1" secondAttribute="trailing" constant="24" id="G8X-9s-eNY"/>
@@ -371,12 +404,14 @@ workout</string>
                 <constraint firstItem="BvS-QJ-L74" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="dTe-9q-p8J"/>
                 <constraint firstItem="San-zq-HgX" firstAttribute="centerX" secondItem="NKf-u1-fBd" secondAttribute="centerX" id="dh0-61-OKq"/>
                 <constraint firstItem="IRc-Pf-7np" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dlW-CE-8Qb">
+                    <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                     <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                 </constraint>
                 <constraint firstAttribute="trailing" secondItem="BvS-QJ-L74" secondAttribute="trailing" id="f2Q-3y-EWB"/>
                 <constraint firstItem="NKf-u1-fBd" firstAttribute="top" secondItem="4TR-Pj-kpl" secondAttribute="bottom" id="frB-Ve-hGx"/>
                 <constraint firstItem="lbu-21-Eqq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="gbJ-Ky-xlz">
-                    <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                    <variation key="heightClass=compact-widthClass=compact" constant="30"/>
+                    <variation key="heightClass=compact-widthClass=regular" constant="30"/>
                 </constraint>
                 <constraint firstItem="mps-Kp-x9c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="gkv-WA-gMS"/>
                 <constraint firstItem="IRc-Pf-7np" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="hHn-Ng-fbg"/>
@@ -401,6 +436,39 @@ workout</string>
                     <exclude reference="qi9-H7-50T"/>
                     <exclude reference="RTc-dh-nXt"/>
                     <exclude reference="kfX-qg-h1l"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=compact-widthClass=compact">
+                <mask key="subviews">
+                    <exclude reference="NKf-u1-fBd"/>
+                    <exclude reference="4TR-Pj-kpl"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="0Zy-La-xXq"/>
+                    <exclude reference="RNs-zR-iZv"/>
+                    <exclude reference="PL0-DJ-4Go"/>
+                    <exclude reference="xLx-95-MWv"/>
+                    <include reference="OqH-dD-6W6"/>
+                    <include reference="9gY-hd-wIv"/>
+                    <include reference="BQj-WI-5Xm"/>
+                    <exclude reference="agF-KZ-zqS"/>
+                    <exclude reference="dTe-9q-p8J"/>
+                    <include reference="f2Q-3y-EWB"/>
+                    <include reference="knc-73-KaU"/>
+                    <include reference="G8X-9s-eNY"/>
+                    <exclude reference="PI5-cS-cm0"/>
+                    <exclude reference="YxP-S5-7am"/>
+                    <exclude reference="0hW-T1-3Ut"/>
+                    <exclude reference="XWE-xz-s4l"/>
+                    <include reference="nsY-s1-P27"/>
+                    <exclude reference="KJG-qM-fxA"/>
+                    <exclude reference="dh0-61-OKq"/>
+                    <include reference="qi9-H7-50T"/>
+                    <exclude reference="Eda-BP-22g"/>
+                    <exclude reference="uJ1-8j-qyX"/>
+                    <include reference="RTc-dh-nXt"/>
+                    <exclude reference="UN2-zL-rtF"/>
+                    <include reference="kfX-qg-h1l"/>
                 </mask>
             </variation>
             <variation key="heightClass=compact-widthClass=regular">
@@ -441,11 +509,11 @@ workout</string>
     </objects>
     <resources>
         <image name="payer_shadow_ic" width="375" height="360"/>
-        <image name="player_bubles_ic" width="18" height="8.5"/>
+        <image name="player_bubles_ic" width="18" height="8.3333330154418945"/>
         <image name="player_landscape_shadow_ic" width="812" height="375"/>
         <image name="player_next_ic" width="56" height="56"/>
         <image name="player_play_ic" width="56" height="56"/>
-        <image name="player_portrait_mute_ic" width="34" height="27"/>
+        <image name="player_portrait_mute_ic" width="34" height="26.666666030883789"/>
         <image name="player_prev_ic" width="56" height="56"/>
         <image name="temp_workout_ic" width="375" height="360"/>
         <image name="top_view_flash_ic" width="20" height="22"/>

@@ -46,7 +46,7 @@ class EnergyWeightCell: BaseTableViewCell {
         
         weightLabel.text = "\(String(format: "%.1f", model.weight ?? 0.0)) \(model.measure?.text ?? "")"
         
-        if let _ = model.energy {
+        if let energy = model.energy, energy != 0 {
             doneButton.layer.borderColor = UIColor(rgb: 0xFF42A8).cgColor
             doneButton.setTitle(nil, for: .normal)
             doneButton.setImage(RImage.energy_weight_selected_ic(), for: .normal)
