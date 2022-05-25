@@ -52,7 +52,7 @@ class SubscribePresenter: SubscribePresenterProtocol {
         AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase, params: ["id": id, "place": place.rawValue, "screen": screen.rawValue])
         
         AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase, params: ["id": id])
-        AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase, values: ["id": id])
+        AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase, values: ["id": id, "place": place.rawValue, "screen": screen.rawValue])
         
         SwiftyStoreKit.purchaseProduct(id, quantity: 1, atomically: true) { [weak self] result in
             switch result {
@@ -60,7 +60,7 @@ class SubscribePresenter: SubscribePresenterProtocol {
               
                 AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase_success, params: ["id": id, "place": place.rawValue, "screen": screen.rawValue])
                 AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase_success, params: ["id": id])
-                AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase_success, values: ["id": id])
+                AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase_success, values: ["id": id, "place": place.rawValue, "screen": screen.rawValue])
                 
                 //self?.sendPrepay()
                 // fetch content from your server, then:
@@ -112,7 +112,7 @@ class SubscribePresenter: SubscribePresenterProtocol {
                 //AnalyticsHelper.sendFirebaseEvents(events: .purchase_error, params: ["message": errorMessage])
 
                 AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase_false, params: ["error": errorMessage])
-                AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase_failure, values: ["error": errorMessage])
+                AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase_failure, values: ["error": errorMessage, "place": place.rawValue, "screen": screen.rawValue])
                 purchaseSuccess(false, errorMessage)
             case .deferred(purchase: _):
                 print("handle deferred state")
