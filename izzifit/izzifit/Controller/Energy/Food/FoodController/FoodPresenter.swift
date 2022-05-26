@@ -48,7 +48,7 @@ class FoodPresenter: FoodPresenterProtocol {
     var namesSections: [String] = []
     
     var searchProducts: [ProductsMainModel] = []
-    
+    private var searchRequest: Cancellable?
     
     func getProducts(mealTypes: MealType, mealId: String) {
         sections.removeAll()
@@ -137,20 +137,22 @@ class FoodPresenter: FoodPresenterProtocol {
     }
     
     func search(text: String, id: Int?) {
-        view?.startLoader()
+        //view?.startLoader()
+        
+        searchRequest?.cancel()
         
         let query = ProductsQuery(search: text, sourceIds: id != nil ? [id] : nil, onlyToggled: true)
-        let _ = Network.shared.query(model: ProductsModel.self, query, controller: view, successHandler: { [weak self] model in
+        searchRequest = Network.shared.query(model: ProductsModel.self, query, controller: view, successHandler: { [weak self] model in
             if model.products.count != 0 {
                 AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_food_true)
             }
             
             self?.searchProducts = model.products
-            self?.view?.stopLoading()
+            //self?.view?.stopLoading()
             self?.view?.successSeach()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
-            self?.view?.failure()
+            //self?.view?.failure()
         })
     }
 }
