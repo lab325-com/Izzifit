@@ -30,8 +30,8 @@ class EnergyRouter: BaseRouter {
         present(controller: controller, presentStyle: .overCurrentContext)
     }
     
-    func presentUpdateWieght(delegate: EnergyUpdateWeightProtocol) {
-        let controller = EnergyUpdateWeightController(delegate: delegate)
+    func presentUpdateWieght(measureSystem: WeightMeasure?, weight: Float?, delegate: EnergyUpdateWeightProtocol) {
+        let controller = EnergyUpdateWeightController(measureSystem: measureSystem, weight: weight, delegate: delegate)
         controller.modalTransitionStyle = .crossDissolve
         controller.modalPresentationStyle = .overCurrentContext
         present(controller: controller, presentStyle: .overCurrentContext)

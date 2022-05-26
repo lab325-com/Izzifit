@@ -174,7 +174,7 @@ extension EnergyController: EnergySleepCellProtocol {
 
 extension EnergyController: EnergyWeightProtocol {
     func energyWeightUpdate(cell: EnergyWeightCell) {
-        EnergyRouter(presenter: navigationController).presentUpdateWieght(delegate: self)
+        EnergyRouter(presenter: navigationController).presentUpdateWieght(measureSystem: presenter.weightWidget?.measure, weight: presenter.weightWidget?.weight, delegate: self)
     }
 }
 

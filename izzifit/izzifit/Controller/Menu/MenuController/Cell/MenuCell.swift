@@ -70,6 +70,8 @@ class MenuCell: BaseTableViewCell {
             menuArrowRightImageView.isHidden = false
         }
         
+        let typeMeasure = KeychainService.standard.me?.weightMeasure
+        
         switch type {
         case .name:
             detailLabel.text = model.name
@@ -80,9 +82,9 @@ class MenuCell: BaseTableViewCell {
         case .height:
             detailLabel.text = "\(model.growth ?? 0)"
         case .weight:
-            detailLabel.text = "\(model.weight ?? 0)"
+            detailLabel.text = "\(String(format: "%.1f", model.weight ?? 0)) \(typeMeasure?.text ?? "")"
         case .targetWeight:
-            detailLabel.text = "\(model.targetWeight ?? 0)"
+            detailLabel.text = "\(String(format: "%.1f", model.targetWeight ?? 0)) \(typeMeasure?.text ?? "")"
         case .foodPreferences:
             if let food = model.FoodGroup {
                 detailLabel.text = food.name

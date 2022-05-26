@@ -111,6 +111,7 @@ class MenuWeightController: BaseController {
     //----------------------------------------------
     
     init(weight: Float?) {
+        self.type = KeychainService.standard.me?.weightMeasure == .weightMeasureTypeLb ? .lb : .kg
         self.weight = weight
         super.init(nibName: nil, bundle: nil)
     }
@@ -139,6 +140,10 @@ class MenuWeightController: BaseController {
             self.initScrollOffset()
         }
         
+        UIView.animate(withDuration: 0.3) {
+            self.leadingBorderLayout.constant = self.type == .kg ? 0 : self.kgView.frame.width
+            self.view.layoutIfNeeded()
+        }
         
         mainTitleLabel.text = RLocalization.onboarding_weight_title()
         kgLabel.text = RLocalization.onboarding_weight_kg()
@@ -213,7 +218,7 @@ class MenuWeightController: BaseController {
         let targetWeightMeasure = type.api
         let targetWeight = Double(currentCountLabel.text!)!
         
-        presenter.profileUpdate(weightMeasure: targetWeightMeasure, weight: targetWeight)
+        presenter.profileUpdate(weightMeasure: targetWeightMeasure, weight: targetWeightMeasure == .weightMeasureTypeLb ? targetWeight  * 0.45359237 : targetWeight)
     }
 }
 

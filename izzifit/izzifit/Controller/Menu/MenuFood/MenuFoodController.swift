@@ -71,9 +71,10 @@ class MenuFoodController: BaseController {
         
         if let id = KeychainService.standard.me?.FoodGroup?.id, PreferencesManager.sharedManager.foods != nil {
             presenterFood.getProducts(foodGroupId: id)
-        } else {
-            presenterFood.getFoods()
         }
+        
+        presenterFood.getFoods()
+        
         
         saveButton.alpha = 0.5
         tableView.tableFooterView = UIView()
@@ -85,6 +86,8 @@ class MenuFoodController: BaseController {
         
         nameTitleLabel.text = RLocalization.menu_food_preferences()
         saveButton.setTitle(RLocalization.menu_save_changes(), for: .normal)
+        
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 88, right: 0)
     }
     
     //----------------------------------------------

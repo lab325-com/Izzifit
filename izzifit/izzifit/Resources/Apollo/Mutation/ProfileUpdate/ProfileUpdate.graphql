@@ -5,6 +5,7 @@ mutation ProfileUpdate($record: ProfileUpdateInput!) {
         darkTheme
         doSport
         email
+        weightMeasure
         energy
         fitnessPreference
         gender
