@@ -112,6 +112,17 @@ class LevelController: BaseController {
         }
     }
     
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Sorry",
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK",
+                                     style: .default)
+        alert.addAction(okAction)
+        present(alert,animated: true)
+    }
+    
     @objc
     func showPopUp(sender: UIButton) {
         
@@ -132,18 +143,11 @@ class LevelController: BaseController {
         default: buildType = .ship
         }
         
-        guard KeychainService.standard.me?.coins ?? 0 >= price || presenter.freeBuildingsCount ?? 0 > 0 || price != 0 else {
-            let alert = UIAlertController(title: "Sorry",
-                                          message: " You don't have enough money",
-                                          preferredStyle: .alert)
-            
-            let okAction = UIAlertAction(title: "OK",
-                                         style: .default)
-            alert.addAction(okAction)
-            present(alert,animated: true)
-            
+        guard price != 0 else { return }
+        
+        guard KeychainService.standard.me?.coins ?? 0 >= price || presenter.freeBuildingsCount ?? 0 > 0  else {
+            showAlert(message: "You don't have enough money")
             let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .goldZero)
-            
             return
         }
         
