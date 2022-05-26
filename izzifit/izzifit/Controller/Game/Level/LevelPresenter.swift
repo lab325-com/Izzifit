@@ -23,7 +23,7 @@ protocol LevelOutputProtocol: BaseController {
 //----------------------------------------------
 protocol LevelProtocol: AnyObject {
     init(view: LevelOutputProtocol)
-    func getBuildings()
+    func getBuildings(completion: @escaping () -> ())
     func upgradeBuild(buildingId: String)
 }
 
@@ -36,13 +36,14 @@ class LevelPresenter: LevelProtocol {
     
     var freeBuildingsCount: Int?
     var buildings = [BuildingsModel]()
-    func getBuildings() {
+    func getBuildings(completion: @escaping () -> ()) {
         view?.startLoader()
         let query = MapQuery()
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
            self?.freeBuildingsCount = model.map.freeBuildingsCount
             self?.buildings = model.map.buildings
             self?.view?.successBuildings(model: model.map.buildings)
+            completion()
             self?.view?.stopLoading()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
@@ -56,7 +57,7 @@ class LevelPresenter: LevelProtocol {
         let _ = Network.shared.mutation(model: UpgradeBuildingModel.self, mutation, controller: view, successHandler: { [weak self] model in
             self?.view?.successBuild()
             self?.getMe()
-            self?.getBuildings()
+            self?.getBuildings { }
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
         })

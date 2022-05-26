@@ -58,7 +58,6 @@ class PointersAndTicks {
     
     var imgVwArray = [UIImageView]()
     
-    
     let view = UIView()
     var pointersTicksArray = [PointerTick(state: .first, type: .ship, topC: 30, leadingC: 54),
                               PointerTick(state: .first, type: .fishing, topC: -14, leadingC: 103),
@@ -88,8 +87,7 @@ class PointersAndTicks {
                               PointerTick(state: .finish, type: .fishing, topC: 1, leadingC: 42),
                               PointerTick(state: .finish, type: .house, topC: 42, leadingC: 117),
                               PointerTick(state: .finish, type: .hay, topC: 0, leadingC: 106),
-                              PointerTick(state: .finish, type: .sled, topC: 4, leadingC: 128) ]
-    
+                              PointerTick(state: .finish, type: .sled, topC: 4, leadingC: 128)]
     
     func drawPointers(model: PlayerModel, btns: [UIButton?]) {
    

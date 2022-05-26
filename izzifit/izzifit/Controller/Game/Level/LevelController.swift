@@ -21,10 +21,10 @@ class LevelController: BaseController {
     @IBOutlet weak var deerBtn: UIButton!
     
     let animation = GIFImageView()
-
+    
     @IBOutlet weak var hummerBtn: UIButton!
     @IBOutlet weak var hummerCountLbl: UILabel!
-
+    
     private var buildPopUpVw = BuildPopUpView()
     
     private lazy var btns = [shipBtn,
@@ -40,6 +40,7 @@ class LevelController: BaseController {
                                      deerState: .second)
     
     private var pointers: PointersAndTicks?
+    private var firstRespond = true
     
     private lazy var presenter = LevelPresenter(view: self)
     
@@ -65,7 +66,15 @@ class LevelController: BaseController {
     override func viewDidLoad() {
         needSoundTap = false
         super.viewDidLoad()
-        presenter.getBuildings()
+        presenter.getBuildings{ [self] in
+            if firstRespond {
+                firstRespond.toggle()
+                pointers = PointersAndTicks()
+                if let x = pointers {
+                    x.drawPointers(model: player, btns: btns)
+                }
+            }
+        }
         setup()
         hiddenNavigationBar = true
         activateAnimation()
@@ -111,15 +120,15 @@ class LevelController: BaseController {
         
         switch sender.tag {
         case 0: price = player.shipState.rawValue
-                buildType = .ship
+            buildType = .ship
         case 1: price = player.fishState.rawValue
-                buildType = .fishing
+            buildType = .fishing
         case 2: price = player.igluState.rawValue
-                buildType = .house
+            buildType = .house
         case 3: price = player.goldState.rawValue
-                buildType = .hay
+            buildType = .hay
         case 4: price = player.deerState.rawValue
-                buildType = .sled
+            buildType = .sled
         default: buildType = .ship
         }
         
@@ -134,29 +143,29 @@ class LevelController: BaseController {
             present(alert,animated: true)
             
             let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .goldZero)
-           
+            
             return
         }
-                
+        
         view.ui.genericlLayout(object: buildPopUpVw,
-                                       parentView: view,
-                                       topC: 0,
-                                       bottomC: 0,
-                                       leadingC: 0,
-                                       trailingC: 0)
+                               parentView: view,
+                               topC: 0,
+                               bottomC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
         view.layoutIfNeeded()
         checkAvailableHummers()
         
         if let count = presenter.freeBuildingsCount {
-        switch count {
-        case 0:
-            buildPopUpVw.hummerBtn.isHidden = true
-            buildPopUpVw.hummerCountLbl.isHidden = true
-        default:
-            buildPopUpVw.hummerBtn.isHidden = false
-            buildPopUpVw.hummerCountLbl.isHidden = false
-            buildPopUpVw.hummerCountLbl.text = "x\(count)"
-         }
+            switch count {
+            case 0:
+                buildPopUpVw.hummerBtn.isHidden = true
+                buildPopUpVw.hummerCountLbl.isHidden = true
+            default:
+                buildPopUpVw.hummerBtn.isHidden = false
+                buildPopUpVw.hummerCountLbl.isHidden = false
+                buildPopUpVw.hummerCountLbl.text = "x\(count)"
+            }
         }
         
         buildPopUpVw.fillStates(by: LevelStates(rawValue: price) ?? .finish)
@@ -216,7 +225,7 @@ class LevelController: BaseController {
         view.layoutIfNeeded()
         animation.isHidden.toggle()
         animation.startAnimatingGIF()
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.6) {
             self.animation.stopAnimatingGIF()
             self.animation.isHidden.toggle()
@@ -227,15 +236,15 @@ class LevelController: BaseController {
             
             switch sender.tag {
             case 0: price = self.player.shipState.rawValue
-                    buildType = .ship
+                buildType = .ship
             case 1: price = self.player.fishState.rawValue
-                    buildType = .fishing
+                buildType = .fishing
             case 2: price = self.player.igluState.rawValue
-                    buildType = .house
+                buildType = .house
             case 3: price = self.player.goldState.rawValue
-                    buildType = .hay
+                buildType = .hay
             case 4: price = self.player.deerState.rawValue
-                    buildType = .sled
+                buildType = .sled
             default: buildType = .ship
             }
             
@@ -267,8 +276,17 @@ class LevelController: BaseController {
             for btn in self.btns {
                 btn?.isUserInteractionEnabled.toggle()
             }
+            if let points = self.pointers {
+                for imgVw in  points.imgVwArray {
+                    imgVw.removeFromSuperview()
+                }
+            }
+            self.pointers = PointersAndTicks()
+            if let x = self.pointers {
+                x.drawPointers(model: self.player, btns: self.btns)
+            }
         }
-   
+        
         buildPopUpVw.removeFromSuperview()
         presenter.upgradeBuild(buildingId: buildingId)
     }
@@ -289,8 +307,8 @@ class LevelController: BaseController {
             barBackVw.nameLbl.isHidden = true
         }
         barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
-                                    placeholder: RImage.placeholder_food_ic(),
-                                    options: [.transition(.fade(0.25))])
+                                          placeholder: RImage.placeholder_food_ic(),
+                                          options: [.transition(.fade(0.25))])
     }
     
     
@@ -348,7 +366,7 @@ extension LevelController: LevelOutputProtocol {
     func success() { }
     
     func successBuildings(model: [BuildingsModel]) {
-      checkAvailableHummers()
+        checkAvailableHummers()
         print(model)
         for building in model {
             var state: LevelStates
@@ -373,32 +391,14 @@ extension LevelController: LevelOutputProtocol {
             }
         }
         drawStates()
-        if let points = pointers {
-            for imgVw in  points.imgVwArray {
-                imgVw.removeFromSuperview()
-            }
-        }
-        pointers = PointersAndTicks()
-        if let x = pointers {
-        x.drawPointers(model: player, btns: btns)
-        }
+
         let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
     }
     
-    func successBuild() {
-        if let points = pointers {
-            for imgVw in  points.imgVwArray {
-                imgVw.removeFromSuperview()
-            }
-        }
-        pointers = PointersAndTicks()
-        if let x = pointers {
-        x.drawPointers(model: player, btns: btns)
-        }
-    }
+    func successBuild() { }
     
     func successMe() {
-
+        
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }
