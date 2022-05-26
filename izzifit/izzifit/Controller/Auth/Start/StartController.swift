@@ -96,7 +96,8 @@ class StartController: BaseController {
 
 extension StartController: StartOutputProtocol {
     func successGoMain() {
-        RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
+        OnboardingRouter(presenter: navigationController).pushName()
+        //RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
     }
     
     func successGoOnboarding() {

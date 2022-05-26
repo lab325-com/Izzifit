@@ -43,7 +43,28 @@ class QuizeTargetWeightController: BaseController {
                 return
             }
             
+            if let targetWeight = targetWeight {
+                switch type {
+                case .kg:
+                    self.targetWeight = targetWeight * 0.45359237
+                    if self.targetWeight! < 30 {
+                        self.targetWeight = 30
+                    } else if self.targetWeight! > 220 {
+                        self.targetWeight = 220
+                    }
+                case .lb:
+                    self.targetWeight = targetWeight / 0.45359237
+                    
+                    if self.targetWeight! < 66 {
+                        self.targetWeight = 66
+                    } else if self.targetWeight! > 485 {
+                        self.targetWeight = 485
+                    }
+                }
+            }
             
+            self.scrolLBView.isHidden = type == .kg
+            self.scrollKGView.isHidden = type == .lb
             
             self.initScrollOffset()
             
@@ -81,6 +102,8 @@ class QuizeTargetWeightController: BaseController {
             return 132
         }
     }
+    
+    private var targetWeight: Float?
     
     //----------------------------------------------
     // MARK: - Life cycle
@@ -130,9 +153,20 @@ class QuizeTargetWeightController: BaseController {
         scrolLBView.isHidden = type == .kg
         scrollKGView.isHidden = type == .lb
         
-        if type == .lb {
-            scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
+        if let weight = targetWeight {
+            if weight >= 66 && weight <= 485 {
+                scrolLBView.contentOffset.x = CGFloat(9*weight) - halfWeight - 6*9
+            } else {
+                scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
+            }
+            
+            if weight >= 30 && weight <= 220 {
+                scrollKGView.contentOffset.x = CGFloat(9*weight) - halfWeight
+            } else {
+                scrollKGView.contentOffset.x = 9*baseKG - halfWeight
+            }
         } else {
+            scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
             scrollKGView.contentOffset.x = 9*baseKG - halfWeight
         }
     }
@@ -144,6 +178,10 @@ class QuizeTargetWeightController: BaseController {
             value =  (scrolLBView.contentOffset.x + halfWeight + 6*9) / 9
         }
         currentCountLabel.text = String(format: "%.1f", value)
+        
+        if let _ = targetWeight {
+            targetWeight! = Float(currentCountLabel.text!)!
+        }
         
         return value
     }

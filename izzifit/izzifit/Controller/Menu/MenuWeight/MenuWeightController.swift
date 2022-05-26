@@ -42,6 +42,27 @@ class MenuWeightController: BaseController {
                 return
             }
             
+            
+            if let weight = weight {
+                switch type {
+                case .kg:
+                    self.weight = weight * 0.45359237
+                    if self.weight! < 30 {
+                        self.weight = 30
+                    } else if self.weight! > 220 {
+                        self.weight = 220
+                    }
+                case .lb:
+                    self.weight = weight / 0.45359237
+                    
+                    if self.weight! < 66 {
+                        self.weight = 66
+                    } else if self.weight! > 485 {
+                        self.weight = 485
+                    }
+                }
+            }
+            
             self.scrolLBView.isHidden = type == .kg
             self.scrollKGView.isHidden = type == .lb
             
@@ -83,7 +104,7 @@ class MenuWeightController: BaseController {
     }
     
     private lazy var presenter = MenuPresenter(view: self)
-    private let weight: Float?
+    private var weight: Float?
     
     //----------------------------------------------
     // MARK: - Init
@@ -163,6 +184,10 @@ class MenuWeightController: BaseController {
             value =  (scrolLBView.contentOffset.x + halfWeight + 6*9) / 9
         }
         currentCountLabel.text = String(format: "%.1f", value)
+        
+        if let _ = weight {
+            weight! = Float(currentCountLabel.text!)!
+        }
         
         return value
     }

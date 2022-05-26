@@ -48,7 +48,7 @@ class MenuCell: BaseTableViewCell {
         guard let model = KeychainService.standard.me else { return }
         
         
-        flagImageView.isHidden = type == .weight ? false : true
+        flagImageView.isHidden = type == .targetWeight ? false : true
         
         switch type {
         case .notification:

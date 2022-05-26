@@ -57,6 +57,26 @@ class QuizeWeightController: BaseController {
                 return
             }
             
+            if let weight = weight {
+                switch type {
+                case .kg:
+                    self.weight = weight * 0.45359237
+                    if self.weight! < 30 {
+                        self.weight = 30
+                    } else if self.weight! > 220 {
+                        self.weight = 220
+                    }
+                case .lb:
+                    self.weight = weight / 0.45359237
+                    
+                    if self.weight! < 66 {
+                        self.weight = 66
+                    } else if self.weight! > 485 {
+                        self.weight = 485
+                    }
+                }
+            }
+            
             self.scrolLBView.isHidden = type == .kg
             self.scrollKGView.isHidden = type == .lb
             
@@ -97,6 +117,8 @@ class QuizeWeightController: BaseController {
         }
     }
     
+    private var weight: Float?
+    
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
@@ -117,6 +139,8 @@ class QuizeWeightController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        weight = type == .kg ? Float(baseKG) : Float(baseLB)
+        
         initScrollOffset()
         
         countLabel.text = RLocalization.onboarding_count(6, 9)
@@ -139,8 +163,22 @@ class QuizeWeightController: BaseController {
     }
     
     private func initScrollOffset() {
-        scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
-        scrollKGView.contentOffset.x = 9*baseKG - halfWeight
+        if let weight = weight {
+            if weight >= 66 && weight <= 485 {
+                scrolLBView.contentOffset.x = CGFloat(9*weight) - halfWeight - 6*9
+            } else {
+                scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
+            }
+            
+            if weight >= 30 && weight <= 220 {
+                scrollKGView.contentOffset.x = CGFloat(9*weight) - halfWeight
+            } else {
+                scrollKGView.contentOffset.x = 9*baseKG - halfWeight
+            }
+        } else {
+            scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
+            scrollKGView.contentOffset.x = 9*baseKG - halfWeight
+        }
     }
     
     private func calcValue() -> CGFloat {
@@ -150,6 +188,10 @@ class QuizeWeightController: BaseController {
             value =  (scrolLBView.contentOffset.x + halfWeight + 6*9) / 9
         }
         currentCountLabel.text = String(format: "%.1f", value)
+        
+        if let _ = weight {
+            weight! = Float(currentCountLabel.text!)!
+        }
         
         return value
     }
