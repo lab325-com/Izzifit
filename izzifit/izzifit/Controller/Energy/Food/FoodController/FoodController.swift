@@ -481,6 +481,7 @@ extension FoodController: FoodOutputProtocol {
 
 extension FoodController: FoodRecomendedProtocol {
     func foodRecomendedAdd(cell: FoodRecomendedCell, isUpdate: Bool, model: ProductsMainModel) {
+        hideKeyboard()
         EnergyRouter(presenter: navigationController).presentAddProduct(sourceByMeal: presenter.sourceByMeal, isUpdate: isUpdate, model: model, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "", delegate: self)
     }
 }
@@ -492,6 +493,7 @@ extension FoodController: FoodRecomendedProtocol {
 extension FoodController: FoodAddControllerProtocol {
     func foodAddReload(controller: FoodAddController) {
         isSearch = false
+        hideKeyboard()
         delegate?.foodControllerUpdate(controller: self)
         presenter.getProducts(mealTypes: currentMealType, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "")
     }
