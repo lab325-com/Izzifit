@@ -39,6 +39,8 @@ class LevelController: BaseController {
                                      goldState: .third,
                                      deerState: .second)
     
+    private var pointers: PointersAndTicks?
+    
     private lazy var presenter = LevelPresenter(view: self)
     
     override func viewWillAppear(_ animated: Bool) {
@@ -266,6 +268,7 @@ class LevelController: BaseController {
                 btn?.isUserInteractionEnabled.toggle()
             }
         }
+   
         buildPopUpVw.removeFromSuperview()
         presenter.upgradeBuild(buildingId: buildingId)
     }
@@ -289,6 +292,7 @@ class LevelController: BaseController {
                                     placeholder: RImage.placeholder_food_ic(),
                                     options: [.transition(.fade(0.25))])
     }
+    
     
     private func drawStates() {
         
@@ -369,12 +373,29 @@ extension LevelController: LevelOutputProtocol {
             }
         }
         drawStates()
-        buildPopUpVw.reloadInputViews()
-        
+        if let points = pointers {
+            for imgVw in  points.imgVwArray {
+                imgVw.removeFromSuperview()
+            }
+        }
+        pointers = PointersAndTicks()
+        if let x = pointers {
+        x.drawPointers(model: player, btns: btns)
+        }
         let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
     }
     
-    func successBuild() { }
+    func successBuild() {
+        if let points = pointers {
+            for imgVw in  points.imgVwArray {
+                imgVw.removeFromSuperview()
+            }
+        }
+        pointers = PointersAndTicks()
+        if let x = pointers {
+        x.drawPointers(model: player, btns: btns)
+        }
+    }
     
     func successMe() {
 
@@ -397,7 +418,5 @@ extension LevelController: PaywallProtocol {
     }
 }
 
-enum BuildingType: String {
-    case ship, fishing, house, hay, sled
-}
+
 

@@ -967,8 +967,6 @@ struct R: Rswift.Validatable {
 
   /// This `R.image` struct is generated, and contains static references to 197 images.
   struct image {
-    /// Image `Finish`.
-    static let finish = Rswift.ImageResource(bundle: R.hostingBundle, name: "Finish")
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
     /// Image `Selected1Scale`.
@@ -991,8 +989,6 @@ struct R: Rswift.Validatable {
     static let unselected4Scale = Rswift.ImageResource(bundle: R.hostingBundle, name: "Unselected4Scale")
     /// Image `Unselected5Scale`.
     static let unselected5Scale = Rswift.ImageResource(bundle: R.hostingBundle, name: "Unselected5Scale")
-    /// Image `Upgrade`.
-    static let upgrade = Rswift.ImageResource(bundle: R.hostingBundle, name: "Upgrade")
     /// Image `arrow_right_ic`.
     static let arrow_right_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "arrow_right_ic")
     /// Image `auth_note_see_pass_ic`.
@@ -1003,6 +999,8 @@ struct R: Rswift.Validatable {
     static let backBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "backBtn")
     /// Image `ballAward`.
     static let ballAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "ballAward")
+    /// Image `buildDone`.
+    static let buildDone = Rswift.ImageResource(bundle: R.hostingBundle, name: "buildDone")
     /// Image `buildPopUpBack`.
     static let buildPopUpBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "buildPopUpBack")
     /// Image `construction3.gif`.
@@ -1327,6 +1325,8 @@ struct R: Rswift.Validatable {
     static let top_view_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_flash_ic")
     /// Image `upgradeBtn`.
     static let upgradeBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "upgradeBtn")
+    /// Image `upgradeLevel`.
+    static let upgradeLevel = Rswift.ImageResource(bundle: R.hostingBundle, name: "upgradeLevel")
     /// Image `video_finished_excellent_ic`.
     static let video_finished_excellent_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "video_finished_excellent_ic")
     /// Image `video_finished_hard_ic`.
@@ -1361,13 +1361,6 @@ struct R: Rswift.Validatable {
     static let workout_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "workout_flash_ic")
     /// Image `yellowPointer`.
     static let yellowPointer = Rswift.ImageResource(bundle: R.hostingBundle, name: "yellowPointer")
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "Finish", bundle: ..., traitCollection: ...)`
-    static func finish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.finish, compatibleWith: traitCollection)
-    }
-    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "MoodChartBack", bundle: ..., traitCollection: ...)`
@@ -1447,13 +1440,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "Upgrade", bundle: ..., traitCollection: ...)`
-    static func upgrade(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.upgrade, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "arrow_right_ic", bundle: ..., traitCollection: ...)`
     static func arrow_right_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.arrow_right_ic, compatibleWith: traitCollection)
@@ -1485,6 +1471,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ballAward", bundle: ..., traitCollection: ...)`
     static func ballAward(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ballAward, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "buildDone", bundle: ..., traitCollection: ...)`
+    static func buildDone(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.buildDone, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2619,6 +2612,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "upgradeBtn", bundle: ..., traitCollection: ...)`
     static func upgradeBtn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.upgradeBtn, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "upgradeLevel", bundle: ..., traitCollection: ...)`
+    static func upgradeLevel(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.upgradeLevel, compatibleWith: traitCollection)
     }
     #endif
 

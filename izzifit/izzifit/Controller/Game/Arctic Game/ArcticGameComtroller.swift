@@ -109,7 +109,7 @@ class ArcticGameComtroller: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    
+        
         hummerBtn.isHidden = true
         hummerCountLbl.isHidden = true
         checkAvailableHummers()
@@ -129,7 +129,7 @@ class ArcticGameComtroller: BaseController {
     }
     
     private func setup() {
-
+        
         resultStackView.isHidden = true
         resultLblTopConstraint.constant =  view.h / 17.65
         resultLbl.font = UIFont(name: "Inter-Black",
@@ -162,20 +162,22 @@ class ArcticGameComtroller: BaseController {
         } else {
             barBackVw.nameLbl.isHidden = true
         }
+        
         barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
                                           placeholder: RImage.placeholder_food_ic(),
                                           options: [.transition(.fade(0.25))])
+        
         view.ui.genericlLayout(object: progressImgVw,
-                                         parentView: view,
-                                         width: view.h / 4.77,//170,
-                                         height: view.h / 40.6,//20,
-                                         bottomToO: slotHouseImgVw.bottomAnchor,
-                                         bottomCG: view.h / 50.75,//16,
-                                         trailingToO: slotHouseImgVw.trailingAnchor,
-                                         trailingCG: view.h / 8.54) //95)
+                               parentView: view,
+                               width: view.h / 4.77,//170,
+                               height: view.h / 40.6,//20,
+                               bottomToO: slotHouseImgVw.bottomAnchor,
+                               bottomCG: view.h / 50.75,//16,
+                               trailingToO: slotHouseImgVw.trailingAnchor,
+                               trailingCG: view.h / 8.54) //95)
         
         spinManager.showProgress(imgVw: progressImgVw,
-                                    img: progressImg ?? UIImage())
+                                 img: progressImg ?? UIImage())
     }
     
     private func checkAvailableHummers() {
@@ -209,7 +211,7 @@ class ArcticGameComtroller: BaseController {
                                                   action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
-        }
+    }
     
     
     @objc
@@ -411,9 +413,7 @@ class ArcticGameComtroller: BaseController {
         guard counter.combinations.count > combinationCounter else { spinsRunOut()
             return }
         guard KeychainService.standard.me?.energy ?? 0.0 > 0.99 else {
-
             let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
-
             return
         }
         
@@ -430,7 +430,7 @@ class ArcticGameComtroller: BaseController {
             
             DispatchQueue.main.async {
                 self.spinManager.showProgress(imgVw: self.progressImgVw,
-                                          img: self.progressImg ?? UIImage())
+                                              img: self.progressImg ?? UIImage())
             }
             
             firstTimer = Timer.scheduledTimer(timeInterval: 0.03,
@@ -519,6 +519,9 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
                                                                self.counter.startSecondIndexPathRow,
                                                                self.counter.startThirdIndexPathRow],
                                                  collectionView: self.collectionView)
+                
+                self.spinManager.showProgress(imgVw: self.progressImgVw,
+                                              img: self.progressImg ?? UIImage())
             }
             let lastSpinIndex = self.counter.combinations.count - 1
             switch self.combinationCounter {
