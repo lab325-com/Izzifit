@@ -56,6 +56,11 @@ class WorkoutController: BaseController {
         setupCollection()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateMe()
+    }
+    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
