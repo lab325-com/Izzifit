@@ -63,8 +63,36 @@ class QuizeHeightController: BaseController {
                 self.leadingBorderLayout.constant = self.quizeType == .sm ? 0 : self.smView.frame.width
                 self.view.layoutIfNeeded()
             }
+            
+            guard let growth = growth else { return }
+            switch quizeType {
+            case .sm:
+                if growth - 120 >= 0, let _ = smData[safe: growth - 120] {
+                    pickerView.selectRow(growth - 120, inComponent: 0, animated: false)
+                } else if let gender = PreferencesManager.sharedManager.tempPorifle.gender {
+                    switch gender {
+                    case .female:
+                        pickerView.selectRow(40, inComponent: 0, animated: false)
+                    case .male:
+                        pickerView.selectRow(60, inComponent: 0, animated: false)
+                    case .other:
+                        pickerView.selectRow(50, inComponent: 0, animated: false)
+                    }
+                }
+            case .ft:
+                let length = Double(growth) / 2.54
+                let feet = floor(length/12)
+                let inch = Int(length - 12 * feet)
+                
+                guard let indexFt = ftData.firstIndex(where: {$0 == Int(feet)}), let indexInch = inchData.firstIndex(where: {$0 == inch}) else { return }
+                
+                pickerView.selectRow(indexFt, inComponent: 0, animated: false)
+                pickerView.selectRow(indexInch, inComponent: 1, animated: false)
+            }
         }
     }
+    
+    private var growth : Int?
     
     //----------------------------------------------
     // MARK: - Life cycle
@@ -202,6 +230,16 @@ extension QuizeHeightController: UIPickerViewDataSource, UIPickerViewDelegate {
             if pickerView.selectedRow(inComponent: 1) == inchData.count - 1, component == 0, row == ftData.count - 1 {
                 pickerView.selectRow(5, inComponent: 1, animated: false)
             }
+        }
+        
+        if quizeType == .sm {
+            let index = pickerView.selectedRow(inComponent: 0)
+            growth = smData[index]
+        } else {
+            let indexFt = pickerView.selectedRow(inComponent: 0)
+            let indexInch = pickerView.selectedRow(inComponent: 1)
+            
+            growth = Int(Double(ftData[indexFt]) * 30.48 + Double(inchData[indexInch]) * 2.54)
         }
     }
     

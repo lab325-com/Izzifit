@@ -302,7 +302,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 71 files.
+  /// This `R.file` struct is generated, and contains static references to 72 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -392,6 +392,8 @@ struct R: Rswift.Validatable {
     static let productsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Products", pathExtension: "graphql")
     /// Resource file `ProductsByMeal.graphql`.
     static let productsByMealGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ProductsByMeal", pathExtension: "graphql")
+    /// Resource file `ProfileDelete.graphql`.
+    static let profileDeleteGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ProfileDelete", pathExtension: "graphql")
     /// Resource file `ProfileUpdate.graphql`.
     static let profileUpdateGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ProfileUpdate", pathExtension: "graphql")
     /// Resource file `Progresses.graphql`.
@@ -711,6 +713,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "ProfileDelete", withExtension: "graphql")`
+    static func profileDeleteGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.profileDeleteGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "ProfileUpdate", withExtension: "graphql")`
     static func profileUpdateGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.profileUpdateGraphql
@@ -965,7 +973,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 197 images.
+  /// This `R.image` struct is generated, and contains static references to 198 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1063,6 +1071,8 @@ struct R: Rswift.Validatable {
     static let fishThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "fishThird")
     /// Image `food_arrow_down_ic`.
     static let food_arrow_down_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "food_arrow_down_ic")
+    /// Image `food_background_ic`.
+    static let food_background_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "food_background_ic")
     /// Image `food_clear_search_ic`.
     static let food_clear_search_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "food_clear_search_ic")
     /// Image `food_search_ic`.
@@ -1695,6 +1705,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "food_arrow_down_ic", bundle: ..., traitCollection: ...)`
     static func food_arrow_down_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.food_arrow_down_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "food_background_ic", bundle: ..., traitCollection: ...)`
+    static func food_background_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.food_background_ic, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2744,7 +2761,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 81 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 82 nibs.
   struct nib {
     /// Nib `ArcticGameComtroller`.
     static let arcticGameComtroller = _R.nib._ArcticGameComtroller()
@@ -2802,6 +2819,8 @@ struct R: Rswift.Validatable {
     static let menuCell = _R.nib._MenuCell()
     /// Nib `MenuController`.
     static let menuController = _R.nib._MenuController()
+    /// Nib `MenuDeleteAccount`.
+    static let menuDeleteAccount = _R.nib._MenuDeleteAccount()
     /// Nib `MenuEmailController`.
     static let menuEmailController = _R.nib._MenuEmailController()
     /// Nib `MenuFitnessController`.
@@ -3130,6 +3149,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.menuController) instead")
     static func menuController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.menuController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MenuDeleteAccount", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.menuDeleteAccount) instead")
+    static func menuDeleteAccount(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.menuDeleteAccount)
     }
     #endif
 
@@ -3669,6 +3696,10 @@ struct R: Rswift.Validatable {
       return R.nib.menuController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func menuDeleteAccount(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MenuDeleteAccount? {
+      return R.nib.menuDeleteAccount.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MenuDeleteAccount
+    }
+
     static func menuEmailController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.menuEmailController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -3884,7 +3915,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 35 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 36 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AwardsTableCell`.
     static let awardsTableCell: Rswift.ReuseIdentifier<PolicyCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
@@ -3916,6 +3947,8 @@ struct R: Rswift.Validatable {
     static let foodRecomendedCell: Rswift.ReuseIdentifier<FoodRecomendedCell> = Rswift.ReuseIdentifier(identifier: "FoodRecomendedCell")
     /// Reuse identifier `FoodTopTitleCell`.
     static let foodTopTitleCell: Rswift.ReuseIdentifier<FoodTopTitleCell> = Rswift.ReuseIdentifier(identifier: "FoodTopTitleCell")
+    /// Reuse identifier `MenuDeleteAccount`.
+    static let menuDeleteAccount: Rswift.ReuseIdentifier<MenuDeleteAccount> = Rswift.ReuseIdentifier(identifier: "MenuDeleteAccount")
     /// Reuse identifier `MenuFoodSwitchCell`.
     static let menuFoodSwitchCell: Rswift.ReuseIdentifier<MenuFoodSwitchCell> = Rswift.ReuseIdentifier(identifier: "MenuFoodSwitchCell")
     /// Reuse identifier `MenuFoodTitleCellCell`.
@@ -7814,6 +7847,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "energy_water_empty_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_empty_ic' is used in nib 'EnergyDrinkWaterCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergyDrinkWaterCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
@@ -7981,11 +8015,11 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "food_arrow_down_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'food_arrow_down_ic' is used in nib 'FoodController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "food_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'food_background_ic' is used in nib 'FoodController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "food_clear_search_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'food_clear_search_ic' is used in nib 'FoodController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "food_search_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'food_search_ic' is used in nib 'FoodController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "imageView:3sc-gp-9Zw:image", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'imageView:3sc-gp-9Zw:image' is used in nib 'FoodController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'FoodController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'FoodController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -8140,6 +8174,20 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'MenuController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _MenuDeleteAccount: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = MenuDeleteAccount
+
+      let bundle = R.hostingBundle
+      let identifier = "MenuDeleteAccount"
+      let name = "MenuDeleteAccount"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MenuDeleteAccount? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MenuDeleteAccount
       }
 
       fileprivate init() {}

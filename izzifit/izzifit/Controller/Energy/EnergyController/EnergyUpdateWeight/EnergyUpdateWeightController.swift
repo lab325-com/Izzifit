@@ -45,6 +45,26 @@ class EnergyUpdateWeightController: BaseController {
                 return
             }
             
+            if let weight = weight {
+                switch type {
+                case .kg:
+                    self.weight = weight * 0.45359237
+                    if self.weight! < 30 {
+                        self.weight = 30
+                    } else if self.weight! > 220 {
+                        self.weight = 220
+                    }
+                case .lb:
+                    self.weight = weight / 0.45359237
+                    
+                    if self.weight! < 66 {
+                        self.weight = 66
+                    } else if self.weight! > 485 {
+                        self.weight = 485
+                    }
+                }
+            }
+            
             self.scrolLBView.isHidden = type == .kg
             self.scrollKGView.isHidden = type == .lb
             
@@ -86,12 +106,15 @@ class EnergyUpdateWeightController: BaseController {
     }
     
     weak var delegate: EnergyUpdateWeightProtocol?
+    private var weight: Float?
     
     //----------------------------------------------
     // MARK: - Init
     //----------------------------------------------
     
-    init(delegate: EnergyUpdateWeightProtocol) {
+    init(measureSystem: WeightMeasure?, weight: Float?, delegate: EnergyUpdateWeightProtocol) {
+        self.type = measureSystem == .weightMeasureTypeLb ? .lb : .kg
+        self.weight = weight
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
@@ -115,7 +138,14 @@ class EnergyUpdateWeightController: BaseController {
     //----------------------------------------------
     
     private func setup() {
-        initScrollOffset()
+        UIView.animate(withDuration: 0.3) {
+            self.leadingBorderLayout.constant = self.type == .kg ? 0 : self.kgView.frame.width
+            self.view.layoutIfNeeded()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+            self.initScrollOffset()
+        }) 
         
         mainView.layer.cornerRadius = 30
         mainView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -145,8 +175,29 @@ class EnergyUpdateWeightController: BaseController {
     }
     
     private func initScrollOffset() {
-        scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
-        scrollKGView.contentOffset.x = 9*baseKG - halfWeight
+        scrolLBView.isHidden = type == .kg
+        scrollKGView.isHidden = type == .lb
+        
+        if let weight = weight {
+            if type == .lb {
+                if weight >= 66 && weight <= 485 {
+                    scrolLBView.contentOffset.x = CGFloat(9*weight) - halfWeight - 6*9
+                } else {
+                    scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
+                }
+            }
+            
+            if type == .kg {
+                if weight >= 30 && weight <= 220 {
+                    scrollKGView.contentOffset.x = CGFloat(9*weight) - halfWeight
+                } else {
+                    scrollKGView.contentOffset.x = 9*baseKG - halfWeight
+                }
+            }
+        } else {
+            scrolLBView.contentOffset.x = 9*baseLB - halfWeight - 6*9
+            scrollKGView.contentOffset.x = 9*baseKG - halfWeight
+        }
     }
     
     private func calcValue() -> CGFloat {
@@ -156,6 +207,10 @@ class EnergyUpdateWeightController: BaseController {
             value =  (scrolLBView.contentOffset.x + halfWeight + 6*9) / 9
         }
         currentCountLabel.text = String(format: "%.1f", value)
+        
+        if let _ = weight {
+            weight! = Float(currentCountLabel.text!)!
+        }
         
         return value
     }
@@ -183,7 +238,7 @@ class EnergyUpdateWeightController: BaseController {
         let targetWeightMeasure = type.api
         let targetWeight = Double(currentCountLabel.text!)!
         
-        presenter.profileUpdate(weightMeasure: targetWeightMeasure, weight: targetWeight)
+        presenter.profileUpdate(weightMeasure: targetWeightMeasure, weight: targetWeightMeasure == .weightMeasureTypeLb ? targetWeight  * 0.45359237 : targetWeight)
     }
 }
 

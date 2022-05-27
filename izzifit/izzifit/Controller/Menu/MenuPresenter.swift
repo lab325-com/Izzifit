@@ -14,7 +14,12 @@ import UIKit
 //----------------------------------------------
 protocol MenuOutputProtocol: BaseController {
     func success()
+    func successDeleteAccount()
     func failure()
+}
+
+extension MenuOutputProtocol {
+    func successDeleteAccount() {}
 }
 
 //----------------------------------------------
@@ -24,6 +29,8 @@ protocol MenuPresenterProtocol: AnyObject {
     init(view: MenuOutputProtocol)
     
     func profileUpdate(fitnessPreference: WorkoutDifficulty?, growthMeasure: GrowthMeasure?, foodGroupId: Int?, notifications: Bool?, weightMeasure: WeightMeasure?, targetWeight: Double?, weight: Double?, doSport: DoSportType?, darkTheme: Bool?, reminders: Bool?, email: String?, age: Int?, growth: Int?, goal: GoalType?, gender: GenderType?, name: String?)
+    
+    func deleteAccount()
 }
 
 class MenuPresenter: MenuPresenterProtocol {
@@ -126,6 +133,20 @@ class MenuPresenter: MenuPresenterProtocol {
             KeychainService.standard.me = model.profileUpdate
             self?.view?.stopLoading()
             self?.view?.success()
+        }, failureHandler: { [weak self] error in
+            self?.view?.failure()
+            self?.view?.stopLoading()
+        })
+    }
+    
+    func deleteAccount() {
+        view?.startLoader()
+        
+        let mutation = ProfileDeleteMutation()
+        
+        let _ = Network.shared.mutation(model: ProfileDeleteModel.self, mutation, controller: view, successHandler: { [weak self] model in
+            self?.view?.stopLoading()
+            self?.view?.successDeleteAccount()
         }, failureHandler: { [weak self] error in
             self?.view?.failure()
             self?.view?.stopLoading()

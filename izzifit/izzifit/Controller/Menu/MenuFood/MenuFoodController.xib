@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,6 +30,14 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_background_ic" translatesAutoresizingMaskIntoConstraints="NO" id="cb3-bw-WvJ">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vMd-5J-fIQ">
+                    <rect key="frame" x="0.0" y="114" width="414" height="782"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="rxJ-oc-1wV"/>
+                        <outlet property="delegate" destination="-1" id="B5g-DF-gGB"/>
+                    </connections>
+                </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iv-nV-NTH">
                     <rect key="frame" x="24" y="790" width="366" height="48"/>
                     <color key="backgroundColor" red="1" green="0.25882352939999997" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
@@ -66,14 +74,6 @@
                         <action selector="actionBack:" destination="-1" eventType="touchUpInside" id="wgZ-EX-ZEx"/>
                     </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vMd-5J-fIQ">
-                    <rect key="frame" x="0.0" y="114" width="414" height="652"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="rxJ-oc-1wV"/>
-                        <outlet property="delegate" destination="-1" id="B5g-DF-gGB"/>
-                    </connections>
-                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="FEc-TF-4jL"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -85,12 +85,12 @@
                 <constraint firstItem="vMd-5J-fIQ" firstAttribute="leading" secondItem="FEc-TF-4jL" secondAttribute="leading" id="79F-fm-hZq"/>
                 <constraint firstItem="FEc-TF-4jL" firstAttribute="trailing" secondItem="4iv-nV-NTH" secondAttribute="trailing" constant="24" id="8JH-5k-HkY"/>
                 <constraint firstAttribute="bottom" secondItem="cb3-bw-WvJ" secondAttribute="bottom" id="EmX-t9-1rw"/>
-                <constraint firstItem="4iv-nV-NTH" firstAttribute="top" secondItem="vMd-5J-fIQ" secondAttribute="bottom" constant="24" id="JUb-03-lMk"/>
                 <constraint firstItem="HhN-gR-Gn0" firstAttribute="top" secondItem="FEc-TF-4jL" secondAttribute="top" constant="16" id="NKW-go-kkG"/>
                 <constraint firstItem="cb3-bw-WvJ" firstAttribute="trailing" secondItem="FEc-TF-4jL" secondAttribute="trailing" id="NrK-ZA-Kzs"/>
                 <constraint firstItem="RHM-0j-JIL" firstAttribute="centerY" secondItem="HhN-gR-Gn0" secondAttribute="centerY" id="Nwq-Z5-OMK"/>
                 <constraint firstItem="HhN-gR-Gn0" firstAttribute="leading" secondItem="FEc-TF-4jL" secondAttribute="leading" constant="16" id="TIC-ch-7Nb"/>
                 <constraint firstItem="vMd-5J-fIQ" firstAttribute="top" secondItem="RHM-0j-JIL" secondAttribute="bottom" constant="24" id="Wiv-VZ-f6Q"/>
+                <constraint firstAttribute="bottom" secondItem="vMd-5J-fIQ" secondAttribute="bottom" id="agx-Lf-7Ba"/>
                 <constraint firstItem="FEc-TF-4jL" firstAttribute="bottom" secondItem="4iv-nV-NTH" secondAttribute="bottom" constant="24" id="bug-oI-deK"/>
                 <constraint firstItem="RHM-0j-JIL" firstAttribute="centerX" secondItem="FEc-TF-4jL" secondAttribute="centerX" id="oQp-tV-Ued"/>
             </constraints>

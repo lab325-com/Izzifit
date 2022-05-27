@@ -1625,6 +1625,50 @@ public final class PasswordForgotRequestMutation: GraphQLMutation {
   }
 }
 
+public final class ProfileDeleteMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation ProfileDelete {
+      profileDelete
+    }
+    """
+
+  public let operationName: String = "ProfileDelete"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("profileDelete", type: .scalar(Bool.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(profileDelete: Bool? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "profileDelete": profileDelete])
+    }
+
+    public var profileDelete: Bool? {
+      get {
+        return resultMap["profileDelete"] as? Bool
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "profileDelete")
+      }
+    }
+  }
+}
+
 public final class ProfileUpdateMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -1637,6 +1681,7 @@ public final class ProfileUpdateMutation: GraphQLMutation {
         darkTheme
         doSport
         email
+        weightMeasure
         energy
         fitnessPreference
         gender
@@ -1729,6 +1774,7 @@ public final class ProfileUpdateMutation: GraphQLMutation {
           GraphQLField("darkTheme", type: .scalar(Bool.self)),
           GraphQLField("doSport", type: .scalar(DoSportType.self)),
           GraphQLField("email", type: .scalar(String.self)),
+          GraphQLField("weightMeasure", type: .scalar(WeightMeasure.self)),
           GraphQLField("energy", type: .scalar(Double.self)),
           GraphQLField("fitnessPreference", type: .scalar(WorkoutDifficulty.self)),
           GraphQLField("gender", type: .scalar(GenderType.self)),
@@ -1753,8 +1799,8 @@ public final class ProfileUpdateMutation: GraphQLMutation {
         self.resultMap = unsafeResultMap
       }
 
-      public init(age: Int? = nil, coins: Int? = nil, darkTheme: Bool? = nil, doSport: DoSportType? = nil, email: String? = nil, energy: Double? = nil, fitnessPreference: WorkoutDifficulty? = nil, gender: GenderType? = nil, goal: GoalType? = nil, growth: Int? = nil, id: GraphQLID? = nil, name: String? = nil, notifications: Bool? = nil, reminders: Bool? = nil, showOnBoarding: Bool? = nil, weight: Double? = nil, targetWeight: Double? = nil, foodGroup: FoodGroup? = nil, avatar: Avatar? = nil, subscription: Subscription? = nil) {
-        self.init(unsafeResultMap: ["__typename": "MeModel", "age": age, "coins": coins, "darkTheme": darkTheme, "doSport": doSport, "email": email, "energy": energy, "fitnessPreference": fitnessPreference, "gender": gender, "goal": goal, "growth": growth, "id": id, "name": name, "notifications": notifications, "reminders": reminders, "showOnBoarding": showOnBoarding, "weight": weight, "targetWeight": targetWeight, "FoodGroup": foodGroup.flatMap { (value: FoodGroup) -> ResultMap in value.resultMap }, "Avatar": avatar.flatMap { (value: Avatar) -> ResultMap in value.resultMap }, "Subscription": subscription.flatMap { (value: Subscription) -> ResultMap in value.resultMap }])
+      public init(age: Int? = nil, coins: Int? = nil, darkTheme: Bool? = nil, doSport: DoSportType? = nil, email: String? = nil, weightMeasure: WeightMeasure? = nil, energy: Double? = nil, fitnessPreference: WorkoutDifficulty? = nil, gender: GenderType? = nil, goal: GoalType? = nil, growth: Int? = nil, id: GraphQLID? = nil, name: String? = nil, notifications: Bool? = nil, reminders: Bool? = nil, showOnBoarding: Bool? = nil, weight: Double? = nil, targetWeight: Double? = nil, foodGroup: FoodGroup? = nil, avatar: Avatar? = nil, subscription: Subscription? = nil) {
+        self.init(unsafeResultMap: ["__typename": "MeModel", "age": age, "coins": coins, "darkTheme": darkTheme, "doSport": doSport, "email": email, "weightMeasure": weightMeasure, "energy": energy, "fitnessPreference": fitnessPreference, "gender": gender, "goal": goal, "growth": growth, "id": id, "name": name, "notifications": notifications, "reminders": reminders, "showOnBoarding": showOnBoarding, "weight": weight, "targetWeight": targetWeight, "FoodGroup": foodGroup.flatMap { (value: FoodGroup) -> ResultMap in value.resultMap }, "Avatar": avatar.flatMap { (value: Avatar) -> ResultMap in value.resultMap }, "Subscription": subscription.flatMap { (value: Subscription) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -1808,6 +1854,15 @@ public final class ProfileUpdateMutation: GraphQLMutation {
         }
         set {
           resultMap.updateValue(newValue, forKey: "email")
+        }
+      }
+
+      public var weightMeasure: WeightMeasure? {
+        get {
+          return resultMap["weightMeasure"] as? WeightMeasure
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "weightMeasure")
         }
       }
 
@@ -3801,6 +3856,7 @@ public final class MeQuery: GraphQLQuery {
         darkTheme
         doSport
         email
+        weightMeasure
         energy
         fitnessPreference
         gender
@@ -3886,6 +3942,7 @@ public final class MeQuery: GraphQLQuery {
           GraphQLField("darkTheme", type: .scalar(Bool.self)),
           GraphQLField("doSport", type: .scalar(DoSportType.self)),
           GraphQLField("email", type: .scalar(String.self)),
+          GraphQLField("weightMeasure", type: .scalar(WeightMeasure.self)),
           GraphQLField("energy", type: .scalar(Double.self)),
           GraphQLField("fitnessPreference", type: .scalar(WorkoutDifficulty.self)),
           GraphQLField("gender", type: .scalar(GenderType.self)),
@@ -3910,8 +3967,8 @@ public final class MeQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(age: Int? = nil, coins: Int? = nil, darkTheme: Bool? = nil, doSport: DoSportType? = nil, email: String? = nil, energy: Double? = nil, fitnessPreference: WorkoutDifficulty? = nil, gender: GenderType? = nil, goal: GoalType? = nil, growth: Int? = nil, id: GraphQLID? = nil, name: String? = nil, notifications: Bool? = nil, reminders: Bool? = nil, showOnBoarding: Bool? = nil, weight: Double? = nil, targetWeight: Double? = nil, foodGroup: FoodGroup? = nil, avatar: Avatar? = nil, subscription: Subscription? = nil) {
-        self.init(unsafeResultMap: ["__typename": "MeModel", "age": age, "coins": coins, "darkTheme": darkTheme, "doSport": doSport, "email": email, "energy": energy, "fitnessPreference": fitnessPreference, "gender": gender, "goal": goal, "growth": growth, "id": id, "name": name, "notifications": notifications, "reminders": reminders, "showOnBoarding": showOnBoarding, "weight": weight, "targetWeight": targetWeight, "FoodGroup": foodGroup.flatMap { (value: FoodGroup) -> ResultMap in value.resultMap }, "Avatar": avatar.flatMap { (value: Avatar) -> ResultMap in value.resultMap }, "Subscription": subscription.flatMap { (value: Subscription) -> ResultMap in value.resultMap }])
+      public init(age: Int? = nil, coins: Int? = nil, darkTheme: Bool? = nil, doSport: DoSportType? = nil, email: String? = nil, weightMeasure: WeightMeasure? = nil, energy: Double? = nil, fitnessPreference: WorkoutDifficulty? = nil, gender: GenderType? = nil, goal: GoalType? = nil, growth: Int? = nil, id: GraphQLID? = nil, name: String? = nil, notifications: Bool? = nil, reminders: Bool? = nil, showOnBoarding: Bool? = nil, weight: Double? = nil, targetWeight: Double? = nil, foodGroup: FoodGroup? = nil, avatar: Avatar? = nil, subscription: Subscription? = nil) {
+        self.init(unsafeResultMap: ["__typename": "MeModel", "age": age, "coins": coins, "darkTheme": darkTheme, "doSport": doSport, "email": email, "weightMeasure": weightMeasure, "energy": energy, "fitnessPreference": fitnessPreference, "gender": gender, "goal": goal, "growth": growth, "id": id, "name": name, "notifications": notifications, "reminders": reminders, "showOnBoarding": showOnBoarding, "weight": weight, "targetWeight": targetWeight, "FoodGroup": foodGroup.flatMap { (value: FoodGroup) -> ResultMap in value.resultMap }, "Avatar": avatar.flatMap { (value: Avatar) -> ResultMap in value.resultMap }, "Subscription": subscription.flatMap { (value: Subscription) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -3965,6 +4022,15 @@ public final class MeQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "email")
+        }
+      }
+
+      public var weightMeasure: WeightMeasure? {
+        get {
+          return resultMap["weightMeasure"] as? WeightMeasure
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "weightMeasure")
         }
       }
 

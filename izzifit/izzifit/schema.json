@@ -2586,6 +2586,18 @@
             "deprecationReason": null
           },
           {
+            "name": "profileDelete",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "profileUpdate",
             "description": null,
             "args": [
@@ -4131,6 +4143,18 @@
             "deprecationReason": null
           },
           {
+            "name": "weightMeasure",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "WeightMeasure",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "targetWeight",
             "description": null,
             "args": [],
@@ -5428,6 +5452,18 @@
           },
           {
             "name": "freeBuildingsCount",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "progress",
             "description": null,
             "args": [],
             "type": {

@@ -1,4 +1,7 @@
 PODS:
+  - AppsFlyerFramework (6.6.1):
+    - AppsFlyerFramework/Main (= 6.6.1)
+  - AppsFlyerFramework/Main (6.6.1)
   - FBAEMKit (13.2.0):
     - FBSDKCoreKit_Basics (= 13.2.0)
   - FBSDKCoreKit (13.2.0):
@@ -12,6 +15,7 @@ PODS:
   - SpreadsheetView (0.9.1)
 
 DEPENDENCIES:
+  - AppsFlyerFramework
   - FBSDKCoreKit
   - R.swift
   - Siren
@@ -19,6 +23,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AppsFlyerFramework
     - FBAEMKit
     - FBSDKCoreKit
     - FBSDKCoreKit_Basics
@@ -28,6 +33,7 @@ SPEC REPOS:
     - SpreadsheetView
 
 SPEC CHECKSUMS:
+  AppsFlyerFramework: 5e4b385a27dc6179e132b1617f76809412eb2f88
   FBAEMKit: c2b2895363b7e57192013d1dc49fdf498b28624c
   FBSDKCoreKit: 58139803d861e72c7661dc875611a759352a55ac
   FBSDKCoreKit_Basics: 1ffc68326a5ece051d85574f02a0adcf27c2a5f2
@@ -36,6 +42,6 @@ SPEC CHECKSUMS:
   Siren: de768099aff1f1c9acda4247064788a4940b4bf3
   SpreadsheetView: 688dbd19f2b355df0eb09e486266fd913a013449
 
-PODFILE CHECKSUM: c776f2f50c524d5b8518b016f2bd8b9481c8639b
+PODFILE CHECKSUM: c8cb02066ddd3aa50e5405f179256778d7656e46
 
 COCOAPODS: 1.11.3

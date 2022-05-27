@@ -24,7 +24,7 @@ protocol LevelOutputProtocol: BaseController {
 protocol LevelProtocol: AnyObject {
     init(view: LevelOutputProtocol)
     func getBuildings(completion: @escaping () -> ())
-    func upgradeBuild(buildingId: String)
+    func upgradeBuild(buildingId: String, completion: @escaping () -> ())
 }
 
 class LevelPresenter: LevelProtocol {
@@ -50,13 +50,14 @@ class LevelPresenter: LevelProtocol {
         })
     }
     
-    func upgradeBuild(buildingId: String) {
+    func upgradeBuild(buildingId: String, completion: @escaping () -> ()) {
         view?.startLoader()
         
         let mutation = UpgradeBuildingMutation(buildingId: buildingId)
         let _ = Network.shared.mutation(model: UpgradeBuildingModel.self, mutation, controller: view, successHandler: { [weak self] model in
             self?.view?.successBuild()
             self?.getMe()
+            completion()
             self?.getBuildings { }
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()

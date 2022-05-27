@@ -26,6 +26,8 @@ class FoodRecomendedCell: BaseTableViewCell {
     
     @IBOutlet weak var addButton: UIButton!
     
+    @IBOutlet weak var bottomView: UIView!
+    
     weak var delegate: FoodRecomendedProtocol?
     private var isActive: Bool?
     private var model: ProductsMainModel?
@@ -41,10 +43,11 @@ class FoodRecomendedCell: BaseTableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupCell(model: ProductsMainModel, isActive: Bool) {
+    func setupCell(model: ProductsMainModel, isActive: Bool, isHiddenBottom: Bool) {
         self.isActive = isActive
         self.model = model
         
+        bottomView.isHidden = isHiddenBottom
         protLabel.text = RLocalization.food_prot_description(model.ProductSources?.first(where: {$0?.name == .sourceEntityTypeProteins})??.amount ?? 0)
         
         fatsLabel.text = RLocalization.food_fats_description(model.ProductSources?.first(where: {$0?.name == .sourceEntityTypeFats})??.amount ?? 0)

@@ -44,5 +44,7 @@
 		<string>Inter-Thin</string>
 		<string>Inter-BoldItalic</string>
 	</array>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Your data will be used for making user experience and interface more friendly and useful in our product.</string>
 </dict>
 </plist>

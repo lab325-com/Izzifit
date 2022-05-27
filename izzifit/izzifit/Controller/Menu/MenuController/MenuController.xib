@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -99,6 +99,13 @@
                         <outlet property="delegate" destination="-1" id="14O-kL-eGr"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sf3-4L-erW">
+                    <rect key="frame" x="0.0" y="796" width="414" height="1"/>
+                    <color key="backgroundColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="ahG-sf-mAn"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="ULJ-zp-W5b"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -106,7 +113,10 @@
                 <constraint firstItem="pCp-KG-cga" firstAttribute="leading" secondItem="ULJ-zp-W5b" secondAttribute="leading" constant="16" id="3f3-58-xio"/>
                 <constraint firstItem="ULJ-zp-W5b" firstAttribute="trailing" secondItem="f8p-Gx-uYy" secondAttribute="trailing" constant="34" id="7S9-BY-tu8"/>
                 <constraint firstItem="Ngt-2Y-Yl6" firstAttribute="leading" secondItem="ULJ-zp-W5b" secondAttribute="leading" id="894-JM-DHr"/>
+                <constraint firstItem="sf3-4L-erW" firstAttribute="leading" secondItem="ULJ-zp-W5b" secondAttribute="leading" id="AR5-tY-m5k"/>
                 <constraint firstItem="Ngt-2Y-Yl6" firstAttribute="trailing" secondItem="ULJ-zp-W5b" secondAttribute="trailing" id="CJJ-ic-6v0"/>
+                <constraint firstItem="ULJ-zp-W5b" firstAttribute="trailing" secondItem="sf3-4L-erW" secondAttribute="trailing" id="D4y-Fd-ceJ"/>
+                <constraint firstItem="f8p-Gx-uYy" firstAttribute="top" secondItem="sf3-4L-erW" secondAttribute="bottom" constant="24" id="FAJ-rH-w8A"/>
                 <constraint firstItem="ULJ-zp-W5b" firstAttribute="bottom" secondItem="f8p-Gx-uYy" secondAttribute="bottom" constant="12" id="FO2-Bv-wAT"/>
                 <constraint firstItem="Pnd-ck-P4n" firstAttribute="leading" secondItem="ULJ-zp-W5b" secondAttribute="leading" id="GF7-la-0LM"/>
                 <constraint firstItem="f8p-Gx-uYy" firstAttribute="top" secondItem="Pnd-ck-P4n" secondAttribute="bottom" constant="24" id="H2v-AB-gIE"/>

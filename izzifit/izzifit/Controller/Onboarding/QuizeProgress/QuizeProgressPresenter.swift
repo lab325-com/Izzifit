@@ -52,9 +52,11 @@ class QuizeProgressPresenter: QuizeProgressPresenterProtocol {
         profileUpdateInput.growth = profile.heightMetric == .sm ? smHeight : Int(ftHeight)
         
         profileUpdateInput.weightMeasure = profile.weightMetric?.api
-        profileUpdateInput.weight = profile.weight
         
-        profileUpdateInput.targetWeight = profile.targetWeight
+        if let weight = profile.weight, let target = profile.targetWeight {
+            profileUpdateInput.weight = profile.weightMetric?.api == .weightMeasureTypeLb ? weight  / 0.45359237 : weight
+            profileUpdateInput.targetWeight = profile.weightMetric?.api == .weightMeasureTypeLb ? target  / 0.45359237 : target
+        }
         
         profileUpdateInput.goal = profile.goal?.api
         profileUpdateInput.foodGroupId = profile.food?.id

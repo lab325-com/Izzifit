@@ -80,6 +80,8 @@ class MenuFitnessController: BaseController {
         
         nameTitleLabel.text = RLocalization.menu_fitness()
         saveButton.setTitle(RLocalization.menu_save_changes(), for: .normal)
+        
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 88, right: 0)
     }
     
     //----------------------------------------------

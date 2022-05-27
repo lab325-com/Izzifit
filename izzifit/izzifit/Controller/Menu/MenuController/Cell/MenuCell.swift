@@ -48,7 +48,7 @@ class MenuCell: BaseTableViewCell {
         guard let model = KeychainService.standard.me else { return }
         
         
-        flagImageView.isHidden = type == .weight ? false : true
+        flagImageView.isHidden = type == .targetWeight ? false : true
         
         switch type {
         case .notification:
@@ -70,6 +70,8 @@ class MenuCell: BaseTableViewCell {
             menuArrowRightImageView.isHidden = false
         }
         
+        let typeMeasure = KeychainService.standard.me?.weightMeasure
+        
         switch type {
         case .name:
             detailLabel.text = model.name
@@ -80,9 +82,9 @@ class MenuCell: BaseTableViewCell {
         case .height:
             detailLabel.text = "\(model.growth ?? 0)"
         case .weight:
-            detailLabel.text = "\(model.weight ?? 0)"
+            detailLabel.text = "\(String(format: "%.1f", model.weight ?? 0)) \(typeMeasure?.text ?? "")"
         case .targetWeight:
-            detailLabel.text = "\(model.targetWeight ?? 0)"
+            detailLabel.text = "\(String(format: "%.1f", model.targetWeight ?? 0)) \(typeMeasure?.text ?? "")"
         case .foodPreferences:
             if let food = model.FoodGroup {
                 detailLabel.text = food.name
@@ -93,7 +95,7 @@ class MenuCell: BaseTableViewCell {
             detailLabel.text = model.fitnessPreference?.text
         case .language:
             detailLabel.text = RLocalization.menu_english()
-        case .notification, .logout:
+        case .notification, .logout, .deleteAccount:
             break
         case .reminders:
             break

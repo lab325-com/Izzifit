@@ -23,7 +23,15 @@ typealias RImage = R.image
 typealias RColor = R.color
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
+    func onConversionDataSuccess(_ conversionInfo: [AnyHashable : Any]) {
+        debugPrint("")
+    }
+    
+    func onConversionDataFail(_ error: Error) {
+        debugPrint("")
+    }
+    
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -32,13 +40,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppsFlyerLib.shared().appsFlyerDevKey = "sapALRVCHUnGS6xNLJQPjS"
         AppsFlyerLib.shared().appleAppID = "1609221440"
-        
+        AppsFlyerLib.shared().delegate = self
+
         #if DEBUG
             AppsFlyerLib.shared().isDebug = true
         #else
-            
+
         #endif
+        AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
         
+        AppsFlyerLib.shared().logEvent("Started", withValues: nil)
         /// Firebase
         
         FirebaseApp.configure()

@@ -84,6 +84,7 @@ class EnergyController: BaseController {
         presenter.getWidgets(date: getDate())
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.contentInset = UIEdgeInsets(top: 88, left: 0, bottom: 20, right: 0)
         
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.register(UINib(nibName: cellWaterIdentifier, bundle: nil), forCellReuseIdentifier: cellWaterIdentifier)

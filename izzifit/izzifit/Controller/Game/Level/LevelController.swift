@@ -234,7 +234,7 @@ class LevelController: BaseController {
         animation.isHidden.toggle()
         animation.startAnimatingGIF()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.6) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.6) { [self] in
             self.animation.stopAnimatingGIF()
             self.animation.isHidden.toggle()
             self.animation.removeFromSuperview()
@@ -291,8 +291,10 @@ class LevelController: BaseController {
             if let x = self.pointers {
                 x.drawPointers(model: self.player, btns: self.btns)
             }
+            presenter.upgradeBuild(buildingId: buildingId) { [self] in
+                let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
+            }
         }
-        presenter.upgradeBuild(buildingId: buildingId)
     }
     
     private func activateAnimation() {
@@ -395,14 +397,11 @@ extension LevelController: LevelOutputProtocol {
             }
         }
         drawStates()
-
-        let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
     }
     
     func successBuild() { }
     
     func successMe() {
-        
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }

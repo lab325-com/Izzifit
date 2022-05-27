@@ -18,6 +18,7 @@ struct MeMainModel: Codable {
     let doSport: DoSportType?
     let email: String?
     var energy: Float?
+    let weightMeasure: WeightMeasure?
     let fitnessPreference: WorkoutDifficulty?
     let gender: GenderType?
     let goal: GoalType?

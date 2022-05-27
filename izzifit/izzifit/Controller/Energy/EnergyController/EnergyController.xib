@@ -35,6 +35,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Hqa-Fq-ybI">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="9ai-mG-jDo"/>
+                        <outlet property="delegate" destination="-1" id="aG4-VM-rBt"/>
+                    </connections>
+                </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Kh-1f-614" customClass="ShadowView" customModule="izzifit" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                     <subviews>
@@ -126,24 +134,16 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Hqa-Fq-ybI">
-                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="9ai-mG-jDo"/>
-                        <outlet property="delegate" destination="-1" id="aG4-VM-rBt"/>
-                    </connections>
-                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Hqa-Fq-ybI" secondAttribute="bottom" id="07c-kD-fgr"/>
                 <constraint firstItem="9Kh-1f-614" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6Rv-K6-9r9"/>
                 <constraint firstItem="Hqa-Fq-ybI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DAd-Oo-vBv"/>
                 <constraint firstItem="9Kh-1f-614" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="PQi-tf-Wcj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Hqa-Fq-ybI" secondAttribute="trailing" id="cPQ-Te-MtK"/>
-                <constraint firstItem="Hqa-Fq-ybI" firstAttribute="top" secondItem="9Kh-1f-614" secondAttribute="bottom" id="jF2-pg-95M"/>
+                <constraint firstItem="Hqa-Fq-ybI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jL4-pW-zC2"/>
                 <constraint firstItem="9Kh-1f-614" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sf2-z4-bmO"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>

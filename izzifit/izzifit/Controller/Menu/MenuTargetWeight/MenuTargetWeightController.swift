@@ -42,7 +42,28 @@ class MenuTargetWeightController: BaseController {
                 return
             }
             
+            if let targetWeight = targetWeight {
+                switch type {
+                case .kg:
+                    self.targetWeight = targetWeight * 0.45359237
+                    if self.targetWeight! < 30 {
+                        self.targetWeight = 30
+                    } else if self.targetWeight! > 220 {
+                        self.targetWeight = 220
+                    }
+                case .lb:
+                    self.targetWeight = targetWeight / 0.45359237
+                    
+                    if self.targetWeight! < 66 {
+                        self.targetWeight = 66
+                    } else if self.targetWeight! > 485 {
+                        self.targetWeight = 485
+                    }
+                }
+            }
             
+            self.scrolLBView.isHidden = type == .kg
+            self.scrollKGView.isHidden = type == .lb
             
             self.initScrollOffset()
             
@@ -82,13 +103,14 @@ class MenuTargetWeightController: BaseController {
     }
     
     private lazy var presenter = MenuPresenter(view: self)
-    private let targetWeight: Float?
+    private var targetWeight: Float?
     
     //----------------------------------------------
     // MARK: - Init
     //----------------------------------------------
     
     init(targetWeight: Float?) {
+        self.type = KeychainService.standard.me?.weightMeasure == .weightMeasureTypeLb ? .lb : .kg
         self.targetWeight = targetWeight
         super.init(nibName: nil, bundle: nil)
     }
@@ -115,6 +137,11 @@ class MenuTargetWeightController: BaseController {
     private func setup() {
         DispatchQueue.main.async {
             self.initScrollOffset()
+        }
+        
+        UIView.animate(withDuration: 0.3) {
+            self.leadingBorderLayout.constant = self.type == .kg ? 0 : self.kgView.frame.width
+            self.view.layoutIfNeeded()
         }
         
         mainTitleLabel.text = RLocalization.onboarding_targe_weight_title()
@@ -166,6 +193,10 @@ class MenuTargetWeightController: BaseController {
         }
         currentCountLabel.text = String(format: "%.1f", value)
         
+        if let _ = targetWeight {
+            targetWeight! = Float(currentCountLabel.text!)!
+        }
+        
         return value
     }
     
@@ -186,7 +217,11 @@ class MenuTargetWeightController: BaseController {
     }
     
     @IBAction func actionGoNext(_ sender: UIButton) {
-        presenter.profileUpdate(targetWeight: Double(currentCountLabel.text!)!)
+        
+        let targetWeightMeasure = type.api
+        let targetWeight = Double(currentCountLabel.text!)!
+        
+        presenter.profileUpdate(weightMeasure: targetWeightMeasure, targetWeight: targetWeightMeasure == .weightMeasureTypeLb ? targetWeight  * 0.45359237 : targetWeight)
     }
 }
 

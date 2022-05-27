@@ -20,6 +20,7 @@ enum SettingsType: Int, CaseIterable {
     case notification
     case reminders
     case logout
+    case deleteAccount
     
     var text: String {
         switch self {
@@ -45,15 +46,15 @@ enum SettingsType: Int, CaseIterable {
             return RLocalization.menu_notification()
         case .reminders:
             return RLocalization.menu_reminders()
-        case .logout:
+        case .logout, .deleteAccount:
             return ""
         }
     }
-
+    
 }
 
 class MenuController: BaseController {
-
+    
     //----------------------------------------------
     // MARK: - IBOutlet
     //----------------------------------------------
@@ -70,6 +71,7 @@ class MenuController: BaseController {
     
     private let cellIdentifier = String(describing: MenuCell.self)
     private let cellLogoutIdentifier = String(describing: MenuLogoutCell.self)
+    private let cellDelleteIdentifier = String(describing: MenuDeleteAccount.self)
     
     private lazy var presenter = MenuPresenter(view: self)
     private lazy var presenterFood = QuizeFoodPresenter(view: self)
@@ -81,7 +83,7 @@ class MenuController: BaseController {
     override func viewDidLoad() {
         hiddenNavigationBar = true
         super.viewDidLoad()
-
+        
         setup()
     }
     
@@ -115,6 +117,7 @@ class MenuController: BaseController {
         
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.register(UINib(nibName: cellLogoutIdentifier, bundle: nil), forCellReuseIdentifier: cellLogoutIdentifier)
+        tableView.register(UINib(nibName: cellDelleteIdentifier, bundle: nil), forCellReuseIdentifier: cellDelleteIdentifier)
         
         titleLabel.text = RLocalization.menu_title()
         
@@ -160,8 +163,13 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == SettingsType.allCases.count - 1 {
+        if indexPath.row == SettingsType.allCases.count - 2 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellLogoutIdentifier) as? MenuLogoutCell else { return UITableViewCell() }
+            cell.delegate = self
+            cell.separatorInset = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.width, bottom: 0, right: 0)
+            return cell
+        } else if indexPath.row == SettingsType.allCases.count - 1 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellDelleteIdentifier) as? MenuDeleteAccount else { return UITableViewCell() }
             cell.delegate = self
             cell.separatorInset = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.width, bottom: 0, right: 0)
             return cell
@@ -211,6 +219,11 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
 //----------------------------------------------
 
 extension MenuController: MenuOutputProtocol{
+    func successDeleteAccount() {
+        KeychainService.standard.removeAll()
+        RootRouter.sharedInstance.loadStart(toWindow: RootRouter.sharedInstance.window!)
+    }
+    
     func success() {}
     func failure() {}
 }
@@ -250,21 +263,44 @@ extension MenuController: QuizeFoodOutputProtocol {
 extension MenuController: MenuLogoutCellDeleagate {
     func menuLogoutCell(cell: MenuLogoutCell) {
         let alert = UIAlertController(title: "Do you want LogOut", message: nil, preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "No", style: .default, handler: { action in
             
-             let ok = UIAlertAction(title: "No", style: .default, handler: { action in
+        })
+        alert.addAction(ok)
+        let cancel = UIAlertAction(title: "Yes", style: .default, handler: { action in
+            KeychainService.standard.removeAll()
+            RootRouter.sharedInstance.loadStart(toWindow: RootRouter.sharedInstance.window!)
+        })
         
-             })
-             alert.addAction(ok)
-             let cancel = UIAlertAction(title: "Yes", style: .default, handler: { action in
-                 KeychainService.standard.removeAll()
-                 RootRouter.sharedInstance.loadStart(toWindow: RootRouter.sharedInstance.window!)
-             })
-        
-             alert.addAction(cancel)
-             DispatchQueue.main.async(execute: {
-                self.present(alert, animated: true)
+        alert.addAction(cancel)
+        DispatchQueue.main.async(execute: {
+            self.present(alert, animated: true)
         })
         
         
+    }
+}
+
+//----------------------------------------------
+// MARK: - MenuDeleteAccountDelegate
+//----------------------------------------------
+
+extension MenuController: MenuDeleteAccountDelegate {
+    func menuDeleteAccount(cell: MenuDeleteAccount) {
+        let alert = UIAlertController(title: "Do you want delete account", message: nil, preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "No", style: .default, handler: { action in
+            
+        })
+        alert.addAction(ok)
+        let cancel = UIAlertAction(title: "Yes", style: .default, handler: { [weak self] action in
+            self?.presenter.deleteAccount()
+        })
+        
+        alert.addAction(cancel)
+        DispatchQueue.main.async(execute: {
+            self.present(alert, animated: true)
+        })
     }
 }

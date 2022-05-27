@@ -344,7 +344,7 @@
                                     <rect key="frame" x="24" y="856.66666666666663" width="380" height="141"/>
                                     <string key="text">Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.</string>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="11"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>

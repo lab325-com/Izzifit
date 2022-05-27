@@ -160,7 +160,7 @@ class BaseController: UIViewController, NVActivityIndicatorViewable {
         let size = CGSize(width: 50, height: 50)
         let allTypes = NVActivityIndicatorType.allCases
         
-        startAnimating(size, message: "", type: allTypes.randomElement() ?? .orbit, fadeInAnimation: nil)
+        startAnimating(size, message: "", type: .lineScalePulseOutRapid, color: UIColor(rgb: 0xFF42A8), fadeInAnimation: nil)
     }
     
     func stopLoading() {
