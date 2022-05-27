@@ -109,13 +109,14 @@ class LevelController: BaseController {
         }
     }
     
-    func showAlert(message: String) {
+    func showAlert(message: String, router: @escaping () -> ()) {
         let alert = UIAlertController(title: "Sorry",
                                       message: message,
                                       preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "OK",
-                                     style: .default)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            router()
+        }
         alert.addAction(okAction)
         present(alert,animated: true)
     }
@@ -142,11 +143,31 @@ class LevelController: BaseController {
         
         guard price != 0 else { return }
         
-        guard KeychainService.standard.me?.coins ?? 0 >= price || presenter.freeBuildingsCount ?? 0 > 0  else {
-            showAlert(message: "You don't have enough money")
-            let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .goldZero)
+        if presenter.freeBuildingsCount ?? 0 > 0 {
+            // здесь рисуй попАп за молоточек
+            drawBuildPopUp(price: price,
+                           buildType: buildType,
+                           sender: sender)
+            buildPopUpVw!.priceLbl.text = "Free"
+        }
+        
+        guard KeychainService.standard.me?.coins ?? 0 >= price else {
+            if presenter.freeBuildingsCount ?? 0 <= 0 {
+                showAlert(message: "You don't have enough money") {
+                    let _ = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .goldZero)
+                }
+            }
             return
         }
+        // тут малюй попАп за монети
+        drawBuildPopUp(price: price,
+                       buildType: buildType,
+                       sender: sender)
+    }
+    
+    func drawBuildPopUp(price: Int,
+                        buildType: BuildingType,
+                        sender: UIButton) {
         buildPopUpVw = nil
         buildPopUpVw = BuildPopUpView()
         guard let buildPopUpVw = buildPopUpVw else { return }
@@ -158,7 +179,6 @@ class LevelController: BaseController {
                                    bottomC: 0,
                                    leadingC: 0,
                                    trailingC: 0)
-        
   
         view.layoutIfNeeded()
         checkAvailableHummers()
@@ -185,10 +205,6 @@ class LevelController: BaseController {
         buildPopUpVw.upgradeBtn.addTarget(self,
                                           action: #selector(upgradeBuilding(sender:)),
                                           for: .touchUpInside)
-        
-        buildPopUpVw.hummerBtn.addTarget(self,
-                                         action: #selector(useFreeHummer),
-                                         for: .touchUpInside)
         buildPopUpVw.mainBtn.addTarget(self,
                                        action: #selector(closePopUp),
                                        for: .touchUpInside)
@@ -202,7 +218,7 @@ class LevelController: BaseController {
         view.layoutIfNeeded()
     }
     
-    @objc func useFreeHummer() {
+    func useFreeHummer() {
         AnalyticsHelper.sendFirebaseEvents(events: .map_hummer_use)
         guard let buildPopUpVw = buildPopUpVw else { return }
         buildPopUpVw.priceLbl.text = "Free"
@@ -286,16 +302,13 @@ class LevelController: BaseController {
                 btn?.isUserInteractionEnabled.toggle()
             }
             if let points = self.pointers {
-                for imgVw in  points.imgVwArray {
-                    imgVw.removeFromSuperview()
-                }
+                for imgVw in  points.imgVwArray { imgVw.removeFromSuperview()}
             }
             self.pointers = PointersAndTicks()
             if let x = self.pointers {
                 x.drawPointers(model: self.player, btns: self.btns)
             }
         }
-        
         presenter.upgradeBuild(buildingId: buildingId)
     }
     
