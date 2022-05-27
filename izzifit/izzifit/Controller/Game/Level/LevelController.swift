@@ -25,7 +25,7 @@ class LevelController: BaseController {
     @IBOutlet weak var hummerBtn: UIButton!
     @IBOutlet weak var hummerCountLbl: UILabel!
     
-    private var buildPopUpVw = BuildPopUpView()
+    private var buildPopUpVw: BuildPopUpView?
     
     private lazy var btns = [shipBtn,
                              fishBtn,
@@ -57,9 +57,6 @@ class LevelController: BaseController {
         
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
-        
-        buildPopUpVw.hummerBtn.isHidden = true
-        buildPopUpVw.hummerCountLbl.isHidden = true
         checkAvailableHummers()
     }
     
@@ -150,13 +147,19 @@ class LevelController: BaseController {
             let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .goldZero)
             return
         }
+        buildPopUpVw = nil
+        buildPopUpVw = BuildPopUpView()
+        guard let buildPopUpVw = buildPopUpVw else { return }
+            buildPopUpVw.hummerBtn.isHidden = true
+            buildPopUpVw.hummerCountLbl.isHidden = true
+            view.ui.genericlLayout(object: buildPopUpVw,
+                                   parentView: view,
+                                   topC: 0,
+                                   bottomC: 0,
+                                   leadingC: 0,
+                                   trailingC: 0)
         
-        view.ui.genericlLayout(object: buildPopUpVw,
-                               parentView: view,
-                               topC: 0,
-                               bottomC: 0,
-                               leadingC: 0,
-                               trailingC: 0)
+  
         view.layoutIfNeeded()
         checkAvailableHummers()
         
@@ -201,6 +204,7 @@ class LevelController: BaseController {
     
     @objc func useFreeHummer() {
         AnalyticsHelper.sendFirebaseEvents(events: .map_hummer_use)
+        guard let buildPopUpVw = buildPopUpVw else { return }
         buildPopUpVw.priceLbl.text = "Free"
         guard var count = presenter.freeBuildingsCount else { return }
         presenter.freeBuildingsCount! -= 1
@@ -215,8 +219,9 @@ class LevelController: BaseController {
         }
     }
     
-    @objc func closePopUp() { buildPopUpVw.removeFromSuperview()
-        buildPopUpVw.reloadInputViews()
+    @objc func closePopUp() {
+        guard let buildPopUpVw = buildPopUpVw else { return }
+        buildPopUpVw.removeFromSuperview()
     }
     
     @objc func upgradeBuilding(sender: UIButton) {
@@ -224,7 +229,7 @@ class LevelController: BaseController {
             btn?.isUserInteractionEnabled.toggle()
         }
         guard let buildingId = presenter.buildings[safe: sender.tag]?.id else {return}
-        
+        guard let buildPopUpVw = buildPopUpVw else { return }
         buildPopUpVw.removeFromSuperview()
         view.layoutIfNeeded()
         animation.isHidden.toggle()
@@ -291,7 +296,6 @@ class LevelController: BaseController {
             }
         }
         
-        buildPopUpVw.removeFromSuperview()
         presenter.upgradeBuild(buildingId: buildingId)
     }
     

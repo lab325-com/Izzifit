@@ -49,7 +49,6 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
         setup()
     }
     
-    
     func fillStates(by currentState: LevelStates) {
         var currentStateCounter = Int()
         

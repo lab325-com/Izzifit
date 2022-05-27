@@ -57,8 +57,8 @@ class PointersAndTicks {
     }
     
     var imgVwArray = [UIImageView]()
-    
     let view = UIView()
+    
     var pointersTicksArray = [PointerTick(state: .first, type: .ship, topC: 30, leadingC: 54),
                               PointerTick(state: .first, type: .fishing, topC: -14, leadingC: 103),
                               PointerTick(state: .first, type: .house, topC: 23, leadingC: 87),
