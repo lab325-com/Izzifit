@@ -78,6 +78,7 @@ class FoodAddController: BaseController {
     
     override func viewDidLoad() {
         addTapOnScreen = false
+        correctionKeyboard = 24
         super.viewDidLoad()
         
         setup()

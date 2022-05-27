@@ -1625,6 +1625,50 @@ public final class PasswordForgotRequestMutation: GraphQLMutation {
   }
 }
 
+public final class ProfileDeleteMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation ProfileDelete {
+      profileDelete
+    }
+    """
+
+  public let operationName: String = "ProfileDelete"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("profileDelete", type: .scalar(Bool.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(profileDelete: Bool? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "profileDelete": profileDelete])
+    }
+
+    public var profileDelete: Bool? {
+      get {
+        return resultMap["profileDelete"] as? Bool
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "profileDelete")
+      }
+    }
+  }
+}
+
 public final class ProfileUpdateMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =

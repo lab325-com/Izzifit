@@ -209,7 +209,9 @@ class FoodController: BaseController {
             shadowSearchView.isHidden = false
             clearSearchButton.isHidden = false
             searchView.layer.borderColor = UIColor(rgb: 0xD6B3FA).cgColor
+            searchView.backgroundColor = UIColor.white
         } else {
+            searchView.backgroundColor = UIColor(rgb: 0xF1EFF5)
             stackSearch.isHidden = false
             shadowSearchView.isHidden = true
             clearSearchButton.isHidden = true
@@ -354,7 +356,7 @@ extension FoodController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.foodIdentifier) as? FoodRecomendedCell else { return    UITableViewCell() }
             cell.delegate = self
             if let model = presenter.searchProducts[safe: indexPath.row] {
-                cell.setupCell(model: model, isActive: false)
+                cell.setupCell(model: model, isActive: false, isHiddenBottom: presenter.searchProducts[safe: indexPath.row + 1] == nil ? true : false)
             }
             return cell
         } else {
@@ -362,7 +364,7 @@ extension FoodController: UITableViewDataSource, UITableViewDelegate {
             cell.delegate = self
             
             if let models = presenter.sections[indexPath.section], let model = models[safe: indexPath.row] {
-                cell.setupCell(model: model, isActive: presenter.namesSections[safe: indexPath.section] == RLocalization.food_already_eate())
+                cell.setupCell(model: model, isActive: presenter.namesSections[safe: indexPath.section] == RLocalization.food_already_eate(), isHiddenBottom: models[safe: indexPath.row + 1] == nil ? true : false)
             }
             return cell
         }

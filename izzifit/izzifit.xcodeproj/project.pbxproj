@@ -109,6 +109,11 @@
 		024C69A027DF61A200EE8D53 /* EnergyAddActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 024C699E27DF61A200EE8D53 /* EnergyAddActivityCell.xib */; };
 		024C69A427DF858300EE8D53 /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024C69A227DF858300EE8D53 /* FoodController.swift */; };
 		024C69A527DF858300EE8D53 /* FoodController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 024C69A327DF858300EE8D53 /* FoodController.xib */; };
+		024EBC9B2840C8CC00E6623F /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024EBC9A2840C8CC00E6623F /* AppTrackingTransparency.framework */; };
+		024EBCA12840DA2D00E6623F /* MenuDeleteAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024EBC9F2840DA2D00E6623F /* MenuDeleteAccount.swift */; };
+		024EBCA22840DA2D00E6623F /* MenuDeleteAccount.xib in Resources */ = {isa = PBXBuildFile; fileRef = 024EBCA02840DA2D00E6623F /* MenuDeleteAccount.xib */; };
+		024EBCA52840E97100E6623F /* ProfileDelete.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 024EBCA42840E97100E6623F /* ProfileDelete.graphql */; };
+		024EBCA72840EAE900E6623F /* ProfileDeleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024EBCA62840EAE900E6623F /* ProfileDeleteModel.swift */; };
 		0251D23627E210BA0098A54D /* FoodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251D23527E210BA0098A54D /* FoodPresenter.swift */; };
 		0251D23927E214020098A54D /* SourcesByMeal.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0251D23827E214020098A54D /* SourcesByMeal.graphql */; };
 		0251D23B27E214980098A54D /* SourcesByMealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251D23A27E214980098A54D /* SourcesByMealModel.swift */; };
@@ -177,7 +182,6 @@
 		0273F56927D60EF600B19449 /* SleepWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F56827D60EF600B19449 /* SleepWidgetModel.swift */; };
 		0273F56C27D6513200B19449 /* MealsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0273F56B27D6513200B19449 /* MealsWidget.graphql */; };
 		0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F56D27D6561100B19449 /* MealsWidgetModel.swift */; };
-		028EE3BF2834EE0C00F3D148 /* AppsFlyerLib in Frameworks */ = {isa = PBXBuildFile; productRef = 028EE3BE2834EE0C00F3D148 /* AppsFlyerLib */; };
 		028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C02834EE5100F3D148 /* AdSupport.framework */; };
 		028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C22834EE5C00F3D148 /* iAd.framework */; };
 		028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C42834EE6300F3D148 /* AdServices.framework */; };
@@ -494,6 +498,11 @@
 		024C699E27DF61A200EE8D53 /* EnergyAddActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyAddActivityCell.xib; sourceTree = "<group>"; };
 		024C69A227DF858300EE8D53 /* FoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodController.swift; sourceTree = "<group>"; };
 		024C69A327DF858300EE8D53 /* FoodController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodController.xib; sourceTree = "<group>"; };
+		024EBC9A2840C8CC00E6623F /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
+		024EBC9F2840DA2D00E6623F /* MenuDeleteAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDeleteAccount.swift; sourceTree = "<group>"; };
+		024EBCA02840DA2D00E6623F /* MenuDeleteAccount.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuDeleteAccount.xib; sourceTree = "<group>"; };
+		024EBCA42840E97100E6623F /* ProfileDelete.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ProfileDelete.graphql; sourceTree = "<group>"; };
+		024EBCA62840EAE900E6623F /* ProfileDeleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDeleteModel.swift; sourceTree = "<group>"; };
 		0251D23527E210BA0098A54D /* FoodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPresenter.swift; sourceTree = "<group>"; };
 		0251D23827E214020098A54D /* SourcesByMeal.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SourcesByMeal.graphql; sourceTree = "<group>"; };
 		0251D23A27E214980098A54D /* SourcesByMealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesByMealModel.swift; sourceTree = "<group>"; };
@@ -777,13 +786,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				024EBC9B2840C8CC00E6623F /* AppTrackingTransparency.framework in Frameworks */,
 				028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */,
 				028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */,
 				028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */,
 				0249D27827B3AA3B00F265C1 /* Apollo in Frameworks */,
 				025733D1283E7C0D00CC6743 /* FirebaseRemoteConfig in Frameworks */,
 				0249D27A27B3AA3B00F265C1 /* ApolloWebSocket in Frameworks */,
-				028EE3BF2834EE0C00F3D148 /* AppsFlyerLib in Frameworks */,
 				0249D25627B3A7AD00F265C1 /* NVActivityIndicatorView in Frameworks */,
 				02E6D85B27FC259E00E29509 /* SwiftyStoreKit in Frameworks */,
 				025733CD283E7C0D00CC6743 /* FirebaseAnalytics in Frameworks */,
@@ -1371,6 +1380,24 @@
 			path = FoodController;
 			sourceTree = "<group>";
 		};
+		024EBC9E2840DA1000E6623F /* MenuDeleteAccount */ = {
+			isa = PBXGroup;
+			children = (
+				024EBC9F2840DA2D00E6623F /* MenuDeleteAccount.swift */,
+				024EBCA02840DA2D00E6623F /* MenuDeleteAccount.xib */,
+			);
+			path = MenuDeleteAccount;
+			sourceTree = "<group>";
+		};
+		024EBCA32840E04800E6623F /* ProfileDelete */ = {
+			isa = PBXGroup;
+			children = (
+				024EBCA42840E97100E6623F /* ProfileDelete.graphql */,
+				024EBCA62840EAE900E6623F /* ProfileDeleteModel.swift */,
+			);
+			path = ProfileDelete;
+			sourceTree = "<group>";
+		};
 		0251D23727E213E60098A54D /* SourcesByMeal */ = {
 			isa = PBXGroup;
 			children = (
@@ -1707,6 +1734,7 @@
 				02ABCF3D27CD0D1B00E69C06 /* MenuLanguageController */,
 				0254639F27CE2EEA00D433DB /* MenuWriteQuestion */,
 				023CDC2A280408230056F022 /* MenuLogout */,
+				024EBC9E2840DA1000E6623F /* MenuDeleteAccount */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -1852,6 +1880,7 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				024EBCA32840E04800E6623F /* ProfileDelete */,
 				02B22ACB281C279D006AB1EA /* UpgradeBuilding */,
 				029EDBD1280D726400FC8748 /* WorkoutAttemptUpdate */,
 				02354E9228093554005A8272 /* DoExercise */,
@@ -2310,6 +2339,7 @@
 		DB1BDA7364672EBF249DB7B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				024EBC9A2840C8CC00E6623F /* AppTrackingTransparency.framework */,
 				028EE3C42834EE6300F3D148 /* AdServices.framework */,
 				028EE3C22834EE5C00F3D148 /* iAd.framework */,
 				028EE3C02834EE5100F3D148 /* AdSupport.framework */,
@@ -2617,7 +2647,6 @@
 				0227DA8B27C4CA77008AB26B /* Kingfisher */,
 				02E6D85A27FC259E00E29509 /* SwiftyStoreKit */,
 				FAF4350328257920008691CD /* Gifu */,
-				028EE3BE2834EE0C00F3D148 /* AppsFlyerLib */,
 				025733CC283E7C0D00CC6743 /* FirebaseAnalytics */,
 				025733CE283E7C0D00CC6743 /* FirebaseCrashlytics */,
 				025733D0283E7C0D00CC6743 /* FirebaseRemoteConfig */,
@@ -2659,7 +2688,6 @@
 				0227DA8A27C4CA77008AB26B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 				FAF4350228257920008691CD /* XCRemoteSwiftPackageReference "Gifu" */,
-				028EE3BD2834EE0C00F3D148 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */,
 				025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0249D22827B3A4EF00F265C1 /* Products */;
@@ -2762,6 +2790,7 @@
 				02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */,
 				FA1A2572283D0D0D00240E28 /* PaywallMultiplyController.xib in Resources */,
 				FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */,
+				024EBCA52840E97100E6623F /* ProfileDelete.graphql in Resources */,
 				020CB3D327E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql in Resources */,
 				02ABCF3627CCC3F400E69C06 /* MenuFoodSwitchCell.xib in Resources */,
 				02D066A827BBA72100D12C5F /* Localizable.strings in Resources */,
@@ -2769,6 +2798,7 @@
 				02C3DD6627BEDA82004E5C65 /* QuizeProgressController.xib in Resources */,
 				FE7CF8BC27E4A7ED0099682E /* WeightTableCell.xib in Resources */,
 				02D5703C27E9AE4C00F14911 /* WorkoutsWidget.graphql in Resources */,
+				024EBCA22840DA2D00E6623F /* MenuDeleteAccount.xib in Resources */,
 				020CB3E427EA201300F97A76 /* DrinkWater.graphql in Resources */,
 				FAB59C17282A7D63005AE70B /* BuildPopUpView.xib in Resources */,
 				02E9047E27F5A38F008CFFB4 /* Workouts.graphql in Resources */,
@@ -3026,6 +3056,7 @@
 				0249D26327B3A88C00F265C1 /* UIApplicathion+Extension.swift in Sources */,
 				020D281F27E863DD00010122 /* FoodAddController.swift in Sources */,
 				FEBFD7B127E0F16A0027ADD2 /* SetUIManager.swift in Sources */,
+				024EBCA72840EAE900E6623F /* ProfileDeleteModel.swift in Sources */,
 				02B3017927EB236B0045C607 /* SaveSleepQualityModel.swift in Sources */,
 				02FAF0B027D36EA1002CD678 /* DrinkWidgetModel.swift in Sources */,
 				02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */,
@@ -3085,6 +3116,7 @@
 				0249D26D27B3A96E00F265C1 /* AuthModel.swift in Sources */,
 				02B1E71927DA003B00C9E610 /* EnergyTrainingCell.swift in Sources */,
 				0227DAA927C64F33008AB26B /* MenuRouter.swift in Sources */,
+				024EBCA12840DA2D00E6623F /* MenuDeleteAccount.swift in Sources */,
 				0273F56927D60EF600B19449 /* SleepWidgetModel.swift in Sources */,
 				023FBC3F27FACCC0004D0CEA /* PaywallRouter.swift in Sources */,
 				0251D24027E215C60098A54D /* ProductsByMealModel.swift in Sources */,
@@ -3557,14 +3589,6 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		028EE3BD2834EE0C00F3D148 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
-			};
-		};
 		02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
@@ -3633,11 +3657,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseRemoteConfig;
-		};
-		028EE3BE2834EE0C00F3D148 /* AppsFlyerLib */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 028EE3BD2834EE0C00F3D148 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */;
-			productName = AppsFlyerLib;
 		};
 		02E6D85A27FC259E00E29509 /* SwiftyStoreKit */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -10,5 +10,5 @@ target 'izzifit' do
   pod 'SpreadsheetView'
   pod 'Siren'
   pod 'FBSDKCoreKit'
-  
+  pod 'AppsFlyerFramework'
 end
