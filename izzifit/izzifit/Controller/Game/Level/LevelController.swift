@@ -56,7 +56,7 @@ class LevelController: BaseController {
                                trailingC: 0)
         
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        barBackVw.energyCountLbl.text = "\(KeychainService.standard.me?.energy ?? 0)"
+        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
         checkAvailableHummers()
     }
     
@@ -216,23 +216,6 @@ class LevelController: BaseController {
                                centerV: 0,
                                centerH: 0)
         view.layoutIfNeeded()
-    }
-    
-    func useFreeHummer() {
-        AnalyticsHelper.sendFirebaseEvents(events: .map_hummer_use)
-        guard let buildPopUpVw = buildPopUpVw else { return }
-        buildPopUpVw.priceLbl.text = "Free"
-        guard var count = presenter.freeBuildingsCount else { return }
-        presenter.freeBuildingsCount! -= 1
-        count -= 1
-        
-        switch count {
-        case 0:
-            buildPopUpVw.hummerBtn.isHidden = true
-            buildPopUpVw.hummerCountLbl.isHidden = true
-        default:
-            buildPopUpVw.hummerCountLbl.text = "x\(count)"
-        }
     }
     
     @objc func closePopUp() {
