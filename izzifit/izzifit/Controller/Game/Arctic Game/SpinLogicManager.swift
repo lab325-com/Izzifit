@@ -43,7 +43,7 @@ struct SpinLogicManager {
         resultLbl.text = ""
         decreaseEnergy()
         // реши вопрос с обновлением энергии и вообще обновлением сущности
-        energyLbl.text = String(user.energy!)
+        energyLbl.text = String(Int(user.energy!))
         spinBtn.isUserInteractionEnabled = false
         spinBtn.isSelected.toggle()
         for item in collectionView.visibleCells.indices {

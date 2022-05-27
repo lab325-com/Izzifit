@@ -42,7 +42,8 @@ class PolicyCell: BaseTableViewCell {
             button.setTitle(btnNames[index], for: .normal)
             button.setTitleColor(clr(color: .textTitleBlack),
                                  for: .normal)
-            button.titleLabel!.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+            button.titleLabel!.font = UIFont(name: "Inter-Regular",
+                                             size: h / 58)
         }
     }
     
