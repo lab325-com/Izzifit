@@ -3995,7 +3995,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 185 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 188 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -4109,6 +4109,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let food_main_carbs = Rswift.StringResource(key: "food_main_carbs", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Carbs %.1fg
+      ///
+      /// Locales: en
+      static let food_carbs_float = Rswift.StringResource(key: "food_carbs_float", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Carbs %dg
       ///
       /// Locales: en
@@ -4209,6 +4213,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let food_main_fats = Rswift.StringResource(key: "food_main_fats", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Fats %.1fg
+      ///
+      /// Locales: en
+      static let food_fats_float = Rswift.StringResource(key: "food_fats_float", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Fats %dg
       ///
       /// Locales: en
@@ -4473,6 +4481,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let food_main_proteins = Rswift.StringResource(key: "food_main_proteins", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Proteins %.1fg
+      ///
+      /// Locales: en
+      static let food_proteins_float = Rswift.StringResource(key: "food_proteins_float", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Proteins %dg
       ///
       /// Locales: en
@@ -5174,6 +5186,23 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("food_main_carbs", bundle: bundle, comment: "")
       }
 
+      /// en translation: Carbs %.1fg
+      ///
+      /// Locales: en
+      static func food_carbs_float(_ value1: Double, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("food_carbs_float", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "food_carbs_float"
+        }
+
+        let format = NSLocalizedString("food_carbs_float", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
+
       /// en translation: Carbs %dg
       ///
       /// Locales: en
@@ -5551,6 +5580,23 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("food_main_fats", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Fats %.1fg
+      ///
+      /// Locales: en
+      static func food_fats_float(_ value1: Double, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("food_fats_float", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "food_fats_float"
+        }
+
+        let format = NSLocalizedString("food_fats_float", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
       }
 
       /// en translation: Fats %dg
@@ -6547,6 +6593,23 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("food_main_proteins", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Proteins %.1fg
+      ///
+      /// Locales: en
+      static func food_proteins_float(_ value1: Double, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("food_proteins_float", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "food_proteins_float"
+        }
+
+        let format = NSLocalizedString("food_proteins_float", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
       }
 
       /// en translation: Proteins %dg

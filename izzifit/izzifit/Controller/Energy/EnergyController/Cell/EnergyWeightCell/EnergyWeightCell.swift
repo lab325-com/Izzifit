@@ -21,6 +21,7 @@ class EnergyWeightCell: BaseTableViewCell {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
     
+    @IBOutlet weak var lastDateUpdateLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
     
     
@@ -39,6 +40,8 @@ class EnergyWeightCell: BaseTableViewCell {
     }
     
     func setupCell(model: SaveWeightWidgetMainModel) {
+        
+        lastDateUpdateLabel.text = model.dateString
         
         countLabel.text = "\(model.energy ?? 0)/\(model.energyTotal ?? 0)"
         

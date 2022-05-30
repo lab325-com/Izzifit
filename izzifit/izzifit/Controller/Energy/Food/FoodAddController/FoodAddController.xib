@@ -89,6 +89,7 @@
                                     <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done"/>
                                     <connections>
+                                        <action selector="editingChangeAction:" destination="-1" eventType="editingChanged" id="7Mj-y9-thj"/>
                                         <outlet property="delegate" destination="-1" id="DRk-80-oNs"/>
                                     </connections>
                                 </textField>

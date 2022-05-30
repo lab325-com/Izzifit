@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -74,6 +74,12 @@
                                     <action selector="actionUpdateWieght:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SLa-NF-pg3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJU-gq-uaV">
+                                <rect key="frame" x="461" y="34" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
+                                <color key="textColor" red="0.72941176470588232" green="0.72549019607843135" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.94509803921568625" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -85,7 +91,9 @@
                             <constraint firstItem="kgc-ZS-GrD" firstAttribute="centerY" secondItem="qDs-Oe-0W0" secondAttribute="centerY" id="QMf-t2-hqi"/>
                             <constraint firstItem="1qh-Zi-gNA" firstAttribute="leading" secondItem="L3O-cK-k9M" secondAttribute="leading" constant="16" id="QUh-w3-PIY"/>
                             <constraint firstItem="1K8-gj-qhl" firstAttribute="top" secondItem="qDs-Oe-0W0" secondAttribute="bottom" constant="9" id="TSG-4r-9lu"/>
+                            <constraint firstItem="gJU-gq-uaV" firstAttribute="bottom" secondItem="qDs-Oe-0W0" secondAttribute="bottom" id="VMC-OU-LvU"/>
                             <constraint firstItem="8pY-iD-DmW" firstAttribute="leading" secondItem="L3O-cK-k9M" secondAttribute="leading" constant="16" id="ZDP-bg-IAI"/>
+                            <constraint firstItem="kgc-ZS-GrD" firstAttribute="leading" secondItem="gJU-gq-uaV" secondAttribute="trailing" constant="8" id="ZyU-fc-GHc"/>
                             <constraint firstItem="qDs-Oe-0W0" firstAttribute="leading" secondItem="kgc-ZS-GrD" secondAttribute="trailing" constant="6" id="kOj-sn-qvJ"/>
                             <constraint firstAttribute="trailing" secondItem="1K8-gj-qhl" secondAttribute="trailing" constant="16" id="mHB-PU-hUC"/>
                             <constraint firstAttribute="bottom" secondItem="1qh-Zi-gNA" secondAttribute="bottom" constant="16" id="omH-Ux-bRp"/>
@@ -113,6 +121,7 @@
                 <outlet property="countLabel" destination="qDs-Oe-0W0" id="pp5-3T-XVy"/>
                 <outlet property="doneButton" destination="1qh-Zi-gNA" id="qFY-fZ-lLz"/>
                 <outlet property="goalLabel" destination="3c6-EZ-srK" id="3lC-Ve-pB3"/>
+                <outlet property="lastDateUpdateLabel" destination="gJU-gq-uaV" id="Y9k-vn-Uws"/>
                 <outlet property="mainTitleLabel" destination="8pY-iD-DmW" id="2lQ-rI-WxY"/>
                 <outlet property="weightLabel" destination="1K8-gj-qhl" id="5Fn-LN-0ae"/>
             </connections>

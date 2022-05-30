@@ -72,6 +72,12 @@ class FoodAddController: BaseController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private var gramms: Double = 1 {
+        didSet {
+            setupProteintsView()
+        }
+    }
+    
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
@@ -137,15 +143,18 @@ class FoodAddController: BaseController {
     private func setupProteintsView() {
         
         let proteins = sourceByMeal.first(where: {$0.name == .sourceEntityTypeProteins})
-        proteinGrammLabel.text = RLocalization.food_proteins(proteins?.eaten ?? 0)
+        let grammProtein = model.ProductSources?.first(where: {$0?.name == .sourceEntityTypeProteins})??.amount ?? 0
+        proteinGrammLabel.text = RLocalization.food_proteins_float(Double(grammProtein) * gramms)
         proteingGLeftLabel.text = RLocalization.food_gramm_lefts(proteins?.needed ?? 0)
         
+        let grammFats: Float = Float(model.ProductSources?.first(where: {$0?.name == .sourceEntityTypeFats})??.amount ?? 0)
         let fats = sourceByMeal.first(where: {$0.name == .sourceEntityTypeFats})
-        fatsGLabel.text = RLocalization.food_fats(fats?.eaten ?? 0)
+        fatsGLabel.text = RLocalization.food_fats_float(Double(grammFats) * gramms)
         fatsGLeftLabel.text  = RLocalization.food_gramm_lefts(fats?.needed ?? 0)
         
+        let grammCarbs = model.ProductSources?.first(where: {$0?.name == .sourceEntityTypeCarbs})??.amount ?? 0
         let carbs = sourceByMeal.first(where: {$0.name == .sourceEntityTypeCarbs})
-        carbsGLabel.text = RLocalization.food_carbs(carbs?.eaten ?? 0)
+        carbsGLabel.text = RLocalization.food_carbs_float(Double(grammCarbs) * gramms)
         carbsGLeftLabel.text = RLocalization.food_gramm_lefts(carbs?.needed ?? 0)
     }
     
@@ -153,6 +162,17 @@ class FoodAddController: BaseController {
         if gesture.direction == .down {
             print("Swipe Down")
             dismiss(animated: true)
+        }
+    }
+    
+    @IBAction func editingChangeAction(_ sender: UITextField) {
+        let gram = Double(sender.text!)
+        
+        if model.measure == .productMeasureTypeGram {
+            let gramms = (gram ?? 0) > 0 ? gram! : 100
+            self.gramms = gramms / 100
+        } else {
+            self.gramms = (gram ?? 0) > 0 ? gram! : 1
         }
     }
     

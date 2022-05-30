@@ -6846,6 +6846,7 @@ public final class SaveWeightWidgetQuery: GraphQLQuery {
         measure
         targetWeight
         weight
+        createdAt
       }
     }
     """
@@ -6894,6 +6895,7 @@ public final class SaveWeightWidgetQuery: GraphQLQuery {
           GraphQLField("measure", type: .scalar(WeightMeasure.self)),
           GraphQLField("targetWeight", type: .scalar(Double.self)),
           GraphQLField("weight", type: .scalar(Double.self)),
+          GraphQLField("createdAt", type: .scalar(String.self)),
         ]
       }
 
@@ -6903,8 +6905,8 @@ public final class SaveWeightWidgetQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(energy: Int? = nil, energyTotal: Int? = nil, measure: WeightMeasure? = nil, targetWeight: Double? = nil, weight: Double? = nil) {
-        self.init(unsafeResultMap: ["__typename": "SaveWeightWidget", "energy": energy, "energyTotal": energyTotal, "measure": measure, "targetWeight": targetWeight, "weight": weight])
+      public init(energy: Int? = nil, energyTotal: Int? = nil, measure: WeightMeasure? = nil, targetWeight: Double? = nil, weight: Double? = nil, createdAt: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "SaveWeightWidget", "energy": energy, "energyTotal": energyTotal, "measure": measure, "targetWeight": targetWeight, "weight": weight, "createdAt": createdAt])
       }
 
       public var __typename: String {
@@ -6958,6 +6960,15 @@ public final class SaveWeightWidgetQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "weight")
+        }
+      }
+
+      public var createdAt: String? {
+        get {
+          return resultMap["createdAt"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "createdAt")
         }
       }
     }

@@ -15,6 +15,7 @@ class WorkoutDetailController: BaseController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var startWorkoutButton: UIButton!
+    @IBOutlet weak var botomView: UIView!
     
     //----------------------------------------------
     // MARK: - Property
@@ -75,7 +76,7 @@ class WorkoutDetailController: BaseController {
         tableView.register(UINib(nibName: cellTrainingIdentifier, bundle: nil), forCellReuseIdentifier: cellTrainingIdentifier)
         tableView.register(UINib(nibName: cellIDescriptiondentifier, bundle: nil), forCellReuseIdentifier: cellIDescriptiondentifier)
         
-        
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
         tableView.register(UINib(nibName: sectionTitleIdentifier, bundle: nil), forHeaderFooterViewReuseIdentifier: sectionTitleIdentifier)
     }
     
@@ -128,7 +129,9 @@ extension WorkoutDetailController: UITableViewDelegate, UITableViewDataSource {
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellTrainingIdentifier) as? WorkoutDetailTrainCell else { return UITableViewCell() }
             if let model = presenter.workout?.exerciseGroups?[safe: indexPath.section - 1]?.exercises?[safe: indexPath.row] {
-                cell.setupCell(model: model, isSelected: selectedId == model.id)
+                let nextExecise = presenter.workout?.exerciseGroups?[safe: indexPath.section - 1]?.exercises?[safe: indexPath.row + 1]
+                
+                cell.setupCell(model: model, isSelected: selectedId == model.id, isHiddenSepate: nextExecise == nil ? true : false)
             }
             return cell
         }
@@ -155,14 +158,11 @@ extension WorkoutDetailController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         AudioManager.sharedManager.playSound()
-        if indexPath.section != 0, let id = presenter.workout?.exerciseGroups?[safe: indexPath.section - 1]?.exercises?[safe: indexPath.row]?.id {
-            selectedId = selectedId == id ? nil : id
+        if indexPath.section != 0, let id = presenter.workout?.exerciseGroups?[safe: indexPath.section - 1]?.exercises?[safe: indexPath.row]?.id, presenter.workout?.exerciseGroups?[safe: indexPath.section - 1]?.exercises?[safe: indexPath.row]?.isRest != true {
             
-            //let indexs = IndexSet(1..<(1 + (presenter.workout?.exerciseGroups?.count ?? 0)))
-            //self.tableView.reloadSections(indexs, with: .automatic)
-            //self.tableView.beginUpdates()
+            
+            selectedId = selectedId == id ? nil : id
             self.tableView.reloadData()
-            //self.tableView.endUpdates()
         }
     }
 }
