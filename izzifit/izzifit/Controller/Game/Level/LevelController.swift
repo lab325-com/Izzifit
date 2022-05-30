@@ -57,14 +57,16 @@ class LevelController: BaseController {
         
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
-        checkAvailableHummers()
     }
     
     override func viewDidLoad() {
+        hummerBtn.isHidden = true
+        hummerCountLbl.isHidden = true
         needSoundTap = false
         super.viewDidLoad()
         presenter.getBuildings{ [self] in
             if firstRespond {
+                checkAvailableHummers()
                 firstRespond.toggle()
                 pointers = PointersAndTicks()
                 if let x = pointers {
@@ -307,11 +309,8 @@ class LevelController: BaseController {
         for i in 0...4 {
             btns[i]?.tag = i
         }
-        if let name = KeychainService.standard.me?.name {
-            barBackVw.nameLbl.text = name
-        } else {
-            barBackVw.nameLbl.isHidden = true
-        }
+        if let name = KeychainService.standard.me?.name { barBackVw.nameLbl.text = name }
+        else { barBackVw.nameLbl.isHidden = true }
         barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
                                           placeholder: RImage.placeholder_food_ic(),
                                           options: [.transition(.fade(0.25))])
@@ -412,13 +411,9 @@ extension LevelController: LevelOutputProtocol {
 //----------------------------------------------
 
 extension LevelController: PaywallProtocol {
-    func paywallActionBack(controller: BaseController) {
-        self.dismiss(animated: true)
-    }
+    func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
     
-    func paywallSuccess(controller: BaseController) {
-        
-    }
+    func paywallSuccess(controller: BaseController) { }
 }
 
 

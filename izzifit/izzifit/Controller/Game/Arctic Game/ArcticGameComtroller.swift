@@ -110,9 +110,6 @@ class ArcticGameComtroller: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        hummerBtn.isHidden = true
-        hummerCountLbl.isHidden = true
-        checkAvailableHummers()
         // Поменяй
         avatarImageView.isHidden = true
         barBackImgVw.isHidden = true
@@ -195,6 +192,9 @@ class ArcticGameComtroller: BaseController {
     }
     
     override func viewDidLoad() {
+        setCollectionView()
+        hummerBtn.isHidden = true
+        hummerCountLbl.isHidden = true
         AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
         needSoundTap = false
         hiddenNavigationBar = true
@@ -205,7 +205,6 @@ class ArcticGameComtroller: BaseController {
                 self.counter.combinations = spins
             }
         }
-        setCollectionView()
         setup()
         let swipeRight = UISwipeGestureRecognizer(target: self,
                                                   action: #selector(handleGesture))
