@@ -60,6 +60,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         AppEvents.shared.activateApp()
         
+        if #available(iOS 14, *) {
+            if ATTrackingManager.trackingAuthorizationStatus == .authorized {
+                Settings.shared.isAdvertiserIDCollectionEnabled = true
+                Settings.shared.isAdvertiserTrackingEnabled = true
+            } else {
+                Settings.shared.isAdvertiserIDCollectionEnabled = false
+                Settings.shared.isAdvertiserTrackingEnabled = false
+            }
+        }
+        
         loadConfig()
         checkingPurchase()
         forceUpdate()

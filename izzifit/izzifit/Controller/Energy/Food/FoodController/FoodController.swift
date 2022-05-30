@@ -77,6 +77,7 @@ class FoodController: BaseController {
         didSet {
             topLabel.text = currentMealType.text
             presenter.getProducts(mealTypes: currentMealType, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "")
+            updateTypeEat()
         }
     }
     
@@ -273,6 +274,15 @@ class FoodController: BaseController {
         }
     }
     
+    private func updateTypeEat() {
+        hideKeyboard()
+        UIView.animate(withDuration: 0.3) {
+            self.arrowDownImageView.transform = self.arrowDownImageView.transform.rotated(by: .pi)
+            self.bottomPickerLayout.constant = self.bottomPickerLayout.constant == 0 ? -220 : 0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     //----------------------------------------------
     // MARK: - IBAction
     //----------------------------------------------
@@ -290,12 +300,7 @@ class FoodController: BaseController {
     }
     
     @IBAction func actionTypeEat(_ sender: UIButton) {
-        hideKeyboard()
-        UIView.animate(withDuration: 0.3) {
-            self.arrowDownImageView.transform = self.arrowDownImageView.transform.rotated(by: .pi)
-            self.bottomPickerLayout.constant = self.bottomPickerLayout.constant == 0 ? -220 : 0
-            self.view.layoutIfNeeded()
-        }
+        updateTypeEat()
     }
     
     @IBAction func addOwnProduct(_ sender: UIButton) {
