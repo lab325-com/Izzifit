@@ -192,6 +192,7 @@ class ArcticGameComtroller: BaseController {
     }
     
     override func viewDidLoad() {
+        setCollectionView()
         hummerBtn.isHidden = true
         hummerCountLbl.isHidden = true
         AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
@@ -204,7 +205,6 @@ class ArcticGameComtroller: BaseController {
                 self.counter.combinations = spins
             }
         }
-        setCollectionView()
         setup()
         let swipeRight = UISwipeGestureRecognizer(target: self,
                                                   action: #selector(handleGesture))
