@@ -151,6 +151,10 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
         setup()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
             coordinator.animate(alongsideTransition: { (context) in
