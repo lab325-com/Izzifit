@@ -13,7 +13,7 @@ class GameView: UIView {
     
     // Basic view
     private var gameBackImgVw = UIImageView()
-    private var slotBackImgVw = UIImageView()
+    var slotBackImgVw = UIImageView()
     private var slotHouseImgVw = UIImageView()
     private var uponGameBackImgVw = UIImageView()
     private var spinBtn = UIButton()
@@ -38,7 +38,6 @@ class GameView: UIView {
         
         spinBtn.setImage(image(img: .spinBtnNormal), for: .normal)
         spinBtn.setImage(image(img: .spinBtnSelected), for: .selected)
-        
     }
     
     private func layout() {
@@ -79,5 +78,4 @@ class GameView: UIView {
                           topToO: slotHouseImgVw.bottomAnchor,
                           topCG: 17)
     }
-
 }

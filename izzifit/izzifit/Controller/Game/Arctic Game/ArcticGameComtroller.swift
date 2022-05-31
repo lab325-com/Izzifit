@@ -45,8 +45,9 @@ class ArcticGameComtroller: BaseController {
     let progressImg = UIImage(named: "progressActive")
     
     override func loadView() {
-    gameView = GameView()
+        gameView = GameView()
         self.view = gameView
+        setCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -182,11 +183,11 @@ class ArcticGameComtroller: BaseController {
                                 forCellWithReuseIdentifier: SlotCollectionCell.id)
         
         view.ui.genericlLayout(object: collectionView,
-                               parentView: slotBackImgVw,
+                               parentView: gameView.slotBackImgVw,
                                width: view.h / 3.60,
                                height: view.h / 5.77,
-                               centerV: -view.h / 48,
-                               centerH: view.h / 81.2)
+                               centerV: -view.h / 73,
+                               centerH: view.h / 88.9)
     }
     
     private func spinsRunOut() {
