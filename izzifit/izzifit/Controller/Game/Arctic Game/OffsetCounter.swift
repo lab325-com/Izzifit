@@ -22,24 +22,17 @@ protocol OffsetCounterProtocol {
     
     var speedIteraror: CGFloat { get set }
     var raceBrakeDistance: CGFloat { get set }
-
-    func calculateVelocityStride() -> CGFloat
 }
 
 class OffsetCounter: OffsetCounterProtocol {
 
     var oneCellStrideOffset: CGFloat
-    lazy var minStridesCount: Int = {
-      Int((raceBrakeDistance + forsageDistance) / oneCellStrideOffset) + 1
-    }()
+    lazy var minStridesCount: Int = { Int((raceBrakeDistance + forsageDistance) / oneCellStrideOffset) + 1 }()
+    
     var firstIndexPathRow = 8998
     var startSecondIndexPathRow = 8998
     var startThirdIndexPathRow = 8998
-    //[0: SlotImgs.dollar,
-    // 1: SlotImgs.snowflake,
-    // 2: SlotImgs.moneyBag,
-    // 3: SlotImgs.hammer,
-    // 4: SlotImgs.lightning]
+   
     var combinations: [MapSpinsModel] = []
     
     init(strideOffset: CGFloat) {
@@ -70,7 +63,6 @@ class OffsetCounter: OffsetCounterProtocol {
             array.append(random)
         }
         return array
-
     }()
 
     static var thirdArray: [Int] = {
@@ -82,6 +74,10 @@ class OffsetCounter: OffsetCounterProtocol {
         return array
     }()
 
+    var arrays = [OffsetCounter.firstArray,
+                  OffsetCounter.secondArray,
+                  OffsetCounter.thirdArray]
+    
     var speedIteraror: CGFloat = 48.0
     
     var raceBrakeDistance: CGFloat = {
@@ -98,13 +94,13 @@ class OffsetCounter: OffsetCounterProtocol {
         let distance = first + second + third + fourth + fifth + sixth + seventh + eighth + nineth + tenth
         return distance
     }()
-    lazy var forsageDistance: CGFloat = {
-        StrideConstants.minSpeedStride * speedIteraror
-    }()
+    
+    lazy var forsageDistance: CGFloat = { StrideConstants.minSpeedStride * speedIteraror }()
 
     func spiningStride(to elementIndex: Int,
                        from tableInt: Int,
                        currentArray: [Int]) -> CGFloat {
+        
         var indexPathRow = Int()
         
         switch tableInt {
@@ -113,7 +109,7 @@ class OffsetCounter: OffsetCounterProtocol {
         case 2: indexPathRow = startThirdIndexPathRow
         default: break
         }
-        let newIndex = indexPathRow - minStridesCount//23 // ошибка здесь
+        let newIndex = indexPathRow - minStridesCount
         let toElement = SlotRowModel(indexPathRow: newIndex,
                                      slotInt: currentArray[newIndex])
         guard elementIndex != toElement.slotInt else {
@@ -130,7 +126,6 @@ class OffsetCounter: OffsetCounterProtocol {
         
         guard let matchedElemenIndex = returnMatchedIndexPathRow(matchElement: elementIndex,
                                                                  arrayModels: arrayModels) else { return 0.0 }
-            print("MMM\(matchedElemenIndex)")
             let totalDistanceInCells = indexPathRow - matchedElemenIndex
             
             switch tableInt {
@@ -140,12 +135,10 @@ class OffsetCounter: OffsetCounterProtocol {
             default: break
             }
             
-           
             let totalDistance = CGFloat(totalDistanceInCells) * oneCellStrideOffset
             let raceDistance = totalDistance - raceBrakeDistance
             let speedStride = raceDistance / speedIteraror
             return speedStride
-      
     }
     
     func returnMatchedIndexPathRow(matchElement: Int,
@@ -166,10 +159,6 @@ class OffsetCounter: OffsetCounterProtocol {
                                       slotInt: currentArray[(startElement - n)]))
         }
         return array
-    }
-    
-    func calculateVelocityStride() -> CGFloat {
-        return 0.0
     }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct SpinLogicManager {
+struct CombinationsAwardsManager {
     
     var user: MeMainModel {
         get{
@@ -20,19 +20,6 @@ struct SpinLogicManager {
         }
     }
     
-    lazy var currentSpinsCount: Int = {
-        Int(user.energy ?? 0.0)
-    }()
-    
-    static let array: [Int] = {
-        var array = [Int]()
-        for _ in 0...2800 {
-            let random = Int(arc4random_uniform(5))
-            array.append(random)
-        }
-        return array
-    }()
-    
     func spinAction(coinsLbl: UILabel,
                     energyLbl: UILabel,
                     resultLbl: UILabel,
@@ -41,7 +28,7 @@ struct SpinLogicManager {
                     runTimer: () -> ()) {
    
         resultLbl.text = ""
-        decreaseEnergy()
+        KeychainService.standard.me?.energy! -= 1
         // реши вопрос с обновлением энергии и вообще обновлением сущности
         energyLbl.text = String(Int(user.energy!))
         spinBtn.isUserInteractionEnabled = false
@@ -146,10 +133,6 @@ struct SpinLogicManager {
         }
     }
     
-    private func decreaseEnergy() {
-        KeychainService.standard.me?.energy! -= 1
-    }
-    
     private func matchedIndicesAndCombination(of array: [Int]) -> (SpinCombination,Set<Int>)? {
         var count = 0
         var res: Set<Int> = []
@@ -185,29 +168,6 @@ func recognizeSetCombinations(_ resultIndices: [Int]) -> (SpinCombination, Set<I
         }
         guard let pairResultTuple = matchedIndicesAndCombination(of: resultIndices) else { return nil }
         return pairResultTuple
-    }
-    
-    private func getResultIndices(_ collectionView: UICollectionView) -> [Int] {
-        
-        var indicesArray = [Int]()
-        
-        for item in collectionView.visibleCells.indices {
-            let middleIndex = (collectionView.cellForItem(at: [0,item]) as! SlotCollectionCell).tableView.visibleCells[1].tag
-            indicesArray.append(middleIndex)
-        }
-        
-        return indicesArray
-    }
-    
-    func paintBlueBorder(_ set: Set<Int>,
-                         indexPathes: [Int],
-                         collectionView: UICollectionView) {
-        for int in set {
-            let table = ( collectionView.cellForItem(at: [0,int]) as! SlotCollectionCell).tableView
-            if  let cell = (table.cellForRow(at: [0, indexPathes[int]]) as? SlotTableViewCell) {
-                cell.borderView.isHidden = false
-            }
-        }
     }
 }
 
