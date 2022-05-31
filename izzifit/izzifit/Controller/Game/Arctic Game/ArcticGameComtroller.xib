@@ -48,13 +48,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameBackTwo" translatesAutoresizingMaskIntoConstraints="NO" id="ZKm-QR-xxP">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="811.66666666666663"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1260.3333333333333"/>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="slotBack" translatesAutoresizingMaskIntoConstraints="NO" id="wx9-Aq-jrW">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slotBack" translatesAutoresizingMaskIntoConstraints="NO" id="wx9-Aq-jrW">
                     <rect key="frame" x="71.333333333333329" y="323" width="232.33333333333337" height="183.66666666666663"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slotHouse" translatesAutoresizingMaskIntoConstraints="NO" id="rVY-Lm-t4W">
-                    <rect key="frame" x="1.3333333333333428" y="180.00000000000003" width="372.33333333333326" height="404.66666666666674"/>
+                    <rect key="frame" x="-101.66666666666669" y="180" width="578.33333333333337" height="628.66666666666663"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="START!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYp-3c-605">
                     <rect key="frame" x="152.66666666666666" y="220" width="80" height="16"/>
@@ -66,10 +66,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameBackOne" translatesAutoresizingMaskIntoConstraints="NO" id="75E-ni-IYP">
-                    <rect key="frame" x="0.0" y="467.33333333333337" width="375" height="344.33333333333337"/>
+                    <rect key="frame" x="0.0" y="725.66666666666674" width="375" height="534.66666666666674"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Hp-KN-GQ8">
-                    <rect key="frame" x="70.666666666666671" y="601.66666666666663" width="233.66666666666663" height="72"/>
+                    <rect key="frame" x="6" y="825.66666666666663" width="363" height="111.66666666666663"/>
                     <fontDescription key="fontDescription" name="Inter-Black" family="Inter" pointSize="38"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" image="spinBtnNormal"/>
@@ -140,9 +140,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_logo_ic" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-31-lpX">
-                    <rect key="frame" x="129.66666666666666" y="117" width="125.66666666666666" height="56"/>
+                    <rect key="frame" x="95.000000000000014" y="117" width="195.33333333333337" height="56"/>
                 </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BBy-2U-Cbj">
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BBy-2U-Cbj">
                     <rect key="frame" x="145" y="212.66666666666666" width="95" height="31"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moneyBag" translatesAutoresizingMaskIntoConstraints="NO" id="VKi-Kd-Lue">
@@ -162,7 +162,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="10500" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7po-aY-woa">
-                                    <rect key="frame" x="0.0" y="6.6666666666666661" width="64" height="24.333333333333336"/>
+                                    <rect key="frame" x="0.0" y="6.6666666666666838" width="64" height="24.333333333333329"/>
                                     <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="20"/>
                                     <color key="textColor" red="0.41568627450000001" green="0.32549019610000002" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -207,6 +207,8 @@
                 <constraint firstItem="rVY-Lm-t4W" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.498768" id="Ufh-Sc-wHZ"/>
                 <constraint firstItem="2Hp-KN-GQ8" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.08867" id="cKO-2X-TnP"/>
                 <constraint firstAttribute="bottom" secondItem="75E-ni-IYP" secondAttribute="bottom" id="cvf-l8-bDt"/>
+                <constraint firstItem="wx9-Aq-jrW" firstAttribute="top" secondItem="BBy-2U-Cbj" secondAttribute="bottom" constant="79.333333333333343" id="dpO-tg-b7b"/>
+                <constraint firstItem="wx9-Aq-jrW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="323" id="f5S-fD-QOn"/>
                 <constraint firstItem="rVY-Lm-t4W" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="180" id="fdp-jN-gV3"/>
                 <constraint firstItem="rVY-Lm-t4W" firstAttribute="top" secondItem="JwX-9o-zVn" secondAttribute="bottom" constant="86" id="hJX-6H-pgR"/>
                 <constraint firstAttribute="trailing" secondItem="75E-ni-IYP" secondAttribute="trailing" id="hsM-9h-Ccz"/>

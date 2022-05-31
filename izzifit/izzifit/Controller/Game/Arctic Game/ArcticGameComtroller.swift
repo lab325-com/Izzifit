@@ -12,8 +12,10 @@ class ArcticGameComtroller: BaseController {
     private var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
     
     @IBOutlet weak var gameBackImgVw: UIImageView!
+    
     @IBOutlet weak var barBackImgVw: UIImageView!
     @IBOutlet weak var avatarImageView: UIImageView!
+    
     @IBOutlet weak var slotBackImgVw: UIImageView!
     @IBOutlet weak var spinBtn: UIButton!
     @IBOutlet weak var slotHouseImgVw: UIImageView!
@@ -38,21 +40,28 @@ class ArcticGameComtroller: BaseController {
     private var timerSpinManager: TimerSpinManager!
     private var spinManager = CombinationsAwardsManager()
     
+    private var gameView: GameView!
+    
     let progressImg = UIImage(named: "progressActive")
+    
+    override func loadView() {
+    gameView = GameView()
+        self.view = gameView
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        avatarImageView.isHidden = true
-        barBackImgVw.isHidden = true
-        view.ui.genericlLayout(object: barBackVw,
-                               parentView: gameBackImgVw,
-                               height: view.h / 9.2,
-                               topC: 0,
-                               leadingC: 0,
-                               trailingC: 0)
-        
-        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+//        avatarImageView.isHidden = true
+//        barBackImgVw.isHidden = true
+//        view.ui.genericlLayout(object: barBackVw,
+//                               parentView: gameBackImgVw,
+//                               height: view.h / 9.2,
+//                               topC: 0,
+//                               leadingC: 0,
+//                               trailingC: 0)
+//
+//        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+//        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }
     
     private func setup() {
@@ -122,25 +131,25 @@ class ArcticGameComtroller: BaseController {
     }
     
     override func viewDidLoad() {
-        setCollectionView()
-        hummerBtn.isHidden = true
-        hummerCountLbl.isHidden = true
-        AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
-        needSoundTap = false
-        hiddenNavigationBar = true
-        super.viewDidLoad()
-        timerSpinManager = TimerSpinManager(collectionView: collectionView,
-                                            presenter: presenter)
-        DispatchQueue.main.async {
-            self.presenter.getMap { spins in
-                self.checkAvailableHummers()
-                self.timerSpinManager.counter.combinations = spins
-            }
-        }
-        setup()
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
-        swipeRight.direction = .right
-        self.view.addGestureRecognizer(swipeRight)
+//        setCollectionView()
+//        hummerBtn.isHidden = true
+//        hummerCountLbl.isHidden = true
+//        AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
+//        needSoundTap = false
+//        hiddenNavigationBar = true
+//        super.viewDidLoad()
+//        timerSpinManager = TimerSpinManager(collectionView: collectionView,
+//                                            presenter: presenter)
+//        DispatchQueue.main.async {
+//            self.presenter.getMap { spins in
+//                self.checkAvailableHummers()
+//                self.timerSpinManager.counter.combinations = spins
+//            }
+//        }
+//        setup()
+//        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+//        swipeRight.direction = .right
+//        self.view.addGestureRecognizer(swipeRight)
     }
     
     func threeHummersCombination() {

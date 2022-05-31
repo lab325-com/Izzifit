@@ -9,13 +9,15 @@ import Foundation
 import UIKit
 
 enum Imgs: String {
+    // GameView
+    case gameBackTwo, gameBackOne, slotBack, spinBtnNormal, spinBtnSelected, slotHouse
+    
     case shipStart, shipFirst, shipSecond, shipThird, shipFourth, shipFinish
     case fishStart, fishFirst, fishSecond, fishThird, fishFourth, fishFinish
     case igluStart, igluFirst, igluSecond, igluThird, igluFourth, igluFinish
     case goldStart, goldFirst, goldSecond, goldThird, goldFourth, goldFinish
     case deersStart, deersFirst, deersSecond, deersThird, deersFourth, deersFinish
     case gameTabBarEnergy, gameTabBarMap, gameTabBarBuild, gameTabBarSpin
-    case spinBtnNormal, spinBtnSelected
     
     case popStartState
     case pop1Ship, pop2Ship, pop3Ship, pop4Ship, pop5Ship

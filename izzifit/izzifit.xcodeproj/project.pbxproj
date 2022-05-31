@@ -348,6 +348,7 @@
 		FA1A6D8128081CE80040518A /* LevelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1A6D7F28081CE80040518A /* LevelController.xib */; };
 		FA1A6D8B28097F0D0040518A /* GameTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */; };
 		FA3319C528461E490021C433 /* TimerSpinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3319C428461E490021C433 /* TimerSpinManager.swift */; };
+		FA3319C8284683100021C433 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3319C7284683100021C433 /* GameView.swift */; };
 		FA42CC00283CE52700C6C959 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */; };
 		FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */; };
 		FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */; };
@@ -736,6 +737,7 @@
 		FA1A6D7F28081CE80040518A /* LevelController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelController.xib; sourceTree = "<group>"; };
 		FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTabBarController.swift; sourceTree = "<group>"; };
 		FA3319C428461E490021C433 /* TimerSpinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSpinManager.swift; sourceTree = "<group>"; };
+		FA3319C7284683100021C433 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometryManager.swift; sourceTree = "<group>"; };
 		FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WeightsWidget.graphql; sourceTree = "<group>"; };
@@ -2405,6 +2407,14 @@
 			path = PaywallSingle;
 			sourceTree = "<group>";
 		};
+		FA3319C6284682D30021C433 /* GameView  */ = {
+			isa = PBXGroup;
+			children = (
+				FA3319C7284683100021C433 /* GameView.swift */,
+			);
+			path = "GameView ";
+			sourceTree = "<group>";
+		};
 		FA62C54A27F5B43800AC463A /* WeightsWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -2491,6 +2501,7 @@
 		FAB6546D27FEDF340057A221 /* Arctic Game */ = {
 			isa = PBXGroup;
 			children = (
+				FA3319C6284682D30021C433 /* GameView  */,
 				FA9400032833986400CE5021 /* GameBarBackView */,
 				FAB6547E27FFFD330057A221 /* Cells */,
 				FAB6546E27FEDFA70057A221 /* ArcticGameComtroller.swift */,
@@ -3113,6 +3124,7 @@
 				025463AC27CE6E9800D433DB /* MenuFitnessController.swift in Sources */,
 				FA1761C027DA3E96002881BB /* WorkoutActivityCollectionCell.swift in Sources */,
 				0251D23627E210BA0098A54D /* FoodPresenter.swift in Sources */,
+				FA3319C8284683100021C433 /* GameView.swift in Sources */,
 				02D066D827BBDC3400D12C5F /* QuizeGoalController.swift in Sources */,
 				025463A227CE2F1500D433DB /* MenuWriteQuestionController.swift in Sources */,
 				FA1A6D8B28097F0D0040518A /* GameTabBarController.swift in Sources */,

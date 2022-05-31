@@ -158,6 +158,7 @@ struct CombinationsAwardsManager {
     }
     
 func recognizeSetCombinations(_ resultIndices: [Int]) -> (SpinCombination, Set<Int>)? {
+        
         switch resultIndices {
         case [1,1,1]: return (.setDollars, [0,1,2])
         case [2,2,2]: return (.setMoneyBags,[0,1,2])
@@ -166,6 +167,7 @@ func recognizeSetCombinations(_ resultIndices: [Int]) -> (SpinCombination, Set<I
         case [5,5,5]: return (.setHummers, [0,1,2])
         default: break
         }
+    
         guard let pairResultTuple = matchedIndicesAndCombination(of: resultIndices) else { return nil }
         return pairResultTuple
     }
