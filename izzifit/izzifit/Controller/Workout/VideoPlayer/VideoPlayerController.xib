@@ -425,17 +425,17 @@ workout</string>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="0Zy-La-xXq"/>
-                    <exclude reference="OqH-dD-6W6"/>
                     <exclude reference="9gY-hd-wIv"/>
                     <exclude reference="BQj-WI-5Xm"/>
                     <exclude reference="f2Q-3y-EWB"/>
                     <exclude reference="knc-73-KaU"/>
-                    <exclude reference="G8X-9s-eNY"/>
+                    <exclude reference="0Zy-La-xXq"/>
+                    <exclude reference="OqH-dD-6W6"/>
                     <exclude reference="nsY-s1-P27"/>
-                    <exclude reference="qi9-H7-50T"/>
                     <exclude reference="RTc-dh-nXt"/>
                     <exclude reference="kfX-qg-h1l"/>
+                    <exclude reference="qi9-H7-50T"/>
+                    <exclude reference="G8X-9s-eNY"/>
                 </mask>
             </variation>
             <variation key="heightClass=compact-widthClass=compact">
@@ -444,31 +444,31 @@ workout</string>
                     <exclude reference="4TR-Pj-kpl"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="0Zy-La-xXq"/>
-                    <exclude reference="RNs-zR-iZv"/>
-                    <exclude reference="PL0-DJ-4Go"/>
-                    <exclude reference="xLx-95-MWv"/>
-                    <include reference="OqH-dD-6W6"/>
                     <include reference="9gY-hd-wIv"/>
                     <include reference="BQj-WI-5Xm"/>
                     <exclude reference="agF-KZ-zqS"/>
                     <exclude reference="dTe-9q-p8J"/>
                     <include reference="f2Q-3y-EWB"/>
                     <include reference="knc-73-KaU"/>
-                    <include reference="G8X-9s-eNY"/>
-                    <exclude reference="PI5-cS-cm0"/>
-                    <exclude reference="YxP-S5-7am"/>
+                    <include reference="0Zy-La-xXq"/>
+                    <exclude reference="RNs-zR-iZv"/>
+                    <exclude reference="PL0-DJ-4Go"/>
+                    <exclude reference="xLx-95-MWv"/>
+                    <include reference="OqH-dD-6W6"/>
                     <exclude reference="0hW-T1-3Ut"/>
                     <exclude reference="XWE-xz-s4l"/>
                     <include reference="nsY-s1-P27"/>
+                    <include reference="RTc-dh-nXt"/>
+                    <exclude reference="UN2-zL-rtF"/>
+                    <include reference="kfX-qg-h1l"/>
                     <exclude reference="KJG-qM-fxA"/>
                     <exclude reference="dh0-61-OKq"/>
                     <include reference="qi9-H7-50T"/>
                     <exclude reference="Eda-BP-22g"/>
                     <exclude reference="uJ1-8j-qyX"/>
-                    <include reference="RTc-dh-nXt"/>
-                    <exclude reference="UN2-zL-rtF"/>
-                    <include reference="kfX-qg-h1l"/>
+                    <include reference="G8X-9s-eNY"/>
+                    <exclude reference="PI5-cS-cm0"/>
+                    <exclude reference="YxP-S5-7am"/>
                 </mask>
             </variation>
             <variation key="heightClass=compact-widthClass=regular">
@@ -477,31 +477,31 @@ workout</string>
                     <exclude reference="4TR-Pj-kpl"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="0Zy-La-xXq"/>
-                    <exclude reference="RNs-zR-iZv"/>
-                    <exclude reference="PL0-DJ-4Go"/>
-                    <exclude reference="xLx-95-MWv"/>
-                    <include reference="OqH-dD-6W6"/>
                     <include reference="9gY-hd-wIv"/>
                     <include reference="BQj-WI-5Xm"/>
                     <exclude reference="agF-KZ-zqS"/>
                     <exclude reference="dTe-9q-p8J"/>
                     <include reference="f2Q-3y-EWB"/>
                     <include reference="knc-73-KaU"/>
-                    <include reference="G8X-9s-eNY"/>
-                    <exclude reference="PI5-cS-cm0"/>
-                    <exclude reference="YxP-S5-7am"/>
+                    <include reference="0Zy-La-xXq"/>
+                    <exclude reference="RNs-zR-iZv"/>
+                    <exclude reference="PL0-DJ-4Go"/>
+                    <exclude reference="xLx-95-MWv"/>
+                    <include reference="OqH-dD-6W6"/>
                     <exclude reference="0hW-T1-3Ut"/>
                     <exclude reference="XWE-xz-s4l"/>
                     <include reference="nsY-s1-P27"/>
+                    <include reference="RTc-dh-nXt"/>
+                    <exclude reference="UN2-zL-rtF"/>
+                    <include reference="kfX-qg-h1l"/>
                     <exclude reference="KJG-qM-fxA"/>
                     <exclude reference="dh0-61-OKq"/>
                     <include reference="qi9-H7-50T"/>
                     <exclude reference="Eda-BP-22g"/>
                     <exclude reference="uJ1-8j-qyX"/>
-                    <include reference="RTc-dh-nXt"/>
-                    <exclude reference="UN2-zL-rtF"/>
-                    <include reference="kfX-qg-h1l"/>
+                    <include reference="G8X-9s-eNY"/>
+                    <exclude reference="PI5-cS-cm0"/>
+                    <exclude reference="YxP-S5-7am"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="134.78260869565219" y="103.79464285714285"/>
