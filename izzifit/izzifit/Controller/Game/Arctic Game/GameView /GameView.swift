@@ -10,29 +10,29 @@ import UIKit
 class GameView: UIView {
     
     // bar
-    private var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
+    var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
     // Basic view
     private var gameBackImgVw = UIImageView()
     var slotBackImgVw = UIImageView()
     private var slotHouseImgVw = UIImageView()
     private var uponGameBackImgVw = UIImageView()
-    private var spinBtn = UIButton()
+    var spinBtn = UIButton()
     private var titleLbl = UILabel()
     // hummer
-    private var hummerBtn = UIButton()
-    private var hummerCountLbl = UILabel()
+    var hummerBtn = UIButton()
+    var hummerCountLbl = UILabel()
     // logo
     private var logoImgVw = UIImageView()
     //startSpinLbl
-    private var startSpinLbl = UILabel()
+    var startSpinLbl = UILabel()
     
     //resultStack
-    private var resultStackView: UIStackView!
+    var resultStackView: UIStackView!
     private var awardsVerticalStackView: UIStackView!
     
-    private var awardImgVw = UIImageView()
-    private var awardTitleLbl = UILabel()
-    private var awardCountLbl = UILabel()
+    var awardImgVw = UIImageView()
+    var awardTitleLbl = UILabel()
+    var awardCountLbl = UILabel()
     
     // Progress Img UI
     private var progressImgVw = UIImageView()
@@ -234,18 +234,17 @@ class GameView: UIView {
                           parentView: slotHouseImgVw,
                           topC: h/20.8,
                           centerH: w/46.8)
+        
         resultStackView.isHidden = true
     }
     
     func showProgress() {
-    
         var spinsRemainder = CGFloat(KeychainService.standard.me?.energy ?? 0.0)
         switch spinsRemainder {
         case let x where x > 100.0: spinsRemainder = 100.0
         default: break
         }
         let hiddenPart = 100.0 - spinsRemainder
-    
         progressImgVw.hideImage(hiddenPart: hiddenPart,
                                 img: progressImg ?? UIImage())
     }

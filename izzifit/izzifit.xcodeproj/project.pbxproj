@@ -375,6 +375,7 @@
 		FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAC55B9627EB87F0001DA24C /* Rank.graphql */; };
 		FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC55B9927EB944E001DA24C /* RankModel.swift */; };
 		FACB1E862804325500058773 /* PointersAndTicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1E852804325500058773 /* PointersAndTicks.swift */; };
+		FACD1C13284787A50014AFDC /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD1C12284787A50014AFDC /* GameController.swift */; };
 		FADA6BD127F188B200913F67 /* MoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA6BD027F188B200913F67 /* MoodsModel.swift */; };
 		FAE6764D282E7E200020678E /* LevelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6764C282E7E200020678E /* LevelPresenter.swift */; };
 		FAF4350428257920008691CD /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = FAF4350328257920008691CD /* Gifu */; };
@@ -764,6 +765,7 @@
 		FAC55B9627EB87F0001DA24C /* Rank.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rank.graphql; sourceTree = "<group>"; };
 		FAC55B9927EB944E001DA24C /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		FACB1E852804325500058773 /* PointersAndTicks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointersAndTicks.swift; sourceTree = "<group>"; };
+		FACD1C12284787A50014AFDC /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		FADA6BD027F188B200913F67 /* MoodsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsModel.swift; sourceTree = "<group>"; };
 		FAE6764C282E7E200020678E /* LevelPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelPresenter.swift; sourceTree = "<group>"; };
 		FDA5E332399E73031D583774 /* Pods_izzifit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_izzifit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2510,6 +2512,7 @@
 				FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */,
 				02B22AC2281C1502006AB1EA /* ArcticGamePresenter.swift */,
 				FA3319C428461E490021C433 /* TimerSpinManager.swift */,
+				FACD1C12284787A50014AFDC /* GameController.swift */,
 			);
 			path = "Arctic Game";
 			sourceTree = "<group>";
@@ -3211,6 +3214,7 @@
 				024C69A427DF858300EE8D53 /* FoodController.swift in Sources */,
 				0249D26427B3A88C00F265C1 /* UIColor+Extension.swift in Sources */,
 				02BC127D27F1E29A00678305 /* WorkoutByIdModel.swift in Sources */,
+				FACD1C13284787A50014AFDC /* GameController.swift in Sources */,
 				02B3017427EB23190045C607 /* SaveMoodModel.swift in Sources */,
 				02F01C5427D794B20066656D /* MoodWidgetModel.swift in Sources */,
 				0263389E27DB6C9A00DC0325 /* ProgressesModel.swift in Sources */,

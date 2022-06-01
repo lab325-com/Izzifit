@@ -27,7 +27,7 @@ class GameTabBarController: UITabBarController {
     private func setupVCs() {
         viewControllers = [createNavController(for: LevelController(),
                                                image: view.image(img: .gameTabBarEnergy)!),
-                           createNavController(for:  ArcticGameComtroller(),
+                           createNavController(for:  GameController(),
                                                image: view.image(img: .gameTabBarSpin)!),
                            createNavController(for: LevelController(),
                                                image: view.image(img: .gameTabBarBuild)!)]
