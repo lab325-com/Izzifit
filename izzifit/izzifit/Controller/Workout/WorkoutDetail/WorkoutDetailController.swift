@@ -53,8 +53,12 @@ class WorkoutDetailController: BaseController {
     override func viewDidLoad() {
         hiddenNavigationBar = true
         super.viewDidLoad()
-
+        
         setup()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     //----------------------------------------------
