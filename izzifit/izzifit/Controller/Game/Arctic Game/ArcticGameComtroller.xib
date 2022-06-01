@@ -240,7 +240,7 @@
         <image name="gameBarBack" width="1125" height="264"/>
         <image name="moneyBag" width="47.333332061767578" height="62"/>
         <image name="slotBack" width="236" height="187"/>
-        <image name="slotHouse" width="373" height="402"/>
+        <image name="slotHouse" width="364" height="402"/>
         <image name="spinBtnNormal" width="234" height="75"/>
         <image name="start_logo_ic" width="195.33332824707031" height="89"/>
         <systemColor name="systemBackgroundColor">

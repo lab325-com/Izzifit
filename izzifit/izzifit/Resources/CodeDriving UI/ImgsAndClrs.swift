@@ -10,7 +10,7 @@ import UIKit
 
 enum Imgs: String {
     // GameView
-    case gameBackTwo, gameBackOne, slotBack, spinBtnNormal, spinBtnSelected, slotHouse
+    case gameBackTwo, gameBackOne, slotBack, spinBtnNormal, spinBtnSelected, slotHouse, freeHummer, start_logo_ic
     
     case shipStart, shipFirst, shipSecond, shipThird, shipFourth, shipFinish
     case fishStart, fishFirst, fishSecond, fishThird, fishFourth, fishFinish
@@ -29,6 +29,7 @@ enum Imgs: String {
 
 enum Clrs: String {
     case profileCellBack, textTitleBlack, chartPurple, pinkTarget, grayText, intensivePurple
+    case clrStartSpinLbl, clrAwardTitleLbl
 }
 
 struct SlotImgs {

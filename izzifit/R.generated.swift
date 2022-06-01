@@ -106,12 +106,16 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 10 colors.
+  /// This `R.color` struct is generated, and contains static references to 12 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
     /// Color `chartPurple`.
     static let chartPurple = Rswift.ColorResource(bundle: R.hostingBundle, name: "chartPurple")
+    /// Color `clrAwardTitleLbl`.
+    static let clrAwardTitleLbl = Rswift.ColorResource(bundle: R.hostingBundle, name: "clrAwardTitleLbl")
+    /// Color `clrStartSpinLbl`.
+    static let clrStartSpinLbl = Rswift.ColorResource(bundle: R.hostingBundle, name: "clrStartSpinLbl")
     /// Color `grayText`.
     static let grayText = Rswift.ColorResource(bundle: R.hostingBundle, name: "grayText")
     /// Color `grayVw`.
@@ -144,6 +148,24 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func chartPurple(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.chartPurple, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "clrAwardTitleLbl", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func clrAwardTitleLbl(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.clrAwardTitleLbl, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "clrStartSpinLbl", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func clrStartSpinLbl(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.clrStartSpinLbl, compatibleWith: traitCollection)
     }
     #endif
 
@@ -232,6 +254,22 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func chartPurple(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.chartPurple.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "clrAwardTitleLbl", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func clrAwardTitleLbl(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.clrAwardTitleLbl.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "clrStartSpinLbl", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func clrStartSpinLbl(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.clrStartSpinLbl.name)
     }
     #endif
 
