@@ -45,7 +45,7 @@ class ArcticGameComtroller: BaseController {
     let progressImg = UIImage(named: "progressActive")
     
     override func loadView() {
-        gameView = GameView()
+        gameView = GameView(title: "Arctic")
         self.view = gameView
         setCollectionView()
     }
@@ -290,9 +290,7 @@ extension ArcticGameComtroller: ArcticGameOutputProtocol {
 //----------------------------------------------
 
 extension ArcticGameComtroller: PaywallProtocol {
-    func paywallActionBack(controller: BaseController) {
-        self.dismiss(animated: true)
-    }
+    func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
     
     func paywallSuccess(controller: BaseController) { }
 }

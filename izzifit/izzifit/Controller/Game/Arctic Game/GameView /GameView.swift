@@ -9,6 +9,7 @@ import UIKit
 
 class GameView: UIView {
     
+    // bar
     private var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
     
     // Basic view
@@ -17,12 +18,29 @@ class GameView: UIView {
     private var slotHouseImgVw = UIImageView()
     private var uponGameBackImgVw = UIImageView()
     private var spinBtn = UIButton()
- 
+    
+    private var titleLbl = UILabel()
+    
+    // Progress Img UI
+    private var progressImgVw = UIImageView()
+    private let progressImg = UIImage(named: "progressActive")
+    
+    
+    // MARK: - init params
+    private var title: String
+    
+    init(title: String) {
+        self.title = title
+        super.init(frame: .zero)
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
     override func draw(_ rect: CGRect) {
         setUI()
         layout()
     }
-
+    
     private func setUI() {
         gameBackImgVw.image = image(img: .gameBackTwo)
         gameBackImgVw.contentMode = .scaleAspectFill
@@ -38,6 +56,32 @@ class GameView: UIView {
         
         spinBtn.setImage(image(img: .spinBtnNormal), for: .normal)
         spinBtn.setImage(image(img: .spinBtnSelected), for: .selected)
+        
+        //MARK: - barBackVw
+        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+        
+        if let name = KeychainService.standard.me?.name {
+            barBackVw.nameLbl.text = name
+        } else {
+            barBackVw.nameLbl.isHidden = true
+        }
+        
+        barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
+                                          placeholder: RImage.placeholder_food_ic(),
+                                          options: [.transition(.fade(0.25))])
+        progressImgVw.image = progressImg
+    //   showProgress(imgVw: progressImgVw,
+    //                 img: progressImg ?? UIImage())
+        
+        // titleLbl
+        ui.setLabel(label: titleLbl,
+                    labelText: title,
+                    textColor: .white,
+                    textAlignment: .center,
+                    fontSize: h / 40.6,
+                    fontName: "Inter-BoldItalic")
+        
     }
     
     private func layout() {
@@ -77,5 +121,39 @@ class GameView: UIView {
                           centerH: 0,
                           topToO: slotHouseImgVw.bottomAnchor,
                           topCG: 17)
+        
+        ui.genericlLayout(object: barBackVw,
+                          parentView: gameBackImgVw,
+                          height: h / 9.2,
+                          topC: 0,
+                          leadingC: 0,
+                          trailingC: 0)
+        
+        ui.genericlLayout(object: progressImgVw,
+                          parentView: self,
+                          width: h / 4.77,
+                          height: h / 48.6,
+                          bottomToO: slotHouseImgVw.bottomAnchor,
+                          bottomCG: h / 39,
+                          trailingToO: slotHouseImgVw.trailingAnchor,
+                          trailingCG: h / 8.54)
+       
+        ui.genericlLayout(object: titleLbl,
+                          parentView: slotHouseImgVw,
+                          topC: h/7.66,
+                          centerH: h/232)
+    }
+    
+    func showProgress(imgVw: UIImageView, img: UIImage ) {
+    
+        var spinsRemainder = CGFloat(KeychainService.standard.me?.energy ?? 0.0)
+        switch spinsRemainder {
+        case let x where x > 100.0: spinsRemainder = 100.0
+        default: break
+        }
+        let hiddenPart = 100.0 - spinsRemainder
+    
+        imgVw.hideImage(hiddenPart: hiddenPart,
+                        img: img)
     }
 }
