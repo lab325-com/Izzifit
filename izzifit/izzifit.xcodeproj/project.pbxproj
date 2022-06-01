@@ -223,6 +223,7 @@
 		02ABCF4627CD0EA800E69C06 /* MenuLanguagesTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02ABCF4427CD0EA800E69C06 /* MenuLanguagesTitleCell.xib */; };
 		02AC22262800666700440DFB /* OrderCreate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02AC22252800666600440DFB /* OrderCreate.graphql */; };
 		02AC22282800677B00440DFB /* OrderCreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AC22272800677B00440DFB /* OrderCreateModel.swift */; };
+		02AEDFD728477CC7007C0EA4 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02AEDFD628477CC7007C0EA4 /* SwiftyStoreKit */; };
 		02B1E71927DA003B00C9E610 /* EnergyTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1E71727DA003B00C9E610 /* EnergyTrainingCell.swift */; };
 		02B1E71A27DA003B00C9E610 /* EnergyTrainingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02B1E71827DA003B00C9E610 /* EnergyTrainingCell.xib */; };
 		02B225A227BCF0F00035CFA2 /* TempProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */; };
@@ -314,7 +315,6 @@
 		02D5703E27E9AF3B00F14911 /* WorkoutsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */; };
 		02E3F9DA2808478D006F5A99 /* CMTime+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3F9D92808478D006F5A99 /* CMTime+Extension.swift */; };
 		02E6D85827FC255100E29509 /* SubscribePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6D85727FC255100E29509 /* SubscribePresenter.swift */; };
-		02E6D85B27FC259E00E29509 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02E6D85A27FC259E00E29509 /* SwiftyStoreKit */; };
 		02E6D85D27FC385F00E29509 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 02E6D85C27FC385F00E29509 /* Localizable.stringsdict */; };
 		02E9047127F59E56008CFFB4 /* WorkoutExercisesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9046F27F59E56008CFFB4 /* WorkoutExercisesCell.swift */; };
 		02E9047227F59E56008CFFB4 /* WorkoutExercisesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02E9047027F59E56008CFFB4 /* WorkoutExercisesCell.xib */; };
@@ -788,6 +788,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02AEDFD728477CC7007C0EA4 /* SwiftyStoreKit in Frameworks */,
 				024EBC9B2840C8CC00E6623F /* AppTrackingTransparency.framework in Frameworks */,
 				028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */,
 				028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */,
@@ -796,7 +797,6 @@
 				025733D1283E7C0D00CC6743 /* FirebaseRemoteConfig in Frameworks */,
 				0249D27A27B3AA3B00F265C1 /* ApolloWebSocket in Frameworks */,
 				0249D25627B3A7AD00F265C1 /* NVActivityIndicatorView in Frameworks */,
-				02E6D85B27FC259E00E29509 /* SwiftyStoreKit in Frameworks */,
 				025733CD283E7C0D00CC6743 /* FirebaseAnalytics in Frameworks */,
 				0249D25827B3A7AD00F265C1 /* NVActivityIndicatorViewExtended in Frameworks */,
 				0227DA8C27C4CA77008AB26B /* Kingfisher in Frameworks */,
@@ -2648,11 +2648,11 @@
 				0249D27927B3AA3B00F265C1 /* ApolloWebSocket */,
 				0249D27C27B3AA7000F265C1 /* Toast */,
 				0227DA8B27C4CA77008AB26B /* Kingfisher */,
-				02E6D85A27FC259E00E29509 /* SwiftyStoreKit */,
 				FAF4350328257920008691CD /* Gifu */,
 				025733CC283E7C0D00CC6743 /* FirebaseAnalytics */,
 				025733CE283E7C0D00CC6743 /* FirebaseCrashlytics */,
 				025733D0283E7C0D00CC6743 /* FirebaseRemoteConfig */,
+				02AEDFD628477CC7007C0EA4 /* SwiftyStoreKit */,
 			);
 			productName = izzifit;
 			productReference = 0249D22727B3A4EF00F265C1 /* izzifit.app */;
@@ -2689,9 +2689,9 @@
 				0249D27627B3AA3B00F265C1 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				0249D27B27B3AA7000F265C1 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				0227DA8A27C4CA77008AB26B /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 				FAF4350228257920008691CD /* XCRemoteSwiftPackageReference "Gifu" */,
 				025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				02AEDFD528477CC7007C0EA4 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 			);
 			productRefGroup = 0249D22827B3A4EF00F265C1 /* Products */;
 			projectDirPath = "";
@@ -3593,12 +3593,12 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
+		02AEDFD528477CC7007C0EA4 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.3;
 			};
 		};
 		FAF4350228257920008691CD /* XCRemoteSwiftPackageReference "Gifu" */ = {
@@ -3662,9 +3662,9 @@
 			package = 025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseRemoteConfig;
 		};
-		02E6D85A27FC259E00E29509 /* SwiftyStoreKit */ = {
+		02AEDFD628477CC7007C0EA4 /* SwiftyStoreKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 02E6D85927FC259E00E29509 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
+			package = 02AEDFD528477CC7007C0EA4 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
 			productName = SwiftyStoreKit;
 		};
 		FAF4350328257920008691CD /* Gifu */ = {
