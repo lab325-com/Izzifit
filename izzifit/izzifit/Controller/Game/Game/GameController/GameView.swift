@@ -113,7 +113,7 @@ class GameView: UIView {
                     textColor: clr(color: .clrStartSpinLbl),
                     textAlignment: .center,
                     fontSize: h/62.46,
-                    fontName: "Inter-Black")
+                    fontName: "Inter-BoldItalic")
         
         awardImgVw.image = SlotImgs.moneyBag
         

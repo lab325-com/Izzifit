@@ -2799,10 +2799,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 82 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 81 nibs.
   struct nib {
-    /// Nib `ArcticGameComtroller`.
-    static let arcticGameComtroller = _R.nib._ArcticGameComtroller()
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
     /// Nib `BuildPopUpView`.
@@ -2965,14 +2963,6 @@ struct R: Rswift.Validatable {
     static let workoutSpecialDetailCell = _R.nib._WorkoutSpecialDetailCell()
     /// Nib `WriteToUsController`.
     static let writeToUsController = _R.nib._WriteToUsController()
-
-    #if os(iOS) || os(tvOS)
-    /// `UINib(name: "ArcticGameComtroller", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.arcticGameComtroller) instead")
-    static func arcticGameComtroller(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.arcticGameComtroller)
-    }
-    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "AwardsTableCell", in: bundle)`
@@ -3621,10 +3611,6 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.writeToUsController)
     }
     #endif
-
-    static func arcticGameComtroller(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-      return R.nib.arcticGameComtroller.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-    }
 
     static func awardsTableCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PolicyCell? {
       return R.nib.awardsTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PolicyCell
@@ -7615,7 +7601,6 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct nib: Rswift.Validatable {
     static func validate() throws {
-      try _ArcticGameComtroller.validate()
       try _BuildPopUpView.validate()
       try _EnerdyTodayCell.validate()
       try _EnergyChooseActivityCell.validate()
@@ -7678,32 +7663,6 @@ struct _R: Rswift.Validatable {
       try _WorkoutExercisesDetailCell.validate()
       try _WorkoutSpecialDetailCell.validate()
       try _WriteToUsController.validate()
-    }
-
-    struct _ArcticGameComtroller: Rswift.NibResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "ArcticGameComtroller"
-
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "dummyFace", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'dummyFace' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "freeHummer", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'freeHummer' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "gameBackOne", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'gameBackOne' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "gameBackTwo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'gameBackTwo' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "gameBarBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'gameBarBack' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "moneyBag", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'moneyBag' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "slotBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'slotBack' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "slotHouse", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'slotHouse' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "spinBtnNormal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'spinBtnNormal' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "start_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_logo_ic' is used in nib 'ArcticGameComtroller', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-      }
-
-      fileprivate init() {}
     }
 
     struct _AwardsTableCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
