@@ -41,9 +41,37 @@ class GameView: UIView {
     
     // MARK: - init params
     private var title: String
+    private var backImg: UIImage
+    private var slotBackImg: UIImage
+    private var uponBackImg: UIImage
+    private var slotHouseImg: UIImage
+    private var hummerImg: UIImage
+    private var slotBackTopC: CGFloat
+    private var titleTopC: CGFloat
+    private var stackTopC: CGFloat
+    private var progressBottomC: CGFloat
     
-    init(title: String) {
+    
+    init(title: String,
+         backImg: UIImage,
+         slotBackImg: UIImage,
+         uponBackImg: UIImage,
+         slotHouseImg: UIImage,
+         hummerImg: UIImage,
+         slotBackTopC: CGFloat,
+         titleTopC: CGFloat,
+         stackTopC: CGFloat,
+         progressBottomC: CGFloat) {
         self.title = title
+        self.backImg = backImg
+        self.slotBackImg = slotBackImg
+        self.uponBackImg = uponBackImg
+        self.slotHouseImg = slotHouseImg
+        self.hummerImg = hummerImg
+        self.slotBackTopC = slotBackTopC
+        self.titleTopC = titleTopC
+        self.stackTopC = stackTopC
+        self.progressBottomC = progressBottomC
         super.init(frame: .zero)
     }
     
@@ -55,16 +83,16 @@ class GameView: UIView {
     }
     
     private func setUI() {
-        gameBackImgVw.image = image(img: .gameBackTwo)
+        gameBackImgVw.image = backImg
         gameBackImgVw.contentMode = .scaleAspectFill
         
-        slotBackImgVw.image = image(img: .slotBack)
+        slotBackImgVw.image = slotBackImg
         slotBackImgVw.contentMode = .scaleAspectFill
         
-        slotHouseImgVw.image = image(img: .slotHouse)
+        slotHouseImgVw.image = slotHouseImg
         slotHouseImgVw.contentMode = .scaleAspectFit
         
-        uponGameBackImgVw.image = image(img: .gameBackOne)
+        uponGameBackImgVw.image = uponBackImg
         uponGameBackImgVw.contentMode = .top
         
         spinBtn.setImage(image(img: .spinBtnNormal), for: .normal)
@@ -94,7 +122,7 @@ class GameView: UIView {
                     fontName: "Inter-BoldItalic")
         
         // hummers
-        hummerBtn.setImage(image(img: .freeHummer), for: .normal)
+        hummerBtn.setImage(hummerImg, for: .normal)
         hummerBtn.isUserInteractionEnabled = false
         ui.setLabel(label: hummerCountLbl,
                     textColor: .white,
@@ -145,7 +173,7 @@ class GameView: UIView {
                           parentView: gameBackImgVw,
                           width: h/3.44,
                           height: h/4.34,
-                          topC: h/2.51,
+                          topC: slotBackTopC,
                           centerH: 0)
         
         ui.genericlLayout(object: slotHouseImgVw,
@@ -182,13 +210,13 @@ class GameView: UIView {
                           width: h/4.77,
                           height: h/48.6,
                           bottomToO: slotHouseImgVw.bottomAnchor,
-                          bottomCG: h/39,
+                          bottomCG: progressBottomC,
                           trailingToO: slotHouseImgVw.trailingAnchor,
                           trailingCG: h/8.54)
        
         ui.genericlLayout(object: titleLbl,
                           parentView: slotHouseImgVw,
-                          topC: h/7.66,
+                          topC: titleTopC,
                           centerH: h/232)
         
         ui.genericlLayout(object: hummerBtn,
@@ -232,7 +260,7 @@ class GameView: UIView {
         
         ui.genericlLayout(object: resultStackView,
                           parentView: slotHouseImgVw,
-                          topC: h/20.8,
+                          topC: stackTopC,
                           centerH: w/46.8)
         
         resultStackView.isHidden = true

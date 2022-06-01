@@ -16,13 +16,21 @@ class GameController: BaseController {
     private var gameView: GameView!
     private var collectionView: UICollectionView!
     
-    override func loadView() {
-        gameView = GameView(title: "Arctic")
+
+    override func viewDidLoad() {
+        gameView = GameView(title: "Arctic",
+                            backImg: view.image(img: .gameBackTwo) ?? UIImage(),
+                            slotBackImg: view.image(img: .slotBack) ?? UIImage(),
+                            uponBackImg: view.image(img: .gameBackOne) ?? UIImage(),
+                            slotHouseImg: view.image(img: .slotHouse) ?? UIImage(),
+                            hummerImg: view.image(img: .freeHummer) ?? UIImage(),
+                            slotBackTopC: view.h/2.51,
+                            titleTopC: view.h/7.66,
+                            stackTopC: view.h/20.8,
+                            progressBottomC: view.h/39)
         self.view = gameView
         setCollectionView()
-    }
-    
-    override func viewDidLoad() {
+
         AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
         needSoundTap = false
         hiddenNavigationBar = true
