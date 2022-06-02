@@ -7,30 +7,22 @@
 
 import UIKit
 
-class GameController: BaseController {
+class ArcticGameController: BaseController {
     
     private lazy var presenter = ArcticGamePresenter(view: self)
     private var timerSpinManager: TimerSpinManager!
     private var spinManager = CombinationsAwardsManager()
     
-    private var gameView: GameView!
+    private var gameView: ArcticGameView!
     private var collectionView: UICollectionView!
     
-
-    override func viewDidLoad() {
-        gameView = GameView(title: "Arctic",
-                            backImg: view.image(img: .gameBackTwo) ?? UIImage(),
-                            slotBackImg: view.image(img: .slotBack) ?? UIImage(),
-                            uponBackImg: view.image(img: .gameBackOne) ?? UIImage(),
-                            slotHouseImg: view.image(img: .slotHouse) ?? UIImage(),
-                            hummerImg: view.image(img: .freeHummer) ?? UIImage(),
-                            slotBackTopC: view.h/2.51,
-                            titleTopC: view.h/7.66,
-                            stackTopC: view.h/20.8,
-                            progressBottomC: view.h/39)
+    override func loadView() {
+        gameView = ArcticGameView()
         self.view = gameView
         setCollectionView()
-
+    }
+    
+    override func viewDidLoad() {
         AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
         needSoundTap = false
         hiddenNavigationBar = true
@@ -127,7 +119,7 @@ class GameController: BaseController {
 }
 
 
-extension GameController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ArcticGameController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { 3 }
     
@@ -143,7 +135,7 @@ extension GameController: UICollectionViewDelegate, UICollectionViewDataSource {
 // MARK: - ArcticGameOutputProtocol
 //----------------------------------------------
 
-extension GameController: ArcticGameOutputProtocol {
+extension ArcticGameController: ArcticGameOutputProtocol {
     
     func successUpgrade() {}
     
@@ -197,7 +189,7 @@ extension GameController: ArcticGameOutputProtocol {
 // MARK: - PaywallProtocol
 //----------------------------------------------
 
-extension GameController: PaywallProtocol {
+extension ArcticGameController: PaywallProtocol {
     func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
     
     func paywallSuccess(controller: BaseController) { }

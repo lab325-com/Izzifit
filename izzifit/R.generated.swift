@@ -1011,7 +1011,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 198 images.
+  /// This `R.image` struct is generated, and contains static references to 203 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1095,6 +1095,16 @@ struct R: Rswift.Validatable {
     static let energy_water_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_water_flash_ic")
     /// Image `energy_weight_selected_ic`.
     static let energy_weight_selected_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_weight_selected_ic")
+    /// Image `england_freeHummer`.
+    static let england_freeHummer = Rswift.ImageResource(bundle: R.hostingBundle, name: "england_freeHummer")
+    /// Image `england_gameBack`.
+    static let england_gameBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "england_gameBack")
+    /// Image `england_slotBack`.
+    static let england_slotBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "england_slotBack")
+    /// Image `england_slotHouse`.
+    static let england_slotHouse = Rswift.ImageResource(bundle: R.hostingBundle, name: "england_slotHouse")
+    /// Image `england_uponBack`.
+    static let england_uponBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "england_uponBack")
     /// Image `fishFinish`.
     static let fishFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "fishFinish")
     /// Image `fishFirst`.
@@ -1694,6 +1704,41 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "energy_weight_selected_ic", bundle: ..., traitCollection: ...)`
     static func energy_weight_selected_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.energy_weight_selected_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "england_freeHummer", bundle: ..., traitCollection: ...)`
+    static func england_freeHummer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.england_freeHummer, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "england_gameBack", bundle: ..., traitCollection: ...)`
+    static func england_gameBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.england_gameBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "england_slotBack", bundle: ..., traitCollection: ...)`
+    static func england_slotBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.england_slotBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "england_slotHouse", bundle: ..., traitCollection: ...)`
+    static func england_slotHouse(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.england_slotHouse, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "england_uponBack", bundle: ..., traitCollection: ...)`
+    static func england_uponBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.england_uponBack, compatibleWith: traitCollection)
     }
     #endif
 

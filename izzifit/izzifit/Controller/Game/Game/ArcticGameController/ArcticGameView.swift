@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameView: UIView {
+class ArcticGameView: UIView {
     
     // bar
     var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
@@ -37,62 +37,23 @@ class GameView: UIView {
     // Progress Img UI
     private var progressImgVw = UIImageView()
     private let progressImg = UIImage(named: "progressActive")
-    
-    
-    // MARK: - init params
-    private var title: String
-    private var backImg: UIImage
-    private var slotBackImg: UIImage
-    private var uponBackImg: UIImage
-    private var slotHouseImg: UIImage
-    private var hummerImg: UIImage
-    private var slotBackTopC: CGFloat
-    private var titleTopC: CGFloat
-    private var stackTopC: CGFloat
-    private var progressBottomC: CGFloat
-    
-    
-    init(title: String,
-         backImg: UIImage,
-         slotBackImg: UIImage,
-         uponBackImg: UIImage,
-         slotHouseImg: UIImage,
-         hummerImg: UIImage,
-         slotBackTopC: CGFloat,
-         titleTopC: CGFloat,
-         stackTopC: CGFloat,
-         progressBottomC: CGFloat) {
-        self.title = title
-        self.backImg = backImg
-        self.slotBackImg = slotBackImg
-        self.uponBackImg = uponBackImg
-        self.slotHouseImg = slotHouseImg
-        self.hummerImg = hummerImg
-        self.slotBackTopC = slotBackTopC
-        self.titleTopC = titleTopC
-        self.stackTopC = stackTopC
-        self.progressBottomC = progressBottomC
-        super.init(frame: .zero)
-    }
-    
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
     override func draw(_ rect: CGRect) {
         setUI()
         layout()
     }
     
     private func setUI() {
-        gameBackImgVw.image = backImg
+        gameBackImgVw.image = image(img: .gameBackTwo)
         gameBackImgVw.contentMode = .scaleAspectFill
         
-        slotBackImgVw.image = slotBackImg
+        slotBackImgVw.image = image(img: .slotBack)
         slotBackImgVw.contentMode = .scaleAspectFill
         
-        slotHouseImgVw.image = slotHouseImg
+        slotHouseImgVw.image = image(img: .slotHouse)
         slotHouseImgVw.contentMode = .scaleAspectFit
         
-        uponGameBackImgVw.image = uponBackImg
+        uponGameBackImgVw.image = image(img: .gameBackOne)
         uponGameBackImgVw.contentMode = .top
         
         spinBtn.setImage(image(img: .spinBtnNormal), for: .normal)
@@ -115,14 +76,14 @@ class GameView: UIView {
         
         // titleLbl
         ui.setLabel(label: titleLbl,
-                    labelText: title,
+                    labelText: "Arctic",
                     textColor: .white,
                     textAlignment: .center,
                     fontSize: h / 40.6,
                     fontName: "Inter-BoldItalic")
         
         // hummers
-        hummerBtn.setImage(hummerImg, for: .normal)
+        hummerBtn.setImage(image(img: .freeHummer), for: .normal)
         hummerBtn.isUserInteractionEnabled = false
         ui.setLabel(label: hummerCountLbl,
                     textColor: .white,
@@ -173,7 +134,7 @@ class GameView: UIView {
                           parentView: gameBackImgVw,
                           width: h/3.44,
                           height: h/4.34,
-                          topC: slotBackTopC,
+                          topC: h/2.51,
                           centerH: 0)
         
         ui.genericlLayout(object: slotHouseImgVw,
@@ -210,13 +171,13 @@ class GameView: UIView {
                           width: h/4.77,
                           height: h/48.6,
                           bottomToO: slotHouseImgVw.bottomAnchor,
-                          bottomCG: progressBottomC,
+                          bottomCG: h/39,
                           trailingToO: slotHouseImgVw.trailingAnchor,
                           trailingCG: h/8.54)
        
         ui.genericlLayout(object: titleLbl,
                           parentView: slotHouseImgVw,
-                          topC: titleTopC,
+                          topC: h/7.66,
                           centerH: h/232)
         
         ui.genericlLayout(object: hummerBtn,
@@ -260,7 +221,7 @@ class GameView: UIView {
         
         ui.genericlLayout(object: resultStackView,
                           parentView: slotHouseImgVw,
-                          topC: stackTopC,
+                          topC: h/20.8,
                           centerH: w/46.8)
         
         resultStackView.isHidden = true
