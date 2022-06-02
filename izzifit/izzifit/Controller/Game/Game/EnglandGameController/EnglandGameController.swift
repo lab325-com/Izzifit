@@ -67,7 +67,6 @@ class EnglandGameController: BaseController {
     }
     
     @objc func spinAction() {
-        
         timerSpinManager.generalSpin(resultLbl: gameView.startSpinLbl,
                                      resultStackView: gameView.resultStackView,
                                      coinsLbl: gameView.barBackVw.coinsLbl,
@@ -78,7 +77,6 @@ class EnglandGameController: BaseController {
             let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
         }
     }
-    
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         actionBack()

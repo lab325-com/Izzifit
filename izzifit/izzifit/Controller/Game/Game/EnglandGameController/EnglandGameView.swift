@@ -55,7 +55,6 @@ class EnglandGameView: UIView {
         
         uponGameBackImgVw.image = image(img: .england_uponBack)
         uponGameBackImgVw.contentMode = .top
-        uponGameBackImgVw.isHidden = true
         
         spinBtn.setImage(image(img: .spinBtnNormal), for: .normal)
         spinBtn.setImage(image(img: .spinBtnSelected), for: .selected)
@@ -145,13 +144,6 @@ class EnglandGameView: UIView {
                           topC: h/4.51,
                           centerH: 0)
         
-        ui.genericlLayout(object: uponGameBackImgVw,
-                          parentView: gameBackImgVw,
-                          height: h*0.42,
-                          bottomC: 0,
-                          leadingC: 0,
-                          trailingC: 0)
-        
         ui.genericlLayout(object: spinBtn,
                           parentView: self,
                           width: h*0.288,
@@ -226,6 +218,13 @@ class EnglandGameView: UIView {
                           centerH: w/92)
         
         resultStackView.isHidden = true
+        
+        ui.genericlLayout(object: uponGameBackImgVw,
+                          parentView: gameBackImgVw,
+                          height: h/2.08,
+                          bottomC: h/7.31,
+                          leadingC: 0,
+                          trailingC: 0)
     }
     
     func showProgress() {

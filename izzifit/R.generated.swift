@@ -1011,7 +1011,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 203 images.
+  /// This `R.image` struct is generated, and contains static references to 208 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1069,6 +1069,16 @@ struct R: Rswift.Validatable {
     static let dummyAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "dummyAward")
     /// Image `dummyFace`.
     static let dummyFace = Rswift.ImageResource(bundle: R.hostingBundle, name: "dummyFace")
+    /// Image `en_flag`.
+    static let en_flag = Rswift.ImageResource(bundle: R.hostingBundle, name: "en_flag")
+    /// Image `en_hammer`.
+    static let en_hammer = Rswift.ImageResource(bundle: R.hostingBundle, name: "en_hammer")
+    /// Image `en_lightning`.
+    static let en_lightning = Rswift.ImageResource(bundle: R.hostingBundle, name: "en_lightning")
+    /// Image `en_moneyBag`.
+    static let en_moneyBag = Rswift.ImageResource(bundle: R.hostingBundle, name: "en_moneyBag")
+    /// Image `en_pound`.
+    static let en_pound = Rswift.ImageResource(bundle: R.hostingBundle, name: "en_pound")
     /// Image `energy_arrow_back_ic`.
     static let energy_arrow_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_arrow_back_ic")
     /// Image `energy_arrow_forward_ic`.
@@ -1613,6 +1623,41 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "dummyFace", bundle: ..., traitCollection: ...)`
     static func dummyFace(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.dummyFace, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "en_flag", bundle: ..., traitCollection: ...)`
+    static func en_flag(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.en_flag, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "en_hammer", bundle: ..., traitCollection: ...)`
+    static func en_hammer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.en_hammer, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "en_lightning", bundle: ..., traitCollection: ...)`
+    static func en_lightning(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.en_lightning, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "en_moneyBag", bundle: ..., traitCollection: ...)`
+    static func en_moneyBag(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.en_moneyBag, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "en_pound", bundle: ..., traitCollection: ...)`
+    static func en_pound(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.en_pound, compatibleWith: traitCollection)
     }
     #endif
 
