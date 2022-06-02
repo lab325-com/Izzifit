@@ -9,7 +9,14 @@ import UIKit
 
 class GameTabBarController: UITabBarController {
     
-    var kBarHeight: CGFloat = 110
+    private let backBtn = UIButton()
+    private let spinBtn = UIButton()
+    private let buildBtn = UIButton()
+    private let mapBtn = UIButton()
+    
+    private lazy var btns: [UIButton] = {[backBtn, spinBtn, buildBtn, mapBtn]}()
+    private var tabBarStackView: UIStackView!
+    
     var firstLaunch = true
     
     override func viewDidLoad() {
@@ -27,12 +34,12 @@ class GameTabBarController: UITabBarController {
     private func setupVCs() {
         viewControllers = [createNavController(for: LevelController(),
                                                image: view.image(img: .gameTabBarEnergy)!),
-//                           createNavController(for:  ArcticGameController(),
-//                                               image: view.image(img: .gameTabBarSpin)!),
-                           createNavController(for: EnglandGameController(),
+                           createNavController(for: ArcticGameController(),
                                                image: view.image(img: .gameTabBarSpin)!),
                            createNavController(for: LevelController(),
-                                               image: view.image(img: .gameTabBarBuild)!)]
+                                               image: view.image(img: .gameTabBarBuild)!),
+                           createNavController(for:  EnglandGameController(),
+                                               image: view.image(img: .gameTabBarSpin)!)]
     }
     
     private func setupTabBar() {
@@ -41,73 +48,44 @@ class GameTabBarController: UITabBarController {
         UITabBar.appearance().clipsToBounds = true
 
         selectedIndex = 1
+    
+        backBtn.setImage(view.image(img: .gameTabBarEnergy), for: .normal)
+        spinBtn.setImage(view.image(img: .gameTabBarSpin), for: .normal)
+        buildBtn.setImage(view.image(img: .gameTabBarBuild), for: .normal)
+        mapBtn.setImage(view.image(img: .gameTabBarMap), for: .normal)
         
-        let backBtn = UIButton()
-        let spinBtn = UIButton()
-        let buildBtn = UIButton()
+        for btn in btns {
+            NSLayoutConstraint.activate([btn.widthAnchor.constraint(equalToConstant: view.h/11.6),
+                                         btn.heightAnchor.constraint(equalToConstant: view.h/10.15)])
+        }
         
-        view.ui.setButton(button: backBtn,
-                          view: view,
-                          image: view.image(img: .gameTabBarEnergy),
-                          controlState: .normal)
-        view.ui.setButton(button: spinBtn,
-                          view: view,
-                          image: view.image(img: .gameTabBarSpin),
-                          controlState: .normal)
-        view.ui.setButton(button: buildBtn,
-                          view: view,
-                          image: view.image(img: .gameTabBarBuild),
-                          controlState: .normal)
+        tabBarStackView = UIStackView(arrangedSubviews: btns)
+        tabBarStackView.alignment = .center
+        tabBarStackView.axis = .horizontal
+        tabBarStackView.spacing = view.w/26.78
         
-        let sideConstant = (view.sizeWidth / 3 ) - 70
+        view.ui.genericlLayout(object: tabBarStackView,
+                               parentView: view,
+                               bottomC: view.h/27.06,
+                               centerH: 0)
+      
+        // Targets
+        backBtn.addTarget(self, action: #selector(actionBack),for: .touchUpInside)
+        spinBtn.addTarget(self, action: #selector(spin), for: .touchUpInside)
+        buildBtn.addTarget(self, action: #selector(build), for: .touchUpInside)
+        mapBtn.addTarget(self,action: #selector(map), for: .touchUpInside)
         
-        view.ui.btnLayout(button: backBtn,
-                          view: view,
-                          width: view.h / 11.6,
-                          height: view.h / 10.15,
-                          bottomC: view.h / 27.06,
-                          leadingC: sideConstant)
-        
-        view.ui.btnLayout(button: spinBtn,
-                          view: view,
-                          width: view.h / 11.6,
-                          height: view.h / 10.15,
-                          bottomC: view.h / 27.06,
-                          centerH: 0)
-
-        view.ui.btnLayout(button: buildBtn,
-                          view: view,
-                          width: view.h / 11.6,
-                          height: view.h / 10.15,
-                          bottomC: view.h / 27.06,
-                          trailingC: sideConstant)
-        
-        backBtn.addTarget(self,
-                          action: #selector(actionBack),
-                          for: .touchUpInside)
-        
-        spinBtn.addTarget(self,
-                          action: #selector(spin),
-                          for: .touchUpInside)
-        
-        buildBtn.addTarget(self,
-                           action: #selector(build),
-                           for: .touchUpInside)
         tabBar.isHidden = true
     }
     
-    @objc
-    func actionBack() {
-      navigationController?.popViewController(animated: true)
-    }
+    @objc func actionBack() { navigationController?.popViewController(animated: true) }
     
-    @objc
-    func spin() {
-        selectedIndex = 1
-    }
-    @objc
-    func build() {
+    @objc func spin() { selectedIndex = 1 }
+    
+    @objc func build() {
         selectedIndex = 2
         AnalyticsHelper.sendFirebaseEvents(events: .map_open)
     }
+    
+    @objc func map() { selectedIndex = 3 }
 }
