@@ -15,6 +15,8 @@ class SlotCollectionCell: UICollectionViewCell {
     
     let tableView = UITableView()
     
+    private var game = Games.arctic
+    
     private var model: MapModel?
     
     private lazy var contentSizeHeight: CGFloat = {
@@ -70,7 +72,8 @@ class SlotCollectionCell: UICollectionViewCell {
                   trailingC: 0)
     }
     
-    func setupCell(model: MapModel?) {
+    func setupCell(model: MapModel?,game: Games) {
+        self.game = game
         if self.model == nil {
             self.model = model
             tableView.reloadData()
@@ -91,7 +94,7 @@ extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SlotTableViewCell.id,
                                                  for: indexPath) as! SlotTableViewCell
-        cell.fillCellby(tagBtn: arrays[section][indexPath.row], model: model)
+        cell.fillCellby(tagBtn: arrays[section][indexPath.row], model: model, game: game)
         cell.tag = arrays[section][indexPath.row]
         cell.tagBtn = arrays[section][indexPath.row]
         return cell

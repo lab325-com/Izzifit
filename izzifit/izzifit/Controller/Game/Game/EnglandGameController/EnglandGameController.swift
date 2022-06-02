@@ -1,23 +1,23 @@
 //
-//  GameController.swift
+//  EnglandGameController.swift
 //  izzifit
 //
-//  Created by O l e h on 01.06.2022.
+//  Created by O l e h on 02.06.2022.
 //
 
 import UIKit
 
-class ArcticGameController: BaseController {
+class EnglandGameController: BaseController {
     
     private lazy var presenter = ArcticGamePresenter(view: self)
     private var timerSpinManager: TimerSpinManager!
     private var spinManager = CombinationsAwardsManager()
     
-    private var gameView: ArcticGameView!
+    private var gameView: EnglandGameView!
     private var collectionView: UICollectionView!
     
     override func loadView() {
-        gameView = ArcticGameView()
+        gameView = EnglandGameView()
         self.view = gameView
         setCollectionView()
     }
@@ -118,24 +118,23 @@ class ArcticGameController: BaseController {
     
 }
 
-
-extension ArcticGameController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension EnglandGameController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { 3 }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlotCollectionCell.id, for: indexPath) as! SlotCollectionCell
         cell.section = indexPath.row
-        cell.setupCell(model: presenter.maps, game: .arctic)
+        cell.setupCell(model: presenter.maps, game: .england)
         return cell
     }
 }
 
 //----------------------------------------------
-// MARK: - ArcticGameOutputProtocol
+// MARK: - EnglandGameOutputProtocol
 //----------------------------------------------
 
-extension ArcticGameController: ArcticGameOutputProtocol {
+extension EnglandGameController: ArcticGameOutputProtocol {
     
     func successUpgrade() {}
     
@@ -189,8 +188,7 @@ extension ArcticGameController: ArcticGameOutputProtocol {
 // MARK: - PaywallProtocol
 //----------------------------------------------
 
-extension ArcticGameController: PaywallProtocol {
+extension EnglandGameController: PaywallProtocol {
     func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
-    
     func paywallSuccess(controller: BaseController) { }
 }

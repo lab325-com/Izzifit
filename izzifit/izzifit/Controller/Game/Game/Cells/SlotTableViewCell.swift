@@ -17,9 +17,15 @@ class SlotTableViewCell: BaseTableViewCell {
     
     var slotImgsDict = [1: SlotImgs.dollar,
                         2: SlotImgs.moneyBag,
-                        3: SlotImgs.lightning ,
+                        3: SlotImgs.lightning,
                         4: SlotImgs.snowflake,
                         5: SlotImgs.hammer]
+    
+    var englandImgsDict = [1: UK_SlotImgs.pound,
+                           2: UK_SlotImgs.flag,
+                           3: UK_SlotImgs.moneyBag,
+                           4: UK_SlotImgs.hammer,
+                           5: UK_SlotImgs.lightning]
     
     override init(style: BaseTableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -64,15 +70,25 @@ class SlotTableViewCell: BaseTableViewCell {
                                                                      right: 8))
     }
     
-    func fillCellby(tagBtn: Int, model: MapModel?) {
+    func fillCellby(tagBtn: Int, model: MapModel?,game: Games) {
         slotBtn.tag = tagBtn
-        
-        let image = model?.map.spinObjects.first(where: {$0.id == "\(tagBtn)"})?.image.urlIosFull
-        
-        //slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal)
-        slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal, placeholder: slotImgsDict[tagBtn]!, options: [.transition(.fade(0.25))])
+        switch game {
+        case .arctic:
+            let image = model?.map.spinObjects.first(where: {$0.id == "\(tagBtn)"})?.image.urlIosFull
+            
+            //slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal)
+            slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal,
+                                placeholder: slotImgsDict[tagBtn]!,
+                                options: [.transition(.fade(0.25))])
+        case .england:
+            slotBtn.setImage(englandImgsDict[tagBtn] ?? UIImage(), for: .normal)
+        }
         
         borderView.isHidden = true
         slotBtn.clipsToBounds = true
     }
+}
+
+enum Games {
+    case arctic, england
 }

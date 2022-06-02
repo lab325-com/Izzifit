@@ -25,7 +25,6 @@ protocol ArcticGameProtocol: AnyObject {
     
     func getMap(completion: @escaping ([MapSpinsModel]) -> ())
     func getSpin(spinId: String)
-//    func upgrateBuild(buildingId: String)
 }
 
 class ArcticGamePresenter: ArcticGameProtocol {
@@ -65,16 +64,4 @@ class ArcticGamePresenter: ArcticGameProtocol {
             self?.view?.stopLoading()
         })
     }
-    
-//    func upgrateBuild(buildingId: String) {
-//        view?.startLoader()
-//        
-//        let mutation = UpgradeBuildingMutation(buildingId: buildingId)
-//        let _ = Network.shared.mutation(model: UpgradeBuildingModel.self, mutation, controller: view, successHandler: { [weak self] model in
-//            self?.view?.successUpgrade()
-//            self?.view?.stopLoading()
-//        }, failureHandler: { [weak self] error in
-//            self?.view?.stopLoading()
-//        })
-//    }
 }

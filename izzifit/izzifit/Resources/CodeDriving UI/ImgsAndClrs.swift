@@ -42,6 +42,20 @@ struct SlotImgs {
     static let snowflake = UIImage(named: "snowflake")
 }
 
+struct UK_SlotImgs {
+    static let pound = UIImage(named: "en_pound")
+    static let flag = UIImage(named: "en_flag")
+    static let moneyBag = UIImage(named: "en_moneyBag")
+    static let hammer = UIImage(named: "en_hammer")
+    static let lightning = UIImage(named: "en_lightning")
+}
+
+
+
+
+
+
+
 struct ScaleImgs {
     static let scale1Selected = UIImage(named: "Selected1Scale")
     static let scale2Selected = UIImage(named: "Selected2Scale")

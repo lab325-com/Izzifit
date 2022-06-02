@@ -370,6 +370,8 @@
 		FAB6547327FF39420057A221 /* CombinationsAwardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6547227FF39420057A221 /* CombinationsAwardsManager.swift */; };
 		FAB6548027FFFD480057A221 /* SlotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6547F27FFFD480057A221 /* SlotTableViewCell.swift */; };
 		FAB6548227FFFD650057A221 /* SlotCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6548127FFFD650057A221 /* SlotCollectionCell.swift */; };
+		FAB65AB12848C4D700664399 /* EnglandGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB65AB02848C4D700664399 /* EnglandGameController.swift */; };
+		FAB65AB32848C4F900664399 /* EnglandGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB65AB22848C4F900664399 /* EnglandGameView.swift */; };
 		FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAC55B9627EB87F0001DA24C /* Rank.graphql */; };
 		FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC55B9927EB944E001DA24C /* RankModel.swift */; };
 		FACB1E862804325500058773 /* PointersAndTicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1E852804325500058773 /* PointersAndTicks.swift */; };
@@ -758,6 +760,8 @@
 		FAB6547227FF39420057A221 /* CombinationsAwardsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinationsAwardsManager.swift; sourceTree = "<group>"; };
 		FAB6547F27FFFD480057A221 /* SlotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotTableViewCell.swift; sourceTree = "<group>"; };
 		FAB6548127FFFD650057A221 /* SlotCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotCollectionCell.swift; sourceTree = "<group>"; };
+		FAB65AB02848C4D700664399 /* EnglandGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglandGameController.swift; sourceTree = "<group>"; };
+		FAB65AB22848C4F900664399 /* EnglandGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglandGameView.swift; sourceTree = "<group>"; };
 		FAC55B9627EB87F0001DA24C /* Rank.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rank.graphql; sourceTree = "<group>"; };
 		FAC55B9927EB944E001DA24C /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		FACB1E852804325500058773 /* PointersAndTicks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointersAndTicks.swift; sourceTree = "<group>"; };
@@ -2501,10 +2505,11 @@
 		FAB6546D27FEDF340057A221 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				FACD1C14284790940014AFDC /* Managers */,
-				FAB6547E27FFFD330057A221 /* Cells */,
 				FA9400032833986400CE5021 /* GameBarBackView */,
+				FAB6547E27FFFD330057A221 /* Cells */,
+				FACD1C14284790940014AFDC /* Managers */,
 				FA3319C6284682D30021C433 /* ArcticGameController */,
+				FAB65AAF2848C4A600664399 /* EnglandGameController */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -2516,6 +2521,15 @@
 				FAB6547F27FFFD480057A221 /* SlotTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		FAB65AAF2848C4A600664399 /* EnglandGameController */ = {
+			isa = PBXGroup;
+			children = (
+				FAB65AB22848C4F900664399 /* EnglandGameView.swift */,
+				FAB65AB02848C4D700664399 /* EnglandGameController.swift */,
+			);
+			path = EnglandGameController;
 			sourceTree = "<group>";
 		};
 		FAC55B9527EB87A9001DA24C /* Rank */ = {
@@ -3188,6 +3202,7 @@
 				FE1403C227E249EB002F5819 /* ChartCollectionCell.swift in Sources */,
 				0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */,
 				0249D27427B3AA0400F265C1 /* NetwokrManager.swift in Sources */,
+				FAB65AB32848C4F900664399 /* EnglandGameView.swift in Sources */,
 				02BC128827F30AC200678305 /* WorkoutDetailTrainCell.swift in Sources */,
 				02354E98280935D6005A8272 /* VideoPlayerPresenter.swift in Sources */,
 				02BC127727F1CF5800678305 /* WorkoutDetailDescriptionCell.swift in Sources */,
@@ -3219,6 +3234,7 @@
 				02F01C5427D794B20066656D /* MoodWidgetModel.swift in Sources */,
 				0263389E27DB6C9A00DC0325 /* ProgressesModel.swift in Sources */,
 				FE7CF8BB27E4A7ED0099682E /* WeightTableCell.swift in Sources */,
+				FAB65AB12848C4D700664399 /* EnglandGameController.swift in Sources */,
 				FACB1E862804325500058773 /* PointersAndTicks.swift in Sources */,
 				02BC127F27F1FBA500678305 /* WorkoutDetailPresenter.swift in Sources */,
 				025463B427CF784400D433DB /* MenuFitnessPresenter.swift in Sources */,
