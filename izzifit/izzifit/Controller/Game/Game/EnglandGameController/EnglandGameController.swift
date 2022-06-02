@@ -48,7 +48,7 @@ class EnglandGameController: BaseController {
                                  height: view.h / 4.41)
         
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = view.h / 81.2
+        layout.minimumLineSpacing = view.h / 162.4
         collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: layout)
         
@@ -63,7 +63,7 @@ class EnglandGameController: BaseController {
                                width: view.h / 3.60,
                                height: view.h / 5.77,
                                centerV: -view.h / 73,
-                               centerH: view.h / 88.9)
+                               centerH: view.h / 116)
     }
     
     @objc func spinAction() {
@@ -115,7 +115,6 @@ class EnglandGameController: BaseController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    
 }
 
 extension EnglandGameController: UICollectionViewDelegate, UICollectionViewDataSource {
