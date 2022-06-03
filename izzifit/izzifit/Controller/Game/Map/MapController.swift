@@ -19,6 +19,13 @@ class MapController: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+       
+       
     }
+}
+
+enum Maps: Int {
+    case arctic = 0
+    case england = 2
+    case france = 4
 }
