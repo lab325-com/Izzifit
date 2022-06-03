@@ -37,6 +37,7 @@ class QuizeProgressController: BaseController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        hiddenNavigationBar = true
         super.viewDidAppear(animated)
     }
     
@@ -80,7 +81,16 @@ extension QuizeProgressController: QuizeProgressOutputProtocol {
     func success() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) { [weak self] in
             guard let `self` = self else { return }
-            let _ = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .afterOnboarding)
+            if PreferencesManager.sharedManager.preOnboardingRemote?.afterPogess == true, let screen =  PreferencesManager.sharedManager.preOnboardingRemote?.screen {
+                switch screen {
+                case .video:
+                    OnboardingRouter(presenter: self.navigationController).presentVideo(delegate: self)
+                }
+            } else {
+                let _ = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .afterOnboarding)
+            }
+            
+            
         }
     }
     
@@ -101,6 +111,16 @@ extension QuizeProgressController: PaywallProtocol {
     }
     
     func paywallSuccess(controller: BaseController) {
+        RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
+    }
+}
+
+//----------------------------------------------
+// MARK: - QuizeVideoPotocol
+//----------------------------------------------
+
+extension QuizeProgressController: QuizeVideoPotocol {
+    func quizeVideoEnd(contoller: QuizeVideoController) {
         RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
     }
 }

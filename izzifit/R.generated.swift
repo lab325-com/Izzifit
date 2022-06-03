@@ -302,7 +302,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 72 files.
+  /// This `R.file` struct is generated, and contains static references to 73 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -370,6 +370,8 @@ struct R: Rswift.Validatable {
     static let interSemiBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-SemiBold", pathExtension: "ttf")
     /// Resource file `Inter-Thin.ttf`.
     static let interThinTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Thin", pathExtension: "ttf")
+    /// Resource file `IzziFit_coinmaster_30s.mp4`.
+    static let izziFit_coinmaster_30sMp4 = Rswift.FileResource(bundle: R.hostingBundle, name: "IzziFit_coinmaster_30s", pathExtension: "mp4")
     /// Resource file `Login.graphql`.
     static let loginGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Login", pathExtension: "graphql")
     /// Resource file `Map.graphql`.
@@ -644,6 +646,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Inter-Thin", withExtension: "ttf")`
     static func interThinTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.interThinTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "IzziFit_coinmaster_30s", withExtension: "mp4")`
+    static func izziFit_coinmaster_30sMp4(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.izziFit_coinmaster_30sMp4
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -2761,7 +2769,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 82 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 83 nibs.
   struct nib {
     /// Nib `ArcticGameComtroller`.
     static let arcticGameComtroller = _R.nib._ArcticGameComtroller()
@@ -2883,6 +2891,8 @@ struct R: Rswift.Validatable {
     static let quizeSportController = _R.nib._QuizeSportController()
     /// Nib `QuizeTargetWeightController`.
     static let quizeTargetWeightController = _R.nib._QuizeTargetWeightController()
+    /// Nib `QuizeVideoController`.
+    static let quizeVideoController = _R.nib._QuizeVideoController()
     /// Nib `QuizeWeightController`.
     static let quizeWeightController = _R.nib._QuizeWeightController()
     /// Nib `SplashViewController`.
@@ -3409,6 +3419,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeVideoController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeVideoController) instead")
+    static func quizeVideoController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeVideoController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "QuizeWeightController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeWeightController) instead")
     static func quizeWeightController(_: Void = ()) -> UIKit.UINib {
@@ -3824,6 +3842,10 @@ struct R: Rswift.Validatable {
       return R.nib.quizeTargetWeightController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func quizeVideoController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.quizeVideoController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func quizeWeightController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.quizeWeightController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -3995,7 +4017,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 188 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 189 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -4553,6 +4575,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let workout_detail_start = Rswift.StringResource(key: "workout_detail_start", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Start your new life easy and fun!
+      ///
+      /// Locales: en
+      static let login_title_update = Rswift.StringResource(key: "login_title_update", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Start your workout
       ///
       /// Locales: en
@@ -6869,6 +6895,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("workout_detail_start", bundle: bundle, comment: "")
       }
 
+      /// en translation: Start your new life easy and fun!
+      ///
+      /// Locales: en
+      static func login_title_update(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_title_update", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_title_update"
+        }
+
+        return NSLocalizedString("login_title_update", bundle: bundle, comment: "")
+      }
+
       /// en translation: Start your workout
       ///
       /// Locales: en
@@ -7687,6 +7728,7 @@ struct _R: Rswift.Validatable {
       try _QuizeProgressController.validate()
       try _QuizeSportController.validate()
       try _QuizeTargetWeightController.validate()
+      try _QuizeVideoController.validate()
       try _QuizeWeightController.validate()
       try _SplashViewController.validate()
       try _StartController.validate()
@@ -8814,6 +8856,23 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'QuizeTargetWeightController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeTargetWeightController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_target_flag_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_target_flag_ic' is used in nib 'QuizeTargetWeightController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QuizeVideoController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QuizeVideoController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "paywall_close_white_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_close_white_ic' is used in nib 'QuizeVideoController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

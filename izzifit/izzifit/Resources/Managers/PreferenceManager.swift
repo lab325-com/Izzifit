@@ -19,6 +19,7 @@ class PreferencesManager : NSObject {
     //static let widgetList = "widgetList"
     static let screensPaywall = "screensPaywall"
     static let afterOnboarding = "afterOnboarding"
+    static let preOnboardingRemote = "preOnboardingRemote"
     
     var userDefaults: UserDefaults
     
@@ -143,6 +144,15 @@ class PreferencesManager : NSObject {
         }
         set {
             self.set(newValue, forKey: PreferencesManager.screensPaywall)
+        }
+    }
+    
+    var preOnboardingRemote: PreVideoOnboardingModel? {
+        get {
+            return self.model(forKey: PreferencesManager.preOnboardingRemote)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.preOnboardingRemote)
         }
     }
     

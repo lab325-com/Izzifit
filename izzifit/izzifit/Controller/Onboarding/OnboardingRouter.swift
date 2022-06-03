@@ -62,4 +62,10 @@ class OnboardingRouter: BaseRouter {
         let controller = QuizeProgressController()
         push(controller: controller)
     }
+    
+    func presentVideo(delegate: QuizeVideoPotocol) {
+        let controller = QuizeVideoController(delegate: delegate)
+        let nav = NavigationController(rootViewController: controller)
+        present(controller: nav)
+    }
 }

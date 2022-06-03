@@ -27,6 +27,10 @@
 		021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4C27BF99710000D863 /* MainTabBarController.swift */; };
 		021A6F4F27BF99720000D863 /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021A6F4D27BF99710000D863 /* MainTabBarController.xib */; };
 		021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F5027BFA1AD0000D863 /* LoginPresenter.swift */; };
+		0227A9BB2849F39E00BA29A8 /* QuizeVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227A9B92849F39E00BA29A8 /* QuizeVideoController.swift */; };
+		0227A9BC2849F39E00BA29A8 /* QuizeVideoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0227A9BA2849F39E00BA29A8 /* QuizeVideoController.xib */; };
+		0227A9BF2849F7F300BA29A8 /* IzziFit_coinmaster_30s.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0227A9BE2849F7F200BA29A8 /* IzziFit_coinmaster_30s.mp4 */; };
+		0227A9C12849FC3700BA29A8 /* PreOnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227A9C02849FC3700BA29A8 /* PreOnboardingModel.swift */; };
 		0227DA8C27C4CA77008AB26B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0227DA8B27C4CA77008AB26B /* Kingfisher */; };
 		0227DA9227C52EC1008AB26B /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227DA9127C52EC1008AB26B /* TabBarRouter.swift */; };
 		0227DA9627C619F7008AB26B /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227DA9427C619F7008AB26B /* MenuCell.swift */; };
@@ -416,6 +420,10 @@
 		021A6F4C27BF99710000D863 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		021A6F4D27BF99710000D863 /* MainTabBarController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTabBarController.xib; sourceTree = "<group>"; };
 		021A6F5027BFA1AD0000D863 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		0227A9B92849F39E00BA29A8 /* QuizeVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeVideoController.swift; sourceTree = "<group>"; };
+		0227A9BA2849F39E00BA29A8 /* QuizeVideoController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeVideoController.xib; sourceTree = "<group>"; };
+		0227A9BE2849F7F200BA29A8 /* IzziFit_coinmaster_30s.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = IzziFit_coinmaster_30s.mp4; sourceTree = "<group>"; };
+		0227A9C02849FC3700BA29A8 /* PreOnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreOnboardingModel.swift; sourceTree = "<group>"; };
 		0227DA9127C52EC1008AB26B /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		0227DA9427C619F7008AB26B /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		0227DA9527C619F7008AB26B /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
@@ -889,6 +897,7 @@
 			isa = PBXGroup;
 			children = (
 				0218DA95283B92FA000979B5 /* PaywallScreen.swift */,
+				0227A9C02849FC3700BA29A8 /* PreOnboardingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -909,6 +918,23 @@
 				021A6F4D27BF99710000D863 /* MainTabBarController.xib */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		0227A9B82849F31E00BA29A8 /* QuizeVideo */ = {
+			isa = PBXGroup;
+			children = (
+				0227A9B92849F39E00BA29A8 /* QuizeVideoController.swift */,
+				0227A9BA2849F39E00BA29A8 /* QuizeVideoController.xib */,
+			);
+			path = QuizeVideo;
+			sourceTree = "<group>";
+		};
+		0227A9BD2849F7E400BA29A8 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				0227A9BE2849F7F200BA29A8 /* IzziFit_coinmaster_30s.mp4 */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		0227DA9327C619DB008AB26B /* Cell */ = {
@@ -1191,6 +1217,7 @@
 		0249D25927B3A87100F265C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0227A9BD2849F7E400BA29A8 /* Video */,
 				FA1A2566283D0C5900240E28 /* Enum */,
 				02A27B57282A655F00B435B0 /* Analytics */,
 				FA8CC856282919450022BFE2 /* Animation */,
@@ -2179,6 +2206,7 @@
 				02B225B027BD59DE0035CFA2 /* QuizeSport */,
 				02B225B527BD63D70035CFA2 /* QuizeEmail */,
 				02C3DD6227BEDA5C004E5C65 /* QuizeProgress */,
+				0227A9B82849F31E00BA29A8 /* QuizeVideo */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -2846,6 +2874,7 @@
 				0251D24C27E2222F0098A54D /* RecentProducts.graphql in Resources */,
 				025463B027CF75BD00D433DB /* Muscles.graphql in Resources */,
 				FA1A256F283D0D0400240E28 /* PaywallSingleController.xib in Resources */,
+				0227A9BF2849F7F300BA29A8 /* IzziFit_coinmaster_30s.mp4 in Resources */,
 				FE1403C327E249EB002F5819 /* ChartCollectionCell.xib in Resources */,
 				02BC127B27F1E13D00678305 /* WorkoutById.graphql in Resources */,
 				02BC127827F1CF5800678305 /* WorkoutDetailDescriptionCell.xib in Resources */,
@@ -2858,6 +2887,7 @@
 				02F01C5227D794450066656D /* MoodWidget.graphql in Resources */,
 				0227DA9D27C63A3B008AB26B /* FoodGroups.graphql in Resources */,
 				FAB6547127FEDFA70057A221 /* ArcticGameComtroller.xib in Resources */,
+				0227A9BC2849F39E00BA29A8 /* QuizeVideoController.xib in Resources */,
 				0290B39A27D2340800381B42 /* EnerdyTodayCell.xib in Resources */,
 				0273F55A27D5F08E00B19449 /* EnergyMoodCell.xib in Resources */,
 				02354E942809356B005A8272 /* DoExercise.graphql in Resources */,
@@ -2927,7 +2957,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
 		};
 		02D066AB27BBA8A800D12C5F /* RSwift */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3093,11 +3123,13 @@
 				FAA8E88C27F450A80081A12A /* CaloriesWidgetModel.swift in Sources */,
 				025463B227CF778B00D433DB /* MusclesModel.swift in Sources */,
 				02B225AE27BD45080035CFA2 /* QuizeFoodController.swift in Sources */,
+				0227A9C12849FC3700BA29A8 /* PreOnboardingModel.swift in Sources */,
 				0227DA9F27C63A57008AB26B /* FoodGroupsModel.swift in Sources */,
 				02FAF0A627D361AE002CD678 /* EnergyDrinkWaterCell.swift in Sources */,
 				020CB3D527E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift in Sources */,
 				02B225B827BD63FC0035CFA2 /* QuizeEmailController.swift in Sources */,
 				0227DAAD27C66C25008AB26B /* MenuAgeController.swift in Sources */,
+				0227A9BB2849F39E00BA29A8 /* QuizeVideoController.swift in Sources */,
 				0249D25127B3A70B00F265C1 /* SplashViewController.swift in Sources */,
 				02FAF0AE27D36D7C002CD678 /* EnergyPresenter.swift in Sources */,
 				02D066CB27BBBB4300D12C5F /* QuizeNameController.swift in Sources */,
