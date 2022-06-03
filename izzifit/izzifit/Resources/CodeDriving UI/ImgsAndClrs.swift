@@ -32,6 +32,7 @@ enum Imgs: String {
 enum Clrs: String {
     case profileCellBack, textTitleBlack, chartPurple, pinkTarget, grayText, intensivePurple
     case clrStartSpinLbl, clrAwardTitleLbl
+    case clrMainMapBack
 }
 
 struct SlotImgs {

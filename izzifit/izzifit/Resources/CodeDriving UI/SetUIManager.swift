@@ -1225,5 +1225,33 @@ struct SetUIManager {
                 object.trailingAnchor.constraint(equalTo: trailingToO! as! NSLayoutAnchor<NSLayoutXAxisAnchor>  , constant: -trailingCG!).isActive = true
             }
         }
+
+    func setAndLayScrollView(contentV: UIView,
+                   parentView: UIView,
+                   backColor: UIColor,
+                   showScrollIndicators: Bool,
+                   bounces: Bool,
+                   width: CGFloat,
+                   height: CGFloat) {
+        
+        let scrollV = UIScrollView()
+        scrollV.showsVerticalScrollIndicator = showScrollIndicators
+        scrollV.showsHorizontalScrollIndicator = showScrollIndicators
+        contentV.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        scrollV.bounces = bounces
+        scrollV.contentSize = CGSize(width: width, height: height)
+        scrollV.backgroundColor = backColor
+        contentV.backgroundColor = backColor
+        
+        scrollV.addSubview(contentV)
+        parentView.addSubview(scrollV)
+        
+        scrollV.translatesAutoresizingMaskIntoConstraints = false
+        scrollV.centerYAnchor.constraint(equalTo: parentView.centerYAnchor).isActive = true
+        scrollV.centerXAnchor.constraint(equalTo: parentView.centerXAnchor).isActive = true
+        scrollV.widthAnchor.constraint(equalTo: parentView.widthAnchor).isActive = true
+        scrollV.heightAnchor.constraint(equalToConstant: parentView.h).isActive = true
+        scrollV.topAnchor.constraint(equalTo: parentView.topAnchor).isActive = true
+    }
 }
 

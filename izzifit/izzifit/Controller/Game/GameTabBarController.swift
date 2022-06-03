@@ -38,7 +38,7 @@ class GameTabBarController: UITabBarController {
                                                image: view.image(img: .gameTabBarSpin)!),
                            createNavController(for: LevelController(),
                                                image: view.image(img: .gameTabBarBuild)!),
-                           createNavController(for:  EnglandGameController(),
+                           createNavController(for:  MapController(),
                                                image: view.image(img: .gameTabBarSpin)!)]
     }
     
