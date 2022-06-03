@@ -38,6 +38,11 @@ class ArcticGameController: BaseController {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(leftHandle))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
         gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchUpInside)
     }
     
@@ -79,9 +84,13 @@ class ArcticGameController: BaseController {
         }
     }
     
-    
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         actionBack()
+    }
+    
+    @objc func leftHandle(gesture: UISwipeGestureRecognizer) -> Void {
+        let controller = EnglandGameController()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func threeHummersCombination() {
@@ -115,7 +124,6 @@ class ArcticGameController: BaseController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    
 }
 
 

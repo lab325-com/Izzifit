@@ -9,6 +9,8 @@ import UIKit
 
 class MapView: UIView {
 
+    private var barBackVw = GameBarBackView(backImage: UIImage(named: "mapBarBack")!)
+    
     private let viewUponScrollView = UIView()
     let scrollView = UIScrollView()
     
@@ -117,6 +119,13 @@ class MapView: UIView {
         let x = (428 - UIScreen.main.bounds.size.width) / 2
         scrollView.setContentOffset(CGPoint(x: x, y: 2605),
                                     animated: true)
+        
+        ui.genericlLayout(object: barBackVw,
+                               parentView: self,
+                               height: h / 9.2,
+                               topC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
         
           //pathParts
         ui.genericlLayout(object: path1_btn,

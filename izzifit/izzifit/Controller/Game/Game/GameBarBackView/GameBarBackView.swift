@@ -3,7 +3,6 @@
 //  izzifit
 //
 //  Created by O l e h on 17.05.2022.
-//
 
 import UIKit
 
@@ -20,9 +19,20 @@ class GameBarBackView: UIView {
     
     init(backImage: UIImage) {
         super.init(frame: .zero)
-      mainImgVw.image = backImage
-      mainImgVw.contentMode = .scaleAspectFill
-      layout()
+        mainImgVw.image = backImage
+        mainImgVw.contentMode = .scaleAspectFill
+        layout()
+        setup()
+    }
+
+    private func setup() {
+        coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+        if let name = KeychainService.standard.me?.name { nameLbl.text = name }
+        else { nameLbl.isHidden = true }
+        avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
+                                          placeholder: RImage.placeholder_food_ic(),
+                                          options: [.transition(.fade(0.25))])
     }
 
     func layout() {

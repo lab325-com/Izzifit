@@ -106,7 +106,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 12 colors.
+  /// This `R.color` struct is generated, and contains static references to 13 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
@@ -114,6 +114,8 @@ struct R: Rswift.Validatable {
     static let chartPurple = Rswift.ColorResource(bundle: R.hostingBundle, name: "chartPurple")
     /// Color `clrAwardTitleLbl`.
     static let clrAwardTitleLbl = Rswift.ColorResource(bundle: R.hostingBundle, name: "clrAwardTitleLbl")
+    /// Color `clrMainMapBack`.
+    static let clrMainMapBack = Rswift.ColorResource(bundle: R.hostingBundle, name: "clrMainMapBack")
     /// Color `clrStartSpinLbl`.
     static let clrStartSpinLbl = Rswift.ColorResource(bundle: R.hostingBundle, name: "clrStartSpinLbl")
     /// Color `grayText`.
@@ -157,6 +159,15 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func clrAwardTitleLbl(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.clrAwardTitleLbl, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "clrMainMapBack", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func clrMainMapBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.clrMainMapBack, compatibleWith: traitCollection)
     }
     #endif
 
@@ -262,6 +273,14 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func clrAwardTitleLbl(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.clrAwardTitleLbl.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "clrMainMapBack", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func clrMainMapBack(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.clrMainMapBack.name)
     }
     #endif
 
@@ -1011,7 +1030,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 208 images.
+  /// This `R.image` struct is generated, and contains static references to 222 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1185,6 +1204,34 @@ struct R: Rswift.Validatable {
     static let levelShadowViewBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "levelShadowViewBack")
     /// Image `lightning`.
     static let lightning = Rswift.ImageResource(bundle: R.hostingBundle, name: "lightning")
+    /// Image `mapPoint_Arctic_act`.
+    static let mapPoint_Arctic_act = Rswift.ImageResource(bundle: R.hostingBundle, name: "mapPoint_Arctic_act")
+    /// Image `mapPoint_Arctic_pass`.
+    static let mapPoint_Arctic_pass = Rswift.ImageResource(bundle: R.hostingBundle, name: "mapPoint_Arctic_pass")
+    /// Image `mapPoint_England_act`.
+    static let mapPoint_England_act = Rswift.ImageResource(bundle: R.hostingBundle, name: "mapPoint_England_act")
+    /// Image `mapPoint_England_pass`.
+    static let mapPoint_England_pass = Rswift.ImageResource(bundle: R.hostingBundle, name: "mapPoint_England_pass")
+    /// Image `mapPoint_France_act`.
+    static let mapPoint_France_act = Rswift.ImageResource(bundle: R.hostingBundle, name: "mapPoint_France_act")
+    /// Image `mapPoint_France_pass`.
+    static let mapPoint_France_pass = Rswift.ImageResource(bundle: R.hostingBundle, name: "mapPoint_France_pass")
+    /// Image `map_1pathAct`.
+    static let map_1pathAct = Rswift.ImageResource(bundle: R.hostingBundle, name: "map_1pathAct")
+    /// Image `map_1pathPass`.
+    static let map_1pathPass = Rswift.ImageResource(bundle: R.hostingBundle, name: "map_1pathPass")
+    /// Image `map_2pathAct`.
+    static let map_2pathAct = Rswift.ImageResource(bundle: R.hostingBundle, name: "map_2pathAct")
+    /// Image `map_2pathPass`.
+    static let map_2pathPass = Rswift.ImageResource(bundle: R.hostingBundle, name: "map_2pathPass")
+    /// Image `map_3pathAct`.
+    static let map_3pathAct = Rswift.ImageResource(bundle: R.hostingBundle, name: "map_3pathAct")
+    /// Image `map_3pathPass`.
+    static let map_3pathPass = Rswift.ImageResource(bundle: R.hostingBundle, name: "map_3pathPass")
+    /// Image `map_4pathAct`.
+    static let map_4pathAct = Rswift.ImageResource(bundle: R.hostingBundle, name: "map_4pathAct")
+    /// Image `map_4pathPass`.
+    static let map_4pathPass = Rswift.ImageResource(bundle: R.hostingBundle, name: "map_4pathPass")
     /// Image `menu_arrow_right_ic`.
     static let menu_arrow_right_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "menu_arrow_right_ic")
     /// Image `menu_flag_ic`.
@@ -2029,6 +2076,104 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "lightning", bundle: ..., traitCollection: ...)`
     static func lightning(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.lightning, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "mapPoint_Arctic_act", bundle: ..., traitCollection: ...)`
+    static func mapPoint_Arctic_act(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.mapPoint_Arctic_act, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "mapPoint_Arctic_pass", bundle: ..., traitCollection: ...)`
+    static func mapPoint_Arctic_pass(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.mapPoint_Arctic_pass, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "mapPoint_England_act", bundle: ..., traitCollection: ...)`
+    static func mapPoint_England_act(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.mapPoint_England_act, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "mapPoint_England_pass", bundle: ..., traitCollection: ...)`
+    static func mapPoint_England_pass(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.mapPoint_England_pass, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "mapPoint_France_act", bundle: ..., traitCollection: ...)`
+    static func mapPoint_France_act(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.mapPoint_France_act, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "mapPoint_France_pass", bundle: ..., traitCollection: ...)`
+    static func mapPoint_France_pass(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.mapPoint_France_pass, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "map_1pathAct", bundle: ..., traitCollection: ...)`
+    static func map_1pathAct(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.map_1pathAct, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "map_1pathPass", bundle: ..., traitCollection: ...)`
+    static func map_1pathPass(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.map_1pathPass, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "map_2pathAct", bundle: ..., traitCollection: ...)`
+    static func map_2pathAct(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.map_2pathAct, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "map_2pathPass", bundle: ..., traitCollection: ...)`
+    static func map_2pathPass(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.map_2pathPass, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "map_3pathAct", bundle: ..., traitCollection: ...)`
+    static func map_3pathAct(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.map_3pathAct, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "map_3pathPass", bundle: ..., traitCollection: ...)`
+    static func map_3pathPass(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.map_3pathPass, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "map_4pathAct", bundle: ..., traitCollection: ...)`
+    static func map_4pathAct(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.map_4pathAct, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "map_4pathPass", bundle: ..., traitCollection: ...)`
+    static func map_4pathPass(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.map_4pathPass, compatibleWith: traitCollection)
     }
     #endif
 
