@@ -1227,14 +1227,14 @@ struct SetUIManager {
         }
 
     func setAndLayScrollView(contentV: UIView,
+                             scrollV: UIScrollView,
                    parentView: UIView,
                    backColor: UIColor,
                    showScrollIndicators: Bool,
                    bounces: Bool,
                    width: CGFloat,
                    height: CGFloat) {
-        
-        let scrollV = UIScrollView()
+
         scrollV.showsVerticalScrollIndicator = showScrollIndicators
         scrollV.showsHorizontalScrollIndicator = showScrollIndicators
         contentV.frame = CGRect(x: 0, y: 0, width: width, height: height)
@@ -1252,6 +1252,7 @@ struct SetUIManager {
         scrollV.widthAnchor.constraint(equalTo: parentView.widthAnchor).isActive = true
         scrollV.heightAnchor.constraint(equalToConstant: parentView.h).isActive = true
         scrollV.topAnchor.constraint(equalTo: parentView.topAnchor).isActive = true
+
     }
 }
 

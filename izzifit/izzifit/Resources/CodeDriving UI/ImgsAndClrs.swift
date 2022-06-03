@@ -12,6 +12,16 @@ enum Imgs: String {
     // GameView
     case gameBackTwo, gameBackOne, slotBack, spinBtnNormal, spinBtnSelected, slotHouse, freeHummer, start_logo_ic
     
+    // MapView
+    case mapPoint_Arctic_act,mapPoint_Arctic_pass
+    case mapPoint_England_act, mapPoint_England_pass
+    case mapPoint_France_act, mapPoint_France_pass
+    case map_1pathAct, map_1pathPass
+    case map_2pathAct, map_2pathPass
+    case map_3pathAct, map_3pathPass
+    case map_4pathAct, map_4pathPass
+    
+    
     // England GameView
     case england_gameBack, england_uponBack, england_slotBack, england_slotHouse, england_freeHummer
     case shipStart, shipFirst, shipSecond, shipThird, shipFourth, shipFinish
