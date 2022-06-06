@@ -198,6 +198,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
                         PreferencesManager.sharedManager.screensPaywall = paywallScreen.screens
                     }
                     
+                    if let preOnboarding = RemoteConfigParameters.preOnboarding.value as? PreOnboardingModel {
+                        PreferencesManager.sharedManager.preOnboardingRemote = preOnboarding.video
+                    }
+                    
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
                                                         object: self,

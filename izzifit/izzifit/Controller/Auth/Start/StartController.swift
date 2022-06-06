@@ -52,7 +52,7 @@ class StartController: BaseController {
     private func setup() {
         
         loginLabel.text = RLocalization.login_button()
-        mainLabel.text = RLocalization.login_title()
+        mainLabel.text = RLocalization.login_title_update()
         
         workoutLabel.text = RLocalization.login_workouts()
         mealsLabel.text = RLocalization.login_meals()

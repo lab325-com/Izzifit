@@ -32,10 +32,12 @@
 "food_breakfast" = "Breakfast";
 "food_carbs" = "Carbs %dg";
 "food_carbs_description" = "%d Carb";
+"food_carbs_float" = "Carbs %.1fg";
 "food_delete" = "Delete";
 "food_dinner" = "Dinner";
 "food_fats" = "Fats %dg";
 "food_fats_description" = "%d Fats";
+"food_fats_float" = "Fats %.1fg";
 "food_gramm_lefts" = "%d left";
 "food_lunch" = "Lunch";
 "food_main_carbs" = "Carbs";
@@ -43,6 +45,7 @@
 "food_main_proteins" = "Proteins";
 "food_prot_description" = "%d Prot";
 "food_proteins" = "Proteins %dg";
+"food_proteins_float" = "Proteins %.1fg";
 "food_recent" = "Recent";
 "food_search" = "Search";
 "food_snack" = "Snack";
@@ -67,6 +70,7 @@
 "login_terms_of_subscribe" = "Terms of Subscribe";
 "login_terms_use" = "Terms of Use";
 "login_title" = "Log In";
+"login_title_update" = "Start your new life easy and fun!";
 "login_workouts" = "Workouts";
 "menu_age" = "Age";
 "menu_email" = "Email";

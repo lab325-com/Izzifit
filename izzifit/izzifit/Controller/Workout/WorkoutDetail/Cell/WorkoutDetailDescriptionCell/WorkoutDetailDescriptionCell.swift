@@ -25,7 +25,11 @@ class WorkoutDetailDescriptionCell: BaseTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        mainTitleLabel.text = RLocalization.workout_detail_description()
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.24
+
+        mainTitleLabel.attributedText = NSMutableAttributedString(string: RLocalization.workout_detail_description(), attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        
         mainMuscleGroupsLabel.text = RLocalization.workout_detail_muscle()
     }
 
@@ -38,7 +42,10 @@ class WorkoutDetailDescriptionCell: BaseTableViewCell {
     func setupCell(model: WorkoutByIdMainModel?) {
         self.model = model
         
-        descriptionLabel.text = model?.description
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.24
+
+        descriptionLabel.attributedText = NSMutableAttributedString(string: model?.description ?? "", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         
         musclesGroupLabel.text = model?.muscles?.compactMap({$0.name}).joined(separator: ", ")
     }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -168,6 +168,7 @@
                 <outlet property="bottomView" destination="dlW-m3-6zt" id="Asz-N5-c7g"/>
                 <outlet property="describeLabel" destination="KuU-gE-Dk9" id="PC4-mo-suI"/>
                 <outlet property="durationLabel" destination="EoX-kG-cmT" id="lrN-MK-Q14"/>
+                <outlet property="exercisesView" destination="UME-DC-GaR" id="IzN-yr-4oC"/>
                 <outlet property="globalStackView" destination="cyT-wt-4Ds" id="Sfr-YN-kb1"/>
                 <outlet property="mainImageView" destination="uo3-cG-YAR" id="k3F-Pz-5sp"/>
                 <outlet property="restingDurationLabel" destination="T7I-MW-Dlo" id="kVG-HS-FfE"/>

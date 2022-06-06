@@ -151,6 +151,10 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
         setup()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
             coordinator.animate(alongsideTransition: { (context) in
@@ -489,7 +493,6 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     }
     
     @IBAction func actionPlay(_ sender: UIButton) {
-        
         switch palyerType {
         case .start:
             palyerType = .getReady
@@ -500,15 +503,22 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
         case .plaing:
             AnalyticsHelper.sendFirebaseEvents(events: .workout_pause, params: ["id": exercises[safe: currentIndex]?.id ?? 0])
             palyerType = .playingPause
+            circleView.alpha = 0.2
+            timeCircleLabel.alpha = 0.2
+            nextView.alpha = 0.2
+            progressStackView.alpha = 0.2
         case .playingPause:
             AnalyticsHelper.sendFirebaseEvents(events: .workout_countinue, params: ["id": exercises[safe: currentIndex]?.id ?? 0])
             palyerType = .plaing
+            circleView.alpha = 1.0
+            timeCircleLabel.alpha = 1.0
+            nextView.alpha = 1.0
+            progressStackView.alpha = 1.0
         case .rest:
             palyerType = .restPause
         case .restPause:
             palyerType = .rest
         }
-        
     }
     
     @IBAction func actionNext(_ sender: UIButton) {

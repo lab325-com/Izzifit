@@ -27,6 +27,7 @@ class WorkoutDetailTrainCell: BaseTableViewCell {
     @IBOutlet weak var separatorLeadingConstraints: NSLayoutConstraint!
     
     @IBOutlet weak var restingView: UIView!
+    @IBOutlet weak var exercisesView: UIView!
     @IBOutlet weak var restingDurationLabel: UILabel!
     @IBOutlet weak var restingLabel: UILabel!
     
@@ -45,12 +46,19 @@ class WorkoutDetailTrainCell: BaseTableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupCell(model: ExerciseModel, isSelected: Bool) {
+    func setupCell(model: ExerciseModel, isSelected: Bool, isHiddenSepate: Bool) {
+        bottomSeparatorView.isHidden = isHiddenSepate
+        
         avatarImageView.kf.setImage(with: URL(string: model.image?.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_two_ic(), options: [.transition(.fade(0.25))])
         
         mainImageView.kf.setImage(with: URL(string: model.image?.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_two_ic(), options: [.transition(.fade(0.25))])
         
-        describeLabel.text = model.description
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.34
+
+        describeLabel.attributedText = NSMutableAttributedString(string: model.description ?? "", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        
         trainingLabel.text = model.title
         
         durationLabel.text = model.duration?.time
@@ -59,7 +67,8 @@ class WorkoutDetailTrainCell: BaseTableViewCell {
             bottomView.isHidden = !isSelected
           //  globalStackView.layoutIfNeeded()
         //}
-        restingView.isHidden = model.isRest ?? false
+        restingView.isHidden = !(model.isRest ?? false)
+        exercisesView.isHidden = model.isRest ?? false
         whiteView.isHidden = !isSelected
         
         separatorLeadingConstraints.constant = !isSelected ? 112 : 16

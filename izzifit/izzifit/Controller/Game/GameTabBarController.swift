@@ -47,6 +47,8 @@ class GameTabBarController: UITabBarController {
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().clipsToBounds = true
 
+        
+        
         selectedIndex = 1
     
         backBtn.setImage(view.image(img: .gameTabBarEnergy), for: .normal)

@@ -378,7 +378,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 72 files.
+  /// This `R.file` struct is generated, and contains static references to 73 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -446,6 +446,8 @@ struct R: Rswift.Validatable {
     static let interSemiBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-SemiBold", pathExtension: "ttf")
     /// Resource file `Inter-Thin.ttf`.
     static let interThinTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Thin", pathExtension: "ttf")
+    /// Resource file `IzziFit_coinmaster_30s.mp4`.
+    static let izziFit_coinmaster_30sMp4 = Rswift.FileResource(bundle: R.hostingBundle, name: "IzziFit_coinmaster_30s", pathExtension: "mp4")
     /// Resource file `Login.graphql`.
     static let loginGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Login", pathExtension: "graphql")
     /// Resource file `Map.graphql`.
@@ -720,6 +722,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Inter-Thin", withExtension: "ttf")`
     static func interThinTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.interThinTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "IzziFit_coinmaster_30s", withExtension: "mp4")`
+    static func izziFit_coinmaster_30sMp4(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.izziFit_coinmaster_30sMp4
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -1049,7 +1057,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 224 images.
+  /// This `R.image` struct is generated, and contains static references to 225 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1103,6 +1111,8 @@ struct R: Rswift.Validatable {
     static let deersThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersThird")
     /// Image `dollar`.
     static let dollar = Rswift.ImageResource(bundle: R.hostingBundle, name: "dollar")
+    /// Image `doubleLightning`.
+    static let doubleLightning = Rswift.ImageResource(bundle: R.hostingBundle, name: "doubleLightning")
     /// Image `dummyAward`.
     static let dummyAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "dummyAward")
     /// Image `dummyFace`.
@@ -1679,6 +1689,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "dollar", bundle: ..., traitCollection: ...)`
     static func dollar(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.dollar, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "doubleLightning", bundle: ..., traitCollection: ...)`
+    static func doubleLightning(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.doubleLightning, compatibleWith: traitCollection)
     }
     #endif
 
@@ -3071,7 +3088,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 81 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 82 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -3191,6 +3208,8 @@ struct R: Rswift.Validatable {
     static let quizeSportController = _R.nib._QuizeSportController()
     /// Nib `QuizeTargetWeightController`.
     static let quizeTargetWeightController = _R.nib._QuizeTargetWeightController()
+    /// Nib `QuizeVideoController`.
+    static let quizeVideoController = _R.nib._QuizeVideoController()
     /// Nib `QuizeWeightController`.
     static let quizeWeightController = _R.nib._QuizeWeightController()
     /// Nib `SplashViewController`.
@@ -3709,6 +3728,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QuizeVideoController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeVideoController) instead")
+    static func quizeVideoController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.quizeVideoController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "QuizeWeightController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.quizeWeightController) instead")
     static func quizeWeightController(_: Void = ()) -> UIKit.UINib {
@@ -4120,6 +4147,10 @@ struct R: Rswift.Validatable {
       return R.nib.quizeTargetWeightController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func quizeVideoController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.quizeVideoController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func quizeWeightController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.quizeWeightController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -4291,7 +4322,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 185 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 189 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -4405,6 +4436,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let food_main_carbs = Rswift.StringResource(key: "food_main_carbs", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Carbs %.1fg
+      ///
+      /// Locales: en
+      static let food_carbs_float = Rswift.StringResource(key: "food_carbs_float", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Carbs %dg
       ///
       /// Locales: en
@@ -4505,6 +4540,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let food_main_fats = Rswift.StringResource(key: "food_main_fats", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Fats %.1fg
+      ///
+      /// Locales: en
+      static let food_fats_float = Rswift.StringResource(key: "food_fats_float", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Fats %dg
       ///
       /// Locales: en
@@ -4769,6 +4808,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let food_main_proteins = Rswift.StringResource(key: "food_main_proteins", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Proteins %.1fg
+      ///
+      /// Locales: en
+      static let food_proteins_float = Rswift.StringResource(key: "food_proteins_float", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Proteins %dg
       ///
       /// Locales: en
@@ -4837,6 +4880,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let workout_detail_start = Rswift.StringResource(key: "workout_detail_start", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Start your new life easy and fun!
+      ///
+      /// Locales: en
+      static let login_title_update = Rswift.StringResource(key: "login_title_update", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Start your workout
       ///
       /// Locales: en
@@ -5470,6 +5517,23 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("food_main_carbs", bundle: bundle, comment: "")
       }
 
+      /// en translation: Carbs %.1fg
+      ///
+      /// Locales: en
+      static func food_carbs_float(_ value1: Double, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("food_carbs_float", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "food_carbs_float"
+        }
+
+        let format = NSLocalizedString("food_carbs_float", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
+
       /// en translation: Carbs %dg
       ///
       /// Locales: en
@@ -5847,6 +5911,23 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("food_main_fats", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Fats %.1fg
+      ///
+      /// Locales: en
+      static func food_fats_float(_ value1: Double, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("food_fats_float", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "food_fats_float"
+        }
+
+        let format = NSLocalizedString("food_fats_float", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
       }
 
       /// en translation: Fats %dg
@@ -6845,6 +6926,23 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("food_main_proteins", bundle: bundle, comment: "")
       }
 
+      /// en translation: Proteins %.1fg
+      ///
+      /// Locales: en
+      static func food_proteins_float(_ value1: Double, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("food_proteins_float", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "food_proteins_float"
+        }
+
+        let format = NSLocalizedString("food_proteins_float", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
+
       /// en translation: Proteins %dg
       ///
       /// Locales: en
@@ -7100,6 +7198,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("workout_detail_start", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Start your new life easy and fun!
+      ///
+      /// Locales: en
+      static func login_title_update(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login_title_update", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "login_title_update"
+        }
+
+        return NSLocalizedString("login_title_update", bundle: bundle, comment: "")
       }
 
       /// en translation: Start your workout
@@ -7919,6 +8032,7 @@ struct _R: Rswift.Validatable {
       try _QuizeProgressController.validate()
       try _QuizeSportController.validate()
       try _QuizeTargetWeightController.validate()
+      try _QuizeVideoController.validate()
       try _QuizeWeightController.validate()
       try _SplashViewController.validate()
       try _StartController.validate()
@@ -9020,6 +9134,23 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'QuizeTargetWeightController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'QuizeTargetWeightController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_target_flag_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_target_flag_ic' is used in nib 'QuizeTargetWeightController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QuizeVideoController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "QuizeVideoController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "paywall_close_white_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_close_white_ic' is used in nib 'QuizeVideoController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

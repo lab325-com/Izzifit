@@ -20,7 +20,7 @@ class MapController: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+    
     }
 }
 

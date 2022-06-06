@@ -5,5 +5,6 @@ query SaveWeightWidget {
         measure
         targetWeight
         weight
+        createdAt
     }
 }

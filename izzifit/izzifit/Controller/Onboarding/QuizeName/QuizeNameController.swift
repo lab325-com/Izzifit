@@ -69,6 +69,14 @@ class QuizeNameController: BaseController, UITextFieldDelegate {
         countLabel.text = RLocalization.onboarding_count(1, 9)
         nameTitleLabel.text = RLocalization.onboarding_name()
         goNextButton.setTitle(RLocalization.onboarding_go_next(), for: .normal)
+        
+        
+        if PreferencesManager.sharedManager.preOnboardingRemote?.afterPogess == false, let screen =  PreferencesManager.sharedManager.preOnboardingRemote?.screen {
+            switch screen {
+            case .video:
+                OnboardingRouter(presenter: navigationController).presentVideo(delegate: self)
+            }
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -116,5 +124,15 @@ class QuizeNameController: BaseController, UITextFieldDelegate {
             
             OnboardingRouter(presenter: navigationController).pushGender()
         }
+    }
+}
+
+//----------------------------------------------
+// MARK: - QuizeVideoPotocol
+//----------------------------------------------
+
+extension QuizeNameController: QuizeVideoPotocol {
+    func quizeVideoEnd(contoller: QuizeVideoController) {
+        
     }
 }

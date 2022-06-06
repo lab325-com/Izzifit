@@ -10,6 +10,7 @@ import Firebase
 
 enum RemoteConfigParameters: String, CaseIterable {
     case paywallScreen = "PaywallScreen"
+    case preOnboarding = "PreOnboarding"
 }
 
 extension RemoteConfigParameters {
@@ -18,6 +19,8 @@ extension RemoteConfigParameters {
         switch self {
         case .paywallScreen:
             return try? self.toCodable().get() as PaywallScreenModel
+        case .preOnboarding:
+            return try? self.toCodable().get() as PreOnboardingModel
         }
     }
 
