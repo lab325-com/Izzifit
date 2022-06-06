@@ -9,13 +9,30 @@ import Foundation
 import UIKit
 
 enum Imgs: String {
+    //GamePurchasePopUp
+    case greenBuyBtn, backBtn, yellowPointer, buildPopUpBack, doubleLightning
+    
+    // GameView
+    case gameBackTwo, gameBackOne, slotBack, spinBtnNormal, spinBtnSelected, slotHouse, freeHummer, start_logo_ic
+    
+    // MapView
+    case mapPoint_Arctic_act,mapPoint_Arctic_pass
+    case mapPoint_England_act, mapPoint_England_pass
+    case mapPoint_France_act, mapPoint_France_pass
+    case map_1pathAct, map_1pathPass
+    case map_2pathAct, map_2pathPass
+    case map_3pathAct, map_3pathPass
+    case map_4pathAct, map_4pathPass
+    
+    
+    // England GameView
+    case england_gameBack, england_uponBack, england_slotBack, england_slotHouse, england_freeHummer
     case shipStart, shipFirst, shipSecond, shipThird, shipFourth, shipFinish
     case fishStart, fishFirst, fishSecond, fishThird, fishFourth, fishFinish
     case igluStart, igluFirst, igluSecond, igluThird, igluFourth, igluFinish
     case goldStart, goldFirst, goldSecond, goldThird, goldFourth, goldFinish
     case deersStart, deersFirst, deersSecond, deersThird, deersFourth, deersFinish
     case gameTabBarEnergy, gameTabBarMap, gameTabBarBuild, gameTabBarSpin
-    case spinBtnNormal, spinBtnSelected
     
     case popStartState
     case pop1Ship, pop2Ship, pop3Ship, pop4Ship, pop5Ship
@@ -27,6 +44,9 @@ enum Imgs: String {
 
 enum Clrs: String {
     case profileCellBack, textTitleBlack, chartPurple, pinkTarget, grayText, intensivePurple
+    case clrStartSpinLbl, clrAwardTitleLbl
+    case clrMainMapBack
+    case clrDashLinePopUp
 }
 
 struct SlotImgs {
@@ -36,6 +56,20 @@ struct SlotImgs {
     static let moneyBag = UIImage(named: "moneyBag")
     static let snowflake = UIImage(named: "snowflake")
 }
+
+struct UK_SlotImgs {
+    static let pound = UIImage(named: "en_pound")
+    static let flag = UIImage(named: "en_flag")
+    static let moneyBag = UIImage(named: "en_moneyBag")
+    static let hammer = UIImage(named: "en_hammer")
+    static let lightning = UIImage(named: "en_lightning")
+}
+
+
+
+
+
+
 
 struct ScaleImgs {
     static let scale1Selected = UIImage(named: "Selected1Scale")

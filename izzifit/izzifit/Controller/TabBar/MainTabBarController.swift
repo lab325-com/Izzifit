@@ -45,7 +45,7 @@ class MainTabBarController: BaseController {
     private lazy var workout = WorkoutController()
     private lazy var profile = ProfileController()
     private lazy var menu = MenuController()
-    private lazy var game = ArcticGameComtroller()
+    private lazy var game = ArcticGameController()
     
     private var tab: TabBarType = .energy {
         didSet {
