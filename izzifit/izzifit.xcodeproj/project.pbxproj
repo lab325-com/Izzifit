@@ -357,6 +357,7 @@
 		FA6628A327F184C200FBB946 /* Moods.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA6628A227F184C200FBB946 /* Moods.graphql */; };
 		FA6699CA281ABCF600B394E0 /* OffsetCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */; };
 		FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */; };
+		FA8C4848284E0D9C006FF663 /* GamePurchasePopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8C4847284E0D9C006FF663 /* GamePurchasePopView.swift */; };
 		FA8CC858282919B80022BFE2 /* construction3.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA8CC857282919B80022BFE2 /* construction3.gif */; };
 		FA8CC85A28291CA50022BFE2 /* GifImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8CC85928291CA50022BFE2 /* GifImageView.swift */; };
 		FA9400052833989C00CE5021 /* GameBarBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9400042833989C00CE5021 /* GameBarBackView.swift */; };
@@ -749,6 +750,7 @@
 		FA6628A227F184C200FBB946 /* Moods.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moods.graphql; sourceTree = "<group>"; };
 		FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetCounter.swift; sourceTree = "<group>"; };
 		FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		FA8C4847284E0D9C006FF663 /* GamePurchasePopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePurchasePopView.swift; sourceTree = "<group>"; };
 		FA8CC857282919B80022BFE2 /* construction3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = construction3.gif; sourceTree = "<group>"; };
 		FA8CC85928291CA50022BFE2 /* GifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImageView.swift; sourceTree = "<group>"; };
 		FA9400042833989C00CE5021 /* GameBarBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBarBackView.swift; sourceTree = "<group>"; };
@@ -2441,6 +2443,14 @@
 			path = Moods;
 			sourceTree = "<group>";
 		};
+		FA8C4846284E0D34006FF663 /* GamePurchasePopUp */ = {
+			isa = PBXGroup;
+			children = (
+				FA8C4847284E0D9C006FF663 /* GamePurchasePopView.swift */,
+			);
+			path = GamePurchasePopUp;
+			sourceTree = "<group>";
+		};
 		FA8CC856282919450022BFE2 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -2487,6 +2497,7 @@
 		FAB6546B27FEDF1A0057A221 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				FA8C4846284E0D34006FF663 /* GamePurchasePopUp */,
 				FAB6546D27FEDF340057A221 /* Game */,
 				FAB6546C27FEDF290057A221 /* Level */,
 				FAB65AB6284916E000664399 /* Map */,
@@ -3255,6 +3266,7 @@
 				02BC127F27F1FBA500678305 /* WorkoutDetailPresenter.swift in Sources */,
 				025463B427CF784400D433DB /* MenuFitnessPresenter.swift in Sources */,
 				0239712427E1CD6E0087113A /* WriteToUsController.swift in Sources */,
+				FA8C4848284E0D9C006FF663 /* GamePurchasePopView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

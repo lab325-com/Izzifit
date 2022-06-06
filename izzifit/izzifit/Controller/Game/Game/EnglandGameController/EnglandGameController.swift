@@ -15,7 +15,10 @@ class EnglandGameController: BaseController {
     
     private var gameView: EnglandGameView!
     private var collectionView: UICollectionView!
-    
+    var testView = GamePurchasePopView(title: "England",
+                                       purchase1Price: 0.99,
+                                       purchase2Price: 1.99)
+ 
     override func loadView() {
         gameView = EnglandGameView()
         self.view = gameView
@@ -23,6 +26,9 @@ class EnglandGameController: BaseController {
     }
     
     override func viewDidLoad() {
+        
+      
+        
         AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
         needSoundTap = false
         hiddenNavigationBar = true
@@ -40,6 +46,14 @@ class EnglandGameController: BaseController {
         self.view.addGestureRecognizer(swipeRight)
         
         gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchUpInside)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.view.ui.genericlLayout(object: self.testView,
+                                        parentView: self.gameView,
+                                       topC: 0,
+                                       bottomC: 0,
+                                       leadingC: 0,
+                                       trailingC: 0)
+        }
     }
     
     private func setCollectionView() {

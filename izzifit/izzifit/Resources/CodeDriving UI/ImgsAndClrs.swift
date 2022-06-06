@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 enum Imgs: String {
+    //GamePurchasePopUp
+    case greenBuyBtn, backBtn, yellowPointer, buildPopUpBack, doubleLightning
+    
     // GameView
     case gameBackTwo, gameBackOne, slotBack, spinBtnNormal, spinBtnSelected, slotHouse, freeHummer, start_logo_ic
     
@@ -43,6 +46,7 @@ enum Clrs: String {
     case profileCellBack, textTitleBlack, chartPurple, pinkTarget, grayText, intensivePurple
     case clrStartSpinLbl, clrAwardTitleLbl
     case clrMainMapBack
+    case clrDashLinePopUp
 }
 
 struct SlotImgs {

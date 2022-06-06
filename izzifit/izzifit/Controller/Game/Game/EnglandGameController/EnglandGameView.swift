@@ -9,6 +9,8 @@ import UIKit
 
 class EnglandGameView: UIView {
     
+
+    
     // bar
     var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
     // Basic view
@@ -225,6 +227,7 @@ class EnglandGameView: UIView {
                           bottomC: h/7.31,
                           leadingC: 0,
                           trailingC: 0)
+        
     }
     
     func showProgress() {

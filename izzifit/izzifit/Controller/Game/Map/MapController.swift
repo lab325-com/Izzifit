@@ -10,6 +10,7 @@ import UIKit
 class MapController: BaseController {
 
     private var mapView: MapView!
+ 
     
     override func loadView() {
         hiddenNavigationBar = true
@@ -19,8 +20,7 @@ class MapController: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-       
+   
     }
 }
 

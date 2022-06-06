@@ -106,7 +106,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 13 colors.
+  /// This `R.color` struct is generated, and contains static references to 14 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
@@ -114,6 +114,8 @@ struct R: Rswift.Validatable {
     static let chartPurple = Rswift.ColorResource(bundle: R.hostingBundle, name: "chartPurple")
     /// Color `clrAwardTitleLbl`.
     static let clrAwardTitleLbl = Rswift.ColorResource(bundle: R.hostingBundle, name: "clrAwardTitleLbl")
+    /// Color `clrDashLinePopUp`.
+    static let clrDashLinePopUp = Rswift.ColorResource(bundle: R.hostingBundle, name: "clrDashLinePopUp")
     /// Color `clrMainMapBack`.
     static let clrMainMapBack = Rswift.ColorResource(bundle: R.hostingBundle, name: "clrMainMapBack")
     /// Color `clrStartSpinLbl`.
@@ -159,6 +161,15 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func clrAwardTitleLbl(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.clrAwardTitleLbl, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "clrDashLinePopUp", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func clrDashLinePopUp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.clrDashLinePopUp, compatibleWith: traitCollection)
     }
     #endif
 
@@ -273,6 +284,14 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func clrAwardTitleLbl(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.clrAwardTitleLbl.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "clrDashLinePopUp", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func clrDashLinePopUp(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.clrDashLinePopUp.name)
     }
     #endif
 
@@ -1030,7 +1049,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 222 images.
+  /// This `R.image` struct is generated, and contains static references to 224 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1184,6 +1203,8 @@ struct R: Rswift.Validatable {
     static let goldStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "goldStart")
     /// Image `goldThird`.
     static let goldThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "goldThird")
+    /// Image `greenBuyBtn`.
+    static let greenBuyBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "greenBuyBtn")
     /// Image `hammer`.
     static let hammer = Rswift.ImageResource(bundle: R.hostingBundle, name: "hammer")
     /// Image `igluFinish`.
@@ -1204,6 +1225,8 @@ struct R: Rswift.Validatable {
     static let levelShadowViewBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "levelShadowViewBack")
     /// Image `lightning`.
     static let lightning = Rswift.ImageResource(bundle: R.hostingBundle, name: "lightning")
+    /// Image `mapBarBack`.
+    static let mapBarBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "mapBarBack")
     /// Image `mapPoint_Arctic_act`.
     static let mapPoint_Arctic_act = Rswift.ImageResource(bundle: R.hostingBundle, name: "mapPoint_Arctic_act")
     /// Image `mapPoint_Arctic_pass`.
@@ -2010,6 +2033,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "greenBuyBtn", bundle: ..., traitCollection: ...)`
+    static func greenBuyBtn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.greenBuyBtn, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "hammer", bundle: ..., traitCollection: ...)`
     static func hammer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.hammer, compatibleWith: traitCollection)
@@ -2076,6 +2106,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "lightning", bundle: ..., traitCollection: ...)`
     static func lightning(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.lightning, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "mapBarBack", bundle: ..., traitCollection: ...)`
+    static func mapBarBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.mapBarBack, compatibleWith: traitCollection)
     }
     #endif
 

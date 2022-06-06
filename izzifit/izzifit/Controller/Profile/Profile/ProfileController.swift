@@ -18,7 +18,7 @@ class ProfileController: BaseController {
     @IBOutlet weak var energyLabel: UILabel!
     @IBOutlet weak var profileLbl: UILabel!
     @IBOutlet weak var profileTableView: UITableView!
-    
+  
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
@@ -79,7 +79,6 @@ class ProfileController: BaseController {
     }
 }
 
-
 //----------------------------------------------
 // MARK: - UITableViewDelegate, UITableViewDataSource
 //----------------------------------------------
@@ -132,6 +131,7 @@ extension ProfileController: ProfileOutputProtocol {
         profileTableView.isHidden = false
         profileTableView.reloadData()
     }
+    
     func failure() {
     }
 }
