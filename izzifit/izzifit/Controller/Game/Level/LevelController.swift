@@ -170,6 +170,7 @@ class LevelController: BaseController {
     func drawBuildPopUp(price: Int,
                         buildType: BuildingType,
                         sender: UIButton) {
+       
         buildPopUpVw = nil
         buildPopUpVw = BuildPopUpView()
         guard let buildPopUpVw = buildPopUpVw else { return }
@@ -181,7 +182,6 @@ class LevelController: BaseController {
                                    bottomC: 0,
                                    leadingC: 0,
                                    trailingC: 0)
-  
         view.layoutIfNeeded()
         checkAvailableHummers()
         
@@ -412,7 +412,6 @@ extension LevelController: LevelOutputProtocol {
 
 extension LevelController: PaywallProtocol {
     func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
-    
     func paywallSuccess(controller: BaseController) { }
 }
 

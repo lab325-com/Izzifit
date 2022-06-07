@@ -29,8 +29,6 @@ class SlotCollectionCell: UICollectionViewCell {
     }()
     
     lazy var rowHeight: CGFloat = {
-        print(tableView.sizeHeight)
-        print(tableView.sizeHeight / 2.9)
         return tableView.sizeHeight / 2.9
     }()
     

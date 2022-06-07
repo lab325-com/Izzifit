@@ -57,7 +57,6 @@ class MapView: UIView {
        setUI()
        layout()
     }
-    
 
     private func setUI() {
         

@@ -1057,7 +1057,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 225 images.
+  /// This `R.image` struct is generated, and contains static references to 226 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1233,6 +1233,8 @@ struct R: Rswift.Validatable {
     static let levelBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "levelBack")
     /// Image `levelShadowViewBack`.
     static let levelShadowViewBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "levelShadowViewBack")
+    /// Image `level_england_back`.
+    static let level_england_back = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_england_back")
     /// Image `lightning`.
     static let lightning = Rswift.ImageResource(bundle: R.hostingBundle, name: "lightning")
     /// Image `mapBarBack`.
@@ -2116,6 +2118,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "levelShadowViewBack", bundle: ..., traitCollection: ...)`
     static func levelShadowViewBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.levelShadowViewBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "level_england_back", bundle: ..., traitCollection: ...)`
+    static func level_england_back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_england_back, compatibleWith: traitCollection)
     }
     #endif
 

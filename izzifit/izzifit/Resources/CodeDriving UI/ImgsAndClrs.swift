@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 enum Imgs: String {
+    //LevelView - England
+    case level_england_back
+    
+    
     //GamePurchasePopUp
     case greenBuyBtn, backBtn, yellowPointer, buildPopUpBack, doubleLightning
     

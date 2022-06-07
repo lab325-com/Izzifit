@@ -89,7 +89,9 @@ class ArcticGameController: BaseController {
     }
     
     @objc func leftHandle(gesture: UISwipeGestureRecognizer) -> Void {
-        let controller = EnglandGameController()
+        let controller = MapController()//EnglandGameController()
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true)
         self.navigationController?.pushViewController(controller, animated: true)
     }
     

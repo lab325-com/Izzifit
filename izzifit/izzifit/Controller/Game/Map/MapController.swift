@@ -11,11 +11,12 @@ class MapController: BaseController {
 
     private var mapView: MapView!
  
+    private var englandView: LevelView!
     
     override func loadView() {
         hiddenNavigationBar = true
-        mapView = MapView()
-        self.view = mapView
+        englandView = LevelView(points: [CGPoint]())
+        self.view = englandView
     }
     
     override func viewDidLoad() {

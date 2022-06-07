@@ -14,7 +14,7 @@ class GameTabBarController: UITabBarController {
     private let buildBtn = UIButton()
     private let mapBtn = UIButton()
     
-    private lazy var btns: [UIButton] = {[backBtn, spinBtn, buildBtn]}()
+    private lazy var btns: [UIButton] = {[backBtn, spinBtn, buildBtn, mapBtn]}()
     private var tabBarStackView: UIStackView!
     
     var firstLaunch = true
@@ -38,8 +38,8 @@ class GameTabBarController: UITabBarController {
                                                image: view.image(img: .gameTabBarSpin)!),
                            createNavController(for: LevelController(),
                                                image: view.image(img: .gameTabBarBuild)!),
-         //                  createNavController(for:  MapController(),
-          //                                     image: view.image(img: .gameTabBarSpin)!)
+                           createNavController(for:  MapController(),
+                                               image: view.image(img: .gameTabBarSpin)!)
         ]
     }
     
@@ -76,7 +76,7 @@ class GameTabBarController: UITabBarController {
         backBtn.addTarget(self, action: #selector(actionBack),for: .touchUpInside)
         spinBtn.addTarget(self, action: #selector(spin), for: .touchUpInside)
         buildBtn.addTarget(self, action: #selector(build), for: .touchUpInside)
-  //      mapBtn.addTarget(self,action: #selector(map), for: .touchUpInside)
+        mapBtn.addTarget(self,action: #selector(map), for: .touchUpInside)
         
         tabBar.isHidden = true
     }

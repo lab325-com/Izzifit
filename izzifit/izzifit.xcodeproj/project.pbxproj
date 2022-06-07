@@ -385,6 +385,7 @@
 		FACD1C13284787A50014AFDC /* ArcticGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD1C12284787A50014AFDC /* ArcticGameController.swift */; };
 		FADA6BD127F188B200913F67 /* MoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA6BD027F188B200913F67 /* MoodsModel.swift */; };
 		FADD5114284F2C8900F3A292 /* PurchasePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD5113284F2C8900F3A292 /* PurchasePopUp.swift */; };
+		FADD5117284F59D800F3A292 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD5116284F59D800F3A292 /* LevelView.swift */; };
 		FAE6764D282E7E200020678E /* LevelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6764C282E7E200020678E /* LevelPresenter.swift */; };
 		FAEB6F5B284A24850027CF80 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB6F5A284A24850027CF80 /* MapView.swift */; };
 		FAF4350428257920008691CD /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = FAF4350328257920008691CD /* Gifu */; };
@@ -784,6 +785,7 @@
 		FACD1C12284787A50014AFDC /* ArcticGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGameController.swift; sourceTree = "<group>"; };
 		FADA6BD027F188B200913F67 /* MoodsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsModel.swift; sourceTree = "<group>"; };
 		FADD5113284F2C8900F3A292 /* PurchasePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasePopUp.swift; sourceTree = "<group>"; };
+		FADD5116284F59D800F3A292 /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		FAE6764C282E7E200020678E /* LevelPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelPresenter.swift; sourceTree = "<group>"; };
 		FAEB6F5A284A24850027CF80 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FDA5E332399E73031D583774 /* Pods_izzifit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_izzifit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2543,6 +2545,7 @@
 		FAB6546C27FEDF290057A221 /* Level */ = {
 			isa = PBXGroup;
 			children = (
+				FADD5115284F59A400F3A292 /* LevelView */,
 				FAB59C15282A7BFB005AE70B /* BuildPopUp */,
 				FACB1E852804325500058773 /* PointersAndTicks.swift */,
 				FAE6764C282E7E200020678E /* LevelPresenter.swift */,
@@ -2608,6 +2611,14 @@
 				FA3319C428461E490021C433 /* TimerSpinManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		FADD5115284F59A400F3A292 /* LevelView */ = {
+			isa = PBXGroup;
+			children = (
+				FADD5116284F59D800F3A292 /* LevelView.swift */,
+			);
+			path = LevelView;
 			sourceTree = "<group>";
 		};
 		FAFE2C4127DB5A5D00827956 /* Cell */ = {
@@ -3268,6 +3279,7 @@
 				0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */,
 				0249D27427B3AA0400F265C1 /* NetwokrManager.swift in Sources */,
 				FAB65AB32848C4F900664399 /* EnglandGameView.swift in Sources */,
+				FADD5117284F59D800F3A292 /* LevelView.swift in Sources */,
 				02BC128827F30AC200678305 /* WorkoutDetailTrainCell.swift in Sources */,
 				02354E98280935D6005A8272 /* VideoPlayerPresenter.swift in Sources */,
 				02BC127727F1CF5800678305 /* WorkoutDetailDescriptionCell.swift in Sources */,

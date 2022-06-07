@@ -12,8 +12,8 @@ class TimerSpinManager {
     var collectionView: UICollectionView
     var presenter: ArcticGamePresenter
     var combinationManager = CombinationsAwardsManager()
-    lazy var counter: OffsetCounter = { OffsetCounter(strideOffset: tables[0].sizeHeight/2.9) }()
-    
+    var counter = OffsetCounter(strideOffset: UIScreen.main.bounds.size.height / 12.799)
+
     private var timerCounters: [Int]
     private var tableContentOffsets: [CGFloat] = [0,0,0]
     private var timers = [Timer(), Timer(), Timer()]
