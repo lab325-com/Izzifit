@@ -39,9 +39,9 @@ class ArcticGameController: BaseController {
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
         
-//        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(leftHandle))
-//        swipeLeft.direction = .left
-//        self.view.addGestureRecognizer(swipeLeft)
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(leftHandle))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
         
         gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchUpInside)
     }
