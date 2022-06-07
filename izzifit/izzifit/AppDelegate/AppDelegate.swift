@@ -49,7 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
         #endif
         AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
         
-        AppsFlyerLib.shared().logEvent("Started", withValues: nil)
         /// Firebase
         
         FirebaseApp.configure()

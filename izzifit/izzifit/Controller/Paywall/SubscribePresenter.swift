@@ -201,6 +201,37 @@ class SubscribePresenter: SubscribePresenterProtocol {
         }
     }
     
+    func retriveNotAutoProduct(id: Set<String>) {
+        if paymentsInfo.count == id.count  {
+            return
+        }
+        view?.startLoader()
+        SwiftyStoreKit.retrieveProductsInfo(id) { [weak self] results in
+            if let invalidProductId = results.invalidProductIDs.first {
+                print("Invalid product identifier: \(invalidProductId)")
+                self?.view?.stopLoading()
+                return
+            }
+            
+            for product in results.retrievedProducts {
+                if let priceString = product.localizedPrice
+                    {
+                    
+                    let model = PaymentsModel(product: product.productIdentifier, prettyPrice: priceString, period: "", number: 0, price: 0.0, currencySymbol: product.priceLocale.currencySymbol)
+                    self?.paymentsInfo.append(model)
+                } else {
+                    self?.view?.stopLoading()
+                    debugPrint(">>>>>>>>>>>>>>>>>>>incorrect product!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                }
+            }
+            
+            if self?.paymentsInfo.count == id.count {
+                self?.view?.stopLoading()
+                self?.view?.successRetrive()
+            }
+        }
+    }
+    
     private func getCurrentPeriod(_ product: SKProduct.PeriodUnit?, number: Int) -> String? {
         switch product {
         case .day:

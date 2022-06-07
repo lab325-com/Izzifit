@@ -80,7 +80,11 @@ class ArcticGameController: BaseController {
                                      spinBtn: gameView.spinBtn,
                                      showProgress: { DispatchQueue.main.async {  self.gameView.showProgress() }}
                                      ,spinsRunOut: spinsRunOut) {
-            let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
+            let result = false //PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
+            
+            if !result {
+                GameRouter(presenter: navigationController).presentEnergyPopUp(titlePopUp: "Arctic Shop")
+            }
         }
     }
     
