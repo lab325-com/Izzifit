@@ -57,6 +57,22 @@ class PurchasePopUp: BaseController {
 //----------------------------------------------
 
 extension PurchasePopUp: GamePurchasePopProtocol {
+    func gamePurchasePopBuyFirst(view: GamePurchasePopView) {
+        presenter.purchase(id: idFirst, screen: .energyBuy, place: .energyZero) { [weak self] result, message in
+            if result {
+                self?.dismiss(animated: true)
+            }
+        }
+    }
+    
+    func gamePurchasePopBuySecond(view: GamePurchasePopView) {
+        presenter.purchase(id: idSecond, screen: .energyBuy, place: .energyZero) { [weak self] result, message in
+            if result {
+                self?.dismiss(animated: true)
+            }
+        }
+    }
+    
     func gamePurchasePopClose(view: GamePurchasePopView) {
         dismiss(animated: true)
     }
