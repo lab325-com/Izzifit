@@ -384,6 +384,7 @@
 		FACB1E862804325500058773 /* PointersAndTicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1E852804325500058773 /* PointersAndTicks.swift */; };
 		FACD1C13284787A50014AFDC /* ArcticGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD1C12284787A50014AFDC /* ArcticGameController.swift */; };
 		FADA6BD127F188B200913F67 /* MoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA6BD027F188B200913F67 /* MoodsModel.swift */; };
+		FADD5114284F2C8900F3A292 /* PurchasePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD5113284F2C8900F3A292 /* PurchasePopUp.swift */; };
 		FAE6764D282E7E200020678E /* LevelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6764C282E7E200020678E /* LevelPresenter.swift */; };
 		FAEB6F5B284A24850027CF80 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB6F5A284A24850027CF80 /* MapView.swift */; };
 		FAF4350428257920008691CD /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = FAF4350328257920008691CD /* Gifu */; };
@@ -782,6 +783,7 @@
 		FACB1E852804325500058773 /* PointersAndTicks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointersAndTicks.swift; sourceTree = "<group>"; };
 		FACD1C12284787A50014AFDC /* ArcticGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGameController.swift; sourceTree = "<group>"; };
 		FADA6BD027F188B200913F67 /* MoodsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsModel.swift; sourceTree = "<group>"; };
+		FADD5113284F2C8900F3A292 /* PurchasePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasePopUp.swift; sourceTree = "<group>"; };
 		FAE6764C282E7E200020678E /* LevelPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelPresenter.swift; sourceTree = "<group>"; };
 		FAEB6F5A284A24850027CF80 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FDA5E332399E73031D583774 /* Pods_izzifit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_izzifit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2478,6 +2480,7 @@
 			isa = PBXGroup;
 			children = (
 				FA8C4847284E0D9C006FF663 /* GamePurchasePopView.swift */,
+				FADD5113284F2C8900F3A292 /* PurchasePopUp.swift */,
 			);
 			path = GamePurchasePopUp;
 			sourceTree = "<group>";
@@ -2944,7 +2947,6 @@
 				02D066C327BBB57D00D12C5F /* Inter-Regular.ttf in Resources */,
 				02F01C5227D794450066656D /* MoodWidget.graphql in Resources */,
 				0227DA9D27C63A3B008AB26B /* FoodGroups.graphql in Resources */,
-				FAB6547127FEDFA70057A221 /* ArcticGameComtroller.xib in Resources */,
 				0227A9BC2849F39E00BA29A8 /* QuizeVideoController.xib in Resources */,
 				0290B39A27D2340800381B42 /* EnerdyTodayCell.xib in Resources */,
 				0273F55A27D5F08E00B19449 /* EnergyMoodCell.xib in Resources */,
@@ -3276,6 +3278,7 @@
 				021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */,
 				02BACF1027F4554900B7562C /* WorkoutSpecialCell.swift in Sources */,
 				FEBFD7B327E0F1880027ADD2 /* ImgsAndClrs.swift in Sources */,
+				FADD5114284F2C8900F3A292 /* PurchasePopUp.swift in Sources */,
 				02C3DD6827BEDAB1004E5C65 /* QuizeProgressPresenter.swift in Sources */,
 				02E9048027F5A3A1008CFFB4 /* WorkoutsModel.swift in Sources */,
 				02F2D94427D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift in Sources */,
