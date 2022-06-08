@@ -120,6 +120,80 @@ class SubscribePresenter: SubscribePresenterProtocol {
         }
     }
     
+    func purchaseProduct(id: String, screen: PaywallScreenType, place: PlaceType, purchaseSuccess: @escaping (Bool, String?) -> Void) {
+        view?.startLoader()
+        
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase, params: ["id": id, "place": place.rawValue, "screen": screen.rawValue])
+        
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase, params: ["id": id])
+        AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase, values: ["id": id, "place": place.rawValue, "screen": screen.rawValue])
+        
+        SwiftyStoreKit.purchaseProduct(id, quantity: 1, atomically: true) { [weak self] result in
+            switch result {
+            case .success(let product):
+              
+                AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase_success, params: ["id": id, "place": place.rawValue, "screen": screen.rawValue])
+                AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase_success, params: ["id": id])
+                AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase_success, values: ["id": id, "place": place.rawValue, "screen": screen.rawValue])
+                
+                //self?.sendPrepay()
+                // fetch content from your server, then:
+                if product.needsFinishTransaction {
+                    SwiftyStoreKit.finishTransaction(product.transaction)
+                }
+                print("Purchase Success: \(product.productId)")
+                
+                let receiptData = SwiftyStoreKit.localReceiptData
+                if let receiptString = receiptData?.base64EncodedString(options: []) {
+                    let mutation = OrderProductMutation(order: OrderProductInputRecord(receipt: receiptString), paymentSystem: .paymentSystemNameApple)
+                    let _ = Network.shared.mutation(model: OrderProductModel.self, mutation, controller: self?.view, successHandler: {  _ in
+                    
+                        let _ = Network.shared.query(model: MeModel.self, MeQuery(), controller: self?.view) { [weak self] model in
+                            KeychainService.standard.me = model.me
+                            self?.view?.stopLoading()
+                            purchaseSuccess(true, nil)
+                        } failureHandler: { [weak self] error in
+                            self?.view?.stopLoading()
+                            purchaseSuccess(false, error.localizedDescription)
+                        }
+
+                    }, failureHandler: { [weak self] error in
+                        self?.view?.stopLoading()
+                        purchaseSuccess(false, error.localizedDescription)
+                    })
+                } else {
+                    purchaseSuccess(true, nil)
+                }
+                
+            case .error(let error):
+                self?.view?.stopLoading()
+                var errorMessage = ""
+                switch error.code {
+                case .unknown: errorMessage = "Unknown error. Please contact support"
+                case .clientInvalid: errorMessage = "Not allowed to make the payment"
+                case .paymentCancelled:
+                    //AnalyticsHelper.sendFirebaseEvents(events: .purchase_cancel, params: ["id": id])
+                    return
+                case .paymentInvalid: errorMessage = "The purchase identifier was invalid"
+                case .paymentNotAllowed: errorMessage = "The device is not allowed to make the payment"
+                case .storeProductNotAvailable: errorMessage = "The product is not available in the current storefront"
+                case .cloudServicePermissionDenied: errorMessage = "Access to cloud service information is not allowed"
+                case .cloudServiceNetworkConnectionFailed: errorMessage = "Could not connect to the network"
+                case .cloudServiceRevoked: errorMessage = "User has revoked permission to use this cloud service"
+                default: errorMessage = (error as NSError).localizedDescription
+                }
+                AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase_false, params: ["error": errorMessage, "place": place.rawValue, "screen": screen.rawValue])
+                //AnalyticsHelper.sendFirebaseEvents(events: .purchase_error, params: ["message": errorMessage])
+
+                AnalyticsHelper.sendFirebaseEvents(events: .pay_purchase_false, params: ["error": errorMessage])
+                AnalyticsHelper.sendFacebookEvent(event: .fb_pay_purchase_failure, values: ["error": errorMessage, "place": place.rawValue, "screen": screen.rawValue])
+                purchaseSuccess(false, errorMessage)
+            case .deferred(purchase: _):
+                print("handle deferred state")
+            }
+        }
+    }
+    
     func restore(_ restoreCompletion: @escaping (Bool) -> Void) {
         view?.startLoader()
         SwiftyStoreKit.restorePurchases(atomically: true) {[weak self] results in

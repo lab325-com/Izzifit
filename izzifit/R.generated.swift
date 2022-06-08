@@ -378,7 +378,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 73 files.
+  /// This `R.file` struct is generated, and contains static references to 74 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -464,6 +464,8 @@ struct R: Rswift.Validatable {
     static let musclesGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Muscles", pathExtension: "graphql")
     /// Resource file `OrderCreate.graphql`.
     static let orderCreateGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "OrderCreate", pathExtension: "graphql")
+    /// Resource file `OrderProduct.graphql`.
+    static let orderProductGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "OrderProduct", pathExtension: "graphql")
     /// Resource file `PasswordForgotRequest.graphql`.
     static let passwordForgotRequestGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "PasswordForgotRequest", pathExtension: "graphql")
     /// Resource file `Products.graphql`.
@@ -776,6 +778,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "OrderCreate", withExtension: "graphql")`
     static func orderCreateGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.orderCreateGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "OrderProduct", withExtension: "graphql")`
+    static func orderProductGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.orderProductGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 

@@ -237,4 +237,9 @@ class ArcticGameView: UIView {
         progressImgVw.hideImage(hiddenPart: hiddenPart,
                                 img: progressImg ?? UIImage())
     }
+    
+    func updateHeader() {
+        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+    }
 }

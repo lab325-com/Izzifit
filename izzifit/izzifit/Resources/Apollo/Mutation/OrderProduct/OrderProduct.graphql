@@ -1,0 +1,3 @@
+mutation OrderProduct($order: OrderProductInputRecord!, $paymentSystem: PaymentSystemName!) {
+    orderProduct(order: $order, paymentSystem: $paymentSystem)
+}

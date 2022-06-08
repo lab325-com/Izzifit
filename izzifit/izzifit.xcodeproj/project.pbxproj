@@ -227,6 +227,8 @@
 		02ABCF4627CD0EA800E69C06 /* MenuLanguagesTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02ABCF4427CD0EA800E69C06 /* MenuLanguagesTitleCell.xib */; };
 		02AC22262800666700440DFB /* OrderCreate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02AC22252800666600440DFB /* OrderCreate.graphql */; };
 		02AC22282800677B00440DFB /* OrderCreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AC22272800677B00440DFB /* OrderCreateModel.swift */; };
+		02AD738B284F6F8E00376E4C /* OrderProduct.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02AD738A284F6F8E00376E4C /* OrderProduct.graphql */; };
+		02AD738E284F6FEF00376E4C /* OrderProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AD738D284F6FEF00376E4C /* OrderProductModel.swift */; };
 		02AEDFD728477CC7007C0EA4 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02AEDFD628477CC7007C0EA4 /* SwiftyStoreKit */; };
 		02B1E71927DA003B00C9E610 /* EnergyTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1E71727DA003B00C9E610 /* EnergyTrainingCell.swift */; };
 		02B1E71A27DA003B00C9E610 /* EnergyTrainingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02B1E71827DA003B00C9E610 /* EnergyTrainingCell.xib */; };
@@ -626,6 +628,8 @@
 		02ABCF4427CD0EA800E69C06 /* MenuLanguagesTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuLanguagesTitleCell.xib; sourceTree = "<group>"; };
 		02AC22252800666600440DFB /* OrderCreate.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OrderCreate.graphql; sourceTree = "<group>"; };
 		02AC22272800677B00440DFB /* OrderCreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCreateModel.swift; sourceTree = "<group>"; };
+		02AD738A284F6F8E00376E4C /* OrderProduct.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OrderProduct.graphql; sourceTree = "<group>"; };
+		02AD738D284F6FEF00376E4C /* OrderProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProductModel.swift; sourceTree = "<group>"; };
 		02B1E71727DA003B00C9E610 /* EnergyTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyTrainingCell.swift; sourceTree = "<group>"; };
 		02B1E71827DA003B00C9E610 /* EnergyTrainingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyTrainingCell.xib; sourceTree = "<group>"; };
 		02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempProfileModel.swift; sourceTree = "<group>"; };
@@ -1876,6 +1880,15 @@
 			path = OrderCreate;
 			sourceTree = "<group>";
 		};
+		02AD7389284F6F7500376E4C /* OrderProduct */ = {
+			isa = PBXGroup;
+			children = (
+				02AD738A284F6F8E00376E4C /* OrderProduct.graphql */,
+				02AD738D284F6FEF00376E4C /* OrderProductModel.swift */,
+			);
+			path = OrderProduct;
+			sourceTree = "<group>";
+		};
 		02B1E71627D9FC9E00C9E610 /* EnergyTrainingCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1926,6 +1939,7 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				02AD7389284F6F7500376E4C /* OrderProduct */,
 				024EBCA32840E04800E6623F /* ProfileDelete */,
 				02B22ACB281C279D006AB1EA /* UpgradeBuilding */,
 				029EDBD1280D726400FC8748 /* WorkoutAttemptUpdate */,
@@ -2845,6 +2859,7 @@
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
 				02B22ACD281C27D8006AB1EA /* UpgradeBuilding.graphql in Resources */,
 				02C5C4632836548000DA189C /* WidgetList.graphql in Resources */,
+				02AD738B284F6F8E00376E4C /* OrderProduct.graphql in Resources */,
 				02BC128E27F329E200678305 /* WorkoutDetailMuscleController.xib in Resources */,
 				0256999228197A7500BA1535 /* 19_super_win.wav in Resources */,
 				023FBC3D27FACC8C004D0CEA /* PaywallController.xib in Resources */,
@@ -3152,6 +3167,7 @@
 				020D281F27E863DD00010122 /* FoodAddController.swift in Sources */,
 				FEBFD7B127E0F16A0027ADD2 /* SetUIManager.swift in Sources */,
 				024EBCA72840EAE900E6623F /* ProfileDeleteModel.swift in Sources */,
+				02AD738E284F6FEF00376E4C /* OrderProductModel.swift in Sources */,
 				02B3017927EB236B0045C607 /* SaveSleepQualityModel.swift in Sources */,
 				02FAF0B027D36EA1002CD678 /* DrinkWidgetModel.swift in Sources */,
 				02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */,

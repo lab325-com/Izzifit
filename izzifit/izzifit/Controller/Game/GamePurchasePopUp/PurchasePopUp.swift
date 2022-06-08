@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol PurchasePopUpProtocol: AnyObject {
+    func purchasePopUpSuccess(controlle: PurchasePopUp)
+}
+
 class PurchasePopUp: BaseController {
     
     //----------------------------------------------
@@ -23,12 +27,15 @@ class PurchasePopUp: BaseController {
     private let idFirst = "izzifit_energy_100"
     private let idSecond = "izzifit_energy_500"
     
+    weak var delegate: PurchasePopUpProtocol?
+    
     //----------------------------------------------
     // MARK: - Init
     //----------------------------------------------
     
-    init(titlePopUp: String) {
+    init(titlePopUp: String, delegate: PurchasePopUpProtocol) {
         self.titlePopUp = titlePopUp
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -58,17 +65,21 @@ class PurchasePopUp: BaseController {
 
 extension PurchasePopUp: GamePurchasePopProtocol {
     func gamePurchasePopBuyFirst(view: GamePurchasePopView) {
-        presenter.purchase(id: idFirst, screen: .energyBuy, place: .energyZero) { [weak self] result, message in
+        presenter.purchaseProduct(id: idFirst, screen: .energyBuy, place: .energyZero) { [weak self] result, message in
+            guard let `self` = self else { return }
             if result {
-                self?.dismiss(animated: true)
+                self.delegate?.purchasePopUpSuccess(controlle: self)
+                self.dismiss(animated: true)
             }
         }
     }
     
     func gamePurchasePopBuySecond(view: GamePurchasePopView) {
-        presenter.purchase(id: idSecond, screen: .energyBuy, place: .energyZero) { [weak self] result, message in
+        presenter.purchaseProduct(id: idSecond, screen: .energyBuy, place: .energyZero) { [weak self] result, message in
+            guard let `self` = self else { return }
             if result {
-                self?.dismiss(animated: true)
+                self.delegate?.purchasePopUpSuccess(controlle: self)
+                self.dismiss(animated: true)
             }
         }
     }
