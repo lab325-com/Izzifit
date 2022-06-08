@@ -1240,23 +1240,20 @@ struct SetUIManager {
         contentV.frame = CGRect(x: 0, y: 0, width: width, height: height)
         scrollV.bounces = bounces
         scrollV.contentSize = CGSize(width: width, height: height)
-        scrollV.backgroundColor = backColor
+//        scrollV.backgroundColor = backColor
         contentV.backgroundColor = backColor
         
         scrollV.addSubview(contentV)
         parentView.addSubview(scrollV)
         
         scrollV.translatesAutoresizingMaskIntoConstraints = false
-//        scrollV.centerYAnchor.constraint(equalTo: parentView.centerYAnchor).isActive = true
-//        scrollV.centerXAnchor.constraint(equalTo: parentView.centerXAnchor).isActive = true
         scrollV.widthAnchor.constraint(equalTo: parentView.widthAnchor).isActive = true
         scrollV.heightAnchor.constraint(equalToConstant: parentView.h).isActive = true
         scrollV.trailingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: 0).isActive = true
         scrollV.leadingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: 0).isActive = true
-        scrollV.topAnchor.constraint(equalTo: parentView.topAnchor).isActive = true
-        scrollV.bottomAnchor.constraint(equalTo: parentView.bottomAnchor, constant: -50).isActive = true
+        scrollV.topAnchor.constraint(equalTo: parentView.topAnchor,constant: 0).isActive = true
+        scrollV.bottomAnchor.constraint(equalTo: parentView.bottomAnchor, constant: 35).isActive = true
         
-   
     }
 }
 

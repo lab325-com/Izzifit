@@ -33,11 +33,11 @@ class LevelController: BaseController {
                              goldBtn,
                              deerBtn]
     
-    private var player = PlayerModel(shipState: .start,
-                                     fishState: .finish,
-                                     igluState: .fourth,
-                                     goldState: .third,
-                                     deerState: .second)
+    private var player = PlayerModel(firstState: .start,
+                                     secondState: .finish,
+                                     thirdState: .fourth,
+                                     fourthState: .third,
+                                     fifthState: .second)
     
     private var pointers: PointersAndTicks?
     private var firstRespond = true
@@ -47,16 +47,6 @@ class LevelController: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hummerBtn.isUserInteractionEnabled = false
-        
-        view.ui.genericlLayout(object: barBackVw,
-                               parentView: self.view,
-                               height: view.h / 9.2,
-                               topC: 0,
-                               leadingC: 0,
-                               trailingC: 0)
-        
-        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }
     
     override func viewDidLoad() {
@@ -74,6 +64,12 @@ class LevelController: BaseController {
                 }
             }
         }
+        view.ui.genericlLayout(object: barBackVw,
+                               parentView: self.view,
+                               height: view.h / 9.2,
+                               topC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
         setup()
         hiddenNavigationBar = true
         activateAnimation()
@@ -130,15 +126,15 @@ class LevelController: BaseController {
         var buildType: BuildingType
         
         switch sender.tag {
-        case 0: price = player.shipState.rawValue
+        case 0: price = player.firstState.rawValue
             buildType = .ship
-        case 1: price = player.fishState.rawValue
+        case 1: price = player.secondState.rawValue
             buildType = .fishing
-        case 2: price = player.igluState.rawValue
+        case 2: price = player.thirdState.rawValue
             buildType = .house
-        case 3: price = player.goldState.rawValue
+        case 3: price = player.fourthState.rawValue
             buildType = .hay
-        case 4: price = player.deerState.rawValue
+        case 4: price = player.fifthState.rawValue
             buildType = .sled
         default: buildType = .ship
         }
@@ -245,15 +241,15 @@ class LevelController: BaseController {
             var buildType: BuildingType
             
             switch sender.tag {
-            case 0: price = self.player.shipState.rawValue
+            case 0: price = self.player.firstState.rawValue
                 buildType = .ship
-            case 1: price = self.player.fishState.rawValue
+            case 1: price = self.player.secondState.rawValue
                 buildType = .fishing
-            case 2: price = self.player.igluState.rawValue
+            case 2: price = self.player.thirdState.rawValue
                 buildType = .house
-            case 3: price = self.player.goldState.rawValue
+            case 3: price = self.player.fourthState.rawValue
                 buildType = .hay
-            case 4: price = self.player.deerState.rawValue
+            case 4: price = self.player.fifthState.rawValue
                 buildType = .sled
             default: buildType = .ship
             }
@@ -319,7 +315,7 @@ class LevelController: BaseController {
     
     private func drawStates() {
         
-        switch player.shipState {
+        switch player.firstState {
         case .start: shipBtn.setImage(view.image(img: .shipStart),for: .normal)
         case .first: shipBtn.setImage(view.image(img: .shipFirst), for: .normal)
         case .second: shipBtn.setImage(view.image(img: .shipSecond),for: .normal)
@@ -328,7 +324,7 @@ class LevelController: BaseController {
         case .finish: shipBtn.setImage(view.image(img: .shipFinish),for: .normal)
         }
         
-        switch player.fishState {
+        switch player.secondState {
         case .start: fishBtn.setImage(view.image(img: .fishStart), for: .normal)
         case .first: fishBtn.setImage(view.image(img: .fishFirst),for: .normal)
         case .second: fishBtn.setImage(view.image(img: .fishSecond),for: .normal)
@@ -337,7 +333,7 @@ class LevelController: BaseController {
         case .finish: fishBtn.setImage(view.image(img: .fishFinish),for: .normal)
         }
         
-        switch player.igluState {
+        switch player.thirdState {
         case .start: igluBtn.setImage(view.image(img: .igluStart),for: .normal)
         case .first: igluBtn.setImage(view.image(img: .igluFirst),for: .normal)
         case .second: igluBtn.setImage(view.image(img: .igluSecond),for: .normal)
@@ -346,7 +342,7 @@ class LevelController: BaseController {
         case .finish: igluBtn.setImage(view.image(img: .igluFinish), for: .normal)
         }
         
-        switch player.goldState {
+        switch player.fourthState {
         case .start: goldBtn.setImage(view.image(img: .goldStart),for: .normal)
         case .first: goldBtn.setImage(view.image(img: .goldFirst), for: .normal)
         case .second: goldBtn.setImage(view.image(img: .goldSecond),for: .normal)
@@ -355,7 +351,7 @@ class LevelController: BaseController {
         case .finish: goldBtn.setImage(view.image(img: .goldFinish),for: .normal)
         }
         
-        switch player.deerState {
+        switch player.fifthState {
         case .start: deerBtn.setImage(view.image(img: .deersStart), for: .normal)
         case .first: deerBtn.setImage(view.image(img: .deersFirst), for: .normal)
         case .second: deerBtn.setImage(view.image(img: .deersSecond),for: .normal)
@@ -387,11 +383,11 @@ extension LevelController: LevelOutputProtocol {
             }
             
             switch building.name {
-            case BuildingType.ship.rawValue: player.shipState = state
-            case BuildingType.fishing.rawValue: player.fishState = state
-            case BuildingType.house.rawValue: player.igluState = state
-            case BuildingType.hay.rawValue: player.goldState = state
-            case BuildingType.sled.rawValue: player.deerState = state
+            case BuildingType.ship.rawValue: player.firstState = state
+            case BuildingType.fishing.rawValue: player.secondState = state
+            case BuildingType.house.rawValue: player.thirdState = state
+            case BuildingType.hay.rawValue: player.fourthState = state
+            case BuildingType.sled.rawValue: player.fifthState = state
             default: break
             }
         }

@@ -31,11 +31,22 @@ enum Imgs: String {
     
     // England GameView
     case england_gameBack, england_uponBack, england_slotBack, england_slotHouse, england_freeHummer
+    
+    // Arctic LevelStates
     case shipStart, shipFirst, shipSecond, shipThird, shipFourth, shipFinish
     case fishStart, fishFirst, fishSecond, fishThird, fishFourth, fishFinish
     case igluStart, igluFirst, igluSecond, igluThird, igluFourth, igluFinish
     case goldStart, goldFirst, goldSecond, goldThird, goldFourth, goldFinish
     case deersStart, deersFirst, deersSecond, deersThird, deersFourth, deersFinish
+    
+    // England LevelStates
+    
+    case eng_shipStart, eng_shipFirst, eng_shipSecond, eng_shipThird, eng_shipFourth, eng_shipFinish
+    case eng_bridgeStart, eng_bridgeFirst, eng_bridgeSecond, eng_bridgeThird, eng_bridgeFourth, eng_bridgeFinish
+    case eng_phoneStart, eng_phoneFirst, eng_phoneSecond, eng_phoneThird, eng_phoneFourth, eng_phoneFinish
+    case eng_bigBenStart, eng_bigBenFirst, eng_bigBenSecond, eng_bigBenThird, eng_bigBenFourth, eng_bigBenFinish
+    case eng_busStart, eng_busFirst, eng_busSecond, eng_busThird, eng_busFourth, eng_busFinish
+    
     case gameTabBarEnergy, gameTabBarMap, gameTabBarBuild, gameTabBarSpin
     
     case popStartState

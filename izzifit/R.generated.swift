@@ -1057,7 +1057,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 226 images.
+  /// This `R.image` struct is generated, and contains static references to 256 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1153,6 +1153,66 @@ struct R: Rswift.Validatable {
     static let energy_water_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_water_flash_ic")
     /// Image `energy_weight_selected_ic`.
     static let energy_weight_selected_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_weight_selected_ic")
+    /// Image `eng_bigBenFinish`.
+    static let eng_bigBenFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_bigBenFinish")
+    /// Image `eng_bigBenFirst`.
+    static let eng_bigBenFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_bigBenFirst")
+    /// Image `eng_bigBenFourth`.
+    static let eng_bigBenFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_bigBenFourth")
+    /// Image `eng_bigBenSecond`.
+    static let eng_bigBenSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_bigBenSecond")
+    /// Image `eng_bigBenStart`.
+    static let eng_bigBenStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_bigBenStart")
+    /// Image `eng_bigBenThird`.
+    static let eng_bigBenThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_bigBenThird")
+    /// Image `eng_bridgeFinish`.
+    static let eng_bridgeFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_bridgeFinish")
+    /// Image `eng_bridgeFirst`.
+    static let eng_bridgeFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_bridgeFirst")
+    /// Image `eng_bridgeFourth`.
+    static let eng_bridgeFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_bridgeFourth")
+    /// Image `eng_bridgeSecond`.
+    static let eng_bridgeSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_bridgeSecond")
+    /// Image `eng_bridgeStart`.
+    static let eng_bridgeStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_bridgeStart")
+    /// Image `eng_bridgeThird`.
+    static let eng_bridgeThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_bridgeThird")
+    /// Image `eng_busFinish`.
+    static let eng_busFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_busFinish")
+    /// Image `eng_busFirst`.
+    static let eng_busFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_busFirst")
+    /// Image `eng_busFourth`.
+    static let eng_busFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_busFourth")
+    /// Image `eng_busSecond`.
+    static let eng_busSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_busSecond")
+    /// Image `eng_busStart`.
+    static let eng_busStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_busStart")
+    /// Image `eng_busThird`.
+    static let eng_busThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_busThird")
+    /// Image `eng_phoneFinish`.
+    static let eng_phoneFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_phoneFinish")
+    /// Image `eng_phoneFirst`.
+    static let eng_phoneFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_phoneFirst")
+    /// Image `eng_phoneFourth`.
+    static let eng_phoneFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_phoneFourth")
+    /// Image `eng_phoneSecond`.
+    static let eng_phoneSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_phoneSecond")
+    /// Image `eng_phoneStart`.
+    static let eng_phoneStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_phoneStart")
+    /// Image `eng_phoneThird`.
+    static let eng_phoneThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_phoneThird")
+    /// Image `eng_shipFinish`.
+    static let eng_shipFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_shipFinish")
+    /// Image `eng_shipFirst`.
+    static let eng_shipFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_shipFirst")
+    /// Image `eng_shipFourth`.
+    static let eng_shipFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_shipFourth")
+    /// Image `eng_shipSecond`.
+    static let eng_shipSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_shipSecond")
+    /// Image `eng_shipStart`.
+    static let eng_shipStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_shipStart")
+    /// Image `eng_shipThird`.
+    static let eng_shipThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "eng_shipThird")
     /// Image `england_freeHummer`.
     static let england_freeHummer = Rswift.ImageResource(bundle: R.hostingBundle, name: "england_freeHummer")
     /// Image `england_gameBack`.
@@ -1838,6 +1898,216 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "energy_weight_selected_ic", bundle: ..., traitCollection: ...)`
     static func energy_weight_selected_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.energy_weight_selected_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_bigBenFinish", bundle: ..., traitCollection: ...)`
+    static func eng_bigBenFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_bigBenFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_bigBenFirst", bundle: ..., traitCollection: ...)`
+    static func eng_bigBenFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_bigBenFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_bigBenFourth", bundle: ..., traitCollection: ...)`
+    static func eng_bigBenFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_bigBenFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_bigBenSecond", bundle: ..., traitCollection: ...)`
+    static func eng_bigBenSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_bigBenSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_bigBenStart", bundle: ..., traitCollection: ...)`
+    static func eng_bigBenStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_bigBenStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_bigBenThird", bundle: ..., traitCollection: ...)`
+    static func eng_bigBenThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_bigBenThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_bridgeFinish", bundle: ..., traitCollection: ...)`
+    static func eng_bridgeFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_bridgeFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_bridgeFirst", bundle: ..., traitCollection: ...)`
+    static func eng_bridgeFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_bridgeFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_bridgeFourth", bundle: ..., traitCollection: ...)`
+    static func eng_bridgeFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_bridgeFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_bridgeSecond", bundle: ..., traitCollection: ...)`
+    static func eng_bridgeSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_bridgeSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_bridgeStart", bundle: ..., traitCollection: ...)`
+    static func eng_bridgeStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_bridgeStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_bridgeThird", bundle: ..., traitCollection: ...)`
+    static func eng_bridgeThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_bridgeThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_busFinish", bundle: ..., traitCollection: ...)`
+    static func eng_busFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_busFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_busFirst", bundle: ..., traitCollection: ...)`
+    static func eng_busFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_busFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_busFourth", bundle: ..., traitCollection: ...)`
+    static func eng_busFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_busFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_busSecond", bundle: ..., traitCollection: ...)`
+    static func eng_busSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_busSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_busStart", bundle: ..., traitCollection: ...)`
+    static func eng_busStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_busStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_busThird", bundle: ..., traitCollection: ...)`
+    static func eng_busThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_busThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_phoneFinish", bundle: ..., traitCollection: ...)`
+    static func eng_phoneFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_phoneFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_phoneFirst", bundle: ..., traitCollection: ...)`
+    static func eng_phoneFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_phoneFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_phoneFourth", bundle: ..., traitCollection: ...)`
+    static func eng_phoneFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_phoneFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_phoneSecond", bundle: ..., traitCollection: ...)`
+    static func eng_phoneSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_phoneSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_phoneStart", bundle: ..., traitCollection: ...)`
+    static func eng_phoneStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_phoneStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_phoneThird", bundle: ..., traitCollection: ...)`
+    static func eng_phoneThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_phoneThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_shipFinish", bundle: ..., traitCollection: ...)`
+    static func eng_shipFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_shipFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_shipFirst", bundle: ..., traitCollection: ...)`
+    static func eng_shipFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_shipFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_shipFourth", bundle: ..., traitCollection: ...)`
+    static func eng_shipFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_shipFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_shipSecond", bundle: ..., traitCollection: ...)`
+    static func eng_shipSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_shipSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_shipStart", bundle: ..., traitCollection: ...)`
+    static func eng_shipStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_shipStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eng_shipThird", bundle: ..., traitCollection: ...)`
+    static func eng_shipThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eng_shipThird, compatibleWith: traitCollection)
     }
     #endif
 

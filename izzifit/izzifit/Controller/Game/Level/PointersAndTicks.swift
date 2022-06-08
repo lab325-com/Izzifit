@@ -22,11 +22,11 @@ enum BuildingType: String {
 }
 
 struct PlayerModel {
-    var shipState: LevelStates
-    var fishState: LevelStates
-    var igluState: LevelStates
-    var goldState: LevelStates
-    var deerState: LevelStates
+    var firstState: LevelStates
+    var secondState: LevelStates
+    var thirdState: LevelStates
+    var fourthState: LevelStates
+    var fifthState: LevelStates
 }
 
 struct PointerTick {
@@ -97,12 +97,12 @@ class PointersAndTicks {
         for (index, btn) in btns.enumerated() {
             
             switch index {
-            case 0: building = .ship ; state = model.shipState
-            case 1: building = .fishing ; state = model.fishState
-            case 2: building = .house ; state = model.igluState
-            case 3: building = .hay ; state = model.goldState
-            case 4: building = .sled ; state = model.deerState
-            default:  building = .sled ; state = model.deerState
+            case 0: building = .ship ; state = model.firstState
+            case 1: building = .fishing ; state = model.secondState
+            case 2: building = .house ; state = model.thirdState
+            case 3: building = .hay ; state = model.fourthState
+            case 4: building = .sled ; state = model.fifthState
+            default:  building = .sled ; state = model.fifthState
             }
 
             switch state {

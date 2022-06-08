@@ -92,7 +92,7 @@ class ArcticGameController: BaseController {
         let controller = MapController()//EnglandGameController()
         controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true)
-        self.navigationController?.pushViewController(controller, animated: true)
+//        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func threeHummersCombination() {
