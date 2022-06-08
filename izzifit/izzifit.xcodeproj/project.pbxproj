@@ -349,7 +349,7 @@
 		FA1A2572283D0D0D00240E28 /* PaywallMultiplyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1A2570283D0D0C00240E28 /* PaywallMultiplyController.xib */; };
 		FA1A2573283D0D0D00240E28 /* PaywallMultiplyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A2571283D0D0C00240E28 /* PaywallMultiplyController.swift */; };
 		FA1A2575283D0E1400240E28 /* CALayer+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A2574283D0E1300240E28 /* CALayer+UIColor.swift */; };
-		FA1A6D8028081CE80040518A /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D7E28081CE80040518A /* LevelController.swift */; };
+		FA1A6D8028081CE80040518A /* ArcticLevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D7E28081CE80040518A /* ArcticLevelController.swift */; };
 		FA1A6D8128081CE80040518A /* LevelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1A6D7F28081CE80040518A /* LevelController.xib */; };
 		FA1A6D8B28097F0D0040518A /* GameTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */; };
 		FA3319C528461E490021C433 /* TimerSpinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3319C428461E490021C433 /* TimerSpinManager.swift */; };
@@ -379,6 +379,7 @@
 		FAB65AB12848C4D700664399 /* EnglandGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB65AB02848C4D700664399 /* EnglandGameController.swift */; };
 		FAB65AB32848C4F900664399 /* EnglandGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB65AB22848C4F900664399 /* EnglandGameView.swift */; };
 		FAB65ABC284918E400664399 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB65ABB284918E400664399 /* MapController.swift */; };
+		FABE8BF62850E33F00E3E53C /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BF52850E33F00E3E53C /* LevelController.swift */; };
 		FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAC55B9627EB87F0001DA24C /* Rank.graphql */; };
 		FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC55B9927EB944E001DA24C /* RankModel.swift */; };
 		FACB1E862804325500058773 /* PointersAndTicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1E852804325500058773 /* PointersAndTicks.swift */; };
@@ -749,7 +750,7 @@
 		FA1A2570283D0D0C00240E28 /* PaywallMultiplyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaywallMultiplyController.xib; sourceTree = "<group>"; };
 		FA1A2571283D0D0C00240E28 /* PaywallMultiplyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallMultiplyController.swift; sourceTree = "<group>"; };
 		FA1A2574283D0E1300240E28 /* CALayer+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+UIColor.swift"; sourceTree = "<group>"; };
-		FA1A6D7E28081CE80040518A /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
+		FA1A6D7E28081CE80040518A /* ArcticLevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticLevelController.swift; sourceTree = "<group>"; };
 		FA1A6D7F28081CE80040518A /* LevelController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelController.xib; sourceTree = "<group>"; };
 		FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTabBarController.swift; sourceTree = "<group>"; };
 		FA3319C428461E490021C433 /* TimerSpinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSpinManager.swift; sourceTree = "<group>"; };
@@ -779,6 +780,7 @@
 		FAB65AB02848C4D700664399 /* EnglandGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglandGameController.swift; sourceTree = "<group>"; };
 		FAB65AB22848C4F900664399 /* EnglandGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglandGameView.swift; sourceTree = "<group>"; };
 		FAB65ABB284918E400664399 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
+		FABE8BF52850E33F00E3E53C /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
 		FAC55B9627EB87F0001DA24C /* Rank.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rank.graphql; sourceTree = "<group>"; };
 		FAC55B9927EB944E001DA24C /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		FACB1E852804325500058773 /* PointersAndTicks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointersAndTicks.swift; sourceTree = "<group>"; };
@@ -2545,12 +2547,11 @@
 		FAB6546C27FEDF290057A221 /* Level */ = {
 			isa = PBXGroup;
 			children = (
-				FADD5115284F59A400F3A292 /* LevelView */,
+				FADD5115284F59A400F3A292 /* LevelController */,
 				FAB59C15282A7BFB005AE70B /* BuildPopUp */,
 				FACB1E852804325500058773 /* PointersAndTicks.swift */,
 				FAE6764C282E7E200020678E /* LevelPresenter.swift */,
-				FA1A6D7E28081CE80040518A /* LevelController.swift */,
-				FA1A6D7F28081CE80040518A /* LevelController.xib */,
+				FABE8BF42850E2ED00E3E53C /* ArcticLevelController */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -2594,6 +2595,15 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		FABE8BF42850E2ED00E3E53C /* ArcticLevelController */ = {
+			isa = PBXGroup;
+			children = (
+				FA1A6D7E28081CE80040518A /* ArcticLevelController.swift */,
+				FA1A6D7F28081CE80040518A /* LevelController.xib */,
+			);
+			path = ArcticLevelController;
+			sourceTree = "<group>";
+		};
 		FAC55B9527EB87A9001DA24C /* Rank */ = {
 			isa = PBXGroup;
 			children = (
@@ -2613,12 +2623,13 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		FADD5115284F59A400F3A292 /* LevelView */ = {
+		FADD5115284F59A400F3A292 /* LevelController */ = {
 			isa = PBXGroup;
 			children = (
 				FADD5116284F59D800F3A292 /* LevelView.swift */,
+				FABE8BF52850E33F00E3E53C /* LevelController.swift */,
 			);
-			path = LevelView;
+			path = LevelController;
 			sourceTree = "<group>";
 		};
 		FAFE2C4127DB5A5D00827956 /* Cell */ = {
@@ -3204,11 +3215,12 @@
 				0249D25127B3A70B00F265C1 /* SplashViewController.swift in Sources */,
 				02FAF0AE27D36D7C002CD678 /* EnergyPresenter.swift in Sources */,
 				02D066CB27BBBB4300D12C5F /* QuizeNameController.swift in Sources */,
+				FABE8BF62850E33F00E3E53C /* LevelController.swift in Sources */,
 				FE1403BD27E2019C002F5819 /* ChartTableCell.swift in Sources */,
 				023CDC3A28047C930056F022 /* AvailableGoalsModel.swift in Sources */,
 				0268752527D890F000FFEA6A /* TodayProgressModel.swift in Sources */,
 				025463A827CE404F00D433DB /* ToggleProductInRationModel.swift in Sources */,
-				FA1A6D8028081CE80040518A /* LevelController.swift in Sources */,
+				FA1A6D8028081CE80040518A /* ArcticLevelController.swift in Sources */,
 				0268752F27D8CCB700FFEA6A /* SaveWeightWidgetModel.swift in Sources */,
 				02D066CE27BBC41800D12C5F /* OnboardingRouter.swift in Sources */,
 				FA1761AD27DA1D80002881BB /* WorkoutController+CollectionView.swift in Sources */,

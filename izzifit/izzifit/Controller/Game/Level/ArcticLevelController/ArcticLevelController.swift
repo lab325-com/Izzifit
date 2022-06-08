@@ -9,7 +9,7 @@ import UIKit
 import Gifu
 import SwiftUI
 
-class LevelController: BaseController {
+class ArcticLevelController: BaseController {
     
     private var barBackVw = GameBarBackView(backImage: UIImage(named: "levelShadowViewBack")!)
     
@@ -362,7 +362,7 @@ class LevelController: BaseController {
     }
 }
 
-extension LevelController: LevelOutputProtocol {
+extension ArcticLevelController: LevelOutputProtocol {
     
     func success() { }
     
@@ -406,7 +406,7 @@ extension LevelController: LevelOutputProtocol {
 // MARK: - PaywallProtocol
 //----------------------------------------------
 
-extension LevelController: PaywallProtocol {
+extension ArcticLevelController: PaywallProtocol {
     func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
     func paywallSuccess(controller: BaseController) { }
 }

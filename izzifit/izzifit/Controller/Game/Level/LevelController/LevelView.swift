@@ -55,10 +55,7 @@ class LevelView: UIView {
                                bounces: false,
                                width: 428,
                                height: 926)
-        
-        let x = (428 - UIScreen.main.bounds.size.width) / 2
-        scrollView.setContentOffset(CGPoint(x: x, y: 2605),
-                                    animated: true)
+
         
         ui.genericlLayout(object: barBackVw,
                           parentView: self,
@@ -70,7 +67,7 @@ class LevelView: UIView {
         for (index, rect) in cgRects.enumerated() {
             
             ui.genericlLayout(object: stateBtns[index],
-                              parentView: imgUponScroll,
+                              parentView: scrollView,
                               width: rect.width,
                               height: rect.height,
                               topC: rect.minY,

@@ -32,8 +32,7 @@ class GameTabBarController: UITabBarController {
     }
     
     private func setupVCs() {
-        viewControllers = [createNavController(for: LevelController(),
-                                               image: view.image(img: .gameTabBarEnergy)!),
+        viewControllers = [
                            createNavController(for: ArcticGameController(),
                                                image: view.image(img: .gameTabBarSpin)!),
                            createNavController(for: LevelController(),
@@ -47,10 +46,6 @@ class GameTabBarController: UITabBarController {
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().clipsToBounds = true
-
-        
-        
-        selectedIndex = 1
     
         backBtn.setImage(view.image(img: .gameTabBarEnergy), for: .normal)
         spinBtn.setImage(view.image(img: .gameTabBarSpin), for: .normal)
@@ -83,12 +78,12 @@ class GameTabBarController: UITabBarController {
     
     @objc func actionBack() { navigationController?.popViewController(animated: true) }
     
-    @objc func spin() { selectedIndex = 1 }
+    @objc func spin() { selectedIndex = 0 }
     
     @objc func build() {
-        selectedIndex = 2
+        selectedIndex = 1
         AnalyticsHelper.sendFirebaseEvents(events: .map_open)
     }
     
-    @objc func map() { selectedIndex = 3 }
+    @objc func map() { selectedIndex = 2 }
 }
