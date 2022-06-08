@@ -22,10 +22,10 @@ class GameBarBackView: UIView {
         mainImgVw.image = backImage
         mainImgVw.contentMode = .scaleAspectFill
         layout()
-        setup()
+        getCoinsAndEnergy()
     }
 
-    private func setup() {
+    func getCoinsAndEnergy() {
         coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
         if let name = KeychainService.standard.me?.name { nameLbl.text = name }

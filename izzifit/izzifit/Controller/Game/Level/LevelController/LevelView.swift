@@ -9,17 +9,13 @@ import UIKit
 
 class LevelView: UIView {
     
-    private var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
+    var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
     
     private let imgUponScroll = UIImageView()
     let scrollView = UIScrollView()
-    var cgRects: [CGRect]
-
-    //    var firstBtn = UIButton()
-    //    var secondBtn = UIButton()
-    //    var thirdBtn = UIButton()
-    //    var fourthBtn = UIButton()
-    //    var fifthBtn = UIButton()
+    
+    var hummerBtn = UIButton()
+    var hummerCountLbl = UILabel()
     
     lazy var stateBtns: [UIButton] = {
         var btns = [UIButton]()
@@ -29,6 +25,8 @@ class LevelView: UIView {
         }
         return btns
     }()
+    
+    var cgRects: [CGRect]
     
     init(cgRects: [CGRect]) {
         self.cgRects = cgRects
@@ -42,7 +40,15 @@ class LevelView: UIView {
     private func setUI() {
         imgUponScroll.image = image(img: .level_england_back)
         
-        
+        hummerBtn.setImage(image(img: .freeHummer), for: .normal)
+        hummerBtn.isUserInteractionEnabled = false
+        ui.setLabel(label: hummerCountLbl,
+                    textColor: .white,
+                    textAlignment: .right,
+                    fontSize: h / 60.75,
+                    fontName: "Inter-BoldItalic")
+        hummerBtn.isHidden = true
+        hummerCountLbl.isHidden = true
     }
     
     private func layout() {
@@ -55,7 +61,6 @@ class LevelView: UIView {
                                bounces: false,
                                width: 428,
                                height: 926)
-
         
         ui.genericlLayout(object: barBackVw,
                           parentView: self,
@@ -72,8 +77,20 @@ class LevelView: UIView {
                               height: rect.height,
                               topC: rect.minY,
                               leadingC: rect.minX)
-            
         }
+        
+        ui.genericlLayout(object: hummerBtn,
+                          parentView: self,
+                          width: h/18.04,
+                          height: h/18.04,
+                          topC: h/7.66,
+                          leadingC: w/14.42)
+        
+        ui.genericlLayout(object: hummerCountLbl,
+                          parentView: hummerBtn,
+                          bottomC: h/203,
+                          trailingC: h/203)
+        
     }
     
     func drawStates(player: PlayerModel, imgStatesArr imgs: [UIImage]) {

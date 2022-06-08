@@ -11,7 +11,6 @@ class MapController: BaseController {
 
     private var mapView: MapView!
 
-    
     override func loadView() {
         mapView = MapView()
         self.view = mapView

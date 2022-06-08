@@ -29,6 +29,16 @@ struct PlayerModel {
     var fifthState: LevelStates
 }
 
+extension PlayerModel {
+    init() {
+        self.firstState = .start
+        self.secondState = .start
+        self.thirdState = .start
+        self.fourthState = .start
+        self.fifthState = .start
+    }
+}
+
 struct PointerTick {
     var state: LevelStates
     var type: BuildingType
