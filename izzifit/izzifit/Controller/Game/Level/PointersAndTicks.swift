@@ -18,7 +18,11 @@ enum LevelStates: Int {
 }
 
 enum BuildingType: String {
-    case building1, building2, building3, building4, building5
+    case building1 = "ship"
+    case building2 = "fishing"
+    case building3 = "house"
+    case building4 = "hay"
+    case building5 = "sled"
 }
 
 struct PlayerModel {

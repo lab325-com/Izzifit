@@ -40,6 +40,7 @@ class LevelController: BaseController {
             }
         }
         addTargets()
+        activateAnimation()
     }
     
     private func addTargets() {
@@ -48,6 +49,10 @@ class LevelController: BaseController {
                          action: #selector(showPopUp(sender:)),
                          for: .touchUpInside)
         }
+    }
+    private func activateAnimation() {
+        animation.prepareForAnimation(withGIFNamed: "construction3")
+        animation.isHidden.toggle()
     }
     
     private func checkAvailableHummers() {
@@ -265,6 +270,7 @@ extension LevelController: LevelOutputProtocol {
             case BuildingType.building5.rawValue: player.fifthState = state
             default: break
             }
+            
         }
         englandView.drawStates(player: player, imgStatesArr: englandView.englandLevelImgs)
     }
