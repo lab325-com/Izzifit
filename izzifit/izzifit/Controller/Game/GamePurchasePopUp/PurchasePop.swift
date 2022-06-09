@@ -100,10 +100,12 @@ class PurchasePop: UIView {
     private let titleLbl = UILabel()
     private let mainLbl = UILabel()
     
+    private var purchases: [Purchase]
+    
     private var title: String
     private var popType: PurchasePopType
-    private var purchaseTypes: [PurchaseType]
     private var prices: [Double]
+    private var purchaseTypes: [PurchaseType]
     private var counts: [Int]
     
     private var buyBtns = [BuyBtn]()
@@ -113,15 +115,13 @@ class PurchasePop: UIView {
     private let arrowBtn = UIButton()
     
     init(title: String,
-         popType: PurchasePopType,
-         purchaseTypes: [PurchaseType],
-         prices: [Double],
-         counts: [Int]) {
+         purchases: [Purchase]) {
         self.title = title
-        self.popType = popType
-        self.purchaseTypes = purchaseTypes
-        self.prices = prices
-        self.counts = counts
+        self.purchases = purchases
+        self.popType = PurchasePopType(rawValue: purchases.count-1) ?? .onePurchase
+        self.prices = purchases.map({$0.price})
+        self.purchaseTypes = purchases.map({$0.type})
+        self.counts = purchases.map({$0.count})
         super.init(frame: .zero)
         buyBtns = makeButtons(price: prices)
         purchaseStacks = makePurchaseStacks(purchases: purchaseTypes,

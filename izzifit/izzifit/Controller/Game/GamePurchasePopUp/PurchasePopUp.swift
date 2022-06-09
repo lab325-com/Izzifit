@@ -9,8 +9,9 @@ import UIKit
 
 struct Purchase {
     var type: PurchaseType
-    var price: Double
     var count: Int
+    var price: Double
+
 }
 
 
@@ -19,11 +20,8 @@ class PurchasePopUp: BaseController {
                                        purchase1Price: 0.99,
                                        purchase2Price: 1.99)
     
-    var onePopView = PurchasePop(title: "Arctic",
-                                 popType: .threePurchases,
-                                 purchaseTypes: [.spins, .spins, .coins],
-                                 prices: [0.99, 2.99, 2.99],
-                                 counts: [100,500, 50000])
+    var onePopView = PurchasePop(title: "Arctic", purchases: [Purchase(type: .spins, count: 100, price: 0.99),
+                                                              Purchase(type: .coins, count: 25000, price: 1.99)])
     
     override func loadView() {
         self.view = onePopView//testView
