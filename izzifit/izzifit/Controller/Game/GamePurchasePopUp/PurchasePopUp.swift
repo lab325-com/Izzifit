@@ -19,20 +19,16 @@ protocol PurchasePopUpProtocol: AnyObject {
     func purchasePopUpSuccess(controlle: PurchasePopUp)
 }
 
-
 class PurchasePopUp: BaseController {
 
     var onePopView = PurchasePop(title: "Arctic", purchases: [Purchase(type: .spins, count: 100, price: 0.99),
                                                               Purchase(type: .coins, count: 25000, price: 1.99)])
-    
-
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
     
     private lazy var popUp = GamePurchasePopView(title: titlePopUp,
                                                  delegate: self)
-    
     private let titlePopUp: String
     
     private lazy var presenter = SubscribePresenter(view: self)

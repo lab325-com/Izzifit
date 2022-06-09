@@ -36,6 +36,7 @@ class PurchaseStack: UIStackView {
     }
     
     private func setUI() {
+        
         imgVw.image = currentImage()
         ui.setLabel(label: countLbl,
                     labelText: "\(count)",
@@ -247,8 +248,6 @@ class PurchasePop: UIView {
                               parentView: mainBackImgVw,
                               topC: 101 + CGFloat(stackVerticalStride * index),
                               leadingC: 25)
-            
-    
         }
         
         for (index, btn) in buyBtns.enumerated() {
