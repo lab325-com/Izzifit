@@ -152,9 +152,7 @@ class TimerSpinManager {
     }
     
     @objc func xSpin() { spinner(by: 0) {} }
-    
     @objc func x2Spin() { spinner(by: 1) {} }
-    
     @objc func x3Spin() {
         spinner(by: 2) { [self] in
             guard combinationCounter < counter.combinations.count else { return }

@@ -55,6 +55,11 @@ enum Imgs: String {
     case pop1Iglu, pop2Iglu, pop3Iglu, pop4Iglu, pop5Iglu
     case pop1Gold, pop2Gold, pop3Gold, pop4Gold, pop5Gold
     case pop1Deers, pop2Deers, pop3Deers, pop4Deers, pop5Deers
+    
+    case onePurchaseBack, twoPurchaseBack, threePurchaseBack
+    
+    case purchaseCoin1, purchaseCoin2, purchaseCoin3
+    case purchaseLightning1, purchaseLightning2, purchaseLightning3
 }
 
 enum Clrs: String {

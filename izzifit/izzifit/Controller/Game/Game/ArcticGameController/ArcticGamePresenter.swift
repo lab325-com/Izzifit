@@ -43,7 +43,6 @@ class ArcticGamePresenter: ArcticGameProtocol {
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
             self?.maps = model
             self?.freeBuildingsCount = model.map.freeBuildingsCount
-           print(model.map.freeBuildingsCount)
             DispatchQueue.main.async {
                 completion(model.map.spins)
             }

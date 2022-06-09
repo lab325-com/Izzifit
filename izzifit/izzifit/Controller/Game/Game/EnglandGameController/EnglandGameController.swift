@@ -25,8 +25,6 @@ class EnglandGameController: BaseController {
     
     override func viewDidLoad() {
         
-      
-        
         AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
         needSoundTap = false
         hiddenNavigationBar = true

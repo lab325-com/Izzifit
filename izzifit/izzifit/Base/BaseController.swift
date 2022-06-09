@@ -238,3 +238,20 @@ extension BaseController {
     }
 }
 
+//----------------------------------------------
+// MARK: - Alert
+//----------------------------------------------
+
+extension BaseController {
+    func showAlert(message: String, router: @escaping () -> ()) {
+        let alert = UIAlertController(title: "Sorry",
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            router()
+        }
+        alert.addAction(okAction)
+        present(alert,animated: true)
+    }
+}

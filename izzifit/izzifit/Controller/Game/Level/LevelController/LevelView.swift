@@ -19,8 +19,9 @@ class LevelView: UIView {
     
     lazy var stateBtns: [UIButton] = {
         var btns = [UIButton]()
-        for _ in 0...4 {
+        for i in 0...4 {
             let btn = UIButton()
+            btn.tag = i
             btns.append(btn)
         }
         return btns

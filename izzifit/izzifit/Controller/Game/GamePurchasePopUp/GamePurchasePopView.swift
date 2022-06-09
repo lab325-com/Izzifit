@@ -8,13 +8,15 @@
 import UIKit
 
 class BuyBtn: UIButton {
+    
     init(cost: Double) {
         super.init(frame: .zero)
         setBackgroundImage(image(img: .greenBuyBtn), for: .normal)
         setTitle("BUY   $\(cost)", for: .normal)
         titleLabel?.font = UIFont(name: "Inter-ExtraBold" , size: 13)
     }
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
 
 class GamePurchasePopView: UIView {
@@ -240,3 +242,6 @@ class GamePurchasePopView: UIView {
                           centerHtoO: firstOfferStack.centerXAnchor)
     }
 }
+
+
+
