@@ -18,18 +18,18 @@ enum PurchaseType: String {
 
 class PurchaseStack: UIStackView {
     
-   private var verticalStack: UIStackView!
-   private var imgVw = UIImageView()
-   private var typeLbl = UILabel()
-   private var countLbl = UILabel()
+    private var verticalStack: UIStackView!
+    private var imgVw = UIImageView()
+    private var typeLbl = UILabel()
+    private var countLbl = UILabel()
     
-   private var purchaseType: PurchaseType
-   private var count: Int
+    private var purchaseType: PurchaseType
+    private var count: Int
     
-   init(purchaseType: PurchaseType,
-        count: Int) {
-       self.purchaseType = purchaseType
-       self.count = count
+    init(purchaseType: PurchaseType,
+         count: Int) {
+        self.purchaseType = purchaseType
+        self.count = count
         super.init(frame: .zero)
         setUI()
         layout()
@@ -52,7 +52,7 @@ class PurchaseStack: UIStackView {
                     fontSize: 8,
                     fontName: "Inter-BoldItalic")
     }
-
+    
     private func layout() {
         
         NSLayoutConstraint.activate([
@@ -101,9 +101,7 @@ class PurchasePop: UIView {
     private let titleLbl = UILabel()
     private let mainLbl = UILabel()
     
-    private var purchases: [Purchase]
     
-    private var title: String
     private var popType: PurchasePopType
     private var prices: [Double]
     private var purchaseTypes: [PurchaseType]
@@ -114,6 +112,9 @@ class PurchasePop: UIView {
     
     private let downLbl = UILabel()
     private let arrowBtn = UIButton()
+    
+    private var purchases: [Purchase]
+    private var title: String
     
     init(title: String,
          purchases: [Purchase]) {
@@ -197,7 +198,7 @@ class PurchasePop: UIView {
         
         arrowBtn.setImage(image(img: .yellowPointer), for: .normal)
     }
-     
+    
     private func layout() {
         
         let backImgHeights: [CGFloat] = [217, 273, 337]
@@ -222,7 +223,7 @@ class PurchasePop: UIView {
                           topCG: 0,
                           trailingToO: mainBackImgVw.trailingAnchor,
                           trailingCG: -10)
-    
+        
         ui.genericlLayout(object: mainLbl,
                           parentView: mainBackImgVw,
                           topC: 58,
@@ -248,6 +249,21 @@ class PurchasePop: UIView {
                               parentView: mainBackImgVw,
                               topC: 101 + CGFloat(stackVerticalStride * index),
                               leadingC: 25)
+            
+            if index > 0 {
+                // dash grey line
+                
+                let lineLayer = CAShapeLayer()
+                lineLayer.lineWidth = 1
+                lineLayer.lineDashPattern = [4, 4]
+                lineLayer.strokeColor = UIColor(named: Clrs.clrDashLinePopUp.rawValue)?.cgColor
+                let path = CGMutablePath()
+                
+                path.addLines(between: [CGPoint(x: 20 , y: 147.5 + CGFloat(stackVerticalStride * (index - 1))),
+                                        CGPoint(x: 278, y: 147.5 + CGFloat(stackVerticalStride * (index - 1)))])
+                lineLayer.path = path
+                mainBackImgVw.layer.addSublayer(lineLayer)
+            }
         }
         
         for (index, btn) in buyBtns.enumerated() {
