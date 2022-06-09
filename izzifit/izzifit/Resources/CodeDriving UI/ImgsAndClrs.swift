@@ -85,13 +85,13 @@ struct UK_SlotImgs {
     static let lightning = UIImage(named: "en_lightning")
 }
 
-
-
-
-
-
-
 struct ScaleImgs {
+    static let scale1Unselected = UIImage(named: "Unselected1Scale")
+    static let scale2Unselected = UIImage(named: "Unselected2Scale")
+    static let scale3Unselected = UIImage(named: "Unselected3Scale")
+    static let scale4Unselected = UIImage(named: "Unselected4Scale")
+    static let scale5Unselected = UIImage(named: "Unselected5Scale")
+    
     static let scale1Selected = UIImage(named: "Selected1Scale")
     static let scale2Selected = UIImage(named: "Selected2Scale")
     static let scale3Selected = UIImage(named: "Selected3Scale")

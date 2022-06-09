@@ -11,7 +11,7 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
     
     @IBOutlet weak var popUpTopConstraint: NSLayoutConstraint! {
         didSet {
-            popUpTopConstraint.constant = h / 4.66
+            popUpTopConstraint.constant = h/4.66
         }
     }
     
@@ -31,10 +31,10 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
     @IBOutlet weak var fifthScaleImgVw: UIImageView!
     
     lazy var states = [firstScaleImgVw,
-                               secondScaleImgVw,
-                               thirdScaleImgVw,
-                               fourthScaleImgVw,
-                               fifthScaleImgVw]
+                       secondScaleImgVw,
+                       thirdScaleImgVw,
+                       fourthScaleImgVw,
+                       fifthScaleImgVw]
     
     var selectedStateImgs = [ScaleImgs.scale1Selected,
                              ScaleImgs.scale2Selected,
@@ -50,6 +50,7 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
     }
     
     func fillStates(by currentState: LevelStates) {
+        
         var currentStateCounter = Int()
         
         switch currentState {
@@ -146,7 +147,7 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
             }
         }
         
-        var level = Int()
+       var level = Int()
        
        switch state {
        case .start: level = 0
@@ -156,12 +157,7 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
        case .fourth:level = 4
        case .finish: level = 5
        }
-       
-       
-//        for stateNumber in 0...level {
-//            states[stateNumber]
-//        }
-       
+ 
     }
     
     required init?(coder aDecoder: NSCoder) {

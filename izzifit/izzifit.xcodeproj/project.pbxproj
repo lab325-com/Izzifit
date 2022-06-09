@@ -384,6 +384,8 @@
 		FAB65ABC284918E400664399 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB65ABB284918E400664399 /* MapController.swift */; };
 		FABE8BF62850E33F00E3E53C /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BF52850E33F00E3E53C /* LevelController.swift */; };
 		FABE8BF828512C6C00E3E53C /* PurchasePop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BF728512C6C00E3E53C /* PurchasePop.swift */; };
+		FABE8BFD28520E4100E3E53C /* LevelPopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BFC28520E4100E3E53C /* LevelPopUpController.swift */; };
+		FABE8BFF28520E5000E3E53C /* LevelPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BFE28520E5000E3E53C /* LevelPopUpView.swift */; };
 		FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAC55B9627EB87F0001DA24C /* Rank.graphql */; };
 		FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC55B9927EB944E001DA24C /* RankModel.swift */; };
 		FACB1E862804325500058773 /* PointersAndTicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1E852804325500058773 /* PointersAndTicks.swift */; };
@@ -789,6 +791,8 @@
 		FAB65ABB284918E400664399 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		FABE8BF52850E33F00E3E53C /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
 		FABE8BF728512C6C00E3E53C /* PurchasePop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasePop.swift; sourceTree = "<group>"; };
+		FABE8BFC28520E4100E3E53C /* LevelPopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopUpController.swift; sourceTree = "<group>"; };
+		FABE8BFE28520E5000E3E53C /* LevelPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopUpView.swift; sourceTree = "<group>"; };
 		FAC55B9627EB87F0001DA24C /* Rank.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rank.graphql; sourceTree = "<group>"; };
 		FAC55B9927EB944E001DA24C /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		FACB1E852804325500058773 /* PointersAndTicks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointersAndTicks.swift; sourceTree = "<group>"; };
@@ -2567,6 +2571,7 @@
 		FAB6546C27FEDF290057A221 /* Level */ = {
 			isa = PBXGroup;
 			children = (
+				FABE8BFB28520DF500E3E53C /* LevelPopUpView */,
 				FADD5115284F59A400F3A292 /* LevelController */,
 				FAB59C15282A7BFB005AE70B /* BuildPopUp */,
 				FACB1E852804325500058773 /* PointersAndTicks.swift */,
@@ -2622,6 +2627,15 @@
 				FA1A6D7F28081CE80040518A /* LevelController.xib */,
 			);
 			path = ArcticLevelController;
+			sourceTree = "<group>";
+		};
+		FABE8BFB28520DF500E3E53C /* LevelPopUpView */ = {
+			isa = PBXGroup;
+			children = (
+				FABE8BFC28520E4100E3E53C /* LevelPopUpController.swift */,
+				FABE8BFE28520E5000E3E53C /* LevelPopUpView.swift */,
+			);
+			path = LevelPopUpView;
 			sourceTree = "<group>";
 		};
 		FAC55B9527EB87A9001DA24C /* Rank */ = {
@@ -3168,6 +3182,7 @@
 				02BC128327F3007300678305 /* WorkoutDetailSectionCell.swift in Sources */,
 				0251D24927E221ED0098A54D /* ProductsMainModel.swift in Sources */,
 				FAA9DBEB27D9ECD4004A14FB /* WorkoutTypesModel.swift in Sources */,
+				FABE8BFF28520E5000E3E53C /* LevelPopUpView.swift in Sources */,
 				02354E912809350D005A8272 /* StartWorkoutModel.swift in Sources */,
 				0249D24B27B3A67900F265C1 /* BaseController.swift in Sources */,
 				0290B39527D212CA00381B42 /* UIView+Extension.swift in Sources */,
@@ -3341,6 +3356,7 @@
 				0268753827D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.swift in Sources */,
 				0249D24A27B3A67900F265C1 /* BaseRouter.swift in Sources */,
 				0227DA9227C52EC1008AB26B /* TabBarRouter.swift in Sources */,
+				FABE8BFD28520E4100E3E53C /* LevelPopUpController.swift in Sources */,
 				024C69A427DF858300EE8D53 /* FoodController.swift in Sources */,
 				0249D26427B3A88C00F265C1 /* UIColor+Extension.swift in Sources */,
 				02BC127D27F1E29A00678305 /* WorkoutByIdModel.swift in Sources */,
