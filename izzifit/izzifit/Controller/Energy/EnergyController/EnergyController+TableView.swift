@@ -214,10 +214,11 @@ extension EnergyController: EnergyTrainingProtocol {
         guard let id = model.id else { return }
         AnalyticsHelper.sendFirebaseEvents(events: .dash_training_tap)
         
-        if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .workoutTraini) {
+        if model.isAvailable == true {
             WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
+        } else {
+            let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .workoutTraini)
         }
-       
     }
 }
 
