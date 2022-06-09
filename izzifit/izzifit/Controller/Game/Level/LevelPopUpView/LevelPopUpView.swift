@@ -10,13 +10,16 @@ import UIKit
 class LevelPopUpView: UIView {
 
     private let mainBackImgVw = UIImageView()
-    private let closeBtn = UIButton()
+    let closeBtn = UIButton()
     private let titleLbl = UILabel()
-    private let upgradeBtn = UIButton()
+    let upgradeBtn = UIButton()
     
     private var previousStateImgVw = UIImageView()
     private let arrowImgVw = UIImageView()
     private var nextStateImgVw = UIImageView()
+    
+    var hummerImgVw = UIImageView()
+    var hummerCountLbl = UILabel()
     
     private lazy var imgVwStates: [UIImageView] = {
        var imgs = [UIImageView]()
@@ -31,7 +34,7 @@ class LevelPopUpView: UIView {
     }()
     
     private var coinImgVw = UIImageView()
-    private var priceLbl = UILabel()
+    var priceLbl = UILabel()
     
     private var unselectedStateImgs = [ScaleImgs.scale1Unselected,
                                        ScaleImgs.scale2Unselected,
@@ -55,6 +58,88 @@ class LevelPopUpView: UIView {
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
+    func draw(_ type: BuildingType, state: LevelStates) {
+    
+        var imgs = [UIImage]()
+        
+        switch title {
+        case "Arctic": imgs = arcticLevelPopImgs
+        case "England": imgs = englandLevelPopImgs
+        default: return
+        }
+        
+        switch type {
+        case .building1:
+            switch state {
+            case .start: previousStateImgVw.image = imgs[0]; nextStateImgVw.image = imgs[1]
+            case .first: previousStateImgVw.image = imgs[1]; nextStateImgVw.image = imgs[2]
+            case .second: previousStateImgVw.image = imgs[2]; nextStateImgVw.image = imgs[3]
+            case .third: previousStateImgVw.image = imgs[3]; nextStateImgVw.image = imgs[4]
+            case .fourth: previousStateImgVw.image = imgs[4]; nextStateImgVw.image = imgs[5]
+            case .finish: break
+            }
+        case .building2:
+            switch state {
+            case .start: previousStateImgVw.image = imgs[6]; nextStateImgVw.image = imgs[7]
+            case .first: previousStateImgVw.image = imgs[7]; nextStateImgVw.image = imgs[8]
+            case .second: previousStateImgVw.image = imgs[8]; nextStateImgVw.image = imgs[9]
+            case .third: previousStateImgVw.image = imgs[9]; nextStateImgVw.image = imgs[10]
+            case .fourth: previousStateImgVw.image = imgs[10]; nextStateImgVw.image = imgs[11]
+            case .finish: break
+            }
+            
+        case .building3:
+            switch state {
+            case .start: previousStateImgVw.image = imgs[12]; nextStateImgVw.image = imgs[13]
+            case .first: previousStateImgVw.image = imgs[13]; nextStateImgVw.image = imgs[14]
+            case .second: previousStateImgVw.image = imgs[14]; nextStateImgVw.image = imgs[15]
+            case .third: previousStateImgVw.image = imgs[15]; nextStateImgVw.image = imgs[16]
+            case .fourth: previousStateImgVw.image = imgs[16]; nextStateImgVw.image = imgs[17]
+            case .finish: break
+            }
+            
+        case .building4:
+            switch state {
+            case .start: previousStateImgVw.image = imgs[18]; nextStateImgVw.image = imgs[19]
+            case .first: previousStateImgVw.image = imgs[19]; nextStateImgVw.image = imgs[20]
+            case .second: previousStateImgVw.image = imgs[20]; nextStateImgVw.image = imgs[21]
+            case .third: previousStateImgVw.image = imgs[21]; nextStateImgVw.image = imgs[22]
+            case .fourth: previousStateImgVw.image = imgs[22]; nextStateImgVw.image = imgs[23]
+            case .finish: break
+            }
+            
+        case .building5:
+            switch state {
+            case .start: previousStateImgVw.image = imgs[24]; nextStateImgVw.image = imgs[25]
+            case .first: previousStateImgVw.image = imgs[25]; nextStateImgVw.image = imgs[26]
+            case .second: previousStateImgVw.image = imgs[26]; nextStateImgVw.image = imgs[27]
+            case .third: previousStateImgVw.image = imgs[27]; nextStateImgVw.image = imgs[28]
+            case .fourth: previousStateImgVw.image = imgs[28]; nextStateImgVw.image = imgs[29]
+            case .finish: break
+            }
+        }
+    }
+    
+    func fillStates(by currentState: LevelStates) {
+        
+        var currentStateCounter = Int()
+        
+        switch currentState {
+        case .start: currentStateCounter = -1
+        case .first: currentStateCounter = 0
+        case .second: currentStateCounter = 1
+        case .third: currentStateCounter = 2
+        case .fourth: currentStateCounter = 3
+        case .finish: break
+        }
+        
+        for (index,state) in imgVwStates.enumerated() {
+            guard index <= currentStateCounter else { return }
+            state.image = selectedStateImgs[index]
+            layoutIfNeeded()
+        }
+    }
     
     private func setUI() {
         backgroundColor = UIColor(rgb: 0x3F3E56,alpha: 0.3)
@@ -80,6 +165,13 @@ class LevelPopUpView: UIView {
         
         previousStateImgVw.contentMode = .scaleAspectFit
         nextStateImgVw.contentMode = .scaleAspectFit
+        hummerImgVw.image = image(img: .freeHummer)
+        
+        ui.setLabel(label: hummerCountLbl,
+                    textColor: .white,
+                    textAlignment: .right,
+                    fontSize: 13,
+                    fontName: "Inter-BoldItalic")
     }
     
     private func layout() {
@@ -160,5 +252,97 @@ class LevelPopUpView: UIView {
                           parentView: mainBackImgVw,
                           bottomC: 103,
                           centerH: 0)
+        
+        ui.genericlLayout(object: hummerImgVw,
+                          parentView: mainBackImgVw,
+                          width: 44,
+                          height: 47,
+                          topC: 28,
+                          leadingC: 18)
+        
+        ui.genericlLayout(object: hummerCountLbl,
+                          parentView: hummerImgVw,
+                          bottomC: 3,
+                          trailingC: 7)
     }
+    
+    //----------------------------------------------
+    // MARK: - MapsLevelPopUpStates
+    //----------------------------------------------
+    
+    lazy var arcticLevelPopImgs: [UIImage] = {
+        [image(img: .shipStart) ?? UIImage(),
+         image(img: .shipFirst) ?? UIImage(),
+         image(img: .shipSecond) ?? UIImage(),
+         image(img: .shipThird) ?? UIImage(),
+         image(img: .shipFourth) ?? UIImage(),
+         image(img: .shipFinish) ?? UIImage(),
+         
+         image(img: .fishStart) ?? UIImage(),
+         image(img: .fishFirst) ?? UIImage(),
+         image(img: .fishSecond) ?? UIImage(),
+         image(img: .fishThird) ?? UIImage(),
+         image(img: .fishFourth) ?? UIImage(),
+         image(img: .fishFinish) ?? UIImage(),
+         
+         image(img: .igluStart) ?? UIImage(),
+         image(img: .igluFirst) ?? UIImage(),
+         image(img: .igluSecond) ?? UIImage(),
+         image(img: .igluThird) ?? UIImage(),
+         image(img: .igluFourth) ?? UIImage(),
+         image(img: .igluFinish) ?? UIImage(),
+         
+         image(img: .goldStart) ?? UIImage(),
+         image(img: .goldFirst) ?? UIImage(),
+         image(img: .goldSecond) ?? UIImage(),
+         image(img: .goldThird) ?? UIImage(),
+         image(img: .goldFourth) ?? UIImage(),
+         image(img: .goldFinish) ?? UIImage(),
+         
+         image(img: .deersStart) ?? UIImage(),
+         image(img: .deersFirst) ?? UIImage(),
+         image(img: .deersSecond) ?? UIImage(),
+         image(img: .deersThird) ?? UIImage(),
+         image(img: .deersFourth) ?? UIImage(),
+         image(img: .deersFinish) ?? UIImage()
+        ]
+    }()
+    
+    lazy var englandLevelPopImgs: [UIImage] = {
+        [image(img: .eng_popStart) ?? UIImage(),
+         image(img: .eng_1shipPop) ?? UIImage(),
+         image(img: .eng_2shipPop) ?? UIImage(),
+         image(img: .eng_3shipPop) ?? UIImage(),
+         image(img: .eng_4shipPop) ?? UIImage(),
+         image(img: .eng_5shipPop) ?? UIImage(),
+         
+         image(img: .eng_popStart) ?? UIImage(),
+         image(img: .eng_1bridgePop) ?? UIImage(),
+         image(img: .eng_2bridgePop) ?? UIImage(),
+         image(img: .eng_3bridgePop) ?? UIImage(),
+         image(img: .eng_4bridgePop) ?? UIImage(),
+         image(img: .eng_5bridgePop) ?? UIImage(),
+         
+         image(img: .eng_popStart) ?? UIImage(),
+         image(img: .eng_1phonePop) ?? UIImage(),
+         image(img: .eng_2phonePop) ?? UIImage(),
+         image(img: .eng_3phonePop) ?? UIImage(),
+         image(img: .eng_4phonePop) ?? UIImage(),
+         image(img: .eng_5phonePop) ?? UIImage(),
+         
+         image(img: .eng_popStart) ?? UIImage(),
+         image(img: .eng_1bigBenPop) ?? UIImage(),
+         image(img: .eng_2bigBenPop) ?? UIImage(),
+         image(img: .eng_3bigBenPop) ?? UIImage(),
+         image(img: .eng_4bigBenPop) ?? UIImage(),
+         image(img: .eng_5bigBenPop) ?? UIImage(),
+         
+         image(img: .eng_popStart) ?? UIImage(),
+         image(img: .eng_1busPop) ?? UIImage(),
+         image(img: .eng_2busPop) ?? UIImage(),
+         image(img: .eng_3busPop) ?? UIImage(),
+         image(img: .eng_4busPop) ?? UIImage(),
+         image(img: .eng_5busPop) ?? UIImage()
+        ]
+    }()
 }

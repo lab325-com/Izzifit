@@ -56,6 +56,12 @@ enum Imgs: String {
     case pop1Gold, pop2Gold, pop3Gold, pop4Gold, pop5Gold
     case pop1Deers, pop2Deers, pop3Deers, pop4Deers, pop5Deers
     
+    case eng_popStart,eng_1shipPop, eng_2shipPop, eng_3shipPop, eng_4shipPop, eng_5shipPop
+    case eng_1bridgePop, eng_2bridgePop, eng_3bridgePop, eng_4bridgePop, eng_5bridgePop
+    case eng_1phonePop, eng_2phonePop, eng_3phonePop, eng_4phonePop, eng_5phonePop
+    case eng_1bigBenPop, eng_2bigBenPop, eng_3bigBenPop, eng_4bigBenPop, eng_5bigBenPop
+    case eng_1busPop, eng_2busPop, eng_3busPop, eng_4busPop, eng_5busPop
+    
     case onePurchaseBack, twoPurchaseBack, threePurchaseBack
     
     case purchaseCoin1, purchaseCoin2, purchaseCoin3

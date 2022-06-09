@@ -18,7 +18,7 @@ enum LevelStates: Int {
 }
 
 enum BuildingType: String {
-    case ship, fishing, house, hay, sled
+    case building1, building2, building3, building4, building5
 }
 
 struct PlayerModel {
@@ -69,35 +69,35 @@ class PointersAndTicks {
     var imgVwArray = [UIImageView]()
     let view = UIView()
     
-    var pointersTicksArray = [PointerTick(state: .first, type: .ship, topC: 30, leadingC: 54),
-                              PointerTick(state: .first, type: .fishing, topC: -14, leadingC: 103),
-                              PointerTick(state: .first, type: .house, topC: 23, leadingC: 87),
-                              PointerTick(state: .first, type: .hay, topC: -9, leadingC: 67),
-                              PointerTick(state: .first, type: .sled, topC: 14, leadingC: 38),
+    var pointersTicksArray = [PointerTick(state: .first, type: .building1, topC: 30, leadingC: 54),
+                              PointerTick(state: .first, type: .building2, topC: -14, leadingC: 103),
+                              PointerTick(state: .first, type: .building3, topC: 23, leadingC: 87),
+                              PointerTick(state: .first, type: .building4, topC: -9, leadingC: 67),
+                              PointerTick(state: .first, type: .building5, topC: 14, leadingC: 38),
                               
-                              PointerTick(state: .second, type: .ship, topC: 30, leadingC: 54),
-                              PointerTick(state: .second, type: .fishing, topC: -14, leadingC: 103),
-                              PointerTick(state: .second, type: .house, topC: 23, leadingC: 87),
-                              PointerTick(state: .second, type: .hay, topC: -9, leadingC: 67),
-                              PointerTick(state: .second, type: .sled, topC: 14, leadingC: 38),
+                              PointerTick(state: .second, type: .building1, topC: 30, leadingC: 54),
+                              PointerTick(state: .second, type: .building2, topC: -14, leadingC: 103),
+                              PointerTick(state: .second, type: .building3, topC: 23, leadingC: 87),
+                              PointerTick(state: .second, type: .building4, topC: -9, leadingC: 67),
+                              PointerTick(state: .second, type: .building5, topC: 14, leadingC: 38),
                               
-                              PointerTick(state: .third, type: .ship, topC: 15, leadingC: 54),
-                              PointerTick(state: .third, type: .fishing, topC: -14, leadingC: 103),
-                              PointerTick(state: .third, type: .house, topC: 23, leadingC: 87),
-                              PointerTick(state: .third, type: .hay, topC: -9, leadingC: 67),
-                              PointerTick(state: .third, type: .sled, topC: 14, leadingC: 38),
+                              PointerTick(state: .third, type: .building1, topC: 15, leadingC: 54),
+                              PointerTick(state: .third, type: .building2, topC: -14, leadingC: 103),
+                              PointerTick(state: .third, type: .building3, topC: 23, leadingC: 87),
+                              PointerTick(state: .third, type: .building4, topC: -9, leadingC: 67),
+                              PointerTick(state: .third, type: .building5, topC: 14, leadingC: 38),
                               
-                              PointerTick(state: .fourth, type: .ship, topC: 0, leadingC: 54),
-                              PointerTick(state: .fourth, type: .fishing, topC: -14, leadingC: 103),
-                              PointerTick(state: .fourth, type: .house, topC: 23, leadingC: 87),
-                              PointerTick(state: .fourth, type: .hay, topC: -9, leadingC: 67),
-                              PointerTick(state: .fourth, type: .sled, topC: 14, leadingC: 38),
+                              PointerTick(state: .fourth, type: .building1, topC: 0, leadingC: 54),
+                              PointerTick(state: .fourth, type: .building2, topC: -14, leadingC: 103),
+                              PointerTick(state: .fourth, type: .building3, topC: 23, leadingC: 87),
+                              PointerTick(state: .fourth, type: .building4, topC: -9, leadingC: 67),
+                              PointerTick(state: .fourth, type: .building5, topC: 14, leadingC: 38),
                               
-                              PointerTick(state: .finish, type: .ship, topC: 25, leadingC: 54),
-                              PointerTick(state: .finish, type: .fishing, topC: 1, leadingC: 42),
-                              PointerTick(state: .finish, type: .house, topC: 42, leadingC: 117),
-                              PointerTick(state: .finish, type: .hay, topC: 0, leadingC: 106),
-                              PointerTick(state: .finish, type: .sled, topC: 4, leadingC: 128)]
+                              PointerTick(state: .finish, type: .building1, topC: 25, leadingC: 54),
+                              PointerTick(state: .finish, type: .building2, topC: 1, leadingC: 42),
+                              PointerTick(state: .finish, type: .building3, topC: 42, leadingC: 117),
+                              PointerTick(state: .finish, type: .building4, topC: 0, leadingC: 106),
+                              PointerTick(state: .finish, type: .building5, topC: 4, leadingC: 128)]
     
     func drawPointers(model: PlayerModel, btns: [UIButton?]) {
    
@@ -107,12 +107,12 @@ class PointersAndTicks {
         for (index, btn) in btns.enumerated() {
             
             switch index {
-            case 0: building = .ship ; state = model.firstState
-            case 1: building = .fishing ; state = model.secondState
-            case 2: building = .house ; state = model.thirdState
-            case 3: building = .hay ; state = model.fourthState
-            case 4: building = .sled ; state = model.fifthState
-            default:  building = .sled ; state = model.fifthState
+            case 0: building = .building1 ; state = model.firstState
+            case 1: building = .building2 ; state = model.secondState
+            case 2: building = .building3 ; state = model.thirdState
+            case 3: building = .building4 ; state = model.fourthState
+            case 4: building = .building5 ; state = model.fifthState
+            default:  building = .building5 ; state = model.fifthState
             }
 
             switch state {

@@ -11,7 +11,7 @@ import Gifu
 class LevelController: BaseController {
 
     private var englandView: LevelView!
-    private var buildPopUpVw: BuildPopUpView?
+    private var buildPopUpVw: LevelPopUpView?
     
     private lazy var presenter = LevelPresenter(view: self)
     
@@ -71,16 +71,16 @@ class LevelController: BaseController {
         
         switch sender.tag {
         case 0: price = player.firstState.rawValue
-            buildType = .ship
+            buildType = .building1
         case 1: price = player.secondState.rawValue
-            buildType = .fishing
+            buildType = .building2
         case 2: price = player.thirdState.rawValue
-            buildType = .house
+            buildType = .building3
         case 3: price = player.fourthState.rawValue
-            buildType = .hay
+            buildType = .building4
         case 4: price = player.fifthState.rawValue
-            buildType = .sled
-        default: buildType = .ship
+            buildType = .building5
+        default: buildType = .building1
         }
         
         guard price != 0 else { return }
@@ -102,7 +102,7 @@ class LevelController: BaseController {
             return
         }
         // тут малюй попАп за монети
-        guard presenter.freeBuildingsCount ?? 0 < 0 else { return }
+        guard presenter.freeBuildingsCount ?? 0 == 0 else { return }
         drawBuildPopUp(price: price,
                        buildType: buildType,
                        sender: sender)
@@ -135,16 +135,16 @@ class LevelController: BaseController {
             
             switch sender.tag {
             case 0: price = self.player.firstState.rawValue
-                buildType = .ship
+                buildType = .building1
             case 1: price = self.player.secondState.rawValue
-                buildType = .fishing
+                buildType = .building2
             case 2: price = self.player.thirdState.rawValue
-                buildType = .house
+                buildType = .building3
             case 3: price = self.player.fourthState.rawValue
-                buildType = .hay
+                buildType = .building4
             case 4: price = self.player.fifthState.rawValue
-                buildType = .sled
-            default: buildType = .ship
+                buildType = .building5
+            default: buildType = .building1
             }
             
             let state = LevelStates(rawValue: price)
@@ -188,9 +188,9 @@ class LevelController: BaseController {
                         sender: UIButton) {
        
         buildPopUpVw = nil
-        buildPopUpVw = BuildPopUpView()
+        buildPopUpVw = LevelPopUpView(title: "England")
         guard let buildPopUpVw = buildPopUpVw else { return }
-            buildPopUpVw.hummerBtn.isHidden = true
+            buildPopUpVw.hummerImgVw.isHidden = true
             buildPopUpVw.hummerCountLbl.isHidden = true
             view.ui.genericlLayout(object: buildPopUpVw,
                                    parentView: view,
@@ -204,10 +204,10 @@ class LevelController: BaseController {
         if let count = presenter.freeBuildingsCount {
             switch count {
             case 0:
-                buildPopUpVw.hummerBtn.isHidden = true
+                buildPopUpVw.hummerImgVw.isHidden = true
                 buildPopUpVw.hummerCountLbl.isHidden = true
             default:
-                buildPopUpVw.hummerBtn.isHidden = false
+                buildPopUpVw.hummerImgVw.isHidden = false
                 buildPopUpVw.hummerCountLbl.isHidden = false
                 buildPopUpVw.hummerCountLbl.text = "x\(count)"
             }
@@ -223,7 +223,7 @@ class LevelController: BaseController {
         buildPopUpVw.upgradeBtn.addTarget(self,
                                           action: #selector(upgradeBuilding(sender:)),
                                           for: .touchUpInside)
-        buildPopUpVw.mainBtn.addTarget(self,
+        buildPopUpVw.closeBtn.addTarget(self,
                                        action: #selector(closePopUp),
                                        for: .touchUpInside)
         
@@ -258,11 +258,11 @@ extension LevelController: LevelOutputProtocol {
             }
             
             switch building.name {
-            case BuildingType.ship.rawValue: player.firstState = state
-            case BuildingType.fishing.rawValue: player.secondState = state
-            case BuildingType.house.rawValue: player.thirdState = state
-            case BuildingType.hay.rawValue: player.fourthState = state
-            case BuildingType.sled.rawValue: player.fifthState = state
+            case BuildingType.building1.rawValue: player.firstState = state
+            case BuildingType.building2.rawValue: player.secondState = state
+            case BuildingType.building3.rawValue: player.thirdState = state
+            case BuildingType.building4.rawValue: player.fourthState = state
+            case BuildingType.building5.rawValue: player.fifthState = state
             default: break
             }
         }

@@ -115,16 +115,16 @@ class ArcticLevelController: BaseController {
         
         switch sender.tag {
         case 0: price = player.firstState.rawValue
-            buildType = .ship
+            buildType = .building1
         case 1: price = player.secondState.rawValue
-            buildType = .fishing
+            buildType = .building2
         case 2: price = player.thirdState.rawValue
-            buildType = .house
+            buildType = .building3
         case 3: price = player.fourthState.rawValue
-            buildType = .hay
+            buildType = .building4
         case 4: price = player.fifthState.rawValue
-            buildType = .sled
-        default: buildType = .ship
+            buildType = .building5
+        default: buildType = .building1
         }
         
         guard price != 0 else { return }
@@ -230,16 +230,16 @@ class ArcticLevelController: BaseController {
             
             switch sender.tag {
             case 0: price = self.player.firstState.rawValue
-                buildType = .ship
+                buildType = .building1
             case 1: price = self.player.secondState.rawValue
-                buildType = .fishing
+                buildType = .building2
             case 2: price = self.player.thirdState.rawValue
-                buildType = .house
+                buildType = .building3
             case 3: price = self.player.fourthState.rawValue
-                buildType = .hay
+                buildType = .building4
             case 4: price = self.player.fifthState.rawValue
-                buildType = .sled
-            default: buildType = .ship
+                buildType = .building5
+            default: buildType = .building1
             }
             
             let state = LevelStates(rawValue: price)
@@ -371,11 +371,11 @@ extension ArcticLevelController: LevelOutputProtocol {
             }
             
             switch building.name {
-            case BuildingType.ship.rawValue: player.firstState = state
-            case BuildingType.fishing.rawValue: player.secondState = state
-            case BuildingType.house.rawValue: player.thirdState = state
-            case BuildingType.hay.rawValue: player.fourthState = state
-            case BuildingType.sled.rawValue: player.fifthState = state
+            case BuildingType.building1.rawValue: player.firstState = state
+            case BuildingType.building2.rawValue: player.secondState = state
+            case BuildingType.building3.rawValue: player.thirdState = state
+            case BuildingType.building4.rawValue: player.fourthState = state
+            case BuildingType.building5.rawValue: player.fifthState = state
             default: break
             }
         }

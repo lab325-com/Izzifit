@@ -72,7 +72,7 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
     func draw(_ type: BuildingType, state: LevelStates) {
     
         switch type {
-        case .ship:
+        case .building1:
             switch state {
             case .start: previousStateImgVw.image = image(img: .popStartState)
                 nextStateImgVw.image = image(img: .pop1Ship)
@@ -86,7 +86,7 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
                 nextStateImgVw.image = image(img: .pop5Ship)
             case .finish: break
             }
-        case .fishing:
+        case .building2:
             switch state {
             case .start: previousStateImgVw.image = image(img: .popStartState)
                          nextStateImgVw.image = image(img: .pop1Fish)
@@ -101,7 +101,7 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
             case .finish: break
             }
             
-        case .house:
+        case .building3:
             switch state {
             case .start: previousStateImgVw.image = image(img: .popStartState)
                          nextStateImgVw.image = image(img: .pop1Fish)
@@ -116,7 +116,7 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
             case .finish: break
             }
             
-        case .hay:
+        case .building4:
             switch state {
             case .start: previousStateImgVw.image = image(img: .popStartState)
                          nextStateImgVw.image = image(img: .pop1Gold)
@@ -131,7 +131,7 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
             case .finish: break
             }
             
-        case .sled:
+        case .building5:
             switch state {
             case .start: previousStateImgVw.image = image(img: .popStartState)
                          nextStateImgVw.image = image(img: .pop1Deers)
