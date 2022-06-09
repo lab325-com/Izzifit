@@ -16,6 +16,19 @@ enum PurchaseType: String {
     case spins = "SPINS"
 }
 
+class BuyBtn: UIButton {
+
+    init() {
+        super.init(frame: .zero)
+        setBackgroundImage(image(img: .greenBuyBtn), for: .normal)
+        setTitle("", for: .normal)
+        titleLabel?.font = UIFont(name: "Inter-ExtraBold" , size: 13)
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+}
+
+
 class PurchaseStack: UIStackView {
     
    private var verticalStack: UIStackView!
@@ -93,6 +106,11 @@ class PurchaseStack: UIStackView {
     required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
 
+protocol GamePurchasePopProtocol: AnyObject {
+    func gamePurchasePopClose(view: PurchasePop)
+    func gamePurchasePopBuy(view: PurchasePop, tag: Int)
+}
+
 class PurchasePop: UIView {
     
     private let mainBackImgVw = UIImageView()
@@ -114,14 +132,20 @@ class PurchasePop: UIView {
     private let downLbl = UILabel()
     private let arrowBtn = UIButton()
     
+    weak var delegate: GamePurchasePopProtocol?
+    
+    private let activitys = [UIActivityIndicatorView(style: .medium), UIActivityIndicatorView(style: .medium), UIActivityIndicatorView(style: .medium)]
+    
     init(title: String,
-         purchases: [Purchase]) {
+         purchases: [Purchase],
+         delegate: GamePurchasePopProtocol) {
         self.title = title
         self.purchases = purchases
         self.popType = PurchasePopType(rawValue: purchases.count-1) ?? .onePurchase
         self.prices = purchases.map({$0.price})
         self.purchaseTypes = purchases.map({$0.type})
         self.counts = purchases.map({$0.count})
+        self.delegate = delegate
         super.init(frame: .zero)
         buyBtns = makeButtons(price: prices)
         purchaseStacks = makePurchaseStacks(purchases: purchaseTypes,
@@ -133,7 +157,7 @@ class PurchasePop: UIView {
     
     func makeButtons(price: [Double]) -> [BuyBtn] {
         var buttons = [BuyBtn]()
-        for price in price {
+        for _ in price {
             let btn = BuyBtn()
             buttons.append(btn)
         }
@@ -152,6 +176,12 @@ class PurchasePop: UIView {
     
     
     private func setUI() {
+        
+        for activity in activitys {
+            activity.color = UIColor.white
+            activity.startAnimating()
+            activity.hidesWhenStopped = true
+        }
         
         backgroundColor = UIColor(rgb: 0x3F3E56,alpha: 0.3)
         
@@ -176,6 +206,7 @@ class PurchasePop: UIView {
                     fontName: "Inter-BoldItalic")
         
         closeBtn.setImage(image(img: .backBtn), for: .normal)
+        closeBtn.addTarget(self, action: #selector(acionClose), for: .touchUpInside)
         
         var downLblText: String
         
@@ -252,6 +283,9 @@ class PurchasePop: UIView {
         }
         
         for (index, btn) in buyBtns.enumerated() {
+            btn.tag = index
+            
+            btn.addTarget(self, action: #selector(acionBuy), for: .touchUpInside)
             ui.genericlLayout(object: btn,
                               parentView: self,
                               width: 100,
@@ -259,7 +293,35 @@ class PurchasePop: UIView {
                               centerVtoO: purchaseStacks[index].centerYAnchor,
                               trailingToO: mainBackImgVw.trailingAnchor,
                               trailingCG: 37)
+            
+            ui.genericlLayout(object: activitys[index],
+                              parentView: btn,
+                              centerV: 0,
+                              centerH: 0)
         }
+    }
+    
+    //----------------------------------------------
+    // MARK: - Global function
+    //----------------------------------------------
+    
+    func setPrice(prices: [String]) {
+        for (index, btn) in buyBtns.enumerated() {
+            buyBtns[index].setTitle("BUY   \(prices[index])", for: .normal)
+            activitys[index].isHidden = true
+        }
+    }
+    
+    //----------------------------------------------
+    // MARK: - Actions
+    //----------------------------------------------
+    
+    @objc func acionBuy(sender: UIButton!) {
+        delegate?.gamePurchasePopBuy(view: self, tag: sender.tag)
+    }
+    
+    @objc func acionClose(sender: UIButton!) {
+        delegate?.gamePurchasePopClose(view: self)
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }

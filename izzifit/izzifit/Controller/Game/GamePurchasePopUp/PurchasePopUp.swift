@@ -19,26 +19,57 @@ protocol PurchasePopUpProtocol: AnyObject {
     func purchasePopUpSuccess(controlle: PurchasePopUp)
 }
 
+enum InAppPurchaseType: String {
+    case izzifit_energy_100
+    case izzifit_energy_250
+    case izzifit_energy_500
+    
+    case izzifit_gold_10000
+    case izzifit_gold_25000
+    case izzifit_gold_50000
+    
+    var count: Int {
+        switch self {
+        case .izzifit_energy_100:
+            return 100
+        case .izzifit_energy_250:
+            return 250
+        case .izzifit_energy_500:
+            return 500
+        case .izzifit_gold_10000:
+            return 10000
+        case .izzifit_gold_25000:
+            return 25000
+        case .izzifit_gold_50000:
+            return 5000
+        }
+    }
+    
+    var type: PurchaseType {
+        switch self {
+        case .izzifit_energy_100, .izzifit_energy_250, .izzifit_energy_500:
+            return .spins
+        case .izzifit_gold_10000, .izzifit_gold_25000, .izzifit_gold_50000:
+            return .coins
+        }
+    }
+}
+
 
 class PurchasePopUp: BaseController {
-
-    var onePopView = PurchasePop(title: "Arctic", purchases: [Purchase(type: .spins, count: 100, price: 0.99),
-                                                              Purchase(type: .coins, count: 25000, price: 1.99)])
     
-
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
     
-    private lazy var popUp = GamePurchasePopView(title: titlePopUp,
-                                                 delegate: self)
+    private lazy var popUp = PurchasePop(title: titlePopUp, purchases: purchaseModel, delegate: self)
     
     private let titlePopUp: String
     
     private lazy var presenter = SubscribePresenter(view: self)
     
-    private let idFirst = "izzifit_energy_100"
-    private let idSecond = "izzifit_energy_500"
+    private let idProducts: [InAppPurchaseType]
+    private var purchaseModel: [Purchase] = []
     
     weak var delegate: PurchasePopUpProtocol?
     
@@ -46,9 +77,15 @@ class PurchasePopUp: BaseController {
     // MARK: - Init
     //----------------------------------------------
     
-    init(titlePopUp: String, delegate: PurchasePopUpProtocol) {
+    init(idProducts: [InAppPurchaseType], titlePopUp: String, delegate: PurchasePopUpProtocol) {
         self.titlePopUp = titlePopUp
         self.delegate = delegate
+        self.idProducts = idProducts
+        
+        for id in idProducts {
+            self.purchaseModel.append(Purchase(type: id.type, count: id.count, price: 0.99))
+        }
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -67,9 +104,8 @@ class PurchasePopUp: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter.retriveNotAutoProduct(id: Set([idFirst, idSecond]))
+        presenter.retriveNotAutoProduct(id: Set(idProducts.compactMap({$0.rawValue})))
     }
-
 }
 
 //----------------------------------------------
@@ -77,8 +113,8 @@ class PurchasePopUp: BaseController {
 //----------------------------------------------
 
 extension PurchasePopUp: GamePurchasePopProtocol {
-    func gamePurchasePopBuyFirst(view: GamePurchasePopView) {
-        presenter.purchaseProduct(id: idFirst, screen: .energyBuy, place: .energyZero) { [weak self] result, message in
+    func gamePurchasePopBuy(view: PurchasePop, tag: Int) {
+        presenter.purchaseProduct(id: idProducts[safe: tag]?.rawValue ?? "", screen: .energyBuy, place: .energyZero) { [weak self] result, message in
             guard let `self` = self else { return }
             if result {
                 self.delegate?.purchasePopUpSuccess(controlle: self)
@@ -86,18 +122,8 @@ extension PurchasePopUp: GamePurchasePopProtocol {
             }
         }
     }
-    
-    func gamePurchasePopBuySecond(view: GamePurchasePopView) {
-        presenter.purchaseProduct(id: idSecond, screen: .energyBuy, place: .energyZero) { [weak self] result, message in
-            guard let `self` = self else { return }
-            if result {
-                self.delegate?.purchasePopUpSuccess(controlle: self)
-                self.dismiss(animated: true)
-            }
-        }
-    }
-    
-    func gamePurchasePopClose(view: GamePurchasePopView) {
+
+    func gamePurchasePopClose(view: PurchasePop) {
         dismiss(animated: true)
     }
 }
@@ -108,10 +134,20 @@ extension PurchasePopUp: GamePurchasePopProtocol {
 
 extension PurchasePopUp: SubscribeOutputProtocol {
     func successRetrive() {
-        if let modelFirst = presenter.paymentsInfo.first(where: {$0.product == idFirst}),
-           let modelSecond = presenter.paymentsInfo.first(where: {$0.product == idSecond}) {
-            popUp.setPrice(first: modelFirst.prettyPrice, second: modelSecond.prettyPrice)
+        var prices: [String] = []
+        if let model = presenter.paymentsInfo.first(where: {$0.product == idProducts[safe: 0]?.rawValue ?? ""}) {
+            prices.append(model.prettyPrice)
         }
+        
+        if let model = presenter.paymentsInfo.first(where: {$0.product == idProducts[safe: 1]?.rawValue ?? ""}) {
+            prices.append(model.prettyPrice)
+        }
+        
+        if let model = presenter.paymentsInfo.first(where: {$0.product == idProducts[safe: 2]?.rawValue ?? ""}) {
+            prices.append(model.prettyPrice)
+        }
+        
+        popUp.setPrice(prices: prices)
     }
     
     func failure(error: String) {
