@@ -29,6 +29,8 @@ enum PaywallScreenType: String, Codable {
     case onePrice
     case twoPrice
     case threePrice
+    
+    case energyBuy
 }
 
 struct PaywallScreenModel: Codable {

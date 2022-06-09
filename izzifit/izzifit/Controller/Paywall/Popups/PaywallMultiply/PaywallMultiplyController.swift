@@ -311,7 +311,7 @@ extension PaywallMultiplyController: SubscribeOutputProtocol {
                 secondSubSaleDiscountLineView.isHidden = true
                 secondSubSaleDiscountLeadingConstraint.constant = 0
             }
-        case .base, .onePrice:
+        case .base, .onePrice, .energyBuy:
             return
         }
         

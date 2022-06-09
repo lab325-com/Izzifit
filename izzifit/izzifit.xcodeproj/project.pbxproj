@@ -227,6 +227,8 @@
 		02ABCF4627CD0EA800E69C06 /* MenuLanguagesTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02ABCF4427CD0EA800E69C06 /* MenuLanguagesTitleCell.xib */; };
 		02AC22262800666700440DFB /* OrderCreate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02AC22252800666600440DFB /* OrderCreate.graphql */; };
 		02AC22282800677B00440DFB /* OrderCreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AC22272800677B00440DFB /* OrderCreateModel.swift */; };
+		02AD738B284F6F8E00376E4C /* OrderProduct.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02AD738A284F6F8E00376E4C /* OrderProduct.graphql */; };
+		02AD738E284F6FEF00376E4C /* OrderProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AD738D284F6FEF00376E4C /* OrderProductModel.swift */; };
 		02AEDFD728477CC7007C0EA4 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02AEDFD628477CC7007C0EA4 /* SwiftyStoreKit */; };
 		02B1E71927DA003B00C9E610 /* EnergyTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1E71727DA003B00C9E610 /* EnergyTrainingCell.swift */; };
 		02B1E71A27DA003B00C9E610 /* EnergyTrainingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02B1E71827DA003B00C9E610 /* EnergyTrainingCell.xib */; };
@@ -277,6 +279,7 @@
 		02BC129327F358EE00678305 /* WorkoutDetailMuscleСell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC129127F358EE00678305 /* WorkoutDetailMuscleСell.swift */; };
 		02BC129427F358EE00678305 /* WorkoutDetailMuscleСell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BC129227F358EE00678305 /* WorkoutDetailMuscleСell.xib */; };
 		02BC9ECA2806F10000B13401 /* PlainHorizontalProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC9EC92806F10000B13401 /* PlainHorizontalProgressBar.swift */; };
+		02BE9430284F34F4006D361B /* GameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BE942F284F34F4006D361B /* GameRouter.swift */; };
 		02C3DD6527BEDA82004E5C65 /* QuizeProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3DD6327BEDA82004E5C65 /* QuizeProgressController.swift */; };
 		02C3DD6627BEDA82004E5C65 /* QuizeProgressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C3DD6427BEDA82004E5C65 /* QuizeProgressController.xib */; };
 		02C3DD6827BEDAB1004E5C65 /* QuizeProgressPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3DD6727BEDAB1004E5C65 /* QuizeProgressPresenter.swift */; };
@@ -628,6 +631,8 @@
 		02ABCF4427CD0EA800E69C06 /* MenuLanguagesTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuLanguagesTitleCell.xib; sourceTree = "<group>"; };
 		02AC22252800666600440DFB /* OrderCreate.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OrderCreate.graphql; sourceTree = "<group>"; };
 		02AC22272800677B00440DFB /* OrderCreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCreateModel.swift; sourceTree = "<group>"; };
+		02AD738A284F6F8E00376E4C /* OrderProduct.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OrderProduct.graphql; sourceTree = "<group>"; };
+		02AD738D284F6FEF00376E4C /* OrderProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProductModel.swift; sourceTree = "<group>"; };
 		02B1E71727DA003B00C9E610 /* EnergyTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyTrainingCell.swift; sourceTree = "<group>"; };
 		02B1E71827DA003B00C9E610 /* EnergyTrainingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyTrainingCell.xib; sourceTree = "<group>"; };
 		02B225A127BCF0F00035CFA2 /* TempProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempProfileModel.swift; sourceTree = "<group>"; };
@@ -677,6 +682,7 @@
 		02BC129127F358EE00678305 /* WorkoutDetailMuscleСell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutDetailMuscleСell.swift"; sourceTree = "<group>"; };
 		02BC129227F358EE00678305 /* WorkoutDetailMuscleСell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "WorkoutDetailMuscleСell.xib"; sourceTree = "<group>"; };
 		02BC9EC92806F10000B13401 /* PlainHorizontalProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainHorizontalProgressBar.swift; sourceTree = "<group>"; };
+		02BE942F284F34F4006D361B /* GameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRouter.swift; sourceTree = "<group>"; };
 		02C3DD6327BEDA82004E5C65 /* QuizeProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeProgressController.swift; sourceTree = "<group>"; };
 		02C3DD6427BEDA82004E5C65 /* QuizeProgressController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeProgressController.xib; sourceTree = "<group>"; };
 		02C3DD6727BEDAB1004E5C65 /* QuizeProgressPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeProgressPresenter.swift; sourceTree = "<group>"; };
@@ -1880,6 +1886,15 @@
 			path = OrderCreate;
 			sourceTree = "<group>";
 		};
+		02AD7389284F6F7500376E4C /* OrderProduct */ = {
+			isa = PBXGroup;
+			children = (
+				02AD738A284F6F8E00376E4C /* OrderProduct.graphql */,
+				02AD738D284F6FEF00376E4C /* OrderProductModel.swift */,
+			);
+			path = OrderProduct;
+			sourceTree = "<group>";
+		};
 		02B1E71627D9FC9E00C9E610 /* EnergyTrainingCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1930,6 +1945,7 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				02AD7389284F6F7500376E4C /* OrderProduct */,
 				024EBCA32840E04800E6623F /* ProfileDelete */,
 				02B22ACB281C279D006AB1EA /* UpgradeBuilding */,
 				029EDBD1280D726400FC8748 /* WorkoutAttemptUpdate */,
@@ -2538,6 +2554,7 @@
 		FAB6546B27FEDF1A0057A221 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				02BE942F284F34F4006D361B /* GameRouter.swift */,
 				FA8C4846284E0D34006FF663 /* GamePurchasePopUp */,
 				FAB6546D27FEDF340057A221 /* Game */,
 				FAB6546C27FEDF290057A221 /* Level */,
@@ -2867,6 +2884,7 @@
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
 				02B22ACD281C27D8006AB1EA /* UpgradeBuilding.graphql in Resources */,
 				02C5C4632836548000DA189C /* WidgetList.graphql in Resources */,
+				02AD738B284F6F8E00376E4C /* OrderProduct.graphql in Resources */,
 				02BC128E27F329E200678305 /* WorkoutDetailMuscleController.xib in Resources */,
 				0256999228197A7500BA1535 /* 19_super_win.wav in Resources */,
 				023FBC3D27FACC8C004D0CEA /* PaywallController.xib in Resources */,
@@ -3042,7 +3060,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
 		};
 		02D066AB27BBA8A800D12C5F /* RSwift */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3174,6 +3192,7 @@
 				020D281F27E863DD00010122 /* FoodAddController.swift in Sources */,
 				FEBFD7B127E0F16A0027ADD2 /* SetUIManager.swift in Sources */,
 				024EBCA72840EAE900E6623F /* ProfileDeleteModel.swift in Sources */,
+				02AD738E284F6FEF00376E4C /* OrderProductModel.swift in Sources */,
 				02B3017927EB236B0045C607 /* SaveSleepQualityModel.swift in Sources */,
 				02FAF0B027D36EA1002CD678 /* DrinkWidgetModel.swift in Sources */,
 				02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */,
@@ -3287,6 +3306,7 @@
 				02E9047127F59E56008CFFB4 /* WorkoutExercisesCell.swift in Sources */,
 				FAE6764D282E7E200020678E /* LevelPresenter.swift in Sources */,
 				02B225C227BD7D4D0035CFA2 /* MeModel.swift in Sources */,
+				02BE9430284F34F4006D361B /* GameRouter.swift in Sources */,
 				02D066DD27BBE56700D12C5F /* QuizeAgeController.swift in Sources */,
 				02E6D85827FC255100E29509 /* SubscribePresenter.swift in Sources */,
 				02F0C18127EDBDDB005DE3E2 /* EnergyUpdateWeightController.swift in Sources */,
@@ -3486,7 +3506,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3503,7 +3523,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3522,7 +3542,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3539,7 +3559,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3619,7 +3639,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3636,7 +3656,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

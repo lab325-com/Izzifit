@@ -134,7 +134,7 @@ class PurchasePop: UIView {
     func makeButtons(price: [Double]) -> [BuyBtn] {
         var buttons = [BuyBtn]()
         for price in price {
-            let btn = BuyBtn(cost: price)
+            let btn = BuyBtn()
             buttons.append(btn)
         }
         return buttons

@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import FirebaseAnalytics
 import FBSDKCoreKit
+import AppsFlyerLib
 
 enum FirebaseScreenEvents: String {
     case screens
@@ -96,15 +97,29 @@ enum FacebookEvents: String {
 
 class AnalyticsHelper: NSObject {
     static func sendFirebaseEvents(events: FirebaseEvents, params: [String : Any]? = nil) {
-        Analytics.logEvent(events.rawValue, parameters: params)
+        #if DEBUG
+            debugPrint("firebase & analytics debug ------->>>>: \(events.rawValue), params: \(params ?? [:])")
+        #else
+            Analytics.logEvent(events.rawValue, parameters: params)
+        
+            AppsFlyerLib.shared().logEvent(events.rawValue, withValues: params)
+        #endif
     }
     
     static func sendFirebaseScreenEvent(screen: FirebaseScreenEvents) {
-        Analytics.logEvent(AnalyticsEventScreenView,
+        #if DEBUG
+            debugPrint("firebase screen debug ------->>>>: \(screen.rawValue)")
+        #else
+            Analytics.logEvent(AnalyticsEventScreenView,
                            parameters: [AnalyticsParameterScreenName: screen.rawValue])
+        #endif
     }
     
     static func sendFacebookEvent(event: FacebookEvents, values: [String : Any]? = nil) {
-        Analytics.logEvent(event.rawValue, parameters: values)
+        #if DEBUG
+            debugPrint("facebook debug ------->>>>: \(event.rawValue), params: \(values ?? [:])")
+        #else
+            Analytics.logEvent(event.rawValue, parameters: values)
+        #endif
     }
 }

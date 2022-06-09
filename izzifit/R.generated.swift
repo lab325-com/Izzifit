@@ -378,7 +378,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 73 files.
+  /// This `R.file` struct is generated, and contains static references to 74 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -464,6 +464,8 @@ struct R: Rswift.Validatable {
     static let musclesGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Muscles", pathExtension: "graphql")
     /// Resource file `OrderCreate.graphql`.
     static let orderCreateGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "OrderCreate", pathExtension: "graphql")
+    /// Resource file `OrderProduct.graphql`.
+    static let orderProductGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "OrderProduct", pathExtension: "graphql")
     /// Resource file `PasswordForgotRequest.graphql`.
     static let passwordForgotRequestGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "PasswordForgotRequest", pathExtension: "graphql")
     /// Resource file `Products.graphql`.
@@ -779,6 +781,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "OrderProduct", withExtension: "graphql")`
+    static func orderProductGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.orderProductGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "PasswordForgotRequest", withExtension: "graphql")`
     static func passwordForgotRequestGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.passwordForgotRequestGraphql
@@ -1057,7 +1065,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 256 images.
+  /// This `R.image` struct is generated, and contains static references to 265 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1365,6 +1373,8 @@ struct R: Rswift.Validatable {
     static let onboarding_sport_regulary_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_sport_regulary_ic")
     /// Image `onboarding_target_flag_ic`.
     static let onboarding_target_flag_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_target_flag_ic")
+    /// Image `onePurchaseBack`.
+    static let onePurchaseBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "onePurchaseBack")
     /// Image `payer_shadow_ic`.
     static let payer_shadow_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "payer_shadow_ic")
     /// Image `paywall_above_text_ic`.
@@ -1479,6 +1489,18 @@ struct R: Rswift.Validatable {
     static let progress_cube_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_cube_ic")
     /// Image `progress_forward_ic`.
     static let progress_forward_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_forward_ic")
+    /// Image `purchaseCoin1`.
+    static let purchaseCoin1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "purchaseCoin1")
+    /// Image `purchaseCoin2`.
+    static let purchaseCoin2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "purchaseCoin2")
+    /// Image `purchaseCoin3`.
+    static let purchaseCoin3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "purchaseCoin3")
+    /// Image `purchaseLightning1`.
+    static let purchaseLightning1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "purchaseLightning1")
+    /// Image `purchaseLightning2`.
+    static let purchaseLightning2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "purchaseLightning2")
+    /// Image `purchaseLightning3`.
+    static let purchaseLightning3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "purchaseLightning3")
     /// Image `shipFinish`.
     static let shipFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "shipFinish")
     /// Image `shipFirst`.
@@ -1527,12 +1549,16 @@ struct R: Rswift.Validatable {
     static let temp_workout_gradient_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "temp_workout_gradient_ic")
     /// Image `temp_workout_ic`.
     static let temp_workout_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "temp_workout_ic")
+    /// Image `threePurchaseBack`.
+    static let threePurchaseBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "threePurchaseBack")
     /// Image `top_view_coin_ic`.
     static let top_view_coin_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_coin_ic")
     /// Image `top_view_elipse_ic`.
     static let top_view_elipse_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_elipse_ic")
     /// Image `top_view_flash_ic`.
     static let top_view_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_flash_ic")
+    /// Image `twoPurchaseBack`.
+    static let twoPurchaseBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "twoPurchaseBack")
     /// Image `upgradeBtn`.
     static let upgradeBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "upgradeBtn")
     /// Image `upgradeLevel`.
@@ -2644,6 +2670,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onePurchaseBack", bundle: ..., traitCollection: ...)`
+    static func onePurchaseBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onePurchaseBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "payer_shadow_ic", bundle: ..., traitCollection: ...)`
     static func payer_shadow_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.payer_shadow_ic, compatibleWith: traitCollection)
@@ -3043,6 +3076,48 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "purchaseCoin1", bundle: ..., traitCollection: ...)`
+    static func purchaseCoin1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.purchaseCoin1, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "purchaseCoin2", bundle: ..., traitCollection: ...)`
+    static func purchaseCoin2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.purchaseCoin2, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "purchaseCoin3", bundle: ..., traitCollection: ...)`
+    static func purchaseCoin3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.purchaseCoin3, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "purchaseLightning1", bundle: ..., traitCollection: ...)`
+    static func purchaseLightning1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.purchaseLightning1, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "purchaseLightning2", bundle: ..., traitCollection: ...)`
+    static func purchaseLightning2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.purchaseLightning2, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "purchaseLightning3", bundle: ..., traitCollection: ...)`
+    static func purchaseLightning3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.purchaseLightning3, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "shipFinish", bundle: ..., traitCollection: ...)`
     static func shipFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.shipFinish, compatibleWith: traitCollection)
@@ -3211,6 +3286,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "threePurchaseBack", bundle: ..., traitCollection: ...)`
+    static func threePurchaseBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.threePurchaseBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "top_view_coin_ic", bundle: ..., traitCollection: ...)`
     static func top_view_coin_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.top_view_coin_ic, compatibleWith: traitCollection)
@@ -3228,6 +3310,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "top_view_flash_ic", bundle: ..., traitCollection: ...)`
     static func top_view_flash_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.top_view_flash_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "twoPurchaseBack", bundle: ..., traitCollection: ...)`
+    static func twoPurchaseBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.twoPurchaseBack, compatibleWith: traitCollection)
     }
     #endif
 

@@ -42,9 +42,6 @@ class EnglandGameController: BaseController {
         self.view.addGestureRecognizer(swipeRight)
 
         gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchUpInside)
-        
-        let vc = PurchasePopUp()
-        present(vc, animated: true)
     }
     
     private func setCollectionView() {

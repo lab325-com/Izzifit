@@ -80,7 +80,11 @@ class ArcticGameController: BaseController {
                                      spinBtn: gameView.spinBtn,
                                      showProgress: { DispatchQueue.main.async {  self.gameView.showProgress() }}
                                      ,spinsRunOut: spinsRunOut) {
-            let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
+            let result = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
+            
+            if !result {
+                GameRouter(presenter: navigationController).presentEnergyPopUp(titlePopUp: "Arctic Shop", delegate: self)
+            }
         }
     }
     
@@ -89,10 +93,11 @@ class ArcticGameController: BaseController {
     }
     
     @objc func leftHandle(gesture: UISwipeGestureRecognizer) -> Void {
-        let controller = PurchasePopUp()//EnglandGameController()
-        controller.modalPresentationStyle = .fullScreen
-        present(controller, animated: true)
+
 //        self.navigationController?.pushViewController(controller, animated: true)
+        //let controller = EnglandGameController()
+        //self.navigationController?.pushViewController(controller, animated: true)
+
     }
     
     func threeHummersCombination() {
@@ -203,4 +208,14 @@ extension ArcticGameController: PaywallProtocol {
     func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
     
     func paywallSuccess(controller: BaseController) { }
+}
+
+//----------------------------------------------
+// MARK: - PurchasePopUpProtocol
+//----------------------------------------------
+
+extension ArcticGameController: PurchasePopUpProtocol {
+    func purchasePopUpSuccess(controlle: PurchasePopUp) {
+        gameView.updateHeader()
+    }
 }

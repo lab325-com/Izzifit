@@ -216,6 +216,25 @@ public enum PaymentSystemName: RawRepresentable, Equatable, Hashable, CaseIterab
   }
 }
 
+public struct OrderProductInputRecord: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - receipt
+  public init(receipt: Swift.Optional<String?> = nil) {
+    graphQLMap = ["receipt": receipt]
+  }
+
+  public var receipt: Swift.Optional<String?> {
+    get {
+      return graphQLMap["receipt"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "receipt")
+    }
+  }
+}
+
 public struct ProfileUpdateInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
@@ -1527,6 +1546,59 @@ public final class OrderCreateMutation: GraphQLMutation {
       }
       set {
         resultMap.updateValue(newValue, forKey: "orderCreate")
+      }
+    }
+  }
+}
+
+public final class OrderProductMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation OrderProduct($order: OrderProductInputRecord!, $paymentSystem: PaymentSystemName!) {
+      orderProduct(order: $order, paymentSystem: $paymentSystem)
+    }
+    """
+
+  public let operationName: String = "OrderProduct"
+
+  public var order: OrderProductInputRecord
+  public var paymentSystem: PaymentSystemName
+
+  public init(order: OrderProductInputRecord, paymentSystem: PaymentSystemName) {
+    self.order = order
+    self.paymentSystem = paymentSystem
+  }
+
+  public var variables: GraphQLMap? {
+    return ["order": order, "paymentSystem": paymentSystem]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("orderProduct", arguments: ["order": GraphQLVariable("order"), "paymentSystem": GraphQLVariable("paymentSystem")], type: .scalar(Bool.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(orderProduct: Bool? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "orderProduct": orderProduct])
+    }
+
+    public var orderProduct: Bool? {
+      get {
+        return resultMap["orderProduct"] as? Bool
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "orderProduct")
       }
     }
   }

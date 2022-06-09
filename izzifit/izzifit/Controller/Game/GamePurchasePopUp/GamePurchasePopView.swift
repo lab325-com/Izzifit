@@ -8,15 +8,21 @@
 import UIKit
 
 class BuyBtn: UIButton {
-    
-    init(cost: Double) {
+
+    init() {
         super.init(frame: .zero)
         setBackgroundImage(image(img: .greenBuyBtn), for: .normal)
-        setTitle("BUY   $\(cost)", for: .normal)
+        setTitle("", for: .normal)
         titleLabel?.font = UIFont(name: "Inter-ExtraBold" , size: 13)
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+}
+
+protocol GamePurchasePopProtocol: AnyObject {
+    func gamePurchasePopClose(view: GamePurchasePopView)
+    func gamePurchasePopBuyFirst(view: GamePurchasePopView)
+    func gamePurchasePopBuySecond(view: GamePurchasePopView)
 }
 
 class GamePurchasePopView: UIView {
@@ -57,12 +63,17 @@ class GamePurchasePopView: UIView {
         return lineLayer
     }()
     
+    weak var delegate: GamePurchasePopProtocol?
+    
+    private let activityFirst = UIActivityIndicatorView(style: .medium)
+    private let activitySecond = UIActivityIndicatorView(style: .medium)
+    
     init(title: String,
-         purchase1Price: Double,
-         purchase2Price: Double) {
+         delegate: GamePurchasePopProtocol) {
         self.title = title
-        buyFirstBtn = BuyBtn(cost: purchase1Price)
-        buySecondBtn = BuyBtn(cost: purchase2Price)
+        buyFirstBtn = BuyBtn()
+        buySecondBtn = BuyBtn()
+        self.delegate = delegate
         super.init(frame: .zero)
         setUI()
         layout()
@@ -73,6 +84,14 @@ class GamePurchasePopView: UIView {
     private func setUI() {
         backgroundColor = UIColor(rgb: 0x3F3E56,alpha: 0.3)
         mainBackImgVw.image = image(img: .buildPopUpBack)
+        
+        activityFirst.color = UIColor.white
+        activitySecond.color = UIColor.white
+        
+        activityFirst.startAnimating()
+        activitySecond.startAnimating()
+        activityFirst.hidesWhenStopped = true
+        activitySecond.hidesWhenStopped = true
         
         ui.setLabel(label: titleLbl,
                     labelText: title,
@@ -97,6 +116,10 @@ class GamePurchasePopView: UIView {
         
         arrowBtn.setImage(image(img: .yellowPointer), for: .normal)
         closeBtn.setImage(image(img: .backBtn), for: .normal)
+        closeBtn.addTarget(self, action: #selector(acionClose), for: .touchUpInside)
+        
+        buyFirstBtn.addTarget(self, action: #selector(acionBuyFirst), for: .touchUpInside)
+        buySecondBtn.addTarget(self, action: #selector(acionBuySecond), for: .touchUpInside)
         
         // Purchase
         offerImgVw.image = SlotImgs.lightning
@@ -177,6 +200,16 @@ class GamePurchasePopView: UIView {
                           trailingToO: mainBackImgVw.trailingAnchor,
                           trailingCG: 37)
         
+        ui.genericlLayout(object: activityFirst,
+                          parentView: buyFirstBtn,
+                          centerV: 0,
+                          centerH: 0)
+        
+        ui.genericlLayout(object: activitySecond,
+                          parentView: buySecondBtn,
+                          centerV: 0,
+                          centerH: 0)
+        
         ui.genericlLayout(object: someFitnessLbl,
                           parentView: mainBackImgVw,
                           bottomC: 37.5,
@@ -241,6 +274,33 @@ class GamePurchasePopView: UIView {
                           centerVtoO: buySecondBtn.centerYAnchor,
                           centerHtoO: firstOfferStack.centerXAnchor)
     }
+    
+    //----------------------------------------------
+    // MARK: - Global function
+    //----------------------------------------------
+    
+    func setPrice(first: String, second: String) {
+        buyFirstBtn.setTitle("BUY   \(first)", for: .normal)
+        buySecondBtn.setTitle("BUY   \(second)", for: .normal)
+        activityFirst.isHidden = true
+        activitySecond.isHidden = true
+    }
+    //----------------------------------------------
+    // MARK: - Actions
+    //----------------------------------------------
+    
+    @objc func acionClose(sender: UIButton!) {
+        delegate?.gamePurchasePopClose(view: self)
+    }
+    
+    @objc func acionBuyFirst(sender: UIButton!) {
+        delegate?.gamePurchasePopBuyFirst(view: self)
+    }
+    
+    @objc func acionBuySecond(sender: UIButton!) {
+        delegate?.gamePurchasePopBuySecond(view: self)
+    }
+    
 }
 
 
