@@ -83,7 +83,7 @@ class ArcticGameController: BaseController {
             let result = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
             
             if !result {
-                GameRouter(presenter: navigationController).presentEnergyPopUp(titlePopUp: "Arctic Shop", delegate: self)
+                GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: [.izzifit_energy_100, .izzifit_energy_500], titlePopUp: "Arctic", delegate: self)
             }
         }
     }
