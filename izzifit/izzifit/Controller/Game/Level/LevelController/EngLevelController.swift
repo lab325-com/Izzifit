@@ -1,15 +1,15 @@
 //
-//  LevelController.swift
+//  EngLevelController.swift
 //  izzifit
 //
-//  Created by O l e h on 08.06.2022.
+//  Created by O l e h on 09.06.2022.
 //
 
 import UIKit
 import Gifu
 
-class LevelController: BaseController {
-
+class EngLevelController: BaseController {
+    
     private var englandView: LevelView!
     private var buildPopUpVw: LevelPopUpView?
     
@@ -242,7 +242,7 @@ class LevelController: BaseController {
     }
 }
 
-extension LevelController: LevelOutputProtocol {
+extension EngLevelController: LevelOutputProtocol {
     
     func success() { }
     
@@ -287,7 +287,8 @@ extension LevelController: LevelOutputProtocol {
 // MARK: - PaywallProtocol
 //----------------------------------------------
 
-extension LevelController: PaywallProtocol {
+extension EngLevelController: PaywallProtocol {
     func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
     func paywallSuccess(controller: BaseController) { }
 }
+

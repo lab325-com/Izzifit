@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArcticLevelController" customModule="izzifit" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LevelController" customModule="izzifit" customModuleProvider="target">
             <connections>
                 <outlet property="deerBtn" destination="U73-Gb-06i" id="FYY-bW-ifg"/>
                 <outlet property="fishBtn" destination="XIo-Qm-0VY" id="Cqr-I8-A12"/>

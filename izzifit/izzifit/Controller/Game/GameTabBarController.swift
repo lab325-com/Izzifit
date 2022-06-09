@@ -14,7 +14,7 @@ class GameTabBarController: UITabBarController {
     private let buildBtn = UIButton()
     private let mapBtn = UIButton()
     
-    private lazy var btns: [UIButton] = {[backBtn, spinBtn, buildBtn, mapBtn]}()
+    private lazy var btns: [UIButton] = {[backBtn, spinBtn, buildBtn]}()
     private var tabBarStackView: UIStackView!
     
     var firstLaunch = true
@@ -36,9 +36,10 @@ class GameTabBarController: UITabBarController {
                            createNavController(for: ArcticGameController(),
                                                image: view.image(img: .gameTabBarSpin)!),
                            createNavController(for: LevelController(),
-                                               image: view.image(img: .gameTabBarBuild)!),
-                           createNavController(for:  MapController(),
-                                               image: view.image(img: .gameTabBarSpin)!)
+                                               image: view.image(img: .gameTabBarBuild)!)
+//                           ,
+//                           createNavController(for:  MapController(),
+//                                               image: view.image(img: .gameTabBarSpin)!)
         ]
     }
     

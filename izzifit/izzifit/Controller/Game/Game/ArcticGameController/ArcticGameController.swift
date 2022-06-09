@@ -94,8 +94,6 @@ class ArcticGameController: BaseController {
     
     @objc func leftHandle(gesture: UISwipeGestureRecognizer) -> Void {
   
-        let vc =  LevelPopUpController()
-        present(vc, animated: true)
 //        self.navigationController?.pushViewController(controller, animated: true)
         //let controller = EnglandGameController()
         //self.navigationController?.pushViewController(controller, animated: true)
