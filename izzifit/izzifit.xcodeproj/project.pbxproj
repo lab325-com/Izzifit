@@ -342,6 +342,7 @@
 		02FAF0AE27D36D7C002CD678 /* EnergyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAF0AD27D36D7C002CD678 /* EnergyPresenter.swift */; };
 		02FAF0B027D36EA1002CD678 /* DrinkWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAF0AF27D36EA1002CD678 /* DrinkWidgetModel.swift */; };
 		8C4F7F85C1CC5538D3E379C8 /* Pods_izzifit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA5E332399E73031D583774 /* Pods_izzifit.framework */; };
+		FA175A79285356810095DA9E /* GameBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA175A78285356810095DA9E /* GameBaseController.swift */; };
 		FA1761AD27DA1D80002881BB /* WorkoutController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761AC27DA1D80002881BB /* WorkoutController+CollectionView.swift */; };
 		FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761AF27DA1F60002881BB /* WorkoutActivitiesCell.swift */; };
 		FA1761C027DA3E96002881BB /* WorkoutActivityCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1761BE27DA3E96002881BB /* WorkoutActivityCollectionCell.swift */; };
@@ -748,6 +749,7 @@
 		352468CF0028C7B7CE37BC1F /* Pods-izzifit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.release.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.release.xcconfig"; sourceTree = "<group>"; };
 		3DE270F6FF543B995EC67ADF /* Pods-izzifit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.debug.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.debug.xcconfig"; sourceTree = "<group>"; };
 		A00F8397483211F5694F3938 /* Pods-izzifit.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izzifit.staging.xcconfig"; path = "Target Support Files/Pods-izzifit/Pods-izzifit.staging.xcconfig"; sourceTree = "<group>"; };
+		FA175A78285356810095DA9E /* GameBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBaseController.swift; sourceTree = "<group>"; };
 		FA1761AC27DA1D80002881BB /* WorkoutController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutController+CollectionView.swift"; sourceTree = "<group>"; };
 		FA1761AF27DA1F60002881BB /* WorkoutActivitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutActivitiesCell.swift; sourceTree = "<group>"; };
 		FA1761BE27DA3E96002881BB /* WorkoutActivityCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutActivityCollectionCell.swift; sourceTree = "<group>"; };
@@ -2561,6 +2563,7 @@
 				FAB6546C27FEDF290057A221 /* Level */,
 				FAB65AB6284916E000664399 /* Map */,
 				FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */,
+				FA175A78285356810095DA9E /* GameBaseController.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -3146,6 +3149,7 @@
 				029EDBCF280D3FCB00FC8748 /* VideoFinishedController.swift in Sources */,
 				0256999528197C6C00BA1535 /* BaseTableViewCell.swift in Sources */,
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
+				FA175A79285356810095DA9E /* GameBaseController.swift in Sources */,
 				02B22AC1281C0B3D006AB1EA /* MapModel.swift in Sources */,
 				FA1A2573283D0D0D00240E28 /* PaywallMultiplyController.swift in Sources */,
 				FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */,

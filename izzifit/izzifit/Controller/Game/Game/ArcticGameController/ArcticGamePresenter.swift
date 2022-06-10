@@ -12,7 +12,7 @@ import UIKit
 // MARK: - Outputs Protocol
 //----------------------------------------------
 protocol ArcticGameOutputProtocol: BaseController {
-    func success()
+    func success(map: MapModel)
     func successSpin(model: [SpinMainModel])
     func successUpgrade()
 }
@@ -43,10 +43,15 @@ class ArcticGamePresenter: ArcticGameProtocol {
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
             self?.maps = model
             self?.freeBuildingsCount = model.map.freeBuildingsCount
+            PreferencesManager.sharedManager.//
+            NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
+                                                                    object: self,
+                                                                    userInfo: nil)
             DispatchQueue.main.async {
                 completion(model.map.spins)
+              
             }
-            self?.view?.success()
+            self?.view?.success(map: model)
             self?.view?.stopLoading()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()

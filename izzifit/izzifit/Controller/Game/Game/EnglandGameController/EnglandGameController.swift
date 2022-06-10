@@ -181,7 +181,9 @@ extension EnglandGameController: ArcticGameOutputProtocol {
         let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterSpeen)
     }
     
-    func success() { collectionView.reloadData() }
+    func success(map: MapModel){
+        collectionView.reloadData()
+    }
 }
 
 //----------------------------------------------

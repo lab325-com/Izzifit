@@ -165,4 +165,14 @@ class PreferencesManager : NSObject {
             userDefaults.synchronize()
         }
     }
+    
+//    var currentMapType: ? {
+//            get {
+//                return PopupType(rawValue: UserDefaults.standard.string(forKey: PreferencesManager.currentPopUp) ?? "")
+//            }
+//            set {
+//                userDefaults.set(newValue?.rawValue, forKey: PreferencesManager.currentPopUp)
+//                userDefaults.synchronize()
+//            }
+//        }
 }

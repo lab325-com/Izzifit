@@ -21,8 +21,11 @@ class GameTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupVCs()
-        setupTabBar()
+        
+            self.setupVCs()
+            self.setupTabBar()
+        
+   
     }
     
     private func createNavController(for rootViewController: UIViewController, image: UIImage) -> UIViewController {
@@ -33,7 +36,7 @@ class GameTabBarController: UITabBarController {
     
     private func setupVCs() {
         viewControllers = [
-                           createNavController(for: ArcticGameController(),
+                           createNavController(for: GameBaseController(isArctic: true),
                                                image: view.image(img: .gameTabBarSpin)!),
                            createNavController(for: LevelController(),
                                                image: view.image(img: .gameTabBarBuild)!)
