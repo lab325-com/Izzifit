@@ -20,6 +20,8 @@ class PreferencesManager : NSObject {
     static let screensPaywall = "screensPaywall"
     static let afterOnboarding = "afterOnboarding"
     static let preOnboardingRemote = "preOnboardingRemote"
+    static let enegyZero = "enegyZero"
+    static let coinsZero = "coinsZero"
     
     var userDefaults: UserDefaults
     
@@ -153,6 +155,24 @@ class PreferencesManager : NSObject {
         }
         set {
             self.set(newValue, forKey: PreferencesManager.preOnboardingRemote)
+        }
+    }
+    
+    var enegyZero: ZeroPopUModel? {
+        get {
+            return self.model(forKey: PreferencesManager.enegyZero)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.enegyZero)
+        }
+    }
+    
+    var coinsZero: ZeroPopUModel? {
+        get {
+            return self.model(forKey: PreferencesManager.coinsZero)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.coinsZero)
         }
     }
     

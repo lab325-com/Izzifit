@@ -47,6 +47,8 @@ class LevelController: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hummerBtn.isUserInteractionEnabled = false
+        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }
     
     override func viewDidLoad() {
@@ -140,7 +142,11 @@ class LevelController: BaseController {
         guard KeychainService.standard.me?.coins ?? 0 >= price else {
             if presenter.freeBuildingsCount ?? 0 <= 0 {
                 showAlert(message: "You don't have enough money") {
-                    let _ = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .goldZero)
+                    let result = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .goldZero)
+                    
+                    if !result, let ids = PreferencesManager.sharedManager.coinsZero?.idProducts {
+                        GameRouter(presenter: self.navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
+                    }
                 }
             }
             return
@@ -399,5 +405,13 @@ extension LevelController: PaywallProtocol {
     func paywallSuccess(controller: BaseController) { }
 }
 
+//----------------------------------------------
+// MARK: - GamePurchasePopProtocol
+//----------------------------------------------
 
-
+extension LevelController: PurchasePopUpProtocol {
+    func purchasePopUpSuccess(controlle: PurchasePopUp) {
+        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+    }
+}

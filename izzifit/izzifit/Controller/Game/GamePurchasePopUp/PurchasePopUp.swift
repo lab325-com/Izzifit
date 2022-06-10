@@ -19,7 +19,7 @@ protocol PurchasePopUpProtocol: AnyObject {
 }
 
 
-enum InAppPurchaseType: String {
+enum InAppPurchaseType: String, Codable {
     case izzifit_energy_100
     case izzifit_energy_250
     case izzifit_energy_500
@@ -41,7 +41,7 @@ enum InAppPurchaseType: String {
         case .izzifit_gold_25000:
             return 25000
         case .izzifit_gold_50000:
-            return 5000
+            return 50000
         }
     }
     

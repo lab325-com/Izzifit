@@ -46,6 +46,11 @@ class ArcticGameController: BaseController {
         gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchUpInside)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        gameView.updateHeader()
+    }
+    
     private func setCollectionView() {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -82,8 +87,8 @@ class ArcticGameController: BaseController {
                                      ,spinsRunOut: spinsRunOut) {
             let result = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
             
-            if !result {
-                GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: [.izzifit_energy_100, .izzifit_energy_500], titlePopUp: "Arctic", delegate: self)
+            if !result, let ids = PreferencesManager.sharedManager.enegyZero?.idProducts {
+                GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
             }
         }
     }
