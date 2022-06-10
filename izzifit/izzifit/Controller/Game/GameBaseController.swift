@@ -13,9 +13,9 @@ class GameBaseController: BaseController {
 
     private let isArctic: Bool
     
-   private lazy var arc = ArcticGameController()
+    private lazy var arc = ArcticGameController()
     private lazy var eng = EnglandGameController()
-    private var currentScreen = PreferencesManager.sharedManager.
+    private var currentScreen: MapName? = PreferencesManager.sharedManager.currentMapName
     
     
     init(isArctic: Bool) {
@@ -28,36 +28,31 @@ class GameBaseController: BaseController {
     }
     
     @objc func endLoadConfigNotification(_ notification: Notification) {
-        if currentScreen = PreferencesManager.sharedManager { return }
-    upDateController()
+    guard currentScreen != PreferencesManager.sharedManager.currentMapName else { return }
+         updateController()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateController()
         NotificationCenter.default.addObserver(self,
                                                selector:#selector(self.endLoadConfigNotification),
-                                                name: Constants.Notifications.endRemoteConfigEndNotification,
-                                                       object: nil)
-
-
- 
+                                               name: Constants.Notifications.endRemoteConfigEndNotification,
+                                               object: nil)
         self.view.layer.backgroundColor = UIColor.white.cgColor
-
-        
-        
-        // Do any additional setup after loading the view.
     }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func upDateController() {
-        
-        if PreferencesManager.sharedManager./// {
-            self.addContainer(child: arc, to: self.view)
-            
-        } else {
-            self.addContainer(child: eng, to: self.view)
+    func updateController() {
+        arc.removeContainer()
+        eng.removeContainer()
+        switch PreferencesManager.sharedManager.currentMapName {
+        case .england_map:  self.addContainer(child: eng, to: self.view)
+        case .snow_map: self.addContainer(child: arc, to: self.view)
+        case .none: break
         }
     }
 }

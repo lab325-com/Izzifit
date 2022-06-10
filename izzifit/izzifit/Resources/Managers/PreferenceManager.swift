@@ -20,6 +20,8 @@ class PreferencesManager : NSObject {
     static let screensPaywall = "screensPaywall"
     static let afterOnboarding = "afterOnboarding"
     static let preOnboardingRemote = "preOnboardingRemote"
+    static let enegyZero = "enegyZero"
+    static let coinsZero = "coinsZero"
     
     var userDefaults: UserDefaults
     
@@ -156,6 +158,24 @@ class PreferencesManager : NSObject {
         }
     }
     
+    var enegyZero: ZeroPopUModel? {
+        get {
+            return self.model(forKey: PreferencesManager.enegyZero)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.enegyZero)
+        }
+    }
+    
+    var coinsZero: ZeroPopUModel? {
+        get {
+            return self.model(forKey: PreferencesManager.coinsZero)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.coinsZero)
+        }
+    }
+    
     var afterOnboarding: Bool {
         get {
             return userDefaults.bool(forKey: PreferencesManager.afterOnboarding)
@@ -166,13 +186,13 @@ class PreferencesManager : NSObject {
         }
     }
     
-//    var currentMapType: ? {
-//            get {
-//                return PopupType(rawValue: UserDefaults.standard.string(forKey: PreferencesManager.currentPopUp) ?? "")
-//            }
-//            set {
-//                userDefaults.set(newValue?.rawValue, forKey: PreferencesManager.currentPopUp)
-//                userDefaults.synchronize()
-//            }
-//        }
+    var currentMapName: MapName? {
+            get {
+                return MapName(rawValue: userDefaults.string(forKey: "currentMapName") ?? "snow_map") ?? nil
+            }
+            set {
+                userDefaults.set(newValue?.rawValue, forKey: "currentMapName")
+                userDefaults.synchronize()
+            }
+        }
 }

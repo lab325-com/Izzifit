@@ -201,6 +201,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
                         PreferencesManager.sharedManager.preOnboardingRemote = preOnboarding.video
                     }
                     
+                    if let enegyZero = RemoteConfigParameters.energyZero.value as? ZeroPopUModel {
+                        PreferencesManager.sharedManager.enegyZero = enegyZero
+                    }
+                    
+                    if let coinsZero = RemoteConfigParameters.coinsZero.value as? ZeroPopUModel {
+                        PreferencesManager.sharedManager.coinsZero = coinsZero
+                    }
+                    
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
                                                         object: self,

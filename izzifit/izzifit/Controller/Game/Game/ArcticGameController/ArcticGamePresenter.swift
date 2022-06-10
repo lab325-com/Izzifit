@@ -43,7 +43,13 @@ class ArcticGamePresenter: ArcticGameProtocol {
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
             self?.maps = model
             self?.freeBuildingsCount = model.map.freeBuildingsCount
-            PreferencesManager.sharedManager.//
+            
+            switch model.map.name {
+            case "show_map": PreferencesManager.sharedManager.currentMapName = .snow_map
+            case "england_map": PreferencesManager.sharedManager.currentMapName = .england_map
+            default: break
+            }
+
             NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
                                                                     object: self,
                                                                     userInfo: nil)

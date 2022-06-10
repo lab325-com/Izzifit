@@ -289,6 +289,7 @@
 		02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C487FB27F184E80010D4FA /* WorkoutRouter.swift */; };
 		02C4880027F198100010D4FA /* WorkoutDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C487FE27F198100010D4FA /* WorkoutDetailHeaderCell.swift */; };
 		02C4880127F198100010D4FA /* WorkoutDetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C487FF27F198100010D4FA /* WorkoutDetailHeaderCell.xib */; };
+		02C48EEE28531DE3008708B8 /* EnergyZeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C48EED28531DE3008708B8 /* EnergyZeroModel.swift */; };
 		02C5C4632836548000DA189C /* WidgetList.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02C5C4622836548000DA189C /* WidgetList.graphql */; };
 		02C5C46528365E1B00DA189C /* WidgetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5C46428365E1B00DA189C /* WidgetList.swift */; };
 		02D066A827BBA72100D12C5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02D066AA27BBA72100D12C5F /* Localizable.strings */; };
@@ -694,6 +695,7 @@
 		02C487FB27F184E80010D4FA /* WorkoutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRouter.swift; sourceTree = "<group>"; };
 		02C487FE27F198100010D4FA /* WorkoutDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailHeaderCell.swift; sourceTree = "<group>"; };
 		02C487FF27F198100010D4FA /* WorkoutDetailHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutDetailHeaderCell.xib; sourceTree = "<group>"; };
+		02C48EED28531DE3008708B8 /* EnergyZeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyZeroModel.swift; sourceTree = "<group>"; };
 		02C5C4622836548000DA189C /* WidgetList.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WidgetList.graphql; sourceTree = "<group>"; };
 		02C5C46428365E1B00DA189C /* WidgetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetList.swift; sourceTree = "<group>"; };
 		02D066A927BBA72100D12C5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -927,6 +929,7 @@
 			isa = PBXGroup;
 			children = (
 				0218DA95283B92FA000979B5 /* PaywallScreen.swift */,
+				02C48EED28531DE3008708B8 /* EnergyZeroModel.swift */,
 				0227A9C02849FC3700BA29A8 /* PreOnboardingModel.swift */,
 			);
 			path = Model;
@@ -3210,6 +3213,7 @@
 				024EBCA72840EAE900E6623F /* ProfileDeleteModel.swift in Sources */,
 				02AD738E284F6FEF00376E4C /* OrderProductModel.swift in Sources */,
 				02B3017927EB236B0045C607 /* SaveSleepQualityModel.swift in Sources */,
+				02C48EEE28531DE3008708B8 /* EnergyZeroModel.swift in Sources */,
 				02FAF0B027D36EA1002CD678 /* DrinkWidgetModel.swift in Sources */,
 				02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */,
 				02D066AD27BBA8F400D12C5F /* R.generated.swift in Sources */,
