@@ -219,7 +219,21 @@ class LevelController: BaseController {
         for btn in btns {
             btn?.isUserInteractionEnabled.toggle()
         }
-        guard let buildingId = presenter.buildings[safe: sender.tag]?.id else {return}
+        
+        var buildingName = String()
+        
+        switch sender.tag {
+        case 0: buildingName = "ship"
+        case 1: buildingName = "fishing"
+        case 2: buildingName = "house"
+        case 3: buildingName = "hay"
+        case 4: buildingName = "sled"
+        default: break
+        }
+        
+        let building = presenter.buildings.filter({$0.name == buildingName})
+        
+        guard let buildingId = building.first?.id else {return}
         guard let buildPopUpVw = buildPopUpVw else { return }
         buildPopUpVw.removeFromSuperview()
         view.layoutIfNeeded()

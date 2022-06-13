@@ -51,8 +51,8 @@ class ArcticGamePresenter: ArcticGameProtocol {
             }
 
             NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
-                                                                    object: self,
-                                                                    userInfo: nil)
+                                            object: self,
+                                            userInfo: nil)
             DispatchQueue.main.async {
                 completion(model.map.spins)
               
