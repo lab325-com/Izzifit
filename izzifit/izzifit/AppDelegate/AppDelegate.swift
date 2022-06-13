@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
         
         loadConfig()
         checkingPurchase()
-      //  forceUpdate()
+        forceUpdate()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             if #available(iOS 14, *) {
