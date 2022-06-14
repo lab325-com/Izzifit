@@ -320,6 +320,7 @@ class LevelController: BaseController {
     }
     
     private func setup() {
+        
         for i in 0...4 {
             btns[i]?.tag = i
         }

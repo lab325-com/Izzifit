@@ -25,9 +25,9 @@ class MapView: UIView {
     private var path8_btn = UIButton()
     
     // MapPoints
-    private let arctic_btn = UIButton()
-    private var england_btn = UIButton()
-    private var france_btn = UIButton()
+    private let arctic_btn =    UIButton()
+    private var england_btn =   UIButton()
+    private var france_btn =    UIButton()
     
     lazy var sizeRemainder: CGFloat = {(428.0 - 375.0) / 2}()
     
@@ -65,7 +65,7 @@ class MapView: UIView {
         }
         
         for (index, btn) in mapBtns.enumerated() {
-            guard index <= actualMapPoint.rawValue else { break }
+            guard index == actualMapPoint.rawValue || index == (actualMapPoint.rawValue + 1) || index == (actualMapPoint.rawValue - 1) else { continue }
             btn.isSelected = true
         }
         
@@ -106,6 +106,7 @@ class MapView: UIView {
     }
     
     private func layout() {
+        
         ui.setAndLayScrollView(contentV: viewUponScrollView,
                                scrollV: scrollView,
                                parentView: self,
@@ -114,10 +115,6 @@ class MapView: UIView {
                                bounces: false,
                                width: 428,
                                height: 2625)
-        
-        let x = (428 - UIScreen.main.bounds.size.width) / 2
-        scrollView.setContentOffset(CGPoint(x: x, y: 2605),
-                                    animated: true)
         
         ui.genericlLayout(object: barBackVw,
                                parentView: self,
@@ -140,7 +137,7 @@ class MapView: UIView {
                           height: 286.53,
                           leadingC: w/1.7060 + sizeRemainder,
                           bottomToO: path1_btn.topAnchor,
-                          bottomCG: -6 )
+                          bottomCG: -6)
 
         ui.genericlLayout(object: path3_btn,
                           parentView: viewUponScrollView,
