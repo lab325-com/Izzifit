@@ -299,6 +299,27 @@ class LevelController: BaseController {
             }
             presenter.upgradeBuild(buildingId: buildingId) { [self] in
                 let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
+               
+                let buildLevels = presenter.buildings.map({$0.level})
+                print("MMM\(buildLevels)")
+                let maxLevel = buildLevels.allSatisfy({ $0 == 5 })
+                
+                guard maxLevel else { return }
+                let alert = UIAlertController(title: "Congratulation",
+                                              message: "You built all buildings on current map",
+                                              preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "Move to the next map",
+                                             style: .default) { action in
+                    PreferencesManager.sharedManager.currentMapName = .england_map
+                    NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
+                                                    object: self,
+                                                    userInfo: nil)
+                }
+                
+                alert.addAction(okAction)
+                present(alert, animated: true)
+
             }
         }
     }
@@ -401,24 +422,6 @@ extension LevelController: LevelOutputProtocol {
         }
         
         drawStates()
-        let buildLevels = model.map({$0.level})
-        let maxLevel = buildLevels.dropFirst().allSatisfy({ $0 == 5 })
-        
-        guard maxLevel else { return }
-        let alert = UIAlertController(title: "Congratulation",
-                                      message: "You built all buildings on current map",
-                                      preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "Move to the next map",
-                                     style: .default) { action in
-            PreferencesManager.sharedManager.currentMapName = .england_map
-            NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
-                                            object: self,
-                                            userInfo: nil)
-        }
-        
-        alert.addAction(okAction)
-        present(alert, animated: true)
     }
     
     func successBuild() { }

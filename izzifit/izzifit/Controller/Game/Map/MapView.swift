@@ -44,14 +44,14 @@ class MapView: UIView {
          path7_btn,
          path8_btn]
     }()
-    private var actualMapPoint = Maps.england
+    private var actualMapPoint: Maps
     
-//    init(mapPoint: Maps) {
-//        actualMapPoint = mapPoint
-//        super.init(frame: .zero)
-//    }
-//    
-//    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    init(mapPoint: Maps) {
+        actualMapPoint = mapPoint
+        super.init(frame: .zero)
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override func draw(_ rect: CGRect) {
        setUI()

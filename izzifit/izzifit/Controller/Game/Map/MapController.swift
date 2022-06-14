@@ -12,7 +12,14 @@ class MapController: BaseController {
     private var mapView: MapView!
 
     override func loadView() {
-        mapView = MapView()
+        if let mapName = PreferencesManager.sharedManager.currentMapName {
+            switch mapName {
+            case .snow_map:
+                mapView = MapView(mapPoint: .arctic )
+            case .england_map:
+                mapView = MapView(mapPoint: .england )
+            }
+        }
         self.view = mapView
     }
     
