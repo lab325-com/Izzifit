@@ -37,7 +37,8 @@ class StartPresenter: StartPresenterProtocol {
     
     func login() {
         view?.startLoader()
-        let mutation = LoginMutation(record: LoginRecordInput(udid: uuid, authType: .authTypeUdid))
+        
+        let mutation = LoginMutation(record: LoginRecordInput(udid: uuid, authType: .authTypeUdid, firebaseId: PreferencesManager.sharedManager.fcmToken))
         let _ = Network.shared.mutation(model: LoginModel.self, mutation, controller: view, successHandler: { [weak self] model in
             KeychainService.standard.newAuthToken = AuthModel(token: model.login.token)
             self?.me(token: model.login.token)

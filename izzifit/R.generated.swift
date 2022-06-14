@@ -378,7 +378,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 74 files.
+  /// This `R.entitlements` struct is generated, and contains static references to 1 properties.
+  struct entitlements {
+    static let apsEnvironment = infoPlistString(path: [], key: "aps-environment") ?? "development"
+
+    fileprivate init() {}
+  }
+
+  /// This `R.file` struct is generated, and contains static references to 75 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -426,6 +433,8 @@ struct R: Rswift.Validatable {
     static let foodGroupsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "FoodGroups", pathExtension: "graphql")
     /// Resource file `GoogleService-Info.plist`.
     static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
+    /// Resource file `GoogleService-Info1.plist`.
+    static let googleServiceInfo1Plist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info1", pathExtension: "plist")
     /// Resource file `Inter-Black.ttf`.
     static let interBlackTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Black", pathExtension: "ttf")
     /// Resource file `Inter-Bold.ttf`.
@@ -664,6 +673,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "GoogleService-Info", withExtension: "plist")`
     static func googleServiceInfoPlist(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.googleServiceInfoPlist
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GoogleService-Info1", withExtension: "plist")`
+    static func googleServiceInfo1Plist(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.googleServiceInfo1Plist
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -5506,7 +5521,7 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_target_weight = Rswift.StringResource(key: "menu_target_weight", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Target weigth
+      /// en translation: Target weight
       ///
       /// Locales: en
       static let onboarding_targe_weight_title = Rswift.StringResource(key: "onboarding_targe_weight_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -5670,7 +5685,7 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let energy_progress_percent = Rswift.StringResource(key: "energy_progress_percent", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Your weigth
+      /// en translation: Your weight
       ///
       /// Locales: en
       static let onboarding_weight_title = Rswift.StringResource(key: "onboarding_weight_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -7892,7 +7907,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("menu_target_weight", bundle: bundle, comment: "")
       }
 
-      /// en translation: Target weigth
+      /// en translation: Target weight
       ///
       /// Locales: en
       static func onboarding_targe_weight_title(preferredLanguages: [String]? = nil) -> String {
@@ -8511,7 +8526,7 @@ struct R: Rswift.Validatable {
         return String(format: format, locale: locale, value1)
       }
 
-      /// en translation: Your weigth
+      /// en translation: Your weight
       ///
       /// Locales: en
       static func onboarding_weight_title(preferredLanguages: [String]? = nil) -> String {

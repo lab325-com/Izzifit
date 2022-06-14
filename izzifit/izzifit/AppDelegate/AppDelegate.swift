@@ -9,6 +9,7 @@ import UIKit
 import Rswift
 import SwiftyStoreKit
 import Firebase
+import FirebaseMessaging
 import Siren
 import AppsFlyerLib
 import FBSDKCoreKit
@@ -23,15 +24,9 @@ typealias RImage = R.image
 typealias RColor = R.color
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
-    func onConversionDataSuccess(_ conversionInfo: [AnyHashable : Any]) {
-        debugPrint("")
-    }
-    
-    func onConversionDataFail(_ error: Error) {
-        debugPrint("")
-    }
-    
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    let gcmMessageIDKey = "gcm.message_id"
+
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -52,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
         /// Firebase
         
         FirebaseApp.configure()
+        Messaging.messaging().delegate = self
         AnalyticsHelper.sendFirebaseEvents(events: .app_open)
         
         /// Facebook
@@ -93,6 +89,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
                 })
             }
         }
+        
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        UNUserNotificationCenter.current().delegate = self
+        application.registerForRemoteNotifications()
+        
+        
         
         return RootRouter.sharedInstance.application(didFinishLaunchingWithOptions: launchOptions as [UIApplication.LaunchOptionsKey: Any]?, window: window ?? UIWindow(frame: UIScreen.main.bounds))
     }
@@ -209,6 +211,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
                         PreferencesManager.sharedManager.coinsZero = coinsZero
                     }
                     
+                    if let localPush = RemoteConfigParameters.localPush.value as? [LocalPushModel] {
+                        PreferencesManager.sharedManager.localPushs = localPush
+                    }
+                    
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
                                                         object: self,
@@ -220,3 +226,86 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
     }
 }
 
+
+//----------------------------------------------
+// MARK: - UNUserNotificationCenterDelegate
+//----------------------------------------------
+
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    
+    // Receive displayed notifications for iOS 10 devices.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        let userInfo = notification.request.content.userInfo
+        
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        //Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        print(userInfo)
+        
+        // Change this to your preferred presentation option
+        if #available(iOS 14.0, *) {
+            completionHandler([[.banner, .badge, .sound]])
+        } else {
+            completionHandler([[.badge, .sound]])
+        }
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        var token = ""
+        for i in 0..<deviceToken.count {
+            token = token + String(format: "%02.2hhx", arguments: [deviceToken[i]])
+        }
+        print("Device token: \(token)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        debugPrint("didFailToRegisterForRemoteNotificationsWithError: \(error)")
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let userInfo = response.notification.request.content.userInfo
+        
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID from userNotificationCenter didReceive: \(messageID)")
+        }
+        
+        completionHandler()
+    }
+    
+}
+
+//----------------------------------------------
+// MARK: - MessagingDelegate
+//----------------------------------------------
+
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        PreferencesManager.sharedManager.fcmToken = fcmToken
+        let deviceToken:[String: String] = ["token": fcmToken ?? ""]
+        print("Device token: ", deviceToken) // This token can be used for testing notifications on FCM
+    }
+}
+
+//----------------------------------------------
+// MARK: - AppsFlyerLibDelegate
+//----------------------------------------------
+
+extension AppDelegate: AppsFlyerLibDelegate {
+    func onConversionDataSuccess(_ conversionInfo: [AnyHashable : Any]) {
+        debugPrint("")
+    }
+    
+    func onConversionDataFail(_ error: Error) {
+        debugPrint("")
+    }
+}

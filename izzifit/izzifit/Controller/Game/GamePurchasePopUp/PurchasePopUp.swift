@@ -15,7 +15,8 @@ struct Purchase {
 }
 
 protocol PurchasePopUpProtocol: AnyObject {
-    func purchasePopUpSuccess(controlle: PurchasePopUp)
+    func purchasePopUpSuccess(controller: PurchasePopUp)
+    func purchasePopUpClose(controller: PurchasePopUp)
 }
 
 
@@ -118,13 +119,14 @@ extension PurchasePopUp: GamePurchasePopProtocol {
         presenter.purchaseProduct(id: idProducts[safe: tag]?.rawValue ?? "", screen: .energyBuy, place: .energyZero) { [weak self] result, message in
             guard let `self` = self else { return }
             if result {
-                self.delegate?.purchasePopUpSuccess(controlle: self)
+                self.delegate?.purchasePopUpSuccess(controller: self)
                 self.dismiss(animated: true)
             }
         }
     }
 
     func gamePurchasePopClose(view: PurchasePop) {
+        delegate?.purchasePopUpClose(controller: self)
         dismiss(animated: true)
     }
 }

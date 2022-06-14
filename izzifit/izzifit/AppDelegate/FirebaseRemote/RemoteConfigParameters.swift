@@ -13,6 +13,7 @@ enum RemoteConfigParameters: String, CaseIterable {
     case preOnboarding = "PreOnboarding"
     case energyZero = "EnergyZero"
     case coinsZero = "CoinsZero"
+    case localPush = "LocalPush"
 }
 
 extension RemoteConfigParameters {
@@ -27,6 +28,8 @@ extension RemoteConfigParameters {
             return try? self.toCodable().get() as ZeroPopUModel
         case .coinsZero:
             return try? self.toCodable().get() as ZeroPopUModel
+        case .localPush:
+            return try? self.toCodable().get() as [LocalPushModel]
         }
     }
 

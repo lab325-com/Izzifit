@@ -52,8 +52,9 @@ public struct LoginRecordInput: GraphQLMapConvertible {
   ///   - email
   ///   - password
   ///   - authType
-  public init(token: Swift.Optional<String?> = nil, udid: Swift.Optional<String?> = nil, email: Swift.Optional<String?> = nil, password: Swift.Optional<String?> = nil, authType: Swift.Optional<AuthType?> = nil) {
-    graphQLMap = ["token": token, "udid": udid, "email": email, "password": password, "authType": authType]
+  ///   - firebaseId
+  public init(token: Swift.Optional<String?> = nil, udid: Swift.Optional<String?> = nil, email: Swift.Optional<String?> = nil, password: Swift.Optional<String?> = nil, authType: Swift.Optional<AuthType?> = nil, firebaseId: Swift.Optional<String?> = nil) {
+    graphQLMap = ["token": token, "udid": udid, "email": email, "password": password, "authType": authType, "firebaseId": firebaseId]
   }
 
   public var token: Swift.Optional<String?> {
@@ -98,6 +99,15 @@ public struct LoginRecordInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "authType")
+    }
+  }
+
+  public var firebaseId: Swift.Optional<String?> {
+    get {
+      return graphQLMap["firebaseId"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "firebaseId")
     }
   }
 }

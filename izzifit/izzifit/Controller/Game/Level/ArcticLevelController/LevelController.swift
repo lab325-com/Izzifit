@@ -410,7 +410,13 @@ extension LevelController: PaywallProtocol {
 //----------------------------------------------
 
 extension LevelController: PurchasePopUpProtocol {
-    func purchasePopUpSuccess(controlle: PurchasePopUp) {
+    func purchasePopUpClose(controller: PurchasePopUp) {
+        if let model = PreferencesManager.sharedManager.localPushs.first(where: {$0.type == .goldZero}) {
+            LocalPushManager.sharedManager.sendNotification(title: model.title, body: model.description, idetifier: "goldZero")
+        }
+    }
+    
+    func purchasePopUpSuccess(controller: PurchasePopUp) {
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }

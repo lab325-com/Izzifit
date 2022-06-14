@@ -154,9 +154,6 @@
 		0256999228197A7500BA1535 /* 19_super_win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0256998628197A7500BA1535 /* 19_super_win.wav */; };
 		0256999328197A7500BA1535 /* 10_spin_tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0256998728197A7500BA1535 /* 10_spin_tap.wav */; };
 		0256999528197C6C00BA1535 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256999428197C6C00BA1535 /* BaseTableViewCell.swift */; };
-		025733CD283E7C0D00CC6743 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 025733CC283E7C0D00CC6743 /* FirebaseAnalytics */; };
-		025733CF283E7C0D00CC6743 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 025733CE283E7C0D00CC6743 /* FirebaseCrashlytics */; };
-		025733D1283E7C0D00CC6743 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 025733D0283E7C0D00CC6743 /* FirebaseRemoteConfig */; };
 		0263388D27DB299600DC0325 /* EnergyProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263388B27DB299600DC0325 /* EnergyProgressController.swift */; };
 		0263388E27DB299600DC0325 /* EnergyProgressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0263388C27DB299600DC0325 /* EnergyProgressController.xib */; };
 		0263389027DB29AF00DC0325 /* EnergyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263388F27DB29AF00DC0325 /* EnergyRouter.swift */; };
@@ -187,6 +184,8 @@
 		0273F56C27D6513200B19449 /* MealsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0273F56B27D6513200B19449 /* MealsWidget.graphql */; };
 		0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F56D27D6561100B19449 /* MealsWidgetModel.swift */; };
 		027BFB472844B2AB0008E241 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BFB462844B2AB0008E241 /* GradientView.swift */; };
+		02825160285899790059BD17 /* LocalPushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0282515F285899790059BD17 /* LocalPushManager.swift */; };
+		0282516228589C9C0059BD17 /* LocalPushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0282516128589C9C0059BD17 /* LocalPushModel.swift */; };
 		028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C02834EE5100F3D148 /* AdSupport.framework */; };
 		028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C22834EE5C00F3D148 /* iAd.framework */; };
 		028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C42834EE6300F3D148 /* AdServices.framework */; };
@@ -201,7 +200,7 @@
 		029EDBD3280D727A00FC8748 /* WorkoutAttemptUpdate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 029EDBD2280D727A00FC8748 /* WorkoutAttemptUpdate.graphql */; };
 		029EDBD5280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029EDBD4280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift */; };
 		02A27B59282A657400B435B0 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A27B58282A657400B435B0 /* AnalyticsHelper.swift */; };
-		02A4649E2811641800B00381 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02A4649D2811641800B00381 /* GoogleService-Info.plist */; };
+		02A4649E2811641800B00381 /* GoogleService-Info1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02A4649D2811641800B00381 /* GoogleService-Info1.plist */; };
 		02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA327C393A300D31FB4 /* EnergyController.swift */; };
 		02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDA427C393A300D31FB4 /* EnergyController.xib */; };
 		02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */; };
@@ -252,6 +251,12 @@
 		02B22ACA281C2614006AB1EA /* SpinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B22AC9281C2614006AB1EA /* SpinModel.swift */; };
 		02B22ACD281C27D8006AB1EA /* UpgradeBuilding.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B22ACC281C27D8006AB1EA /* UpgradeBuilding.graphql */; };
 		02B22ACF281C2882006AB1EA /* UpgradeBuildingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B22ACE281C2882006AB1EA /* UpgradeBuildingModel.swift */; };
+		02B280F828571529003CAB32 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B280F728571529003CAB32 /* StoreKit.framework */; };
+		02B280FC28571734003CAB32 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 02B280FB28571734003CAB32 /* FirebaseAnalytics */; };
+		02B280FE28571734003CAB32 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 02B280FD28571734003CAB32 /* FirebaseCrashlytics */; };
+		02B2810028571734003CAB32 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 02B280FF28571734003CAB32 /* FirebaseMessaging */; };
+		02B2810228571734003CAB32 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 02B2810128571734003CAB32 /* FirebaseRemoteConfig */; };
+		02B2810428573268003CAB32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02B2810328573268003CAB32 /* GoogleService-Info.plist */; };
 		02B3016F27EAFB310045C607 /* DrinkWaterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3016E27EAFB310045C607 /* DrinkWaterModel.swift */; };
 		02B3017227EB22EA0045C607 /* SaveMood.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B3017127EB22EA0045C607 /* SaveMood.graphql */; };
 		02B3017427EB23190045C607 /* SaveMoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3017327EB23190045C607 /* SaveMoodModel.swift */; };
@@ -593,6 +598,8 @@
 		0273F56B27D6513200B19449 /* MealsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MealsWidget.graphql; sourceTree = "<group>"; };
 		0273F56D27D6561100B19449 /* MealsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsWidgetModel.swift; sourceTree = "<group>"; };
 		027BFB462844B2AB0008E241 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		0282515F285899790059BD17 /* LocalPushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPushManager.swift; sourceTree = "<group>"; };
+		0282516128589C9C0059BD17 /* LocalPushModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPushModel.swift; sourceTree = "<group>"; };
 		028EE3C02834EE5100F3D148 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		028EE3C22834EE5C00F3D148 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		028EE3C42834EE6300F3D148 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
@@ -607,7 +614,7 @@
 		029EDBD2280D727A00FC8748 /* WorkoutAttemptUpdate.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutAttemptUpdate.graphql; sourceTree = "<group>"; };
 		029EDBD4280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAttemptUpdateModel.swift; sourceTree = "<group>"; };
 		02A27B58282A657400B435B0 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
-		02A4649D2811641800B00381 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		02A4649D2811641800B00381 /* GoogleService-Info1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info1.plist"; sourceTree = "<group>"; };
 		02A5CDA327C393A300D31FB4 /* EnergyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyController.swift; sourceTree = "<group>"; };
 		02A5CDA427C393A300D31FB4 /* EnergyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyController.xib; sourceTree = "<group>"; };
 		02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
@@ -657,6 +664,9 @@
 		02B22AC9281C2614006AB1EA /* SpinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinModel.swift; sourceTree = "<group>"; };
 		02B22ACC281C27D8006AB1EA /* UpgradeBuilding.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UpgradeBuilding.graphql; sourceTree = "<group>"; };
 		02B22ACE281C2882006AB1EA /* UpgradeBuildingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeBuildingModel.swift; sourceTree = "<group>"; };
+		02B280F728571529003CAB32 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		02B280F92857155D003CAB32 /* izzifit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = izzifit.entitlements; sourceTree = "<group>"; };
+		02B2810328573268003CAB32 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		02B3016E27EAFB310045C607 /* DrinkWaterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkWaterModel.swift; sourceTree = "<group>"; };
 		02B3017127EB22EA0045C607 /* SaveMood.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SaveMood.graphql; sourceTree = "<group>"; };
 		02B3017327EB23190045C607 /* SaveMoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMoodModel.swift; sourceTree = "<group>"; };
@@ -826,21 +836,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B2810028571734003CAB32 /* FirebaseMessaging in Frameworks */,
 				02AEDFD728477CC7007C0EA4 /* SwiftyStoreKit in Frameworks */,
 				024EBC9B2840C8CC00E6623F /* AppTrackingTransparency.framework in Frameworks */,
 				028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */,
 				028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */,
 				028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */,
 				0249D27827B3AA3B00F265C1 /* Apollo in Frameworks */,
-				025733D1283E7C0D00CC6743 /* FirebaseRemoteConfig in Frameworks */,
 				0249D27A27B3AA3B00F265C1 /* ApolloWebSocket in Frameworks */,
 				0249D25627B3A7AD00F265C1 /* NVActivityIndicatorView in Frameworks */,
-				025733CD283E7C0D00CC6743 /* FirebaseAnalytics in Frameworks */,
+				02B280F828571529003CAB32 /* StoreKit.framework in Frameworks */,
+				02B2810228571734003CAB32 /* FirebaseRemoteConfig in Frameworks */,
 				0249D25827B3A7AD00F265C1 /* NVActivityIndicatorViewExtended in Frameworks */,
+				02B280FC28571734003CAB32 /* FirebaseAnalytics in Frameworks */,
 				0227DA8C27C4CA77008AB26B /* Kingfisher in Frameworks */,
 				0249D27027B3A98C00F265C1 /* SwiftKeychainWrapper in Frameworks */,
+				02B280FE28571734003CAB32 /* FirebaseCrashlytics in Frameworks */,
 				0249D27D27B3AA7000F265C1 /* Toast in Frameworks */,
-				025733CF283E7C0D00CC6743 /* FirebaseCrashlytics in Frameworks */,
 				8C4F7F85C1CC5538D3E379C8 /* Pods_izzifit.framework in Frameworks */,
 				FAF4350428257920008691CD /* Gifu in Frameworks */,
 			);
@@ -929,6 +941,7 @@
 				0218DA95283B92FA000979B5 /* PaywallScreen.swift */,
 				02C48EED28531DE3008708B8 /* EnergyZeroModel.swift */,
 				0227A9C02849FC3700BA29A8 /* PreOnboardingModel.swift */,
+				0282516128589C9C0059BD17 /* LocalPushModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1184,7 +1197,9 @@
 		0249D22927B3A4EF00F265C1 /* izzifit */ = {
 			isa = PBXGroup;
 			children = (
-				02A4649D2811641800B00381 /* GoogleService-Info.plist */,
+				02B280F92857155D003CAB32 /* izzifit.entitlements */,
+				02A4649D2811641800B00381 /* GoogleService-Info1.plist */,
+				02B2810328573268003CAB32 /* GoogleService-Info.plist */,
 				0249D29D27B3D81700F265C1 /* API.swift */,
 				02D066AC27BBA8F400D12C5F /* R.generated.swift */,
 				0249D25927B3A87100F265C1 /* Resources */,
@@ -1327,6 +1342,7 @@
 				0249D27327B3AA0400F265C1 /* PreferenceManager.swift */,
 				0263389627DB48D000DC0325 /* CalendarManager.swift */,
 				02569977281960BA00BA1535 /* AudioManager.swift */,
+				0282515F285899790059BD17 /* LocalPushManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -2411,6 +2427,7 @@
 		DB1BDA7364672EBF249DB7B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02B280F728571529003CAB32 /* StoreKit.framework */,
 				024EBC9A2840C8CC00E6623F /* AppTrackingTransparency.framework */,
 				028EE3C42834EE6300F3D148 /* AdServices.framework */,
 				028EE3C22834EE5C00F3D148 /* iAd.framework */,
@@ -2794,10 +2811,11 @@
 				0249D27C27B3AA7000F265C1 /* Toast */,
 				0227DA8B27C4CA77008AB26B /* Kingfisher */,
 				FAF4350328257920008691CD /* Gifu */,
-				025733CC283E7C0D00CC6743 /* FirebaseAnalytics */,
-				025733CE283E7C0D00CC6743 /* FirebaseCrashlytics */,
-				025733D0283E7C0D00CC6743 /* FirebaseRemoteConfig */,
 				02AEDFD628477CC7007C0EA4 /* SwiftyStoreKit */,
+				02B280FB28571734003CAB32 /* FirebaseAnalytics */,
+				02B280FD28571734003CAB32 /* FirebaseCrashlytics */,
+				02B280FF28571734003CAB32 /* FirebaseMessaging */,
+				02B2810128571734003CAB32 /* FirebaseRemoteConfig */,
 			);
 			productName = izzifit;
 			productReference = 0249D22727B3A4EF00F265C1 /* izzifit.app */;
@@ -2835,8 +2853,8 @@
 				0249D27B27B3AA7000F265C1 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				0227DA8A27C4CA77008AB26B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FAF4350228257920008691CD /* XCRemoteSwiftPackageReference "Gifu" */,
-				025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				02AEDFD528477CC7007C0EA4 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
+				02B280FA28571734003CAB32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0249D22827B3A4EF00F265C1 /* Products */;
 			projectDirPath = "";
@@ -2961,8 +2979,9 @@
 				0251D23E27E215480098A54D /* ProductsByMeal.graphql in Resources */,
 				02D066D427BBD12600D12C5F /* QuizeGenderController.xib in Resources */,
 				0273F56727D60EC500B19449 /* SleepWidget.graphql in Resources */,
-				02A4649E2811641800B00381 /* GoogleService-Info.plist in Resources */,
+				02A4649E2811641800B00381 /* GoogleService-Info1.plist in Resources */,
 				02E9047227F59E56008CFFB4 /* WorkoutExercisesCell.xib in Resources */,
+				02B2810428573268003CAB32 /* GoogleService-Info.plist in Resources */,
 				02F2D94027D0BF5C00E9FB68 /* AskQuestion.graphql in Resources */,
 				025463BB27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql in Resources */,
 				0227DAB827C67334008AB26B /* MenuHeightController.xib in Resources */,
@@ -3074,7 +3093,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
 		};
 		02D066AB27BBA8A800D12C5F /* RSwift */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3234,6 +3253,7 @@
 				0227DAB727C67334008AB26B /* MenuHeightController.swift in Sources */,
 				02D066D327BBD12600D12C5F /* QuizeGenderController.swift in Sources */,
 				02354E9C28098B8C005A8272 /* VideoNotFinished.swift in Sources */,
+				0282516228589C9C0059BD17 /* LocalPushModel.swift in Sources */,
 				02A5CDC227C4247300D31FB4 /* QuizeFoodCell.swift in Sources */,
 				024779CD27DCB8BF00AAFE3D /* Date+Extension.swift in Sources */,
 				FA8CC85A28291CA50022BFE2 /* GifImageView.swift in Sources */,
@@ -3345,6 +3365,7 @@
 				FADD5114284F2C8900F3A292 /* PurchasePopUp.swift in Sources */,
 				02C3DD6827BEDAB1004E5C65 /* QuizeProgressPresenter.swift in Sources */,
 				02E9048027F5A3A1008CFFB4 /* WorkoutsModel.swift in Sources */,
+				02825160285899790059BD17 /* LocalPushManager.swift in Sources */,
 				02F2D94427D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift in Sources */,
 				02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */,
 				02B225BB27BD79DA0035CFA2 /* StartPresenter.swift in Sources */,
@@ -3521,6 +3542,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 34;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3557,6 +3579,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 34;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3654,6 +3677,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 34;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3749,20 +3773,20 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
 		02AEDFD528477CC7007C0EA4 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.9.3;
+			};
+		};
+		02B280FA28571734003CAB32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
 			};
 		};
 		FAF4350228257920008691CD /* XCRemoteSwiftPackageReference "Gifu" */ = {
@@ -3811,25 +3835,30 @@
 			package = 0249D27B27B3AA7000F265C1 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
 		};
-		025733CC283E7C0D00CC6743 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		025733CE283E7C0D00CC6743 /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
-		025733D0283E7C0D00CC6743 /* FirebaseRemoteConfig */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseRemoteConfig;
-		};
 		02AEDFD628477CC7007C0EA4 /* SwiftyStoreKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 02AEDFD528477CC7007C0EA4 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
 			productName = SwiftyStoreKit;
+		};
+		02B280FB28571734003CAB32 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02B280FA28571734003CAB32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		02B280FD28571734003CAB32 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02B280FA28571734003CAB32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		02B280FF28571734003CAB32 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02B280FA28571734003CAB32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		02B2810128571734003CAB32 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02B280FA28571734003CAB32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
 		};
 		FAF4350328257920008691CD /* Gifu */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -220,7 +220,13 @@ extension ArcticGameController: PaywallProtocol {
 //----------------------------------------------
 
 extension ArcticGameController: PurchasePopUpProtocol {
-    func purchasePopUpSuccess(controlle: PurchasePopUp) {
+    func purchasePopUpClose(controller: PurchasePopUp) {
+        if let model = PreferencesManager.sharedManager.localPushs.first(where: {$0.type == .energyZero}) {
+            LocalPushManager.sharedManager.sendNotification(title: model.title, body: model.description, idetifier: "energyZero")
+        }
+    }
+    
+    func purchasePopUpSuccess(controller: PurchasePopUp) {
         gameView.updateHeader()
     }
 }

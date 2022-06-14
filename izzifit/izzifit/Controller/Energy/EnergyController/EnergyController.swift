@@ -63,6 +63,20 @@ class EnergyController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {(granted, error) in
+                DispatchQueue.main.async {
+                    if (granted) {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                    else {
+                        //Do stuff if unsuccessful...
+                    }
+                }
+            })
+        
         if PreferencesManager.sharedManager.afterOnboarding {
             PreferencesManager.sharedManager.afterOnboarding = true
             let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .dashboard)

@@ -22,6 +22,8 @@ class PreferencesManager : NSObject {
     static let preOnboardingRemote = "preOnboardingRemote"
     static let enegyZero = "enegyZero"
     static let coinsZero = "coinsZero"
+    static let fcmToken = "fcmToken"
+    static let localPushs = "localPushs"
     
     var userDefaults: UserDefaults
     
@@ -183,6 +185,24 @@ class PreferencesManager : NSObject {
         set {
             userDefaults.set(newValue, forKey: PreferencesManager.afterOnboarding)
             userDefaults.synchronize()
+        }
+    }
+    
+    var localPushs: [LocalPushModel] {
+        get {
+            return self.models(forKey: PreferencesManager.localPushs) ?? []
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.localPushs)
+        }
+    }
+    
+    var fcmToken: String? {
+        get {
+            return self.model(forKey: PreferencesManager.fcmToken)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.fcmToken)
         }
     }
 }
