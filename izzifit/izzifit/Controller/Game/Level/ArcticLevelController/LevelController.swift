@@ -233,7 +233,7 @@ class LevelController: BaseController {
         
         let building = presenter.buildings.filter({$0.name == buildingName})
         
-        guard let buildingId = building.first?.id else {return}
+        guard let buildingId = building.first?.id else { return }
         guard let buildPopUpVw = buildPopUpVw else { return }
         buildPopUpVw.removeFromSuperview()
         view.layoutIfNeeded()
@@ -399,7 +399,26 @@ extension LevelController: LevelOutputProtocol {
             default: break
             }
         }
+        
         drawStates()
+        let buildLevels = model.map({$0.level})
+        let maxLevel = buildLevels.dropFirst().allSatisfy({ $0 == 5 })
+        
+        guard maxLevel else { return }
+        let alert = UIAlertController(title: "Congratulation",
+                                      message: "You built all buildings on current map",
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Move to the next map",
+                                     style: .default) { action in
+            PreferencesManager.sharedManager.currentMapName = .england_map
+            NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
+                                            object: self,
+                                            userInfo: nil)
+        }
+        
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
     
     func successBuild() { }
