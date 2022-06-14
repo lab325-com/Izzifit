@@ -120,6 +120,7 @@ class EngLevelController: BaseController {
     }
     
     @objc func upgradeBuilding(sender: UIButton) {
+   
         for btn in englandView.stateBtns {
             btn.isUserInteractionEnabled.toggle()
         }
@@ -231,9 +232,7 @@ class EngLevelController: BaseController {
                 buildPopUpVw.hummerCountLbl.text = "x\(count)"
             }
         }
-        
         buildPopUpVw.fillStates(by: LevelStates(rawValue: price) ?? .finish)
-        
         AnalyticsHelper.sendFirebaseEvents(events: .map_building_tap, params: ["building" : buildType.rawValue])
         
         buildPopUpVw.priceLbl.text = "\(price)"
@@ -242,6 +241,7 @@ class EngLevelController: BaseController {
         buildPopUpVw.upgradeBtn.addTarget(self,
                                           action: #selector(upgradeBuilding(sender:)),
                                           for: .touchUpInside)
+        
         buildPopUpVw.closeBtn.addTarget(self,
                                        action: #selector(closePopUp),
                                        for: .touchUpInside)
@@ -284,7 +284,6 @@ extension EngLevelController: LevelOutputProtocol {
             case BuildingType.building5.rawValue: player.fifthState = state
             default: break
             }
-            
         }
         englandView.drawStates(player: player, imgStatesArr: englandView.englandLevelImgs)
     }

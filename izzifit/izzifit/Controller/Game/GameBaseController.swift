@@ -13,18 +13,15 @@ class GameBaseController: BaseController {
     
     var first: UIViewController
     var second: UIViewController
-    private var currentScreen: MapName? = PreferencesManager.sharedManager.currentMapName
+    private var currentScreen: MapName { PreferencesManager.sharedManager.currentMapName ?? .snow_map }
     
     @objc func endLoadConfigNotification(_ notification: Notification) {
-    guard currentScreen != PreferencesManager.sharedManager.currentMapName else { return }
          updateController()
     }
     
     init(firstVC: UIViewController, secondVC: UIViewController) {
-        
         self.first = firstVC
         self.second = secondVC
-        
         super.init(nibName: nil, bundle: nil)
     }
 

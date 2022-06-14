@@ -295,9 +295,7 @@ class LevelController: BaseController {
             
             presenter.upgradeBuild(buildingId: buildingId) { [self] in
                 let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
-               
                 let maxLevel = player.checkMaxLevel()
-                
                 guard maxLevel else { return }
                 let alert = UIAlertController(title: "Congratulation",
                                               message: "You built all buildings on current map",
@@ -387,6 +385,7 @@ extension LevelController: LevelOutputProtocol {
     
     func successBuildings(model: [BuildingsModel]) {
         checkAvailableHummers()
+        drawStates()
         let maxLevel = player.checkMaxLevel()
         for building in model {
             var state: LevelStates
