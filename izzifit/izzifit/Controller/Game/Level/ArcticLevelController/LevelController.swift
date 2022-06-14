@@ -33,11 +33,7 @@ class LevelController: BaseController {
                              goldBtn,
                              deerBtn]
     
-    private var player = PlayerModel(firstState: .start,
-                                     secondState: .finish,
-                                     thirdState: .fourth,
-                                     fourthState: .third,
-                                     fifthState: .second)
+    private var player = PlayerModel()
     
     private var pointers: PointersAndTicks?
     private var firstRespond = true
@@ -98,7 +94,6 @@ class LevelController: BaseController {
             hummerCountLbl.text = "x\(count)"
         }
     }
-    
     
     private func addTargets() {
         for btn in btns {
@@ -231,7 +226,7 @@ class LevelController: BaseController {
         default: break
         }
         
-        let building = presenter.buildings.filter({$0.name == buildingName})
+        let building = presenter.buildings.filter({ $0.name == buildingName })
         
         guard let buildingId = building.first?.id else { return }
         guard let buildPopUpVw = buildPopUpVw else { return }
@@ -261,7 +256,6 @@ class LevelController: BaseController {
                 buildType = .building5
             default: buildType = .building1
             }
-            
             let state = LevelStates(rawValue: price)
             switch state {
             case .start:
@@ -286,6 +280,7 @@ class LevelController: BaseController {
             case .finish: break
             case .none: break
             }
+            player.updateState(buildType: buildType, currentState: state!)
             
             for btn in self.btns {
                 btn?.isUserInteractionEnabled.toggle()
@@ -297,12 +292,11 @@ class LevelController: BaseController {
             if let x = self.pointers {
                 x.drawPointers(model: self.player, btns: self.btns)
             }
+            
             presenter.upgradeBuild(buildingId: buildingId) { [self] in
                 let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
                
-                let buildLevels = presenter.buildings.map({$0.level})
-                print("MMM\(buildLevels)")
-                let maxLevel = buildLevels.allSatisfy({ $0 == 5 })
+                let maxLevel = player.checkMaxLevel()
                 
                 guard maxLevel else { return }
                 let alert = UIAlertController(title: "Congratulation",
@@ -316,10 +310,8 @@ class LevelController: BaseController {
                                                     object: self,
                                                     userInfo: nil)
                 }
-                
                 alert.addAction(okAction)
                 present(alert, animated: true)
-
             }
         }
     }
@@ -330,7 +322,6 @@ class LevelController: BaseController {
     }
     
     private func setup() {
-        
         for i in 0...4 {
             btns[i]?.tag = i
         }
@@ -340,7 +331,6 @@ class LevelController: BaseController {
                                           placeholder: RImage.placeholder_food_ic(),
                                           options: [.transition(.fade(0.25))])
     }
-    
     
     private func drawStates() {
         
@@ -397,7 +387,7 @@ extension LevelController: LevelOutputProtocol {
     
     func successBuildings(model: [BuildingsModel]) {
         checkAvailableHummers()
-        print(model)
+        let maxLevel = player.checkMaxLevel()
         for building in model {
             var state: LevelStates
             let level = building.level
@@ -420,7 +410,7 @@ extension LevelController: LevelOutputProtocol {
             default: break
             }
         }
-        
+        guard !maxLevel else { return }
         drawStates()
     }
     
