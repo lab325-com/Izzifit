@@ -183,15 +183,15 @@ class LevelController: BaseController {
         }
         
         buildPopUpVw.fillStates(by: LevelStates(rawValue: price) ?? .finish)
-        
         AnalyticsHelper.sendFirebaseEvents(events: .map_building_tap, params: ["building" : buildType.rawValue])
-        
         buildPopUpVw.priceLbl.text = "\(price)"
         buildPopUpVw.draw(buildType, state: LevelStates(rawValue: price) ?? .start)
         buildPopUpVw.upgradeBtn.tag = sender.tag
+        
         buildPopUpVw.upgradeBtn.addTarget(self,
                                           action: #selector(upgradeBuilding(sender:)),
                                           for: .touchUpInside)
+        
         buildPopUpVw.mainBtn.addTarget(self,
                                        action: #selector(closePopUp),
                                        for: .touchUpInside)

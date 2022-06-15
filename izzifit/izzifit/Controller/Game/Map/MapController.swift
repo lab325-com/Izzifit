@@ -45,7 +45,6 @@ class MapController: BaseController {
             case .england_map:
                 mapView.redrawMap(mapPoint: .england)
             }
-          
         }
     }
 }

@@ -34,6 +34,7 @@ class GameBaseController: BaseController {
                                                selector:#selector(self.endLoadConfigNotification),
                                                name: Constants.Notifications.endRemoteConfigEndNotification,
                                                object: nil)
+        
         self.view.layer.backgroundColor = UIColor.white.cgColor
     }
     

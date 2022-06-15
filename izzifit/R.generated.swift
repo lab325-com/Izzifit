@@ -1065,7 +1065,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 291 images.
+  /// This `R.image` struct is generated, and contains static references to 292 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1371,6 +1371,8 @@ struct R: Rswift.Validatable {
     static let mapPoint_France_act = Rswift.ImageResource(bundle: R.hostingBundle, name: "mapPoint_France_act")
     /// Image `mapPoint_France_pass`.
     static let mapPoint_France_pass = Rswift.ImageResource(bundle: R.hostingBundle, name: "mapPoint_France_pass")
+    /// Image `mapViewBack`.
+    static let mapViewBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "mapViewBack")
     /// Image `map_1pathAct`.
     static let map_1pathAct = Rswift.ImageResource(bundle: R.hostingBundle, name: "map_1pathAct")
     /// Image `map_1pathPass`.
@@ -2711,6 +2713,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "mapPoint_France_pass", bundle: ..., traitCollection: ...)`
     static func mapPoint_France_pass(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.mapPoint_France_pass, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "mapViewBack", bundle: ..., traitCollection: ...)`
+    static func mapViewBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.mapViewBack, compatibleWith: traitCollection)
     }
     #endif
 

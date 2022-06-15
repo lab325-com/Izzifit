@@ -90,7 +90,6 @@ class GameTabBarController: UITabBarController {
     @objc func map() { selectedIndex = 2 }
 }
 
-
 enum MapName: String {
     case snow_map, england_map
 }

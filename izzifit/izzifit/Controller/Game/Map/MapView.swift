@@ -11,6 +11,7 @@ class MapView: UIView {
 
     private var barBackVw = GameBarBackView(backImage: UIImage(named: "mapBarBack")!)
     
+    private let backImgVw = UIImageView()
     private let viewUponScrollView = UIView()
     let scrollView = UIScrollView()
     
@@ -84,6 +85,8 @@ class MapView: UIView {
 
     private func setUI() {
         
+        backImgVw.image = image(img: .mapViewBack)
+        
         for btn in mapBtns {
             btn.isUserInteractionEnabled = false
         }
@@ -127,14 +130,22 @@ class MapView: UIView {
         france_btn.setImage(image(img: .mapPoint_France_pass), for: .normal)
         france_btn.setImage(image(img: .mapPoint_France_act), for: .selected)
         
+        
     }
     
     private func layout() {
         
+        ui.genericlLayout(object: backImgVw,
+                          parentView: self,
+                          topC: 0,
+                          bottomC: 0,
+                          leadingC: 0,
+                          trailingC: 0)
+        
         ui.setAndLayScrollView(contentV: viewUponScrollView,
                                scrollV: scrollView,
                                parentView: self,
-                               backColor: clr(color: .clrMainMapBack) ?? UIColor(),
+                               backColor: .clear,
                                showScrollIndicators: false,
                                bounces: false,
                                width: 428,
