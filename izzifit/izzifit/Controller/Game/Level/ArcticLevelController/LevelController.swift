@@ -211,6 +211,11 @@ class LevelController: BaseController {
     }
     
     @objc func upgradeBuilding(sender: UIButton) {
+        
+        PreferencesManager.sharedManager.currentMapName = .england_map
+        NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
+                                        object: self,
+                                        userInfo: nil)
         for btn in btns {
             btn?.isUserInteractionEnabled.toggle()
         }

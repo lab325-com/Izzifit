@@ -57,6 +57,30 @@ class MapView: UIView {
        setUI()
        layout()
     }
+    
+    func redrawMap(mapPoint: Maps) {
+        let x = (428 - UIScreen.main.bounds.size.width) / 2
+        for btn in mapBtns {
+            btn.isUserInteractionEnabled = false
+            btn.isSelected = false
+            btn.setNeedsDisplay()
+        }
+        
+        for (index, btn) in mapBtns.enumerated() {
+            guard index == mapPoint.rawValue || index == (mapPoint.rawValue + 1) || index == (mapPoint.rawValue - 1) else { continue }
+            btn.isSelected = true
+            btn.setNeedsDisplay()
+        }
+        
+        switch mapPoint {
+        case .arctic:
+            scrollView.setContentOffset(CGPoint(x: x, y: 2625 - UIScreen.main.bounds.height), animated: true)
+        case .england:
+            scrollView.setContentOffset(CGPoint(x: x, y: 2625 - (UIScreen.main.bounds.height + 248)),animated: true)
+        case .france:
+            scrollView.setContentOffset(CGPoint(x: x, y: 2625 - (UIScreen.main.bounds.height + 496)),animated: true)
+        }
+    }
 
     private func setUI() {
         
