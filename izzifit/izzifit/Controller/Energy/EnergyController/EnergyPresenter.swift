@@ -8,6 +8,7 @@
 import Foundation
 import Apollo
 import UIKit
+import HealthKit
 
 //----------------------------------------------
 // MARK: - Outputs Protocol
@@ -15,6 +16,7 @@ import UIKit
 protocol EnergyOutputProtocol: BaseController {
     func success()
     func successWidgetList()
+    func successGetSteps()
     func failure()
 }
 
@@ -36,6 +38,7 @@ class EnergyPresenter: EnergyPresenterProtocol {
     
     private weak var view: EnergyOutputProtocol?
     private let uuid = UIDevice.current.identifierForVendor!.uuidString
+    private let healthStore = HKHealthStore()
     
     required init(view: EnergyOutputProtocol) {
         self.view = view
@@ -49,6 +52,7 @@ class EnergyPresenter: EnergyPresenterProtocol {
     var weightWidget: SaveWeightWidgetMainModel?
     var workoutWidgets: [WorkoutsWidgetMainModel] = []
     var chooseWorkoutWidgets: [WorkoutsWidgetMainModel] = []
+    var steps: [HealthStepsModel] = []
     
     func getWidgets(date: String, loader: Bool = true) {
         
@@ -142,6 +146,61 @@ class EnergyPresenter: EnergyPresenterProtocol {
         group.notify(queue: DispatchQueue.main) { [weak self] in
             self?.view?.stopLoading()
             self?.view?.success()
+//            self?.getSteps()
+        }
+    }
+    
+    func getSteps() {
+        view?.startLoader()
+        
+        let healthKitTypes: Set = [HKObjectType.quantityType(forIdentifier: .stepCount)!]
+        
+        healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { success, error in
+            if success {
+                DispatchQueue.main.async {
+                    let calendar = Calendar.current
+                    let endDate = Date().localDate()
+                    let startDate = calendar.startOfDay(for: calendar.date(byAdding: .day, value: -4, to: endDate)!)
+                    var interval = DateComponents()
+                    interval.day = 1
+                    
+                    let type = HKQuantityType.quantityType(forIdentifier: .stepCount)!
+                    
+                    let stepsQuery = HKStatisticsCollectionQuery(quantityType: type,
+                                                                 quantitySamplePredicate: nil,
+                                                                 options: .cumulativeSum,
+                                                                 anchorDate: startDate,
+                                                                 intervalComponents: interval)
+                    
+                    stepsQuery.initialResultsHandler = { _, results, error in
+                        if results != nil {
+                            if let stepsResult = results {
+                                stepsResult.enumerateStatistics(from: startDate, to: endDate) { statistics, stop in
+                                    if let quantity = statistics.sumQuantity() {
+                                        let date = statistics.startDate
+                                        let steps = Int(quantity.doubleValue(for: HKUnit.count()))
+                                        
+                                        let daySteps = HealthStepsModel(date: date, steps: steps)
+                                        self.steps.append(daySteps)
+                                    }
+                                }
+                                DispatchQueue.main.async {
+                                    self.view?.stopLoading()
+                                    self.view?.successGetSteps()
+                                }
+                            }
+                        } else {
+                            self.view?.stopLoading()
+                            self.view?.failure()
+                        }
+                    }
+                    
+                    self.healthStore.execute(stepsQuery)
+                }
+            } else {
+                self.view?.stopLoading()
+                self.view?.failure()
+            }
         }
     }
     
