@@ -164,6 +164,7 @@ extension EnglandGameController: ArcticGameOutputProtocol {
             
             if let tupleResult = self.spinManager.recognizeSetCombinations(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds) {
                 self.spinManager.accrueBonuses(by: tupleResult.0,
+                                               homeView: self.gameView,
                                                hiddenStack: self.gameView.resultStackView,
                                                awardImgVw: self.gameView.awardImgVw,
                                                awardTitleLbl: self.gameView.awardTitleLbl,

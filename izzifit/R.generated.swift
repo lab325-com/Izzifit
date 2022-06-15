@@ -378,7 +378,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 74 files.
+  /// This `R.file` struct is generated, and contains static references to 77 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -524,10 +524,16 @@ struct R: Rswift.Validatable {
     static let workoutsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Workouts", pathExtension: "graphql")
     /// Resource file `WorkoutsWidget.graphql`.
     static let workoutsWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "WorkoutsWidget", pathExtension: "graphql")
+    /// Resource file `coin_v1.gif`.
+    static let coin_v1Gif = Rswift.FileResource(bundle: R.hostingBundle, name: "coin_v1", pathExtension: "gif")
+    /// Resource file `coin_v2.gif`.
+    static let coin_v2Gif = Rswift.FileResource(bundle: R.hostingBundle, name: "coin_v2", pathExtension: "gif")
     /// Resource file `construction3.gif`.
     static let construction3Gif = Rswift.FileResource(bundle: R.hostingBundle, name: "construction3", pathExtension: "gif")
     /// Resource file `progress.graphql`.
     static let progressGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "progress", pathExtension: "graphql")
+    /// Resource file `ray.gif`.
+    static let rayGif = Rswift.FileResource(bundle: R.hostingBundle, name: "ray", pathExtension: "gif")
 
     /// `bundle.url(forResource: "10_spin_tap", withExtension: "wav")`
     static func _spin_tapWav(_: Void = ()) -> Foundation.URL? {
@@ -961,6 +967,18 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "coin_v1", withExtension: "gif")`
+    static func coin_v1Gif(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.coin_v1Gif
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "coin_v2", withExtension: "gif")`
+    static func coin_v2Gif(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.coin_v2Gif
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "construction3", withExtension: "gif")`
     static func construction3Gif(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.construction3Gif
@@ -970,6 +988,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "progress", withExtension: "graphql")`
     static func progressGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.progressGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "ray", withExtension: "gif")`
+    static func rayGif(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.rayGif
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -1065,7 +1089,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 292 images.
+  /// This `R.image` struct is generated, and contains static references to 295 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1103,6 +1127,10 @@ struct R: Rswift.Validatable {
     static let buildDone = Rswift.ImageResource(bundle: R.hostingBundle, name: "buildDone")
     /// Image `buildPopUpBack`.
     static let buildPopUpBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "buildPopUpBack")
+    /// Image `coin_v1.gif`.
+    static let coin_v1Gif = Rswift.ImageResource(bundle: R.hostingBundle, name: "coin_v1.gif")
+    /// Image `coin_v2.gif`.
+    static let coin_v2Gif = Rswift.ImageResource(bundle: R.hostingBundle, name: "coin_v2.gif")
     /// Image `construction3.gif`.
     static let construction3Gif = Rswift.ImageResource(bundle: R.hostingBundle, name: "construction3.gif")
     /// Image `deersFinish`.
@@ -1555,6 +1583,8 @@ struct R: Rswift.Validatable {
     static let purchaseLightning2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "purchaseLightning2")
     /// Image `purchaseLightning3`.
     static let purchaseLightning3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "purchaseLightning3")
+    /// Image `ray.gif`.
+    static let rayGif = Rswift.ImageResource(bundle: R.hostingBundle, name: "ray.gif")
     /// Image `shipFinish`.
     static let shipFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "shipFinish")
     /// Image `shipFirst`.
@@ -1775,6 +1805,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "buildPopUpBack", bundle: ..., traitCollection: ...)`
     static func buildPopUpBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.buildPopUpBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "coin_v1.gif", bundle: ..., traitCollection: ...)`
+    static func coin_v1Gif(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.coin_v1Gif, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "coin_v2.gif", bundle: ..., traitCollection: ...)`
+    static func coin_v2Gif(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.coin_v2Gif, compatibleWith: traitCollection)
     }
     #endif
 
@@ -3357,6 +3401,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "purchaseLightning3", bundle: ..., traitCollection: ...)`
     static func purchaseLightning3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.purchaseLightning3, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ray.gif", bundle: ..., traitCollection: ...)`
+    static func rayGif(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.rayGif, compatibleWith: traitCollection)
     }
     #endif
 

@@ -6,9 +6,34 @@
 //
 
 import UIKit
+import Gifu
 
-class ArcticGameView: UIView {
+protocol GameAnimationProtocol {
+    var coinV2Animation: GIFImageView { get set }
+    func animate(type: GameAnimation)
     
+}
+
+extension GameAnimationProtocol {
+    
+    func animate(type: GameAnimation) {
+        switch type {
+        case .coin2: coinV2Animation.prepareForAnimation(withGIFNamed: "coin_v2",
+                                                         loopCount: 1) {}
+
+                        coinV2Animation.startAnimatingGIF()
+        case .coin3:    break
+        case .hammer3:  break
+        case .ray:      break
+        }
+    }
+}
+
+class ArcticGameView: UIView, GameAnimationProtocol {
+   
+    
+    var coinV2Animation: GIFImageView = GIFImageView()
+
     // bar
     var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
     // Basic view
@@ -39,6 +64,7 @@ class ArcticGameView: UIView {
     private let progressImg = UIImage(named: "progressActive")
 
     override func draw(_ rect: CGRect) {
+        
         setUI()
         layout()
     }
@@ -119,6 +145,7 @@ class ArcticGameView: UIView {
                     textAlignment: .left,
                     fontSize: h/46.6,
                     fontName: "Inter-BoldItalic")
+        
         }
     
     private func layout() {
@@ -225,7 +252,17 @@ class ArcticGameView: UIView {
                           centerH: w/46.8)
         
         resultStackView.isHidden = true
-    }
+        
+        ui.genericlLayout(object: coinV2Animation,
+                          parentView: slotHouseImgVw,
+                          width: w,
+                          height: h,
+                          topToO: self.topAnchor,
+                          topCG: 0,
+                          leadingToO: self.leadingAnchor,
+                          leadingCG: 0)
+        self.layoutIfNeeded()
+        }
     
     func showProgress() {
         var spinsRemainder = CGFloat(KeychainService.standard.me?.energy ?? 0.0)
@@ -242,4 +279,9 @@ class ArcticGameView: UIView {
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }
+}
+
+
+enum GameAnimation {
+    case coin2, coin3, hammer3, ray
 }

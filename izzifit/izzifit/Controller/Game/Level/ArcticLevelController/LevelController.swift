@@ -37,7 +37,6 @@ class LevelController: BaseController {
     
     private var pointers: PointersAndTicks?
     private var firstRespond = true
-    
     private lazy var presenter = LevelPresenter(view: self)
     
     override func viewWillAppear(_ animated: Bool) {
@@ -290,9 +289,7 @@ class LevelController: BaseController {
                 for imgVw in  points.imgVwArray { imgVw.removeFromSuperview()}
             }
             self.pointers = PointersAndTicks()
-            if let x = self.pointers {
-                x.drawPointers(model: self.player, btns: self.btns)
-            }
+            if let x = self.pointers { x.drawPointers(model: self.player, btns: self.btns) }
             
             presenter.upgradeBuild(buildingId: buildingId) { [self] in
                 let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)

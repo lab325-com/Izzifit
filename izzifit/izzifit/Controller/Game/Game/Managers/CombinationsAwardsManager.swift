@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Gifu
 
 struct CombinationsAwardsManager {
     
@@ -69,6 +70,7 @@ struct CombinationsAwardsManager {
     }
     
     func accrueBonuses(by combination: SpinCombination,
+                       homeView: GameAnimationProtocol,
                        hiddenStack: UIStackView,
                        awardImgVw: UIImageView,
                        awardTitleLbl: UILabel,
@@ -76,6 +78,7 @@ struct CombinationsAwardsManager {
                        coinsAmount: Int,
                        spinsAmount: Int,
                        _ threeHummers: () -> Void) {
+        homeView.animate(type: .coin2)
         AnalyticsHelper.sendFirebaseEvents(events: .spin_reward, params: ["award" : combination.rawValue])
         switch combination {
         case .pairHummers:awardImgVw.image = SlotImgs.hammer
