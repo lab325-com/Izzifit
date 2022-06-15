@@ -38,11 +38,7 @@ class ArcticGameController: BaseController {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
-        
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(leftHandle))
-        swipeLeft.direction = .left
-        self.view.addGestureRecognizer(swipeLeft)
-        
+     
         gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchUpInside)
     }
     
@@ -54,14 +50,12 @@ class ArcticGameController: BaseController {
     private func setCollectionView() {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: view.h / 12.01,
+        layout.itemSize = CGSize(width: view.h / 12.68,
                                  height: view.h / 4.41)
-        
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = view.h / 81.2
+        layout.minimumLineSpacing = view.h / 101.5
         collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: layout)
-        
         collectionView.backgroundColor = . clear
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -70,10 +64,10 @@ class ArcticGameController: BaseController {
         
         view.ui.genericlLayout(object: collectionView,
                                parentView: gameView.slotBackImgVw,
-                               width: view.h / 3.60,
+                               width: view.h / 3.90,
                                height: view.h / 5.77,
                                centerV: -view.h / 73,
-                               centerH: view.h / 88.9)
+                               centerH: view.h / 116)
     }
     
     @objc func spinAction() {
@@ -95,14 +89,6 @@ class ArcticGameController: BaseController {
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         actionBack()
-    }
-    
-    @objc func leftHandle(gesture: UISwipeGestureRecognizer) -> Void {
-  
-//        self.navigationController?.pushViewController(controller, animated: true)
-        //let controller = EnglandGameController()
-        //self.navigationController?.pushViewController(controller, animated: true)
-
     }
     
     func threeHummersCombination() {

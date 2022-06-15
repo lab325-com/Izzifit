@@ -35,9 +35,11 @@ class GameTabBarController: UITabBarController {
     }
     
     private func setupVCs() {
-        viewControllers = [createNavController(for: GameBaseController(firstVC: ArcticGameController(), secondVC: EnglandGameController()),
+        viewControllers = [createNavController(for: GameBaseController(firstVC: ArcticGameController(),
+                                                                       secondVC: EnglandGameController()),
                                                image: view.image(img: .gameTabBarSpin)!),
-                           createNavController(for: GameBaseController(firstVC: LevelController(), secondVC: EngLevelController()),
+                           createNavController(for: GameBaseController(firstVC: LevelController(),
+                                                                       secondVC: EngLevelController()),
                                                image: view.image(img: .gameTabBarBuild)!) ,
                            createNavController(for:  MapController(),
                                                image: view.image(img: .gameTabBarSpin)!)

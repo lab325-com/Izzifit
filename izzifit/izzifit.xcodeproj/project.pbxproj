@@ -2608,8 +2608,8 @@
 		FAB65AAF2848C4A600664399 /* EnglandGameController */ = {
 			isa = PBXGroup;
 			children = (
-				FAB65AB22848C4F900664399 /* EnglandGameView.swift */,
 				FAB65AB02848C4D700664399 /* EnglandGameController.swift */,
+				FAB65AB22848C4F900664399 /* EnglandGameView.swift */,
 			);
 			path = EnglandGameController;
 			sourceTree = "<group>";

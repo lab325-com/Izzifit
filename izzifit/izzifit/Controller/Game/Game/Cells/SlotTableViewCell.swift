@@ -51,10 +51,11 @@ class SlotTableViewCell: BaseTableViewCell {
      
         ui.btnLayout(button: slotBtn,
                      view: contentView,
-                     topC: 0,
-                     bottomC: 0,
-                     leadingC: 3,
-                     trailingC: 3)
+                     width: (UIScreen.main.bounds.size.height / 12.799) * 0.83,
+                     height:  (UIScreen.main.bounds.size.height / 12.799) * 0.83,
+                     centerV: 0,
+                     centerH: 0)
+                    
     }
     
     required init?(coder: NSCoder) {
@@ -64,10 +65,10 @@ class SlotTableViewCell: BaseTableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10,
-                                                                     left: 8,
-                                                                     bottom: 10,
-                                                                     right: 8))
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10,
+//                                                                     left: 8,
+//                                                                     bottom: 10,
+//                                                                     right: 8))
     }
     
     func fillCellby(tagBtn: Int, model: MapModel?,game: Games) {
