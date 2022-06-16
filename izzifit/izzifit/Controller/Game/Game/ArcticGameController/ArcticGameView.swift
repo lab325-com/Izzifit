@@ -40,11 +40,11 @@ extension GameAnimationProtocol {
                                     trailingC: 0)
             
             imgVw.ui.genericlLayout(object: rotateImgView,
-                                        parentView: imgVw,
-                                        topC: 0,
-                                        bottomC: 0,
-                                        leadingC: 0,
-                                        trailingC: 0)
+                                    parentView: imgVw,
+                                    topC: 0,
+                                    bottomC: 0,
+                                    leadingC: 0,
+                                    trailingC: 0)
             
             let slotImgVw = UIImageView(image: slotImg)
             
@@ -60,7 +60,7 @@ extension GameAnimationProtocol {
             UIView.animate(withDuration: 1.5) {
                 rotateImgView.transform = rotateImgView.transform.rotated(by: CGFloat(Double.pi))
             } completion: { arg in
-                UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut, animations: {
+                UIView.animate(withDuration: 0.5, delay: 1.0, options: .curveEaseOut, animations: {
                     rotateImgView.alpha = 0.0
                 }, completion: { _ in
                     rotateImgView.removeFromSuperview()
@@ -69,14 +69,14 @@ extension GameAnimationProtocol {
             }
             
             // Scale/ Fade Img
-            UIView.animate(withDuration: 1.4, delay: 0.1, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: 1.4, delay: 0.1, options: .curveEaseIn, animations: {
                 slotImgVw.alpha = 1.0
                 slotImgVw.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
             }, completion: { completed in
-                UIView.animate(withDuration: 0.5) {
+                UIView.animate(withDuration: 0.5, delay: 1.0, options: .curveEaseOut) {
                     slotImgVw.alpha = 0
                     slotImgVw.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-                } completion: { completed in
+                } completion: { animatedf in
                     slotImgVw.removeFromSuperview()
                     backVw.removeFromSuperview()
                 }
