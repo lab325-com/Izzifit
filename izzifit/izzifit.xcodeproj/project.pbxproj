@@ -365,6 +365,8 @@
 		FA1A6D8028081CE80040518A /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D7E28081CE80040518A /* LevelController.swift */; };
 		FA1A6D8128081CE80040518A /* LevelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1A6D7F28081CE80040518A /* LevelController.xib */; };
 		FA1A6D8B28097F0D0040518A /* GameTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */; };
+		FA2794E7285A058D00AEEA70 /* HealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2794E6285A058D00AEEA70 /* HealthModel.swift */; };
+		FA2794E9285A068800AEEA70 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2794E8285A068800AEEA70 /* HealthKit.framework */; };
 		FA3319C528461E490021C433 /* TimerSpinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3319C428461E490021C433 /* TimerSpinManager.swift */; };
 		FA3319C8284683100021C433 /* ArcticGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3319C7284683100021C433 /* ArcticGameView.swift */; };
 		FA42CC00283CE52700C6C959 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */; };
@@ -781,6 +783,8 @@
 		FA1A6D7E28081CE80040518A /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
 		FA1A6D7F28081CE80040518A /* LevelController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelController.xib; sourceTree = "<group>"; };
 		FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTabBarController.swift; sourceTree = "<group>"; };
+		FA2794E6285A058D00AEEA70 /* HealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthModel.swift; sourceTree = "<group>"; };
+		FA2794E8285A068800AEEA70 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		FA3319C428461E490021C433 /* TimerSpinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSpinManager.swift; sourceTree = "<group>"; };
 		FA3319C7284683100021C433 /* ArcticGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGameView.swift; sourceTree = "<group>"; };
 		FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
@@ -853,6 +857,7 @@
 				0249D27827B3AA3B00F265C1 /* Apollo in Frameworks */,
 				0249D27A27B3AA3B00F265C1 /* ApolloWebSocket in Frameworks */,
 				0249D25627B3A7AD00F265C1 /* NVActivityIndicatorView in Frameworks */,
+				FA2794E9285A068800AEEA70 /* HealthKit.framework in Frameworks */,
 				02B280F828571529003CAB32 /* StoreKit.framework in Frameworks */,
 				02B2810228571734003CAB32 /* FirebaseRemoteConfig in Frameworks */,
 				0249D25827B3A7AD00F265C1 /* NVActivityIndicatorViewExtended in Frameworks */,
@@ -1339,6 +1344,7 @@
 				0251D24827E221ED0098A54D /* ProductsMainModel.swift */,
 				020CB3D427E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift */,
 				02BACF1727F4588100B7562C /* WorkoutByIdMainModel.swift */,
+				FA2794E6285A058D00AEEA70 /* HealthModel.swift */,
 			);
 			path = GlobalModels;
 			sourceTree = "<group>";
@@ -2455,6 +2461,7 @@
 		DB1BDA7364672EBF249DB7B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA2794E8285A068800AEEA70 /* HealthKit.framework */,
 				02B280F728571529003CAB32 /* StoreKit.framework */,
 				024EBC9A2840C8CC00E6623F /* AppTrackingTransparency.framework */,
 				028EE3C42834EE6300F3D148 /* AdServices.framework */,
@@ -3380,6 +3387,7 @@
 				02F0C18127EDBDDB005DE3E2 /* EnergyUpdateWeightController.swift in Sources */,
 				020D282727E8A04400010122 /* AddProductToMealModel.swift in Sources */,
 				FE1403C227E249EB002F5819 /* ChartCollectionCell.swift in Sources */,
+				FA2794E7285A058D00AEEA70 /* HealthModel.swift in Sources */,
 				0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */,
 				0249D27427B3AA0400F265C1 /* NetwokrManager.swift in Sources */,
 				FAB65AB32848C4F900664399 /* EnglandGameView.swift in Sources */,

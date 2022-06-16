@@ -52,5 +52,9 @@
 		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Izzifit needs your permission to access your Health data in order to display the number of steps</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Izzifit needs your permission to access your Health data in order to display the number of steps</string>
 </dict>
 </plist>
