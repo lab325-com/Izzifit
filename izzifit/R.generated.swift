@@ -3764,7 +3764,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 84 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 85 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -3794,6 +3794,8 @@ struct R: Rswift.Validatable {
     static let energyProgressController = _R.nib._EnergyProgressController()
     /// Nib `EnergySleepCell`.
     static let energySleepCell = _R.nib._EnergySleepCell()
+    /// Nib `EnergySpecialPriceCell`.
+    static let energySpecialPriceCell = _R.nib._EnergySpecialPriceCell()
     /// Nib `EnergyTrainingCell`.
     static let energyTrainingCell = _R.nib._EnergyTrainingCell()
     /// Nib `EnergyUpdateWeightController`.
@@ -4044,6 +4046,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.energySleepCell) instead")
     static func energySleepCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.energySleepCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "EnergySpecialPriceCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.energySpecialPriceCell) instead")
+    static func energySpecialPriceCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.energySpecialPriceCell)
     }
     #endif
 
@@ -4663,6 +4673,10 @@ struct R: Rswift.Validatable {
       return R.nib.energySleepCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergySleepCell
     }
 
+    static func energySpecialPriceCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergySpecialPriceCell? {
+      return R.nib.energySpecialPriceCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergySpecialPriceCell
+    }
+
     static func energyTrainingCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyTrainingCell? {
       return R.nib.energyTrainingCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyTrainingCell
     }
@@ -4946,7 +4960,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 37 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 38 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AwardsTableCell`.
     static let awardsTableCell: Rswift.ReuseIdentifier<PolicyCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
@@ -4970,6 +4984,8 @@ struct R: Rswift.Validatable {
     static let energyMoodCell: Rswift.ReuseIdentifier<EnergyMoodCell> = Rswift.ReuseIdentifier(identifier: "EnergyMoodCell")
     /// Reuse identifier `EnergySleepCell`.
     static let energySleepCell: Rswift.ReuseIdentifier<EnergySleepCell> = Rswift.ReuseIdentifier(identifier: "EnergySleepCell")
+    /// Reuse identifier `EnergySpecialPriceCell`.
+    static let energySpecialPriceCell: Rswift.ReuseIdentifier<EnergySpecialPriceCell> = Rswift.ReuseIdentifier(identifier: "EnergySpecialPriceCell")
     /// Reuse identifier `EnergyTrainingCell`.
     static let energyTrainingCell: Rswift.ReuseIdentifier<EnergyTrainingCell> = Rswift.ReuseIdentifier(identifier: "EnergyTrainingCell")
     /// Reuse identifier `EnergyWeightCell`.
@@ -8702,6 +8718,7 @@ struct _R: Rswift.Validatable {
       try _EnergyMoodCell.validate()
       try _EnergyProgressController.validate()
       try _EnergySleepCell.validate()
+      try _EnergySpecialPriceCell.validate()
       try _EnergyTrainingCell.validate()
       try _EnergyWeightCell.validate()
       try _FoodController.validate()
@@ -9025,6 +9042,26 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergySleepCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _EnergySpecialPriceCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = EnergySpecialPriceCell
+
+      let bundle = R.hostingBundle
+      let identifier = "EnergySpecialPriceCell"
+      let name = "EnergySpecialPriceCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergySpecialPriceCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergySpecialPriceCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "placeholder_big_sport_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder_big_sport_ic' is used in nib 'EnergySpecialPriceCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

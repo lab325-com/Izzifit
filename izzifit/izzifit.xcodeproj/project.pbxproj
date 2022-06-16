@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02021996285B456B0015CA9A /* EnergySpecialPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02021994285B456A0015CA9A /* EnergySpecialPriceCell.swift */; };
+		02021997285B456B0015CA9A /* EnergySpecialPriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02021995285B456B0015CA9A /* EnergySpecialPriceCell.xib */; };
 		020CB3D327E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 020CB3D227E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql */; };
 		020CB3D527E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020CB3D427E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift */; };
 		020CB3D727E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020CB3D627E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift */; };
@@ -426,6 +428,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02021994285B456A0015CA9A /* EnergySpecialPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergySpecialPriceCell.swift; sourceTree = "<group>"; };
+		02021995285B456B0015CA9A /* EnergySpecialPriceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergySpecialPriceCell.xib; sourceTree = "<group>"; };
 		020CB3D227E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChooseWorkoutWidgetModel.graphql; sourceTree = "<group>"; };
 		020CB3D427E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsWidgetMainModel.swift; sourceTree = "<group>"; };
 		020CB3D627E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseWorkoutWidgetModel.swift; sourceTree = "<group>"; };
@@ -874,6 +878,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02021992285B45260015CA9A /* EnergySpecialPriceCell */ = {
+			isa = PBXGroup;
+			children = (
+				02021994285B456A0015CA9A /* EnergySpecialPriceCell.swift */,
+				02021995285B456B0015CA9A /* EnergySpecialPriceCell.xib */,
+			);
+			path = EnergySpecialPriceCell;
+			sourceTree = "<group>";
+		};
 		020CB3D127E9C9DF00F97A76 /* ChooseWorkoutWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -1740,6 +1753,7 @@
 				02FAF0A327D36173002CD678 /* EnergyDrinkWaterCell */,
 				0273F55627D5F06F00B19449 /* EnergyMoodCell */,
 				0273F55B27D5F7A600B19449 /* EnergyMealsCell */,
+				02021992285B45260015CA9A /* EnergySpecialPriceCell */,
 				0273F56027D60C5F00B19449 /* EnergySleepCell */,
 				0268752627D8C8DF00FFEA6A /* EnergyWeightCell */,
 				0268753027D8E4ED00FFEA6A /* EnergyChooseActivityCell */,
@@ -2998,6 +3012,7 @@
 				020CB3D327E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql in Resources */,
 				02ABCF3627CCC3F400E69C06 /* MenuFoodSwitchCell.xib in Resources */,
 				02D066A827BBA72100D12C5F /* Localizable.strings in Resources */,
+				02021997285B456B0015CA9A /* EnergySpecialPriceCell.xib in Resources */,
 				02D066C127BBB57D00D12C5F /* Inter-Thin.ttf in Resources */,
 				02C3DD6627BEDA82004E5C65 /* QuizeProgressController.xib in Resources */,
 				FE7CF8BC27E4A7ED0099682E /* WeightTableCell.xib in Resources */,
@@ -3384,6 +3399,7 @@
 				02BE9430284F34F4006D361B /* GameRouter.swift in Sources */,
 				02D066DD27BBE56700D12C5F /* QuizeAgeController.swift in Sources */,
 				02E6D85827FC255100E29509 /* SubscribePresenter.swift in Sources */,
+				02021996285B456B0015CA9A /* EnergySpecialPriceCell.swift in Sources */,
 				02F0C18127EDBDDB005DE3E2 /* EnergyUpdateWeightController.swift in Sources */,
 				020D282727E8A04400010122 /* AddProductToMealModel.swift in Sources */,
 				FE1403C227E249EB002F5819 /* ChartCollectionCell.swift in Sources */,
