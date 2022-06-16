@@ -9,7 +9,7 @@ import UIKit
 import SwiftyGif
 
 protocol GameAnimationProtocol {
-    var coinV2Animation: UIImageView { get set}
+    var animationImgVw: UIImageView { get set }
     func animate(type: GameAnimation, imageView: UIImageView)
     
 }
@@ -19,17 +19,73 @@ extension GameAnimationProtocol {
     func animate(type: GameAnimation, imageView: UIImageView) {
         switch type {
         case .coin2:    imageView.prepareAnimation(name: "coin_v2", loopRepeated: false)
-        case .coin3:    break
-        case .hammer3:  break
-        case .ray:      break
+        case .coin3:    imageView.prepareAnimation(name: "coin_v3", loopRepeated: false)
+        case .hammer3:  imageView.prepareAnimation(name: "ray", loopRepeated: true)
+        case .lightning: rotateSun(with: SlotImgs.lightning ?? UIImage(), on: imageView)
+        case .snowflake: rotateSun(with: SlotImgs.snowflake ?? UIImage(), on: imageView)
         }
     }
+    
+    func rotateSun(with slotImg: UIImage, on imgVw: UIImageView) {
+        if let img = UIImage(named: "sunIsShineAnimation") {
+            
+            let rotateImgView = UIImageView(image: img)
+            
+            imgVw.ui.genericlLayout(object: rotateImgView,
+                                        parentView: imgVw,
+                                        topC: 0,
+                                        bottomC: 0,
+                                        leadingC: 0,
+                                        trailingC: 0)
+            
+            let slotImgVw = UIImageView(image: slotImg)
+            
+            imgVw.ui.genericlLayout(object: slotImgVw,
+                                    parentView: imgVw,
+                                    width: imgVw.h/11.4,
+                                    height: imgVw.h/11.4,
+                                    centerV: 0,
+                                    centerH: 0)
+            slotImgVw.alpha = 0.0
+            
+            // Rotate sun
+            UIView.animate(withDuration: 1.5) {
+                rotateImgView.transform = rotateImgView.transform.rotated(by: CGFloat(Double.pi))
+            } completion: { arg in
+                UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut, animations: {
+                    rotateImgView.alpha = 0.0
+                }, completion: { _ in
+                    rotateImgView.removeFromSuperview()
+                   
+                })
+            }
+            
+            UIView.animate(withDuration: 1.4, delay: 0.1, options: .curveEaseOut, animations: {
+                slotImgVw.alpha = 1.0
+                slotImgVw.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+            }, completion: { completed in
+                UIView.animate(withDuration: 0.5) {
+                    slotImgVw.alpha = 0
+                    slotImgVw.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                } completion: { completed in
+                    slotImgVw.removeFromSuperview()
+                }
+
+            })
+            // Fade in & Fade out slotImg
+            
+            // scale in x2 / scale out x2 slotImg
+        }
+
+    }
+    
+    
 }
 
 class ArcticGameView: UIView, GameAnimationProtocol {
    
     
-    var coinV2Animation: UIImageView = UIImageView()
+    var animationImgVw: UIImageView = UIImageView()
 
     // bar
     var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
@@ -250,7 +306,7 @@ class ArcticGameView: UIView, GameAnimationProtocol {
         
         resultStackView.isHidden = true
         
-        ui.genericlLayout(object: coinV2Animation,
+        ui.genericlLayout(object: animationImgVw,
                           parentView: slotHouseImgVw,
                           width: w,
                           height: h,
@@ -280,5 +336,5 @@ class ArcticGameView: UIView, GameAnimationProtocol {
 
 
 enum GameAnimation {
-    case coin2, coin3, hammer3, ray
+    case coin2, coin3, hammer3, lightning, snowflake
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class EnglandGameView: UIView, GameAnimationProtocol {
    
-    var coinV2Animation: UIImageView = UIImageView()
+    var animationImgVw: UIImageView = UIImageView()
     // bar
     var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
     // Basic view
@@ -26,7 +26,6 @@ class EnglandGameView: UIView, GameAnimationProtocol {
     private var logoImgVw = UIImageView()
     //startSpinLbl
     var startSpinLbl = UILabel()
-    
     //resultStack
     var resultStackView: UIStackView!
     private var awardsVerticalStackView: UIStackView!
@@ -34,7 +33,6 @@ class EnglandGameView: UIView, GameAnimationProtocol {
     var awardImgVw = UIImageView()
     var awardTitleLbl = UILabel()
     var awardCountLbl = UILabel()
-    
     // Progress Img UI
     private var progressImgVw = UIImageView()
     private let progressImg = UIImage(named: "progressActive")

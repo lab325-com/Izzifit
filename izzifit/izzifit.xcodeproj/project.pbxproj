@@ -383,7 +383,7 @@
 		FAB65AB32848C4F900664399 /* EnglandGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB65AB22848C4F900664399 /* EnglandGameView.swift */; };
 		FAB65ABC284918E400664399 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB65ABB284918E400664399 /* MapController.swift */; };
 		FABA1DE32859F02F005ECE75 /* ray.gif in Resources */ = {isa = PBXBuildFile; fileRef = FABA1DE22859F02E005ECE75 /* ray.gif */; };
-		FABA1DE62859F03A005ECE75 /* coin_v1.gif in Resources */ = {isa = PBXBuildFile; fileRef = FABA1DE42859F03A005ECE75 /* coin_v1.gif */; };
+		FABA1DE62859F03A005ECE75 /* coin_v3.gif in Resources */ = {isa = PBXBuildFile; fileRef = FABA1DE42859F03A005ECE75 /* coin_v3.gif */; };
 		FABA1DE72859F03A005ECE75 /* coin_v2.gif in Resources */ = {isa = PBXBuildFile; fileRef = FABA1DE52859F03A005ECE75 /* coin_v2.gif */; };
 		FABA1DEF285AEE23005ECE75 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = FABA1DEE285AEE23005ECE75 /* SwiftyGif */; };
 		FABE8BF828512C6C00E3E53C /* PurchasePop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BF728512C6C00E3E53C /* PurchasePop.swift */; };
@@ -793,7 +793,7 @@
 		FAB65AB22848C4F900664399 /* EnglandGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglandGameView.swift; sourceTree = "<group>"; };
 		FAB65ABB284918E400664399 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		FABA1DE22859F02E005ECE75 /* ray.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ray.gif; sourceTree = "<group>"; };
-		FABA1DE42859F03A005ECE75 /* coin_v1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = coin_v1.gif; sourceTree = "<group>"; };
+		FABA1DE42859F03A005ECE75 /* coin_v3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = coin_v3.gif; sourceTree = "<group>"; };
 		FABA1DE52859F03A005ECE75 /* coin_v2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = coin_v2.gif; sourceTree = "<group>"; };
 		FABE8BF728512C6C00E3E53C /* PurchasePop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasePop.swift; sourceTree = "<group>"; };
 		FABE8BFC28520E4100E3E53C /* LevelPopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopUpController.swift; sourceTree = "<group>"; };
@@ -2522,7 +2522,7 @@
 			children = (
 				FA8CC857282919B80022BFE2 /* construction3.gif */,
 				FABA1DE22859F02E005ECE75 /* ray.gif */,
-				FABA1DE42859F03A005ECE75 /* coin_v1.gif */,
+				FABA1DE42859F03A005ECE75 /* coin_v3.gif */,
 				FABA1DE52859F03A005ECE75 /* coin_v2.gif */,
 			);
 			path = Animation;
@@ -2987,7 +2987,7 @@
 				02BACF1427F4579C00B7562C /* RecommendWorkouts.graphql in Resources */,
 				0256998828197A7500BA1535 /* 11_spinner_main.wav in Resources */,
 				0256999128197A7500BA1535 /* 16_coins_pack_x3.wav in Resources */,
-				FABA1DE62859F03A005ECE75 /* coin_v1.gif in Resources */,
+				FABA1DE62859F03A005ECE75 /* coin_v3.gif in Resources */,
 				02D066C427BBB57D00D12C5F /* Inter-Bold.ttf in Resources */,
 				0256998928197A7500BA1535 /* 15_coins_pack_x2.wav in Resources */,
 				0227DAB327C67179008AB26B /* MenuEmailController.xib in Resources */,
@@ -3551,7 +3551,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3587,7 +3587,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3684,7 +3684,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

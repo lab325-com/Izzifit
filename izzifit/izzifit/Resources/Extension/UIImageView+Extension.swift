@@ -42,6 +42,5 @@ extension UIImageView {
             print(error)
         }
     }
-    
 }
 
