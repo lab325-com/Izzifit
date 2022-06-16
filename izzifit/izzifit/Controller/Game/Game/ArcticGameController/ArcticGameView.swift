@@ -6,22 +6,19 @@
 //
 
 import UIKit
-import Gifu
+import SwiftyGif
 
 protocol GameAnimationProtocol {
-    var coinV2Animation: GIFImageView { get set }
-    func animate(type: GameAnimation)
+    var coinV2Animation: UIImageView { get set}
+    func animate(type: GameAnimation, imageView: UIImageView)
     
 }
 
 extension GameAnimationProtocol {
     
-    func animate(type: GameAnimation) {
+    func animate(type: GameAnimation, imageView: UIImageView) {
         switch type {
-        case .coin2: coinV2Animation.prepareForAnimation(withGIFNamed: "coin_v2",
-                                                         loopCount: 1) {}
-
-                        coinV2Animation.startAnimatingGIF()
+        case .coin2:    imageView.prepareAnimation(name: "coin_v2")
         case .coin3:    break
         case .hammer3:  break
         case .ray:      break
@@ -32,7 +29,7 @@ extension GameAnimationProtocol {
 class ArcticGameView: UIView, GameAnimationProtocol {
    
     
-    var coinV2Animation: GIFImageView = GIFImageView()
+    var coinV2Animation: UIImageView = UIImageView()
 
     // bar
     var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)

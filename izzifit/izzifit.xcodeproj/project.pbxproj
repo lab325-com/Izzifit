@@ -386,6 +386,7 @@
 		FABA1DE32859F02F005ECE75 /* ray.gif in Resources */ = {isa = PBXBuildFile; fileRef = FABA1DE22859F02E005ECE75 /* ray.gif */; };
 		FABA1DE62859F03A005ECE75 /* coin_v1.gif in Resources */ = {isa = PBXBuildFile; fileRef = FABA1DE42859F03A005ECE75 /* coin_v1.gif */; };
 		FABA1DE72859F03A005ECE75 /* coin_v2.gif in Resources */ = {isa = PBXBuildFile; fileRef = FABA1DE52859F03A005ECE75 /* coin_v2.gif */; };
+		FABA1DEF285AEE23005ECE75 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = FABA1DEE285AEE23005ECE75 /* SwiftyGif */; };
 		FABE8BF828512C6C00E3E53C /* PurchasePop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BF728512C6C00E3E53C /* PurchasePop.swift */; };
 		FABE8BFD28520E4100E3E53C /* LevelPopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BFC28520E4100E3E53C /* LevelPopUpController.swift */; };
 		FABE8BFF28520E5000E3E53C /* LevelPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BFE28520E5000E3E53C /* LevelPopUpView.swift */; };
@@ -851,6 +852,7 @@
 				025733CF283E7C0D00CC6743 /* FirebaseCrashlytics in Frameworks */,
 				8C4F7F85C1CC5538D3E379C8 /* Pods_izzifit.framework in Frameworks */,
 				FAF4350428257920008691CD /* Gifu in Frameworks */,
+				FABA1DEF285AEE23005ECE75 /* SwiftyGif in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2810,6 +2812,7 @@
 				025733CE283E7C0D00CC6743 /* FirebaseCrashlytics */,
 				025733D0283E7C0D00CC6743 /* FirebaseRemoteConfig */,
 				02AEDFD628477CC7007C0EA4 /* SwiftyStoreKit */,
+				FABA1DEE285AEE23005ECE75 /* SwiftyGif */,
 			);
 			productName = izzifit;
 			productReference = 0249D22727B3A4EF00F265C1 /* izzifit.app */;
@@ -2849,6 +2852,7 @@
 				FAF4350228257920008691CD /* XCRemoteSwiftPackageReference "Gifu" */,
 				025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				02AEDFD528477CC7007C0EA4 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
+				FABA1DED285AEE22005ECE75 /* XCRemoteSwiftPackageReference "SwiftyGif" */,
 			);
 			productRefGroup = 0249D22827B3A4EF00F265C1 /* Products */;
 			projectDirPath = "";
@@ -3781,6 +3785,15 @@
 				minimumVersion = 0.9.3;
 			};
 		};
+		FABA1DED285AEE22005ECE75 /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
+			requirement = {
+				kind = versionRange;
+				maximumVersion = 6.0.0;
+				minimumVersion = 5.0.0;
+			};
+		};
 		FAF4350228257920008691CD /* XCRemoteSwiftPackageReference "Gifu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kaishin/Gifu.git";
@@ -3846,6 +3859,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02AEDFD528477CC7007C0EA4 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
 			productName = SwiftyStoreKit;
+		};
+		FABA1DEE285AEE23005ECE75 /* SwiftyGif */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FABA1DED285AEE22005ECE75 /* XCRemoteSwiftPackageReference "SwiftyGif" */;
+			productName = SwiftyGif;
 		};
 		FAF4350328257920008691CD /* Gifu */ = {
 			isa = XCSwiftPackageProductDependency;

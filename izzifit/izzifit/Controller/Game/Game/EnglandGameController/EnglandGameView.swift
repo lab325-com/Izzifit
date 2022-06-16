@@ -6,11 +6,10 @@
 //
 
 import UIKit
-import Gifu
 
 class EnglandGameView: UIView, GameAnimationProtocol {
    
-    var coinV2Animation: GIFImageView = GIFImageView()
+    var coinV2Animation: UIImageView = UIImageView()
     // bar
     var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
     // Basic view
