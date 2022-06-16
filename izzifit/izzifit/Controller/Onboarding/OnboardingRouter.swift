@@ -8,6 +8,11 @@
 import Foundation
 
 class OnboardingRouter: BaseRouter {
+    func pushSwipe() {
+        let controller = OnboardingSwipeContoller()
+        push(controller: controller)
+    }
+    
     func pushName() {
         let controller = QuizeNameController()
         push(controller: controller)

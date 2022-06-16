@@ -1080,7 +1080,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 291 images.
+  /// This `R.image` struct is generated, and contains static references to 297 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1410,6 +1410,14 @@ struct R: Rswift.Validatable {
     static let militaryAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "militaryAward")
     /// Image `moneyBag`.
     static let moneyBag = Rswift.ImageResource(bundle: R.hostingBundle, name: "moneyBag")
+    /// Image `onboading_swipe_1_ic`.
+    static let onboading_swipe_1_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboading_swipe_1_ic")
+    /// Image `onboading_swipe_2_ic`.
+    static let onboading_swipe_2_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboading_swipe_2_ic")
+    /// Image `onboading_swipe_3_ic`.
+    static let onboading_swipe_3_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboading_swipe_3_ic")
+    /// Image `onboading_swipe_4_ic`.
+    static let onboading_swipe_4_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboading_swipe_4_ic")
     /// Image `onboarding_back_ic`.
     static let onboarding_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_back_ic")
     /// Image `onboarding_background_ic`.
@@ -1438,6 +1446,10 @@ struct R: Rswift.Validatable {
     static let onboarding_sport_professional_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_sport_professional_ic")
     /// Image `onboarding_sport_regulary_ic`.
     static let onboarding_sport_regulary_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_sport_regulary_ic")
+    /// Image `onboarding_swipe_back_ic`.
+    static let onboarding_swipe_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_swipe_back_ic")
+    /// Image `onboarding_swipe_logo_ic`.
+    static let onboarding_swipe_logo_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_swipe_logo_ic")
     /// Image `onboarding_target_flag_ic`.
     static let onboarding_target_flag_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_target_flag_ic")
     /// Image `onePurchaseBack`.
@@ -2814,6 +2826,34 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboading_swipe_1_ic", bundle: ..., traitCollection: ...)`
+    static func onboading_swipe_1_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboading_swipe_1_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboading_swipe_2_ic", bundle: ..., traitCollection: ...)`
+    static func onboading_swipe_2_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboading_swipe_2_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboading_swipe_3_ic", bundle: ..., traitCollection: ...)`
+    static func onboading_swipe_3_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboading_swipe_3_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboading_swipe_4_ic", bundle: ..., traitCollection: ...)`
+    static func onboading_swipe_4_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboading_swipe_4_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "onboarding_back_ic", bundle: ..., traitCollection: ...)`
     static func onboarding_back_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.onboarding_back_ic, compatibleWith: traitCollection)
@@ -2908,6 +2948,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "onboarding_sport_regulary_ic", bundle: ..., traitCollection: ...)`
     static func onboarding_sport_regulary_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.onboarding_sport_regulary_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_swipe_back_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_swipe_back_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_swipe_back_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboarding_swipe_logo_ic", bundle: ..., traitCollection: ...)`
+    static func onboarding_swipe_logo_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboarding_swipe_logo_ic, compatibleWith: traitCollection)
     }
     #endif
 
@@ -3705,7 +3759,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 82 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 84 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -3791,6 +3845,10 @@ struct R: Rswift.Validatable {
     static let menuWriteQuestionController = _R.nib._MenuWriteQuestionController()
     /// Nib `MoodTableCell`.
     static let moodTableCell = _R.nib._MoodTableCell()
+    /// Nib `OnboardingSwipeCell`.
+    static let onboardingSwipeCell = _R.nib._OnboardingSwipeCell()
+    /// Nib `OnboardingSwipeContoller`.
+    static let onboardingSwipeContoller = _R.nib._OnboardingSwipeContoller()
     /// Nib `PaywallController`.
     static let paywallController = _R.nib._PaywallController()
     /// Nib `PaywallMultiplyController`.
@@ -4205,6 +4263,22 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.moodTableCell) instead")
     static func moodTableCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.moodTableCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "OnboardingSwipeCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.onboardingSwipeCell) instead")
+    static func onboardingSwipeCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.onboardingSwipeCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "OnboardingSwipeContoller", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.onboardingSwipeContoller) instead")
+    static func onboardingSwipeContoller(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.onboardingSwipeContoller)
     }
     #endif
 
@@ -4696,6 +4770,14 @@ struct R: Rswift.Validatable {
       return R.nib.moodTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MoodTableCell
     }
 
+    static func onboardingSwipeCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> OnboardingSwipeCell? {
+      return R.nib.onboardingSwipeCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? OnboardingSwipeCell
+    }
+
+    static func onboardingSwipeContoller(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.onboardingSwipeContoller.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func paywallController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.paywallController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -4859,7 +4941,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 36 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 37 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AwardsTableCell`.
     static let awardsTableCell: Rswift.ReuseIdentifier<PolicyCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
@@ -4903,6 +4985,8 @@ struct R: Rswift.Validatable {
     static let menuLogoutCell: Rswift.ReuseIdentifier<MenuLogoutCell> = Rswift.ReuseIdentifier(identifier: "MenuLogoutCell")
     /// Reuse identifier `MoodTableCell`.
     static let moodTableCell: Rswift.ReuseIdentifier<MoodTableCell> = Rswift.ReuseIdentifier(identifier: "MoodTableCell")
+    /// Reuse identifier `OnboardingSwipeCell`.
+    static let onboardingSwipeCell: Rswift.ReuseIdentifier<OnboardingSwipeCell> = Rswift.ReuseIdentifier(identifier: "OnboardingSwipeCell")
     /// Reuse identifier `PositionTableCell`.
     static let positionTableCell: Rswift.ReuseIdentifier<PositionTableCell> = Rswift.ReuseIdentifier(identifier: "PositionTableCell")
     /// Reuse identifier `ProgressCell`.
@@ -8634,6 +8718,8 @@ struct _R: Rswift.Validatable {
       try _MenuWeightController.validate()
       try _MenuWriteQuestionController.validate()
       try _MoodTableCell.validate()
+      try _OnboardingSwipeCell.validate()
+      try _OnboardingSwipeContoller.validate()
       try _PaywallController.validate()
       try _PaywallMultiplyController.validate()
       try _PaywallSingleController.validate()
@@ -9434,6 +9520,45 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "grayText", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayText' is used in nib 'MoodTableCell', but couldn't be loaded.") }
           if UIKit.UIColor(named: "profileCellBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'profileCellBack' is used in nib 'MoodTableCell', but couldn't be loaded.") }
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _OnboardingSwipeCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = OnboardingSwipeCell
+
+      let bundle = R.hostingBundle
+      let identifier = "OnboardingSwipeCell"
+      let name = "OnboardingSwipeCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> OnboardingSwipeCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? OnboardingSwipeCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboading_swipe_1_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboading_swipe_1_ic' is used in nib 'OnboardingSwipeCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _OnboardingSwipeContoller: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "OnboardingSwipeContoller"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'OnboardingSwipeContoller', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_swipe_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_swipe_back_ic' is used in nib 'OnboardingSwipeContoller', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_swipe_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_swipe_logo_ic' is used in nib 'OnboardingSwipeContoller', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
 

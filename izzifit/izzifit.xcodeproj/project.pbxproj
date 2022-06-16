@@ -326,6 +326,10 @@
 		02D1631F27FADC2F007C6686 /* Inter-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D1631E27FADC2F007C6686 /* Inter-BoldItalic.ttf */; };
 		02D5703C27E9AE4C00F14911 /* WorkoutsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02D5703B27E9AE4B00F14911 /* WorkoutsWidget.graphql */; };
 		02D5703E27E9AF3B00F14911 /* WorkoutsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */; };
+		02DFE895285A1168005BF69B /* OnboardingSwipeContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFE893285A1168005BF69B /* OnboardingSwipeContoller.swift */; };
+		02DFE896285A1168005BF69B /* OnboardingSwipeContoller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02DFE894285A1168005BF69B /* OnboardingSwipeContoller.xib */; };
+		02DFE89A285A154A005BF69B /* OnboardingSwipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFE898285A154A005BF69B /* OnboardingSwipeCell.swift */; };
+		02DFE89B285A154A005BF69B /* OnboardingSwipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02DFE899285A154A005BF69B /* OnboardingSwipeCell.xib */; };
 		02E3F9DA2808478D006F5A99 /* CMTime+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3F9D92808478D006F5A99 /* CMTime+Extension.swift */; };
 		02E6D85827FC255100E29509 /* SubscribePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6D85727FC255100E29509 /* SubscribePresenter.swift */; };
 		02E6D85D27FC385F00E29509 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 02E6D85C27FC385F00E29509 /* Localizable.stringsdict */; };
@@ -736,6 +740,10 @@
 		02D1631E27FADC2F007C6686 /* Inter-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.ttf"; sourceTree = "<group>"; };
 		02D5703B27E9AE4B00F14911 /* WorkoutsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutsWidget.graphql; sourceTree = "<group>"; };
 		02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsWidgetModel.swift; sourceTree = "<group>"; };
+		02DFE893285A1168005BF69B /* OnboardingSwipeContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSwipeContoller.swift; sourceTree = "<group>"; };
+		02DFE894285A1168005BF69B /* OnboardingSwipeContoller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingSwipeContoller.xib; sourceTree = "<group>"; };
+		02DFE898285A154A005BF69B /* OnboardingSwipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSwipeCell.swift; sourceTree = "<group>"; };
+		02DFE899285A154A005BF69B /* OnboardingSwipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingSwipeCell.xib; sourceTree = "<group>"; };
 		02E3F9D92808478D006F5A99 /* CMTime+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Extension.swift"; sourceTree = "<group>"; };
 		02E6D85727FC255100E29509 /* SubscribePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribePresenter.swift; sourceTree = "<group>"; };
 		02E6D85C27FC385F00E29509 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
@@ -2252,6 +2260,7 @@
 			isa = PBXGroup;
 			children = (
 				02D066CD27BBC41700D12C5F /* OnboardingRouter.swift */,
+				02DFE892285A1107005BF69B /* OnboardingSwipe */,
 				02D066C827BBBB2C00D12C5F /* QuizeName */,
 				02D066CF27BBCE9F00D12C5F /* QuizeGenger */,
 				02D066D527BBDC1800D12C5F /* QuizeGoal */,
@@ -2330,6 +2339,25 @@
 				02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */,
 			);
 			path = WorkoutsWidget;
+			sourceTree = "<group>";
+		};
+		02DFE892285A1107005BF69B /* OnboardingSwipe */ = {
+			isa = PBXGroup;
+			children = (
+				02DFE893285A1168005BF69B /* OnboardingSwipeContoller.swift */,
+				02DFE894285A1168005BF69B /* OnboardingSwipeContoller.xib */,
+				02DFE897285A152B005BF69B /* Cell */,
+			);
+			path = OnboardingSwipe;
+			sourceTree = "<group>";
+		};
+		02DFE897285A152B005BF69B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				02DFE898285A154A005BF69B /* OnboardingSwipeCell.swift */,
+				02DFE899285A154A005BF69B /* OnboardingSwipeCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		02E9046E27F59E1B008CFFB4 /* WorkoutExercisesCell */ = {
@@ -2886,6 +2914,7 @@
 				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
 				0256999328197A7500BA1535 /* 10_spin_tap.wav in Resources */,
 				02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */,
+				02DFE89B285A154A005BF69B /* OnboardingSwipeCell.xib in Resources */,
 				0256998E28197A7500BA1535 /* 14_coins_x3.wav in Resources */,
 				0263389527DB3E5100DC0325 /* ProgressCell.xib in Resources */,
 				02ABCF3927CCF74C00E69C06 /* Products.graphql in Resources */,
@@ -2912,6 +2941,7 @@
 				020CB3DA27E9F43D00F97A76 /* UpdateProductInMeal.graphql in Resources */,
 				0227DABD27C6768F008AB26B /* MenuWeightController.xib in Resources */,
 				0256997B2819611600BA1535 /* 1_tap_main.wav in Resources */,
+				02DFE896285A1168005BF69B /* OnboardingSwipeContoller.xib in Resources */,
 				02B225B927BD63FC0035CFA2 /* QuizeEmailController.xib in Resources */,
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
 				02B22ACD281C27D8006AB1EA /* UpgradeBuilding.graphql in Resources */,
@@ -3223,6 +3253,7 @@
 				0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */,
 				028EE3C92835031400F3D148 /* EnergyController+TableView.swift in Sources */,
 				0249D26327B3A88C00F265C1 /* UIApplicathion+Extension.swift in Sources */,
+				02DFE895285A1168005BF69B /* OnboardingSwipeContoller.swift in Sources */,
 				020D281F27E863DD00010122 /* FoodAddController.swift in Sources */,
 				FEBFD7B127E0F16A0027ADD2 /* SetUIManager.swift in Sources */,
 				024EBCA72840EAE900E6623F /* ProfileDeleteModel.swift in Sources */,
@@ -3338,6 +3369,7 @@
 				0263389727DB48D000DC0325 /* CalendarManager.swift in Sources */,
 				02ABCF3B27CCF80300E69C06 /* ProductsModel.swift in Sources */,
 				023D171C27BE1D4D005F95C0 /* AuthRouter.swift in Sources */,
+				02DFE89A285A154A005BF69B /* OnboardingSwipeCell.swift in Sources */,
 				FEE119BF27E9B9270058EE6D /* MoodTableCell.swift in Sources */,
 				02E9047127F59E56008CFFB4 /* WorkoutExercisesCell.swift in Sources */,
 				FAE6764D282E7E200020678E /* LevelPresenter.swift in Sources */,
