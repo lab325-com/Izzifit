@@ -121,6 +121,6 @@ extension QuizeProgressController: PaywallProtocol {
 
 extension QuizeProgressController: QuizeVideoPotocol {
     func quizeVideoEnd(contoller: QuizeVideoController) {
-        RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
+        let _ = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .afterOnboarding)
     }
 }

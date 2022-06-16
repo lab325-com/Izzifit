@@ -3584,11 +3584,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 36;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -3601,7 +3603,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3621,11 +3623,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 36;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -3638,7 +3642,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3719,11 +3723,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 36;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -3736,7 +3742,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
