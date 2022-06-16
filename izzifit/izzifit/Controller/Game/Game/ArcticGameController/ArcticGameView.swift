@@ -18,7 +18,7 @@ extension GameAnimationProtocol {
     
     func animate(type: GameAnimation, imageView: UIImageView) {
         switch type {
-        case .coin2:    imageView.prepareAnimation(name: "coin_v2")
+        case .coin2:    imageView.prepareAnimation(name: "coin_v2", loopRepeated: false)
         case .coin3:    break
         case .hammer3:  break
         case .ray:      break

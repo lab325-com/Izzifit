@@ -32,11 +32,11 @@ extension UIImageView {
         self.image = newImage
     }
     
-    func prepareAnimation(name: String) {
+    func prepareAnimation(name: String, loopRepeated: Bool) {
         do {
             let gif = try UIImage(gifName: "\(name).gif")
             self.setGifImage(gif)
-            self.loopCount = 1
+            self.loopCount = loopRepeated ? -1 : 1
             self.startAnimating()
         } catch {
             print(error)

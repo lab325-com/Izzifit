@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Gifu
 import SwiftUI
 
 class LevelController: BaseController {
@@ -20,7 +19,7 @@ class LevelController: BaseController {
     @IBOutlet weak var goldBtn: UIButton!
     @IBOutlet weak var deerBtn: UIButton!
     
-    let animation = GIFImageView()
+    let animation = UIImageView()
     
     @IBOutlet weak var hummerBtn: UIButton!
     @IBOutlet weak var hummerCountLbl: UILabel!
@@ -69,7 +68,6 @@ class LevelController: BaseController {
                                trailingC: 0)
         setup()
         hiddenNavigationBar = true
-        activateAnimation()
         addTargets()
     }
     
@@ -201,6 +199,7 @@ class LevelController: BaseController {
                                height: 200,
                                centerV: 0,
                                centerH: 0)
+        animation.isHidden = true
         view.layoutIfNeeded()
     }
     
@@ -232,12 +231,10 @@ class LevelController: BaseController {
         guard let buildPopUpVw = buildPopUpVw else { return }
         buildPopUpVw.removeFromSuperview()
         view.layoutIfNeeded()
-        animation.isHidden.toggle()
-        animation.startAnimatingGIF()
+        animation.prepareAnimation(name: "construction3", loopRepeated: true)
+        animation.isHidden = false
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.6) { [self] in
-            self.animation.stopAnimatingGIF()
-            self.animation.isHidden.toggle()
             self.animation.removeFromSuperview()
             
             var price = Int()
@@ -312,10 +309,6 @@ class LevelController: BaseController {
         }
     }
     
-    private func activateAnimation() {
-        animation.prepareForAnimation(withGIFNamed: "construction3")
-        animation.isHidden.toggle()
-    }
     
     private func setup() {
         
