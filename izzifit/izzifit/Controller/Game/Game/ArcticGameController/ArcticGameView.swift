@@ -28,8 +28,16 @@ extension GameAnimationProtocol {
     
     func rotateSun(with slotImg: UIImage, on imgVw: UIImageView) {
         if let img = UIImage(named: "sunIsShineAnimation") {
-            
+            let backVw = UIView()
+            backVw.layer.backgroundColor = UIColor(rgb: 0x3F3E56,alpha: 0.3).cgColor
             let rotateImgView = UIImageView(image: img)
+            
+            imgVw.ui.genericlLayout(object: backVw,
+                                    parentView: imgVw,
+                                    topC: 0,
+                                    bottomC: 0,
+                                    leadingC: 0,
+                                    trailingC: 0)
             
             imgVw.ui.genericlLayout(object: rotateImgView,
                                         parentView: imgVw,
@@ -60,6 +68,7 @@ extension GameAnimationProtocol {
                 })
             }
             
+            // Scale/ Fade Img
             UIView.animate(withDuration: 1.4, delay: 0.1, options: .curveEaseOut, animations: {
                 slotImgVw.alpha = 1.0
                 slotImgVw.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
@@ -69,17 +78,11 @@ extension GameAnimationProtocol {
                     slotImgVw.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
                 } completion: { completed in
                     slotImgVw.removeFromSuperview()
+                    backVw.removeFromSuperview()
                 }
-
             })
-            // Fade in & Fade out slotImg
-            
-            // scale in x2 / scale out x2 slotImg
         }
-
     }
-    
-    
 }
 
 class ArcticGameView: UIView, GameAnimationProtocol {
@@ -307,14 +310,13 @@ class ArcticGameView: UIView, GameAnimationProtocol {
         resultStackView.isHidden = true
         
         ui.genericlLayout(object: animationImgVw,
-                          parentView: slotHouseImgVw,
+                          parentView: spinBtn,
                           width: w,
                           height: h,
-                          topToO: self.topAnchor,
+                          topToO: barBackVw.topAnchor,
                           topCG: 0,
-                          leadingToO: self.leadingAnchor,
+                          leadingToO: barBackVw.leadingAnchor,
                           leadingCG: 0)
-        self.layoutIfNeeded()
         }
     
     func showProgress() {

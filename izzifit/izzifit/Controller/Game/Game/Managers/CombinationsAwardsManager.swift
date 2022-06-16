@@ -77,7 +77,7 @@ struct CombinationsAwardsManager {
                        coinsAmount: Int,
                        spinsAmount: Int,
                        _ threeHummers: () -> Void) {
-        homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
+        homeView.animate(type: .snowflake, imageView: homeView.animationImgVw)
         AnalyticsHelper.sendFirebaseEvents(events: .spin_reward, params: ["award" : combination.rawValue])
         switch combination {
         case .pairHummers:awardImgVw.image = SlotImgs.hammer
