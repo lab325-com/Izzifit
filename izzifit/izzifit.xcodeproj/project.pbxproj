@@ -360,6 +360,7 @@
 		FA3319C528461E490021C433 /* TimerSpinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3319C428461E490021C433 /* TimerSpinManager.swift */; };
 		FA3319C8284683100021C433 /* ArcticGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3319C7284683100021C433 /* ArcticGameView.swift */; };
 		FA42CC00283CE52700C6C959 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */; };
+		FA45FD71285C585F00F80ACD /* GameAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45FD70285C585F00F80ACD /* GameAnimationProtocol.swift */; };
 		FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */; };
 		FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */; };
 		FA62C54E27F5B58800AC463A /* WeightsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */; };
@@ -770,6 +771,7 @@
 		FA3319C428461E490021C433 /* TimerSpinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSpinManager.swift; sourceTree = "<group>"; };
 		FA3319C7284683100021C433 /* ArcticGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGameView.swift; sourceTree = "<group>"; };
 		FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
+		FA45FD70285C585F00F80ACD /* GameAnimationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAnimationProtocol.swift; sourceTree = "<group>"; };
 		FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometryManager.swift; sourceTree = "<group>"; };
 		FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WeightsWidget.graphql; sourceTree = "<group>"; };
 		FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsWidgetModel.swift; sourceTree = "<group>"; };
@@ -2598,6 +2600,7 @@
 				FACD1C14284790940014AFDC /* Managers */,
 				FA3319C6284682D30021C433 /* ArcticGameController */,
 				FAB65AAF2848C4A600664399 /* EnglandGameController */,
+				FA45FD70285C585F00F80ACD /* GameAnimationProtocol.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -3360,6 +3363,7 @@
 				02F2D94427D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift in Sources */,
 				02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */,
 				02B225BB27BD79DA0035CFA2 /* StartPresenter.swift in Sources */,
+				FA45FD71285C585F00F80ACD /* GameAnimationProtocol.swift in Sources */,
 				FE1403B327E1EDC2002F5819 /* ProfileController.swift in Sources */,
 				FAEB6F5B284A24850027CF80 /* MapView.swift in Sources */,
 				02B225A227BCF0F00035CFA2 /* TempProfileModel.swift in Sources */,

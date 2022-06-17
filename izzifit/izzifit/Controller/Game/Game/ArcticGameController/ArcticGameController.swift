@@ -72,20 +72,19 @@ class ArcticGameController: BaseController {
     }
     
     @objc func spinAction() {
-        gameView.animate(type: .hammer3, imageView: gameView.animationImgVw)
-//        timerSpinManager.generalSpin(resultLbl: gameView.startSpinLbl,
-//                                     resultStackView: gameView.resultStackView,
-//                                     coinsLbl: gameView.barBackVw.coinsLbl,
-//                                     energyCountLbl: gameView.barBackVw.energyCountLbl,
-//                                     spinBtn: gameView.spinBtn,
-//                                     showProgress: { DispatchQueue.main.async {  self.gameView.showProgress() }}
-//                                     ,spinsRunOut: spinsRunOut) {
-//            let result = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
-//
-//            if !result, let ids = PreferencesManager.sharedManager.enegyZero?.idProducts {
-//                GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
-//            }
-//        }
+        timerSpinManager.generalSpin(resultLbl: gameView.startSpinLbl,
+                                     resultStackView: gameView.resultStackView,
+                                     coinsLbl: gameView.barBackVw.coinsLbl,
+                                     energyCountLbl: gameView.barBackVw.energyCountLbl,
+                                     spinBtn: gameView.spinBtn,
+                                     showProgress: { DispatchQueue.main.async {  self.gameView.showProgress() }}
+                                     ,spinsRunOut: spinsRunOut) {
+            let result = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
+
+            if !result, let ids = PreferencesManager.sharedManager.enegyZero?.idProducts {
+                GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
+            }
+        }
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {

@@ -79,19 +79,19 @@ enum Clrs: String {
 }
 
 struct SlotImgs {
-    static let dollar = UIImage(named: "dollar")
-    static let hammer = UIImage(named: "hammer")
-    static let lightning = UIImage(named: "lightning")
-    static let moneyBag = UIImage(named: "moneyBag")
-    static let snowflake = UIImage(named: "snowflake")
+    static let dollar =     UIImage(named: "dollar")
+    static let hammer =     UIImage(named: "hammer")
+    static let lightning =  UIImage(named: "lightning")
+    static let moneyBag =   UIImage(named: "moneyBag")
+    static let snowflake =  UIImage(named: "snowflake")
 }
 
 struct UK_SlotImgs {
-    static let pound = UIImage(named: "en_pound")
-    static let flag = UIImage(named: "en_flag")
-    static let moneyBag = UIImage(named: "en_moneyBag")
-    static let hammer = UIImage(named: "en_hammer")
-    static let lightning = UIImage(named: "en_lightning")
+    static let pound =      UIImage(named: "en_pound")
+    static let flag =       UIImage(named: "en_flag")
+    static let moneyBag =   UIImage(named: "en_moneyBag")
+    static let hammer =     UIImage(named: "en_hammer")
+    static let lightning =  UIImage(named: "en_lightning")
 }
 
 struct ScaleImgs {
