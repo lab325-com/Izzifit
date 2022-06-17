@@ -97,7 +97,7 @@ class MenuController: BaseController {
             guard let userId = KeychainService.standard.me?.id,
                   let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
                   let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String else { return }
-            let message = "User ID: \(userId)\n\nApp verion: \(version) (\(build))"
+            let message = "User ID: \(userId)\n\nApp verion: \(version) (\(build))\n\nFCM token: \(PreferencesManager.sharedManager.fcmToken ?? "not have")"
             let alert = UIAlertController(title: "User info", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { action in
                 UIPasteboard.general.string = message

@@ -22,6 +22,8 @@ class PreferencesManager : NSObject {
     static let preOnboardingRemote = "preOnboardingRemote"
     static let enegyZero = "enegyZero"
     static let coinsZero = "coinsZero"
+    static let fcmToken = "fcmToken"
+    static let localPushs = "localPushs"
     
     var userDefaults: UserDefaults
     
@@ -185,7 +187,7 @@ class PreferencesManager : NSObject {
             userDefaults.synchronize()
         }
     }
-    
+
     var currentMapName: MapName? {
             get {
                 return MapName(rawValue: userDefaults.string(forKey: "currentMapName") ?? "snow_map") ?? nil
@@ -195,4 +197,22 @@ class PreferencesManager : NSObject {
                 userDefaults.synchronize()
             }
         }
+
+    var localPushs: [LocalPushModel] {
+        get {
+            return self.models(forKey: PreferencesManager.localPushs) ?? []
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.localPushs)
+        }
+    }
+    
+    var fcmToken: String? {
+        get {
+            return self.model(forKey: PreferencesManager.fcmToken)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.fcmToken)
+        }
+    }
 }

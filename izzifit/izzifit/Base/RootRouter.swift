@@ -51,7 +51,7 @@ class RootRouter {
 //----------------------------------------------
 extension RootRouter {
     func loadOnboarding(toWindow window: UIWindow) {
-        let viewController = QuizeNameController(isHiddenBackButton: true)
+        let viewController = OnboardingSwipeContoller(isHiddenBackButton: true)
         let navigationController = NavigationController(rootViewController: viewController)
         UIApplication.shared.switchRootViewController(window: window,
                                                       rootViewController: navigationController,

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02021996285B456B0015CA9A /* EnergySpecialPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02021994285B456A0015CA9A /* EnergySpecialPriceCell.swift */; };
+		02021997285B456B0015CA9A /* EnergySpecialPriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02021995285B456B0015CA9A /* EnergySpecialPriceCell.xib */; };
 		020CB3D327E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 020CB3D227E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql */; };
 		020CB3D527E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020CB3D427E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift */; };
 		020CB3D727E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020CB3D627E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift */; };
@@ -154,9 +156,6 @@
 		0256999228197A7500BA1535 /* 19_super_win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0256998628197A7500BA1535 /* 19_super_win.wav */; };
 		0256999328197A7500BA1535 /* 10_spin_tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0256998728197A7500BA1535 /* 10_spin_tap.wav */; };
 		0256999528197C6C00BA1535 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256999428197C6C00BA1535 /* BaseTableViewCell.swift */; };
-		025733CD283E7C0D00CC6743 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 025733CC283E7C0D00CC6743 /* FirebaseAnalytics */; };
-		025733CF283E7C0D00CC6743 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 025733CE283E7C0D00CC6743 /* FirebaseCrashlytics */; };
-		025733D1283E7C0D00CC6743 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 025733D0283E7C0D00CC6743 /* FirebaseRemoteConfig */; };
 		0263388D27DB299600DC0325 /* EnergyProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263388B27DB299600DC0325 /* EnergyProgressController.swift */; };
 		0263388E27DB299600DC0325 /* EnergyProgressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0263388C27DB299600DC0325 /* EnergyProgressController.xib */; };
 		0263389027DB29AF00DC0325 /* EnergyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263388F27DB29AF00DC0325 /* EnergyRouter.swift */; };
@@ -187,6 +186,8 @@
 		0273F56C27D6513200B19449 /* MealsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0273F56B27D6513200B19449 /* MealsWidget.graphql */; };
 		0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273F56D27D6561100B19449 /* MealsWidgetModel.swift */; };
 		027BFB472844B2AB0008E241 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BFB462844B2AB0008E241 /* GradientView.swift */; };
+		02825160285899790059BD17 /* LocalPushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0282515F285899790059BD17 /* LocalPushManager.swift */; };
+		0282516228589C9C0059BD17 /* LocalPushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0282516128589C9C0059BD17 /* LocalPushModel.swift */; };
 		028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C02834EE5100F3D148 /* AdSupport.framework */; };
 		028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C22834EE5C00F3D148 /* iAd.framework */; };
 		028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C42834EE6300F3D148 /* AdServices.framework */; };
@@ -201,7 +202,7 @@
 		029EDBD3280D727A00FC8748 /* WorkoutAttemptUpdate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 029EDBD2280D727A00FC8748 /* WorkoutAttemptUpdate.graphql */; };
 		029EDBD5280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029EDBD4280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift */; };
 		02A27B59282A657400B435B0 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A27B58282A657400B435B0 /* AnalyticsHelper.swift */; };
-		02A4649E2811641800B00381 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02A4649D2811641800B00381 /* GoogleService-Info.plist */; };
+		02A4649E2811641800B00381 /* GoogleService-Info1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02A4649D2811641800B00381 /* GoogleService-Info1.plist */; };
 		02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA327C393A300D31FB4 /* EnergyController.swift */; };
 		02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDA427C393A300D31FB4 /* EnergyController.xib */; };
 		02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */; };
@@ -252,6 +253,12 @@
 		02B22ACA281C2614006AB1EA /* SpinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B22AC9281C2614006AB1EA /* SpinModel.swift */; };
 		02B22ACD281C27D8006AB1EA /* UpgradeBuilding.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B22ACC281C27D8006AB1EA /* UpgradeBuilding.graphql */; };
 		02B22ACF281C2882006AB1EA /* UpgradeBuildingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B22ACE281C2882006AB1EA /* UpgradeBuildingModel.swift */; };
+		02B280F828571529003CAB32 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B280F728571529003CAB32 /* StoreKit.framework */; };
+		02B280FC28571734003CAB32 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 02B280FB28571734003CAB32 /* FirebaseAnalytics */; };
+		02B280FE28571734003CAB32 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 02B280FD28571734003CAB32 /* FirebaseCrashlytics */; };
+		02B2810028571734003CAB32 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 02B280FF28571734003CAB32 /* FirebaseMessaging */; };
+		02B2810228571734003CAB32 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 02B2810128571734003CAB32 /* FirebaseRemoteConfig */; };
+		02B2810428573268003CAB32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02B2810328573268003CAB32 /* GoogleService-Info.plist */; };
 		02B3016F27EAFB310045C607 /* DrinkWaterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3016E27EAFB310045C607 /* DrinkWaterModel.swift */; };
 		02B3017227EB22EA0045C607 /* SaveMood.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02B3017127EB22EA0045C607 /* SaveMood.graphql */; };
 		02B3017427EB23190045C607 /* SaveMoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3017327EB23190045C607 /* SaveMoodModel.swift */; };
@@ -321,6 +328,10 @@
 		02D1631F27FADC2F007C6686 /* Inter-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D1631E27FADC2F007C6686 /* Inter-BoldItalic.ttf */; };
 		02D5703C27E9AE4C00F14911 /* WorkoutsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02D5703B27E9AE4B00F14911 /* WorkoutsWidget.graphql */; };
 		02D5703E27E9AF3B00F14911 /* WorkoutsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */; };
+		02DFE895285A1168005BF69B /* OnboardingSwipeContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFE893285A1168005BF69B /* OnboardingSwipeContoller.swift */; };
+		02DFE896285A1168005BF69B /* OnboardingSwipeContoller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02DFE894285A1168005BF69B /* OnboardingSwipeContoller.xib */; };
+		02DFE89A285A154A005BF69B /* OnboardingSwipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFE898285A154A005BF69B /* OnboardingSwipeCell.swift */; };
+		02DFE89B285A154A005BF69B /* OnboardingSwipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02DFE899285A154A005BF69B /* OnboardingSwipeCell.xib */; };
 		02E3F9DA2808478D006F5A99 /* CMTime+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3F9D92808478D006F5A99 /* CMTime+Extension.swift */; };
 		02E6D85827FC255100E29509 /* SubscribePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6D85727FC255100E29509 /* SubscribePresenter.swift */; };
 		02E6D85D27FC385F00E29509 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 02E6D85C27FC385F00E29509 /* Localizable.stringsdict */; };
@@ -357,6 +368,9 @@
 		FA1A6D8028081CE80040518A /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D7E28081CE80040518A /* LevelController.swift */; };
 		FA1A6D8128081CE80040518A /* LevelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1A6D7F28081CE80040518A /* LevelController.xib */; };
 		FA1A6D8B28097F0D0040518A /* GameTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */; };
+		FA2794E7285A058D00AEEA70 /* HealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2794E6285A058D00AEEA70 /* HealthModel.swift */; };
+		FA2794E9285A068800AEEA70 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2794E8285A068800AEEA70 /* HealthKit.framework */; };
+		FA2794F4285CA8A900AEEA70 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2794F3285CA8A900AEEA70 /* HealthKitManager.swift */; };
 		FA3319C528461E490021C433 /* TimerSpinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3319C428461E490021C433 /* TimerSpinManager.swift */; };
 		FA3319C8284683100021C433 /* ArcticGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3319C7284683100021C433 /* ArcticGameView.swift */; };
 		FA42CC00283CE52700C6C959 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */; };
@@ -367,6 +381,10 @@
 		FA65F4F9283E238C00F2427C /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65F4F8283E238C00F2427C /* UIImageView+Extension.swift */; };
 		FA6628A327F184C200FBB946 /* Moods.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA6628A227F184C200FBB946 /* Moods.graphql */; };
 		FA6699CA281ABCF600B394E0 /* OffsetCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */; };
+		FA6B281E285CC9A100D34333 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B281D285CC9A100D34333 /* FirebaseAnalytics */; };
+		FA6B2820285CC9A100D34333 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B281F285CC9A100D34333 /* FirebaseCrashlytics */; };
+		FA6B2822285CC9A100D34333 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B2821285CC9A100D34333 /* FirebaseMessaging */; };
+		FA6B2824285CC9A100D34333 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B2823285CC9A100D34333 /* FirebaseRemoteConfig */; };
 		FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */; };
 		FA8CC858282919B80022BFE2 /* construction3.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA8CC857282919B80022BFE2 /* construction3.gif */; };
 		FA9400052833989C00CE5021 /* GameBarBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9400042833989C00CE5021 /* GameBarBackView.swift */; };
@@ -419,6 +437,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02021994285B456A0015CA9A /* EnergySpecialPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergySpecialPriceCell.swift; sourceTree = "<group>"; };
+		02021995285B456B0015CA9A /* EnergySpecialPriceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergySpecialPriceCell.xib; sourceTree = "<group>"; };
 		020CB3D227E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChooseWorkoutWidgetModel.graphql; sourceTree = "<group>"; };
 		020CB3D427E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsWidgetMainModel.swift; sourceTree = "<group>"; };
 		020CB3D627E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseWorkoutWidgetModel.swift; sourceTree = "<group>"; };
@@ -597,6 +617,8 @@
 		0273F56B27D6513200B19449 /* MealsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MealsWidget.graphql; sourceTree = "<group>"; };
 		0273F56D27D6561100B19449 /* MealsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsWidgetModel.swift; sourceTree = "<group>"; };
 		027BFB462844B2AB0008E241 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		0282515F285899790059BD17 /* LocalPushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPushManager.swift; sourceTree = "<group>"; };
+		0282516128589C9C0059BD17 /* LocalPushModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPushModel.swift; sourceTree = "<group>"; };
 		028EE3C02834EE5100F3D148 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		028EE3C22834EE5C00F3D148 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		028EE3C42834EE6300F3D148 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
@@ -611,7 +633,7 @@
 		029EDBD2280D727A00FC8748 /* WorkoutAttemptUpdate.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutAttemptUpdate.graphql; sourceTree = "<group>"; };
 		029EDBD4280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAttemptUpdateModel.swift; sourceTree = "<group>"; };
 		02A27B58282A657400B435B0 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
-		02A4649D2811641800B00381 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		02A4649D2811641800B00381 /* GoogleService-Info1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info1.plist"; sourceTree = "<group>"; };
 		02A5CDA327C393A300D31FB4 /* EnergyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyController.swift; sourceTree = "<group>"; };
 		02A5CDA427C393A300D31FB4 /* EnergyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyController.xib; sourceTree = "<group>"; };
 		02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
@@ -661,6 +683,9 @@
 		02B22AC9281C2614006AB1EA /* SpinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinModel.swift; sourceTree = "<group>"; };
 		02B22ACC281C27D8006AB1EA /* UpgradeBuilding.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UpgradeBuilding.graphql; sourceTree = "<group>"; };
 		02B22ACE281C2882006AB1EA /* UpgradeBuildingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeBuildingModel.swift; sourceTree = "<group>"; };
+		02B280F728571529003CAB32 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		02B280F92857155D003CAB32 /* izzifit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = izzifit.entitlements; sourceTree = "<group>"; };
+		02B2810328573268003CAB32 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		02B3016E27EAFB310045C607 /* DrinkWaterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkWaterModel.swift; sourceTree = "<group>"; };
 		02B3017127EB22EA0045C607 /* SaveMood.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SaveMood.graphql; sourceTree = "<group>"; };
 		02B3017327EB23190045C607 /* SaveMoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMoodModel.swift; sourceTree = "<group>"; };
@@ -730,6 +755,10 @@
 		02D1631E27FADC2F007C6686 /* Inter-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.ttf"; sourceTree = "<group>"; };
 		02D5703B27E9AE4B00F14911 /* WorkoutsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutsWidget.graphql; sourceTree = "<group>"; };
 		02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsWidgetModel.swift; sourceTree = "<group>"; };
+		02DFE893285A1168005BF69B /* OnboardingSwipeContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSwipeContoller.swift; sourceTree = "<group>"; };
+		02DFE894285A1168005BF69B /* OnboardingSwipeContoller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingSwipeContoller.xib; sourceTree = "<group>"; };
+		02DFE898285A154A005BF69B /* OnboardingSwipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSwipeCell.swift; sourceTree = "<group>"; };
+		02DFE899285A154A005BF69B /* OnboardingSwipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingSwipeCell.xib; sourceTree = "<group>"; };
 		02E3F9D92808478D006F5A99 /* CMTime+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Extension.swift"; sourceTree = "<group>"; };
 		02E6D85727FC255100E29509 /* SubscribePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribePresenter.swift; sourceTree = "<group>"; };
 		02E6D85C27FC385F00E29509 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
@@ -768,6 +797,9 @@
 		FA1A6D7E28081CE80040518A /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
 		FA1A6D7F28081CE80040518A /* LevelController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelController.xib; sourceTree = "<group>"; };
 		FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTabBarController.swift; sourceTree = "<group>"; };
+		FA2794E6285A058D00AEEA70 /* HealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthModel.swift; sourceTree = "<group>"; };
+		FA2794E8285A068800AEEA70 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		FA2794F3285CA8A900AEEA70 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		FA3319C428461E490021C433 /* TimerSpinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSpinManager.swift; sourceTree = "<group>"; };
 		FA3319C7284683100021C433 /* ArcticGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGameView.swift; sourceTree = "<group>"; };
 		FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
@@ -834,21 +866,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B2810028571734003CAB32 /* FirebaseMessaging in Frameworks */,
 				02AEDFD728477CC7007C0EA4 /* SwiftyStoreKit in Frameworks */,
 				024EBC9B2840C8CC00E6623F /* AppTrackingTransparency.framework in Frameworks */,
+				FA6B2822285CC9A100D34333 /* FirebaseMessaging in Frameworks */,
 				028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */,
 				028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */,
+				FA6B2820285CC9A100D34333 /* FirebaseCrashlytics in Frameworks */,
 				028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */,
 				0249D27827B3AA3B00F265C1 /* Apollo in Frameworks */,
-				025733D1283E7C0D00CC6743 /* FirebaseRemoteConfig in Frameworks */,
 				0249D27A27B3AA3B00F265C1 /* ApolloWebSocket in Frameworks */,
 				0249D25627B3A7AD00F265C1 /* NVActivityIndicatorView in Frameworks */,
-				025733CD283E7C0D00CC6743 /* FirebaseAnalytics in Frameworks */,
+				FA2794E9285A068800AEEA70 /* HealthKit.framework in Frameworks */,
+				02B280F828571529003CAB32 /* StoreKit.framework in Frameworks */,
+				02B2810228571734003CAB32 /* FirebaseRemoteConfig in Frameworks */,
 				0249D25827B3A7AD00F265C1 /* NVActivityIndicatorViewExtended in Frameworks */,
+				FA6B2824285CC9A100D34333 /* FirebaseRemoteConfig in Frameworks */,
+				02B280FC28571734003CAB32 /* FirebaseAnalytics in Frameworks */,
+				FA6B281E285CC9A100D34333 /* FirebaseAnalytics in Frameworks */,
 				0227DA8C27C4CA77008AB26B /* Kingfisher in Frameworks */,
 				0249D27027B3A98C00F265C1 /* SwiftKeychainWrapper in Frameworks */,
+				02B280FE28571734003CAB32 /* FirebaseCrashlytics in Frameworks */,
 				0249D27D27B3AA7000F265C1 /* Toast in Frameworks */,
-				025733CF283E7C0D00CC6743 /* FirebaseCrashlytics in Frameworks */,
 				8C4F7F85C1CC5538D3E379C8 /* Pods_izzifit.framework in Frameworks */,
 				FABA1DEF285AEE23005ECE75 /* SwiftyGif in Frameworks */,
 			);
@@ -857,6 +896,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02021992285B45260015CA9A /* EnergySpecialPriceCell */ = {
+			isa = PBXGroup;
+			children = (
+				02021994285B456A0015CA9A /* EnergySpecialPriceCell.swift */,
+				02021995285B456B0015CA9A /* EnergySpecialPriceCell.xib */,
+			);
+			path = EnergySpecialPriceCell;
+			sourceTree = "<group>";
+		};
 		020CB3D127E9C9DF00F97A76 /* ChooseWorkoutWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -937,6 +985,7 @@
 				0218DA95283B92FA000979B5 /* PaywallScreen.swift */,
 				02C48EED28531DE3008708B8 /* EnergyZeroModel.swift */,
 				0227A9C02849FC3700BA29A8 /* PreOnboardingModel.swift */,
+				0282516128589C9C0059BD17 /* LocalPushModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1192,7 +1241,9 @@
 		0249D22927B3A4EF00F265C1 /* izzifit */ = {
 			isa = PBXGroup;
 			children = (
-				02A4649D2811641800B00381 /* GoogleService-Info.plist */,
+				02B280F92857155D003CAB32 /* izzifit.entitlements */,
+				02A4649D2811641800B00381 /* GoogleService-Info1.plist */,
+				02B2810328573268003CAB32 /* GoogleService-Info.plist */,
 				0249D29D27B3D81700F265C1 /* API.swift */,
 				02D066AC27BBA8F400D12C5F /* R.generated.swift */,
 				0249D25927B3A87100F265C1 /* Resources */,
@@ -1323,6 +1374,7 @@
 				0251D24827E221ED0098A54D /* ProductsMainModel.swift */,
 				020CB3D427E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift */,
 				02BACF1727F4588100B7562C /* WorkoutByIdMainModel.swift */,
+				FA2794E6285A058D00AEEA70 /* HealthModel.swift */,
 			);
 			path = GlobalModels;
 			sourceTree = "<group>";
@@ -1334,6 +1386,8 @@
 				0249D27327B3AA0400F265C1 /* PreferenceManager.swift */,
 				0263389627DB48D000DC0325 /* CalendarManager.swift */,
 				02569977281960BA00BA1535 /* AudioManager.swift */,
+				0282515F285899790059BD17 /* LocalPushManager.swift */,
+				FA2794F3285CA8A900AEEA70 /* HealthKitManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1717,6 +1771,7 @@
 				02FAF0A327D36173002CD678 /* EnergyDrinkWaterCell */,
 				0273F55627D5F06F00B19449 /* EnergyMoodCell */,
 				0273F55B27D5F7A600B19449 /* EnergyMealsCell */,
+				02021992285B45260015CA9A /* EnergySpecialPriceCell */,
 				0273F56027D60C5F00B19449 /* EnergySleepCell */,
 				0268752627D8C8DF00FFEA6A /* EnergyWeightCell */,
 				0268753027D8E4ED00FFEA6A /* EnergyChooseActivityCell */,
@@ -2243,6 +2298,7 @@
 			isa = PBXGroup;
 			children = (
 				02D066CD27BBC41700D12C5F /* OnboardingRouter.swift */,
+				02DFE892285A1107005BF69B /* OnboardingSwipe */,
 				02D066C827BBBB2C00D12C5F /* QuizeName */,
 				02D066CF27BBCE9F00D12C5F /* QuizeGenger */,
 				02D066D527BBDC1800D12C5F /* QuizeGoal */,
@@ -2321,6 +2377,25 @@
 				02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */,
 			);
 			path = WorkoutsWidget;
+			sourceTree = "<group>";
+		};
+		02DFE892285A1107005BF69B /* OnboardingSwipe */ = {
+			isa = PBXGroup;
+			children = (
+				02DFE893285A1168005BF69B /* OnboardingSwipeContoller.swift */,
+				02DFE894285A1168005BF69B /* OnboardingSwipeContoller.xib */,
+				02DFE897285A152B005BF69B /* Cell */,
+			);
+			path = OnboardingSwipe;
+			sourceTree = "<group>";
+		};
+		02DFE897285A152B005BF69B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				02DFE898285A154A005BF69B /* OnboardingSwipeCell.swift */,
+				02DFE899285A154A005BF69B /* OnboardingSwipeCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		02E9046E27F59E1B008CFFB4 /* WorkoutExercisesCell */ = {
@@ -2418,6 +2493,8 @@
 		DB1BDA7364672EBF249DB7B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA2794E8285A068800AEEA70 /* HealthKit.framework */,
+				02B280F728571529003CAB32 /* StoreKit.framework */,
 				024EBC9A2840C8CC00E6623F /* AppTrackingTransparency.framework */,
 				028EE3C42834EE6300F3D148 /* AdServices.framework */,
 				028EE3C22834EE5C00F3D148 /* iAd.framework */,
@@ -2805,11 +2882,17 @@
 				0249D27927B3AA3B00F265C1 /* ApolloWebSocket */,
 				0249D27C27B3AA7000F265C1 /* Toast */,
 				0227DA8B27C4CA77008AB26B /* Kingfisher */,
-				025733CC283E7C0D00CC6743 /* FirebaseAnalytics */,
-				025733CE283E7C0D00CC6743 /* FirebaseCrashlytics */,
-				025733D0283E7C0D00CC6743 /* FirebaseRemoteConfig */,
+				02AEDFD628477CC7007C0EA4 /* SwiftyStoreKit */,
+				02B280FB28571734003CAB32 /* FirebaseAnalytics */,
+				02B280FD28571734003CAB32 /* FirebaseCrashlytics */,
+				02B280FF28571734003CAB32 /* FirebaseMessaging */,
+				02B2810128571734003CAB32 /* FirebaseRemoteConfig */,
 				02AEDFD628477CC7007C0EA4 /* SwiftyStoreKit */,
 				FABA1DEE285AEE23005ECE75 /* SwiftyGif */,
+				FA6B281D285CC9A100D34333 /* FirebaseAnalytics */,
+				FA6B281F285CC9A100D34333 /* FirebaseCrashlytics */,
+				FA6B2821285CC9A100D34333 /* FirebaseMessaging */,
+				FA6B2823285CC9A100D34333 /* FirebaseRemoteConfig */,
 			);
 			productName = izzifit;
 			productReference = 0249D22727B3A4EF00F265C1 /* izzifit.app */;
@@ -2846,9 +2929,9 @@
 				0249D27627B3AA3B00F265C1 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				0249D27B27B3AA7000F265C1 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				0227DA8A27C4CA77008AB26B /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				02AEDFD528477CC7007C0EA4 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 				FABA1DED285AEE22005ECE75 /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+				FA6B281C285CC9A100D34333 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0249D22827B3A4EF00F265C1 /* Products */;
 			projectDirPath = "";
@@ -2880,6 +2963,7 @@
 				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
 				0256999328197A7500BA1535 /* 10_spin_tap.wav in Resources */,
 				02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */,
+				02DFE89B285A154A005BF69B /* OnboardingSwipeCell.xib in Resources */,
 				0256998E28197A7500BA1535 /* 14_coins_x3.wav in Resources */,
 				0263389527DB3E5100DC0325 /* ProgressCell.xib in Resources */,
 				02ABCF3927CCF74C00E69C06 /* Products.graphql in Resources */,
@@ -2907,6 +2991,7 @@
 				020CB3DA27E9F43D00F97A76 /* UpdateProductInMeal.graphql in Resources */,
 				0227DABD27C6768F008AB26B /* MenuWeightController.xib in Resources */,
 				0256997B2819611600BA1535 /* 1_tap_main.wav in Resources */,
+				02DFE896285A1168005BF69B /* OnboardingSwipeContoller.xib in Resources */,
 				02B225B927BD63FC0035CFA2 /* QuizeEmailController.xib in Resources */,
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
 				02B22ACD281C27D8006AB1EA /* UpgradeBuilding.graphql in Resources */,
@@ -2956,6 +3041,7 @@
 				020CB3D327E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql in Resources */,
 				02ABCF3627CCC3F400E69C06 /* MenuFoodSwitchCell.xib in Resources */,
 				02D066A827BBA72100D12C5F /* Localizable.strings in Resources */,
+				02021997285B456B0015CA9A /* EnergySpecialPriceCell.xib in Resources */,
 				02D066C127BBB57D00D12C5F /* Inter-Thin.ttf in Resources */,
 				02C3DD6627BEDA82004E5C65 /* QuizeProgressController.xib in Resources */,
 				FE7CF8BC27E4A7ED0099682E /* WeightTableCell.xib in Resources */,
@@ -2974,8 +3060,9 @@
 				0251D23E27E215480098A54D /* ProductsByMeal.graphql in Resources */,
 				02D066D427BBD12600D12C5F /* QuizeGenderController.xib in Resources */,
 				0273F56727D60EC500B19449 /* SleepWidget.graphql in Resources */,
-				02A4649E2811641800B00381 /* GoogleService-Info.plist in Resources */,
+				02A4649E2811641800B00381 /* GoogleService-Info1.plist in Resources */,
 				02E9047227F59E56008CFFB4 /* WorkoutExercisesCell.xib in Resources */,
+				02B2810428573268003CAB32 /* GoogleService-Info.plist in Resources */,
 				02F2D94027D0BF5C00E9FB68 /* AskQuestion.graphql in Resources */,
 				025463BB27CFB1F300D433DB /* ToggleMuscleInWorkouts.graphql in Resources */,
 				0227DAB827C67334008AB26B /* MenuHeightController.xib in Resources */,
@@ -3220,6 +3307,7 @@
 				0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */,
 				028EE3C92835031400F3D148 /* EnergyController+TableView.swift in Sources */,
 				0249D26327B3A88C00F265C1 /* UIApplicathion+Extension.swift in Sources */,
+				02DFE895285A1168005BF69B /* OnboardingSwipeContoller.swift in Sources */,
 				020D281F27E863DD00010122 /* FoodAddController.swift in Sources */,
 				FEBFD7B127E0F16A0027ADD2 /* SetUIManager.swift in Sources */,
 				024EBCA72840EAE900E6623F /* ProfileDeleteModel.swift in Sources */,
@@ -3250,6 +3338,7 @@
 				0227DAB727C67334008AB26B /* MenuHeightController.swift in Sources */,
 				02D066D327BBD12600D12C5F /* QuizeGenderController.swift in Sources */,
 				02354E9C28098B8C005A8272 /* VideoNotFinished.swift in Sources */,
+				0282516228589C9C0059BD17 /* LocalPushModel.swift in Sources */,
 				02A5CDC227C4247300D31FB4 /* QuizeFoodCell.swift in Sources */,
 				024779CD27DCB8BF00AAFE3D /* Date+Extension.swift in Sources */,
 				026338A027DB6D0200DC0325 /* EnergyProgressesPresenter.swift in Sources */,
@@ -3261,6 +3350,7 @@
 				0227A9C12849FC3700BA29A8 /* PreOnboardingModel.swift in Sources */,
 				0227DA9F27C63A57008AB26B /* FoodGroupsModel.swift in Sources */,
 				02FAF0A627D361AE002CD678 /* EnergyDrinkWaterCell.swift in Sources */,
+				FA2794F4285CA8A900AEEA70 /* HealthKitManager.swift in Sources */,
 				020CB3D527E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift in Sources */,
 				02B225B827BD63FC0035CFA2 /* QuizeEmailController.swift in Sources */,
 				FABE8BF828512C6C00E3E53C /* PurchasePop.swift in Sources */,
@@ -3333,6 +3423,7 @@
 				0263389727DB48D000DC0325 /* CalendarManager.swift in Sources */,
 				02ABCF3B27CCF80300E69C06 /* ProductsModel.swift in Sources */,
 				023D171C27BE1D4D005F95C0 /* AuthRouter.swift in Sources */,
+				02DFE89A285A154A005BF69B /* OnboardingSwipeCell.swift in Sources */,
 				FEE119BF27E9B9270058EE6D /* MoodTableCell.swift in Sources */,
 				02E9047127F59E56008CFFB4 /* WorkoutExercisesCell.swift in Sources */,
 				FAE6764D282E7E200020678E /* LevelPresenter.swift in Sources */,
@@ -3340,9 +3431,11 @@
 				02BE9430284F34F4006D361B /* GameRouter.swift in Sources */,
 				02D066DD27BBE56700D12C5F /* QuizeAgeController.swift in Sources */,
 				02E6D85827FC255100E29509 /* SubscribePresenter.swift in Sources */,
+				02021996285B456B0015CA9A /* EnergySpecialPriceCell.swift in Sources */,
 				02F0C18127EDBDDB005DE3E2 /* EnergyUpdateWeightController.swift in Sources */,
 				020D282727E8A04400010122 /* AddProductToMealModel.swift in Sources */,
 				FE1403C227E249EB002F5819 /* ChartCollectionCell.swift in Sources */,
+				FA2794E7285A058D00AEEA70 /* HealthModel.swift in Sources */,
 				0273F56E27D6561100B19449 /* MealsWidgetModel.swift in Sources */,
 				0249D27427B3AA0400F265C1 /* NetwokrManager.swift in Sources */,
 				FAB65AB32848C4F900664399 /* EnglandGameView.swift in Sources */,
@@ -3360,6 +3453,7 @@
 				FADD5114284F2C8900F3A292 /* PurchasePopUp.swift in Sources */,
 				02C3DD6827BEDAB1004E5C65 /* QuizeProgressPresenter.swift in Sources */,
 				02E9048027F5A3A1008CFFB4 /* WorkoutsModel.swift in Sources */,
+				02825160285899790059BD17 /* LocalPushManager.swift in Sources */,
 				02F2D94427D0C11400E9FB68 /* MenuWriteQuestionPresenter.swift in Sources */,
 				02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */,
 				02B225BB27BD79DA0035CFA2 /* StartPresenter.swift in Sources */,
@@ -3537,12 +3631,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 36;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -3573,12 +3670,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 36;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -3670,12 +3770,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 36;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -3765,7 +3868,15 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		02AEDFD528477CC7007C0EA4 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.3;
+			};
+		};
+		02B280FA28571734003CAB32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -3773,12 +3884,12 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		02AEDFD528477CC7007C0EA4 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
+		FA6B281C285CC9A100D34333 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.3;
+				branch = master;
+				kind = branch;
 			};
 		};
 		FABA1DED285AEE22005ECE75 /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
@@ -3828,25 +3939,50 @@
 			package = 0249D27B27B3AA7000F265C1 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
 		};
-		025733CC283E7C0D00CC6743 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		025733CE283E7C0D00CC6743 /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
-		025733D0283E7C0D00CC6743 /* FirebaseRemoteConfig */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 025733CB283E7C0D00CC6743 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseRemoteConfig;
-		};
 		02AEDFD628477CC7007C0EA4 /* SwiftyStoreKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 02AEDFD528477CC7007C0EA4 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
 			productName = SwiftyStoreKit;
+		};
+		02B280FB28571734003CAB32 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02B280FA28571734003CAB32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		02B280FD28571734003CAB32 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02B280FA28571734003CAB32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		02B280FF28571734003CAB32 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02B280FA28571734003CAB32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		02B2810128571734003CAB32 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02B280FA28571734003CAB32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		FA6B281D285CC9A100D34333 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA6B281C285CC9A100D34333 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		FA6B281F285CC9A100D34333 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA6B281C285CC9A100D34333 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		FA6B2821285CC9A100D34333 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA6B281C285CC9A100D34333 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		FA6B2823285CC9A100D34333 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA6B281C285CC9A100D34333 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
 		};
 		FABA1DEE285AEE23005ECE75 /* SwiftyGif */ = {
 			isa = XCSwiftPackageProductDependency;

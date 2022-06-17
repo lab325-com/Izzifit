@@ -100,6 +100,6 @@ extension StartController: StartOutputProtocol {
     }
     
     func successGoOnboarding() {
-        OnboardingRouter(presenter: navigationController).pushName()
+        OnboardingRouter(presenter: navigationController).pushSwipe()
     }
 }

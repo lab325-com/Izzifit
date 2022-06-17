@@ -8,6 +8,7 @@
 import Foundation
 import Apollo
 import UIKit
+import HealthKit
 
 //----------------------------------------------
 // MARK: - Outputs Protocol
@@ -36,6 +37,7 @@ class EnergyPresenter: EnergyPresenterProtocol {
     
     private weak var view: EnergyOutputProtocol?
     private let uuid = UIDevice.current.identifierForVendor!.uuidString
+    private let healthStore = HKHealthStore()
     
     required init(view: EnergyOutputProtocol) {
         self.view = view
@@ -49,6 +51,7 @@ class EnergyPresenter: EnergyPresenterProtocol {
     var weightWidget: SaveWeightWidgetMainModel?
     var workoutWidgets: [WorkoutsWidgetMainModel] = []
     var chooseWorkoutWidgets: [WorkoutsWidgetMainModel] = []
+    var stepsWidget: [CurrentStepsModel] = []
     
     func getWidgets(date: String, loader: Bool = true) {
         
@@ -138,6 +141,15 @@ class EnergyPresenter: EnergyPresenterProtocol {
             group.leave()
             self?.view?.failure()
         })
+        
+        group.enter()
+        let _ = HealthKitManager.sharedManager.querySteps(controller: view) { [weak self] model in
+            self?.stepsWidget = model
+            group.leave()
+        } failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        }
         
         group.notify(queue: DispatchQueue.main) { [weak self] in
             self?.view?.stopLoading()
