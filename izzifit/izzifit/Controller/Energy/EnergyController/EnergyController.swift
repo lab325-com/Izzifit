@@ -170,36 +170,31 @@ extension EnergyController: EnergyOutputProtocol {
         updateMe()
         tableView.isHidden = false
         tableView.reloadData()
+        
+//        if presenter.stepsWidget.count > 0 {
+//            var message = ""
+//            for steps in presenter.stepsWidget {
+//                let hour = steps.hourType
+//                let steps = steps.steps
+//                if message.isEmpty {
+//                    message = "Hour: \(hour), Steps: \(steps)"
+//                } else {
+//                    message += "\nHour: \(hour), Steps: \(steps)"
+//                }
+//            }
+//            let alert = UIAlertController(title: "Steps from HealthKit",
+//                                          message: message,
+//                                          preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "OK",
+//                                         style: .default)
+//            alert.addAction(okAction)
+//            present(alert, animated: true)
+//        }
     }
     
     func successWidgetList() {
         tableView.reloadData()
     }
-    
-    func successGetSteps() {
-        print(presenter.steps)
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM"
-        var message = ""
-        for steps in presenter.steps {
-            let day = dateFormatter.string(from: steps.date)
-            let steps = steps.steps
-            if message.isEmpty {
-                message = "Day: \(day), Steps: \(steps)"
-            } else {
-                message += "\nDay: \(day), Steps: \(steps)"
-            }
-        }
-        let alert = UIAlertController(title: "Steps from HealthKit",
-                                      message: message,
-                                      preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK",
-                                     style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-
     
     func failure() {
         
