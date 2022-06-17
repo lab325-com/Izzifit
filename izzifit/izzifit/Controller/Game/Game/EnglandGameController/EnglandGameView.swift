@@ -89,8 +89,8 @@ class EnglandGameView: UIView, GameAnimationProtocol {
                     textAlignment: .right,
                     fontSize: h / 60.75,
                     fontName: "Inter-BoldItalic")
-        hummerBtn.isHidden = true
-        hummerCountLbl.isHidden = true
+//        hummerBtn.isHidden = true
+//        hummerCountLbl.isHidden = true
         
         // logo
         logoImgVw.image = image(img: .start_logo_ic)

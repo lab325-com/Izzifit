@@ -143,6 +143,7 @@ class LevelController: BaseController {
             }
             return
         }
+        guard presenter.freeBuildingsCount ?? 0 == 0 else { return }
         // тут малюй попАп за монети
         drawBuildPopUp(price: price,
                        buildType: buildType,

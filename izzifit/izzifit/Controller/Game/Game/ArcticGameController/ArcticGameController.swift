@@ -19,6 +19,8 @@ class ArcticGameController: BaseController {
     override func loadView() {
         gameView = ArcticGameView()
         self.view = gameView
+        gameView.hummerBtn.isHidden = true
+        gameView.hummerCountLbl.isHidden = true
         setCollectionView()
     }
     
@@ -77,7 +79,7 @@ class ArcticGameController: BaseController {
                                      coinsLbl: gameView.barBackVw.coinsLbl,
                                      energyCountLbl: gameView.barBackVw.energyCountLbl,
                                      spinBtn: gameView.spinBtn,
-                                     showProgress: { DispatchQueue.main.async {  self.gameView.showProgress() }}
+                                     showProgress: { DispatchQueue.main.async { self.gameView.showProgress() }}
                                      ,spinsRunOut: spinsRunOut) {
             let result = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
 

@@ -94,8 +94,8 @@ class ArcticGameView: UIView, GameAnimationProtocol {
                     textAlignment: .right,
                     fontSize: h / 60.75,
                     fontName: "Inter-BoldItalic")
-        hummerBtn.isHidden = true
-        hummerCountLbl.isHidden = true
+//        hummerBtn.isHidden = true
+//        hummerCountLbl.isHidden = true
         
         // logo
         logoImgVw.image = image(img: .start_logo_ic)
@@ -257,7 +257,6 @@ class ArcticGameView: UIView, GameAnimationProtocol {
         barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }
 }
-
 
 enum GameAnimation {
     case coin2, coin3, hammer3, lightning, snowflake

@@ -20,6 +20,8 @@ class EnglandGameController: BaseController {
     override func loadView() {
         gameView = EnglandGameView()
         self.view = gameView
+        gameView.hummerBtn.isHidden = true
+        gameView.hummerCountLbl.isHidden = true
         setCollectionView()
     }
     
