@@ -32,13 +32,17 @@ class EngLevelController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hiddenNavigationBar = true
+        addTargets()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         presenter.getBuildings{ [self] in
             if firstRespond {
                 checkAvailableHummers()
                 firstRespond.toggle()
             }
         }
-        addTargets()
     }
     
     private func addTargets() {
