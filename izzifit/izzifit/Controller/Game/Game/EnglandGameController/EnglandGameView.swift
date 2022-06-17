@@ -225,6 +225,14 @@ class EnglandGameView: UIView, GameAnimationProtocol {
                           leadingC: 0,
                           trailingC: 0)
         
+        ui.genericlLayout(object: animationImgVw,
+                          parentView: spinBtn,
+                          width: w,
+                          height: h,
+                          topToO: barBackVw.topAnchor,
+                          topCG: 0,
+                          leadingToO: barBackVw.leadingAnchor,
+                          leadingCG: 0)
     }
     
     func showProgress() {

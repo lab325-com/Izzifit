@@ -22,10 +22,10 @@ class SlotTableViewCell: BaseTableViewCell {
                         5: SlotImgs.hammer]
     
     var englandImgsDict = [1: UK_SlotImgs.pound,
-                           2: UK_SlotImgs.flag,
-                           3: UK_SlotImgs.moneyBag,
-                           4: UK_SlotImgs.hammer,
-                           5: UK_SlotImgs.lightning]
+                           2: UK_SlotImgs.moneyBag,
+                           3: UK_SlotImgs.lightning,
+                           4: UK_SlotImgs.flag,
+                           5: UK_SlotImgs.hammer]
     
     override init(style: BaseTableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

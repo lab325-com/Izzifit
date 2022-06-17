@@ -162,7 +162,7 @@ extension ArcticGameController: ArcticGameOutputProtocol {
                                               preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default)
                 alert.addAction(okAction)
-                self.present(alert, animated: true)
+          //      self.present(alert, animated: true)
             case .__unknown(_): print("")
             }
         }

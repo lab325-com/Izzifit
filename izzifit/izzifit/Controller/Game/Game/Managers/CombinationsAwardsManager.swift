@@ -78,68 +78,138 @@ struct CombinationsAwardsManager {
                        spinsAmount: Int,
                        _ threeHummers: () -> Void) {
         AnalyticsHelper.sendFirebaseEvents(events: .spin_reward, params: ["award" : combination.rawValue])
-        switch combination {
-               case .pairHummers: awardImgVw.image = SlotImgs.hammer
-                                  awardTitleLbl.text = "SPINS"
-                                  awardCountLbl.text = "\(spinsAmount)"
-                                  hiddenStack.isHidden.toggle()
-                case .setHummers: awardImgVw.image = SlotImgs.hammer
-                                  awardTitleLbl.text = "BUILD"
-                                  awardCountLbl.text = "1"
-                                  AudioManager.sharedManager.playSound(type: .superWin_19)
-                                  threeHummers()
-                                  hiddenStack.isHidden.toggle()
-                                  homeView.animate(type: .hammer3, imageView: homeView.animationImgVw)
-                case .pairDollars: awardImgVw.image = SlotImgs.dollar
-                                   awardTitleLbl.text = "COINS"
-                                   awardCountLbl.text = "\(coinsAmount)"
-                                   AudioManager.sharedManager.playSound(type: .coinsX2_13)
-                                   hiddenStack.isHidden.toggle()
-                                   homeView.animate(type: .coin2, imageView: homeView.animationImgVw)
-            case .setDollars: awardImgVw.image = SlotImgs.dollar
-                              awardTitleLbl.text = "COINS"
-                              awardCountLbl.text = "\(coinsAmount)"
-                              AudioManager.sharedManager.playSound(type: .coinsX3_14)
-                              hiddenStack.isHidden.toggle()
-                              homeView.animate(type: .coin3, imageView: homeView.animationImgVw)
-            case .pairSnowflakes: awardImgVw.image = SlotImgs.snowflake
-                                  awardTitleLbl.text = "SPINS"
-                                  awardCountLbl.text = "\(spinsAmount)"
-                                  hiddenStack.isHidden.toggle()
-                                  homeView.animate(type: .snowflake, imageView: homeView.animationImgVw)
-            case .setSnowflakes:  awardImgVw.image = SlotImgs.snowflake
-                                  awardTitleLbl.text = "SPINS"
-                                  awardCountLbl.text = "\(spinsAmount)"
-                                  hiddenStack.isHidden.toggle()
-                                  homeView.animate(type: .snowflake, imageView: homeView.animationImgVw)
-                                  DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+        
+        if let mapName = PreferencesManager.sharedManager.currentMapName {
+            switch mapName {
+            case .snow_map:
+                switch combination {
+                       case .pairHummers: awardImgVw.image = SlotImgs.hammer
+                                          awardTitleLbl.text = "SPINS"
+                                          awardCountLbl.text = "\(spinsAmount)"
+                                          hiddenStack.isHidden.toggle()
+                        case .setHummers: awardImgVw.image = SlotImgs.hammer
+                                          awardTitleLbl.text = "BUILD"
+                                          awardCountLbl.text = "1"
+                                          AudioManager.sharedManager.playSound(type: .superWin_19)
+                                          threeHummers()
+                                          hiddenStack.isHidden.toggle()
+                                          homeView.animate(type: .hammer3, imageView: homeView.animationImgVw)
+                        case .pairDollars: awardImgVw.image = SlotImgs.dollar
+                                           awardTitleLbl.text = "COINS"
+                                           awardCountLbl.text = "\(coinsAmount)"
+                                           AudioManager.sharedManager.playSound(type: .coinsX2_13)
+                                           hiddenStack.isHidden.toggle()
+                                           homeView.animate(type: .coin2, imageView: homeView.animationImgVw)
+                    case .setDollars: awardImgVw.image = SlotImgs.dollar
+                                      awardTitleLbl.text = "COINS"
+                                      awardCountLbl.text = "\(coinsAmount)"
+                                      AudioManager.sharedManager.playSound(type: .coinsX3_14)
+                                      hiddenStack.isHidden.toggle()
+                                      homeView.animate(type: .coin3, imageView: homeView.animationImgVw)
+                    case .pairSnowflakes: awardImgVw.image = SlotImgs.snowflake
+                                          awardTitleLbl.text = "SPINS"
+                                          awardCountLbl.text = "\(spinsAmount)"
+                                          hiddenStack.isHidden.toggle()
+                                          homeView.animate(type: .snowflake, imageView: homeView.animationImgVw)
+                    case .setSnowflakes:  awardImgVw.image = SlotImgs.snowflake
+                                          awardTitleLbl.text = "SPINS"
+                                          awardCountLbl.text = "\(spinsAmount)"
+                                          hiddenStack.isHidden.toggle()
+                                          homeView.animate(type: .snowflake, imageView: homeView.animationImgVw)
+                                          DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+                                                 awardTitleLbl.text = "COINS"
+                                                 awardCountLbl.text = "\(coinsAmount)"
+                                          }
+                    case .pairMoneyBags: awardImgVw.image = SlotImgs.moneyBag
                                          awardTitleLbl.text = "COINS"
                                          awardCountLbl.text = "\(coinsAmount)"
-                                  }
-            case .pairMoneyBags: awardImgVw.image = SlotImgs.moneyBag
-                                 awardTitleLbl.text = "COINS"
-                                 awardCountLbl.text = "\(coinsAmount)"
-                                 hiddenStack.isHidden.toggle()
-                                 AudioManager.sharedManager.playSound(type: .coinsPackX2_15)
-                                 homeView.animate(type: .coin2, imageView: homeView.animationImgVw)
-            case .setMoneyBags:  awardImgVw.image = SlotImgs.moneyBag
-                                 awardTitleLbl.text = "COINS"
-                                 awardCountLbl.text = "\(coinsAmount)"
-                                 hiddenStack.isHidden.toggle()
-                                 homeView.animate(type: .coin3, imageView: homeView.animationImgVw)
-                                 AudioManager.sharedManager.playSound(type: .coinsPackX3_16)
-            case .pairLightning: awardImgVw.image = SlotImgs.lightning
-                                 awardTitleLbl.text = "SPINS"
-                                 awardCountLbl.text = "\(spinsAmount)"
-                                 homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
-                                 AudioManager.sharedManager.playSound(type: .energyX2_17)
-                                 hiddenStack.isHidden.toggle()
-            case .setLightning:  awardImgVw.image = SlotImgs.lightning
-                                 awardTitleLbl.text = "SPINS"
-                                 awardCountLbl.text = "\(spinsAmount)"
-                                 homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
-                                 AudioManager.sharedManager.playSound(type: .energyX3_18)
-                                 hiddenStack.isHidden.toggle()
+                                         hiddenStack.isHidden.toggle()
+                                         AudioManager.sharedManager.playSound(type: .coinsPackX2_15)
+                                         homeView.animate(type: .coin2, imageView: homeView.animationImgVw)
+                    case .setMoneyBags:  awardImgVw.image = SlotImgs.moneyBag
+                                         awardTitleLbl.text = "COINS"
+                                         awardCountLbl.text = "\(coinsAmount)"
+                                         hiddenStack.isHidden.toggle()
+                                         homeView.animate(type: .coin3, imageView: homeView.animationImgVw)
+                                         AudioManager.sharedManager.playSound(type: .coinsPackX3_16)
+                    case .pairLightning: awardImgVw.image = SlotImgs.lightning
+                                         awardTitleLbl.text = "SPINS"
+                                         awardCountLbl.text = "\(spinsAmount)"
+                                         homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
+                                         AudioManager.sharedManager.playSound(type: .energyX2_17)
+                                         hiddenStack.isHidden.toggle()
+                    case .setLightning:  awardImgVw.image = SlotImgs.lightning
+                                         awardTitleLbl.text = "SPINS"
+                                         awardCountLbl.text = "\(spinsAmount)"
+                                         homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
+                                         AudioManager.sharedManager.playSound(type: .energyX3_18)
+                                         hiddenStack.isHidden.toggle()
+                }
+            case .england_map:
+                switch combination {
+                       case .pairHummers: awardImgVw.image = UK_SlotImgs.hammer
+                                          awardTitleLbl.text = "SPINS"
+                                          awardCountLbl.text = "\(spinsAmount)"
+                                          hiddenStack.isHidden.toggle()
+                        case .setHummers: awardImgVw.image = UK_SlotImgs.hammer
+                                          awardTitleLbl.text = "BUILD"
+                                          awardCountLbl.text = "1"
+                                          AudioManager.sharedManager.playSound(type: .superWin_19)
+                                          threeHummers()
+                                          hiddenStack.isHidden.toggle()
+                                          homeView.animate(type: .hammer3, imageView: homeView.animationImgVw)
+                        case .pairDollars: awardImgVw.image = UK_SlotImgs.pound
+                                           awardTitleLbl.text = "COINS"
+                                           awardCountLbl.text = "\(coinsAmount)"
+                                           AudioManager.sharedManager.playSound(type: .coinsX2_13)
+                                           hiddenStack.isHidden.toggle()
+                                           homeView.animate(type: .coin2, imageView: homeView.animationImgVw)
+                    case .setDollars: awardImgVw.image = UK_SlotImgs.pound
+                                      awardTitleLbl.text = "COINS"
+                                      awardCountLbl.text = "\(coinsAmount)"
+                                      AudioManager.sharedManager.playSound(type: .coinsX3_14)
+                                      hiddenStack.isHidden.toggle()
+                                      homeView.animate(type: .coin3, imageView: homeView.animationImgVw)
+                    case .pairSnowflakes: awardImgVw.image = UK_SlotImgs.flag
+                                          awardTitleLbl.text = "SPINS"
+                                          awardCountLbl.text = "\(spinsAmount)"
+                                          hiddenStack.isHidden.toggle()
+                                          homeView.animate(type: .snowflake, imageView: homeView.animationImgVw)
+                case .setSnowflakes:  awardImgVw.image = UK_SlotImgs.flag
+                                          awardTitleLbl.text = "SPINS"
+                                          awardCountLbl.text = "\(spinsAmount)"
+                                          hiddenStack.isHidden.toggle()
+                                          homeView.animate(type: .snowflake, imageView: homeView.animationImgVw)
+                                          DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+                                                 awardTitleLbl.text = "COINS"
+                                                 awardCountLbl.text = "\(coinsAmount)"
+                                          }
+                    case .pairMoneyBags: awardImgVw.image = UK_SlotImgs.moneyBag
+                                         awardTitleLbl.text = "COINS"
+                                         awardCountLbl.text = "\(coinsAmount)"
+                                         hiddenStack.isHidden.toggle()
+                                         AudioManager.sharedManager.playSound(type: .coinsPackX2_15)
+                                         homeView.animate(type: .coin2, imageView: homeView.animationImgVw)
+                    case .setMoneyBags:  awardImgVw.image = UK_SlotImgs.moneyBag
+                                         awardTitleLbl.text = "COINS"
+                                         awardCountLbl.text = "\(coinsAmount)"
+                                         hiddenStack.isHidden.toggle()
+                                         homeView.animate(type: .coin3, imageView: homeView.animationImgVw)
+                                         AudioManager.sharedManager.playSound(type: .coinsPackX3_16)
+                    case .pairLightning: awardImgVw.image = UK_SlotImgs.lightning
+                                         awardTitleLbl.text = "SPINS"
+                                         awardCountLbl.text = "\(spinsAmount)"
+                                         homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
+                                         AudioManager.sharedManager.playSound(type: .energyX2_17)
+                                         hiddenStack.isHidden.toggle()
+                    case .setLightning:  awardImgVw.image = UK_SlotImgs.lightning
+                                         awardTitleLbl.text = "SPINS"
+                                         awardCountLbl.text = "\(spinsAmount)"
+                                         homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
+                                         AudioManager.sharedManager.playSound(type: .energyX3_18)
+                                         hiddenStack.isHidden.toggle()
+                }
+            }
         }
     }
     

@@ -264,13 +264,13 @@ extension EngLevelController: LevelOutputProtocol {
             var state: LevelStates
             let level = building.level
             switch level {
-            case 0: state = .start
-            case 1: state = .first
-            case 2: state = .second
-            case 3: state = .third
-            case 4: state = .fourth
-            case 5: state = .finish
-            default: state = .finish
+            case 0: state =     .start
+            case 1: state =     .first
+            case 2: state =     .second
+            case 3: state =     .third
+            case 4: state =     .fourth
+            case 5: state =     .finish
+            default: state =    .finish
             }
             
             switch building.name {
@@ -291,7 +291,6 @@ extension EngLevelController: LevelOutputProtocol {
         englandView.barBackVw.getCoinsAndEnergy()
     }
 }
-
 
 //----------------------------------------------
 // MARK: - PaywallProtocol
