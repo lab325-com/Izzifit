@@ -72,7 +72,7 @@ class ArcticGameController: BaseController {
     }
     
     @objc func spinAction() {
-        gameView.animate(type: .snowflake, imageView: gameView.animationImgVw)
+        gameView.animate(type: .hammer3, imageView: gameView.animationImgVw)
 //        timerSpinManager.generalSpin(resultLbl: gameView.startSpinLbl,
 //                                     resultStackView: gameView.resultStackView,
 //                                     coinsLbl: gameView.barBackVw.coinsLbl,
