@@ -27,7 +27,7 @@ struct CombinationsAwardsManager {
                     spinBtn: UIButton,
                     runTimer: () -> ()) {
    
-        resultLbl.text = ""
+        resultLbl.text = ". . ."
         KeychainService.standard.me?.energy! -= 1
         // реши вопрос с обновлением энергии и вообще обновлением сущности
         energyLbl.text = String(Int(user.energy!))
