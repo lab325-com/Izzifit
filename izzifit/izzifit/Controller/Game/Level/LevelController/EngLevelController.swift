@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Gifu
 
 class EngLevelController: BaseController {
     
@@ -23,7 +22,7 @@ class EngLevelController: BaseController {
     
     private var firstRespond = true
     var player = PlayerModel()
-    let animation = GIFImageView()
+    let animation = UIImageView()
     
     override func loadView() {
         englandView = LevelView(cgRects: cgRects)
@@ -33,14 +32,17 @@ class EngLevelController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hiddenNavigationBar = true
+        addTargets()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         presenter.getBuildings{ [self] in
             if firstRespond {
                 checkAvailableHummers()
                 firstRespond.toggle()
             }
         }
-        addTargets()
-        activateAnimation()
     }
     
     private func addTargets() {
@@ -49,10 +51,6 @@ class EngLevelController: BaseController {
                          action: #selector(showPopUp(sender:)),
                          for: .touchUpInside)
         }
-    }
-    private func activateAnimation() {
-        animation.prepareForAnimation(withGIFNamed: "construction3")
-        animation.isHidden.toggle()
     }
     
     private func checkAvailableHummers() {
@@ -120,19 +118,33 @@ class EngLevelController: BaseController {
     }
     
     @objc func upgradeBuilding(sender: UIButton) {
+   
         for btn in englandView.stateBtns {
             btn.isUserInteractionEnabled.toggle()
         }
-        guard let buildingId = presenter.buildings[safe: sender.tag]?.id else {return}
+        
+        var buildingName = String()
+        
+        switch sender.tag {
+        case 0: buildingName = "ship"
+        case 1: buildingName = "fishing"
+        case 2: buildingName = "house"
+        case 3: buildingName = "hay"
+        case 4: buildingName = "sled"
+        default: break
+        }
+        
+        let building = presenter.buildings.filter({$0.name == buildingName})
+        
+        guard let buildingId = building.first?.id else { return }
         guard let buildPopUpVw = buildPopUpVw else { return }
         buildPopUpVw.removeFromSuperview()
         view.layoutIfNeeded()
-        animation.isHidden.toggle()
-        animation.startAnimatingGIF()
+        
+        animation.prepareAnimation(name: "construction3", loopRepeated: true)
+        animation.isHidden = false
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.6) { [self] in
-            self.animation.stopAnimatingGIF()
-            self.animation.isHidden.toggle()
             self.animation.removeFromSuperview()
             
             var price = Int()
@@ -187,7 +199,6 @@ class EngLevelController: BaseController {
         }
     }
     
-    
     func drawBuildPopUp(price: Int,
                         buildType: BuildingType,
                         sender: UIButton) {
@@ -217,9 +228,7 @@ class EngLevelController: BaseController {
                 buildPopUpVw.hummerCountLbl.text = "x\(count)"
             }
         }
-        
         buildPopUpVw.fillStates(by: LevelStates(rawValue: price) ?? .finish)
-        
         AnalyticsHelper.sendFirebaseEvents(events: .map_building_tap, params: ["building" : buildType.rawValue])
         
         buildPopUpVw.priceLbl.text = "\(price)"
@@ -228,6 +237,7 @@ class EngLevelController: BaseController {
         buildPopUpVw.upgradeBtn.addTarget(self,
                                           action: #selector(upgradeBuilding(sender:)),
                                           for: .touchUpInside)
+        
         buildPopUpVw.closeBtn.addTarget(self,
                                        action: #selector(closePopUp),
                                        for: .touchUpInside)
@@ -238,6 +248,7 @@ class EngLevelController: BaseController {
                                height: 200,
                                centerV: 0,
                                centerH: 0)
+        animation.isHidden = true
         view.layoutIfNeeded()
     }
 }
@@ -253,13 +264,13 @@ extension EngLevelController: LevelOutputProtocol {
             var state: LevelStates
             let level = building.level
             switch level {
-            case 0: state = .start
-            case 1: state = .first
-            case 2: state = .second
-            case 3: state = .third
-            case 4: state = .fourth
-            case 5: state = .finish
-            default: state = .finish
+            case 0: state =     .start
+            case 1: state =     .first
+            case 2: state =     .second
+            case 3: state =     .third
+            case 4: state =     .fourth
+            case 5: state =     .finish
+            default: state =    .finish
             }
             
             switch building.name {
@@ -270,7 +281,6 @@ extension EngLevelController: LevelOutputProtocol {
             case BuildingType.building5.rawValue: player.fifthState = state
             default: break
             }
-            
         }
         englandView.drawStates(player: player, imgStatesArr: englandView.englandLevelImgs)
     }
@@ -281,7 +291,6 @@ extension EngLevelController: LevelOutputProtocol {
         englandView.barBackVw.getCoinsAndEnergy()
     }
 }
-
 
 //----------------------------------------------
 // MARK: - PaywallProtocol

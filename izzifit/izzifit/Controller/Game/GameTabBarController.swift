@@ -14,15 +14,18 @@ class GameTabBarController: UITabBarController {
     private let buildBtn = UIButton()
     private let mapBtn = UIButton()
     
-    private lazy var btns: [UIButton] = {[backBtn, spinBtn, buildBtn]}()
+    private lazy var btns: [UIButton] = {[backBtn, spinBtn, buildBtn, mapBtn]}()
     private var tabBarStackView: UIStackView!
     
     var firstLaunch = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupVCs()
-        setupTabBar()
+        
+            self.setupVCs()
+            self.setupTabBar()
+        
+   
     }
     
     private func createNavController(for rootViewController: UIViewController, image: UIImage) -> UIViewController {
@@ -32,14 +35,14 @@ class GameTabBarController: UITabBarController {
     }
     
     private func setupVCs() {
-        viewControllers = [
-                           createNavController(for: ArcticGameController(),
+        viewControllers = [createNavController(for: GameBaseController(firstVC: ArcticGameController(),
+                                                                       secondVC: EnglandGameController()),
                                                image: view.image(img: .gameTabBarSpin)!),
-                           createNavController(for: LevelController(),
-                                               image: view.image(img: .gameTabBarBuild)!)
-//                           ,
-//                           createNavController(for:  MapController(),
-//                                               image: view.image(img: .gameTabBarSpin)!)
+                           createNavController(for: GameBaseController(firstVC: LevelController(),
+                                                                       secondVC: EngLevelController()),
+                                               image: view.image(img: .gameTabBarBuild)!) ,
+                           createNavController(for:  MapController(),
+                                               image: view.image(img: .gameTabBarSpin)!)
         ]
     }
     
@@ -87,4 +90,8 @@ class GameTabBarController: UITabBarController {
     }
     
     @objc func map() { selectedIndex = 2 }
+}
+
+enum MapName: String {
+    case snow_map, england_map
 }

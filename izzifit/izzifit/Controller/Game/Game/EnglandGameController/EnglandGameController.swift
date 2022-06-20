@@ -20,6 +20,8 @@ class EnglandGameController: BaseController {
     override func loadView() {
         gameView = EnglandGameView()
         self.view = gameView
+        gameView.hummerBtn.isHidden = true
+        gameView.hummerCountLbl.isHidden = true
         setCollectionView()
     }
     
@@ -164,6 +166,7 @@ extension EnglandGameController: ArcticGameOutputProtocol {
             
             if let tupleResult = self.spinManager.recognizeSetCombinations(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds) {
                 self.spinManager.accrueBonuses(by: tupleResult.0,
+                                               homeView: self.gameView,
                                                hiddenStack: self.gameView.resultStackView,
                                                awardImgVw: self.gameView.awardImgVw,
                                                awardTitleLbl: self.gameView.awardTitleLbl,
@@ -181,7 +184,9 @@ extension EnglandGameController: ArcticGameOutputProtocol {
         let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterSpeen)
     }
     
-    func success() { collectionView.reloadData() }
+    func success(map: MapModel) {
+        collectionView.reloadData()
+    }
 }
 
 //----------------------------------------------

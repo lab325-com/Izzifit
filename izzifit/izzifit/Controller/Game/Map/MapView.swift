@@ -11,6 +11,7 @@ class MapView: UIView {
 
     private var barBackVw = GameBarBackView(backImage: UIImage(named: "mapBarBack")!)
     
+    private let backImgVw = UIImageView()
     private let viewUponScrollView = UIView()
     let scrollView = UIScrollView()
     
@@ -25,9 +26,9 @@ class MapView: UIView {
     private var path8_btn = UIButton()
     
     // MapPoints
-    private let arctic_btn = UIButton()
-    private var england_btn = UIButton()
-    private var france_btn = UIButton()
+    private let arctic_btn =    UIButton()
+    private var england_btn =   UIButton()
+    private var france_btn =    UIButton()
     
     lazy var sizeRemainder: CGFloat = {(428.0 - 375.0) / 2}()
     
@@ -44,28 +45,54 @@ class MapView: UIView {
          path7_btn,
          path8_btn]
     }()
-    private var actualMapPoint = Maps.england
+    private var actualMapPoint: Maps
     
-//    init(mapPoint: Maps) {
-//        actualMapPoint = mapPoint
-//        super.init(frame: .zero)
-//    }
-//    
-//    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    init(mapPoint: Maps) {
+        actualMapPoint = mapPoint
+        super.init(frame: .zero)
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override func draw(_ rect: CGRect) {
        setUI()
        layout()
     }
+    
+    func redrawMap(mapPoint: Maps) {
+        let x = (428 - UIScreen.main.bounds.size.width) / 2
+        for btn in mapBtns {
+            btn.isUserInteractionEnabled = false
+            btn.isSelected = false
+            btn.setNeedsDisplay()
+        }
+        
+        for (index, btn) in mapBtns.enumerated() {
+            guard index == mapPoint.rawValue || index == (mapPoint.rawValue + 1) || index == (mapPoint.rawValue - 1) else { continue }
+            btn.isSelected = true
+            btn.setNeedsDisplay()
+        }
+        
+        switch mapPoint {
+        case .arctic:
+            scrollView.setContentOffset(CGPoint(x: x, y: 2625 - UIScreen.main.bounds.height), animated: true)
+        case .england:
+            scrollView.setContentOffset(CGPoint(x: x, y: 2625 - (UIScreen.main.bounds.height + 248)),animated: true)
+        case .france:
+            scrollView.setContentOffset(CGPoint(x: x, y: 2625 - (UIScreen.main.bounds.height + 496)),animated: true)
+        }
+    }
 
     private func setUI() {
+        
+        backImgVw.image = image(img: .mapViewBack)
         
         for btn in mapBtns {
             btn.isUserInteractionEnabled = false
         }
         
         for (index, btn) in mapBtns.enumerated() {
-            guard index <= actualMapPoint.rawValue else { break }
+            guard index == actualMapPoint.rawValue || index == (actualMapPoint.rawValue + 1) || index == (actualMapPoint.rawValue - 1) else { continue }
             btn.isSelected = true
         }
         
@@ -103,21 +130,26 @@ class MapView: UIView {
         france_btn.setImage(image(img: .mapPoint_France_pass), for: .normal)
         france_btn.setImage(image(img: .mapPoint_France_act), for: .selected)
         
+        
     }
     
     private func layout() {
+        
+        ui.genericlLayout(object: backImgVw,
+                          parentView: self,
+                          topC: 0,
+                          bottomC: 0,
+                          leadingC: 0,
+                          trailingC: 0)
+        
         ui.setAndLayScrollView(contentV: viewUponScrollView,
                                scrollV: scrollView,
                                parentView: self,
-                               backColor: clr(color: .clrMainMapBack) ?? UIColor(),
+                               backColor: .clear,
                                showScrollIndicators: false,
                                bounces: false,
                                width: 428,
                                height: 2625)
-        
-        let x = (428 - UIScreen.main.bounds.size.width) / 2
-        scrollView.setContentOffset(CGPoint(x: x, y: 2605),
-                                    animated: true)
         
         ui.genericlLayout(object: barBackVw,
                                parentView: self,
@@ -140,7 +172,7 @@ class MapView: UIView {
                           height: 286.53,
                           leadingC: w/1.7060 + sizeRemainder,
                           bottomToO: path1_btn.topAnchor,
-                          bottomCG: -6 )
+                          bottomCG: -6)
 
         ui.genericlLayout(object: path3_btn,
                           parentView: viewUponScrollView,

@@ -19,6 +19,8 @@ class ArcticGameController: BaseController {
     override func loadView() {
         gameView = ArcticGameView()
         self.view = gameView
+        gameView.hummerBtn.isHidden = true
+        gameView.hummerCountLbl.isHidden = true
         setCollectionView()
     }
     
@@ -35,14 +37,11 @@ class ArcticGameController: BaseController {
                 self.timerSpinManager.counter.combinations = spins
             }
         }
+        
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
-        
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(leftHandle))
-        swipeLeft.direction = .left
-        self.view.addGestureRecognizer(swipeLeft)
-        
+     
         gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchUpInside)
     }
     
@@ -54,14 +53,12 @@ class ArcticGameController: BaseController {
     private func setCollectionView() {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: view.h / 12.01,
+        layout.itemSize = CGSize(width: view.h / 12.68,
                                  height: view.h / 4.41)
-        
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = view.h / 81.2
+        layout.minimumLineSpacing = view.h / 101.5
         collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: layout)
-        
         collectionView.backgroundColor = . clear
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -70,23 +67,22 @@ class ArcticGameController: BaseController {
         
         view.ui.genericlLayout(object: collectionView,
                                parentView: gameView.slotBackImgVw,
-                               width: view.h / 3.60,
+                               width: view.h / 3.90,
                                height: view.h / 5.77,
                                centerV: -view.h / 73,
-                               centerH: view.h / 88.9)
+                               centerH: view.h / 116)
     }
     
     @objc func spinAction() {
-        
         timerSpinManager.generalSpin(resultLbl: gameView.startSpinLbl,
                                      resultStackView: gameView.resultStackView,
                                      coinsLbl: gameView.barBackVw.coinsLbl,
                                      energyCountLbl: gameView.barBackVw.energyCountLbl,
                                      spinBtn: gameView.spinBtn,
-                                     showProgress: { DispatchQueue.main.async {  self.gameView.showProgress() }}
+                                     showProgress: { DispatchQueue.main.async { self.gameView.showProgress() }}
                                      ,spinsRunOut: spinsRunOut) {
             let result = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
-            
+
             if !result, let ids = PreferencesManager.sharedManager.enegyZero?.idProducts {
                 GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
             }
@@ -95,14 +91,6 @@ class ArcticGameController: BaseController {
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         actionBack()
-    }
-    
-    @objc func leftHandle(gesture: UISwipeGestureRecognizer) -> Void {
-  
-//        self.navigationController?.pushViewController(controller, animated: true)
-        //let controller = EnglandGameController()
-        //self.navigationController?.pushViewController(controller, animated: true)
-
     }
     
     func threeHummersCombination() {
@@ -176,7 +164,7 @@ extension ArcticGameController: ArcticGameOutputProtocol {
                                               preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default)
                 alert.addAction(okAction)
-                self.present(alert, animated: true)
+          //      self.present(alert, animated: true)
             case .__unknown(_): print("")
             }
         }
@@ -185,6 +173,7 @@ extension ArcticGameController: ArcticGameOutputProtocol {
             
             if let tupleResult = self.spinManager.recognizeSetCombinations(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds) {
                 self.spinManager.accrueBonuses(by: tupleResult.0,
+                                               homeView: self.gameView,
                                                hiddenStack: self.gameView.resultStackView,
                                                awardImgVw: self.gameView.awardImgVw,
                                                awardTitleLbl: self.gameView.awardTitleLbl,
@@ -202,7 +191,8 @@ extension ArcticGameController: ArcticGameOutputProtocol {
         let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterSpeen)
     }
     
-    func success() { collectionView.reloadData() }
+    func success(map: MapModel) {
+        collectionView.reloadData() }
 }
 
 //----------------------------------------------

@@ -20,6 +20,7 @@ enum Imgs: String {
     case gameBackTwo, gameBackOne, slotBack, spinBtnNormal, spinBtnSelected, slotHouse, freeHummer, start_logo_ic
     
     // MapView
+    case mapViewBack
     case mapPoint_Arctic_act,mapPoint_Arctic_pass
     case mapPoint_England_act, mapPoint_England_pass
     case mapPoint_France_act, mapPoint_France_pass
@@ -27,6 +28,8 @@ enum Imgs: String {
     case map_2pathAct, map_2pathPass
     case map_3pathAct, map_3pathPass
     case map_4pathAct, map_4pathPass
+    
+    
     
     
     // England GameView
@@ -76,19 +79,19 @@ enum Clrs: String {
 }
 
 struct SlotImgs {
-    static let dollar = UIImage(named: "dollar")
-    static let hammer = UIImage(named: "hammer")
-    static let lightning = UIImage(named: "lightning")
-    static let moneyBag = UIImage(named: "moneyBag")
-    static let snowflake = UIImage(named: "snowflake")
+    static let dollar =     UIImage(named: "dollar")
+    static let hammer =     UIImage(named: "hammer")
+    static let lightning =  UIImage(named: "lightning")
+    static let moneyBag =   UIImage(named: "moneyBag")
+    static let snowflake =  UIImage(named: "snowflake")
 }
 
 struct UK_SlotImgs {
-    static let pound = UIImage(named: "en_pound")
-    static let flag = UIImage(named: "en_flag")
-    static let moneyBag = UIImage(named: "en_moneyBag")
-    static let hammer = UIImage(named: "en_hammer")
-    static let lightning = UIImage(named: "en_lightning")
+    static let pound =      UIImage(named: "en_pound")
+    static let flag =       UIImage(named: "en_flag")
+    static let moneyBag =   UIImage(named: "en_moneyBag")
+    static let hammer =     UIImage(named: "en_hammer")
+    static let lightning =  UIImage(named: "en_lightning")
 }
 
 struct ScaleImgs {

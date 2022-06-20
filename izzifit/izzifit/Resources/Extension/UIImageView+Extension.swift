@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftyGif
 
 extension UIImageView {
 
@@ -29,6 +30,17 @@ extension UIImageView {
         let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
         UIGraphicsEndImageContext();
         self.image = newImage
+    }
+    
+    func prepareAnimation(name: String, loopRepeated: Bool) {
+        do {
+            let gif = try UIImage(gifName: "\(name).gif")
+            self.setGifImage(gif)
+            self.loopCount = loopRepeated ? -1 : 1
+            self.startAnimating()
+        } catch {
+            print(error)
+        }
     }
 }
 

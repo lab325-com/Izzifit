@@ -20,7 +20,7 @@ class SlotCollectionCell: UICollectionViewCell {
     private var model: MapModel?
     
     private lazy var contentSizeHeight: CGFloat = {
-        CGFloat((h / 12.78) * 9001)
+        CGFloat((h / 12.799) * 9001)
     }()
     private lazy var arrays: [[Int]] = {
         [OffsetCounter.firstArray,
@@ -85,7 +85,6 @@ class SlotCollectionCell: UICollectionViewCell {
 
 extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return 9001
     }
     
@@ -99,7 +98,7 @@ extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.sizeHeight / 2.9
+        return  UIScreen.main.bounds.size.height / 12.799
     }
 }
 

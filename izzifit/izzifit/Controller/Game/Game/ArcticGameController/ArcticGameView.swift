@@ -7,7 +7,10 @@
 
 import UIKit
 
-class ArcticGameView: UIView {
+class ArcticGameView: UIView, GameAnimationProtocol {
+    
+    
+    var animationImgVw: UIImageView = UIImageView()
     
     // bar
     var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
@@ -37,8 +40,9 @@ class ArcticGameView: UIView {
     // Progress Img UI
     private var progressImgVw = UIImageView()
     private let progressImg = UIImage(named: "progressActive")
-
+    
     override func draw(_ rect: CGRect) {
+        
         setUI()
         layout()
     }
@@ -90,8 +94,8 @@ class ArcticGameView: UIView {
                     textAlignment: .right,
                     fontSize: h / 60.75,
                     fontName: "Inter-BoldItalic")
-        hummerBtn.isHidden = true
-        hummerCountLbl.isHidden = true
+//        hummerBtn.isHidden = true
+//        hummerCountLbl.isHidden = true
         
         // logo
         logoImgVw.image = image(img: .start_logo_ic)
@@ -119,7 +123,8 @@ class ArcticGameView: UIView {
                     textAlignment: .left,
                     fontSize: h/46.6,
                     fontName: "Inter-BoldItalic")
-        }
+        
+    }
     
     private func layout() {
         
@@ -174,7 +179,7 @@ class ArcticGameView: UIView {
                           bottomCG: h/39,
                           trailingToO: slotHouseImgVw.trailingAnchor,
                           trailingCG: h/8.54)
-       
+        
         ui.genericlLayout(object: titleLbl,
                           parentView: slotHouseImgVw,
                           topC: h/7.66,
@@ -225,6 +230,15 @@ class ArcticGameView: UIView {
                           centerH: w/46.8)
         
         resultStackView.isHidden = true
+        
+        ui.genericlLayout(object: animationImgVw,
+                          parentView: spinBtn,
+                          width: w,
+                          height: h,
+                          topToO: barBackVw.topAnchor,
+                          topCG: 0,
+                          leadingToO: barBackVw.leadingAnchor,
+                          leadingCG: 0)
     }
     
     func showProgress() {
@@ -242,4 +256,8 @@ class ArcticGameView: UIView {
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }
+}
+
+enum GameAnimation {
+    case coin2, coin3, hammer3, lightning, snowflake
 }

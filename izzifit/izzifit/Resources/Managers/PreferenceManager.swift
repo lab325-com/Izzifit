@@ -187,7 +187,17 @@ class PreferencesManager : NSObject {
             userDefaults.synchronize()
         }
     }
-    
+
+    var currentMapName: MapName? {
+            get {
+                return MapName(rawValue: userDefaults.string(forKey: "currentMapName") ?? "snow_map") ?? nil
+            }
+            set {
+                userDefaults.set(newValue?.rawValue, forKey: "currentMapName")
+                userDefaults.synchronize()
+            }
+        }
+
     var localPushs: [LocalPushModel] {
         get {
             return self.models(forKey: PreferencesManager.localPushs) ?? []

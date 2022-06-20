@@ -7,10 +7,9 @@
 
 import UIKit
 
-class EnglandGameView: UIView {
-    
-
-    
+class EnglandGameView: UIView, GameAnimationProtocol {
+   
+    var animationImgVw: UIImageView = UIImageView()
     // bar
     var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
     // Basic view
@@ -27,7 +26,6 @@ class EnglandGameView: UIView {
     private var logoImgVw = UIImageView()
     //startSpinLbl
     var startSpinLbl = UILabel()
-    
     //resultStack
     var resultStackView: UIStackView!
     private var awardsVerticalStackView: UIStackView!
@@ -35,7 +33,6 @@ class EnglandGameView: UIView {
     var awardImgVw = UIImageView()
     var awardTitleLbl = UILabel()
     var awardCountLbl = UILabel()
-    
     // Progress Img UI
     private var progressImgVw = UIImageView()
     private let progressImg = UIImage(named: "progressActive")
@@ -92,8 +89,8 @@ class EnglandGameView: UIView {
                     textAlignment: .right,
                     fontSize: h / 60.75,
                     fontName: "Inter-BoldItalic")
-        hummerBtn.isHidden = true
-        hummerCountLbl.isHidden = true
+//        hummerBtn.isHidden = true
+//        hummerCountLbl.isHidden = true
         
         // logo
         logoImgVw.image = image(img: .start_logo_ic)
@@ -228,6 +225,14 @@ class EnglandGameView: UIView {
                           leadingC: 0,
                           trailingC: 0)
         
+        ui.genericlLayout(object: animationImgVw,
+                          parentView: spinBtn,
+                          width: w,
+                          height: h,
+                          topToO: barBackVw.topAnchor,
+                          topCG: 0,
+                          leadingToO: barBackVw.leadingAnchor,
+                          leadingCG: 0)
     }
     
     func showProgress() {

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Gifu
 import SwiftUI
 
 class LevelController: BaseController {
@@ -20,7 +19,7 @@ class LevelController: BaseController {
     @IBOutlet weak var goldBtn: UIButton!
     @IBOutlet weak var deerBtn: UIButton!
     
-    let animation = GIFImageView()
+    let animation = UIImageView()
     
     @IBOutlet weak var hummerBtn: UIButton!
     @IBOutlet weak var hummerCountLbl: UILabel!
@@ -33,15 +32,10 @@ class LevelController: BaseController {
                              goldBtn,
                              deerBtn]
     
-    private var player = PlayerModel(firstState: .start,
-                                     secondState: .finish,
-                                     thirdState: .fourth,
-                                     fourthState: .third,
-                                     fifthState: .second)
+    private var player = PlayerModel()
     
     private var pointers: PointersAndTicks?
     private var firstRespond = true
-    
     private lazy var presenter = LevelPresenter(view: self)
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,7 +68,6 @@ class LevelController: BaseController {
                                trailingC: 0)
         setup()
         hiddenNavigationBar = true
-        activateAnimation()
         addTargets()
     }
     
@@ -98,7 +91,6 @@ class LevelController: BaseController {
             hummerCountLbl.text = "x\(count)"
         }
     }
-    
     
     private func addTargets() {
         for btn in btns {
@@ -151,6 +143,7 @@ class LevelController: BaseController {
             }
             return
         }
+        guard presenter.freeBuildingsCount ?? 0 == 0 else { return }
         // тут малюй попАп за монети
         drawBuildPopUp(price: price,
                        buildType: buildType,
@@ -188,15 +181,15 @@ class LevelController: BaseController {
         }
         
         buildPopUpVw.fillStates(by: LevelStates(rawValue: price) ?? .finish)
-        
         AnalyticsHelper.sendFirebaseEvents(events: .map_building_tap, params: ["building" : buildType.rawValue])
-        
         buildPopUpVw.priceLbl.text = "\(price)"
         buildPopUpVw.draw(buildType, state: LevelStates(rawValue: price) ?? .start)
         buildPopUpVw.upgradeBtn.tag = sender.tag
+        
         buildPopUpVw.upgradeBtn.addTarget(self,
                                           action: #selector(upgradeBuilding(sender:)),
                                           for: .touchUpInside)
+        
         buildPopUpVw.mainBtn.addTarget(self,
                                        action: #selector(closePopUp),
                                        for: .touchUpInside)
@@ -207,6 +200,7 @@ class LevelController: BaseController {
                                height: 200,
                                centerV: 0,
                                centerH: 0)
+        animation.isHidden = true
         view.layoutIfNeeded()
     }
     
@@ -216,19 +210,32 @@ class LevelController: BaseController {
     }
     
     @objc func upgradeBuilding(sender: UIButton) {
+   
         for btn in btns {
             btn?.isUserInteractionEnabled.toggle()
         }
-        guard let buildingId = presenter.buildings[safe: sender.tag]?.id else {return}
+        
+        var buildingName = String()
+        
+        switch sender.tag {
+        case 0: buildingName = "ship"
+        case 1: buildingName = "fishing"
+        case 2: buildingName = "house"
+        case 3: buildingName = "hay"
+        case 4: buildingName = "sled"
+        default: break
+        }
+        
+        let building = presenter.buildings.filter({ $0.name == buildingName })
+        
+        guard let buildingId = building.first?.id else { return }
         guard let buildPopUpVw = buildPopUpVw else { return }
         buildPopUpVw.removeFromSuperview()
         view.layoutIfNeeded()
-        animation.isHidden.toggle()
-        animation.startAnimatingGIF()
+        animation.prepareAnimation(name: "construction3", loopRepeated: true)
+        animation.isHidden = false
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.6) { [self] in
-            self.animation.stopAnimatingGIF()
-            self.animation.isHidden.toggle()
             self.animation.removeFromSuperview()
             
             var price = Int()
@@ -247,7 +254,6 @@ class LevelController: BaseController {
                 buildType = .building5
             default: buildType = .building1
             }
-            
             let state = LevelStates(rawValue: price)
             switch state {
             case .start:
@@ -272,6 +278,7 @@ class LevelController: BaseController {
             case .finish: break
             case .none: break
             }
+            player.updateState(buildType: buildType, currentState: state!)
             
             for btn in self.btns {
                 btn?.isUserInteractionEnabled.toggle()
@@ -280,19 +287,29 @@ class LevelController: BaseController {
                 for imgVw in  points.imgVwArray { imgVw.removeFromSuperview()}
             }
             self.pointers = PointersAndTicks()
-            if let x = self.pointers {
-                x.drawPointers(model: self.player, btns: self.btns)
-            }
+            if let x = self.pointers { x.drawPointers(model: self.player, btns: self.btns) }
+            
             presenter.upgradeBuild(buildingId: buildingId) { [self] in
                 let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
+                let maxLevel = player.checkMaxLevel()
+                guard maxLevel else { return }
+                let alert = UIAlertController(title: "Congratulation",
+                                              message: "You built all buildings on current map",
+                                              preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "Move to the next map",
+                                             style: .default) { action in
+                    PreferencesManager.sharedManager.currentMapName = .england_map
+                    NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
+                                                    object: self,
+                                                    userInfo: nil)
+                }
+                alert.addAction(okAction)
+                present(alert, animated: true)
             }
         }
     }
     
-    private func activateAnimation() {
-        animation.prepareForAnimation(withGIFNamed: "construction3")
-        animation.isHidden.toggle()
-    }
     
     private func setup() {
         
@@ -305,7 +322,6 @@ class LevelController: BaseController {
                                           placeholder: RImage.placeholder_food_ic(),
                                           options: [.transition(.fade(0.25))])
     }
-    
     
     private func drawStates() {
         
@@ -362,7 +378,8 @@ extension LevelController: LevelOutputProtocol {
     
     func successBuildings(model: [BuildingsModel]) {
         checkAvailableHummers()
-        print(model)
+        drawStates()
+        let maxLevel = player.checkMaxLevel()
         for building in model {
             var state: LevelStates
             let level = building.level
@@ -385,6 +402,7 @@ extension LevelController: LevelOutputProtocol {
             default: break
             }
         }
+        guard !maxLevel else { return }
         drawStates()
     }
     

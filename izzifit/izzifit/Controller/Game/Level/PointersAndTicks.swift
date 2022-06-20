@@ -31,6 +31,66 @@ struct PlayerModel {
     var thirdState: LevelStates
     var fourthState: LevelStates
     var fifthState: LevelStates
+    
+    func checkMaxLevel() -> Bool {
+        if firstState == .finish &&
+           secondState == .finish &&
+            thirdState == .finish &&
+            fourthState == .finish &&
+            fifthState == .finish {
+            return true
+        } else { return false }
+    }
+    
+    mutating func updateState(buildType: BuildingType, currentState: LevelStates ) {
+        switch buildType {
+        case .building1:
+            switch currentState {
+            case .start:     firstState = .first
+            case .first:     firstState = .second
+            case .second:    firstState = .third
+            case .third:     firstState = .fourth
+            case .fourth:    firstState = .finish
+            case .finish:     break
+            }
+        case .building2:
+            switch currentState {
+            case .start:    secondState = .first
+            case .first:    secondState = .second
+            case .second:   secondState = .third
+            case .third:    secondState = .fourth
+            case .fourth:   secondState = .finish
+            case .finish:   break
+            }
+        case .building3:
+            switch currentState {
+            case .start:    thirdState = .first
+            case .first:    thirdState = .second
+            case .second:   thirdState = .third
+            case .third:    thirdState = .fourth
+            case .fourth:   thirdState = .finish
+            case .finish:   break
+            }
+        case .building4:
+            switch currentState {
+            case .start:    fourthState = .first
+            case .first:    fourthState = .second
+            case .second:   fourthState = .third
+            case .third:    fourthState = .fourth
+            case .fourth:   fourthState = .finish
+            case .finish:   break
+            }
+        case .building5:
+            switch currentState {
+            case .start:    fifthState = .first
+            case .first:    fifthState = .second
+            case .second:   fifthState = .third
+            case .third:    fifthState = .fourth
+            case .fourth:   fifthState = .finish
+            case .finish:   break
+            }
+        }
+    }
 }
 
 extension PlayerModel {
