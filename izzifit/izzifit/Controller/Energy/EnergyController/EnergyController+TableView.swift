@@ -14,7 +14,7 @@ import UIKit
 extension EnergyController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8 + presenter.workoutWidgets.count
+        return 7 + presenter.workoutWidgets.count + presenter.specialPice.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,40 +50,41 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
                 cell.setupCell(model: model)
             }
             return cell
-        case 4:
+        case 4..<4 + presenter.specialPice.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSpecialPriceIdentifier) as? EnergySpecialPriceCell else { return UITableViewCell() }
             cell.setupCell()
+            cell.delegate = self
             return cell
-        case 5:
+        case 4 + presenter.specialPice.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSleepIdentifier) as? EnergySleepCell else { return UITableViewCell() }
             cell.delegate = self
             if let model = presenter.sleepWidget {
                 cell.setupCell(model: model)
             }
             return cell
-        case 6:
+        case 5 + presenter.specialPice.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellWeightIdentifier) as? EnergyWeightCell else { return UITableViewCell() }
             cell.delegate = self
             if let model = presenter.weightWidget {
                 cell.setupCell(model: model)
             }
             return cell
-        case 7:
+        case 6 + presenter.specialPice.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellChooseActivity) as? EnergyChooseActivityCell else { return UITableViewCell() }
             cell.delegate = self
             cell.setupCell(models: presenter.chooseWorkoutWidgets)
             return cell
-        case 8..<8 + presenter.workoutWidgets.count:
+        case (7 + presenter.specialPice.count)..<7 + presenter.workoutWidgets.count + presenter.specialPice.count:
             if presenter.workoutWidgets.count == 0 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellAddActivity) as? EnergyAddActivityCell else { return UITableViewCell() }
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellTraining) as? EnergyTrainingCell else { return UITableViewCell() }
                 cell.delegate = self
-                cell.setupCell(model: presenter.workoutWidgets[indexPath.row - 7])
+                cell.setupCell(model: presenter.workoutWidgets[indexPath.row - 7 - presenter.specialPice.count])
                 return cell
             }
-        case 8 + presenter.workoutWidgets.count:
+        case 7 + presenter.workoutWidgets.count + presenter.specialPice.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellAddActivity) as? EnergyAddActivityCell else { return UITableViewCell() }
             return cell
         default:
@@ -246,6 +247,16 @@ extension EnergyController: PaywallProtocol {
     }
     
     func paywallSuccess(controller: BaseController) {
+        
+    }
+}
+
+//----------------------------------------------
+// MARK: - EnergySpecialPriceCellDelegate
+//----------------------------------------------
+
+extension EnergyController: EnergySpecialPriceCellDelegate {
+    func energySpecialPriceSelect(cell: EnergySpecialPriceCell) {
         
     }
 }

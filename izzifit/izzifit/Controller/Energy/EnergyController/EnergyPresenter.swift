@@ -51,6 +51,7 @@ class EnergyPresenter: EnergyPresenterProtocol {
     var todayProgress: TodayProgressMainModel?
     var weightWidget: SaveWeightWidgetMainModel?
     var workoutWidgets: [WorkoutsWidgetMainModel] = []
+    var specialPice: [Int] = [1, 2, 3, 4]
     var chooseWorkoutWidgets: [WorkoutsWidgetMainModel] = []
     var steps: [HealthStepsModel] = []
     

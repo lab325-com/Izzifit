@@ -22,6 +22,8 @@ struct WorkoutsWidgetMainModel: Codable, Equatable {
     let title: String?
     let totalExercises: Int?
     let totalFinishedExercises: Int?
+    let isSpecial: Bool?
+    let externalId: String?
 }
 
 struct IntervalRepresentationModel: Codable {
