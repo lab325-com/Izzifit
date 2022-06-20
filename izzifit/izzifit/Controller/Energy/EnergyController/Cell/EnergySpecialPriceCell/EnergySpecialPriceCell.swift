@@ -6,11 +6,10 @@
 //
 
 import UIKit
-import StoreKit
-import SwiftyStoreKit
+import Kingfisher
 
 protocol EnergySpecialPriceCellDelegate: AnyObject {
-    func energySpecialPriceSelect(cell: EnergySpecialPriceCell)
+    func energySpecialPriceSelect(cell: EnergySpecialPriceCell, model: WorkoutsWidgetMainModel)
 }
 
 
@@ -19,13 +18,14 @@ class EnergySpecialPriceCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var startWorkoutButton: UIButton!
     @IBOutlet weak var specialView: UIView!
-
+    @IBOutlet weak var avatarImageView: UIImageView!
+    
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var discountLabel: UILabel!
     
     weak var delegate: EnergySpecialPriceCellDelegate?
     
-    private var paymentsInfo = [PaymentsModel]()
+    private var model: WorkoutsWidgetMainModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,11 +49,15 @@ class EnergySpecialPriceCell: UITableViewCell {
     }
     
     
-    func setupCell() {
+    func setupCell(model: WorkoutsWidgetMainModel, paymentInfo: PaymentsModel?) {
+        self.model = model
+        
+        avatarImageView.kf.setImage(with: URL(string: model.Image?.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_ic(), options: [.transition(.fade(0.25))])
+        
         let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Inter-Medium", size: 14), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x3F3E56)]
         let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Inter-Regular", size: 11), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x3F3E56, alpha: 0.4)]
         
-        let fullString = NSMutableAttributedString(string: "Strengthening the muscles of the back and abs  ", attributes: attrs1 as [NSAttributedString.Key : Any])
+        let fullString = NSMutableAttributedString(string: "\(model.title ?? "")  ", attributes: attrs1 as [NSAttributedString.Key : Any])
 
         let image1Attachment = NSTextAttachment()
         image1Attachment.image = UIImage(named: "energy_water_flash_ic")
@@ -62,58 +66,43 @@ class EnergySpecialPriceCell: UITableViewCell {
 
         fullString.append(image1String)
         
-        let energy = NSAttributedString(string: " 200", attributes: attrs2 as [NSAttributedString.Key : Any])
+        let energy = NSAttributedString(string: " \(model.energyTotal ?? 0)", attributes: attrs2 as [NSAttributedString.Key : Any])
         fullString.append(energy)
 
         // draw the result in a label
         nameLabel.attributedText = fullString
         
-        retriveNotAutoProduct(id: ["izzifit_paid_master_class_1"])
+        if let paymentInfo = paymentInfo {
+            setPrice(model: model, paymentInfo: paymentInfo)
+        } else {
+            priceLabel.isHidden = false
+            discountLabel.isHidden = false
+        }
     }
     
     @IBAction func actionStartWokout(_ sender: UIButton) {
-        delegate?.energySpecialPriceSelect(cell: self)
-    }
-    
-    private func retriveNotAutoProduct(id: Set<String>) {
-        func setPrice() {
-            priceLabel.isHidden = false
-            discountLabel.isHidden = false
-            
-            priceLabel.text = paymentsInfo.first?.prettyPrice ?? ""
-            
-            let dicount = Int(paymentsInfo.first?.price ?? 0)
-            let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "$\(dicount * 2).99")
-                attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSRange(location: 0, length: attributeString.length))
-            
-            discountLabel.attributedText = attributeString
-        }
-        
-        if paymentsInfo.count == id.count  {
-            setPrice()
+        guard let model = model else {
             return
         }
-        
-        SwiftyStoreKit.retrieveProductsInfo(id) { [weak self] results in
-            if let invalidProductId = results.invalidProductIDs.first {
-                print("Invalid product identifier: \(invalidProductId)")
-                return
-            }
-            
-            for product in results.retrievedProducts {
-                if let priceString = product.localizedPrice
-                    {
-                    
-                    let model = PaymentsModel(product: product.productIdentifier, prettyPrice: priceString, period: "", number: 0, price: product.price.doubleValue, currencySymbol: product.priceLocale.currencySymbol)
-                    self?.paymentsInfo.append(model)
-                } else {
-                    debugPrint(">>>>>>>>>>>>>>>>>>>incorrect product!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                }
-            }
-            
-            if self?.paymentsInfo.count == id.count {
-                setPrice()
-            }
+
+        delegate?.energySpecialPriceSelect(cell: self, model: model)
+    }
+    
+    func setPrice(model: WorkoutsWidgetMainModel, paymentInfo: PaymentsModel) {
+        if model.isAvailable != true {
+            priceLabel.isHidden = false
+            discountLabel.isHidden = false
+        } else {
+            priceLabel.isHidden = true
+            discountLabel.isHidden = true
         }
+        
+        priceLabel.text = paymentInfo.prettyPrice
+        
+        let dicount = Int(paymentInfo.price)
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "$\(dicount * 2).99")
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSRange(location: 0, length: attributeString.length))
+        
+        discountLabel.attributedText = attributeString
     }
 }

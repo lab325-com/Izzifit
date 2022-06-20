@@ -390,11 +390,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-<<<<<<< HEAD
-  /// This `R.file` struct is generated, and contains static references to 76 files.
-=======
-  /// This `R.file` struct is generated, and contains static references to 78 files.
->>>>>>> 7cf1bba4b21d97a2c5c20e3656e5d507ef08dd61
+  /// This `R.file` struct is generated, and contains static references to 79 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")

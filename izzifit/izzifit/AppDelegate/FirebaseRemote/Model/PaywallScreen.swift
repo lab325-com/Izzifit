@@ -31,6 +31,7 @@ enum PaywallScreenType: String, Codable {
     case threePrice
     
     case energyBuy
+    case wokoutInApp
 }
 
 struct PaywallScreenModel: Codable {
