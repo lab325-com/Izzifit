@@ -1,5 +1,5 @@
-query SpecialWorkouts() {
-    specialWorkouts() {
+query SpecialWorkouts {
+    specialWorkouts {
         Image {
             id
             urlIosFull
