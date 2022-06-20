@@ -11,9 +11,9 @@ import UIKit
 enum LevelStates: Int {
     case start = 1000
     case first = 2000
-    case second = 3000
-    case third = 4000
-    case fourth = 5000
+    case second = 4000
+    case third = 8000
+    case fourth = 12000
     case finish = 0
 }
 
