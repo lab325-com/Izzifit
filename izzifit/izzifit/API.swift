@@ -7298,6 +7298,341 @@ public final class SourcesByMealQuery: GraphQLQuery {
   }
 }
 
+public final class SpecialWorkoutsQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query SpecialWorkouts {
+      specialWorkouts {
+        __typename
+        Image {
+          __typename
+          id
+          urlIosFull
+          urlIosPrev
+        }
+        duration {
+          __typename
+          hours
+          minutes
+          seconds
+        }
+        energy
+        energyTotal
+        id
+        isAvailable
+        isFinished
+        title
+        totalExercises
+        totalFinishedExercises
+        isSpecial
+        externalId
+      }
+    }
+    """
+
+  public let operationName: String = "SpecialWorkouts"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("specialWorkouts", type: .list(.object(SpecialWorkout.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(specialWorkouts: [SpecialWorkout?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "specialWorkouts": specialWorkouts.flatMap { (value: [SpecialWorkout?]) -> [ResultMap?] in value.map { (value: SpecialWorkout?) -> ResultMap? in value.flatMap { (value: SpecialWorkout) -> ResultMap in value.resultMap } } }])
+    }
+
+    public var specialWorkouts: [SpecialWorkout?]? {
+      get {
+        return (resultMap["specialWorkouts"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [SpecialWorkout?] in value.map { (value: ResultMap?) -> SpecialWorkout? in value.flatMap { (value: ResultMap) -> SpecialWorkout in SpecialWorkout(unsafeResultMap: value) } } }
+      }
+      set {
+        resultMap.updateValue(newValue.flatMap { (value: [SpecialWorkout?]) -> [ResultMap?] in value.map { (value: SpecialWorkout?) -> ResultMap? in value.flatMap { (value: SpecialWorkout) -> ResultMap in value.resultMap } } }, forKey: "specialWorkouts")
+      }
+    }
+
+    public struct SpecialWorkout: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["WorkoutShort"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("Image", type: .object(Image.selections)),
+          GraphQLField("duration", type: .object(Duration.selections)),
+          GraphQLField("energy", type: .scalar(Int.self)),
+          GraphQLField("energyTotal", type: .scalar(Int.self)),
+          GraphQLField("id", type: .scalar(GraphQLID.self)),
+          GraphQLField("isAvailable", type: .scalar(Bool.self)),
+          GraphQLField("isFinished", type: .scalar(Bool.self)),
+          GraphQLField("title", type: .scalar(String.self)),
+          GraphQLField("totalExercises", type: .scalar(Int.self)),
+          GraphQLField("totalFinishedExercises", type: .scalar(Int.self)),
+          GraphQLField("isSpecial", type: .scalar(Bool.self)),
+          GraphQLField("externalId", type: .scalar(String.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(image: Image? = nil, duration: Duration? = nil, energy: Int? = nil, energyTotal: Int? = nil, id: GraphQLID? = nil, isAvailable: Bool? = nil, isFinished: Bool? = nil, title: String? = nil, totalExercises: Int? = nil, totalFinishedExercises: Int? = nil, isSpecial: Bool? = nil, externalId: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "WorkoutShort", "Image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "duration": duration.flatMap { (value: Duration) -> ResultMap in value.resultMap }, "energy": energy, "energyTotal": energyTotal, "id": id, "isAvailable": isAvailable, "isFinished": isFinished, "title": title, "totalExercises": totalExercises, "totalFinishedExercises": totalFinishedExercises, "isSpecial": isSpecial, "externalId": externalId])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var image: Image? {
+        get {
+          return (resultMap["Image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "Image")
+        }
+      }
+
+      public var duration: Duration? {
+        get {
+          return (resultMap["duration"] as? ResultMap).flatMap { Duration(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "duration")
+        }
+      }
+
+      public var energy: Int? {
+        get {
+          return resultMap["energy"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "energy")
+        }
+      }
+
+      public var energyTotal: Int? {
+        get {
+          return resultMap["energyTotal"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "energyTotal")
+        }
+      }
+
+      public var id: GraphQLID? {
+        get {
+          return resultMap["id"] as? GraphQLID
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var isAvailable: Bool? {
+        get {
+          return resultMap["isAvailable"] as? Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "isAvailable")
+        }
+      }
+
+      public var isFinished: Bool? {
+        get {
+          return resultMap["isFinished"] as? Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "isFinished")
+        }
+      }
+
+      public var title: String? {
+        get {
+          return resultMap["title"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "title")
+        }
+      }
+
+      public var totalExercises: Int? {
+        get {
+          return resultMap["totalExercises"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "totalExercises")
+        }
+      }
+
+      public var totalFinishedExercises: Int? {
+        get {
+          return resultMap["totalFinishedExercises"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "totalFinishedExercises")
+        }
+      }
+
+      public var isSpecial: Bool? {
+        get {
+          return resultMap["isSpecial"] as? Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "isSpecial")
+        }
+      }
+
+      public var externalId: String? {
+        get {
+          return resultMap["externalId"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "externalId")
+        }
+      }
+
+      public struct Image: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Image"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .scalar(GraphQLID.self)),
+            GraphQLField("urlIosFull", type: .scalar(String.self)),
+            GraphQLField("urlIosPrev", type: .scalar(String.self)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID? = nil, urlIosFull: String? = nil, urlIosPrev: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Image", "id": id, "urlIosFull": urlIosFull, "urlIosPrev": urlIosPrev])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID? {
+          get {
+            return resultMap["id"] as? GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var urlIosFull: String? {
+          get {
+            return resultMap["urlIosFull"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "urlIosFull")
+          }
+        }
+
+        public var urlIosPrev: String? {
+          get {
+            return resultMap["urlIosPrev"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "urlIosPrev")
+          }
+        }
+      }
+
+      public struct Duration: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["IntervalRepresentation"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("hours", type: .scalar(Int.self)),
+            GraphQLField("minutes", type: .scalar(Int.self)),
+            GraphQLField("seconds", type: .scalar(Int.self)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil) {
+          self.init(unsafeResultMap: ["__typename": "IntervalRepresentation", "hours": hours, "minutes": minutes, "seconds": seconds])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var hours: Int? {
+          get {
+            return resultMap["hours"] as? Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "hours")
+          }
+        }
+
+        public var minutes: Int? {
+          get {
+            return resultMap["minutes"] as? Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "minutes")
+          }
+        }
+
+        public var seconds: Int? {
+          get {
+            return resultMap["seconds"] as? Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "seconds")
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class SpinQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =

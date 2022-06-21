@@ -28,17 +28,21 @@ class WorkoutDetailController: BaseController {
     private let sectionTitleIdentifier = String(describing: WorkoutDetailSectionCell.self)
     
     private lazy var presenter = WorkoutDetailPresenter(view: self)
+    private lazy var presenterSubscribe = SubscribePresenter(view: self)
     
     private var selectedId: String?
     
     private let id: String
+    private let idSpecialId: String?
+    
     
     //----------------------------------------------
     // MARK: - Init
     //----------------------------------------------
     
-    init(id: String) {
+    init(id: String, idSpecialId: String? = nil) {
         self.id = id
+        self.idSpecialId = idSpecialId
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -68,10 +72,14 @@ class WorkoutDetailController: BaseController {
     private func setup() {
         AnalyticsHelper.sendFirebaseEvents(events: .workout_open)
         
-        startWorkoutButton.setTitle(RLocalization.workout_detail_start(), for: .normal)
+        startWorkoutButton.setTitle("", for: .normal)
         
         tableView.isHidden = true
         presenter.getWorkouts(id: id)
+        
+        if let idSpecialId = idSpecialId {
+            presenter.retriveNotAutoProduct(id: [idSpecialId])
+        }
         
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
@@ -85,15 +93,30 @@ class WorkoutDetailController: BaseController {
     }
     
     @IBAction func actionStartWorkout(_ sender: UIButton) {
-        AnalyticsHelper.sendFirebaseEvents(events: .workout_start)
-        guard let exercisesGroup = presenter.workout?.exerciseGroups?.flatMap({$0.exercises}), let model = presenter.workout else { return }
-        
-        var exercises: [ExerciseModel] = []
-        
-        for group in exercisesGroup {
-            exercises.append(contentsOf: group)
+        if let  idSpecialId = idSpecialId, presenter.workout?.isAvailable != true  {
+            presenterSubscribe.purchaseProduct(id: idSpecialId, screen: .wokoutInApp, place: .workout) { [weak self] result, error in
+                guard let `self` = self else { return }
+                if result {
+                    self.presenter.getWorkouts(id: self.id)
+                }
+            }
+        } else {
+            AnalyticsHelper.sendFirebaseEvents(events: .workout_start)
+            guard let exercisesGroup = presenter.workout?.exerciseGroups?.flatMap({$0.exercises}), let model = presenter.workout else { return }
+            
+            var exercises: [ExerciseModel] = []
+            
+            for group in exercisesGroup {
+                exercises.append(contentsOf: group)
+            }
+            
+            if idSpecialId != nil, let firstExercises = exercisesGroup.first {
+                exercises.removeAll()
+                exercises.append(contentsOf: firstExercises)
+            }
+            
+            WorkoutRouter(presenter: navigationController).pushVideoPlayer(workout: model, exercises: exercises)
         }
-        WorkoutRouter(presenter: navigationController).pushVideoPlayer(workout: model, exercises: exercises)
     }
 }
 
@@ -103,7 +126,7 @@ class WorkoutDetailController: BaseController {
 
 extension WorkoutDetailController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 + (presenter.workout?.exerciseGroups?.count ?? 0)
+        return idSpecialId != nil ? 1 : (1 + (presenter.workout?.exerciseGroups?.count ?? 0))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -125,7 +148,7 @@ extension WorkoutDetailController: UITableViewDelegate, UITableViewDataSource {
             case 1:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIDescriptiondentifier) as? WorkoutDetailDescriptionCell else { return UITableViewCell() }
                 cell.delegate = self
-                cell.setupCell(model: presenter.workout)
+                cell.setupCell(model: presenter.workout, isSpecial: idSpecialId != nil, paymentInfo: presenter.paymentsInfo.first(where: {$0.product == idSpecialId}))
                 return cell
             default:
                 return UITableViewCell()
@@ -187,6 +210,8 @@ extension WorkoutDetailController: WorkoutDetailHeaderProtocol {
 
 extension WorkoutDetailController: WorkoutDetailOutputProtocol {
     func success() {
+        startWorkoutButton.setTitle(presenter.workout?.isAvailable == true ? RLocalization.workout_detail_start() : "Buy Now", for: .normal)
+        
         tableView.isHidden = false
         tableView.reloadData()
     }
@@ -203,5 +228,19 @@ extension WorkoutDetailController: WorkoutDetailOutputProtocol {
 extension WorkoutDetailController: WorkoutDetailDescriptionProtocol {
     func workoutDetailDescriptionMuscle(cell: WorkoutDetailDescriptionCell, muscles: [String]) {
         WorkoutRouter(presenter: navigationController).pushDetailMuscle(muscles: muscles)
+    }
+}
+
+//----------------------------------------------
+// MARK: - SubscribeOutputProtocol
+//----------------------------------------------
+
+extension WorkoutDetailController: SubscribeOutputProtocol {
+    func successRetrive() {
+        
+    }
+    
+    func failure(error: String) {
+        
     }
 }

@@ -8,6 +8,8 @@
 import Foundation
 import Apollo
 import UIKit
+import StoreKit
+import SwiftyStoreKit
 
 //----------------------------------------------
 // MARK: - Outputs Protocol
@@ -30,6 +32,7 @@ protocol WorkoutDetailPresenterProtocol: AnyObject {
 class WorkoutDetailPresenter: WorkoutDetailPresenterProtocol {
     
     private weak var view: WorkoutDetailOutputProtocol?
+    var paymentsInfo = [PaymentsModel]()
     
     required init(view: WorkoutDetailOutputProtocol) {
         self.view = view
@@ -50,5 +53,34 @@ class WorkoutDetailPresenter: WorkoutDetailPresenterProtocol {
             self?.view?.failure()
             self?.view?.stopLoading()
         })
+    }
+    
+    func retriveNotAutoProduct(id: Set<String>) {
+    
+        if Set(paymentsInfo.compactMap({$0.product})) == id {
+            return
+        }
+        
+        SwiftyStoreKit.retrieveProductsInfo(id) { [weak self] results in
+            if let invalidProductId = results.invalidProductIDs.first {
+                print("Invalid product identifier: \(invalidProductId)")
+                return
+            }
+            self?.paymentsInfo.removeAll()
+            for product in results.retrievedProducts {
+                if let priceString = product.localizedPrice
+                    {
+                    
+                    let model = PaymentsModel(product: product.productIdentifier, prettyPrice: priceString, period: "", number: 0, price: product.price.doubleValue, currencySymbol: product.priceLocale.currencySymbol)
+                    self?.paymentsInfo.append(model)
+                } else {
+                    debugPrint(">>>>>>>>>>>>>>>>>>>incorrect product!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                }
+            }
+            
+            if self?.paymentsInfo.count == id.count {
+                self?.view?.success()
+            }
+        }
     }
 }

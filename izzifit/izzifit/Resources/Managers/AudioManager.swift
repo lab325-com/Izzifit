@@ -47,7 +47,7 @@ class AudioManager {
              player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
             
             guard let player = player else { return }
-            
+            player.volume = 0.5
             player.play()
             
         } catch let error {
