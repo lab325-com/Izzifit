@@ -40,6 +40,7 @@ class ArcticGamePresenter: ArcticGameProtocol {
     func getMap() {
         view?.startLoader()
         let query = MapQuery()
+        
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
             self?.maps = model
             self?.freeBuildingsCount = model.map.freeBuildingsCount

@@ -39,7 +39,7 @@ struct BuildingsModel: Codable {
 
 struct MapSpinsModel: Codable {
     let id: String
-    let spinObjectIds: [Int]
+    let spinObjectIds: [SpinObjectType]
 }
 
 struct SpinObjectsModel: Codable {
@@ -54,6 +54,4 @@ struct SpinObjectsModel: Codable {
     }
 }
 
-extension SpinObjectType: Codable {
-    
-}
+extension SpinObjectType: Codable { }

@@ -158,8 +158,8 @@ extension ArcticGameController: ArcticGameOutputProtocol {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            
-            if let tupleResult = self.spinManager.recognizeSetCombinations(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds) {
+            let spinTags = self.timerSpinManager.convertSpinTypes(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds)
+                if let tupleResult = self.spinManager.recognizeSetCombinations(spinTags) {
                 self.spinManager.accrueBonuses(by: tupleResult.0,
                                                homeView: self.gameView,
                                                hiddenStack: self.gameView.resultStackView,
@@ -191,7 +191,6 @@ extension ArcticGameController: ArcticGameOutputProtocol {
 
 extension ArcticGameController: PaywallProtocol {
     func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
-    
     func paywallSuccess(controller: BaseController) { }
 }
 

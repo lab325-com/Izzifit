@@ -153,8 +153,8 @@ extension EnglandGameController: ArcticGameOutputProtocol {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            
-            if let tupleResult = self.spinManager.recognizeSetCombinations(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds) {
+            let spinTags = self.timerSpinManager.convertSpinTypes(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds)
+            if let tupleResult = self.spinManager.recognizeSetCombinations(spinTags) {
                 self.spinManager.accrueBonuses(by: tupleResult.0,
                                                homeView: self.gameView,
                                                hiddenStack: self.gameView.resultStackView,
