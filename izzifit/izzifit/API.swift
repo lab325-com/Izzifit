@@ -3783,7 +3783,7 @@ public final class MapQuery: GraphQLQuery {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .scalar(GraphQLID.self)),
-            GraphQLField("spinObjectIds", type: .list(.scalar(Int.self))),
+            GraphQLField("spinObjectIds", type: .list(.scalar(SpinObjectType.self))),
           ]
         }
 
@@ -3793,7 +3793,7 @@ public final class MapQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(id: GraphQLID? = nil, spinObjectIds: [Int?]? = nil) {
+        public init(id: GraphQLID? = nil, spinObjectIds: [SpinObjectType?]? = nil) {
           self.init(unsafeResultMap: ["__typename": "Spin", "id": id, "spinObjectIds": spinObjectIds])
         }
 
@@ -3815,9 +3815,9 @@ public final class MapQuery: GraphQLQuery {
           }
         }
 
-        public var spinObjectIds: [Int?]? {
+        public var spinObjectIds: [SpinObjectType?]? {
           get {
-            return resultMap["spinObjectIds"] as? [Int?]
+            return resultMap["spinObjectIds"] as? [SpinObjectType?]
           }
           set {
             resultMap.updateValue(newValue, forKey: "spinObjectIds")
