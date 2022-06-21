@@ -92,10 +92,10 @@ class GameTabBarController: UITabBarController {
                                centerH: 0)
         
         // Targets
-        backBtn.addTarget(self, action: #selector(actionBack),for: .touchUpInside)
-        spinBtn.addTarget(self, action: #selector(spin), for: .touchUpInside)
-        buildBtn.addTarget(self, action: #selector(build), for: .touchUpInside)
-        mapBtn.addTarget(self,action: #selector(map), for: .touchUpInside)
+        backBtn.addTarget(self, action:     #selector(actionBack),for:  .touchUpInside)
+        spinBtn.addTarget(self, action:     #selector(spin), for:       .touchUpInside)
+        buildBtn.addTarget(self, action:    #selector(build), for:      .touchUpInside)
+        mapBtn.addTarget(self,action:       #selector(map), for:        .touchUpInside)
         spinBtn.isSelected = true
         
         tabBar.isHidden = true
