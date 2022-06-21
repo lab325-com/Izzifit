@@ -30,6 +30,7 @@ struct CombinationsAwardsManager {
         resultLbl.text = ". . ."
         KeychainService.standard.me?.energy! -= 1
         // реши вопрос с обновлением энергии и вообще обновлением сущности
+        
         energyLbl.text = String(Int(user.energy!))
         spinBtn.isUserInteractionEnabled = false
         spinBtn.isSelected.toggle()
@@ -240,11 +241,11 @@ struct CombinationsAwardsManager {
 func recognizeSetCombinations(_ resultIndices: [Int]) -> (SpinCombination, Set<Int>)? {
         
         switch resultIndices {
-        case [1,1,1]: return (.setDollars, [0,1,2])
-        case [2,2,2]: return (.setMoneyBags,[0,1,2])
-        case [3,3,3]: return (.setLightning, [0,1,2])
-        case [4,4,4]: return (.setSnowflakes, [0,1,2])
-        case [5,5,5]: return (.setHummers, [0,1,2])
+        case [1,1,1]: return (.setDollars,      [0,1,2])
+        case [2,2,2]: return (.setMoneyBags,    [0,1,2])
+        case [3,3,3]: return (.setLightning,    [0,1,2])
+        case [4,4,4]: return (.setSnowflakes,   [0,1,2])
+        case [5,5,5]: return (.setHummers,      [0,1,2])
         default: break
         }
     
