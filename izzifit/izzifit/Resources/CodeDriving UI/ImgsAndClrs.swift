@@ -50,7 +50,7 @@ enum Imgs: String {
     case eng_bigBenStart, eng_bigBenFirst, eng_bigBenSecond, eng_bigBenThird, eng_bigBenFourth, eng_bigBenFinish
     case eng_busStart, eng_busFirst, eng_busSecond, eng_busThird, eng_busFourth, eng_busFinish
     
-    case gameTabBarEnergy, gameTabBarMap, gameTabBarBuild, gameTabBarSpin
+    case gameTabBarEnergy, gameTabBarMap, gameTabBarMapSelected, gameTabBarBuild, gameTabBarBuildSelected, gameTabBarSpin, gameTabBarSpinSelected
     
     case popStartState
     case pop1Ship, pop2Ship, pop3Ship, pop4Ship, pop5Ship
