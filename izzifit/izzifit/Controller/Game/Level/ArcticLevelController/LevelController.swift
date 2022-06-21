@@ -50,16 +50,7 @@ class LevelController: BaseController {
         hummerCountLbl.isHidden = true
         needSoundTap = false
         super.viewDidLoad()
-        presenter.getBuildings{ [self] in
-            if firstRespond {
-                checkAvailableHummers()
-                firstRespond.toggle()
-                pointers = PointersAndTicks()
-                if let x = pointers {
-                    x.drawPointers(model: player, btns: btns)
-                }
-            }
-        }
+        presenter.getBuildings()
         view.ui.genericlLayout(object: barBackVw,
                                parentView: self.view,
                                height: view.h / 9.2,
@@ -289,24 +280,7 @@ class LevelController: BaseController {
             self.pointers = PointersAndTicks()
             if let x = self.pointers { x.drawPointers(model: self.player, btns: self.btns) }
             
-            presenter.upgradeBuild(buildingId: buildingId) { [self] in
-                let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
-                let maxLevel = player.checkMaxLevel()
-                guard maxLevel else { return }
-                let alert = UIAlertController(title: "Congratulation",
-                                              message: "You built all buildings on current map",
-                                              preferredStyle: .alert)
-                
-                let okAction = UIAlertAction(title: "Move to the next map",
-                                             style: .default) { action in
-                    PreferencesManager.sharedManager.currentMapName = .england_map
-                    NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
-                                                    object: self,
-                                                    userInfo: nil)
-                }
-                alert.addAction(okAction)
-                present(alert, animated: true)
-            }
+            presenter.upgradeBuild(buildingId: buildingId)
         }
     }
     
@@ -379,6 +353,11 @@ extension LevelController: LevelOutputProtocol {
     func successBuildings(model: [BuildingsModel]) {
         checkAvailableHummers()
         drawStates()
+        pointers = PointersAndTicks()
+        if let x = pointers {
+            x.drawPointers(model: player, btns: btns)
+        }
+        
         let maxLevel = player.checkMaxLevel()
         for building in model {
             var state: LevelStates
@@ -404,9 +383,30 @@ extension LevelController: LevelOutputProtocol {
         }
         guard !maxLevel else { return }
         drawStates()
+        pointers = PointersAndTicks()
+        if let x = pointers {
+            x.drawPointers(model: player, btns: btns)
+        }
     }
     
-    func successBuild() { }
+    func successBuild() {
+        let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
+        let maxLevel = player.checkMaxLevel()
+        guard maxLevel else { return }
+        let alert = UIAlertController(title: "Congratulation",
+                                      message: "You built all buildings on current map",
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Move to the next map",
+                                     style: .default) { action in
+            PreferencesManager.sharedManager.currentMapName = .england_map
+            NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
+                                            object: self,
+                                            userInfo: nil)
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
     
     func successMe() {
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"

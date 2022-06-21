@@ -108,7 +108,6 @@ class ChartTableCell: BaseTableViewCell {
         let residualValue = 83.0 - pointY.rounded(toPlaces: 1)
         return residualValue
     }
-
 }
 
 //----------------------------------------------
