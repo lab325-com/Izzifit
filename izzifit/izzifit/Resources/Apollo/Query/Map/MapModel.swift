@@ -8,7 +8,7 @@
 import Foundation
 
 struct MapModel: Codable {
-    let map: MapMainModel
+    let map2: MapMainModel
 }
 
 struct MapMainModel: Codable {

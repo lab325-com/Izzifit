@@ -64,6 +64,7 @@ class LevelController: BaseController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        checkAvailableHummers()
         let x = (439 - UIScreen.main.bounds.size.width) / 2
         self.scrollView.setContentOffset(CGPoint(x: x,
                                                  y: 0),

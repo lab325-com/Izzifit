@@ -83,9 +83,7 @@ class ArcticGameController: BaseController {
         }
     }
     
-    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
-        actionBack()
-    }
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void { actionBack() }
     
     func threeHummersCombination() {
         guard var count = presenter.freeBuildingsCount else { return }
@@ -181,7 +179,7 @@ extension ArcticGameController: ArcticGameOutputProtocol {
     
     func success(map: MapModel) {
         checkAvailableHummers()
-        timerSpinManager.counter.combinations = map.map.spins
+        timerSpinManager.counter.combinations = map.map2.spins
         collectionView.reloadData() }
 }
 

@@ -39,13 +39,13 @@ class ArcticGamePresenter: ArcticGameProtocol {
     
     func getMap() {
         view?.startLoader()
-        let query = MapQuery()
+        let query = Map2Query()
         
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
             self?.maps = model
-            self?.freeBuildingsCount = model.map.freeBuildingsCount
+            self?.freeBuildingsCount = model.map2.freeBuildingsCount
             
-            switch model.map.name {
+            switch model.map2.name {
             case "snow_map": PreferencesManager.sharedManager.currentMapName = .snow_map
             case "england_map": PreferencesManager.sharedManager.currentMapName = .england_map
             default: break
