@@ -256,6 +256,7 @@ extension EngLevelController: LevelOutputProtocol {
     func success() { }
     
     func successBuildings(model: [BuildingsModel]) {
+        
         checkAvailableHummers()
         print(model)
         for building in model {
