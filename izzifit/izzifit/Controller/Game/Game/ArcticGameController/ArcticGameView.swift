@@ -86,6 +86,11 @@ class ArcticGameView: UIView, GameAnimationProtocol {
                     fontSize: h / 40.6,
                     fontName: "Inter-BoldItalic")
         
+        titleLbl.layer.shadowColor =    UIColor(rgb: 0x462D16, alpha: 0.5).cgColor
+        titleLbl.layer.shadowOpacity =  1.0
+        titleLbl.layer.shadowRadius =   2.0
+        titleLbl.layer.shadowOffset =   CGSize(width: -1.5, height: -1.5)
+        
         // hummers
         hummerBtn.setImage(image(img: .freeHummer), for: .normal)
         hummerBtn.isUserInteractionEnabled = false
@@ -94,8 +99,6 @@ class ArcticGameView: UIView, GameAnimationProtocol {
                     textAlignment: .right,
                     fontSize: h / 60.75,
                     fontName: "Inter-BoldItalic")
-//        hummerBtn.isHidden = true
-//        hummerCountLbl.isHidden = true
         
         // logo
         logoImgVw.image = image(img: .start_logo_ic)

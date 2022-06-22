@@ -244,5 +244,22 @@ class MapView: UIView {
                           height: 199,
                           bottomC: 752,
                           leadingC: w/6.6 + sizeRemainder)
+        
+        var gradientView = UIView()
+        gradientView = UIView(frame: CGRect(x: 0, y: 0, width: w, height: h/3.88))
+        let gradient = CAGradientLayer()
+        gradient.frame = gradientView.bounds
+        
+        gradient.colors = [UIColor(rgb: 0xF6DEB1,alpha: 0).cgColor,
+                           UIColor(rgb: 0xDAC396,alpha: 1.0).cgColor,
+                           UIColor(rgb: 0xDAC396,alpha: 1.0).cgColor]
+    
+        gradientView.layer.insertSublayer(gradient, at: 0)
+        ui.genericlLayout(object: gradientView,
+                               parentView: self,
+                               height: h/3.88,
+                               bottomC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
     }
 }

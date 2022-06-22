@@ -1117,7 +1117,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 302 images.
+  /// This `R.image` struct is generated, and contains static references to 305 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1369,12 +1369,18 @@ struct R: Rswift.Validatable {
     static let gameBarBackSafeArea = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameBarBackSafeArea")
     /// Image `gameBarBack`.
     static let gameBarBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameBarBack")
+    /// Image `gameTabBarBuildSelected`.
+    static let gameTabBarBuildSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarBuildSelected")
     /// Image `gameTabBarBuild`.
     static let gameTabBarBuild = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarBuild")
     /// Image `gameTabBarEnergy`.
     static let gameTabBarEnergy = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarEnergy")
+    /// Image `gameTabBarMapSelected`.
+    static let gameTabBarMapSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarMapSelected")
     /// Image `gameTabBarMap`.
     static let gameTabBarMap = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarMap")
+    /// Image `gameTabBarSpinSelected`.
+    static let gameTabBarSpinSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarSpinSelected")
     /// Image `gameTabBarSpin`.
     static let gameTabBarSpin = Rswift.ImageResource(bundle: R.hostingBundle, name: "gameTabBarSpin")
     /// Image `goldFinish`.
@@ -2607,6 +2613,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "gameTabBarBuildSelected", bundle: ..., traitCollection: ...)`
+    static func gameTabBarBuildSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gameTabBarBuildSelected, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "gameTabBarEnergy", bundle: ..., traitCollection: ...)`
     static func gameTabBarEnergy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.gameTabBarEnergy, compatibleWith: traitCollection)
@@ -2621,9 +2634,23 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "gameTabBarMapSelected", bundle: ..., traitCollection: ...)`
+    static func gameTabBarMapSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gameTabBarMapSelected, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "gameTabBarSpin", bundle: ..., traitCollection: ...)`
     static func gameTabBarSpin(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.gameTabBarSpin, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "gameTabBarSpinSelected", bundle: ..., traitCollection: ...)`
+    static func gameTabBarSpinSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gameTabBarSpinSelected, compatibleWith: traitCollection)
     }
     #endif
 
