@@ -83,9 +83,7 @@ class ArcticGameController: BaseController {
         }
     }
     
-    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
-        actionBack()
-    }
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void { actionBack() }
     
     func threeHummersCombination() {
         guard var count = presenter.freeBuildingsCount else { return }
