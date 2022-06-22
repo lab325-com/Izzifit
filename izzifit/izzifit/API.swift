@@ -3544,12 +3544,12 @@ public final class FoodGroupsQuery: GraphQLQuery {
   }
 }
 
-public final class MapQuery: GraphQLQuery {
+public final class Map2Query: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query Map($mapId: String) {
-      map(mapId: $mapId) {
+    query Map2($mapId: String) {
+      map2(mapId: $mapId) {
         __typename
         id
         name
@@ -3579,7 +3579,7 @@ public final class MapQuery: GraphQLQuery {
     }
     """
 
-  public let operationName: String = "Map"
+  public let operationName: String = "Map2"
 
   public var mapId: String?
 
@@ -3596,7 +3596,7 @@ public final class MapQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("map", arguments: ["mapId": GraphQLVariable("mapId")], type: .object(Map.selections)),
+        GraphQLField("map2", arguments: ["mapId": GraphQLVariable("mapId")], type: .object(Map2.selections)),
       ]
     }
 
@@ -3606,20 +3606,20 @@ public final class MapQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(map: Map? = nil) {
-      self.init(unsafeResultMap: ["__typename": "Query", "map": map.flatMap { (value: Map) -> ResultMap in value.resultMap }])
+    public init(map2: Map2? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "map2": map2.flatMap { (value: Map2) -> ResultMap in value.resultMap }])
     }
 
-    public var map: Map? {
+    public var map2: Map2? {
       get {
-        return (resultMap["map"] as? ResultMap).flatMap { Map(unsafeResultMap: $0) }
+        return (resultMap["map2"] as? ResultMap).flatMap { Map2(unsafeResultMap: $0) }
       }
       set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "map")
+        resultMap.updateValue(newValue?.resultMap, forKey: "map2")
       }
     }
 
-    public struct Map: GraphQLSelectionSet {
+    public struct Map2: GraphQLSelectionSet {
       public static let possibleTypes: [String] = ["Map"]
 
       public static var selections: [GraphQLSelection] {
