@@ -36,8 +36,13 @@ class EngLevelController: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         presenter.getBuildings()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        englandView.barBackVw.getCoinsAndEnergy()
+        checkAvailableHummers()
     }
     
     private func addTargets() {

@@ -86,10 +86,10 @@ class EnglandGameView: UIView, GameAnimationProtocol {
         titleLbl.layer.shadowRadius =   2.0
         titleLbl.layer.shadowOffset =   CGSize(width: -1.5, height: -1.5)
 
-        
         // hummers
         hummerBtn.setImage(image(img: .england_freeHummer), for: .normal)
         hummerBtn.isUserInteractionEnabled = false
+        
         ui.setLabel(label: hummerCountLbl,
                     textColor: .white,
                     textAlignment: .right,
