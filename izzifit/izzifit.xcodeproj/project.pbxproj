@@ -197,6 +197,8 @@
 		0290B39527D212CA00381B42 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39427D212CA00381B42 /* UIView+Extension.swift */; };
 		0290B39927D2340800381B42 /* EnerdyTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39727D2340800381B42 /* EnerdyTodayCell.swift */; };
 		0290B39A27D2340800381B42 /* EnerdyTodayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0290B39827D2340800381B42 /* EnerdyTodayCell.xib */; };
+		0298DDF228606DD900BD0234 /* SpecialWorkouts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0298DDF128606DD900BD0234 /* SpecialWorkouts.graphql */; };
+		0298DDF528606E5E00BD0234 /* SpecialWorkoutsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298DDF428606E5E00BD0234 /* SpecialWorkoutsModel.swift */; };
 		029EDBCF280D3FCB00FC8748 /* VideoFinishedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029EDBCD280D3FCB00FC8748 /* VideoFinishedController.swift */; };
 		029EDBD0280D3FCB00FC8748 /* VideoFinishedController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 029EDBCE280D3FCB00FC8748 /* VideoFinishedController.xib */; };
 		029EDBD3280D727A00FC8748 /* WorkoutAttemptUpdate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 029EDBD2280D727A00FC8748 /* WorkoutAttemptUpdate.graphql */; };
@@ -632,6 +634,8 @@
 		0290B39427D212CA00381B42 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		0290B39727D2340800381B42 /* EnerdyTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnerdyTodayCell.swift; sourceTree = "<group>"; };
 		0290B39827D2340800381B42 /* EnerdyTodayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnerdyTodayCell.xib; sourceTree = "<group>"; };
+		0298DDF128606DD900BD0234 /* SpecialWorkouts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SpecialWorkouts.graphql; sourceTree = "<group>"; };
+		0298DDF428606E5E00BD0234 /* SpecialWorkoutsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialWorkoutsModel.swift; sourceTree = "<group>"; };
 		029EDBCD280D3FCB00FC8748 /* VideoFinishedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFinishedController.swift; sourceTree = "<group>"; };
 		029EDBCE280D3FCB00FC8748 /* VideoFinishedController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoFinishedController.xib; sourceTree = "<group>"; };
 		029EDBD2280D727A00FC8748 /* WorkoutAttemptUpdate.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutAttemptUpdate.graphql; sourceTree = "<group>"; };
@@ -1454,6 +1458,7 @@
 		0249D29A27B3D78900F265C1 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+				0298DDF028606DAE00BD0234 /* SpecialWorkouts */,
 				02C5C4612836545D00DA189C /* WidgetList */,
 				02B22AC4281C1890006AB1EA /* Spin */,
 				02B22ABD281C0A5B006AB1EA /* Map */,
@@ -1788,6 +1793,15 @@
 				024C699C27DF617E00EE8D53 /* EnergyAddActivityCell */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		0298DDF028606DAE00BD0234 /* SpecialWorkouts */ = {
+			isa = PBXGroup;
+			children = (
+				0298DDF128606DD900BD0234 /* SpecialWorkouts.graphql */,
+				0298DDF428606E5E00BD0234 /* SpecialWorkoutsModel.swift */,
+			);
+			path = SpecialWorkouts;
 			sourceTree = "<group>";
 		};
 		029EDBCC280D3FA700FC8748 /* VideoFinished */ = {
@@ -3019,6 +3033,7 @@
 				02AD738B284F6F8E00376E4C /* OrderProduct.graphql in Resources */,
 				02BC128E27F329E200678305 /* WorkoutDetailMuscleController.xib in Resources */,
 				0256999228197A7500BA1535 /* 19_super_win.wav in Resources */,
+				0298DDF228606DD900BD0234 /* SpecialWorkouts.graphql in Resources */,
 				023FBC3D27FACC8C004D0CEA /* PaywallController.xib in Resources */,
 				0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */,
 				0227DA9727C619F7008AB26B /* MenuCell.xib in Resources */,
@@ -3495,6 +3510,7 @@
 				024C69A427DF858300EE8D53 /* FoodController.swift in Sources */,
 				0249D26427B3A88C00F265C1 /* UIColor+Extension.swift in Sources */,
 				02BC127D27F1E29A00678305 /* WorkoutByIdModel.swift in Sources */,
+				0298DDF528606E5E00BD0234 /* SpecialWorkoutsModel.swift in Sources */,
 				FACD1C13284787A50014AFDC /* ArcticGameController.swift in Sources */,
 				02B3017427EB23190045C607 /* SaveMoodModel.swift in Sources */,
 				02F01C5427D794B20066656D /* MoodWidgetModel.swift in Sources */,
@@ -3657,7 +3673,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 38;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3676,7 +3692,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3696,7 +3712,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 38;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3715,7 +3731,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3796,7 +3812,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 38;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3815,7 +3831,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

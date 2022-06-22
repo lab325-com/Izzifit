@@ -9,6 +9,8 @@ import Foundation
 import Apollo
 import UIKit
 import HealthKit
+import StoreKit
+import SwiftyStoreKit
 
 //----------------------------------------------
 // MARK: - Outputs Protocol
@@ -38,6 +40,7 @@ class EnergyPresenter: EnergyPresenterProtocol {
     private weak var view: EnergyOutputProtocol?
     private let uuid = UIDevice.current.identifierForVendor!.uuidString
     private let healthStore = HKHealthStore()
+    var paymentsInfo = [PaymentsModel]()
     
     required init(view: EnergyOutputProtocol) {
         self.view = view
@@ -50,6 +53,8 @@ class EnergyPresenter: EnergyPresenterProtocol {
     var todayProgress: TodayProgressMainModel?
     var weightWidget: SaveWeightWidgetMainModel?
     var workoutWidgets: [WorkoutsWidgetMainModel] = []
+    var specialPriceNotBuing: [WorkoutsWidgetMainModel] = []
+    var specialPriceBuing: [WorkoutsWidgetMainModel] = []
     var chooseWorkoutWidgets: [WorkoutsWidgetMainModel] = []
     var stepsWidget: [CurrentStepsModel] = []
     
@@ -150,6 +155,20 @@ class EnergyPresenter: EnergyPresenterProtocol {
             group.leave()
             self?.view?.failure()
         }
+        
+        group.enter()
+        let query9 = SpecialWorkoutsQuery()
+        let _ = Network.shared.query(model: SpecialWorkoutsModel.self, query9, controller: view, successHandler: { [weak self] model in
+            self?.specialPriceNotBuing = model.specialWorkouts.filter({$0.isAvailable != true})
+            self?.specialPriceBuing = model.specialWorkouts.filter({$0.isAvailable == true})
+            
+            let ids = model.specialWorkouts.compactMap({$0.externalId})
+            self?.retriveNotAutoProduct(id: Set(ids))
+            group.leave()
+        }, failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        })
         
         group.notify(queue: DispatchQueue.main) { [weak self] in
             self?.view?.stopLoading()
@@ -261,6 +280,35 @@ class EnergyPresenter: EnergyPresenterProtocol {
             //PreferencesManager.sharedManager.widgetList = types
             self?.view?.successWidgetList()
         } failureHandler: { _ in
+        }
+    }
+    
+    private func retriveNotAutoProduct(id: Set<String>) {
+    
+        if Set(paymentsInfo.compactMap({$0.product})) == id {
+            return
+        }
+        
+        SwiftyStoreKit.retrieveProductsInfo(id) { [weak self] results in
+            if let invalidProductId = results.invalidProductIDs.first {
+                print("Invalid product identifier: \(invalidProductId)")
+                return
+            }
+            self?.paymentsInfo.removeAll()
+            for product in results.retrievedProducts {
+                if let priceString = product.localizedPrice
+                    {
+                    
+                    let model = PaymentsModel(product: product.productIdentifier, prettyPrice: priceString, period: "", number: 0, price: product.price.doubleValue, currencySymbol: product.priceLocale.currencySymbol)
+                    self?.paymentsInfo.append(model)
+                } else {
+                    debugPrint(">>>>>>>>>>>>>>>>>>>incorrect product!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                }
+            }
+            
+            if self?.paymentsInfo.count == id.count {
+                self?.view?.success()
+            }
         }
     }
 }

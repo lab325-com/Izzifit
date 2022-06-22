@@ -19,8 +19,16 @@ class WorkoutDetailDescriptionCell: BaseTableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var musclesGroupLabel: UILabel!
     
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var discountLabel: UILabel!
+    
+    @IBOutlet weak var musclesView: UIView!
+    @IBOutlet weak var priceView: UIView!
+    
+    
     weak var delegate: WorkoutDetailDescriptionProtocol?
     
+    private var paymentsInfo = [PaymentsModel]()
     private var model: WorkoutByIdMainModel?
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,8 +47,11 @@ class WorkoutDetailDescriptionCell: BaseTableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupCell(model: WorkoutByIdMainModel?) {
+    func setupCell(model: WorkoutByIdMainModel?, isSpecial: Bool, paymentInfo: PaymentsModel?) {
         self.model = model
+        
+        musclesView.isHidden = isSpecial
+        priceView.isHidden = !isSpecial
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.24
@@ -48,10 +59,35 @@ class WorkoutDetailDescriptionCell: BaseTableViewCell {
         descriptionLabel.attributedText = NSMutableAttributedString(string: model?.description ?? "", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         
         musclesGroupLabel.text = model?.muscles?.compactMap({$0.name}).joined(separator: ", ")
+        
+        if let paymentInfo = paymentInfo, let model = model {
+            setPrice(model: model, paymentInfo: paymentInfo)
+        } else {
+            priceLabel.isHidden = false
+            discountLabel.isHidden = false
+        }
     }
     
     @IBAction func actionMuscle(_ sender: UIButton) {
         guard let muscles = model?.muscles?.compactMap({$0.name}) else { return }
         delegate?.workoutDetailDescriptionMuscle(cell: self, muscles: muscles)
+    }
+    
+    func setPrice(model: WorkoutByIdMainModel, paymentInfo: PaymentsModel) {
+        if model.isAvailable != true {
+            priceLabel.isHidden = false
+            discountLabel.isHidden = false
+        } else {
+            priceLabel.isHidden = true
+            discountLabel.isHidden = true
+        }
+        
+        priceLabel.text = paymentInfo.prettyPrice
+        
+        let dicount = Int(paymentInfo.price)
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "$\(dicount * 2).99")
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSRange(location: 0, length: attributeString.length))
+        
+        discountLabel.attributedText = attributeString
     }
 }

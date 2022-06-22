@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Inter-BoldItalic.ttf">
+            <string>Inter-BoldItalic</string>
+        </array>
         <array key="Inter-Medium.ttf">
             <string>Inter-Medium</string>
         </array>
@@ -62,21 +65,60 @@
                                 <state key="normal" title="Start workout">
                                     <color key="titleColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="actionStartWokout:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="azx-0A-2Cc"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8li-b9-kvK">
+                                <rect key="frame" x="18" y="0.0" width="46.5" height="14"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPECIAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDK-td-9fz">
+                                        <rect key="frame" x="4" y="1" width="38.5" height="11"/>
+                                        <fontDescription key="fontDescription" name="Inter-BoldItalic" family="Inter" pointSize="9"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.25882352941176467" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="XDK-td-9fz" secondAttribute="bottom" constant="2" id="5bW-NH-A3d"/>
+                                    <constraint firstItem="XDK-td-9fz" firstAttribute="leading" secondItem="8li-b9-kvK" secondAttribute="leading" constant="4" id="Nf0-Tc-Ujg"/>
+                                    <constraint firstItem="XDK-td-9fz" firstAttribute="top" secondItem="8li-b9-kvK" secondAttribute="top" constant="1" id="dUh-Vh-NQb"/>
+                                    <constraint firstAttribute="trailing" secondItem="XDK-td-9fz" secondAttribute="trailing" constant="4" id="ndp-bh-Lo1"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZl-xT-Nl3">
+                                <rect key="frame" x="16" y="123" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.25882352941176467" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDM-Ad-2Dc">
+                                <rect key="frame" x="20" y="124" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="11"/>
+                                <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.94509803921568625" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="yDf-2V-9Vc" secondAttribute="bottom" constant="16" id="71R-8M-2ap"/>
                             <constraint firstItem="Gdl-VN-6yk" firstAttribute="leading" secondItem="VFs-Kf-9Rp" secondAttribute="leading" constant="16" id="7I2-xq-pM7"/>
+                            <constraint firstItem="EDM-Ad-2Dc" firstAttribute="top" secondItem="jZl-xT-Nl3" secondAttribute="top" constant="1" id="Adj-bU-eey"/>
                             <constraint firstItem="yDf-2V-9Vc" firstAttribute="top" secondItem="WiV-bg-vGc" secondAttribute="bottom" constant="16" id="EQ8-J3-msh"/>
+                            <constraint firstItem="jZl-xT-Nl3" firstAttribute="leading" secondItem="Gdl-VN-6yk" secondAttribute="leading" id="EkF-MN-ySp"/>
                             <constraint firstItem="qiU-Qn-B3C" firstAttribute="leading" secondItem="VFs-Kf-9Rp" secondAttribute="leading" constant="16" id="JOJ-yA-dhK"/>
                             <constraint firstItem="WiV-bg-vGc" firstAttribute="top" secondItem="VFs-Kf-9Rp" secondAttribute="top" constant="16" id="ORe-GJ-TVD"/>
                             <constraint firstItem="yDf-2V-9Vc" firstAttribute="leading" secondItem="VFs-Kf-9Rp" secondAttribute="leading" constant="16" id="aBf-NZ-2SD"/>
                             <constraint firstItem="qiU-Qn-B3C" firstAttribute="top" secondItem="VFs-Kf-9Rp" secondAttribute="top" constant="27" id="cTp-mC-Noc"/>
                             <constraint firstItem="WiV-bg-vGc" firstAttribute="leading" secondItem="qiU-Qn-B3C" secondAttribute="trailing" constant="7" id="d6B-2c-YJI"/>
+                            <constraint firstItem="jZl-xT-Nl3" firstAttribute="top" secondItem="Gdl-VN-6yk" secondAttribute="bottom" constant="12" id="kQg-gZ-Apx"/>
+                            <constraint firstItem="8li-b9-kvK" firstAttribute="top" secondItem="VFs-Kf-9Rp" secondAttribute="top" id="n6O-wb-5Ie"/>
+                            <constraint firstItem="EDM-Ad-2Dc" firstAttribute="leading" secondItem="jZl-xT-Nl3" secondAttribute="trailing" constant="4" id="q61-B4-eec"/>
                             <constraint firstAttribute="trailing" secondItem="WiV-bg-vGc" secondAttribute="trailing" constant="16" id="qHk-Zk-HvD"/>
                             <constraint firstAttribute="trailing" secondItem="yDf-2V-9Vc" secondAttribute="trailing" constant="16" id="ufx-bw-wJ6"/>
                             <constraint firstItem="Gdl-VN-6yk" firstAttribute="top" secondItem="qiU-Qn-B3C" secondAttribute="bottom" constant="8" id="vv5-cn-2Az"/>
+                            <constraint firstItem="8li-b9-kvK" firstAttribute="leading" secondItem="VFs-Kf-9Rp" secondAttribute="leading" constant="18" id="wAD-gl-APh"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -97,7 +139,11 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <inset key="separatorInset" minX="10000" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
+                <outlet property="avatarImageView" destination="WiV-bg-vGc" id="kky-Ws-W6y"/>
+                <outlet property="discountLabel" destination="EDM-Ad-2Dc" id="b9v-T4-ISX"/>
                 <outlet property="nameLabel" destination="qiU-Qn-B3C" id="pvs-HA-HdO"/>
+                <outlet property="priceLabel" destination="jZl-xT-Nl3" id="6Wh-xn-Y99"/>
+                <outlet property="specialView" destination="8li-b9-kvK" id="skN-BX-Nm1"/>
                 <outlet property="startWorkoutButton" destination="yDf-2V-9Vc" id="lS9-Wr-E2L"/>
             </connections>
             <point key="canvasLocation" x="188.40579710144928" y="147.99107142857142"/>

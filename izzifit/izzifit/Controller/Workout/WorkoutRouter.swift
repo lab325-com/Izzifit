@@ -8,8 +8,8 @@
 import Foundation
 
 class WorkoutRouter: BaseRouter {
-    func pushDetailWorkout(id: String) {
-        let controller = WorkoutDetailController(id: id)
+    func pushDetailWorkout(id: String, idSpecialId: String? = nil) {
+        let controller = WorkoutDetailController(id: id, idSpecialId: idSpecialId)
         push(controller: controller)
     }
     

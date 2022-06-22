@@ -151,6 +151,9 @@ class SubscribePresenter: SubscribePresenterProtocol {
                         let _ = Network.shared.query(model: MeModel.self, MeQuery(), controller: self?.view) { [weak self] model in
                             KeychainService.standard.me = model.me
                             self?.view?.stopLoading()
+                            NotificationCenter.default.post(name: Constants.Notifications.updateEnergyNotification,
+                                                            object: self,
+                                                            userInfo: nil)
                             purchaseSuccess(true, nil)
                         } failureHandler: { [weak self] error in
                             self?.view?.stopLoading()

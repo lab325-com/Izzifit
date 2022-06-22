@@ -29,15 +29,9 @@ class ArcticGameController: BaseController {
         needSoundTap = false
         hiddenNavigationBar = true
         super.viewDidLoad()
+        presenter.getMap()
         timerSpinManager = TimerSpinManager(collectionView: collectionView,
                                             presenter: presenter)
-        DispatchQueue.main.async {
-            self.presenter.getMap { spins in
-                self.checkAvailableHummers()
-                self.timerSpinManager.counter.combinations = spins
-            }
-        }
-        
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
@@ -158,20 +152,14 @@ extension ArcticGameController: ArcticGameOutputProtocol {
             case .spinObjectRewardTypeEnergy:
                 KeychainService.standard.me?.energy! += Float(award.amount)
                 spinsAmount = award.amount
-            case .spinObjectRewardTypeBuild:
-                let alert = UIAlertController(title: "Free Building",
-                                              message: "This could be your design",
-                                              preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .default)
-                alert.addAction(okAction)
-          //      self.present(alert, animated: true)
+            case .spinObjectRewardTypeBuild: print("")
             case .__unknown(_): print("")
             }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            
-            if let tupleResult = self.spinManager.recognizeSetCombinations(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds) {
+            let spinTags = self.timerSpinManager.convertSpinTypes(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds)
+                if let tupleResult = self.spinManager.recognizeSetCombinations(spinTags) {
                 self.spinManager.accrueBonuses(by: tupleResult.0,
                                                homeView: self.gameView,
                                                hiddenStack: self.gameView.resultStackView,
@@ -192,6 +180,8 @@ extension ArcticGameController: ArcticGameOutputProtocol {
     }
     
     func success(map: MapModel) {
+        checkAvailableHummers()
+        timerSpinManager.counter.combinations = map.map.spins
         collectionView.reloadData() }
 }
 
@@ -201,7 +191,6 @@ extension ArcticGameController: ArcticGameOutputProtocol {
 
 extension ArcticGameController: PaywallProtocol {
     func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
-    
     func paywallSuccess(controller: BaseController) { }
 }
 

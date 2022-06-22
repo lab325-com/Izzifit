@@ -50,9 +50,30 @@ class TimerSpinManager {
         guard let cell = collectionView.cellForItem(at: [0,index]) as? SlotCollectionCell else { return UITableView() }
         return cell.tableView
     }
+    func convertSpinTypeObjectToInt(_ object: SpinObjectType) -> Int {
+        var int: Int
+        switch object {
+        case .spinObjectTypeCoin:       int = 1
+        case .spinObjectTypeManyCoin:   int = 2
+        case .spinObjectTypeEnergy:     int = 3
+        case .spinObjectTypeManyEnergy: int = 4
+        case .spinObjectTypeBuild:      int = 5
+        case .__unknown(let rawValue):  int = 1
+        }
+        return int
+    }
+    func convertSpinTypes(_ array: [SpinObjectType]) -> [Int] {
+        var spinTags = [Int]()
+        for type in array {
+            let tag = convertSpinTypeObjectToInt(type)
+            spinTags.append(tag)
+        }
+        return spinTags
+    }
     
     func getSpeed(by index: Int) -> CGFloat {
-        return counter.spiningStride(to: counter.combinations[combinationCounter].spinObjectIds[index],
+        let spinTag = convertSpinTypeObjectToInt(counter.combinations[combinationCounter].spinObjectIds[index])
+        return counter.spiningStride(to: spinTag,
                                      from: index,
                                      currentArray: counter.arrays[index])
     }

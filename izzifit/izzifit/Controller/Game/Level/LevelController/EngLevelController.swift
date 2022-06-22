@@ -20,7 +20,6 @@ class EngLevelController: BaseController {
                    CGRect(x: 264, y: 506, width: 101, height: 154),
                    CGRect(x: 134, y: 641, width: 127, height: 137)]
     
-    private var firstRespond = true
     var player = PlayerModel()
     let animation = UIImageView()
     
@@ -37,12 +36,8 @@ class EngLevelController: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.getBuildings{ [self] in
-            if firstRespond {
-                checkAvailableHummers()
-                firstRespond.toggle()
-            }
-        }
+        
+        presenter.getBuildings()
     }
     
     private func addTargets() {
@@ -193,9 +188,7 @@ class EngLevelController: BaseController {
                 btn.isUserInteractionEnabled.toggle()
             }
      
-            presenter.upgradeBuild(buildingId: buildingId) { [self] in
-                let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
-            }
+            presenter.upgradeBuild(buildingId: buildingId)
         }
     }
     
@@ -285,7 +278,9 @@ extension EngLevelController: LevelOutputProtocol {
         englandView.drawStates(player: player, imgStatesArr: englandView.englandLevelImgs)
     }
     
-    func successBuild() { }
+    func successBuild() {
+        let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
+    }
     
     func successMe() {
         englandView.barBackVw.getCoinsAndEnergy()

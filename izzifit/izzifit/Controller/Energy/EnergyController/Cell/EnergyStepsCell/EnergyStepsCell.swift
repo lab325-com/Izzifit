@@ -61,7 +61,7 @@ class EnergyStepsCell: UITableViewCell {
         
         let path = CGMutablePath()
         path.addLines(between: [CGPoint(x: 0, y: targetInt),
-                                CGPoint(x: CGFloat(31 * 41), y: targetInt)])
+                                CGPoint(x: CGFloat(31 * 45), y: targetInt)])
         lineLayer.path = path
         stepsCollectionView.layer.addSublayer(lineLayer)
         
