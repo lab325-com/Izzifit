@@ -1109,7 +1109,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 302 images.
+  /// This `R.image` struct is generated, and contains static references to 303 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1649,6 +1649,8 @@ struct R: Rswift.Validatable {
     static let start_login_button_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "start_login_button_ic")
     /// Image `start_logo_ic`.
     static let start_logo_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "start_logo_ic")
+    /// Image `steps_back_ic`.
+    static let steps_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "steps_back_ic")
     /// Image `sunIsShineAnimation`.
     static let sunIsShineAnimation = Rswift.ImageResource(bundle: R.hostingBundle, name: "sunIsShineAnimation")
     /// Image `tab_bar_energy_ic`.
@@ -3600,6 +3602,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "steps_back_ic", bundle: ..., traitCollection: ...)`
+    static func steps_back_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.steps_back_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "sunIsShineAnimation", bundle: ..., traitCollection: ...)`
     static func sunIsShineAnimation(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.sunIsShineAnimation, compatibleWith: traitCollection)
@@ -3833,7 +3842,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 85 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 87 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -3865,6 +3874,10 @@ struct R: Rswift.Validatable {
     static let energySleepCell = _R.nib._EnergySleepCell()
     /// Nib `EnergySpecialPriceCell`.
     static let energySpecialPriceCell = _R.nib._EnergySpecialPriceCell()
+    /// Nib `EnergyStepsCell`.
+    static let energyStepsCell = _R.nib._EnergyStepsCell()
+    /// Nib `EnergyStepsCollectionCell`.
+    static let energyStepsCollectionCell = _R.nib._EnergyStepsCollectionCell()
     /// Nib `EnergyTrainingCell`.
     static let energyTrainingCell = _R.nib._EnergyTrainingCell()
     /// Nib `EnergyUpdateWeightController`.
@@ -4123,6 +4136,22 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.energySpecialPriceCell) instead")
     static func energySpecialPriceCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.energySpecialPriceCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "EnergyStepsCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.energyStepsCell) instead")
+    static func energyStepsCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.energyStepsCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "EnergyStepsCollectionCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.energyStepsCollectionCell) instead")
+    static func energyStepsCollectionCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.energyStepsCollectionCell)
     }
     #endif
 
@@ -4746,6 +4775,14 @@ struct R: Rswift.Validatable {
       return R.nib.energySpecialPriceCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergySpecialPriceCell
     }
 
+    static func energyStepsCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyStepsCell? {
+      return R.nib.energyStepsCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyStepsCell
+    }
+
+    static func energyStepsCollectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyStepsCollectionCell? {
+      return R.nib.energyStepsCollectionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyStepsCollectionCell
+    }
+
     static func energyTrainingCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyTrainingCell? {
       return R.nib.energyTrainingCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyTrainingCell
     }
@@ -5029,7 +5066,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 38 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 40 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AwardsTableCell`.
     static let awardsTableCell: Rswift.ReuseIdentifier<PolicyCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
@@ -5055,6 +5092,10 @@ struct R: Rswift.Validatable {
     static let energySleepCell: Rswift.ReuseIdentifier<EnergySleepCell> = Rswift.ReuseIdentifier(identifier: "EnergySleepCell")
     /// Reuse identifier `EnergySpecialPriceCell`.
     static let energySpecialPriceCell: Rswift.ReuseIdentifier<EnergySpecialPriceCell> = Rswift.ReuseIdentifier(identifier: "EnergySpecialPriceCell")
+    /// Reuse identifier `EnergyStepsCell`.
+    static let energyStepsCell: Rswift.ReuseIdentifier<EnergyStepsCell> = Rswift.ReuseIdentifier(identifier: "EnergyStepsCell")
+    /// Reuse identifier `EnergyStepsCollectionCell`.
+    static let energyStepsCollectionCell: Rswift.ReuseIdentifier<EnergyStepsCollectionCell> = Rswift.ReuseIdentifier(identifier: "EnergyStepsCollectionCell")
     /// Reuse identifier `EnergyTrainingCell`.
     static let energyTrainingCell: Rswift.ReuseIdentifier<EnergyTrainingCell> = Rswift.ReuseIdentifier(identifier: "EnergyTrainingCell")
     /// Reuse identifier `EnergyWeightCell`.
@@ -8788,6 +8829,7 @@ struct _R: Rswift.Validatable {
       try _EnergyProgressController.validate()
       try _EnergySleepCell.validate()
       try _EnergySpecialPriceCell.validate()
+      try _EnergyStepsCell.validate()
       try _EnergyTrainingCell.validate()
       try _EnergyWeightCell.validate()
       try _FoodController.validate()
@@ -9133,6 +9175,43 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "placeholder_big_sport_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder_big_sport_ic' is used in nib 'EnergySpecialPriceCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _EnergyStepsCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = EnergyStepsCell
+
+      let bundle = R.hostingBundle
+      let identifier = "EnergyStepsCell"
+      let name = "EnergyStepsCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyStepsCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyStepsCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "steps_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'steps_back_ic' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "grayText", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayText' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "pinkTarget", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'pinkTarget' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "profileCellBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'profileCellBack' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _EnergyStepsCollectionCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = EnergyStepsCollectionCell
+
+      let bundle = R.hostingBundle
+      let identifier = "EnergyStepsCollectionCell"
+      let name = "EnergyStepsCollectionCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyStepsCollectionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyStepsCollectionCell
       }
 
       fileprivate init() {}

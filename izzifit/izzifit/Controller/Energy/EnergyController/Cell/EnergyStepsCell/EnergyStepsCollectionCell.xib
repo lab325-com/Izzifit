@@ -16,33 +16,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChartCollectionCell" id="gTV-IL-0wX" customClass="ChartCollectionCell" customModule="izzifit" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="35" height="103"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EnergyStepsCollectionCell" id="era-eQ-HhX" customClass="EnergyStepsCollectionCell" customModule="izzifit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="37" height="89"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="35" height="103"/>
+                <rect key="frame" x="0.0" y="0.0" width="37" height="89"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27mar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhF-0D-pSF">
-                        <rect key="frame" x="2.5" y="83" width="30" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="LYx-mq-ZNa"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27mar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpK-KL-F42">
+                        <rect key="frame" x="3.5" y="76.5" width="30" height="12.5"/>
                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
                         <color key="textColor" name="grayText"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <viewLayoutGuide key="safeArea" id="9Up-Aa-51H"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="VhF-0D-pSF" secondAttribute="bottom" id="Kfq-N1-grw"/>
-                <constraint firstItem="VhF-0D-pSF" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="nbo-7B-LWF"/>
+                <constraint firstAttribute="bottom" secondItem="vpK-KL-F42" secondAttribute="bottom" id="J77-y3-TdM"/>
+                <constraint firstItem="vpK-KL-F42" firstAttribute="centerX" secondItem="era-eQ-HhX" secondAttribute="centerX" id="abN-tR-TNX"/>
             </constraints>
             <connections>
-                <outlet property="dateLbl" destination="VhF-0D-pSF" id="teh-nM-sVK"/>
+                <outlet property="timeLabel" destination="vpK-KL-F42" id="xZQ-KH-Pua"/>
             </connections>
-            <point key="canvasLocation" x="139" y="62"/>
+            <point key="canvasLocation" x="138.40579710144928" y="61.941964285714285"/>
         </collectionViewCell>
     </objects>
     <resources>

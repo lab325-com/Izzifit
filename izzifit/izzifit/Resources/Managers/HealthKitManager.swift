@@ -20,16 +20,15 @@ enum HoursType: String {
     case twentyThree = "23"
 }
 
-enum CurrentHourType: CaseIterable {
-    case eight
-    case ten
-    case twelve
-    case fourteen
-    case sixeen
-    case eighteen
-    case twenty
-    case twentyTwo
-    case twentyThree
+enum CurrentHourType: String, CaseIterable {
+    case eight       = "08:00"
+    case ten         = "10:00"
+    case twelve      = "12:00"
+    case fourteen    = "14:00"
+    case sixeen      = "16:00"
+    case eighteen    = "18:00"
+    case twenty      = "20:00"
+    case twentyTwo   = "22:00"
 }
 
 struct StepsModel {
@@ -142,8 +141,6 @@ class HealthKitManager {
             let twentyTwo = model.first(where: {$0.hourType == .twentyTwo})?.steps ?? 0
             let twentyThree = model.first(where: {$0.hourType == .twentyThree})?.steps ?? 0
             return twentyTwo + twentyThree
-        case .twentyThree:
-            return 0
         }
     }
 }

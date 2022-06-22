@@ -14,7 +14,7 @@ import UIKit
 extension EnergyController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8 + presenter.workoutWidgets.count
+        return 9 + presenter.workoutWidgets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,11 +36,9 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellEnergyMood) as? EnergyMoodCell else { return UITableViewCell() }
-            
             if let model = presenter.moodWidget {
                 cell.setupCell(model: model)
             }
-            
             cell.delegate = self
             return cell
         case 3:
@@ -51,29 +49,33 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         case 4:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellStepsIdentifier) as? EnergyStepsCell else { return UITableViewCell() }
+            cell.setupCell(model: presenter.stepsWidget)
+            return cell
+        case 5:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSpecialPriceIdentifier) as? EnergySpecialPriceCell else { return UITableViewCell() }
             cell.setupCell()
             return cell
-        case 5:
+        case 6:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSleepIdentifier) as? EnergySleepCell else { return UITableViewCell() }
             cell.delegate = self
             if let model = presenter.sleepWidget {
                 cell.setupCell(model: model)
             }
             return cell
-        case 6:
+        case 7:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellWeightIdentifier) as? EnergyWeightCell else { return UITableViewCell() }
             cell.delegate = self
             if let model = presenter.weightWidget {
                 cell.setupCell(model: model)
             }
             return cell
-        case 7:
+        case 8:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellChooseActivity) as? EnergyChooseActivityCell else { return UITableViewCell() }
             cell.delegate = self
             cell.setupCell(models: presenter.chooseWorkoutWidgets)
             return cell
-        case 8..<8 + presenter.workoutWidgets.count:
+        case 9..<9 + presenter.workoutWidgets.count:
             if presenter.workoutWidgets.count == 0 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellAddActivity) as? EnergyAddActivityCell else { return UITableViewCell() }
                 return cell
@@ -83,7 +85,7 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
                 cell.setupCell(model: presenter.workoutWidgets[indexPath.row - 7])
                 return cell
             }
-        case 8 + presenter.workoutWidgets.count:
+        case 9 + presenter.workoutWidgets.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellAddActivity) as? EnergyAddActivityCell else { return UITableViewCell() }
             return cell
         default:
