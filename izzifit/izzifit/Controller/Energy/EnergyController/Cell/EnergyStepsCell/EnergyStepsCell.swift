@@ -14,6 +14,7 @@ class EnergyStepsCell: UITableViewCell {
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var stepsCollectionView: UICollectionView!
+    @IBOutlet var timeLabelsCollection: [UILabel]!
     
     //----------------------------------------------
     // MARK: - Property
@@ -36,12 +37,9 @@ class EnergyStepsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        selectionStyle = .none
-        
-        backView.clipsToBounds = true
+                
         backView.layer.cornerRadius = 20
-        stepsCollectionView.showsVerticalScrollIndicator = false
+        
         stepsCollectionView.backgroundColor = .clear
         stepsCollectionView.dataSource = self
         stepsCollectionView.delegate = self
@@ -56,6 +54,16 @@ class EnergyStepsCell: UITableViewCell {
     
     func setupCell(model: [CurrentStepsModel]) {
         steps = model
+        
+        for (index, label) in timeLabelsCollection.enumerated() {
+            label.tag = index
+        }
+        
+        for (index, item) in model.enumerated() {
+            if index <= 8 {
+                timeLabelsCollection[index].text = item.hourType.rawValue
+            }
+        }
         
         let targetInt = calculateMeasureY(value: KeychainService.standard.me?.gender == .genderTypeMan ? 950.0 : 650.0)
         
@@ -101,5 +109,11 @@ extension EnergyStepsCell: UICollectionViewDelegate, UICollectionViewDataSource 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EnergyStepsCollectionCell.id, for: indexPath) as! EnergyStepsCollectionCell
         cell.fillCellBy(steps[indexPath.row])
         return cell
+    }
+}
+
+extension EnergyStepsCell: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: stepsCollectionView.frame.width / 8, height: 89)
     }
 }

@@ -8864,7 +8864,6 @@ struct _R: Rswift.Validatable {
       try _EnergyProgressController.validate()
       try _EnergySleepCell.validate()
       try _EnergySpecialPriceCell.validate()
-      try _EnergyStepsCell.validate()
       try _EnergyTrainingCell.validate()
       try _EnergyWeightCell.validate()
       try _FoodController.validate()
@@ -9215,7 +9214,7 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _EnergyStepsCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+    struct _EnergyStepsCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = EnergyStepsCell
 
       let bundle = R.hostingBundle
@@ -9224,15 +9223,6 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyStepsCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyStepsCell
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "steps_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'steps_back_ic' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "grayText", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayText' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "pinkTarget", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'pinkTarget' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "profileCellBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'profileCellBack' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
-        }
       }
 
       fileprivate init() {}

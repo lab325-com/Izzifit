@@ -1,5 +1,6 @@
 
 import UIKit
+import SwiftUI
 
 class EnergyStepsCollectionCell: UICollectionViewCell {
     
@@ -7,7 +8,7 @@ class EnergyStepsCollectionCell: UICollectionViewCell {
     // MARK: - IBOutlet
     //----------------------------------------------
     
-    @IBOutlet weak var timeLabel: UILabel!
+//    @IBOutlet weak var timeLabel: UILabel!
     
     //----------------------------------------------
     // MARK: - Property
@@ -24,10 +25,12 @@ class EnergyStepsCollectionCell: UICollectionViewCell {
         super.awakeFromNib()
         
         backgroundColor = clr(color: .profileCellBack)
+        layer.borderWidth = 1.0
+        layer.borderColor = UIColor(rgb: 0x3F3E56, alpha: 0.1).cgColor  
     }
 
     func fillCellBy(_ model: CurrentStepsModel) {
-        timeLabel.text = model.hourType.rawValue
+//        timeLabel.text = model.hourType.rawValue
         
         strokeEnd = calculateStrokeEnd(CGFloat(model.steps))
         targetValue = KeychainService.standard.me?.gender == .genderTypeMan ? 950.0 : 650.0
@@ -44,7 +47,7 @@ class EnergyStepsCollectionCell: UICollectionViewCell {
         overShapeLayer.strokeEnd = strokeEnd
         overShapeLayer.strokeColor = clr(color: .chartPurple)?.cgColor
         
-        let y = self.bounds.height / 2 - 8
+        let y = self.bounds.height / 2
         let x = self.bounds.width / 2
         let path = UIBezierPath()
         path.move(to: CGPoint(x: x, y: y + y))
@@ -76,15 +79,15 @@ class EnergyStepsCollectionCell: UICollectionViewCell {
        
         switch value {
         case let x where x > upper: return 0.0
-        case let x where x < lower: return 85.0
+        case let x where x < lower: return 89.0
         default: break
         }
         
         let neededValue = value - lower
         let measureDistance = upper - lower
-        let measureRatio = measureDistance / 85.0
+        let measureRatio = measureDistance / 89.0
         let pointY = neededValue / measureRatio.rounded(toPlaces: 1)
-        let residualValue = 85.0 - pointY.rounded(toPlaces: 1)
+        let residualValue = 89.0 - pointY.rounded(toPlaces: 1)
         return residualValue
     }
     
