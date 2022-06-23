@@ -8,7 +8,7 @@ class EnergyStepsCollectionCell: UICollectionViewCell {
     // MARK: - IBOutlet
     //----------------------------------------------
     
-//    @IBOutlet weak var timeLabel: UILabel!
+
     
     //----------------------------------------------
     // MARK: - Property
@@ -26,12 +26,10 @@ class EnergyStepsCollectionCell: UICollectionViewCell {
         
         backgroundColor = clr(color: .profileCellBack)
         layer.borderWidth = 1.0
-        layer.borderColor = UIColor(rgb: 0x3F3E56, alpha: 0.1).cgColor  
+        layer.borderColor = UIColor(rgb: 0x3F3E56, alpha: 0.1).cgColor
     }
 
     func fillCellBy(_ model: CurrentStepsModel) {
-//        timeLabel.text = model.hourType.rawValue
-        
         strokeEnd = calculateStrokeEnd(CGFloat(model.steps))
         targetValue = KeychainService.standard.me?.gender == .genderTypeMan ? 950.0 : 650.0
         
@@ -57,7 +55,8 @@ class EnergyStepsCollectionCell: UICollectionViewCell {
         layer.addSublayer(shapeLayer)
         layer.addSublayer(overShapeLayer)
         
-        guard strokeEnd > targetValue else { return }
+        let convertedTargetValue = calculateStrokeEnd(targetValue)
+        guard strokeEnd > convertedTargetValue else { return }
         
         let overTargetSL = CAShapeLayer()
         overTargetSL.lineWidth = shapeLineWidth
@@ -101,7 +100,7 @@ class EnergyStepsCollectionCell: UICollectionViewCell {
         default: break
         }
         
-        let measureRatio: CGFloat = 25
+        let measureRatio: CGFloat = upper / 100
         let neededValue = countCalories / measureRatio.rounded(toPlaces: 1)
         let strokeEnd = neededValue * 0.01
       

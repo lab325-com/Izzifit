@@ -179,9 +179,9 @@ extension EnergyController: EnergyOutputProtocol {
 //                let hour = steps.hourType
 //                let steps = steps.steps
 //                if message.isEmpty {
-//                    message = "Hour: \(hour), Steps: \(steps)"
+//                    message = "Hour: \(hour.rawValue), Steps: \(steps)"
 //                } else {
-//                    message += "\nHour: \(hour), Steps: \(steps)"
+//                    message += "\nHour: \(hour.rawValue), Steps: \(steps)"
 //                }
 //            }
 //            let alert = UIAlertController(title: "Steps from HealthKit",
