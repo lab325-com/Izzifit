@@ -529,7 +529,10 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     @IBAction func actionBack(_ sender: UIButton) {
         removeAll()
         
-        guard let atteptId = presenter.attemptId else { return }
+        guard let atteptId = presenter.attemptId else {
+            actionBack()
+            return
+        }
         
         WorkoutRouter(presenter: navigationController).pushVideoNotFinished(delegate: self, attemptId: atteptId)
     }

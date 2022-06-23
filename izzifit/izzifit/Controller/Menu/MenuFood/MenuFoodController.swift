@@ -140,7 +140,7 @@ extension MenuFoodController: UITableViewDelegate, UITableViewDataSource {
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSwitcherIdentifier) as? MenuFoodSwitchCell else { return UITableViewCell() }
             cell.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-            cell.setupCell(model: products[indexPath.row - (foodTypes.count + 2)])
+            cell.setupCell(model: products[indexPath.row - (foodTypes.count + 2)], selectedProducts: Array(selectedProducts))
             cell.delegate = self
             return cell
         }

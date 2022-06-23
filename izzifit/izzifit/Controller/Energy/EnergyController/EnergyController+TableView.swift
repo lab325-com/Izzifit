@@ -14,7 +14,7 @@ import UIKit
 extension EnergyController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count + presenter.specialPriceBuing.count
+        return 8 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count + presenter.specialPriceBuing.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,7 +93,7 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             cell.setupCell(model: model, paymentInfo: presenter.paymentsInfo.first(where: {$0.product == model.externalId}))
             cell.delegate = self
             return cell
-        case 9 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count + presenter.specialPriceBuing.count:
+        case 8 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count + presenter.specialPriceBuing.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellAddActivity) as? EnergyAddActivityCell else { return UITableViewCell() }
             return cell
         default:
