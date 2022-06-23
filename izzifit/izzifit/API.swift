@@ -3620,7 +3620,7 @@ public final class Map2Query: GraphQLQuery {
     }
 
     public struct Map2: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Map"]
+      public static let possibleTypes: [String] = ["MapV2"]
 
       public static var selections: [GraphQLSelection] {
         return [
@@ -3641,7 +3641,7 @@ public final class Map2Query: GraphQLQuery {
       }
 
       public init(id: GraphQLID? = nil, name: String? = nil, buildings: [Building?]? = nil, spins: [Spin?]? = nil, spinObjects: [SpinObject?]? = nil, freeBuildingsCount: Int? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Map", "id": id, "name": name, "Buildings": buildings.flatMap { (value: [Building?]) -> [ResultMap?] in value.map { (value: Building?) -> ResultMap? in value.flatMap { (value: Building) -> ResultMap in value.resultMap } } }, "Spins": spins.flatMap { (value: [Spin?]) -> [ResultMap?] in value.map { (value: Spin?) -> ResultMap? in value.flatMap { (value: Spin) -> ResultMap in value.resultMap } } }, "SpinObjects": spinObjects.flatMap { (value: [SpinObject?]) -> [ResultMap?] in value.map { (value: SpinObject?) -> ResultMap? in value.flatMap { (value: SpinObject) -> ResultMap in value.resultMap } } }, "freeBuildingsCount": freeBuildingsCount])
+        self.init(unsafeResultMap: ["__typename": "MapV2", "id": id, "name": name, "Buildings": buildings.flatMap { (value: [Building?]) -> [ResultMap?] in value.map { (value: Building?) -> ResultMap? in value.flatMap { (value: Building) -> ResultMap in value.resultMap } } }, "Spins": spins.flatMap { (value: [Spin?]) -> [ResultMap?] in value.map { (value: Spin?) -> ResultMap? in value.flatMap { (value: Spin) -> ResultMap in value.resultMap } } }, "SpinObjects": spinObjects.flatMap { (value: [SpinObject?]) -> [ResultMap?] in value.map { (value: SpinObject?) -> ResultMap? in value.flatMap { (value: SpinObject) -> ResultMap in value.resultMap } } }, "freeBuildingsCount": freeBuildingsCount])
       }
 
       public var __typename: String {
@@ -3777,7 +3777,7 @@ public final class Map2Query: GraphQLQuery {
       }
 
       public struct Spin: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["Spin"]
+        public static let possibleTypes: [String] = ["SpinV2"]
 
         public static var selections: [GraphQLSelection] {
           return [
@@ -3794,7 +3794,7 @@ public final class Map2Query: GraphQLQuery {
         }
 
         public init(id: GraphQLID? = nil, spinObjectIds: [SpinObjectType?]? = nil) {
-          self.init(unsafeResultMap: ["__typename": "Spin", "id": id, "spinObjectIds": spinObjectIds])
+          self.init(unsafeResultMap: ["__typename": "SpinV2", "id": id, "spinObjectIds": spinObjectIds])
         }
 
         public var __typename: String {

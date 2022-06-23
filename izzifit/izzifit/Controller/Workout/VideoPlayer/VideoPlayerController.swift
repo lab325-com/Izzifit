@@ -355,6 +355,8 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
             timer = nil
             timerRest?.invalidate()
             timerRest = nil
+            timerPlayer?.invalidate()
+            timerPlayer = nil
             
             timerPlayer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(getPlayerTimer), userInfo: nil, repeats: true)
             timerPlayer?.fire()
@@ -452,7 +454,8 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     }
     
     private func removeAll() {
-        player = nil
+        player?.pause()
+        //player = nil
         NotificationCenter.default.removeObserver(self)
         timer?.invalidate()
         timer = nil
