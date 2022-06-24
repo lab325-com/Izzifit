@@ -173,6 +173,10 @@ extension EnergyController: EnergyOutputProtocol {
         tableView.isHidden = false
         tableView.reloadData()
         
+        if presenter.steps.count > 0 {
+            presenter.setSteps()
+        }
+        
 //        if presenter.stepsWidget.count > 0 {
 //            var message = ""
 //            for steps in presenter.stepsWidget {
@@ -195,6 +199,10 @@ extension EnergyController: EnergyOutputProtocol {
     }
     
     func successWidgetList() {
+        tableView.reloadData()
+    }
+    
+    func successStepsEnergy() {
         tableView.reloadData()
     }
     

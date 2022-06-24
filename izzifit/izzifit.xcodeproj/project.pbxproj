@@ -419,6 +419,10 @@
 		FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC55B9927EB944E001DA24C /* RankModel.swift */; };
 		FACB1E862804325500058773 /* PointersAndTicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1E852804325500058773 /* PointersAndTicks.swift */; };
 		FACD1C13284787A50014AFDC /* ArcticGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD1C12284787A50014AFDC /* ArcticGameController.swift */; };
+		FAD5B29A2864A2DB00A1EF4D /* SaveSteps.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAD5B2982864A2DB00A1EF4D /* SaveSteps.graphql */; };
+		FAD5B29B2864A2DB00A1EF4D /* SaveStepsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5B2992864A2DB00A1EF4D /* SaveStepsModel.swift */; };
+		FAD5B2A12865BBF400A1EF4D /* StepsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5B29F2865BBF400A1EF4D /* StepsWidgetModel.swift */; };
+		FAD5B2A22865BBF400A1EF4D /* StepsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAD5B2A02865BBF400A1EF4D /* StepsWidget.graphql */; };
 		FADA6BD127F188B200913F67 /* MoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA6BD027F188B200913F67 /* MoodsModel.swift */; };
 		FADD5114284F2C8900F3A292 /* PurchasePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD5113284F2C8900F3A292 /* PurchasePopUp.swift */; };
 		FADD5117284F59D800F3A292 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD5116284F59D800F3A292 /* LevelView.swift */; };
@@ -849,6 +853,10 @@
 		FAC55B9927EB944E001DA24C /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		FACB1E852804325500058773 /* PointersAndTicks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointersAndTicks.swift; sourceTree = "<group>"; };
 		FACD1C12284787A50014AFDC /* ArcticGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGameController.swift; sourceTree = "<group>"; };
+		FAD5B2982864A2DB00A1EF4D /* SaveSteps.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SaveSteps.graphql; sourceTree = "<group>"; };
+		FAD5B2992864A2DB00A1EF4D /* SaveStepsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveStepsModel.swift; sourceTree = "<group>"; };
+		FAD5B29F2865BBF400A1EF4D /* StepsWidgetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsWidgetModel.swift; sourceTree = "<group>"; };
+		FAD5B2A02865BBF400A1EF4D /* StepsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StepsWidget.graphql; sourceTree = "<group>"; };
 		FADA6BD027F188B200913F67 /* MoodsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsModel.swift; sourceTree = "<group>"; };
 		FADD5113284F2C8900F3A292 /* PurchasePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasePopUp.swift; sourceTree = "<group>"; };
 		FADD5116284F59D800F3A292 /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
@@ -1458,6 +1466,7 @@
 		0249D29A27B3D78900F265C1 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+				FAD5B29E2865A3EA00A1EF4D /* StepsWidget */,
 				0298DDF028606DAE00BD0234 /* SpecialWorkouts */,
 				02C5C4612836545D00DA189C /* WidgetList */,
 				02B22AC4281C1890006AB1EA /* Spin */,
@@ -2035,6 +2044,7 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				FAD5B2972864A26100A1EF4D /* SaveSteps */,
 				02AD7389284F6F7500376E4C /* OrderProduct */,
 				024EBCA32840E04800E6623F /* ProfileDelete */,
 				02B22ACB281C279D006AB1EA /* UpgradeBuilding */,
@@ -2780,6 +2790,24 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		FAD5B2972864A26100A1EF4D /* SaveSteps */ = {
+			isa = PBXGroup;
+			children = (
+				FAD5B2982864A2DB00A1EF4D /* SaveSteps.graphql */,
+				FAD5B2992864A2DB00A1EF4D /* SaveStepsModel.swift */,
+			);
+			path = SaveSteps;
+			sourceTree = "<group>";
+		};
+		FAD5B29E2865A3EA00A1EF4D /* StepsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				FAD5B2A02865BBF400A1EF4D /* StepsWidget.graphql */,
+				FAD5B29F2865BBF400A1EF4D /* StepsWidgetModel.swift */,
+			);
+			path = StepsWidget;
+			sourceTree = "<group>";
+		};
 		FADD5115284F59A400F3A292 /* LevelController */ = {
 			isa = PBXGroup;
 			children = (
@@ -3066,6 +3094,7 @@
 				02BACF1D27F45AF700B7562C /* WorkoutSpecialDetailCell.xib in Resources */,
 				0268752D27D8CC5E00FFEA6A /* SaveWeightWidget.graphql in Resources */,
 				02D066C527BBB57D00D12C5F /* Inter-Black.ttf in Resources */,
+				FAD5B29A2864A2DB00A1EF4D /* SaveSteps.graphql in Resources */,
 				024C69A027DF61A200EE8D53 /* EnergyAddActivityCell.xib in Resources */,
 				02D066D927BBDC3400D12C5F /* QuizeGoalController.xib in Resources */,
 				0263389C27DB6BDD00DC0325 /* Progresses.graphql in Resources */,
@@ -3103,6 +3132,7 @@
 				0227DAB827C67334008AB26B /* MenuHeightController.xib in Resources */,
 				02354E9D28098B8C005A8272 /* VideoNotFinished.xib in Resources */,
 				02BC129427F358EE00678305 /* WorkoutDetailMuscleСell.xib in Resources */,
+				FAD5B2A22865BBF400A1EF4D /* StepsWidget.graphql in Resources */,
 				02B3017227EB22EA0045C607 /* SaveMood.graphql in Resources */,
 				FA2794FD2861AC1200AEEA70 /* EnergyStepsCollectionCell.xib in Resources */,
 				02A5CDAB27C393DC00D31FB4 /* WorkoutController.xib in Resources */,
@@ -3381,6 +3411,7 @@
 				024779CD27DCB8BF00AAFE3D /* Date+Extension.swift in Sources */,
 				026338A027DB6D0200DC0325 /* EnergyProgressesPresenter.swift in Sources */,
 				FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */,
+				FAD5B29B2864A2DB00A1EF4D /* SaveStepsModel.swift in Sources */,
 				021A6F4727BF8FFA0000D863 /* ProfileUpdateModel.swift in Sources */,
 				FAA8E88C27F450A80081A12A /* CaloriesWidgetModel.swift in Sources */,
 				025463B227CF778B00D433DB /* MusclesModel.swift in Sources */,
@@ -3413,6 +3444,7 @@
 				02D066D827BBDC3400D12C5F /* QuizeGoalController.swift in Sources */,
 				025463A227CE2F1500D433DB /* MenuWriteQuestionController.swift in Sources */,
 				FA1A6D8B28097F0D0040518A /* GameTabBarController.swift in Sources */,
+				FAD5B2A12865BBF400A1EF4D /* StepsWidgetModel.swift in Sources */,
 				FAB6548027FFFD480057A221 /* SlotTableViewCell.swift in Sources */,
 				0249D26D27B3A96E00F265C1 /* AuthModel.swift in Sources */,
 				027BFB472844B2AB0008E241 /* GradientView.swift in Sources */,

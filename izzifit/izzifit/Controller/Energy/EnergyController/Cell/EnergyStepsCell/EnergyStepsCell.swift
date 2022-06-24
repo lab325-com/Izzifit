@@ -11,6 +11,7 @@ class EnergyStepsCell: UITableViewCell {
             titleLabel.text = "Steps"
         }
     }
+    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var stepsCollectionView: UICollectionView!
@@ -52,15 +53,17 @@ class EnergyStepsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupCell(model: [CurrentStepsModel]) {
-        steps = model
+    func setupCell(steps: [CurrentStepsModel], widget: StapsWidgetModel) {
+        self.steps = steps
+        
+        countLabel.text = "\(widget.energy)/\(widget.energyTotal)"
         
         for (index, label) in timeLabelsCollection.enumerated() {
             label.tag = index
         }
         
-        for (index, item) in model.enumerated() {
-            if index <= 8 {
+        for (index, item) in steps.enumerated() {
+            if index < 8 {
                 timeLabelsCollection[index].text = item.hourType.rawValue
             }
         }

@@ -50,7 +50,9 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 4:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellStepsIdentifier) as? EnergyStepsCell else { return UITableViewCell() }
-            cell.setupCell(model: presenter.stepsWidget)
+            if let widget = presenter.stepsWidget {
+                cell.setupCell(steps: presenter.steps, widget: widget)
+            }
             return cell
         case 5..<5 + presenter.specialPriceNotBuing.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSpecialPriceIdentifier) as? EnergySpecialPriceCell else { return UITableViewCell() }

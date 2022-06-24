@@ -390,7 +390,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 79 files.
+  /// This `R.file` struct is generated, and contains static references to 81 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -506,6 +506,8 @@ struct R: Rswift.Validatable {
     static let saveMoodGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SaveMood", pathExtension: "graphql")
     /// Resource file `SaveSleepQuality.graphql`.
     static let saveSleepQualityGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SaveSleepQuality", pathExtension: "graphql")
+    /// Resource file `SaveSteps.graphql`.
+    static let saveStepsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SaveSteps", pathExtension: "graphql")
     /// Resource file `SaveWeightWidget.graphql`.
     static let saveWeightWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "SaveWeightWidget", pathExtension: "graphql")
     /// Resource file `SleepWidget.graphql`.
@@ -518,6 +520,8 @@ struct R: Rswift.Validatable {
     static let spinGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "Spin", pathExtension: "graphql")
     /// Resource file `StartWorkout.graphql`.
     static let startWorkoutGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "StartWorkout", pathExtension: "graphql")
+    /// Resource file `StepsWidget.graphql`.
+    static let stepsWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "StepsWidget", pathExtension: "graphql")
     /// Resource file `ToggleMuscleInWorkouts.graphql`.
     static let toggleMuscleInWorkoutsGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ToggleMuscleInWorkouts", pathExtension: "graphql")
     /// Resource file `ToggleProductInRation.graphql`.
@@ -893,6 +897,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "SaveSteps", withExtension: "graphql")`
+    static func saveStepsGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.saveStepsGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "SaveWeightWidget", withExtension: "graphql")`
     static func saveWeightWidgetGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.saveWeightWidgetGraphql
@@ -926,6 +936,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "StartWorkout", withExtension: "graphql")`
     static func startWorkoutGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.startWorkoutGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "StepsWidget", withExtension: "graphql")`
+    static func stepsWidgetGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.stepsWidgetGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -8864,6 +8880,7 @@ struct _R: Rswift.Validatable {
       try _EnergyProgressController.validate()
       try _EnergySleepCell.validate()
       try _EnergySpecialPriceCell.validate()
+      try _EnergyStepsCell.validate()
       try _EnergyTrainingCell.validate()
       try _EnergyWeightCell.validate()
       try _FoodController.validate()
@@ -9214,7 +9231,7 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _EnergyStepsCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+    struct _EnergyStepsCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
       typealias ReusableType = EnergyStepsCell
 
       let bundle = R.hostingBundle
@@ -9223,6 +9240,15 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnergyStepsCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnergyStepsCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "grayText", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayText' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "pinkTarget", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'pinkTarget' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "profileCellBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'profileCellBack' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
+        }
       }
 
       fileprivate init() {}
