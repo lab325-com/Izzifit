@@ -39,7 +39,9 @@ struct PlayerModel {
             fourthState == .finish &&
             fifthState == .finish {
             return true
-        } else { return false }
+        }
+        else
+        { return false }
     }
     
     mutating func updateState(buildType: BuildingType, currentState: LevelStates ) {
@@ -164,7 +166,11 @@ class PointersAndTicks {
                               PointerTick(state: .finish, type: .building5, topC: 4, leadingC: 128)]
     
     func drawPointers(model: PlayerModel, btns: [UIButton?]) {
-   
+        
+        for img in imgVwArray {
+            img.removeFromSuperview()
+        }
+        imgVwArray.removeAll()
         var state: LevelStates
         var building: BuildingType
         
