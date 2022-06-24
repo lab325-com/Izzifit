@@ -18,6 +18,7 @@ import SwiftyStoreKit
 protocol EnergyOutputProtocol: BaseController {
     func success()
     func successWidgetList()
+    func successStepsEnergy()
     func failure()
 }
 
@@ -56,7 +57,9 @@ class EnergyPresenter: EnergyPresenterProtocol {
     var specialPriceNotBuing: [WorkoutsWidgetMainModel] = []
     var specialPriceBuing: [WorkoutsWidgetMainModel] = []
     var chooseWorkoutWidgets: [WorkoutsWidgetMainModel] = []
-    var stepsWidget: [CurrentStepsModel] = []
+    var stepsHealth: [HealthStepsModel] = []
+    var steps: [CurrentStepsModel] = []
+    var stepsWidget: StapsWidgetModel?
     
     func getWidgets(date: String, loader: Bool = true) {
         
@@ -148,15 +151,6 @@ class EnergyPresenter: EnergyPresenterProtocol {
         })
         
         group.enter()
-        let _ = HealthKitManager.sharedManager.querySteps(controller: view) { [weak self] model in
-            self?.stepsWidget = model
-            group.leave()
-        } failureHandler: { [weak self] error in
-            group.leave()
-            self?.view?.failure()
-        }
-        
-        group.enter()
         let query9 = SpecialWorkoutsQuery()
         let _ = Network.shared.query(model: SpecialWorkoutsModel.self, query9, controller: view, successHandler: { [weak self] model in
             self?.specialPriceNotBuing = model.specialWorkouts.filter({$0.isAvailable != true})
@@ -170,9 +164,53 @@ class EnergyPresenter: EnergyPresenterProtocol {
             self?.view?.failure()
         })
         
+        group.enter()
+        let _ = HealthKitManager.sharedManager.querySteps(controller: view) { [weak self] healthModel, stepsModel in
+            self?.stepsHealth = healthModel
+            self?.steps = stepsModel
+            group.leave()
+        } failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        }
+        
         group.notify(queue: DispatchQueue.main) { [weak self] in
             self?.view?.stopLoading()
             self?.view?.success()
+        }
+    }
+    
+    func setSteps() {
+        var steps = [SaveStepsInputRecord]()
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        for step in stepsHealth {
+            let date = dateFormatter.string(from: step.date)
+            let count = step.steps
+            let record = SaveStepsInputRecord(date: date, count: count)
+            steps.append(record)
+        }
+        let mutation = SaveStepsMutation(steps: steps)
+        let _ = Network.shared.mutation(model: SaveStepsModel.self, mutation, controller: view) { [weak self] model in
+            self?.getStepsEnergy()
+        } failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+            self?.view?.failure()
+        }
+    }
+    
+    func getStepsEnergy() {
+        view?.startLoader()
+        
+        let query = StepsWidgetQuery()
+        let _ = Network.shared.query(model: StepsWidgetDataModel.self, query, controller: view) { [weak self] model in
+            self?.stepsWidget = model.stepsWidget
+            self?.view?.stopLoading()
+            self?.view?.successStepsEnergy()
+        } failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+            self?.view?.failure()
         }
     }
     

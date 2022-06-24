@@ -794,6 +794,35 @@ public enum SleepQualityType: RawRepresentable, Equatable, Hashable, CaseIterabl
   }
 }
 
+public struct SaveStepsInputRecord: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - date
+  ///   - count
+  public init(date: String, count: Int) {
+    graphQLMap = ["date": date, "count": count]
+  }
+
+  public var date: String {
+    get {
+      return graphQLMap["date"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "date")
+    }
+  }
+
+  public var count: Int {
+    get {
+      return graphQLMap["count"] as! Int
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "count")
+    }
+  }
+}
+
 public struct UpdateProductInMealRecordInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
@@ -2506,6 +2535,57 @@ public final class SaveSleepQualityMutation: GraphQLMutation {
   }
 }
 
+public final class SaveStepsMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation SaveSteps($steps: [SaveStepsInputRecord!]!) {
+      saveSteps(steps: $steps)
+    }
+    """
+
+  public let operationName: String = "SaveSteps"
+
+  public var steps: [SaveStepsInputRecord]
+
+  public init(steps: [SaveStepsInputRecord]) {
+    self.steps = steps
+  }
+
+  public var variables: GraphQLMap? {
+    return ["steps": steps]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("saveSteps", arguments: ["steps": GraphQLVariable("steps")], type: .scalar(Bool.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(saveSteps: Bool? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "saveSteps": saveSteps])
+    }
+
+    public var saveSteps: Bool? {
+      get {
+        return resultMap["saveSteps"] as? Bool
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "saveSteps")
+      }
+    }
+  }
+}
+
 public final class StartWorkoutMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -3620,7 +3700,7 @@ public final class Map2Query: GraphQLQuery {
     }
 
     public struct Map2: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["MapV2"]
+      public static let possibleTypes: [String] = ["Map"]
 
       public static var selections: [GraphQLSelection] {
         return [
@@ -3641,7 +3721,7 @@ public final class Map2Query: GraphQLQuery {
       }
 
       public init(id: GraphQLID? = nil, name: String? = nil, buildings: [Building?]? = nil, spins: [Spin?]? = nil, spinObjects: [SpinObject?]? = nil, freeBuildingsCount: Int? = nil) {
-        self.init(unsafeResultMap: ["__typename": "MapV2", "id": id, "name": name, "Buildings": buildings.flatMap { (value: [Building?]) -> [ResultMap?] in value.map { (value: Building?) -> ResultMap? in value.flatMap { (value: Building) -> ResultMap in value.resultMap } } }, "Spins": spins.flatMap { (value: [Spin?]) -> [ResultMap?] in value.map { (value: Spin?) -> ResultMap? in value.flatMap { (value: Spin) -> ResultMap in value.resultMap } } }, "SpinObjects": spinObjects.flatMap { (value: [SpinObject?]) -> [ResultMap?] in value.map { (value: SpinObject?) -> ResultMap? in value.flatMap { (value: SpinObject) -> ResultMap in value.resultMap } } }, "freeBuildingsCount": freeBuildingsCount])
+        self.init(unsafeResultMap: ["__typename": "Map", "id": id, "name": name, "Buildings": buildings.flatMap { (value: [Building?]) -> [ResultMap?] in value.map { (value: Building?) -> ResultMap? in value.flatMap { (value: Building) -> ResultMap in value.resultMap } } }, "Spins": spins.flatMap { (value: [Spin?]) -> [ResultMap?] in value.map { (value: Spin?) -> ResultMap? in value.flatMap { (value: Spin) -> ResultMap in value.resultMap } } }, "SpinObjects": spinObjects.flatMap { (value: [SpinObject?]) -> [ResultMap?] in value.map { (value: SpinObject?) -> ResultMap? in value.flatMap { (value: SpinObject) -> ResultMap in value.resultMap } } }, "freeBuildingsCount": freeBuildingsCount])
       }
 
       public var __typename: String {
@@ -3777,7 +3857,7 @@ public final class Map2Query: GraphQLQuery {
       }
 
       public struct Spin: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["SpinV2"]
+        public static let possibleTypes: [String] = ["Spin"]
 
         public static var selections: [GraphQLSelection] {
           return [
@@ -3794,7 +3874,7 @@ public final class Map2Query: GraphQLQuery {
         }
 
         public init(id: GraphQLID? = nil, spinObjectIds: [SpinObjectType?]? = nil) {
-          self.init(unsafeResultMap: ["__typename": "SpinV2", "id": id, "spinObjectIds": spinObjectIds])
+          self.init(unsafeResultMap: ["__typename": "Spin", "id": id, "spinObjectIds": spinObjectIds])
         }
 
         public var __typename: String {
@@ -7731,6 +7811,110 @@ public final class SpinQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "amount")
+        }
+      }
+    }
+  }
+}
+
+public final class StepsWidgetQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query StepsWidget($date: Date) {
+      stepsWidget(date: $date) {
+        __typename
+        energy
+        energyTotal
+      }
+    }
+    """
+
+  public let operationName: String = "StepsWidget"
+
+  public var date: String?
+
+  public init(date: String? = nil) {
+    self.date = date
+  }
+
+  public var variables: GraphQLMap? {
+    return ["date": date]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("stepsWidget", arguments: ["date": GraphQLVariable("date")], type: .object(StepsWidget.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(stepsWidget: StepsWidget? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "stepsWidget": stepsWidget.flatMap { (value: StepsWidget) -> ResultMap in value.resultMap }])
+    }
+
+    public var stepsWidget: StepsWidget? {
+      get {
+        return (resultMap["stepsWidget"] as? ResultMap).flatMap { StepsWidget(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "stepsWidget")
+      }
+    }
+
+    public struct StepsWidget: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["StepsWidget"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("energy", type: .scalar(Int.self)),
+          GraphQLField("energyTotal", type: .scalar(Int.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(energy: Int? = nil, energyTotal: Int? = nil) {
+        self.init(unsafeResultMap: ["__typename": "StepsWidget", "energy": energy, "energyTotal": energyTotal])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var energy: Int? {
+        get {
+          return resultMap["energy"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "energy")
+        }
+      }
+
+      public var energyTotal: Int? {
+        get {
+          return resultMap["energyTotal"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "energyTotal")
         }
       }
     }

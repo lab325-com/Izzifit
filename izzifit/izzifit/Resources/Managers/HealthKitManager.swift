@@ -54,7 +54,7 @@ class HealthKitManager {
     var steps: [CurrentStepsModel] = []
     
     func querySteps(controller: BaseController?,
-                    successHandler: @escaping ((_ model: [CurrentStepsModel]) -> Void),
+                    successHandler: @escaping ((_ model: [HealthStepsModel], _ steps: [CurrentStepsModel]) -> Void),
                     failureHandler: @escaping ((_ error: Error) -> Void)) {
         
         healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { success, error in
@@ -89,19 +89,19 @@ class HealthKitManager {
                         var tempArray: [StepsModel] = []
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "HH"
-                        
+
                         for steps in self.healthSteps {
                             let day = dateFormatter.string(from: steps.date)
                             let steps = steps.steps
-                            
+
                             tempArray.append(StepsModel(hourType: HoursType(rawValue: day) ?? .zero, steps: steps))
                         }
-                        
+
                         for hourType in CurrentHourType.allCases {
                             self.steps.append(CurrentStepsModel(hourType: hourType, steps: self.getSteps(hourType: hourType, model: tempArray)))
                         }
                         
-                        successHandler(self.steps)
+                        successHandler(self.healthSteps, self.steps)
                         
                     } else if let error = error {
                         failureHandler(error)

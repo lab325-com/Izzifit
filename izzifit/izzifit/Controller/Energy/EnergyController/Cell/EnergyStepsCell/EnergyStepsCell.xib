@@ -36,6 +36,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_water_flash_ic" translatesAutoresizingMaskIntoConstraints="NO" id="EF0-Lf-I6W">
+                                <rect key="frame" x="288" y="17.5" width="10" height="11"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIp-y6-zzc">
+                                <rect key="frame" x="304" y="16.5" width="23" height="13.5"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="11"/>
+                                <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="t2o-cu-wmQ">
                                 <rect key="frame" x="16" y="47" width="279" height="89"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -68,7 +77,7 @@
                                         <color key="textColor" name="grayText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="900" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fs-G2-TbX">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="900" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fs-G2-TbX">
                                         <rect key="frame" x="0.0" y="17" width="28" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="Xaf-6X-8Kx"/>
@@ -78,7 +87,7 @@
                                         <color key="textColor" name="grayText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRP-XC-fwS">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="600" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRP-XC-fwS">
                                         <rect key="frame" x="0.0" y="34" width="28" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="Asq-e8-apg"/>
@@ -88,8 +97,8 @@
                                         <color key="textColor" name="grayText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgN-gS-vGd">
-                                        <rect key="frame" x="0.0" y="51" width="28" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgN-gS-vGd">
+                                        <rect key="frame" x="0.0" y="51" width="28" height="12.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="8LA-KB-AaG"/>
                                             <constraint firstAttribute="height" constant="17" id="vKW-Cw-lU3"/>
@@ -206,7 +215,11 @@
                             <constraint firstAttribute="bottom" secondItem="t2o-cu-wmQ" secondAttribute="bottom" constant="32" id="Pqp-aY-h5l"/>
                             <constraint firstItem="xGO-aX-P10" firstAttribute="top" secondItem="t2o-cu-wmQ" secondAttribute="bottom" constant="6" id="R3b-CS-EDI"/>
                             <constraint firstAttribute="trailing" secondItem="t2o-cu-wmQ" secondAttribute="trailing" constant="48" id="Trr-rH-dHz"/>
+                            <constraint firstItem="JIp-y6-zzc" firstAttribute="leading" secondItem="EF0-Lf-I6W" secondAttribute="trailing" constant="6" id="cDR-29-mqI"/>
+                            <constraint firstItem="EF0-Lf-I6W" firstAttribute="centerY" secondItem="RYm-Jx-3CG" secondAttribute="centerY" id="dnO-0r-IZu"/>
                             <constraint firstItem="xGO-aX-P10" firstAttribute="trailing" secondItem="t2o-cu-wmQ" secondAttribute="trailing" id="edG-ow-q8Q"/>
+                            <constraint firstAttribute="trailing" secondItem="JIp-y6-zzc" secondAttribute="trailing" constant="16" id="fPE-RQ-UXy"/>
+                            <constraint firstItem="JIp-y6-zzc" firstAttribute="centerY" secondItem="EF0-Lf-I6W" secondAttribute="centerY" id="grB-PL-Ymi"/>
                             <constraint firstItem="YIc-eE-piN" firstAttribute="height" secondItem="t2o-cu-wmQ" secondAttribute="height" multiplier="0.955056" id="h5A-q9-AZS"/>
                             <constraint firstItem="t2o-cu-wmQ" firstAttribute="top" secondItem="RYm-Jx-3CG" secondAttribute="bottom" constant="13" id="pZ3-Sa-jS4"/>
                             <constraint firstItem="RYm-Jx-3CG" firstAttribute="leading" secondItem="ppf-xz-eR7" secondAttribute="leading" constant="16" id="rxe-8X-shW"/>
@@ -224,6 +237,7 @@
             <inset key="separatorInset" minX="10000" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="backView" destination="ppf-xz-eR7" id="GAY-Vp-xw3"/>
+                <outlet property="countLabel" destination="JIp-y6-zzc" id="xAR-zx-UP5"/>
                 <outlet property="stepsCollectionView" destination="t2o-cu-wmQ" id="Mvp-Zd-rSh"/>
                 <outlet property="targetLabel" destination="tZq-U9-9Rc" id="iGV-J9-6oJ"/>
                 <outlet property="titleLabel" destination="RYm-Jx-3CG" id="rbC-gI-gXp"/>
@@ -240,6 +254,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="energy_water_flash_ic" width="10" height="11"/>
         <namedColor name="grayText">
             <color red="0.24699999392032623" green="0.24300000071525574" blue="0.33700001239776611" alpha="0.4050000011920929" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -1,0 +1,4 @@
+
+mutation SaveSteps($steps: [SaveStepsInputRecord!]!) {
+	saveSteps(steps: $steps)
+}
