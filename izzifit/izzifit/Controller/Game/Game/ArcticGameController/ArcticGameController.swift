@@ -180,7 +180,7 @@ extension ArcticGameController: ArcticGameOutputProtocol {
     
     func success(map: MapModel) {
         checkAvailableHummers()
-        timerSpinManager.counter.combinations = map.map.spins
+        timerSpinManager.counter.combinations = map.map2.spins
         collectionView.reloadData()
     }
 }

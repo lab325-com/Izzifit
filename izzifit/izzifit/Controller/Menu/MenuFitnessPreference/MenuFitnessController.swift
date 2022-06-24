@@ -134,7 +134,7 @@ extension MenuFitnessController: UITableViewDelegate, UITableViewDataSource {
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSwitcherIdentifier) as? MenuFoodSwitchCell else { return UITableViewCell() }
             cell.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-            cell.setupCellMuscle(model: muscles[indexPath.row - (allFitness.count + 2)])
+            cell.setupCellMuscle(model: muscles[indexPath.row - (allFitness.count + 2)], selectedMuscles: Array(selectedMuscles))
             cell.delegate = self
             return cell
         }

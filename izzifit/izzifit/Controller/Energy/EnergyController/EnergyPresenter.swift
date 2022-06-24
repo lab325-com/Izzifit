@@ -147,14 +147,14 @@ class EnergyPresenter: EnergyPresenterProtocol {
             self?.view?.failure()
         })
         
-//        group.enter()
-//        let _ = HealthKitManager.sharedManager.querySteps(controller: view) { [weak self] model in
-//            self?.stepsWidget = model
-//            group.leave()
-//        } failureHandler: { [weak self] error in
-//            group.leave()
-//            self?.view?.failure()
-//        }
+        group.enter()
+        let _ = HealthKitManager.sharedManager.querySteps(controller: view) { [weak self] model in
+            self?.stepsWidget = model
+            group.leave()
+        } failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        }
         
         group.enter()
         let query9 = SpecialWorkoutsQuery()

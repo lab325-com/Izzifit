@@ -75,7 +75,7 @@ class SlotTableViewCell: BaseTableViewCell {
         slotBtn.tag = tagBtn
         switch game {
         case .arctic:
-            let image = model?.map.spinObjects.first(where: {$0.id == "\(tagBtn)"})?.image.urlIosFull
+            let image = model?.map2.spinObjects.first(where: {$0.id == "\(tagBtn)"})?.image.urlIosFull
             
             //slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal)
             slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal,

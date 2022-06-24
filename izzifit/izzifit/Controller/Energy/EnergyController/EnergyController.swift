@@ -32,6 +32,7 @@ class EnergyController: BaseController {
     let cellWaterIdentifier = String(describing: EnergyDrinkWaterCell.self)
     let cellEnergyMood = String(describing: EnergyMoodCell.self)
     let cellMealsIdentifier = String(describing: EnergyMealsCell.self)
+    let cellStepsIdentifier = String(describing: EnergyStepsCell.self)
     let cellSpecialPriceIdentifier = String(describing: EnergySpecialPriceCell.self)
     let cellSleepIdentifier = String(describing: EnergySleepCell.self)
     let cellWeightIdentifier = String(describing: EnergyWeightCell.self)
@@ -105,6 +106,7 @@ class EnergyController: BaseController {
         tableView.register(UINib(nibName: cellWaterIdentifier, bundle: nil), forCellReuseIdentifier: cellWaterIdentifier)
         tableView.register(UINib(nibName: cellEnergyMood, bundle: nil), forCellReuseIdentifier: cellEnergyMood)
         tableView.register(UINib(nibName: cellMealsIdentifier, bundle: nil), forCellReuseIdentifier: cellMealsIdentifier)
+        tableView.register(UINib(nibName: cellStepsIdentifier, bundle: nil), forCellReuseIdentifier: cellStepsIdentifier)
         tableView.register(UINib(nibName: cellSpecialPriceIdentifier, bundle: nil), forCellReuseIdentifier: cellSpecialPriceIdentifier)
         tableView.register(UINib(nibName: cellSleepIdentifier, bundle: nil), forCellReuseIdentifier: cellSleepIdentifier)
         tableView.register(UINib(nibName: cellWeightIdentifier, bundle: nil), forCellReuseIdentifier: cellWeightIdentifier)
@@ -177,9 +179,9 @@ extension EnergyController: EnergyOutputProtocol {
 //                let hour = steps.hourType
 //                let steps = steps.steps
 //                if message.isEmpty {
-//                    message = "Hour: \(hour), Steps: \(steps)"
+//                    message = "Hour: \(hour.rawValue), Steps: \(steps)"
 //                } else {
-//                    message += "\nHour: \(hour), Steps: \(steps)"
+//                    message += "\nHour: \(hour.rawValue), Steps: \(steps)"
 //                }
 //            }
 //            let alert = UIAlertController(title: "Steps from HealthKit",

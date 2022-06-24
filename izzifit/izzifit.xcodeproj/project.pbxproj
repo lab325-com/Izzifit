@@ -373,6 +373,10 @@
 		FA2794E7285A058D00AEEA70 /* HealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2794E6285A058D00AEEA70 /* HealthModel.swift */; };
 		FA2794E9285A068800AEEA70 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2794E8285A068800AEEA70 /* HealthKit.framework */; };
 		FA2794F4285CA8A900AEEA70 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2794F3285CA8A900AEEA70 /* HealthKitManager.swift */; };
+		FA2794F82861A89F00AEEA70 /* EnergyStepsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2794F62861A89F00AEEA70 /* EnergyStepsCell.swift */; };
+		FA2794F92861A89F00AEEA70 /* EnergyStepsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2794F72861A89F00AEEA70 /* EnergyStepsCell.xib */; };
+		FA2794FC2861AC1200AEEA70 /* EnergyStepsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2794FA2861AC1200AEEA70 /* EnergyStepsCollectionCell.swift */; };
+		FA2794FD2861AC1200AEEA70 /* EnergyStepsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2794FB2861AC1200AEEA70 /* EnergyStepsCollectionCell.xib */; };
 		FA3319C528461E490021C433 /* TimerSpinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3319C428461E490021C433 /* TimerSpinManager.swift */; };
 		FA3319C8284683100021C433 /* ArcticGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3319C7284683100021C433 /* ArcticGameView.swift */; };
 		FA42CC00283CE52700C6C959 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */; };
@@ -804,6 +808,10 @@
 		FA2794E6285A058D00AEEA70 /* HealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthModel.swift; sourceTree = "<group>"; };
 		FA2794E8285A068800AEEA70 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		FA2794F3285CA8A900AEEA70 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		FA2794F62861A89F00AEEA70 /* EnergyStepsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyStepsCell.swift; sourceTree = "<group>"; };
+		FA2794F72861A89F00AEEA70 /* EnergyStepsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyStepsCell.xib; sourceTree = "<group>"; };
+		FA2794FA2861AC1200AEEA70 /* EnergyStepsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyStepsCollectionCell.swift; sourceTree = "<group>"; };
+		FA2794FB2861AC1200AEEA70 /* EnergyStepsCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyStepsCollectionCell.xib; sourceTree = "<group>"; };
 		FA3319C428461E490021C433 /* TimerSpinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSpinManager.swift; sourceTree = "<group>"; };
 		FA3319C7284683100021C433 /* ArcticGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGameView.swift; sourceTree = "<group>"; };
 		FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
@@ -1776,6 +1784,7 @@
 				02FAF0A327D36173002CD678 /* EnergyDrinkWaterCell */,
 				0273F55627D5F06F00B19449 /* EnergyMoodCell */,
 				0273F55B27D5F7A600B19449 /* EnergyMealsCell */,
+				FA2794F52861A7FA00AEEA70 /* EnergyStepsCell */,
 				02021992285B45260015CA9A /* EnergySpecialPriceCell */,
 				0273F56027D60C5F00B19449 /* EnergySleepCell */,
 				0268752627D8C8DF00FFEA6A /* EnergyWeightCell */,
@@ -2573,6 +2582,17 @@
 			path = PaywallSingle;
 			sourceTree = "<group>";
 		};
+		FA2794F52861A7FA00AEEA70 /* EnergyStepsCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA2794F62861A89F00AEEA70 /* EnergyStepsCell.swift */,
+				FA2794F72861A89F00AEEA70 /* EnergyStepsCell.xib */,
+				FA2794FA2861AC1200AEEA70 /* EnergyStepsCollectionCell.swift */,
+				FA2794FB2861AC1200AEEA70 /* EnergyStepsCollectionCell.xib */,
+			);
+			path = EnergyStepsCell;
+			sourceTree = "<group>";
+		};
 		FA3319C6284682D30021C433 /* ArcticGameController */ = {
 			isa = PBXGroup;
 			children = (
@@ -3084,6 +3104,7 @@
 				02354E9D28098B8C005A8272 /* VideoNotFinished.xib in Resources */,
 				02BC129427F358EE00678305 /* WorkoutDetailMuscleСell.xib in Resources */,
 				02B3017227EB22EA0045C607 /* SaveMood.graphql in Resources */,
+				FA2794FD2861AC1200AEEA70 /* EnergyStepsCollectionCell.xib in Resources */,
 				02A5CDAB27C393DC00D31FB4 /* WorkoutController.xib in Resources */,
 				02D066BE27BBB57D00D12C5F /* Inter-ExtraLight.ttf in Resources */,
 				02B22AC8281C18F2006AB1EA /* Spin.graphql in Resources */,
@@ -3111,6 +3132,7 @@
 				FA1A256F283D0D0400240E28 /* PaywallSingleController.xib in Resources */,
 				0227A9BF2849F7F300BA29A8 /* IzziFit_coinmaster_30s.mp4 in Resources */,
 				FE1403C327E249EB002F5819 /* ChartCollectionCell.xib in Resources */,
+				FA2794F92861A89F00AEEA70 /* EnergyStepsCell.xib in Resources */,
 				02BC127B27F1E13D00678305 /* WorkoutById.graphql in Resources */,
 				02BC127827F1CF5800678305 /* WorkoutDetailDescriptionCell.xib in Resources */,
 				FA1A6D8128081CE80040518A /* LevelController.xib in Resources */,
@@ -3261,6 +3283,7 @@
 			files = (
 				02AB486A27E07EFB00F35EE2 /* FoodTopTitleCell.swift in Sources */,
 				0290B39327D2045400381B42 /* ShadowsView.swift in Sources */,
+				FA2794FC2861AC1200AEEA70 /* EnergyStepsCollectionCell.swift in Sources */,
 				FA1A256E283D0D0400240E28 /* PaywallSingleController.swift in Sources */,
 				02AB486427E06DEE00F35EE2 /* FoodRecomendedCell.swift in Sources */,
 				029EDBCF280D3FCB00FC8748 /* VideoFinishedController.swift in Sources */,
@@ -3364,6 +3387,7 @@
 				02B225AE27BD45080035CFA2 /* QuizeFoodController.swift in Sources */,
 				0227A9C12849FC3700BA29A8 /* PreOnboardingModel.swift in Sources */,
 				0227DA9F27C63A57008AB26B /* FoodGroupsModel.swift in Sources */,
+				FA2794F82861A89F00AEEA70 /* EnergyStepsCell.swift in Sources */,
 				02FAF0A627D361AE002CD678 /* EnergyDrinkWaterCell.swift in Sources */,
 				FA2794F4285CA8A900AEEA70 /* HealthKitManager.swift in Sources */,
 				020CB3D527E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift in Sources */,
@@ -3649,7 +3673,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 39;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3688,7 +3712,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 39;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3788,7 +3812,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 39;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;

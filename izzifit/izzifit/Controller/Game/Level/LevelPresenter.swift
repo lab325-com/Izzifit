@@ -38,11 +38,11 @@ class LevelPresenter: LevelProtocol {
     var buildings = [BuildingsModel]()
     func getBuildings() {
         view?.startLoader()
-        let query = MapQuery()
+        let query = Map2Query()
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
-           self?.freeBuildingsCount = model.map.freeBuildingsCount
-            self?.buildings = model.map.buildings
-            self?.view?.successBuildings(model: model.map.buildings)
+           self?.freeBuildingsCount = model.map2.freeBuildingsCount
+            self?.buildings = model.map2.buildings
+            self?.view?.successBuildings(model: model.map2.buildings)
             self?.view?.stopLoading()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()

@@ -38,17 +38,26 @@ class MenuFoodSwitchCell: BaseTableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupCell(model: ProductsMainModel) {
+    func setupCell(model: ProductsMainModel, selectedProducts: [ProductsMainModel]) {
         self.model = model
         mainTextLabel.text = model.name
-        switcher.setOn(model.isToggled ?? false, animated: false)
+        if let modelSelected = selectedProducts.first(where: {model.id == $0.id})  {
+            switcher.setOn(!(modelSelected.isToggled ?? true), animated: false)
+        } else {
+            switcher.setOn(model.isToggled ?? false, animated: false)
+        }
         
     }
     
-    func setupCellMuscle(model: MusclesMainModel) {
+    func setupCellMuscle(model: MusclesMainModel, selectedMuscles: [MusclesMainModel]) {
         self.modelMuscle = model
         mainTextLabel.text = model.name
-        switcher.setOn(model.isToggled ?? false, animated: false)
+        
+        if let modelSelected = selectedMuscles.first(where: {model.id == $0.id})  {
+            switcher.setOn(!(modelSelected.isToggled ?? true), animated: false)
+        } else {
+            switcher.setOn(model.isToggled ?? false, animated: false)
+        }
     }
     
     //----------------------------------------------

@@ -1,5 +1,5 @@
-query Map($mapId: String) {
-	map(mapId: $mapId) {
+query Map2($mapId: String) {
+	map2(mapId: $mapId) {
         id
         name
         Buildings {
