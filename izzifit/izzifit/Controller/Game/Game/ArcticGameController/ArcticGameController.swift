@@ -29,6 +29,8 @@ class ArcticGameController: BaseController {
         needSoundTap = false
         hiddenNavigationBar = true
         super.viewDidLoad()
+        timerSpinManager = TimerSpinManager(collectionView: collectionView,
+                                            presenter: presenter)
         presenter.getMap()
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
@@ -39,9 +41,7 @@ class ArcticGameController: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-      
-        timerSpinManager = TimerSpinManager(collectionView: collectionView,
-                                            presenter: presenter)
+        checkAvailableHummers()
         gameView.updateHeader()
     }
     
@@ -87,24 +87,22 @@ class ArcticGameController: BaseController {
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void { actionBack() }
     
     func threeHummersCombination() {
-        guard var count = presenter.freeBuildingsCount else { return }
-        count += 1
-        gameView.hummerCountLbl.text = "x\(count)"
+        presenter.freeBuildingsCount += 1
+        gameView.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
         gameView.hummerBtn.isHidden = false
         gameView.hummerCountLbl.isHidden = false
     }
     
     private func checkAvailableHummers() {
         gameView.hummerBtn.isUserInteractionEnabled = false
-        guard let count = presenter.freeBuildingsCount else { return }
-        switch count {
+        switch presenter.freeBuildingsCount {
         case 0:
             gameView.hummerBtn.isHidden = true
             gameView.hummerCountLbl.isHidden = true
         default:
             gameView.hummerBtn.isHidden = false
             gameView.hummerCountLbl.isHidden = false
-            gameView.hummerCountLbl.text = "x\(count)"
+            gameView.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
         }
     }
     
@@ -182,6 +180,7 @@ extension ArcticGameController: ArcticGameOutputProtocol {
         checkAvailableHummers()
         timerSpinManager.counter.combinations = map.map2.spins
         collectionView.reloadData()
+    
     }
 }
 

@@ -35,7 +35,14 @@ class ArcticGamePresenter: ArcticGameProtocol {
     }
     
     var maps: MapModel?
-    var freeBuildingsCount: Int?
+    var freeBuildingsCount: Int {
+        get {
+            PreferencesManager.sharedManager.hummerCount
+        }
+        set {
+            PreferencesManager.sharedManager.hummerCount = newValue
+        }
+    }
     
     func getMap() {
         view?.startLoader()

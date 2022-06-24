@@ -34,12 +34,18 @@ class EnglandGameController: BaseController {
         timerSpinManager = TimerSpinManager(collectionView: collectionView,
                                             presenter: presenter)
    
-            presenter.getMap()
+        presenter.getMap()
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
 
         gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchUpInside)
+    }
+     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkAvailableHummers()
+        gameView.barBackVw.getCoinsAndEnergy()
     }
     
     private func setCollectionView() {
@@ -84,24 +90,22 @@ class EnglandGameController: BaseController {
     }
     
     func threeHummersCombination() {
-        guard var count = presenter.freeBuildingsCount else { return }
-        count += 1
-        gameView.hummerCountLbl.text = "x\(count)"
+        presenter.freeBuildingsCount  += 1
+        gameView.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
         gameView.hummerBtn.isHidden = false
         gameView.hummerCountLbl.isHidden = false
     }
     
     private func checkAvailableHummers() {
         gameView.hummerBtn.isUserInteractionEnabled = false
-        guard let count = presenter.freeBuildingsCount else { return }
-        switch count {
+        switch presenter.freeBuildingsCount {
         case 0:
             gameView.hummerBtn.isHidden = true
             gameView.hummerCountLbl.isHidden = true
         default:
             gameView.hummerBtn.isHidden = false
             gameView.hummerCountLbl.isHidden = false
-            gameView.hummerCountLbl.text = "x\(count)"
+            gameView.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
         }
     }
     

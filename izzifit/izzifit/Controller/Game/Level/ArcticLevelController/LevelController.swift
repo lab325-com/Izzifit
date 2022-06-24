@@ -72,15 +72,14 @@ class LevelController: BaseController {
     }
     
     private func checkAvailableHummers() {
-        guard let count = presenter.freeBuildingsCount else { return}
-        switch count {
+        switch presenter.freeBuildingsCount {
         case 0:
             hummerBtn.isHidden = true
             hummerCountLbl.isHidden = true
         default:
             hummerBtn.isHidden = false
             hummerCountLbl.isHidden = false
-            hummerCountLbl.text = "x\(count)"
+            hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
         }
     }
     
@@ -160,17 +159,17 @@ class LevelController: BaseController {
         view.layoutIfNeeded()
         checkAvailableHummers()
         
-        if let count = presenter.freeBuildingsCount {
-            switch count {
+    
+            switch presenter.freeBuildingsCount {
             case 0:
                 buildPopUpVw.hummerBtn.isHidden = true
                 buildPopUpVw.hummerCountLbl.isHidden = true
             default:
                 buildPopUpVw.hummerBtn.isHidden = false
                 buildPopUpVw.hummerCountLbl.isHidden = false
-                buildPopUpVw.hummerCountLbl.text = "x\(count)"
+                buildPopUpVw.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
             }
-        }
+        
         
         buildPopUpVw.fillStates(by: LevelStates(rawValue: price) ?? .finish)
         AnalyticsHelper.sendFirebaseEvents(events: .map_building_tap, params: ["building" : buildType.rawValue])

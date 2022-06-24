@@ -34,7 +34,14 @@ class LevelPresenter: LevelProtocol {
         self.view = view
     }
     
-    var freeBuildingsCount: Int?
+    var freeBuildingsCount:  Int {
+        get {
+            PreferencesManager.sharedManager.hummerCount
+        }
+        set {
+            PreferencesManager.sharedManager.hummerCount = newValue
+        }
+    }
     var buildings = [BuildingsModel]()
     func getBuildings() {
         view?.startLoader()
