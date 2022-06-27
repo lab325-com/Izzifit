@@ -18,6 +18,7 @@ import SwiftyStoreKit
 protocol EnergyOutputProtocol: BaseController {
     func success()
     func successWidgetList()
+    func successGetSteps()
     func successStepsEnergy()
     func failure()
 }
@@ -34,6 +35,7 @@ protocol EnergyPresenterProtocol: AnyObject {
     
     func updateWeight()
     func getWidgetList()
+    func getSteps()
 }
 
 class EnergyPresenter: EnergyPresenterProtocol {
@@ -164,19 +166,19 @@ class EnergyPresenter: EnergyPresenterProtocol {
             self?.view?.failure()
         })
         
-        group.enter()
-        let _ = HealthKitManager.sharedManager.querySteps(controller: view) { [weak self] healthModel, stepsModel in
-            self?.stepsHealth = healthModel
-            self?.steps = stepsModel
-            group.leave()
-        } failureHandler: { [weak self] error in
-            group.leave()
-            self?.view?.failure()
-        }
-        
         group.notify(queue: DispatchQueue.main) { [weak self] in
             self?.view?.stopLoading()
             self?.view?.success()
+        }
+    }
+    
+    func getSteps() {
+        let _ = HealthKitManager.sharedManager.querySteps(controller: view) { [weak self] healthModel, stepsModel in
+            self?.stepsHealth = healthModel
+            self?.steps = stepsModel
+            self?.view?.successGetSteps()
+        } failureHandler: { [weak self] error in
+            self?.view?.failure()
         }
     }
     
@@ -201,15 +203,11 @@ class EnergyPresenter: EnergyPresenterProtocol {
     }
     
     func getStepsEnergy() {
-        view?.startLoader()
-        
         let query = StepsWidgetQuery()
         let _ = Network.shared.query(model: StepsWidgetDataModel.self, query, controller: view) { [weak self] model in
             self?.stepsWidget = model.stepsWidget
-            self?.view?.stopLoading()
             self?.view?.successStepsEnergy()
         } failureHandler: { [weak self] error in
-            self?.view?.stopLoading()
             self?.view?.failure()
         }
     }
