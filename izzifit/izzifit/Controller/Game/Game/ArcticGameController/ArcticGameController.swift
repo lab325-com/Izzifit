@@ -153,7 +153,7 @@ extension ArcticGameController: ArcticGameOutputProtocol {
             case .__unknown(_): print("")
             }
         }
-        
+        gameView.startSpinLbl.text = ""
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let spinTags = self.timerSpinManager.convertSpinTypes(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds)
                 if let tupleResult = self.spinManager.recognizeSetCombinations(spinTags) {
