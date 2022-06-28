@@ -77,6 +77,11 @@ class ProfileController: BaseController {
     @IBAction func backAction(_ sender: Any) {
         actionBack()
     }
+    
+    @IBAction func actionGame(_ sender: UIButton) {
+        navigationController?.popToRootViewController(animated: true)
+        TabBarRouter(presenter: navigationController).pushGame()
+    }
 }
 
 //----------------------------------------------
