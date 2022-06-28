@@ -14,6 +14,7 @@ class GameTabBarController: UITabBarController {
     private let buildBtn = UIButton()
     private let mapBtn = UIButton()
     private var gradientView = UIView()
+    private let profileBtn = UIButton()
     
     private lazy var btns: [UIButton] = {[backBtn, spinBtn, buildBtn, mapBtn]}()
     private var tabBarStackView: UIStackView!
@@ -66,6 +67,14 @@ class GameTabBarController: UITabBarController {
                                bottomC: 0,
                                leadingC: 0,
                                trailingC: 0)
+        
+        view.ui.genericlLayout(object: profileBtn,
+                               parentView: view,
+                               width: 200.0,
+                               height: 90.0,
+                               topC: 0,
+                               leadingC: 0)
+        profileBtn.addTarget(self, action: #selector(profile), for: .touchUpInside)
         
         // stackView
         backBtn.setImage(view.image(img: .gameTabBarEnergy), for:   .normal)
@@ -125,6 +134,11 @@ class GameTabBarController: UITabBarController {
     @objc func map() {
         selectBtn(3)
         selectedIndex = 2 }
+    
+    @objc func profile() {
+        navigationController?.popToRootViewController(animated: true)
+        TabBarRouter(presenter: navigationController).pushProfile()
+    }
 }
 
 enum MapName: String {
