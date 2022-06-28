@@ -67,6 +67,8 @@ class WorkoutController: BaseController {
     
     private func setup() {
         AnalyticsHelper.sendFirebaseEvents(events: .exe_open)
+        
+        hiddenNavigationBar = true
         collectionView.isHidden = true
         
         updateMe()
@@ -105,6 +107,18 @@ class WorkoutController: BaseController {
         } else {
             nameLabel.isHidden = true
         }
+    }
+    
+    //----------------------------------------------
+    // MARK: - Action
+    //----------------------------------------------
+    
+    @IBAction func actionProfile(_ sender: UIButton) {
+        TabBarRouter(presenter: navigationController).pushProfile()
+    }
+    
+    @IBAction func actionGame(_ sender: UIButton) {
+        TabBarRouter(presenter: navigationController).pushGame()
     }
 }
 
