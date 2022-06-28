@@ -21,6 +21,7 @@ protocol EnergyOutputProtocol: BaseController {
     func successGetSteps()
     func successStepsEnergy()
     func failure()
+    func showEnergyAnimation()
 }
 
 //----------------------------------------------
@@ -301,6 +302,9 @@ class EnergyPresenter: EnergyPresenterProtocol {
         let query = MeQuery()
         let _ = Network.shared.query(model: MeModel.self, query, controller: view) { [weak self] model in
             
+            if model.me.energy ?? 0 > KeychainService.standard.me?.energy ?? 0 {
+                self?.view?.showEnergyAnimation()
+            }
             KeychainService.standard.me = model.me
             self?.view?.success()
         } failureHandler: { [weak self] error in

@@ -24,6 +24,7 @@ class EnergyController: BaseController {
     @IBOutlet weak var cointLabel: UILabel!
     @IBOutlet weak var energyLabel: UILabel!
     
+    @IBOutlet weak var energyLottieView: UIView!
     
     //----------------------------------------------
     // MARK: - Property
@@ -44,6 +45,8 @@ class EnergyController: BaseController {
     lazy var presenter = EnergyPresenter(view: self)
     
     var currentDate = Date()
+    
+    private var animationEnergy: AnimationView?
     
     //----------------------------------------------
     // MARK: - Life cycle
@@ -68,19 +71,13 @@ class EnergyController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        
         // Create Animation object
-        let jsonName = "enerrgy_anim"
+        let jsonName = "energy_anim"
         let animation = Animation.named(jsonName)
-
-        // Load animation to AnimationView
-        let animationView = AnimationView(animation: animation)
-        animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-
-        // Add animationView as subview
-        energyLabel.addSubview(animationView)
-        animationView.loopMode = .loop
-        // Play the animation
-        animationView.play()
+        animationEnergy = AnimationView(animation: animation)
+        energyLottieView.addSubview(animationEnergy!)
+        animationEnergy?.contentMode = .scaleAspectFit
         
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(
@@ -207,26 +204,6 @@ extension EnergyController: EnergyOutputProtocol {
         if presenter.steps.count > 0 {
             presenter.setSteps()
         }
-        
-//        if presenter.stepsWidget.count > 0 {
-//            var message = ""
-//            for steps in presenter.stepsWidget {
-//                let hour = steps.hourType
-//                let steps = steps.steps
-//                if message.isEmpty {
-//                    message = "Hour: \(hour.rawValue), Steps: \(steps)"
-//                } else {
-//                    message += "\nHour: \(hour.rawValue), Steps: \(steps)"
-//                }
-//            }
-//            let alert = UIAlertController(title: "Steps from HealthKit",
-//                                          message: message,
-//                                          preferredStyle: .alert)
-//            let okAction = UIAlertAction(title: "OK",
-//                                         style: .default)
-//            alert.addAction(okAction)
-//            present(alert, animated: true)
-//        }
     }
     
     func successStepsEnergy() {
@@ -235,5 +212,9 @@ extension EnergyController: EnergyOutputProtocol {
     
     func failure() {
         
+    }
+    
+    func showEnergyAnimation() {
+        animationEnergy?.play()
     }
 }

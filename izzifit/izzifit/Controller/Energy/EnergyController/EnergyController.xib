@@ -20,6 +20,7 @@
                 <outlet property="avatarView" destination="54w-nJ-ly0" id="lNK-RA-fJf"/>
                 <outlet property="cointLabel" destination="urr-CY-WRE" id="yUt-SQ-Aeo"/>
                 <outlet property="energyLabel" destination="MrR-Dy-Lbk" id="Gyv-gp-sgG"/>
+                <outlet property="energyLottieView" destination="1lX-Io-nut" id="zHn-Bv-qhF"/>
                 <outlet property="nameLabel" destination="EyM-mP-FLf" id="YpK-kG-0DG"/>
                 <outlet property="tableView" destination="Hqa-Fq-ybI" id="ssT-fE-kRk"/>
                 <outlet property="topView" destination="9Kh-1f-614" id="WEP-aM-byB"/>
@@ -107,13 +108,23 @@
                                 </stackView>
                             </subviews>
                         </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lX-Io-nut">
+                            <rect key="frame" x="324" y="49" width="50" height="200"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="FhY-Cc-LsZ"/>
+                                <constraint firstAttribute="width" constant="50" id="s0j-lo-J2S"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="6u4-9V-6OV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EyM-mP-FLf" secondAttribute="trailing" constant="10" id="71X-c8-ApZ"/>
+                        <constraint firstItem="1lX-Io-nut" firstAttribute="centerX" secondItem="mKS-lC-gqw" secondAttribute="centerX" constant="10" id="72s-lM-tVj"/>
                         <constraint firstItem="54w-nJ-ly0" firstAttribute="leading" secondItem="9Kh-1f-614" secondAttribute="leading" constant="19" id="8Za-GH-UGi"/>
                         <constraint firstItem="6u4-9V-6OV" firstAttribute="centerY" secondItem="EyM-mP-FLf" secondAttribute="centerY" id="KjN-hJ-AfO"/>
                         <constraint firstItem="EyM-mP-FLf" firstAttribute="centerY" secondItem="IoB-MZ-iw5" secondAttribute="centerY" id="PWi-3T-ScF"/>
+                        <constraint firstItem="1lX-Io-nut" firstAttribute="top" secondItem="mKS-lC-gqw" secondAttribute="top" id="WK3-7W-vja"/>
                         <constraint firstAttribute="trailing" secondItem="6u4-9V-6OV" secondAttribute="trailing" constant="18" id="bKY-WB-1bQ"/>
                         <constraint firstAttribute="bottom" secondItem="54w-nJ-ly0" secondAttribute="bottom" constant="8" id="cDi-Dg-G53"/>
                         <constraint firstItem="EyM-mP-FLf" firstAttribute="leading" secondItem="54w-nJ-ly0" secondAttribute="trailing" constant="8" id="kGB-fC-gkQ"/>
