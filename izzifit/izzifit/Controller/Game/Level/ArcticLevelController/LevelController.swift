@@ -34,7 +34,7 @@ class LevelController: BaseController {
     
     private var player = PlayerModel()
     
-    private var pointers: PointersAndTicks?
+    private var pointers = PointersAndTicks()
     private var firstRespond = true
     private lazy var presenter = LevelPresenter(view: self)
     
@@ -72,15 +72,14 @@ class LevelController: BaseController {
     }
     
     private func checkAvailableHummers() {
-        guard let count = presenter.freeBuildingsCount else { return}
-        switch count {
+        switch presenter.freeBuildingsCount {
         case 0:
             hummerBtn.isHidden = true
             hummerCountLbl.isHidden = true
         default:
             hummerBtn.isHidden = false
             hummerCountLbl.isHidden = false
-            hummerCountLbl.text = "x\(count)"
+            hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
         }
     }
     
@@ -160,17 +159,17 @@ class LevelController: BaseController {
         view.layoutIfNeeded()
         checkAvailableHummers()
         
-        if let count = presenter.freeBuildingsCount {
-            switch count {
+    
+            switch presenter.freeBuildingsCount {
             case 0:
                 buildPopUpVw.hummerBtn.isHidden = true
                 buildPopUpVw.hummerCountLbl.isHidden = true
             default:
                 buildPopUpVw.hummerBtn.isHidden = false
                 buildPopUpVw.hummerCountLbl.isHidden = false
-                buildPopUpVw.hummerCountLbl.text = "x\(count)"
+                buildPopUpVw.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
             }
-        }
+        
         
         buildPopUpVw.fillStates(by: LevelStates(rawValue: price) ?? .finish)
         AnalyticsHelper.sendFirebaseEvents(events: .map_building_tap, params: ["building" : buildType.rawValue])
@@ -275,12 +274,10 @@ class LevelController: BaseController {
             for btn in self.btns {
                 btn?.isUserInteractionEnabled.toggle()
             }
-            if let points = self.pointers {
-                for imgVw in  points.imgVwArray { imgVw.removeFromSuperview()}
-            }
-            self.pointers = PointersAndTicks()
-            if let x = self.pointers { x.drawPointers(model: self.player, btns: self.btns) }
-            
+        
+            for imgVw in  pointers.imgVwArray { imgVw.removeFromSuperview()}
+       
+            pointers.drawPointers(model: self.player, btns: self.btns)
             presenter.upgradeBuild(buildingId: buildingId)
         }
     }
@@ -354,10 +351,7 @@ extension LevelController: LevelOutputProtocol {
     func successBuildings(model: [BuildingsModel]) {
         checkAvailableHummers()
         drawStates()
-        pointers = PointersAndTicks()
-        if let x = pointers {
-            x.drawPointers(model: player, btns: btns)
-        }
+            pointers.drawPointers(model: player, btns: btns)
         
         let maxLevel = player.checkMaxLevel()
         for building in model {
@@ -384,10 +378,7 @@ extension LevelController: LevelOutputProtocol {
         }
         guard !maxLevel else { return }
         drawStates()
-        pointers = PointersAndTicks()
-        if let x = pointers {
-            x.drawPointers(model: player, btns: btns)
-        }
+        pointers.drawPointers(model: player, btns: btns)
     }
     
     func successBuild() {

@@ -134,17 +134,28 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHT-rH-Fnw">
+                    <rect key="frame" x="19" y="40" width="40" height="40"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <connections>
+                        <action selector="actionProfile:" destination="-1" eventType="touchUpInside" id="E84-vN-23R"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Hqa-Fq-ybI" secondAttribute="bottom" id="07c-kD-fgr"/>
                 <constraint firstItem="9Kh-1f-614" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6Rv-K6-9r9"/>
+                <constraint firstItem="cHT-rH-Fnw" firstAttribute="height" secondItem="IoB-MZ-iw5" secondAttribute="height" id="6V0-YW-Ngc"/>
                 <constraint firstItem="Hqa-Fq-ybI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DAd-Oo-vBv"/>
+                <constraint firstItem="cHT-rH-Fnw" firstAttribute="centerY" secondItem="IoB-MZ-iw5" secondAttribute="centerY" id="Dru-s9-JQs"/>
                 <constraint firstItem="9Kh-1f-614" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="PQi-tf-Wcj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Hqa-Fq-ybI" secondAttribute="trailing" id="cPQ-Te-MtK"/>
+                <constraint firstItem="cHT-rH-Fnw" firstAttribute="width" secondItem="IoB-MZ-iw5" secondAttribute="width" id="fEf-hd-bFD"/>
                 <constraint firstItem="Hqa-Fq-ybI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jL4-pW-zC2"/>
                 <constraint firstItem="9Kh-1f-614" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sf2-z4-bmO"/>
+                <constraint firstItem="cHT-rH-Fnw" firstAttribute="centerX" secondItem="IoB-MZ-iw5" secondAttribute="centerX" id="xgM-UX-aSK"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </view>

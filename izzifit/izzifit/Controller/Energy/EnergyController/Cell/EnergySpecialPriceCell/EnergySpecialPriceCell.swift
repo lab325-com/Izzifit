@@ -20,6 +20,7 @@ class EnergySpecialPriceCell: UITableViewCell {
     @IBOutlet weak var specialView: UIView!
     @IBOutlet weak var avatarImageView: UIImageView!
     
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var discountLabel: UILabel!
     
@@ -51,7 +52,7 @@ class EnergySpecialPriceCell: UITableViewCell {
     
     func setupCell(model: WorkoutsWidgetMainModel, paymentInfo: PaymentsModel?) {
         self.model = model
-        
+        timeLabel.text = "\(model.duration?.minutes ?? 0) min"
         avatarImageView.kf.setImage(with: URL(string: model.Image?.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_ic(), options: [.transition(.fade(0.25))])
         
         let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Inter-Medium", size: 14), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x3F3E56)]

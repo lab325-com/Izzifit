@@ -7,7 +7,8 @@
 
 import UIKit
 import Kingfisher
- 
+import Lottie
+
 class EnergyController: BaseController {
     
     //----------------------------------------------
@@ -49,6 +50,7 @@ class EnergyController: BaseController {
     //----------------------------------------------
     
     override func viewDidLoad() {
+        hiddenNavigationBar = true
         super.viewDidLoad()
         
         setup()
@@ -65,6 +67,20 @@ class EnergyController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        // Create Animation object
+        let jsonName = "enerrgy_anim"
+        let animation = Animation.named(jsonName)
+
+        // Load animation to AnimationView
+        let animationView = AnimationView(animation: animation)
+        animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+
+        // Add animationView as subview
+        energyLabel.addSubview(animationView)
+        animationView.loopMode = .loop
+        // Play the animation
+        animationView.play()
+        
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(
             options: authOptions,
@@ -160,6 +176,14 @@ class EnergyController: BaseController {
     
     @objc func updateEnegyNotification(_ notification: Notification) {
         presenter.getWidgets(date: getDate())
+    }
+    
+    //----------------------------------------------
+    // MARK: - Action
+    //----------------------------------------------
+    
+    @IBAction func actionProfile(_ sender: UIButton) {
+        debugPrint("open profile")
     }
 }
 

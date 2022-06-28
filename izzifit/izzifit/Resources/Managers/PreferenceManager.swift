@@ -215,4 +215,13 @@ class PreferencesManager : NSObject {
             self.set(newValue, forKey: PreferencesManager.fcmToken)
         }
     }
+    
+    var hummerCount: Int {
+        get {
+            UserDefaults.standard.integer(forKey: "hummerCount")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "hummerCount")
+        }
+    }
 }
