@@ -420,6 +420,12 @@ extension LevelController: PaywallProtocol {
 //----------------------------------------------
 
 extension LevelController: PurchasePopUpProtocol {
+    func purchasePopUpSpin(controller: PurchasePopUp) {
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
+            tabBarVC.spin()
+        }
+    }
+    
     func purchasePopUpClose(controller: PurchasePopUp) {
         if let model = PreferencesManager.sharedManager.localPushs.first(where: {$0.type == .goldZero}) {
             LocalPushManager.sharedManager.sendNotification(title: model.title, body: model.description, idetifier: "goldZero")

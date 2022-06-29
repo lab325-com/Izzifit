@@ -17,6 +17,7 @@ struct Purchase {
 protocol PurchasePopUpProtocol: AnyObject {
     func purchasePopUpSuccess(controller: PurchasePopUp)
     func purchasePopUpClose(controller: PurchasePopUp)
+    func purchasePopUpSpin(controller: PurchasePopUp)
 }
 
 
@@ -87,7 +88,6 @@ class PurchasePopUp: BaseController {
         for id in idProducts {
             self.purchaseModel.append(Purchase(type: id.type, count: id.count, price: 0.99))
         }
-        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -105,7 +105,6 @@ class PurchasePopUp: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         presenter.retriveNotAutoProduct(id: Set(idProducts.compactMap({$0.rawValue})))
     }
 }
@@ -115,6 +114,12 @@ class PurchasePopUp: BaseController {
 //----------------------------------------------
 
 extension PurchasePopUp: GamePurchasePopProtocol {
+    
+    func gamePurchaseSpin(view: PurchasePop) {
+        delegate?.purchasePopUpSpin(controller: self)
+        dismiss(animated: true)
+    }
+    
     func gamePurchasePopBuy(view: PurchasePop, tag: Int) {
         presenter.purchaseProduct(id: idProducts[safe: tag]?.rawValue ?? "", screen: .energyBuy, place: .energyZero) { [weak self] result, message in
             guard let `self` = self else { return }
