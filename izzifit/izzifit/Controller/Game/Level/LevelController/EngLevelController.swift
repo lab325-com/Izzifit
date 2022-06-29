@@ -98,7 +98,11 @@ class EngLevelController: BaseController {
         guard KeychainService.standard.me?.coins ?? 0 >= price else {
             if presenter.freeBuildingsCount ?? 0 <= 0 {
                 showAlert(message: "You don't have enough money") {
-                    let _ = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .goldZero)
+                    let result = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .goldZero)
+                    
+                    if !result, let ids = PreferencesManager.sharedManager.coinsZero?.idProducts {
+                        GameRouter(presenter: self.navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
+                    }
                 }
             }
             return
@@ -299,4 +303,22 @@ extension EngLevelController: PaywallProtocol {
     func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
     func paywallSuccess(controller: BaseController) { }
 }
+
+//----------------------------------------------
+// MARK: - GamePurchasePopProtocol
+//----------------------------------------------
+
+extension EngLevelController: PurchasePopUpProtocol {
+    func purchasePopUpClose(controller: PurchasePopUp) {
+        if let model = PreferencesManager.sharedManager.localPushs.first(where: {$0.type == .goldZero}) {
+            LocalPushManager.sharedManager.sendNotification(title: model.title, body: model.description, idetifier: "goldZero")
+        }
+    }
+    
+    func purchasePopUpSuccess(controller: PurchasePopUp) {
+        englandView.barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        englandView.barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+    }
+}
+
 
