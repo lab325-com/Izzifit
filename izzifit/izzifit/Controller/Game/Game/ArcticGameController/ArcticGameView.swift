@@ -126,7 +126,6 @@ class ArcticGameView: UIView, GameAnimationProtocol {
                     textAlignment: .left,
                     fontSize: h/46.6,
                     fontName: "Inter-BoldItalic")
-        
     }
     
     private func layout() {
