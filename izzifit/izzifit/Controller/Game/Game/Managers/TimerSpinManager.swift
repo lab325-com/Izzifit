@@ -114,7 +114,14 @@ class TimerSpinManager {
                        options: .curveEaseIn) {
             self.tables[index].contentOffset.y = self.tableContentOffsets[index]
             self.tables[index].layoutIfNeeded()
-        } completion: { bool in  }
+        } completion: { bool in
+            guard self.timerCounters[index] == 3 || self.timerCounters[index] == 152 else { return }
+            // докручивать к середине
+            let cells = self.tables[index].visibleCells
+            if let indexPath = self.tables[index].indexPath(for: cells[1]) {
+                self.tables[index].scrollToRow(at: indexPath, at: .middle, animated: true)
+            }
+        }
         guard timerCounters[index] == 3 else { return }
         timerCounters[index] = 152
         self.timers[index].invalidate()
