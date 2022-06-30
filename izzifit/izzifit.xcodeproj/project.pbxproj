@@ -412,7 +412,6 @@
 		FABA1DE72859F03A005ECE75 /* coin_v2.gif in Resources */ = {isa = PBXBuildFile; fileRef = FABA1DE52859F03A005ECE75 /* coin_v2.gif */; };
 		FABA1DEF285AEE23005ECE75 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = FABA1DEE285AEE23005ECE75 /* SwiftyGif */; };
 		FABE8BF828512C6C00E3E53C /* PurchasePop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BF728512C6C00E3E53C /* PurchasePop.swift */; };
-		FABE8BFD28520E4100E3E53C /* LevelPopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BFC28520E4100E3E53C /* LevelPopUpController.swift */; };
 		FABE8BFF28520E5000E3E53C /* LevelPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BFE28520E5000E3E53C /* LevelPopUpView.swift */; };
 		FABE8C0128525ED300E3E53C /* EngLevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8C0028525ED300E3E53C /* EngLevelController.swift */; };
 		FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAC55B9627EB87F0001DA24C /* Rank.graphql */; };
@@ -846,7 +845,6 @@
 		FABA1DE42859F03A005ECE75 /* coin_v3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = coin_v3.gif; sourceTree = "<group>"; };
 		FABA1DE52859F03A005ECE75 /* coin_v2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = coin_v2.gif; sourceTree = "<group>"; };
 		FABE8BF728512C6C00E3E53C /* PurchasePop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasePop.swift; sourceTree = "<group>"; };
-		FABE8BFC28520E4100E3E53C /* LevelPopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopUpController.swift; sourceTree = "<group>"; };
 		FABE8BFE28520E5000E3E53C /* LevelPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopUpView.swift; sourceTree = "<group>"; };
 		FABE8C0028525ED300E3E53C /* EngLevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngLevelController.swift; sourceTree = "<group>"; };
 		FAC55B9627EB87F0001DA24C /* Rank.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rank.graphql; sourceTree = "<group>"; };
@@ -2765,7 +2763,6 @@
 		FABE8BFB28520DF500E3E53C /* LevelPopUpView */ = {
 			isa = PBXGroup;
 			children = (
-				FABE8BFC28520E4100E3E53C /* LevelPopUpController.swift */,
 				FABE8BFE28520E5000E3E53C /* LevelPopUpView.swift */,
 			);
 			path = LevelPopUpView;
@@ -3538,7 +3535,6 @@
 				0268753827D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.swift in Sources */,
 				0249D24A27B3A67900F265C1 /* BaseRouter.swift in Sources */,
 				0227DA9227C52EC1008AB26B /* TabBarRouter.swift in Sources */,
-				FABE8BFD28520E4100E3E53C /* LevelPopUpController.swift in Sources */,
 				024C69A427DF858300EE8D53 /* FoodController.swift in Sources */,
 				0249D26427B3A88C00F265C1 /* UIColor+Extension.swift in Sources */,
 				02BC127D27F1E29A00678305 /* WorkoutByIdModel.swift in Sources */,

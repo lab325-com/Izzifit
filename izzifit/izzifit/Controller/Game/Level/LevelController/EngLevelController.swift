@@ -205,7 +205,7 @@ class EngLevelController: BaseController {
                         sender: UIButton) {
        
         buildPopUpVw = nil
-        buildPopUpVw = LevelPopUpView(title: "England")
+        buildPopUpVw = LevelPopUpView(title: "England", mapName: .england_map)
         guard let buildPopUpVw = buildPopUpVw else { return }
             buildPopUpVw.hummerImgVw.isHidden = true
             buildPopUpVw.hummerCountLbl.isHidden = true

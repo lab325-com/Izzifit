@@ -139,7 +139,7 @@ class TimerSpinManager {
         
         guard counter.combinations.count > combinationCounter else { spinsRunOut()
             return }
-        
+    
         guard KeychainService.standard.me?.energy ?? 0.0 > 0.99 else { presentPaywall()
             return }
         

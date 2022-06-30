@@ -50,11 +50,17 @@ class LevelPopUpView: UIView {
             
     private var title: String
   
-    init(title: String) {
+    init(title: String, mapName: MapName) {
         self.title = title
         super.init(frame: .zero)
         setUI()
         layout()
+        switch mapName {
+        case .snow_map:
+            hummerImgVw.image = image(img: .freeHummer)
+        case .england_map:
+            hummerImgVw.image = image(img: .england_freeHummer)
+        }
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -165,7 +171,7 @@ class LevelPopUpView: UIView {
         
         previousStateImgVw.contentMode = .scaleAspectFit
         nextStateImgVw.contentMode = .scaleAspectFit
-        hummerImgVw.image = image(img: .freeHummer)
+
         
         ui.setLabel(label: hummerCountLbl,
                     textColor: .white,

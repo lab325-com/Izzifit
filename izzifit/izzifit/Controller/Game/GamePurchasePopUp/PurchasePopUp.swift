@@ -117,7 +117,7 @@ extension PurchasePopUp: GamePurchasePopProtocol {
     
     func gamePurchaseSpin(view: PurchasePop) {
         delegate?.purchasePopUpSpin(controller: self)
-        dismiss(animated: true)
+        dismiss(animated: false)
     }
     
     func gamePurchasePopBuy(view: PurchasePop, tag: Int) {

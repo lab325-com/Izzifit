@@ -200,6 +200,15 @@ extension ArcticGameController: PaywallProtocol {
 extension ArcticGameController: PurchasePopUpProtocol {
     func purchasePopUpSpin(controller: PurchasePopUp) {
         
+        /// сделай тоже самое по англии
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
+           
+            NotificationCenter.default.post(name: Constants.Notifications.openWorkoutNotification,
+                                            object: self,
+                                            userInfo: nil)
+            tabBarVC.actionBack()
+          
+        }
     }
     
     func purchasePopUpClose(controller: PurchasePopUp) {
