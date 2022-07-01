@@ -48,6 +48,7 @@ class ArcticGameView: UIView, GameAnimationProtocol {
     }
     
     private func setUI() {
+        
         gameBackImgVw.image = image(img: .gameBackTwo)
         gameBackImgVw.contentMode = .scaleAspectFill
         

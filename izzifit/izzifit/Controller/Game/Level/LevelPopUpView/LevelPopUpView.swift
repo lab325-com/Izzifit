@@ -168,9 +168,12 @@ class LevelPopUpView: UIView {
     }
     
     private func setUI() {
+        
         backgroundColor = UIColor(rgb: 0x3F3E56,alpha: 0.3)
+        
         let backImgs = [image(img: .buildPopUpBack),
                         image(img: .largeBuildPopUpBack)]
+        
         mainBackImgVw.image = backImgs[popType.rawValue]
         
         ui.setLabel(label: titleLbl,

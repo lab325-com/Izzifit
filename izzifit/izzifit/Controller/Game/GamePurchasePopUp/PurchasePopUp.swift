@@ -57,7 +57,6 @@ enum InAppPurchaseType: String, Codable {
     }
 }
 
-
 class PurchasePopUp: BaseController {
     
     //----------------------------------------------
@@ -90,17 +89,13 @@ class PurchasePopUp: BaseController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
 
-    override func loadView() {
-        self.view =  popUp
-    }
+    override func loadView() { self.view =  popUp }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,7 +152,5 @@ extension PurchasePopUp: SubscribeOutputProtocol {
         popUp.setPrice(prices: prices)
     }
     
-    func failure(error: String) {
-        
-    }
+    func failure(error: String) { }
 }

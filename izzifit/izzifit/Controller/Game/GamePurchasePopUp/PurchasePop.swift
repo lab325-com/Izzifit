@@ -120,7 +120,6 @@ class PurchasePop: UIView {
     private let titleLbl = UILabel()
     private let mainLbl = UILabel()
     
-    
     private var popType: PurchasePopType
     private var prices: [Double]
     private var purchaseTypes: [PurchaseType]
