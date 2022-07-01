@@ -1133,7 +1133,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 306 images.
+  /// This `R.image` struct is generated, and contains static references to 307 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1427,6 +1427,8 @@ struct R: Rswift.Validatable {
     static let igluStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "igluStart")
     /// Image `igluThird`.
     static let igluThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "igluThird")
+    /// Image `largeBuildPopUpBack`.
+    static let largeBuildPopUpBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "largeBuildPopUpBack")
     /// Image `levelBack`.
     static let levelBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "levelBack")
     /// Image `levelShadowViewBack`.
@@ -2767,6 +2769,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "igluThird", bundle: ..., traitCollection: ...)`
     static func igluThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.igluThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "largeBuildPopUpBack", bundle: ..., traitCollection: ...)`
+    static func largeBuildPopUpBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.largeBuildPopUpBack, compatibleWith: traitCollection)
     }
     #endif
 

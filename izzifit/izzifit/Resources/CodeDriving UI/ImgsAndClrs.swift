@@ -14,7 +14,7 @@ enum Imgs: String {
     
     
     //GamePurchasePopUp
-    case greenBuyBtn, backBtn, yellowPointer, buildPopUpBack, doubleLightning
+    case greenBuyBtn, backBtn, yellowPointer, buildPopUpBack, largeBuildPopUpBack, doubleLightning
     
     // GameView
     case gameBackTwo, gameBackOne, slotBack, spinBtnNormal, spinBtnSelected, slotHouse, freeHummer, start_logo_ic

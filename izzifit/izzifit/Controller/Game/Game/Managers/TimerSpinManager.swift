@@ -154,7 +154,6 @@ class TimerSpinManager {
                                       collectionView: collectionView,
                                       spinBtn: spinBtn) {
             showProgress()
-            
             timers[0] = Timer.scheduledTimer(timeInterval: 0.03,
                                              target: self,
                                              selector: #selector(xSpin),

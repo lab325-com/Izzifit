@@ -64,7 +64,6 @@ class PurchasePopUp: BaseController {
     // MARK: - Property
     //----------------------------------------------
     
-
     private lazy var popUp = PurchasePop(title: titlePopUp, purchases: purchaseModel, delegate: self)
 
     private let titlePopUp: String

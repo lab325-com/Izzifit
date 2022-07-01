@@ -86,6 +86,7 @@ class BuildPopUpView: UIView,LoadFromXibProtocol {
                 nextStateImgVw.image = image(img: .pop5Ship)
             case .finish: break
             }
+            
         case .building2:
             switch state {
             case .start: previousStateImgVw.image = image(img: .popStartState)

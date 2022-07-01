@@ -87,30 +87,29 @@ class EngLevelController: BaseController {
         
         guard price != 0 else { return }
         
-        if presenter.freeBuildingsCount ?? 0 > 0 {
+        if presenter.freeBuildingsCount > 0 {
             // здесь рисуй попАп за молоточек
             drawBuildPopUp(price: price,
                            buildType: buildType,
+                           popType: .buildPopType,
                            sender: sender)
             buildPopUpVw!.priceLbl.text = "Free"
         }
         
         guard KeychainService.standard.me?.coins ?? 0 >= price else {
-            if presenter.freeBuildingsCount ?? 0 <= 0 {
-                showAlert(message: "You don't have enough money") {
-                    let result = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .goldZero)
-                    
-                    if !result, let ids = PreferencesManager.sharedManager.coinsZero?.idProducts {
-                        GameRouter(presenter: self.navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
-                    }
-                }
-            }
+            if presenter.freeBuildingsCount <= 0 {
+                drawBuildPopUp(price: price,
+                               buildType: buildType,
+                               popType: .notEnoughMoney,
+                               sender: sender)
+        }
             return
         }
         // тут малюй попАп за монети
-        guard presenter.freeBuildingsCount ?? 0 == 0 else { return }
+        guard presenter.freeBuildingsCount == 0 else { return }
         drawBuildPopUp(price: price,
                        buildType: buildType,
+                       popType: .buildPopType,
                        sender: sender)
     }
     
@@ -202,10 +201,14 @@ class EngLevelController: BaseController {
     
     func drawBuildPopUp(price: Int,
                         buildType: BuildingType,
+                        popType: LevelPopType,
                         sender: UIButton) {
-       
+        
         buildPopUpVw = nil
-        buildPopUpVw = LevelPopUpView(title: "England", mapName: .england_map)
+        buildPopUpVw = LevelPopUpView(popType: popType,
+                                      title: "England",
+                                      mapName: .england_map,
+                                      delegate: self)
         guard let buildPopUpVw = buildPopUpVw else { return }
             buildPopUpVw.hummerImgVw.isHidden = true
             buildPopUpVw.hummerCountLbl.isHidden = true
@@ -327,4 +330,14 @@ extension EngLevelController: PurchasePopUpProtocol {
     }
 }
 
+extension EngLevelController: LevelPopUpDelegate {
+    func arrowBtnAction(view: UIView) {
+        view.removeFromSuperview()
+        let result = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .goldZero)
+
+        if !result, let ids = PreferencesManager.sharedManager.coinsZero?.idProducts {
+            GameRouter(presenter: self.navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
+        }
+    }
+}
 
