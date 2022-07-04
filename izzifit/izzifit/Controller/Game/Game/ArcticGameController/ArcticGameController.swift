@@ -180,7 +180,6 @@ extension ArcticGameController: ArcticGameOutputProtocol {
         checkAvailableHummers()
         timerSpinManager.counter.combinations = map.map2.spins
         collectionView.reloadData()
-    
     }
 }
 
@@ -207,7 +206,6 @@ extension ArcticGameController: PurchasePopUpProtocol {
                                             object: self,
                                             userInfo: nil)
             tabBarVC.actionBack()
-          
         }
     }
     

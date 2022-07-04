@@ -390,7 +390,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 82 files.
+  /// This `R.file` struct is generated, and contains static references to 83 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -548,6 +548,8 @@ struct R: Rswift.Validatable {
     static let coin_v2Gif = Rswift.FileResource(bundle: R.hostingBundle, name: "coin_v2", pathExtension: "gif")
     /// Resource file `coin_v3.gif`.
     static let coin_v3Gif = Rswift.FileResource(bundle: R.hostingBundle, name: "coin_v3", pathExtension: "gif")
+    /// Resource file `confetti.json`.
+    static let confettiJson = Rswift.FileResource(bundle: R.hostingBundle, name: "confetti", pathExtension: "json")
     /// Resource file `construction3.gif`.
     static let construction3Gif = Rswift.FileResource(bundle: R.hostingBundle, name: "construction3", pathExtension: "gif")
     /// Resource file `progress.graphql`.
@@ -1022,6 +1024,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "coin_v3", withExtension: "gif")`
     static func coin_v3Gif(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.coin_v3Gif
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "confetti", withExtension: "json")`
+    static func confettiJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.confettiJson
       return fileResource.bundle.url(forResource: fileResource)
     }
 

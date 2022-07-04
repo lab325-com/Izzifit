@@ -24,7 +24,7 @@ class LevelController: BaseController {
     @IBOutlet weak var hummerBtn: UIButton!
     @IBOutlet weak var hummerCountLbl: UILabel!
     
-    private var buildPopUpVw: BuildPopUpView?
+    private var buildPopUpVw: LevelPopUpView?
     
     private lazy var btns = [shipBtn,
                              fishBtn,
@@ -114,41 +114,44 @@ class LevelController: BaseController {
         
         guard price != 0 else { return }
         
-        if presenter.freeBuildingsCount ?? 0 > 0 {
+        if presenter.freeBuildingsCount  > 0 {
             // здесь рисуй попАп за молоточек
             drawBuildPopUp(price: price,
                            buildType: buildType,
+                           popType: .buildPopType,
                            sender: sender)
             buildPopUpVw!.priceLbl.text = "Free"
         }
         
         guard KeychainService.standard.me?.coins ?? 0 >= price else {
-            if presenter.freeBuildingsCount ?? 0 <= 0 {
-                showAlert(message: "You don't have enough money") {
-                    let result = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .goldZero)
-                    
-                    if !result, let ids = PreferencesManager.sharedManager.coinsZero?.idProducts {
-                        GameRouter(presenter: self.navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
-                    }
-                }
+            if presenter.freeBuildingsCount  <= 0 {
+                drawBuildPopUp(price: price,
+                               buildType: buildType,
+                               popType: .notEnoughMoney,
+                               sender: sender)
             }
             return
         }
-        guard presenter.freeBuildingsCount ?? 0 == 0 else { return }
+        guard presenter.freeBuildingsCount  == 0 else { return }
         // тут малюй попАп за монети
         drawBuildPopUp(price: price,
                        buildType: buildType,
+                       popType: .buildPopType,
                        sender: sender)
     }
     
     func drawBuildPopUp(price: Int,
                         buildType: BuildingType,
+                        popType: LevelPopType,
                         sender: UIButton) {
        
         buildPopUpVw = nil
-        buildPopUpVw = BuildPopUpView()
+        buildPopUpVw = LevelPopUpView(popType: popType,
+                                      title: "Arctic",
+                                      mapName: .england_map,
+                                      delegate: self)
         guard let buildPopUpVw = buildPopUpVw else { return }
-            buildPopUpVw.hummerBtn.isHidden = true
+            buildPopUpVw.hummerImgVw.isHidden = true
             buildPopUpVw.hummerCountLbl.isHidden = true
             view.ui.genericlLayout(object: buildPopUpVw,
                                    parentView: view,
@@ -159,13 +162,12 @@ class LevelController: BaseController {
         view.layoutIfNeeded()
         checkAvailableHummers()
         
-    
             switch presenter.freeBuildingsCount {
             case 0:
-                buildPopUpVw.hummerBtn.isHidden = true
+                buildPopUpVw.hummerImgVw.isHidden = true
                 buildPopUpVw.hummerCountLbl.isHidden = true
             default:
-                buildPopUpVw.hummerBtn.isHidden = false
+                buildPopUpVw.hummerImgVw.isHidden = false
                 buildPopUpVw.hummerCountLbl.isHidden = false
                 buildPopUpVw.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
             }
@@ -181,7 +183,7 @@ class LevelController: BaseController {
                                           action: #selector(upgradeBuilding(sender:)),
                                           for: .touchUpInside)
         
-        buildPopUpVw.mainBtn.addTarget(self,
+        buildPopUpVw.closeBtn.addTarget(self,
                                        action: #selector(closePopUp),
                                        for: .touchUpInside)
         
@@ -385,19 +387,15 @@ extension LevelController: LevelOutputProtocol {
         let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
         let maxLevel = player.checkMaxLevel()
         guard maxLevel else { return }
-        let alert = UIAlertController(title: "Congratulation",
-                                      message: "You built all buildings on current map",
-                                      preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "Move to the next map",
-                                     style: .default) { action in
-            PreferencesManager.sharedManager.currentMapName = .england_map
-            NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
-                                            object: self,
-                                            userInfo: nil)
-        }
-        alert.addAction(okAction)
-        present(alert, animated: true)
+        let finishLevelPopUp = LevelFinishView(title: "Arctic",
+                                               delegate: self)
+        view.ui.genericlLayout(object: finishLevelPopUp,
+                               parentView: view,
+                               topC: 0,
+                               bottomC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
     }
     
     func successMe() {
@@ -435,5 +433,33 @@ extension LevelController: PurchasePopUpProtocol {
     func purchasePopUpSuccess(controller: PurchasePopUp) {
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+    }
+}
+
+//----------------------------------------------
+// MARK: - LevelFinishDelegate
+//----------------------------------------------
+
+
+extension LevelController: LevelFinishDelegate {
+    func nextMap(view: UIView) {
+        PreferencesManager.sharedManager.currentMapName = .england_map
+        NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
+                                        object: self,
+                                        userInfo: nil)
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
+            tabBarVC.spin()
+        }
+    }
+}
+
+extension LevelController: LevelPopUpDelegate {
+    func arrowBtnAction(view: UIView) {
+        view.removeFromSuperview()
+        let result = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .goldZero)
+
+        if !result, let ids = PreferencesManager.sharedManager.coinsZero?.idProducts {
+            GameRouter(presenter: self.navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
+        }
     }
 }

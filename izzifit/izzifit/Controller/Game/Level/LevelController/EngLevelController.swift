@@ -107,18 +107,10 @@ class EngLevelController: BaseController {
         }
         // тут малюй попАп за монети
         guard presenter.freeBuildingsCount == 0 else { return }
-//        drawBuildPopUp(price: price,
-//                       buildType: buildType,
-//                       popType: .buildPopType,
-//                       sender: sender)
-        
-        let popUp = LevelFinishView(title: "England")
-        view.ui.genericlLayout(object: popUp,
-                               parentView: view,
-                               topC: 0,
-                               bottomC: 0,
-                               leadingC: 0,
-                               trailingC: 0)
+        drawBuildPopUp(price: price,
+                       buildType: buildType,
+                       popType: .buildPopType,
+                       sender: sender)
     }
     
     

@@ -8,6 +8,10 @@
 import UIKit
 import Lottie
 
+protocol LevelFinishDelegate: AnyObject {
+    func nextMap(view: UIView)
+}
+
 class LevelFinishView: UIView {
 
     //----------------------------------------------
@@ -15,12 +19,18 @@ class LevelFinishView: UIView {
     //----------------------------------------------
 
     var title: String
+    weak var delegate: LevelFinishDelegate?
     
-    init(title: String) {
+    init(title: String, delegate: LevelFinishDelegate) {
         self.title = title
+        self.delegate = delegate
         super.init(frame: .zero)
         setUI()
         layout()
+        
+        nextMapBtn.addTarget(self,
+                             action: #selector(nextMap),
+                             for: .touchUpInside)
         
         winnerAnimationView!.play { completed in
             self.greenDoneImgVw.isHidden.toggle()
@@ -46,6 +56,10 @@ class LevelFinishView: UIView {
     // MARK: - Methods
     //----------------------------------------------
     
+    @objc func nextMap() {
+        delegate?.nextMap(view: self)
+    }
+    
     private func setUI() {
         backgroundColor = UIColor(rgb: 0x3F3E56, alpha: 0.3)
         
@@ -59,15 +73,16 @@ class LevelFinishView: UIView {
                     fontSize: 20,
                     fontName: "Inter-BoldItalic",
                     lines: 0)
+        
         winnerAnimationView =       .init(name: "winner")
         winnerAnimationView!.contentMode = .scaleAspectFit
         winnerAnimationView!.loopMode = .playOnce
-        winnerAnimationView!.animationSpeed = 0.5
+        winnerAnimationView!.animationSpeed = 1.0
         
         confettiAnimationView =     .init(name: "confetti")
         confettiAnimationView!.contentMode = .scaleAspectFill
         confettiAnimationView!.loopMode = .loop
-        confettiAnimationView!.animationSpeed = 0.5
+        confettiAnimationView!.animationSpeed = 0.8
         
         greenDoneImgVw.image = image(img: .greenDone)
         
