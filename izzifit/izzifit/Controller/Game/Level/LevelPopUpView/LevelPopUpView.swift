@@ -294,6 +294,7 @@ class LevelPopUpView: UIView {
         horizontalStack.distribution = .equalCentering
         horizontalStack.spacing = 6
         let stackBottomAnchors: [CGFloat] = [103, 134]
+        
         ui.genericlLayout(object: horizontalStack,
                           parentView: mainBackImgVw,
                           bottomC: stackBottomAnchors[popType.rawValue],

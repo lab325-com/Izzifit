@@ -443,13 +443,14 @@ extension LevelController: PurchasePopUpProtocol {
 
 extension LevelController: LevelFinishDelegate {
     func nextMap(view: UIView) {
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
+            tabBarVC.spin()
+        }
+        
         PreferencesManager.sharedManager.currentMapName = .england_map
         NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
                                         object: self,
                                         userInfo: nil)
-        if let tabBarVC = self.tabBarController as? GameTabBarController {
-            tabBarVC.spin()
-        }
     }
 }
 
