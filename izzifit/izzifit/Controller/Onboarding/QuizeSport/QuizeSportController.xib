@@ -20,6 +20,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuizeSportController" customModule="izzifit" customModuleProvider="target">
             <connections>
                 <outlet property="countLabel" destination="dLn-Rn-eRN" id="uXk-uD-kay"/>
+                <outlet property="energyLabel" destination="sPv-pC-r2j" id="jYe-KL-SXo"/>
+                <outlet property="energyLottieView" destination="GLS-Fn-Agb" id="fq0-RV-2kn"/>
                 <outlet property="goNextButton" destination="onu-si-asD" id="yOQ-yj-aWz"/>
                 <outlet property="skipButton" destination="QDe-Hi-2xe" id="gLg-pb-IKJ"/>
                 <outlet property="titleLabel" destination="xDU-eM-Qvk" id="vYg-GC-AbK"/>
@@ -50,6 +52,28 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_background_ic" translatesAutoresizingMaskIntoConstraints="NO" id="lqn-NQ-S2z">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ViX-sW-2MC">
+                    <rect key="frame" x="349.5" y="62.5" width="41.5" height="25"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_energy_ic" translatesAutoresizingMaskIntoConstraints="NO" id="qB0-Ut-4Vh">
+                            <rect key="frame" x="0.0" y="0.0" width="20" height="25"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPv-pC-r2j">
+                            <rect key="frame" x="23" y="0.0" width="18.5" height="25"/>
+                            <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
+                            <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLS-Fn-Agb">
+                    <rect key="frame" x="349.5" y="62.5" width="50" height="150"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Akq-DL-T2f"/>
+                        <constraint firstAttribute="height" constant="150" id="c8x-jv-v7g"/>
+                    </constraints>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you sports?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDU-eM-Qvk">
                     <rect key="frame" x="120.5" y="148" width="173" height="29.5"/>
                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="24"/>
@@ -69,7 +93,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9 from 9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLn-Rn-eRN">
-                    <rect key="frame" x="335" y="66.5" width="56" height="17"/>
+                    <rect key="frame" x="179" y="66.5" width="56" height="17"/>
                     <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                     <color key="textColor" red="0.72941176470000002" green="0.72549019609999998" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -304,23 +328,29 @@
                 <constraint firstItem="lqn-NQ-S2z" firstAttribute="top" secondItem="Lsb-Mt-euo" secondAttribute="top" id="AyZ-cJ-0fq"/>
                 <constraint firstItem="QDe-Hi-2xe" firstAttribute="leading" secondItem="OEH-kZ-cyG" secondAttribute="leading" constant="24" id="E63-Nh-9In"/>
                 <constraint firstItem="xDU-eM-Qvk" firstAttribute="top" secondItem="sCF-XI-tGy" secondAttribute="bottom" constant="58" id="IMK-r3-QXL"/>
+                <constraint firstAttribute="trailing" secondItem="ViX-sW-2MC" secondAttribute="trailing" constant="23" id="J4S-n9-927"/>
                 <constraint firstItem="sCF-XI-tGy" firstAttribute="top" secondItem="OEH-kZ-cyG" secondAttribute="top" constant="16" id="Meu-r9-Jgf"/>
                 <constraint firstItem="OEH-kZ-cyG" firstAttribute="trailing" secondItem="QeJ-X2-MbC" secondAttribute="trailing" constant="23" id="OEe-zu-2Ie"/>
+                <constraint firstItem="GLS-Fn-Agb" firstAttribute="centerX" secondItem="qB0-Ut-4Vh" secondAttribute="centerX" constant="15" id="OkF-No-bGh"/>
                 <constraint firstItem="onu-si-asD" firstAttribute="leading" secondItem="OEH-kZ-cyG" secondAttribute="leading" constant="24" id="QEa-dU-W1R"/>
+                <constraint firstItem="ViX-sW-2MC" firstAttribute="centerY" secondItem="dLn-Rn-eRN" secondAttribute="centerY" id="SGS-n6-dmn"/>
                 <constraint firstItem="QeJ-X2-MbC" firstAttribute="leading" secondItem="OEH-kZ-cyG" secondAttribute="leading" constant="23" id="T5p-JE-eaN"/>
+                <constraint firstItem="GLS-Fn-Agb" firstAttribute="top" secondItem="qB0-Ut-4Vh" secondAttribute="top" id="YcM-yG-9lu"/>
                 <constraint firstItem="OEH-kZ-cyG" firstAttribute="trailing" secondItem="QDe-Hi-2xe" secondAttribute="trailing" constant="24" id="cdw-eE-sNk"/>
                 <constraint firstItem="sCF-XI-tGy" firstAttribute="leading" secondItem="OEH-kZ-cyG" secondAttribute="leading" constant="16" id="j7l-LJ-ljN"/>
+                <constraint firstItem="dLn-Rn-eRN" firstAttribute="centerX" secondItem="OEH-kZ-cyG" secondAttribute="centerX" id="kHV-PK-dcd"/>
+                <constraint firstItem="GLS-Fn-Agb" firstAttribute="top" secondItem="ViX-sW-2MC" secondAttribute="bottom" constant="-25" id="lO0-GM-9Ng"/>
                 <constraint firstItem="QeJ-X2-MbC" firstAttribute="top" secondItem="xDU-eM-Qvk" secondAttribute="bottom" constant="48" id="n96-MY-ikk"/>
                 <constraint firstAttribute="bottom" secondItem="QDe-Hi-2xe" secondAttribute="bottom" constant="32" id="nvH-vq-7ed"/>
                 <constraint firstItem="lqn-NQ-S2z" firstAttribute="trailing" secondItem="OEH-kZ-cyG" secondAttribute="trailing" id="pTS-I4-fyl"/>
                 <constraint firstItem="dLn-Rn-eRN" firstAttribute="centerY" secondItem="sCF-XI-tGy" secondAttribute="centerY" id="wrI-eM-ZJj"/>
                 <constraint firstItem="QDe-Hi-2xe" firstAttribute="top" secondItem="onu-si-asD" secondAttribute="bottom" constant="10" id="xFS-eV-YPg"/>
-                <constraint firstItem="OEH-kZ-cyG" firstAttribute="trailing" secondItem="dLn-Rn-eRN" secondAttribute="trailing" constant="23" id="z4e-sf-VeP"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
         </view>
     </objects>
     <resources>
+        <image name="energy_energy_ic" width="20" height="22"/>
         <image name="onboarding_back_ic" width="11" height="20"/>
         <image name="onboarding_background_ic" width="375" height="812"/>
         <image name="onboarding_food_classic_ic" width="32" height="32"/>

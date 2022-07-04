@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class QuizeTargetWeightController: BaseController {
     
@@ -32,9 +33,15 @@ class QuizeTargetWeightController: BaseController {
     @IBOutlet weak var scrollKGView: UIScrollView!
     @IBOutlet weak var scrolLBView: UIScrollView!
     
+    @IBOutlet weak var energyLottieView: UIView!
+    @IBOutlet weak var energyLabel: UILabel!
+     
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
+    
+    private var animationEnergy: AnimationView?
+    private lazy var presenterProfile = QuizeProgressPresenter(view: self)
     
     private let halfWeight = UIScreen.main.bounds.size.width / 2
     private var type: QuizeWeightType = PreferencesManager.sharedManager.tempPorifle.weightMetric == .lb ? .lb : .kg {
@@ -125,6 +132,17 @@ class QuizeTargetWeightController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        let jsonName = "energy_anim"
+        let animation = Animation.named(jsonName)
+        animationEnergy = AnimationView(animation: animation)
+        energyLottieView.addSubview(animationEnergy!)
+        animationEnergy?.contentMode = .scaleAspectFit
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in
+            self?.animationEnergy?.play()
+            self?.energyLabel.text = "12"
+        }
+        
         DispatchQueue.main.async {
             self.initScrollOffset()
         }
@@ -209,6 +227,7 @@ class QuizeTargetWeightController: BaseController {
         PreferencesManager.sharedManager.tempPorifle = model
         
         AnalyticsHelper.sendFirebaseEvents(events: .onb_set_target_weight)
+        presenterProfile.profileUpdate()
         OnboardingRouter(presenter: navigationController).pushFood()
     }
 }
@@ -243,3 +262,17 @@ extension QuizeTargetWeightController: UIScrollViewDelegate {
     }
 }
 
+
+//----------------------------------------------
+// MARK: - QuizeProgressOutputProtocol
+//----------------------------------------------
+
+extension QuizeTargetWeightController: QuizeProgressOutputProtocol {
+    func success() {
+        
+    }
+    
+    func failure() {
+        actionBack()
+    }
+}

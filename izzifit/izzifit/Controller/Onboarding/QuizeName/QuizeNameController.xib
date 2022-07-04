@@ -73,7 +73,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 from 9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wi4-zF-idB">
-                    <rect key="frame" x="337" y="66.5" width="54" height="17"/>
+                    <rect key="frame" x="180" y="66.5" width="54" height="17"/>
                     <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                     <color key="textColor" red="0.72941176470588232" green="0.72549019607843135" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -89,10 +89,25 @@
                         <outlet property="delegate" destination="-1" id="is2-Wf-c9C"/>
                     </connections>
                 </textField>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aD3-pQ-4B2">
+                    <rect key="frame" x="356.5" y="64" width="34.5" height="22"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_energy_ic" translatesAutoresizingMaskIntoConstraints="NO" id="7iC-YM-p3M">
+                            <rect key="frame" x="0.0" y="0.0" width="20" height="22"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiG-gI-lwT">
+                            <rect key="frame" x="24" y="0.0" width="10.5" height="22"/>
+                            <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
+                            <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aD3-pQ-4B2" secondAttribute="trailing" constant="23" id="50X-oR-iCH"/>
                 <constraint firstItem="vAf-Kj-fFm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="52X-jC-L9l"/>
                 <constraint firstItem="vAf-Kj-fFm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="HYh-Of-kVp"/>
                 <constraint firstItem="k3z-0p-LIW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Mqz-BO-wf4"/>
@@ -100,6 +115,7 @@
                 <constraint firstItem="XPc-Jr-idP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="Txv-fX-43u"/>
                 <constraint firstItem="k3z-0p-LIW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VUL-Kd-Sz2"/>
                 <constraint firstItem="kQm-ib-ahZ" firstAttribute="top" secondItem="IWE-9z-8eS" secondAttribute="bottom" constant="93" id="VVH-ez-gp9"/>
+                <constraint firstItem="aD3-pQ-4B2" firstAttribute="centerY" secondItem="Wi4-zF-idB" secondAttribute="centerY" id="VbW-f8-Amz"/>
                 <constraint firstItem="IWE-9z-8eS" firstAttribute="top" secondItem="vAf-Kj-fFm" secondAttribute="bottom" constant="58" id="nAM-7m-GDN"/>
                 <constraint firstItem="kQm-ib-ahZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="pVF-Ft-YKq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XPc-Jr-idP" secondAttribute="trailing" constant="24" id="q7m-IH-zyC"/>
@@ -107,13 +123,14 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kQm-ib-ahZ" secondAttribute="trailing" constant="24" id="rLt-cl-oHK"/>
                 <constraint firstItem="k3z-0p-LIW" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="uq9-iW-2rO"/>
                 <constraint firstAttribute="bottom" secondItem="k3z-0p-LIW" secondAttribute="bottom" id="xPb-GL-pnK"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Wi4-zF-idB" secondAttribute="trailing" constant="23" id="yak-V2-0X5"/>
                 <constraint firstItem="Wi4-zF-idB" firstAttribute="centerY" secondItem="vAf-Kj-fFm" secondAttribute="centerY" id="zNw-kB-1df"/>
+                <constraint firstItem="Wi4-zF-idB" firstAttribute="centerX" secondItem="k3z-0p-LIW" secondAttribute="centerX" id="zeD-HL-hiR"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
         </view>
     </objects>
     <resources>
+        <image name="energy_energy_ic" width="20" height="22"/>
         <image name="onboarding_back_ic" width="11" height="20"/>
         <image name="onboarding_background_ic" width="375" height="812"/>
         <systemColor name="systemBackgroundColor">

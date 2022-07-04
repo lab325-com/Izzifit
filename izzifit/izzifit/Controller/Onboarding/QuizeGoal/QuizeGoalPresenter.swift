@@ -8,8 +8,8 @@
 import Foundation
 
 protocol QuizeQoalOutputProtocol: BaseController {
-    func success()
-    func failure()
+    func successGoal()
+    func failureGoal()
 }
 
 protocol QuizeQoalPresenterProtocol: AnyObject {
@@ -35,10 +35,10 @@ class QuizeQoalPresenter: QuizeQoalPresenterProtocol {
         let _ = Network.shared.query(model: AvailableGoalsModel.self, query1, controller: view) { [weak self] model in
             self?.types = model.availableGoals
             self?.view?.stopLoading()
-            self?.view?.success()
+            self?.view?.successGoal()
         } failureHandler: { [weak self] error in
             self?.view?.stopLoading()
-            self?.view?.failure()
+            self?.view?.failureGoal()
         }
     }
 }

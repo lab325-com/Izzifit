@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class QuizeFoodController: BaseController {
 
@@ -20,9 +21,14 @@ class QuizeFoodController: BaseController {
     @IBOutlet weak var goNextButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     
+    @IBOutlet weak var energyLottieView: UIView!
+    @IBOutlet weak var energyLabel: UILabel!
+    
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
+    private var animationEnergy: AnimationView?
+    private lazy var presenterProfile = QuizeProgressPresenter(view: self)
     
     private lazy var presenter = QuizeFoodPresenter(view: self)
     
@@ -54,6 +60,17 @@ class QuizeFoodController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        let jsonName = "energy_anim"
+        let animation = Animation.named(jsonName)
+        animationEnergy = AnimationView(animation: animation)
+        energyLottieView.addSubview(animationEnergy!)
+        animationEnergy?.contentMode = .scaleAspectFit
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in
+            self?.animationEnergy?.play()
+            self?.energyLabel.text = "14"
+        }
+        
         presenter.getFoods()
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
@@ -84,7 +101,8 @@ class QuizeFoodController: BaseController {
             model.setFood(type)
             PreferencesManager.sharedManager.tempPorifle = model
             AnalyticsHelper.sendFirebaseEvents(events: .onb_set_diet)
-            OnboardingRouter(presenter: navigationController).pushSport()
+            presenterProfile.profileUpdate()
+            OnboardingRouter(presenter: navigationController).pushSport(isSkip: false)
         }
     }
     
@@ -93,7 +111,7 @@ class QuizeFoodController: BaseController {
         var model = PreferencesManager.sharedManager.tempPorifle
         model.setFood(nil)
         PreferencesManager.sharedManager.tempPorifle = model
-        OnboardingRouter(presenter: navigationController).pushSport()
+        OnboardingRouter(presenter: navigationController).pushSport(isSkip: true)
     }
 }
 
@@ -140,5 +158,18 @@ extension QuizeFoodController: QuizeFoodOutputProtocol {
         tableView.reloadData()
     }
     
-    func failure() {}
+    func failure() {
+        actionBack()
+    }
+}
+
+
+//----------------------------------------------
+// MARK: - QuizeProgressOutputProtocol
+//----------------------------------------------
+
+extension QuizeFoodController: QuizeProgressOutputProtocol {
+    func success() {
+        
+    }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 enum QuizeSportType: Int, Codable {
     case newbie
@@ -71,9 +72,17 @@ class QuizeSportController: BaseController {
     
     @IBOutlet var sportViews: [UIView]!
     
+    @IBOutlet weak var energyLottieView: UIView!
+    @IBOutlet weak var energyLabel: UILabel!
+    
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
+    
+    private var animationEnergy: AnimationView?
+    private lazy var presenterProfile = QuizeProgressPresenter(view: self)
+    
+    private let isSkip: Bool
     
     private var type: QuizeSportType? {
         didSet {
@@ -83,6 +92,19 @@ class QuizeSportController: BaseController {
             
             updateUI()
         }
+    }
+    
+    //----------------------------------------------
+    // MARK: - Init
+    //----------------------------------------------
+    
+    init(isSkip: Bool) {
+        self.isSkip = isSkip
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     //----------------------------------------------
@@ -104,6 +126,22 @@ class QuizeSportController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        energyLabel.text = "14"
+        
+        let jsonName = "energy_anim"
+        let animation = Animation.named(jsonName)
+        animationEnergy = AnimationView(animation: animation)
+        energyLottieView.addSubview(animationEnergy!)
+        animationEnergy?.contentMode = .scaleAspectFit
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in
+            if self?.isSkip == true {
+                return
+            }
+            self?.animationEnergy?.play()
+            self?.energyLabel.text = "16"
+        }
+        
         goNextButton.alpha = 0.5
         
         countLabel.text = RLocalization.onboarding_count(9, 9)
@@ -171,6 +209,7 @@ class QuizeSportController: BaseController {
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setSport(type)
             PreferencesManager.sharedManager.tempPorifle = model
+            presenterProfile.profileUpdate()
             OnboardingRouter(presenter: navigationController).pushEmail()
         }
     }
@@ -183,3 +222,18 @@ class QuizeSportController: BaseController {
         OnboardingRouter(presenter: navigationController).pushEmail()
     }
 }
+
+//----------------------------------------------
+// MARK: - QuizeProgressOutputProtocol
+//----------------------------------------------
+
+extension QuizeSportController: QuizeProgressOutputProtocol {
+    func success() {
+        
+    }
+    
+    func failure() {
+        actionBack()
+    }
+}
+

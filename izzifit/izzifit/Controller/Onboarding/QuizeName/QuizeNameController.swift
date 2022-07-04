@@ -24,6 +24,7 @@ class QuizeNameController: BaseController, UITextFieldDelegate {
     //----------------------------------------------
     
     private let isHiddenBackButton: Bool
+    private lazy var presenter = QuizeProgressPresenter(view: self)
     
     //----------------------------------------------
     // MARK: - Init
@@ -122,6 +123,8 @@ class QuizeNameController: BaseController, UITextFieldDelegate {
             model.setName(nameField.text!)
             PreferencesManager.sharedManager.tempPorifle = model
             
+            presenter.profileUpdate()
+            
             OnboardingRouter(presenter: navigationController).pushGender()
         }
     }
@@ -134,5 +137,19 @@ class QuizeNameController: BaseController, UITextFieldDelegate {
 extension QuizeNameController: QuizeVideoPotocol {
     func quizeVideoEnd(contoller: QuizeVideoController) {
         
+    }
+}
+
+//----------------------------------------------
+// MARK: - QuizeProgressOutputProtocol
+//----------------------------------------------
+
+extension QuizeNameController: QuizeProgressOutputProtocol {
+    func success() {
+        
+    }
+    
+    func failure() {
+        actionBack()
     }
 }

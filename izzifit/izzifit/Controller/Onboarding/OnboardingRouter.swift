@@ -53,8 +53,8 @@ class OnboardingRouter: BaseRouter {
         push(controller: controller)
     }
     
-    func pushSport() {
-        let controller = QuizeSportController()
+    func pushSport(isSkip: Bool) {
+        let controller = QuizeSportController(isSkip: isSkip)
         push(controller: controller)
     }
     

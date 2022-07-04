@@ -40,26 +40,56 @@ class QuizeProgressPresenter: QuizeProgressPresenterProtocol {
         
         var profileUpdateInput = ProfileUpdateInput()
         
-        profileUpdateInput.name = profile.name
-        profileUpdateInput.age = profile.age
-        profileUpdateInput.email = profile.email
-        profileUpdateInput.doSport = profile.sport?.api
-        profileUpdateInput.gender = profile.gender?.api
+        if let name = profile.name {
+            profileUpdateInput.name = name
+        }
         
-        profileUpdateInput.growthMeasure = profile.heightMetric?.api
-        let smHeight = profile.smHeight
-        let ftHeight = Double(profile.ft ?? 0) * 30.48 + Double(profile.inch ?? 0) * 2.54
-        profileUpdateInput.growth = profile.heightMetric == .sm ? smHeight : Int(ftHeight)
+        if let age = profile.age {
+            profileUpdateInput.age = age
+        }
         
-        profileUpdateInput.weightMeasure = profile.weightMetric?.api
+        if let email = profile.email {
+            profileUpdateInput.email = email
+        }
+        
+        if let api = profile.sport?.api {
+            profileUpdateInput.doSport = api
+        }
+        
+        if let api = profile.gender?.api {
+            profileUpdateInput.gender = api
+        }
+        
+        if let api = profile.heightMetric?.api {
+            profileUpdateInput.growthMeasure = api
+        }
+        
+        
+        if let smHeight = profile.smHeight, profile.heightMetric == .sm {
+            profileUpdateInput.growth = smHeight
+        }
+        
+        if let ft = profile.ft, let inch = profile.inch, profile.heightMetric != .sm {
+            let ftHeight = Double(ft) * 30.48 + Double(inch) * 2.54
+            profileUpdateInput.growth = Int(ftHeight)
+        }
+        
+        if let api = profile.weightMetric?.api {
+            profileUpdateInput.weightMeasure = api
+        }
         
         if let weight = profile.weight, let target = profile.targetWeight {
             profileUpdateInput.weight = profile.weightMetric?.api == .weightMeasureTypeLb ? weight  / 0.45359237 : weight
             profileUpdateInput.targetWeight = profile.weightMetric?.api == .weightMeasureTypeLb ? target  / 0.45359237 : target
         }
         
-        profileUpdateInput.goal = profile.goal?.api
-        profileUpdateInput.foodGroupId = profile.food?.id
+        if let api = profile.goal?.api {
+            profileUpdateInput.goal = api
+        }
+        
+        if let id = profile.food?.id {
+            profileUpdateInput.foodGroupId = id
+        }
         
         let mutation = ProfileUpdateMutation(record: profileUpdateInput)
         
