@@ -31,7 +31,7 @@ class ArcticGameController: BaseController {
         super.viewDidLoad()
         timerSpinManager = TimerSpinManager(collectionView: collectionView,
                                             presenter: presenter)
-        presenter.getMap()
+       
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
@@ -41,6 +41,7 @@ class ArcticGameController: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        presenter.getMap()
         checkAvailableHummers()
         gameView.updateHeader()
     }
@@ -180,7 +181,6 @@ extension ArcticGameController: ArcticGameOutputProtocol {
         checkAvailableHummers()
         timerSpinManager.counter.combinations = map.map2.spins
         collectionView.reloadData()
-    
     }
 }
 
@@ -198,6 +198,18 @@ extension ArcticGameController: PaywallProtocol {
 //----------------------------------------------
 
 extension ArcticGameController: PurchasePopUpProtocol {
+    func purchasePopUpSpin(controller: PurchasePopUp) {
+        
+        /// сделай тоже самое по англии
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
+           
+            NotificationCenter.default.post(name: Constants.Notifications.openWorkoutNotification,
+                                            object: self,
+                                            userInfo: nil)
+            tabBarVC.actionBack()
+        }
+    }
+    
     func purchasePopUpClose(controller: PurchasePopUp) {
         if let model = PreferencesManager.sharedManager.localPushs.first(where: {$0.type == .energyZero}) {
             LocalPushManager.sharedManager.sendNotification(title: model.title, body: model.description, idetifier: "energyZero")

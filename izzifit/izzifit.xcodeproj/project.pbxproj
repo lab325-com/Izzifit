@@ -372,6 +372,10 @@
 		FA1A6D8028081CE80040518A /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D7E28081CE80040518A /* LevelController.swift */; };
 		FA1A6D8128081CE80040518A /* LevelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1A6D7F28081CE80040518A /* LevelController.xib */; };
 		FA1A6D8B28097F0D0040518A /* GameTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */; };
+		FA1BC1F7286ECC7A00D5569F /* LevelFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BC1F6286ECC7A00D5569F /* LevelFinishView.swift */; };
+		FA1BC1FA286F017D00D5569F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FA1BC1F9286F017D00D5569F /* Lottie */; };
+		FA1BC1FC286F052700D5569F /* winner.json in Resources */ = {isa = PBXBuildFile; fileRef = FA1BC1FB286F052700D5569F /* winner.json */; };
+		FA1BC1FE286F110100D5569F /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = FA1BC1FD286F110100D5569F /* confetti.json */; };
 		FA2794E7285A058D00AEEA70 /* HealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2794E6285A058D00AEEA70 /* HealthModel.swift */; };
 		FA2794E9285A068800AEEA70 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2794E8285A068800AEEA70 /* HealthKit.framework */; };
 		FA2794F4285CA8A900AEEA70 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2794F3285CA8A900AEEA70 /* HealthKitManager.swift */; };
@@ -414,7 +418,6 @@
 		FABA1DE72859F03A005ECE75 /* coin_v2.gif in Resources */ = {isa = PBXBuildFile; fileRef = FABA1DE52859F03A005ECE75 /* coin_v2.gif */; };
 		FABA1DEF285AEE23005ECE75 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = FABA1DEE285AEE23005ECE75 /* SwiftyGif */; };
 		FABE8BF828512C6C00E3E53C /* PurchasePop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BF728512C6C00E3E53C /* PurchasePop.swift */; };
-		FABE8BFD28520E4100E3E53C /* LevelPopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BFC28520E4100E3E53C /* LevelPopUpController.swift */; };
 		FABE8BFF28520E5000E3E53C /* LevelPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8BFE28520E5000E3E53C /* LevelPopUpView.swift */; };
 		FABE8C0128525ED300E3E53C /* EngLevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8C0028525ED300E3E53C /* EngLevelController.swift */; };
 		FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAC55B9627EB87F0001DA24C /* Rank.graphql */; };
@@ -812,6 +815,9 @@
 		FA1A6D7E28081CE80040518A /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
 		FA1A6D7F28081CE80040518A /* LevelController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelController.xib; sourceTree = "<group>"; };
 		FA1A6D8A28097F0D0040518A /* GameTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTabBarController.swift; sourceTree = "<group>"; };
+		FA1BC1F6286ECC7A00D5569F /* LevelFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelFinishView.swift; sourceTree = "<group>"; };
+		FA1BC1FB286F052700D5569F /* winner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = winner.json; sourceTree = "<group>"; };
+		FA1BC1FD286F110100D5569F /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 		FA2794E6285A058D00AEEA70 /* HealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthModel.swift; sourceTree = "<group>"; };
 		FA2794E8285A068800AEEA70 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		FA2794F3285CA8A900AEEA70 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
@@ -849,7 +855,6 @@
 		FABA1DE42859F03A005ECE75 /* coin_v3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = coin_v3.gif; sourceTree = "<group>"; };
 		FABA1DE52859F03A005ECE75 /* coin_v2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = coin_v2.gif; sourceTree = "<group>"; };
 		FABE8BF728512C6C00E3E53C /* PurchasePop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasePop.swift; sourceTree = "<group>"; };
-		FABE8BFC28520E4100E3E53C /* LevelPopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopUpController.swift; sourceTree = "<group>"; };
 		FABE8BFE28520E5000E3E53C /* LevelPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopUpView.swift; sourceTree = "<group>"; };
 		FABE8C0028525ED300E3E53C /* EngLevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngLevelController.swift; sourceTree = "<group>"; };
 		FAC55B9627EB87F0001DA24C /* Rank.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rank.graphql; sourceTree = "<group>"; };
@@ -904,7 +909,7 @@
 				02B280F828571529003CAB32 /* StoreKit.framework in Frameworks */,
 				02B2810228571734003CAB32 /* FirebaseRemoteConfig in Frameworks */,
 				0249D25827B3A7AD00F265C1 /* NVActivityIndicatorViewExtended in Frameworks */,
-				0231DD8B286AFC7F006840DB /* Lottie in Frameworks */,
+				FA1BC1FA286F017D00D5569F /* Lottie in Frameworks */,
 				FA6B2824285CC9A100D34333 /* FirebaseRemoteConfig in Frameworks */,
 				02B280FC28571734003CAB32 /* FirebaseAnalytics in Frameworks */,
 				FA6B281E285CC9A100D34333 /* FirebaseAnalytics in Frameworks */,
@@ -2605,6 +2610,14 @@
 			path = PaywallSingle;
 			sourceTree = "<group>";
 		};
+		FA1BC1F5286ECB7000D5569F /* LevelFinishView */ = {
+			isa = PBXGroup;
+			children = (
+				FA1BC1F6286ECC7A00D5569F /* LevelFinishView.swift */,
+			);
+			path = LevelFinishView;
+			sourceTree = "<group>";
+		};
 		FA2794F52861A7FA00AEEA70 /* EnergyStepsCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2656,6 +2669,8 @@
 		FA8CC856282919450022BFE2 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				FA1BC1FD286F110100D5569F /* confetti.json */,
+				FA1BC1FB286F052700D5569F /* winner.json */,
 				FA8CC857282919B80022BFE2 /* construction3.gif */,
 				FABA1DE22859F02E005ECE75 /* ray.gif */,
 				FABA1DE42859F03A005ECE75 /* coin_v3.gif */,
@@ -2716,6 +2731,7 @@
 		FAB6546C27FEDF290057A221 /* Level */ = {
 			isa = PBXGroup;
 			children = (
+				FA1BC1F5286ECB7000D5569F /* LevelFinishView */,
 				FABE8BFB28520DF500E3E53C /* LevelPopUpView */,
 				FADD5115284F59A400F3A292 /* LevelController */,
 				FAB59C15282A7BFB005AE70B /* BuildPopUp */,
@@ -2778,7 +2794,6 @@
 		FABE8BFB28520DF500E3E53C /* LevelPopUpView */ = {
 			isa = PBXGroup;
 			children = (
-				FABE8BFC28520E4100E3E53C /* LevelPopUpController.swift */,
 				FABE8BFE28520E5000E3E53C /* LevelPopUpView.swift */,
 			);
 			path = LevelPopUpView;
@@ -3036,6 +3051,7 @@
 				FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */,
 				0268752327D8904900FFEA6A /* progress.graphql in Resources */,
 				02FAF0A727D361AE002CD678 /* EnergyDrinkWaterCell.xib in Resources */,
+				FA1BC1FC286F052700D5569F /* winner.json in Resources */,
 				02AB486B27E07EFB00F35EE2 /* FoodTopTitleCell.xib in Resources */,
 				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
 				0256999328197A7500BA1535 /* 10_spin_tap.wav in Resources */,
@@ -3122,6 +3138,7 @@
 				02ABCF3627CCC3F400E69C06 /* MenuFoodSwitchCell.xib in Resources */,
 				02D066A827BBA72100D12C5F /* Localizable.strings in Resources */,
 				02021997285B456B0015CA9A /* EnergySpecialPriceCell.xib in Resources */,
+				FA1BC1FE286F110100D5569F /* confetti.json in Resources */,
 				02D066C127BBB57D00D12C5F /* Inter-Thin.ttf in Resources */,
 				02C3DD6627BEDA82004E5C65 /* QuizeProgressController.xib in Resources */,
 				FE7CF8BC27E4A7ED0099682E /* WeightTableCell.xib in Resources */,
@@ -3527,6 +3544,7 @@
 				0249D27427B3AA0400F265C1 /* NetwokrManager.swift in Sources */,
 				FAB65AB32848C4F900664399 /* EnglandGameView.swift in Sources */,
 				FADD5117284F59D800F3A292 /* LevelView.swift in Sources */,
+				FA1BC1F7286ECC7A00D5569F /* LevelFinishView.swift in Sources */,
 				02BC128827F30AC200678305 /* WorkoutDetailTrainCell.swift in Sources */,
 				02354E98280935D6005A8272 /* VideoPlayerPresenter.swift in Sources */,
 				02BC127727F1CF5800678305 /* WorkoutDetailDescriptionCell.swift in Sources */,
@@ -3554,7 +3572,6 @@
 				0268753827D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.swift in Sources */,
 				0249D24A27B3A67900F265C1 /* BaseRouter.swift in Sources */,
 				0227DA9227C52EC1008AB26B /* TabBarRouter.swift in Sources */,
-				FABE8BFD28520E4100E3E53C /* LevelPopUpController.swift in Sources */,
 				024C69A427DF858300EE8D53 /* FoodController.swift in Sources */,
 				0249D26427B3A88C00F265C1 /* UIColor+Extension.swift in Sources */,
 				02BC127D27F1E29A00678305 /* WorkoutByIdModel.swift in Sources */,
@@ -3721,7 +3738,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 41;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3760,7 +3777,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 41;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3860,7 +3877,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 41;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3980,6 +3997,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		FA1BC1F8286F017D00D5569F /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		FA6B281C285CC9A100D34333 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -4064,6 +4089,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02B280FA28571734003CAB32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseRemoteConfig;
+		};
+		FA1BC1F9286F017D00D5569F /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA1BC1F8286F017D00D5569F /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		FA6B281D285CC9A100D34333 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

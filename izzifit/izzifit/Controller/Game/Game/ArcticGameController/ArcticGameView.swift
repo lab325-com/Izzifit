@@ -48,6 +48,7 @@ class ArcticGameView: UIView, GameAnimationProtocol {
     }
     
     private func setUI() {
+        
         gameBackImgVw.image = image(img: .gameBackTwo)
         gameBackImgVw.contentMode = .scaleAspectFill
         
@@ -126,7 +127,6 @@ class ArcticGameView: UIView, GameAnimationProtocol {
                     textAlignment: .left,
                     fontSize: h/46.6,
                     fontName: "Inter-BoldItalic")
-        
     }
     
     private func layout() {

@@ -53,7 +53,7 @@ class EnglandGameView: UIView, GameAnimationProtocol {
         slotHouseImgVw.contentMode = .scaleAspectFit
         
         uponGameBackImgVw.image = image(img: .england_uponBack)
-        uponGameBackImgVw.contentMode = .top
+        uponGameBackImgVw.contentMode = .scaleAspectFill
         
         spinBtn.setImage(image(img: .spinBtnNormal), for: .normal)
         spinBtn.setImage(image(img: .spinBtnSelected), for: .selected)

@@ -110,6 +110,7 @@ class PurchaseStack: UIStackView {
 protocol GamePurchasePopProtocol: AnyObject {
     func gamePurchasePopClose(view: PurchasePop)
     func gamePurchasePopBuy(view: PurchasePop, tag: Int)
+    func gamePurchaseSpin(view: PurchasePop)
 }
 
 class PurchasePop: UIView {
@@ -118,7 +119,6 @@ class PurchasePop: UIView {
     private let closeBtn = UIButton()
     private let titleLbl = UILabel()
     private let mainLbl = UILabel()
-    
     
     private var popType: PurchasePopType
     private var prices: [Double]
@@ -155,7 +155,15 @@ class PurchasePop: UIView {
                                             counts: counts)
         setUI()
         layout()
+        
+        arrowBtn.addTarget(self,
+                           action: #selector(arrow),
+                           for: .touchUpInside)
         // функция которая принимает количество Purchase и на основе этого отдает массив кнопок и массив стэков
+    }
+    
+    @objc func arrow() {
+        delegate?.gamePurchaseSpin(view: self)
     }
     
     func makeButtons(price: [Double]) -> [BuyBtn] {

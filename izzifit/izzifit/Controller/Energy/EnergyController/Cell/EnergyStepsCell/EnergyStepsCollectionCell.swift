@@ -25,6 +25,11 @@ class EnergyStepsCollectionCell: UICollectionViewCell {
         super.awakeFromNib()
         
         backgroundColor = clr(color: .profileCellBack)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
         layer.borderWidth = 1.0
         layer.borderColor = UIColor(rgb: 0x3F3E56, alpha: 0.1).cgColor
     }
@@ -87,6 +92,7 @@ class EnergyStepsCollectionCell: UICollectionViewCell {
         let measureRatio = measureDistance / 89.0
         let pointY = neededValue / measureRatio.rounded(toPlaces: 1)
         let residualValue = 89.0 - pointY.rounded(toPlaces: 1)
+        
         return residualValue
     }
     

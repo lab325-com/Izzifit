@@ -181,7 +181,11 @@ class EnergyController: BaseController {
     //----------------------------------------------
     
     @IBAction func actionProfile(_ sender: UIButton) {
-        debugPrint("open profile")
+        TabBarRouter(presenter: navigationController).pushProfile()
+    }
+    
+    @IBAction func actionGame(_ sender: UIButton) {
+        TabBarRouter(presenter: navigationController).pushGame()
     }
 }
 

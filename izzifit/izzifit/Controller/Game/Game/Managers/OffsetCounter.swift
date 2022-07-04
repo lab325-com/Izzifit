@@ -36,7 +36,6 @@ class OffsetCounter: OffsetCounterProtocol {
     var combinations: [MapSpinsModel] = []
     
     init(strideOffset: CGFloat) {
-        print(strideOffset)
         self.oneCellStrideOffset = strideOffset
     }
     

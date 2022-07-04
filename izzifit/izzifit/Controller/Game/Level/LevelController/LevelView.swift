@@ -41,7 +41,7 @@ class LevelView: UIView {
     private func setUI() {
         imgUponScroll.image = image(img: .level_england_back)
         
-        hummerBtn.setImage(image(img: .freeHummer), for: .normal)
+        hummerBtn.setImage(image(img: .england_freeHummer), for: .normal)
         hummerBtn.isUserInteractionEnabled = false
         ui.setLabel(label: hummerCountLbl,
                     textColor: .white,

@@ -34,7 +34,7 @@ class EnglandGameController: BaseController {
         timerSpinManager = TimerSpinManager(collectionView: collectionView,
                                             presenter: presenter)
    
-        presenter.getMap()
+       
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
@@ -44,6 +44,7 @@ class EnglandGameController: BaseController {
      
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        presenter.getMap()
         checkAvailableHummers()
         gameView.barBackVw.getCoinsAndEnergy()
     }
@@ -81,7 +82,12 @@ class EnglandGameController: BaseController {
                                      spinBtn: gameView.spinBtn,
                                      showProgress: { DispatchQueue.main.async {  self.gameView.showProgress() }}
                                      ,spinsRunOut: spinsRunOut) {
-            let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
+            
+            let result = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
+
+            if !result, let ids = PreferencesManager.sharedManager.enegyZero?.idProducts {
+                GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "England", delegate: self)
+            }
         }
     }
     
@@ -193,4 +199,29 @@ extension EnglandGameController: ArcticGameOutputProtocol {
 extension EnglandGameController: PaywallProtocol {
     func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
     func paywallSuccess(controller: BaseController) { }
+}
+
+extension EnglandGameController: PurchasePopUpProtocol {
+    func purchasePopUpSpin(controller: PurchasePopUp) {
+        
+        /// сделай тоже самое по англии
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
+           
+            NotificationCenter.default.post(name: Constants.Notifications.openWorkoutNotification,
+                                            object: self,
+                                            userInfo: nil)
+            tabBarVC.actionBack()
+          
+        }
+    }
+    
+    func purchasePopUpClose(controller: PurchasePopUp) {
+        if let model = PreferencesManager.sharedManager.localPushs.first(where: {$0.type == .energyZero}) {
+            LocalPushManager.sharedManager.sendNotification(title: model.title, body: model.description, idetifier: "energyZero")
+        }
+    }
+    
+    func purchasePopUpSuccess(controller: PurchasePopUp) {
+        gameView.barBackVw.getCoinsAndEnergy()
+    }
 }

@@ -7,6 +7,14 @@
 
 import UIKit
 
+enum LevelPopType: Int {
+    case buildPopType, notEnoughMoney
+}
+
+protocol LevelPopUpDelegate: AnyObject {
+    func arrowBtnAction(view: UIView)
+}
+
 class LevelPopUpView: UIView {
 
     private let mainBackImgVw = UIImageView()
@@ -20,6 +28,9 @@ class LevelPopUpView: UIView {
     
     var hummerImgVw = UIImageView()
     var hummerCountLbl = UILabel()
+    
+    private let downLbl = UILabel()
+    private let arrowBtn = UIButton()
     
     private lazy var imgVwStates: [UIImageView] = {
        var imgs = [UIImageView]()
@@ -49,12 +60,23 @@ class LevelPopUpView: UIView {
                                      ScaleImgs.scale5Selected]
             
     private var title: String
+    private var popType: LevelPopType
+    weak var delegate: LevelPopUpDelegate?
   
-    init(title: String) {
-        self.title = title
+    init(popType: LevelPopType,
+         title: String,
+         mapName: MapName,
+         delegate: LevelPopUpDelegate) {
+        self.popType =  popType
+        self.title =    title
+        self.delegate = delegate
         super.init(frame: .zero)
         setUI()
         layout()
+        switch mapName {
+        case .snow_map:     hummerImgVw.image = image(img: .freeHummer)
+        case .england_map:  hummerImgVw.image = image(img: .england_freeHummer)
+        }
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -64,8 +86,8 @@ class LevelPopUpView: UIView {
         var imgs = [UIImage]()
         
         switch title {
-        case "Arctic": imgs = arcticLevelPopImgs
-        case "England": imgs = englandLevelPopImgs
+        case "Arctic": imgs =   arcticLevelPopImgs
+        case "England": imgs =  englandLevelPopImgs
         default: return
         }
         
@@ -141,9 +163,18 @@ class LevelPopUpView: UIView {
         }
     }
     
+    @objc func arrowAction() {
+        delegate?.arrowBtnAction(view: self)
+    }
+    
     private func setUI() {
+        
         backgroundColor = UIColor(rgb: 0x3F3E56,alpha: 0.3)
-        mainBackImgVw.image = image(img: .twoPurchaseBack)
+        
+        let backImgs = [image(img: .buildPopUpBack),
+                        image(img: .largeBuildPopUpBack)]
+        
+        mainBackImgVw.image = backImgs[popType.rawValue]
         
         ui.setLabel(label: titleLbl,
                     labelText: "\(title) shop",
@@ -162,24 +193,38 @@ class LevelPopUpView: UIView {
                     textAlignment: .right,
                     fontSize: 16,
                     fontName: "Inter-Bold")
-        
+
         previousStateImgVw.contentMode = .scaleAspectFit
         nextStateImgVw.contentMode = .scaleAspectFit
-        hummerImgVw.image = image(img: .freeHummer)
         
         ui.setLabel(label: hummerCountLbl,
                     textColor: .white,
                     textAlignment: .right,
                     fontSize: 13,
                     fontName: "Inter-BoldItalic")
+        
+        ui.setLabel(label: downLbl,
+                    labelText: "Spin to get coins",
+                    textColor: UIColor(rgb: 0x6A534C),
+                    textAlignment: .left,
+                    fontSize: 15,
+                    fontName: "Inter-Medium")
+        
+        arrowBtn.setImage(image(img: .yellowPointer),
+                          for: .normal)
+        arrowBtn.addTarget(self,
+                           action: #selector(arrowAction),
+                           for: .touchUpInside)
     }
     
     private func layout() {
         
+        let backImgHeights: [CGFloat] = [273, 297]
+        
         ui.genericlLayout(object: mainBackImgVw,
                           parentView: self,
                           width: 310,
-                          height: 273,
+                          height: backImgHeights[popType.rawValue],
                           topC: hRatio(cH:174),
                           centerH: 0)
         
@@ -197,13 +242,15 @@ class LevelPopUpView: UIView {
                           trailingToO: mainBackImgVw.trailingAnchor,
                           trailingCG: -10)
         
+        let bottomAnchors: [CGFloat] = [44, 75]
+        
         ui.genericlLayout(object: upgradeBtn,
                           parentView: self,
                           width: 242,
                           height: 40,
                           centerH: 0,
                           bottomToO: mainBackImgVw.bottomAnchor,
-                          bottomCG: 44)
+                          bottomCG: bottomAnchors[popType.rawValue])
         
         ui.genericlLayout(object: priceLbl,
                           parentView: upgradeBtn,
@@ -227,30 +274,30 @@ class LevelPopUpView: UIView {
         
         ui.genericlLayout(object: previousStateImgVw,
                           parentView: mainBackImgVw,
-                          width: 91,
-                          height: 107,
+                          width: 110,
+                          height: 110,
                           centerVtoO: arrowImgVw.centerYAnchor,
                           trailingToO: arrowImgVw.leadingAnchor,
-                          trailingCG: 15)
+                          trailingCG: 10)
         
         ui.genericlLayout(object: nextStateImgVw,
                           parentView: mainBackImgVw,
-                          width: 91,
-                          height: 107,
+                          width: 110,
+                          height: 110,
                           centerVtoO: arrowImgVw.centerYAnchor,
                           leadingToO: arrowImgVw.trailingAnchor,
-                          leadingCG: 15)
+                          leadingCG: 10)
         
         let horizontalStack = UIStackView(arrangedSubviews: imgVwStates)
-        
         horizontalStack.alignment = .center
         horizontalStack.axis = .horizontal
         horizontalStack.distribution = .equalCentering
         horizontalStack.spacing = 6
+        let stackBottomAnchors: [CGFloat] = [103, 134]
         
         ui.genericlLayout(object: horizontalStack,
                           parentView: mainBackImgVw,
-                          bottomC: 103,
+                          bottomC: stackBottomAnchors[popType.rawValue],
                           centerH: 0)
         
         ui.genericlLayout(object: hummerImgVw,
@@ -264,6 +311,35 @@ class LevelPopUpView: UIView {
                           parentView: hummerImgVw,
                           bottomC: 3,
                           trailingC: 7)
+        
+        let upgradeBtnShadowView = UIView()
+        upgradeBtnShadowView.layer.backgroundColor = UIColor(rgb: 0xB0B581, alpha: 0.3).cgColor
+        upgradeBtnShadowView.layer.cornerRadius = 15
+        upgradeBtnShadowView.layer.masksToBounds = true
+   
+        switch popType {
+        case .buildPopType: break
+        case .notEnoughMoney:
+            ui.genericlLayout(object: upgradeBtnShadowView,
+                              parentView: upgradeBtn,
+                              topC: 0,
+                              bottomC: 0,
+                              leadingC: 0,
+                              trailingC: 0)
+            
+            ui.genericlLayout(object: downLbl,
+                              parentView: mainBackImgVw,
+                              bottomC: 42.5,
+                              centerH: -12)
+            
+            ui.genericlLayout(object: arrowBtn,
+                              parentView: self,
+                              width: 18,
+                              height: 14,
+                              centerVtoO: downLbl.centerYAnchor,
+                              leadingToO: downLbl.trailingAnchor,
+                              leadingCG: 9)
+        }
     }
     
     //----------------------------------------------
@@ -346,3 +422,4 @@ class LevelPopUpView: UIView {
         ]
     }()
 }
+

@@ -74,15 +74,23 @@ class MainTabBarController: BaseController {
         }
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
     
     private func setup() {
         changeTab()
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(openWorkout),
+                                               name: Constants.Notifications.openWorkoutNotification,
+                                               object: nil)
+
     }
     
-    
+
     private func changeTab() {
         switch tab {
         case .energy:
@@ -147,6 +155,10 @@ class MainTabBarController: BaseController {
     //----------------------------------------------
     // MARK: - Actions
     //----------------------------------------------
+    
+    @objc func openWorkout() {
+        tab = .workout
+    }
     
     @IBAction func actionEnergy(_ sender: UIButton) {
         tab = .energy

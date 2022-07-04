@@ -9,12 +9,15 @@ import Foundation
 import UIKit
 
 enum Imgs: String {
+    
     //LevelView - England
     case level_england_back
     
+    // LevelFinishPopUP
+    case levelFinishPopUpBack, nextMapBtn, greenDone
     
     //GamePurchasePopUp
-    case greenBuyBtn, backBtn, yellowPointer, buildPopUpBack, doubleLightning
+    case greenBuyBtn, backBtn, yellowPointer, buildPopUpBack, largeBuildPopUpBack, doubleLightning
     
     // GameView
     case gameBackTwo, gameBackOne, slotBack, spinBtnNormal, spinBtnSelected, slotHouse, freeHummer, start_logo_ic
@@ -29,9 +32,6 @@ enum Imgs: String {
     case map_3pathAct, map_3pathPass
     case map_4pathAct, map_4pathPass
     
-    
-    
-    
     // England GameView
     case england_gameBack, england_uponBack, england_slotBack, england_slotHouse, england_freeHummer
     
@@ -43,7 +43,6 @@ enum Imgs: String {
     case deersStart, deersFirst, deersSecond, deersThird, deersFourth, deersFinish
     
     // England LevelStates
-    
     case eng_shipStart, eng_shipFirst, eng_shipSecond, eng_shipThird, eng_shipFourth, eng_shipFinish
     case eng_bridgeStart, eng_bridgeFirst, eng_bridgeSecond, eng_bridgeThird, eng_bridgeFourth, eng_bridgeFinish
     case eng_phoneStart, eng_phoneFirst, eng_phoneSecond, eng_phoneThird, eng_phoneFourth, eng_phoneFinish
@@ -69,6 +68,7 @@ enum Imgs: String {
     
     case purchaseCoin1, purchaseCoin2, purchaseCoin3
     case purchaseLightning1, purchaseLightning2, purchaseLightning3
+    
 }
 
 enum Clrs: String {

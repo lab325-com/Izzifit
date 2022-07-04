@@ -13,7 +13,7 @@ class GameBaseController: BaseController {
     
     var first: UIViewController
     var second: UIViewController
-    private var currentScreen: MapName { PreferencesManager.sharedManager.currentMapName ?? .snow_map }
+    private let currentScreen = PreferencesManager.sharedManager.currentMapName ?? .snow_map
     
     @objc func endLoadConfigNotification(_ notification: Notification) {
          updateController()
@@ -29,10 +29,13 @@ class GameBaseController: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateController()
+        switch currentScreen {
+        case .england_map:  self.addContainer(child: second, to: self.view)
+        case .snow_map: self.addContainer(child: first, to: self.view)
+        }
         NotificationCenter.default.addObserver(self,
                                                selector:#selector(self.endLoadConfigNotification),
-                                               name: Constants.Notifications.endRemoteConfigEndNotification,
+                                               name: Constants.Notifications.newEndRemoteConfigEndNotification,
                                                object: nil)
         
         self.view.layer.backgroundColor = UIColor.white.cgColor
@@ -43,6 +46,7 @@ class GameBaseController: BaseController {
     }
     
     func updateController() {
+        if currentScreen == PreferencesManager.sharedManager.currentMapName { return }
         first.removeContainer()
         second.removeContainer()
         switch PreferencesManager.sharedManager.currentMapName {

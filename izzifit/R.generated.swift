@@ -390,7 +390,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 82 files.
+  /// This `R.file` struct is generated, and contains static references to 84 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -548,6 +548,8 @@ struct R: Rswift.Validatable {
     static let coin_v2Gif = Rswift.FileResource(bundle: R.hostingBundle, name: "coin_v2", pathExtension: "gif")
     /// Resource file `coin_v3.gif`.
     static let coin_v3Gif = Rswift.FileResource(bundle: R.hostingBundle, name: "coin_v3", pathExtension: "gif")
+    /// Resource file `confetti.json`.
+    static let confettiJson = Rswift.FileResource(bundle: R.hostingBundle, name: "confetti", pathExtension: "json")
     /// Resource file `construction3.gif`.
     static let construction3Gif = Rswift.FileResource(bundle: R.hostingBundle, name: "construction3", pathExtension: "gif")
     /// Resource file `energy_anim.json`.
@@ -556,6 +558,8 @@ struct R: Rswift.Validatable {
     static let progressGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "progress", pathExtension: "graphql")
     /// Resource file `ray.gif`.
     static let rayGif = Rswift.FileResource(bundle: R.hostingBundle, name: "ray", pathExtension: "gif")
+    /// Resource file `winner.json`.
+    static let winnerJson = Rswift.FileResource(bundle: R.hostingBundle, name: "winner", pathExtension: "json")
 
     /// `bundle.url(forResource: "10_spin_tap", withExtension: "wav")`
     static func _spin_tapWav(_: Void = ()) -> Foundation.URL? {
@@ -1025,6 +1029,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "confetti", withExtension: "json")`
+    static func confettiJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.confettiJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "construction3", withExtension: "gif")`
     static func construction3Gif(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.construction3Gif
@@ -1046,6 +1056,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "ray", withExtension: "gif")`
     static func rayGif(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.rayGif
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "winner", withExtension: "json")`
+    static func winnerJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.winnerJson
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -1141,7 +1157,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 306 images.
+  /// This `R.image` struct is generated, and contains static references to 310 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1421,6 +1437,8 @@ struct R: Rswift.Validatable {
     static let goldThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "goldThird")
     /// Image `greenBuyBtn`.
     static let greenBuyBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "greenBuyBtn")
+    /// Image `greenDone`.
+    static let greenDone = Rswift.ImageResource(bundle: R.hostingBundle, name: "greenDone")
     /// Image `hammer`.
     static let hammer = Rswift.ImageResource(bundle: R.hostingBundle, name: "hammer")
     /// Image `igluFinish`.
@@ -1435,8 +1453,12 @@ struct R: Rswift.Validatable {
     static let igluStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "igluStart")
     /// Image `igluThird`.
     static let igluThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "igluThird")
+    /// Image `largeBuildPopUpBack`.
+    static let largeBuildPopUpBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "largeBuildPopUpBack")
     /// Image `levelBack`.
     static let levelBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "levelBack")
+    /// Image `levelFinishPopUpBack`.
+    static let levelFinishPopUpBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "levelFinishPopUpBack")
     /// Image `levelShadowViewBack`.
     static let levelShadowViewBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "levelShadowViewBack")
     /// Image `level_england_back`.
@@ -1483,6 +1505,8 @@ struct R: Rswift.Validatable {
     static let militaryAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "militaryAward")
     /// Image `moneyBag`.
     static let moneyBag = Rswift.ImageResource(bundle: R.hostingBundle, name: "moneyBag")
+    /// Image `nextMapBtn`.
+    static let nextMapBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "nextMapBtn")
     /// Image `onboading_swipe_1_ic`.
     static let onboading_swipe_1_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboading_swipe_1_ic")
     /// Image `onboading_swipe_2_ic`.
@@ -2730,6 +2754,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "greenDone", bundle: ..., traitCollection: ...)`
+    static func greenDone(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.greenDone, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "hammer", bundle: ..., traitCollection: ...)`
     static func hammer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.hammer, compatibleWith: traitCollection)
@@ -2779,9 +2810,23 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "largeBuildPopUpBack", bundle: ..., traitCollection: ...)`
+    static func largeBuildPopUpBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.largeBuildPopUpBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "levelBack", bundle: ..., traitCollection: ...)`
     static func levelBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.levelBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "levelFinishPopUpBack", bundle: ..., traitCollection: ...)`
+    static func levelFinishPopUpBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.levelFinishPopUpBack, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2943,6 +2988,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "moneyBag", bundle: ..., traitCollection: ...)`
     static func moneyBag(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.moneyBag, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "nextMapBtn", bundle: ..., traitCollection: ...)`
+    static func nextMapBtn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.nextMapBtn, compatibleWith: traitCollection)
     }
     #endif
 

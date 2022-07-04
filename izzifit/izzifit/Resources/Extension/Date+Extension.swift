@@ -29,4 +29,11 @@ extension Date {
 
     var isInTheFuture: Bool { self > Date() }
     var isInThePast:   Bool { self < Date() }
+    
+    var isNeedSleepWidget: Bool {
+        let startTime = Calendar.current.date(bySettingHour: 12, minute: 00, second: 01, of: Date())!
+        let endTime = Calendar.current.date(bySettingHour: 06, minute: 00, second: 01, of: Date())!
+        
+        return self > endTime && self < startTime ? true : false
+    }
 }

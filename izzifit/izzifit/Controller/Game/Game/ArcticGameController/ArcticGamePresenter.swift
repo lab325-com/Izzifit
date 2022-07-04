@@ -58,7 +58,7 @@ class ArcticGamePresenter: ArcticGameProtocol {
             default: break
             }
             
-            NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
+            NotificationCenter.default.post(name: Constants.Notifications.newEndRemoteConfigEndNotification,
                                             object: self,
                                             userInfo: nil)
             self?.view?.success(map: model)

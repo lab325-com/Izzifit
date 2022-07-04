@@ -114,7 +114,14 @@ class TimerSpinManager {
                        options: .curveEaseIn) {
             self.tables[index].contentOffset.y = self.tableContentOffsets[index]
             self.tables[index].layoutIfNeeded()
-        } completion: { bool in  }
+        } completion: { bool in
+            guard self.timerCounters[index] == 3 || self.timerCounters[index] == 152 else { return }
+            // докручивать к середине
+            let cells = self.tables[index].visibleCells
+            if let indexPath = self.tables[index].indexPath(for: cells[1]) {
+                self.tables[index].scrollToRow(at: indexPath, at: .middle, animated: true)
+            }
+        }
         guard timerCounters[index] == 3 else { return }
         timerCounters[index] = 152
         self.timers[index].invalidate()
@@ -132,7 +139,7 @@ class TimerSpinManager {
         
         guard counter.combinations.count > combinationCounter else { spinsRunOut()
             return }
-        
+    
         guard KeychainService.standard.me?.energy ?? 0.0 > 0.99 else { presentPaywall()
             return }
         
@@ -147,7 +154,6 @@ class TimerSpinManager {
                                       collectionView: collectionView,
                                       spinBtn: spinBtn) {
             showProgress()
-            
             timers[0] = Timer.scheduledTimer(timeInterval: 0.03,
                                              target: self,
                                              selector: #selector(xSpin),

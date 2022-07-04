@@ -17,6 +17,7 @@ struct Purchase {
 protocol PurchasePopUpProtocol: AnyObject {
     func purchasePopUpSuccess(controller: PurchasePopUp)
     func purchasePopUpClose(controller: PurchasePopUp)
+    func purchasePopUpSpin(controller: PurchasePopUp)
 }
 
 
@@ -56,14 +57,12 @@ enum InAppPurchaseType: String, Codable {
     }
 }
 
-
 class PurchasePopUp: BaseController {
     
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
     
-
     private lazy var popUp = PurchasePop(title: titlePopUp, purchases: purchaseModel, delegate: self)
 
     private let titlePopUp: String
@@ -87,25 +86,19 @@ class PurchasePopUp: BaseController {
         for id in idProducts {
             self.purchaseModel.append(Purchase(type: id.type, count: id.count, price: 0.99))
         }
-        
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
 
-    override func loadView() {
-        self.view =  popUp
-    }
+    override func loadView() { self.view =  popUp }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         presenter.retriveNotAutoProduct(id: Set(idProducts.compactMap({$0.rawValue})))
     }
 }
@@ -115,6 +108,12 @@ class PurchasePopUp: BaseController {
 //----------------------------------------------
 
 extension PurchasePopUp: GamePurchasePopProtocol {
+    
+    func gamePurchaseSpin(view: PurchasePop) {
+        delegate?.purchasePopUpSpin(controller: self)
+        dismiss(animated: false)
+    }
+    
     func gamePurchasePopBuy(view: PurchasePop, tag: Int) {
         presenter.purchaseProduct(id: idProducts[safe: tag]?.rawValue ?? "", screen: .energyBuy, place: .energyZero) { [weak self] result, message in
             guard let `self` = self else { return }
@@ -153,7 +152,5 @@ extension PurchasePopUp: SubscribeOutputProtocol {
         popUp.setPrice(prices: prices)
     }
     
-    func failure(error: String) {
-        
-    }
+    func failure(error: String) { }
 }

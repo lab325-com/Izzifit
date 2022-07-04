@@ -37,6 +37,8 @@ class MapController: BaseController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        mapView.barBackVw.getCoinsAndEnergy()
         if let mapName = PreferencesManager.sharedManager.currentMapName,
         currentMapState != mapName{
             switch mapName {
