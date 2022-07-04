@@ -193,7 +193,7 @@ class LevelPopUpView: UIView {
                     textAlignment: .right,
                     fontSize: 16,
                     fontName: "Inter-Bold")
-        
+
         previousStateImgVw.contentMode = .scaleAspectFit
         nextStateImgVw.contentMode = .scaleAspectFit
         
@@ -274,19 +274,19 @@ class LevelPopUpView: UIView {
         
         ui.genericlLayout(object: previousStateImgVw,
                           parentView: mainBackImgVw,
-                          width: 91,
-                          height: 107,
+                          width: 110,
+                          height: 110,
                           centerVtoO: arrowImgVw.centerYAnchor,
                           trailingToO: arrowImgVw.leadingAnchor,
-                          trailingCG: 15)
+                          trailingCG: 10)
         
         ui.genericlLayout(object: nextStateImgVw,
                           parentView: mainBackImgVw,
-                          width: 91,
-                          height: 107,
+                          width: 110,
+                          height: 110,
                           centerVtoO: arrowImgVw.centerYAnchor,
                           leadingToO: arrowImgVw.trailingAnchor,
-                          leadingCG: 15)
+                          leadingCG: 10)
         
         let horizontalStack = UIStackView(arrangedSubviews: imgVwStates)
         horizontalStack.alignment = .center
