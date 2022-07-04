@@ -164,12 +164,12 @@ class LevelController: BaseController {
         
             switch presenter.freeBuildingsCount {
             case 0:
-                buildPopUpVw.hummerImgVw.isHidden = true
-                buildPopUpVw.hummerCountLbl.isHidden = true
+                buildPopUpVw.hummerImgVw.isHidden =     true
+                buildPopUpVw.hummerCountLbl.isHidden =  true
             default:
-                buildPopUpVw.hummerImgVw.isHidden = false
-                buildPopUpVw.hummerCountLbl.isHidden = false
-                buildPopUpVw.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
+                buildPopUpVw.hummerImgVw.isHidden =     false
+                buildPopUpVw.hummerCountLbl.isHidden =  false
+                buildPopUpVw.hummerCountLbl.text =      "x\(presenter.freeBuildingsCount)"
             }
         
         buildPopUpVw.fillStates(by: LevelStates(rawValue: price) ?? .finish)
@@ -447,7 +447,7 @@ extension LevelController: LevelFinishDelegate {
         }
         
         PreferencesManager.sharedManager.currentMapName = .england_map
-        NotificationCenter.default.post(name: Constants.Notifications.endRemoteConfigEndNotification,
+        NotificationCenter.default.post(name: Constants.Notifications.newEndRemoteConfigEndNotification,
                                         object: self,
                                         userInfo: nil)
     }

@@ -34,7 +34,7 @@ class EnglandGameController: BaseController {
         timerSpinManager = TimerSpinManager(collectionView: collectionView,
                                             presenter: presenter)
    
-        presenter.getMap()
+       
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
@@ -44,6 +44,7 @@ class EnglandGameController: BaseController {
      
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        presenter.getMap()
         checkAvailableHummers()
         gameView.barBackVw.getCoinsAndEnergy()
     }
