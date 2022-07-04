@@ -58,6 +58,8 @@
 		0227DAC727C6A455008AB26B /* MenuFoodController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0227DAC527C6A455008AB26B /* MenuFoodController.xib */; };
 		0227DACC27C6A82A008AB26B /* MenuFoodTitleCellCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227DACA27C6A82A008AB26B /* MenuFoodTitleCellCell.swift */; };
 		0227DACD27C6A82A008AB26B /* MenuFoodTitleCellCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0227DACB27C6A82A008AB26B /* MenuFoodTitleCellCell.xib */; };
+		0231DD8B286AFC7F006840DB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0231DD8A286AFC7F006840DB /* Lottie */; };
+		0231DD8E286AFCE2006840DB /* energy_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = 0231DD8D286AFCE2006840DB /* energy_anim.json */; };
 		02354E8F280934CE005A8272 /* StartWorkout.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02354E8E280934CE005A8272 /* StartWorkout.graphql */; };
 		02354E912809350D005A8272 /* StartWorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02354E902809350D005A8272 /* StartWorkoutModel.swift */; };
 		02354E942809356B005A8272 /* DoExercise.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02354E932809356B005A8272 /* DoExercise.graphql */; };
@@ -500,6 +502,7 @@
 		0227DAC527C6A455008AB26B /* MenuFoodController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuFoodController.xib; sourceTree = "<group>"; };
 		0227DACA27C6A82A008AB26B /* MenuFoodTitleCellCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFoodTitleCellCell.swift; sourceTree = "<group>"; };
 		0227DACB27C6A82A008AB26B /* MenuFoodTitleCellCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuFoodTitleCellCell.xib; sourceTree = "<group>"; };
+		0231DD8D286AFCE2006840DB /* energy_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = energy_anim.json; sourceTree = "<group>"; };
 		02354E8E280934CE005A8272 /* StartWorkout.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartWorkout.graphql; sourceTree = "<group>"; };
 		02354E902809350D005A8272 /* StartWorkoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutModel.swift; sourceTree = "<group>"; };
 		02354E932809356B005A8272 /* DoExercise.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoExercise.graphql; sourceTree = "<group>"; };
@@ -1169,6 +1172,14 @@
 			path = MenuFoodTitleCell;
 			sourceTree = "<group>";
 		};
+		0231DD8C286AFCD4006840DB /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				0231DD8D286AFCE2006840DB /* energy_anim.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		02354E8D280934B7005A8272 /* StartWorkout */ = {
 			isa = PBXGroup;
 			children = (
@@ -1333,6 +1344,7 @@
 		0249D25927B3A87100F265C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0231DD8C286AFCD4006840DB /* Lottie */,
 				0227A9BD2849F7E400BA29A8 /* Video */,
 				FA1A2566283D0C5900240E28 /* Enum */,
 				02A27B57282A655F00B435B0 /* Analytics */,
@@ -2971,7 +2983,7 @@
 				FA6B281F285CC9A100D34333 /* FirebaseCrashlytics */,
 				FA6B2821285CC9A100D34333 /* FirebaseMessaging */,
 				FA6B2823285CC9A100D34333 /* FirebaseRemoteConfig */,
-				FA1BC1F9286F017D00D5569F /* Lottie */,
+				0231DD8A286AFC7F006840DB /* Lottie */,
 			);
 			productName = izzifit;
 			productReference = 0249D22727B3A4EF00F265C1 /* izzifit.app */;
@@ -3011,7 +3023,7 @@
 				02AEDFD528477CC7007C0EA4 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 				FABA1DED285AEE22005ECE75 /* XCRemoteSwiftPackageReference "SwiftyGif" */,
 				FA6B281C285CC9A100D34333 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				FA1BC1F8286F017D00D5569F /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				0231DD89286AFC7E006840DB /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 0249D22827B3A4EF00F265C1 /* Products */;
 			projectDirPath = "";
@@ -3122,6 +3134,7 @@
 				FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */,
 				024EBCA52840E97100E6623F /* ProfileDelete.graphql in Resources */,
 				020CB3D327E9CA1600F97A76 /* ChooseWorkoutWidgetModel.graphql in Resources */,
+				0231DD8E286AFCE2006840DB /* energy_anim.json in Resources */,
 				02ABCF3627CCC3F400E69C06 /* MenuFoodSwitchCell.xib in Resources */,
 				02D066A827BBA72100D12C5F /* Localizable.strings in Resources */,
 				02021997285B456B0015CA9A /* EnergySpecialPriceCell.xib in Resources */,
@@ -3725,7 +3738,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 39;
+				CURRENT_PROJECT_VERSION = 41;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3764,7 +3777,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 39;
+				CURRENT_PROJECT_VERSION = 41;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3864,7 +3877,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 39;
+				CURRENT_PROJECT_VERSION = 41;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3926,6 +3939,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.0.0;
+			};
+		};
+		0231DD89286AFC7E006840DB /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 		0249D25427B3A7AD00F265C1 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
@@ -4008,6 +4029,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0227DA8A27C4CA77008AB26B /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		0231DD8A286AFC7F006840DB /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0231DD89286AFC7E006840DB /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		0249D25527B3A7AD00F265C1 /* NVActivityIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;

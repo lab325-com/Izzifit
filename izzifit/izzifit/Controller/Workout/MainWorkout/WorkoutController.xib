@@ -135,15 +135,37 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njn-2I-v9q">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="88"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <connections>
+                        <action selector="actionProfile:" destination="-1" eventType="touchUpInside" id="Dzc-LT-01e"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMV-IX-Sxb">
+                    <rect key="frame" x="250" y="0.0" width="164" height="88"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <connections>
+                        <action selector="actionGame:" destination="-1" eventType="touchUpInside" id="GD6-GF-evn"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Xqd-kD-8Wg"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="Njn-2I-v9q" firstAttribute="leading" secondItem="Xqd-kD-8Wg" secondAttribute="leading" id="2tu-GE-zFh"/>
                 <constraint firstItem="00w-pN-kDF" firstAttribute="leading" secondItem="Xqd-kD-8Wg" secondAttribute="leading" id="3M4-j7-xnL"/>
                 <constraint firstItem="00w-pN-kDF" firstAttribute="top" secondItem="SR9-dJ-zCg" secondAttribute="top" id="96P-AK-LvY"/>
                 <constraint firstItem="rgW-CG-864" firstAttribute="leading" secondItem="Xqd-kD-8Wg" secondAttribute="leading" id="BLK-Av-oRj"/>
                 <constraint firstItem="Xqd-kD-8Wg" firstAttribute="bottom" secondItem="rgW-CG-864" secondAttribute="bottom" id="DSJ-Kh-edH"/>
+                <constraint firstItem="Njn-2I-v9q" firstAttribute="trailing" secondItem="lbK-fF-4zr" secondAttribute="trailing" id="EXy-8t-bfn"/>
+                <constraint firstItem="yMV-IX-Sxb" firstAttribute="leading" secondItem="rsz-qP-eyH" secondAttribute="leading" id="GO9-vU-gia"/>
+                <constraint firstItem="yMV-IX-Sxb" firstAttribute="top" secondItem="SR9-dJ-zCg" secondAttribute="top" id="Hx0-0v-bMr"/>
+                <constraint firstItem="rgW-CG-864" firstAttribute="top" secondItem="Njn-2I-v9q" secondAttribute="bottom" id="Iy9-HR-13Q"/>
                 <constraint firstItem="rgW-CG-864" firstAttribute="top" secondItem="5CP-zV-NxK" secondAttribute="bottom" id="NSy-Mg-vYF"/>
+                <constraint firstItem="Njn-2I-v9q" firstAttribute="top" secondItem="SR9-dJ-zCg" secondAttribute="top" id="OnA-37-Whi"/>
+                <constraint firstItem="rgW-CG-864" firstAttribute="top" secondItem="yMV-IX-Sxb" secondAttribute="bottom" id="TWs-wE-CvQ"/>
+                <constraint firstItem="yMV-IX-Sxb" firstAttribute="trailing" secondItem="Xqd-kD-8Wg" secondAttribute="trailing" id="VA8-kc-ooU"/>
                 <constraint firstItem="5CP-zV-NxK" firstAttribute="leading" secondItem="Xqd-kD-8Wg" secondAttribute="leading" id="igd-kE-yxW"/>
                 <constraint firstItem="rgW-CG-864" firstAttribute="trailing" secondItem="Xqd-kD-8Wg" secondAttribute="trailing" id="kVn-xj-XbD"/>
                 <constraint firstAttribute="trailing" secondItem="5CP-zV-NxK" secondAttribute="trailing" id="of7-K5-blS"/>

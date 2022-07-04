@@ -41,9 +41,11 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
         
         waterStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
-        for _ in 0..<model.doneCups {
+        for index in 0..<model.doneCups {
             let button = UIButton()
             button.setImage(RImage.energy_water_active_ic(), for: .normal)
+            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+            button.tag = index
             waterStackView.addArrangedSubview(button)
         }
         
@@ -56,7 +58,7 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
             let button = UIButton()
             button.setImage(RImage.energy_water_empty_ic(), for: .normal)
             button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-            button.tag = index - model.doneCups
+            button.tag = index
             waterStackView.addArrangedSubview(button)
         }
         
@@ -65,7 +67,7 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
     }
     
     @objc func buttonAction(sender: UIButton!) {
-        debugPrint(sender.tag)
+        debugPrint(sender.tag + 1)
         delegate?.energyDrinkWaterSelectIndex(cell: self, index: sender.tag + 1)
     }
 }

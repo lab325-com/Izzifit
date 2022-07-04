@@ -390,7 +390,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 83 files.
+  /// This `R.file` struct is generated, and contains static references to 84 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -552,6 +552,8 @@ struct R: Rswift.Validatable {
     static let confettiJson = Rswift.FileResource(bundle: R.hostingBundle, name: "confetti", pathExtension: "json")
     /// Resource file `construction3.gif`.
     static let construction3Gif = Rswift.FileResource(bundle: R.hostingBundle, name: "construction3", pathExtension: "gif")
+    /// Resource file `energy_anim.json`.
+    static let energy_animJson = Rswift.FileResource(bundle: R.hostingBundle, name: "energy_anim", pathExtension: "json")
     /// Resource file `progress.graphql`.
     static let progressGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "progress", pathExtension: "graphql")
     /// Resource file `ray.gif`.
@@ -1036,6 +1038,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "construction3", withExtension: "gif")`
     static func construction3Gif(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.construction3Gif
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "energy_anim", withExtension: "json")`
+    static func energy_animJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.energy_animJson
       return fileResource.bundle.url(forResource: fileResource)
     }
 

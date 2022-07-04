@@ -7,7 +7,8 @@
 
 import UIKit
 import Kingfisher
- 
+import Lottie
+
 class EnergyController: BaseController {
     
     //----------------------------------------------
@@ -23,6 +24,7 @@ class EnergyController: BaseController {
     @IBOutlet weak var cointLabel: UILabel!
     @IBOutlet weak var energyLabel: UILabel!
     
+    @IBOutlet weak var energyLottieView: UIView!
     
     //----------------------------------------------
     // MARK: - Property
@@ -44,11 +46,14 @@ class EnergyController: BaseController {
     
     var currentDate = Date()
     
+    private var animationEnergy: AnimationView?
+    
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
     
     override func viewDidLoad() {
+        hiddenNavigationBar = true
         super.viewDidLoad()
         
         setup()
@@ -66,6 +71,14 @@ class EnergyController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        
+        // Create Animation object
+        let jsonName = "energy_anim"
+        let animation = Animation.named(jsonName)
+        animationEnergy = AnimationView(animation: animation)
+        energyLottieView.addSubview(animationEnergy!)
+        animationEnergy?.contentMode = .scaleAspectFit
+        
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(
             options: authOptions,
@@ -162,6 +175,18 @@ class EnergyController: BaseController {
     @objc func updateEnegyNotification(_ notification: Notification) {
         presenter.getWidgets(date: getDate())
     }
+    
+    //----------------------------------------------
+    // MARK: - Action
+    //----------------------------------------------
+    
+    @IBAction func actionProfile(_ sender: UIButton) {
+        TabBarRouter(presenter: navigationController).pushProfile()
+    }
+    
+    @IBAction func actionGame(_ sender: UIButton) {
+        TabBarRouter(presenter: navigationController).pushGame()
+    }
 }
 
 //----------------------------------------------
@@ -183,26 +208,6 @@ extension EnergyController: EnergyOutputProtocol {
         if presenter.steps.count > 0 {
             presenter.setSteps()
         }
-        
-//        if presenter.stepsWidget.count > 0 {
-//            var message = ""
-//            for steps in presenter.stepsWidget {
-//                let hour = steps.hourType
-//                let steps = steps.steps
-//                if message.isEmpty {
-//                    message = "Hour: \(hour.rawValue), Steps: \(steps)"
-//                } else {
-//                    message += "\nHour: \(hour.rawValue), Steps: \(steps)"
-//                }
-//            }
-//            let alert = UIAlertController(title: "Steps from HealthKit",
-//                                          message: message,
-//                                          preferredStyle: .alert)
-//            let okAction = UIAlertAction(title: "OK",
-//                                         style: .default)
-//            alert.addAction(okAction)
-//            present(alert, animated: true)
-//        }
     }
     
     func successStepsEnergy() {
@@ -211,5 +216,9 @@ extension EnergyController: EnergyOutputProtocol {
     
     func failure() {
         
+    }
+    
+    func showEnergyAnimation() {
+        animationEnergy?.play()
     }
 }

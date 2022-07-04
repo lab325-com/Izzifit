@@ -145,6 +145,7 @@
                 <outlet property="priceLabel" destination="jZl-xT-Nl3" id="6Wh-xn-Y99"/>
                 <outlet property="specialView" destination="8li-b9-kvK" id="skN-BX-Nm1"/>
                 <outlet property="startWorkoutButton" destination="yDf-2V-9Vc" id="lS9-Wr-E2L"/>
+                <outlet property="timeLabel" destination="Gdl-VN-6yk" id="Wjc-Yp-kJn"/>
             </connections>
             <point key="canvasLocation" x="188.40579710144928" y="147.99107142857142"/>
         </tableViewCell>
