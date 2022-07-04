@@ -148,7 +148,7 @@ class LevelController: BaseController {
         buildPopUpVw = nil
         buildPopUpVw = LevelPopUpView(popType: popType,
                                       title: "Arctic",
-                                      mapName: .england_map,
+                                      mapName: .snow_map,
                                       delegate: self)
         guard let buildPopUpVw = buildPopUpVw else { return }
             buildPopUpVw.hummerImgVw.isHidden = true
@@ -171,7 +171,6 @@ class LevelController: BaseController {
                 buildPopUpVw.hummerCountLbl.isHidden = false
                 buildPopUpVw.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
             }
-        
         
         buildPopUpVw.fillStates(by: LevelStates(rawValue: price) ?? .finish)
         AnalyticsHelper.sendFirebaseEvents(events: .map_building_tap, params: ["building" : buildType.rawValue])
