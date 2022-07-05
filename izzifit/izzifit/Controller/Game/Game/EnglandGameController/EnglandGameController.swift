@@ -33,7 +33,6 @@ class EnglandGameController: BaseController {
         super.viewDidLoad()
         timerSpinManager = TimerSpinManager(collectionView: collectionView,
                                             presenter: presenter)
-   
        
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
