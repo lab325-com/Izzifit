@@ -16,7 +16,6 @@ class EnglandGameController: BaseController {
     private var gameView: EnglandGameView!
     private var collectionView: UICollectionView!
 
- 
     override func loadView() {
         gameView = EnglandGameView()
         self.view = gameView
@@ -26,14 +25,11 @@ class EnglandGameController: BaseController {
     }
     
     override func viewDidLoad() {
-        
         AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
         needSoundTap = false
         hiddenNavigationBar = true
         super.viewDidLoad()
-        timerSpinManager = TimerSpinManager(collectionView: collectionView,
-                                            presenter: presenter)
-       
+
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
@@ -43,9 +39,13 @@ class EnglandGameController: BaseController {
      
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.getMap()
+        collectionView.removeFromSuperview()
+        setCollectionView()
         checkAvailableHummers()
         gameView.barBackVw.getCoinsAndEnergy()
+        timerSpinManager = TimerSpinManager(collectionView: collectionView,
+                                            presenter: presenter)
+        presenter.getMap()
     }
     
     private func setCollectionView() {
@@ -203,14 +203,11 @@ extension EnglandGameController: PaywallProtocol {
 extension EnglandGameController: PurchasePopUpProtocol {
     func purchasePopUpSpin(controller: PurchasePopUp) {
         
-        /// сделай тоже самое по англии
         if let tabBarVC = self.tabBarController as? GameTabBarController {
-           
             NotificationCenter.default.post(name: Constants.Notifications.openWorkoutNotification,
                                             object: self,
                                             userInfo: nil)
             tabBarVC.actionBack()
-          
         }
     }
     

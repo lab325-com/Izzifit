@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class GameBaseController: BaseController {
     
     var first: UIViewController
@@ -47,8 +45,6 @@ class GameBaseController: BaseController {
     
     func updateController() {
         if currentScreen == PreferencesManager.sharedManager.currentMapName { return }
-        first.removeContainer()
-        second.removeContainer()
         switch PreferencesManager.sharedManager.currentMapName {
         case .england_map:  self.addContainer(child: second, to: self.view)
         case .snow_map: self.addContainer(child: first, to: self.view)

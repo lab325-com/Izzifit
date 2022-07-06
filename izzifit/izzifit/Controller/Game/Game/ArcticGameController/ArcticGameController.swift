@@ -29,9 +29,7 @@ class ArcticGameController: BaseController {
         needSoundTap = false
         hiddenNavigationBar = true
         super.viewDidLoad()
-        timerSpinManager = TimerSpinManager(collectionView: collectionView,
-                                            presenter: presenter)
-       
+        
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
@@ -41,9 +39,13 @@ class ArcticGameController: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.getMap()
+        collectionView.removeFromSuperview()
+        setCollectionView()
         checkAvailableHummers()
         gameView.updateHeader()
+        timerSpinManager = TimerSpinManager(collectionView: collectionView,
+                                            presenter: presenter)
+        presenter.getMap()
     }
     
     private func setCollectionView() {
