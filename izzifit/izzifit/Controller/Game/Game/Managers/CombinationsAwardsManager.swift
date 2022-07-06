@@ -260,9 +260,24 @@ struct CombinationsAwardsManager {
                 }
             }
         }
-        guard count == 1 else { return nil }
-        return (combination, res)
+        
+        switch count {
+        case 1:   return (combination, res)
+        default: if array.first == array.last {
+            switch array.first {
+            case 1: combination = .pairDollars
+            case 2: combination = .pairMoneyBags
+            case 3: combination = .pairLightning
+            case 4: combination = .pairSnowflakes
+            case 5: combination = .pairHummers
+            default: break
+            }
+            return (combination, res)
+        }
+        }
+        return nil
     }
+
     
 func recognizeSetCombinations(_ resultIndices: [Int]) -> (SpinCombination, Set<Int>)? {
         
