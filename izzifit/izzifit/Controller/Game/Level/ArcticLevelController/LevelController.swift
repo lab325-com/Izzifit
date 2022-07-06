@@ -439,7 +439,6 @@ extension LevelController: PurchasePopUpProtocol {
 // MARK: - LevelFinishDelegate
 //----------------------------------------------
 
-
 extension LevelController: LevelFinishDelegate {
     func nextMap(view: UIView) {
         if let tabBarVC = self.tabBarController as? GameTabBarController {

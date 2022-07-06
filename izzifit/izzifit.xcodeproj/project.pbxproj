@@ -58,7 +58,6 @@
 		0227DAC727C6A455008AB26B /* MenuFoodController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0227DAC527C6A455008AB26B /* MenuFoodController.xib */; };
 		0227DACC27C6A82A008AB26B /* MenuFoodTitleCellCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227DACA27C6A82A008AB26B /* MenuFoodTitleCellCell.swift */; };
 		0227DACD27C6A82A008AB26B /* MenuFoodTitleCellCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0227DACB27C6A82A008AB26B /* MenuFoodTitleCellCell.xib */; };
-		0231DD8B286AFC7F006840DB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0231DD8A286AFC7F006840DB /* Lottie */; };
 		0231DD8E286AFCE2006840DB /* energy_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = 0231DD8D286AFCE2006840DB /* energy_anim.json */; };
 		02354E8F280934CE005A8272 /* StartWorkout.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02354E8E280934CE005A8272 /* StartWorkout.graphql */; };
 		02354E912809350D005A8272 /* StartWorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02354E902809350D005A8272 /* StartWorkoutModel.swift */; };
@@ -397,6 +396,8 @@
 		FA6B2820285CC9A100D34333 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B281F285CC9A100D34333 /* FirebaseCrashlytics */; };
 		FA6B2822285CC9A100D34333 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B2821285CC9A100D34333 /* FirebaseMessaging */; };
 		FA6B2824285CC9A100D34333 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B2823285CC9A100D34333 /* FirebaseRemoteConfig */; };
+		FA8535342875781200A9137B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0231DD8A286AFC7F006840DB /* Lottie */; };
+		FA8535362875D0D600A9137B /* coins_header.json in Resources */ = {isa = PBXBuildFile; fileRef = FA8535352875D0D600A9137B /* coins_header.json */; };
 		FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */; };
 		FA8CC858282919B80022BFE2 /* construction3.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA8CC857282919B80022BFE2 /* construction3.gif */; };
 		FA9400052833989C00CE5021 /* GameBarBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9400042833989C00CE5021 /* GameBarBackView.swift */; };
@@ -835,6 +836,7 @@
 		FA65F4F8283E238C00F2427C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		FA6628A227F184C200FBB946 /* Moods.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moods.graphql; sourceTree = "<group>"; };
 		FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetCounter.swift; sourceTree = "<group>"; };
+		FA8535352875D0D600A9137B /* coins_header.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coins_header.json; sourceTree = "<group>"; };
 		FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		FA8CC857282919B80022BFE2 /* construction3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = construction3.gif; sourceTree = "<group>"; };
 		FA9400042833989C00CE5021 /* GameBarBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBarBackView.swift; sourceTree = "<group>"; };
@@ -907,6 +909,7 @@
 				0249D25627B3A7AD00F265C1 /* NVActivityIndicatorView in Frameworks */,
 				FA2794E9285A068800AEEA70 /* HealthKit.framework in Frameworks */,
 				02B280F828571529003CAB32 /* StoreKit.framework in Frameworks */,
+				FA8535342875781200A9137B /* Lottie in Frameworks */,
 				02B2810228571734003CAB32 /* FirebaseRemoteConfig in Frameworks */,
 				0249D25827B3A7AD00F265C1 /* NVActivityIndicatorViewExtended in Frameworks */,
 				FA1BC1FA286F017D00D5569F /* Lottie in Frameworks */,
@@ -2669,6 +2672,7 @@
 		FA8CC856282919450022BFE2 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				FA8535352875D0D600A9137B /* coins_header.json */,
 				FA1BC1FD286F110100D5569F /* confetti.json */,
 				FA1BC1FB286F052700D5569F /* winner.json */,
 				FA8CC857282919B80022BFE2 /* construction3.gif */,
@@ -3212,6 +3216,7 @@
 				02354E942809356B005A8272 /* DoExercise.graphql in Resources */,
 				0273F55F27D5F7CB00B19449 /* EnergyMealsCell.xib in Resources */,
 				02D066DE27BBE56700D12C5F /* QuizeAgeController.xib in Resources */,
+				FA8535362875D0D600A9137B /* coins_header.json in Resources */,
 				02ABCF4627CD0EA800E69C06 /* MenuLanguagesTitleCell.xib in Resources */,
 				0256998B28197A7500BA1535 /* 21_building.wav in Resources */,
 			);

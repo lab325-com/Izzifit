@@ -41,6 +41,7 @@ class ArcticGameView: UIView, GameAnimationProtocol {
     private var progressImgVw = UIImageView()
     private let progressImg = UIImage(named: "progressActive")
     
+    
     override func draw(_ rect: CGRect) {
         
         setUI()

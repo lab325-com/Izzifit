@@ -169,7 +169,15 @@ extension ArcticGameController: ArcticGameOutputProtocol {
                                                coinsAmount: coinsAmount,
                                                spinsAmount: spinsAmount) { self.threeHummersCombination() }
                 self.gameView.showProgress()
-            }
+                } else {
+                    self.spinManager.coinBag(in: spinTags,
+                                             hiddenStack: self.gameView.resultStackView,
+                                             awardImgVw: self.gameView.awardImgVw,
+                                             awardTitleLbl: self.gameView.awardTitleLbl,
+                                             awardCountLbl: self.gameView.awardCountLbl,
+                                             coinsAmount: coinsAmount,
+                                             animateCoins: self.gameView.barBackVw.animateCoins(speed:))
+                }
             let lastSpinIndex = self.timerSpinManager.counter.combinations.count - 1
             switch self.timerSpinManager.combinationCounter {
             case lastSpinIndex: self.timerSpinManager.combinationCounter = 0

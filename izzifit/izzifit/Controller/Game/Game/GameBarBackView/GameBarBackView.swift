@@ -5,6 +5,7 @@
 //  Created by O l e h on 17.05.2022.
 
 import UIKit
+import Lottie
 
 class GameBarBackView: UIView {
 
@@ -17,12 +18,25 @@ class GameBarBackView: UIView {
     var energyImgVw = UIImageView()
     var energyCountLbl = UILabel()
     
+    private var coinsAnimationView:      AnimationView?
+    
     init(backImage: UIImage) {
         super.init(frame: .zero)
         mainImgVw.image = backImage
         mainImgVw.contentMode = .scaleAspectFill
         layout()
         getCoinsAndEnergy()
+    }
+    
+    
+    
+    func animateCoins(speed: CGFloat) {
+        if speed < 1.0 && speed > 0.0 {
+            coinsAnimationView!.animationSpeed = speed
+        } else {
+            coinsAnimationView!.animationSpeed = 1.0
+        }
+        coinsAnimationView?.play()
     }
 
     func getCoinsAndEnergy() {
@@ -107,6 +121,17 @@ class GameBarBackView: UIView {
                           centerVtoO: avatarImgVw.centerYAnchor,
                           trailingToO: coinsLbl.leadingAnchor,
                           trailingCG: 2)
+        
+        coinsAnimationView =     .init(name: "coins_header")
+        coinsAnimationView!.contentMode = .scaleAspectFill
+        coinsAnimationView!.loopMode = .playOnce
+        
+        ui.genericlLayout(object: coinsAnimationView!,
+                          parentView: coinsImgVw,
+                          width: 30,
+                          height: 100,
+                          topC: 0,
+                          centerH: 0)
     }
     
     required init?(coder: NSCoder) {

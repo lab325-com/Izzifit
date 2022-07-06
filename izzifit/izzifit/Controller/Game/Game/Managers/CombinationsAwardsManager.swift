@@ -68,6 +68,33 @@ struct CombinationsAwardsManager {
                         img: img)
     }
     
+    func bagOrCoin(_  array: [Int]) -> Int? {
+        if array.contains(2) { return 2 }
+        if array.contains(1) { return 1 }
+        return nil
+    }
+    
+    func coinBag(in array: [Int],
+                 hiddenStack: UIStackView,
+                 awardImgVw: UIImageView,
+                 awardTitleLbl: UILabel,
+                 awardCountLbl: UILabel,
+                 coinsAmount: Int,
+                 animateCoins: ((CGFloat) -> Void) ) {
+        guard let number = bagOrCoin(array) else { return }
+        awardTitleLbl.text = "COINS"
+        awardCountLbl.text = "\(coinsAmount)"
+        hiddenStack.isHidden.toggle()
+        switch number {
+        case 2: awardImgVw.image = SlotImgs.moneyBag
+            animateCoins(0.3)
+        default: awardImgVw.image = SlotImgs.dollar
+            animateCoins(1.0)
+        }
+    
+        
+    }
+    
     func accrueBonuses(by combination: SpinCombination,
                        homeView: GameAnimationProtocol,
                        hiddenStack: UIStackView,

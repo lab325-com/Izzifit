@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftyGif
+import Lottie
 
 protocol GameAnimationProtocol {
     var animationImgVw: UIImageView { get set }
@@ -36,9 +37,10 @@ extension GameAnimationProtocol {
                             case .snow_map:     rotateSun(with: SlotImgs.snowflake ?? UIImage(), on: imageView)
                             case .england_map:  rotateSun(with: UK_SlotImgs.flag ?? UIImage(), on: imageView)
                             }
-                        }
-                    }
                 }
+        }
+    }
+    
     
     func rotateSun(with slotImg: UIImage, on imgVw: UIImageView, hummerAnimation: Bool? = nil) {
         if let img = UIImage(named: "sunIsShineAnimation") {
