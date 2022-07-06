@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 enum GenderPlanType: Codable {
     case female
@@ -41,6 +42,8 @@ class QuizeGenderController: BaseController {
     @IBOutlet weak var otherView: UIView!
     
     @IBOutlet weak var getPlanButton: UIButton!
+    @IBOutlet weak var energyLottieView: UIView!
+    @IBOutlet weak var energyLabel: UILabel!
     
     //----------------------------------------------
     // MARK: - Property
@@ -51,6 +54,8 @@ class QuizeGenderController: BaseController {
             changeGender()
         }
     }
+    private var animationEnergy: AnimationView?
+    private lazy var presenter = QuizeProgressPresenter(view: self)
     
     //----------------------------------------------
     // MARK: - Lie cycle
@@ -72,13 +77,26 @@ class QuizeGenderController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        
+        
+        let jsonName = "energy_anim"
+        let animation = Animation.named(jsonName)
+        animationEnergy = AnimationView(animation: animation)
+        energyLottieView.addSubview(animationEnergy!)
+        animationEnergy?.contentMode = .scaleAspectFit
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in
+            self?.animationEnergy?.play()
+            self?.energyLabel.text = "2"
+        }
+        
         countLabel.text = RLocalization.onboarding_count(2, 9)
         mainTitle.text = RLocalization.onboarding_gender_title()
         femaleLabel.text = RLocalization.onboarding_female()
         maleLabel.text = RLocalization.onboarding_male()
         otherLabel.text = RLocalization.onboarding_other()
         
-        getPlanButton.setTitle(RLocalization.onboarding_get_plan(), for: .normal)
+        getPlanButton.setTitle("Go next", for: .normal)
         
         femaleView.layer.borderWidth = 2
         maleView.layer.borderWidth = 2
@@ -113,6 +131,7 @@ class QuizeGenderController: BaseController {
         }
     }
     
+    
     //----------------------------------------------
     // MARK: - Action
     //----------------------------------------------
@@ -138,7 +157,22 @@ class QuizeGenderController: BaseController {
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setGender(type)
             PreferencesManager.sharedManager.tempPorifle = model
+            presenter.profileUpdate()
             OnboardingRouter(presenter: navigationController).pushGoal()
         }
+    }
+}
+
+//----------------------------------------------
+// MARK: - QuizeProgressOutputProtocol
+//----------------------------------------------
+
+extension QuizeGenderController: QuizeProgressOutputProtocol {
+    func success() {
+        
+    }
+    
+    func failure() {
+        actionBack()
     }
 }

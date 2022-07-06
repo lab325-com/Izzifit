@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 enum QuizeWeightType: Codable {
     case kg
@@ -46,10 +47,15 @@ class QuizeWeightController: BaseController {
     @IBOutlet weak var scrollKGView: UIScrollView!
     @IBOutlet weak var scrolLBView: UIScrollView!
     
+    @IBOutlet weak var energyLottieView: UIView!
+    @IBOutlet weak var energyLabel: UILabel!
+     
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
     
+    private var animationEnergy: AnimationView?
+    private lazy var presenterProfile = QuizeProgressPresenter(view: self)
     private let halfWeight = UIScreen.main.bounds.size.width / 2
     private var type: QuizeWeightType = .kg {
         didSet {
@@ -139,9 +145,22 @@ class QuizeWeightController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        let jsonName = "energy_anim"
+        let animation = Animation.named(jsonName)
+        animationEnergy = AnimationView(animation: animation)
+        energyLottieView.addSubview(animationEnergy!)
+        animationEnergy?.contentMode = .scaleAspectFit
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in
+            self?.animationEnergy?.play()
+            self?.energyLabel.text = "10"
+        }
+        
         weight = type == .kg ? Float(baseKG) : Float(baseLB)
         
-        initScrollOffset()
+        DispatchQueue.main.async {
+            self.initScrollOffset()
+        }
         
         countLabel.text = RLocalization.onboarding_count(6, 9)
         mainTitleLabel.text = RLocalization.onboarding_weight_title()
@@ -219,6 +238,7 @@ class QuizeWeightController: BaseController {
         PreferencesManager.sharedManager.tempPorifle = model
         
         AnalyticsHelper.sendFirebaseEvents(events: .onb_set_weight)
+        presenterProfile.profileUpdate()
         OnboardingRouter(presenter: navigationController).pushTargetWeight()
     }
 }
@@ -250,5 +270,19 @@ extension QuizeWeightController: UIScrollViewDelegate {
         }
         
         scrollView.isScrollEnabled = true
+    }
+}
+
+//----------------------------------------------
+// MARK: - QuizeProgressOutputProtocol
+//----------------------------------------------
+
+extension QuizeWeightController: QuizeProgressOutputProtocol {
+    func success() {
+        
+    }
+    
+    func failure() {
+        actionBack()
     }
 }

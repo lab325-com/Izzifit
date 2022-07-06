@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class QuizeTargetWeightController: BaseController {
     
@@ -32,9 +33,15 @@ class QuizeTargetWeightController: BaseController {
     @IBOutlet weak var scrollKGView: UIScrollView!
     @IBOutlet weak var scrolLBView: UIScrollView!
     
+    @IBOutlet weak var energyLottieView: UIView!
+    @IBOutlet weak var energyLabel: UILabel!
+     
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
+    
+    private var animationEnergy: AnimationView?
+    private lazy var presenterProfile = QuizeProgressPresenter(view: self)
     
     private let halfWeight = UIScreen.main.bounds.size.width / 2
     private var type: QuizeWeightType = PreferencesManager.sharedManager.tempPorifle.weightMetric == .lb ? .lb : .kg {
@@ -78,28 +85,50 @@ class QuizeTargetWeightController: BaseController {
     }
     
     private var baseKG: CGFloat {
+        var delta: CGFloat = 1
+        
+        switch  PreferencesManager.sharedManager.tempPorifle.goal  {
+        case .muscle:
+            delta = 0.95
+        case .loseWeight:
+            delta = 0.85
+        default:
+            break
+        }
+        
         switch PreferencesManager.sharedManager.tempPorifle.gender {
         case .female:
-            return 60
+            return 60 * delta
         case .male:
-            return 80
+            return 80 * delta
         case .other:
-            return 70
+            return 70 * delta
         default:
-            return 60
+            return 60 * delta
         }
     }
     
     private var baseLB: CGFloat {
+        var delta: CGFloat = 1
+        
+        switch  PreferencesManager.sharedManager.tempPorifle.goal  {
+        case .muscle:
+            delta = 0.95
+        case .loseWeight:
+            delta = 0.85
+        default:
+            break
+        }
+       
         switch PreferencesManager.sharedManager.tempPorifle.gender {
         case .female:
-            return 132
+            return 132 * delta
         case .male:
-            return 176
+            return 176 * delta
         case .other:
-            return 154
+            return 154 * delta
         default:
-            return 132
+            return 132 * delta
         }
     }
     
@@ -125,6 +154,17 @@ class QuizeTargetWeightController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        let jsonName = "energy_anim"
+        let animation = Animation.named(jsonName)
+        animationEnergy = AnimationView(animation: animation)
+        energyLottieView.addSubview(animationEnergy!)
+        animationEnergy?.contentMode = .scaleAspectFit
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in
+            self?.animationEnergy?.play()
+            self?.energyLabel.text = "12"
+        }
+        
         DispatchQueue.main.async {
             self.initScrollOffset()
         }
@@ -209,6 +249,7 @@ class QuizeTargetWeightController: BaseController {
         PreferencesManager.sharedManager.tempPorifle = model
         
         AnalyticsHelper.sendFirebaseEvents(events: .onb_set_target_weight)
+        presenterProfile.profileUpdate()
         OnboardingRouter(presenter: navigationController).pushFood()
     }
 }
@@ -243,3 +284,17 @@ extension QuizeTargetWeightController: UIScrollViewDelegate {
     }
 }
 
+
+//----------------------------------------------
+// MARK: - QuizeProgressOutputProtocol
+//----------------------------------------------
+
+extension QuizeTargetWeightController: QuizeProgressOutputProtocol {
+    func success() {
+        
+    }
+    
+    func failure() {
+        actionBack()
+    }
+}

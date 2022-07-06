@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class QuizeAgeController: BaseController {
     
@@ -18,6 +19,16 @@ class QuizeAgeController: BaseController {
     
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var goNextButton: UIButton!
+    
+    @IBOutlet weak var energyLottieView: UIView!
+    @IBOutlet weak var energyLabel: UILabel!
+    
+    //----------------------------------------------
+    // MARK: - Property
+    //----------------------------------------------
+    
+    private var animationEnergy: AnimationView?
+    private lazy var presenterProfile = QuizeProgressPresenter(view: self)
     
     //----------------------------------------------
     // MARK: - Life cycle
@@ -41,6 +52,17 @@ class QuizeAgeController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        let jsonName = "energy_anim"
+        let animation = Animation.named(jsonName)
+        animationEnergy = AnimationView(animation: animation)
+        energyLottieView.addSubview(animationEnergy!)
+        animationEnergy?.contentMode = .scaleAspectFit
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in
+            self?.animationEnergy?.play()
+            self?.energyLabel.text = "6"
+        }
+        
         countLabel.text = RLocalization.onboarding_count(4, 9)
         mainTitleLabel.text = RLocalization.onboarding_age_title()
         goNextButton.setTitle(RLocalization.onboarding_go_next(), for: .normal)
@@ -83,7 +105,22 @@ class QuizeAgeController: BaseController {
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setAge(age)
             PreferencesManager.sharedManager.tempPorifle = model
+            presenterProfile.profileUpdate()
             OnboardingRouter(presenter: navigationController).pushHeight()
         }
+    }
+}
+
+//----------------------------------------------
+// MARK: - QuizeProgressOutputProtocol
+//----------------------------------------------
+
+extension QuizeAgeController: QuizeProgressOutputProtocol {
+    func success() {
+        
+    }
+    
+    func failure() {
+        actionBack()
     }
 }

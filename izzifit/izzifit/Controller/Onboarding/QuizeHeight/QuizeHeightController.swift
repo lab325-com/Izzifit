@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 enum QuizeHeightType: Codable {
     case sm
@@ -43,9 +44,15 @@ class QuizeHeightController: BaseController {
     
     @IBOutlet weak var pickerView: UIPickerView!
     
+    @IBOutlet weak var energyLottieView: UIView!
+    @IBOutlet weak var energyLabel: UILabel!
+    
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
+    
+    private var animationEnergy: AnimationView?
+    private lazy var presenterProfile = QuizeProgressPresenter(view: self)
     
     private var smData = Array(120...230)
     
@@ -114,6 +121,17 @@ class QuizeHeightController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        let jsonName = "energy_anim"
+        let animation = Animation.named(jsonName)
+        animationEnergy = AnimationView(animation: animation)
+        energyLottieView.addSubview(animationEnergy!)
+        animationEnergy?.contentMode = .scaleAspectFit
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in
+            self?.animationEnergy?.play()
+            self?.energyLabel.text = "8"
+        }
+        
         if let gender = PreferencesManager.sharedManager.tempPorifle.gender {
             switch gender {
             case .female:
@@ -176,6 +194,7 @@ class QuizeHeightController: BaseController {
         PreferencesManager.sharedManager.tempPorifle = model
         
         AnalyticsHelper.sendFirebaseEvents(events: .onb_set_height)
+        presenterProfile.profileUpdate()
         OnboardingRouter(presenter: navigationController).pushWeight()
     }
 }
@@ -245,5 +264,19 @@ extension QuizeHeightController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 80
+    }
+}
+
+//----------------------------------------------
+// MARK: - QuizeProgressOutputProtocol
+//----------------------------------------------
+
+extension QuizeHeightController: QuizeProgressOutputProtocol {
+    func success() {
+        
+    }
+    
+    func failure() {
+        actionBack()
     }
 }

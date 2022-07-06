@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 enum QuizeGoalType: Codable {
     case keepFit
@@ -53,8 +54,12 @@ class QuizeGoalController: BaseController {
     @IBOutlet weak var loseWeightButton: UIButton!
     @IBOutlet weak var muscleButton: UIButton!
     @IBOutlet weak var justPlayButton: UIButton!
+    @IBOutlet weak var energyLottieView: UIView!
+    @IBOutlet weak var energyLabel: UILabel!
     
     private lazy var presenter = QuizeQoalPresenter(view: self)
+    private var animationEnergy: AnimationView?
+    private lazy var presenterProfile = QuizeProgressPresenter(view: self)
     
     private var goalType: QuizeGoalType? {
         didSet {
@@ -63,7 +68,7 @@ class QuizeGoalController: BaseController {
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setGoal(goalType!)
             PreferencesManager.sharedManager.tempPorifle = model
-            
+            presenterProfile.profileUpdate()
             OnboardingRouter(presenter: navigationController).pushAge()
         }
     }
@@ -88,12 +93,16 @@ class QuizeGoalController: BaseController {
     //----------------------------------------------
     
     private func setup() {
-        //presenter.getGoals()
+        let jsonName = "energy_anim"
+        let animation = Animation.named(jsonName)
+        animationEnergy = AnimationView(animation: animation)
+        energyLottieView.addSubview(animationEnergy!)
+        animationEnergy?.contentMode = .scaleAspectFit
         
-//        keepFitButton.isHidden = true
-//        loseWeightButton.isHidden = true
-//        muscleButton.isHidden = true
-//        justPlayButton.isHidden = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in
+            self?.animationEnergy?.play()
+            self?.energyLabel.text = "4"
+        }
         
         updateType()
         
@@ -180,7 +189,7 @@ class QuizeGoalController: BaseController {
 //----------------------------------------------
 
 extension QuizeGoalController: QuizeQoalOutputProtocol {
-    func success() {
+    func successGoal() {
         for type in presenter.types {
             switch type {
             case .keepFit:
@@ -193,6 +202,20 @@ extension QuizeGoalController: QuizeQoalOutputProtocol {
                 justPlayButton.isHidden = false
             }
         }
+    }
+    
+    func failureGoal() {
+        actionBack()
+    }
+}
+
+//----------------------------------------------
+// MARK: - QuizeProgressOutputProtocol
+//----------------------------------------------
+
+extension QuizeGoalController: QuizeProgressOutputProtocol {
+    func success() {
+        
     }
     
     func failure() {

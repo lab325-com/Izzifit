@@ -29,6 +29,7 @@
 		021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4C27BF99710000D863 /* MainTabBarController.swift */; };
 		021A6F4F27BF99720000D863 /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021A6F4D27BF99710000D863 /* MainTabBarController.xib */; };
 		021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F5027BFA1AD0000D863 /* LoginPresenter.swift */; };
+		021FEEF628733BF100E15C8F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0231DD8A286AFC7F006840DB /* Lottie */; };
 		0227A9BB2849F39E00BA29A8 /* QuizeVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227A9B92849F39E00BA29A8 /* QuizeVideoController.swift */; };
 		0227A9BC2849F39E00BA29A8 /* QuizeVideoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0227A9BA2849F39E00BA29A8 /* QuizeVideoController.xib */; };
 		0227A9BF2849F7F300BA29A8 /* IzziFit_coinmaster_30s.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0227A9BE2849F7F200BA29A8 /* IzziFit_coinmaster_30s.mp4 */; };
@@ -909,7 +910,7 @@
 				0249D25627B3A7AD00F265C1 /* NVActivityIndicatorView in Frameworks */,
 				FA2794E9285A068800AEEA70 /* HealthKit.framework in Frameworks */,
 				02B280F828571529003CAB32 /* StoreKit.framework in Frameworks */,
-				FA8535342875781200A9137B /* Lottie in Frameworks */,
+				021FEEF628733BF100E15C8F /* Lottie in Frameworks */,
 				02B2810228571734003CAB32 /* FirebaseRemoteConfig in Frameworks */,
 				0249D25827B3A7AD00F265C1 /* NVActivityIndicatorViewExtended in Frameworks */,
 				FA1BC1FA286F017D00D5569F /* Lottie in Frameworks */,
@@ -3743,7 +3744,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3762,7 +3763,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3782,7 +3783,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3801,7 +3802,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3882,7 +3883,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3901,7 +3902,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
