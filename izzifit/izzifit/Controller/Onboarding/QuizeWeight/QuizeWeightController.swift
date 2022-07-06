@@ -158,7 +158,9 @@ class QuizeWeightController: BaseController {
         
         weight = type == .kg ? Float(baseKG) : Float(baseLB)
         
-        initScrollOffset()
+        DispatchQueue.main.async {
+            self.initScrollOffset()
+        }
         
         countLabel.text = RLocalization.onboarding_count(6, 9)
         mainTitleLabel.text = RLocalization.onboarding_weight_title()

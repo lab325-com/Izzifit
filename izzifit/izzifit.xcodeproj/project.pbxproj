@@ -29,6 +29,7 @@
 		021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4C27BF99710000D863 /* MainTabBarController.swift */; };
 		021A6F4F27BF99720000D863 /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021A6F4D27BF99710000D863 /* MainTabBarController.xib */; };
 		021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F5027BFA1AD0000D863 /* LoginPresenter.swift */; };
+		021FEEF628733BF100E15C8F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0231DD8A286AFC7F006840DB /* Lottie */; };
 		0227A9BB2849F39E00BA29A8 /* QuizeVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227A9B92849F39E00BA29A8 /* QuizeVideoController.swift */; };
 		0227A9BC2849F39E00BA29A8 /* QuizeVideoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0227A9BA2849F39E00BA29A8 /* QuizeVideoController.xib */; };
 		0227A9BF2849F7F300BA29A8 /* IzziFit_coinmaster_30s.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0227A9BE2849F7F200BA29A8 /* IzziFit_coinmaster_30s.mp4 */; };
@@ -58,7 +59,6 @@
 		0227DAC727C6A455008AB26B /* MenuFoodController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0227DAC527C6A455008AB26B /* MenuFoodController.xib */; };
 		0227DACC27C6A82A008AB26B /* MenuFoodTitleCellCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227DACA27C6A82A008AB26B /* MenuFoodTitleCellCell.swift */; };
 		0227DACD27C6A82A008AB26B /* MenuFoodTitleCellCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0227DACB27C6A82A008AB26B /* MenuFoodTitleCellCell.xib */; };
-		0231DD8B286AFC7F006840DB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0231DD8A286AFC7F006840DB /* Lottie */; };
 		0231DD8E286AFCE2006840DB /* energy_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = 0231DD8D286AFCE2006840DB /* energy_anim.json */; };
 		02354E8F280934CE005A8272 /* StartWorkout.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02354E8E280934CE005A8272 /* StartWorkout.graphql */; };
 		02354E912809350D005A8272 /* StartWorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02354E902809350D005A8272 /* StartWorkoutModel.swift */; };
@@ -907,6 +907,7 @@
 				0249D25627B3A7AD00F265C1 /* NVActivityIndicatorView in Frameworks */,
 				FA2794E9285A068800AEEA70 /* HealthKit.framework in Frameworks */,
 				02B280F828571529003CAB32 /* StoreKit.framework in Frameworks */,
+				021FEEF628733BF100E15C8F /* Lottie in Frameworks */,
 				02B2810228571734003CAB32 /* FirebaseRemoteConfig in Frameworks */,
 				0249D25827B3A7AD00F265C1 /* NVActivityIndicatorViewExtended in Frameworks */,
 				FA1BC1FA286F017D00D5569F /* Lottie in Frameworks */,
@@ -3738,7 +3739,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 42;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3777,7 +3778,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 42;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3877,7 +3878,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 42;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;

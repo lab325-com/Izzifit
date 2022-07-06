@@ -85,28 +85,50 @@ class QuizeTargetWeightController: BaseController {
     }
     
     private var baseKG: CGFloat {
+        var delta: CGFloat = 1
+        
+        switch  PreferencesManager.sharedManager.tempPorifle.goal  {
+        case .muscle:
+            delta = 0.95
+        case .loseWeight:
+            delta = 0.85
+        default:
+            break
+        }
+        
         switch PreferencesManager.sharedManager.tempPorifle.gender {
         case .female:
-            return 60
+            return 60 * delta
         case .male:
-            return 80
+            return 80 * delta
         case .other:
-            return 70
+            return 70 * delta
         default:
-            return 60
+            return 60 * delta
         }
     }
     
     private var baseLB: CGFloat {
+        var delta: CGFloat = 1
+        
+        switch  PreferencesManager.sharedManager.tempPorifle.goal  {
+        case .muscle:
+            delta = 0.95
+        case .loseWeight:
+            delta = 0.85
+        default:
+            break
+        }
+       
         switch PreferencesManager.sharedManager.tempPorifle.gender {
         case .female:
-            return 132
+            return 132 * delta
         case .male:
-            return 176
+            return 176 * delta
         case .other:
-            return 154
+            return 154 * delta
         default:
-            return 132
+            return 132 * delta
         }
     }
     

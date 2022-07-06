@@ -96,7 +96,7 @@ class QuizeGenderController: BaseController {
         maleLabel.text = RLocalization.onboarding_male()
         otherLabel.text = RLocalization.onboarding_other()
         
-        getPlanButton.setTitle(RLocalization.onboarding_get_plan(), for: .normal)
+        getPlanButton.setTitle("Go next", for: .normal)
         
         femaleView.layer.borderWidth = 2
         maleView.layer.borderWidth = 2
