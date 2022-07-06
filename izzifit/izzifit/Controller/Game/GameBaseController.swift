@@ -7,13 +7,11 @@
 
 import UIKit
 
-
-
 class GameBaseController: BaseController {
     
     var first: UIViewController
     var second: UIViewController
-    private let currentScreen = PreferencesManager.sharedManager.currentMapName ?? .snow_map
+    private var currentScreen = PreferencesManager.sharedManager.currentMapName ?? .snow_map
     
     @objc func endLoadConfigNotification(_ notification: Notification) {
          updateController()
@@ -47,10 +45,12 @@ class GameBaseController: BaseController {
     
     func updateController() {
         if currentScreen == PreferencesManager.sharedManager.currentMapName { return }
-        first.removeContainer()
-        second.removeContainer()
+        if PreferencesManager.sharedManager.currentMapName != nil {
+            currentScreen = PreferencesManager.sharedManager.currentMapName!
+        }
         switch PreferencesManager.sharedManager.currentMapName {
-        case .england_map:  self.addContainer(child: second, to: self.view)
+        case .england_map: first.removeContainer()
+            self.addContainer(child: second, to: self.view)
         case .snow_map: self.addContainer(child: first, to: self.view)
         case .none: break
         }

@@ -121,8 +121,9 @@ class LevelFinishView: UIView {
         
         ui.genericlLayout(object: mainTitleLbl,
                           parentView: self,
-                          topC: hRatio(cH:394),
-                          centerH: 0)
+                          centerH: 0,
+                          bottomToO: mainBackImgVw.bottomAnchor,
+                          bottomCG: 110)
         
         
         ui.genericlLayout(object: confettiAnimationView!,
@@ -136,8 +137,9 @@ class LevelFinishView: UIView {
                           parentView: self,
                           width: 242,
                           height: 40,
-                          topC: hRatio(cH:466),
-                          centerH: 0)
+                          centerH: 0,
+                          bottomToO: mainBackImgVw.bottomAnchor,
+                          bottomCG: 45)
 
     }
 }

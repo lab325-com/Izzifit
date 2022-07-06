@@ -445,11 +445,6 @@ extension LevelController: LevelFinishDelegate {
         if let tabBarVC = self.tabBarController as? GameTabBarController {
             tabBarVC.spin()
         }
-        
-        PreferencesManager.sharedManager.currentMapName = .england_map
-        NotificationCenter.default.post(name: Constants.Notifications.newEndRemoteConfigEndNotification,
-                                        object: self,
-                                        userInfo: nil)
     }
 }
 
