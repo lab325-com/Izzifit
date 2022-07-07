@@ -53,8 +53,9 @@ public struct LoginRecordInput: GraphQLMapConvertible {
   ///   - password
   ///   - authType
   ///   - firebaseId
-  public init(token: Swift.Optional<String?> = nil, udid: Swift.Optional<String?> = nil, email: Swift.Optional<String?> = nil, password: Swift.Optional<String?> = nil, authType: Swift.Optional<AuthType?> = nil, firebaseId: Swift.Optional<String?> = nil) {
-    graphQLMap = ["token": token, "udid": udid, "email": email, "password": password, "authType": authType, "firebaseId": firebaseId]
+  ///   - timezone
+  public init(token: Swift.Optional<String?> = nil, udid: Swift.Optional<String?> = nil, email: Swift.Optional<String?> = nil, password: Swift.Optional<String?> = nil, authType: Swift.Optional<AuthType?> = nil, firebaseId: Swift.Optional<String?> = nil, timezone: Swift.Optional<String?> = nil) {
+    graphQLMap = ["token": token, "udid": udid, "email": email, "password": password, "authType": authType, "firebaseId": firebaseId, "timezone": timezone]
   }
 
   public var token: Swift.Optional<String?> {
@@ -108,6 +109,15 @@ public struct LoginRecordInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "firebaseId")
+    }
+  }
+
+  public var timezone: Swift.Optional<String?> {
+    get {
+      return graphQLMap["timezone"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "timezone")
     }
   }
 }

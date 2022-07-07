@@ -397,7 +397,6 @@
 		FA6B2820285CC9A100D34333 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B281F285CC9A100D34333 /* FirebaseCrashlytics */; };
 		FA6B2822285CC9A100D34333 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B2821285CC9A100D34333 /* FirebaseMessaging */; };
 		FA6B2824285CC9A100D34333 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B2823285CC9A100D34333 /* FirebaseRemoteConfig */; };
-		FA8535342875781200A9137B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0231DD8A286AFC7F006840DB /* Lottie */; };
 		FA8535362875D0D600A9137B /* coins_header.json in Resources */ = {isa = PBXBuildFile; fileRef = FA8535352875D0D600A9137B /* coins_header.json */; };
 		FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */; };
 		FA8CC858282919B80022BFE2 /* construction3.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA8CC857282919B80022BFE2 /* construction3.gif */; };
@@ -3744,7 +3743,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3783,7 +3782,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3883,7 +3882,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
