@@ -353,7 +353,7 @@ extension LevelController: LevelOutputProtocol {
         }
     }
     
-    
+
     func success() { }
     
     func successBuildings(model: [BuildingsModel]) {
