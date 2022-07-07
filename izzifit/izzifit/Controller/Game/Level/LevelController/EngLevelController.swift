@@ -258,6 +258,8 @@ class EngLevelController: BaseController {
 }
 
 extension EngLevelController: LevelOutputProtocol {
+   
+    func mapSwitched() { }
     
     func success() { }
     

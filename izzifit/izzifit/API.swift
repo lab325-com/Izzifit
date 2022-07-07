@@ -1444,6 +1444,57 @@ public final class DrinkWaterMutation: GraphQLMutation {
   }
 }
 
+public final class FinishMapMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation FinishMap($mapId: String) {
+      finishMap(mapId: $mapId)
+    }
+    """
+
+  public let operationName: String = "FinishMap"
+
+  public var mapId: String?
+
+  public init(mapId: String? = nil) {
+    self.mapId = mapId
+  }
+
+  public var variables: GraphQLMap? {
+    return ["mapId": mapId]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("finishMap", arguments: ["mapId": GraphQLVariable("mapId")], type: .scalar(Bool.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(finishMap: Bool? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "finishMap": finishMap])
+    }
+
+    public var finishMap: Bool? {
+      get {
+        return resultMap["finishMap"] as? Bool
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "finishMap")
+      }
+    }
+  }
+}
+
 public final class LoginMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =

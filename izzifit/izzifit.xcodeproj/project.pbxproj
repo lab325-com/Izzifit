@@ -397,8 +397,9 @@
 		FA6B2820285CC9A100D34333 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B281F285CC9A100D34333 /* FirebaseCrashlytics */; };
 		FA6B2822285CC9A100D34333 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B2821285CC9A100D34333 /* FirebaseMessaging */; };
 		FA6B2824285CC9A100D34333 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = FA6B2823285CC9A100D34333 /* FirebaseRemoteConfig */; };
-		FA8535342875781200A9137B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0231DD8A286AFC7F006840DB /* Lottie */; };
 		FA8535362875D0D600A9137B /* coins_header.json in Resources */ = {isa = PBXBuildFile; fileRef = FA8535352875D0D600A9137B /* coins_header.json */; };
+		FA85353E287707DD00A9137B /* FinishMap.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA85353C287707DD00A9137B /* FinishMap.graphql */; };
+		FA85353F287707DD00A9137B /* FinishMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85353D287707DD00A9137B /* FinishMapModel.swift */; };
 		FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */; };
 		FA8CC858282919B80022BFE2 /* construction3.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA8CC857282919B80022BFE2 /* construction3.gif */; };
 		FA9400052833989C00CE5021 /* GameBarBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9400042833989C00CE5021 /* GameBarBackView.swift */; };
@@ -838,6 +839,8 @@
 		FA6628A227F184C200FBB946 /* Moods.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moods.graphql; sourceTree = "<group>"; };
 		FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetCounter.swift; sourceTree = "<group>"; };
 		FA8535352875D0D600A9137B /* coins_header.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coins_header.json; sourceTree = "<group>"; };
+		FA85353C287707DD00A9137B /* FinishMap.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FinishMap.graphql; sourceTree = "<group>"; };
+		FA85353D287707DD00A9137B /* FinishMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishMapModel.swift; sourceTree = "<group>"; };
 		FA856FFD27EC8BEC0012F433 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		FA8CC857282919B80022BFE2 /* construction3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = construction3.gif; sourceTree = "<group>"; };
 		FA9400042833989C00CE5021 /* GameBarBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBarBackView.swift; sourceTree = "<group>"; };
@@ -2066,6 +2069,7 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				FA8535382876FF0400A9137B /* FinishMap */,
 				FAD5B2972864A26100A1EF4D /* SaveSteps */,
 				02AD7389284F6F7500376E4C /* OrderProduct */,
 				024EBCA32840E04800E6623F /* ProfileDelete */,
@@ -2661,6 +2665,15 @@
 			path = Moods;
 			sourceTree = "<group>";
 		};
+		FA8535382876FF0400A9137B /* FinishMap */ = {
+			isa = PBXGroup;
+			children = (
+				FA85353C287707DD00A9137B /* FinishMap.graphql */,
+				FA85353D287707DD00A9137B /* FinishMapModel.swift */,
+			);
+			path = FinishMap;
+			sourceTree = "<group>";
+		};
 		FA8C4846284E0D34006FF663 /* GamePurchasePopUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -3202,6 +3215,7 @@
 				FE1403C327E249EB002F5819 /* ChartCollectionCell.xib in Resources */,
 				FA2794F92861A89F00AEEA70 /* EnergyStepsCell.xib in Resources */,
 				02BC127B27F1E13D00678305 /* WorkoutById.graphql in Resources */,
+				FA85353E287707DD00A9137B /* FinishMap.graphql in Resources */,
 				02BC127827F1CF5800678305 /* WorkoutDetailDescriptionCell.xib in Resources */,
 				FA1A6D8128081CE80040518A /* LevelController.xib in Resources */,
 				02D066B327BBB32400D12C5F /* StartController.xib in Resources */,
@@ -3442,6 +3456,7 @@
 				02B225C027BD7B4F0035CFA2 /* LoginModel.swift in Sources */,
 				02569978281960BA00BA1535 /* AudioManager.swift in Sources */,
 				02BACF1627F4585B00B7562C /* RecommendWorkoutsModel.swift in Sources */,
+				FA85353F287707DD00A9137B /* FinishMapModel.swift in Sources */,
 				0227DAB727C67334008AB26B /* MenuHeightController.swift in Sources */,
 				02D066D327BBD12600D12C5F /* QuizeGenderController.swift in Sources */,
 				02354E9C28098B8C005A8272 /* VideoNotFinished.swift in Sources */,
