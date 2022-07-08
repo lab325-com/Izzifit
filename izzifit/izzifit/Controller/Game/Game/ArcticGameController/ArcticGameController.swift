@@ -191,6 +191,7 @@ extension ArcticGameController: ArcticGameOutputProtocol {
         checkAvailableHummers()
         timerSpinManager.counter.combinations = map.map2.spins
         collectionView.reloadData()
+        
     }
 }
 

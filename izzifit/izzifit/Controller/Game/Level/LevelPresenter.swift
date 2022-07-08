@@ -16,6 +16,7 @@ protocol LevelOutputProtocol: BaseController {
     func successBuildings(model: [BuildingsModel])
     func successBuild()
     func successMe()
+    func mapSwitched()
 }
 
 //----------------------------------------------
@@ -42,13 +43,16 @@ class LevelPresenter: LevelProtocol {
             PreferencesManager.sharedManager.hummerCount = newValue
         }
     }
+    
     var buildings = [BuildingsModel]()
+    var backMapId = String()
     func getBuildings() {
         view?.startLoader()
         let query = Map2Query()
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
-           self?.freeBuildingsCount = model.map2.freeBuildingsCount
+            self?.freeBuildingsCount = model.map2.freeBuildingsCount
             self?.buildings = model.map2.buildings
+            self?.backMapId = model.map2.id
             self?.view?.successBuildings(model: model.map2.buildings)
             self?.view?.stopLoading()
         }, failureHandler: { [weak self] error in
@@ -69,15 +73,25 @@ class LevelPresenter: LevelProtocol {
         })
     }
     
+    func nextMap() {
+        view?.startLoader()
+        let mutation = FinishMapMutation(mapId: backMapId)
+        let _ = Network.shared.mutation(model: FinishMapModel.self, mutation, controller: view) {
+            [weak self] model in
+            guard model.finishMap else { return }
+            self?.view?.mapSwitched()
+        } failureHandler: { error in
+            self.view?.stopLoading()
+        }
+    }
+    
     func getMe() {
         let query = MeQuery()
         let _ = Network.shared.query(model: MeModel.self, query, controller: view) { [weak self] model in
-            
             KeychainService.standard.me = model.me
             self?.view?.successMe()
         } failureHandler: { [weak self] error in
             self?.view?.stopLoading()
-       
         }
     }
 }

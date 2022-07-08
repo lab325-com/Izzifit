@@ -45,6 +45,7 @@ class FoodAddPresenter: FoodAddPresenterProtocol {
         let mutation = AddProductToMealMutation(record: AddProductToMealRecordInput(mealId: mealId, productId: productId, amount: amount))
         let _ = Network.shared.mutation(model: AddProductToMealModel.self, mutation, controller: view, successHandler: { [weak self] model in
             self?.view?.stopLoading()
+            self?.getMe()
             self?.view?.success()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
@@ -58,6 +59,7 @@ class FoodAddPresenter: FoodAddPresenterProtocol {
         let mutation = UpdateProductInMealMutation(record: UpdateProductInMealRecordInput(mealId: mealId, productId: productId, amount: amount))
         let _ = Network.shared.mutation(model: UpdateProductInMealModel.self, mutation, controller: view, successHandler: { [weak self] model in
             self?.view?.stopLoading()
+            self?.getMe()
             self?.view?.successUpdate()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
@@ -71,10 +73,21 @@ class FoodAddPresenter: FoodAddPresenterProtocol {
         let mutation = RemoveProductFromMealMutation(productId: productId, mealId: mealId)
         let _ = Network.shared.mutation(model: RemoveProductFromMealModel.self, mutation, controller: view, successHandler: { [weak self] model in
             self?.view?.stopLoading()
+            self?.getMe()
             self?.view?.successRemove()
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
             self?.view?.failure()
         })
+    }
+    
+    func getMe() {
+        let query = MeQuery()
+        let _ = Network.shared.query(model: MeModel.self, query, controller: view) { model in
+            KeychainService.standard.me = model.me
+        } failureHandler: { [weak self] error in
+            self?.view?.stopLoading()
+            self?.view?.failure()
+        }
     }
 }

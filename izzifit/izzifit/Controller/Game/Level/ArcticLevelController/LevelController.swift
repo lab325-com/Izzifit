@@ -38,19 +38,11 @@ class LevelController: BaseController {
     private var firstRespond = true
     private lazy var presenter = LevelPresenter(view: self)
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        hummerBtn.isUserInteractionEnabled = false
-        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
-    }
-    
     override func viewDidLoad() {
         hummerBtn.isHidden = true
         hummerCountLbl.isHidden = true
         needSoundTap = false
         super.viewDidLoad()
-        presenter.getBuildings()
         view.ui.genericlLayout(object: barBackVw,
                                parentView: self.view,
                                height: view.h / 9.2,
@@ -60,6 +52,14 @@ class LevelController: BaseController {
         setup()
         hiddenNavigationBar = true
         addTargets()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hummerBtn.isUserInteractionEnabled = false
+        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+        presenter.getBuildings()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -144,7 +144,7 @@ class LevelController: BaseController {
                         buildType: BuildingType,
                         popType: LevelPopType,
                         sender: UIButton) {
-       
+        
         buildPopUpVw = nil
         buildPopUpVw = LevelPopUpView(popType: popType,
                                       title: "Arctic",
@@ -347,14 +347,21 @@ class LevelController: BaseController {
 
 extension LevelController: LevelOutputProtocol {
     
+    func mapSwitched() {
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
+            tabBarVC.spin()
+        }
+    }
+    
+
     func success() { }
     
     func successBuildings(model: [BuildingsModel]) {
         checkAvailableHummers()
         drawStates()
-            pointers.drawPointers(model: player, btns: btns)
+        pointers.drawPointers(model: player, btns: btns)
         
-        let maxLevel = player.checkMaxLevel()
+      
         for building in model {
             var state: LevelStates
             let level = building.level
@@ -377,9 +384,20 @@ extension LevelController: LevelOutputProtocol {
             default: break
             }
         }
-        guard !maxLevel else { return }
         drawStates()
         pointers.drawPointers(model: player, btns: btns)
+        let maxLevel = player.checkMaxLevel()
+        guard maxLevel else { return }
+        
+        let finishLevelPopUp = LevelFinishView(title: "Arctic",
+                                               delegate: self)
+        
+        view.ui.genericlLayout(object: finishLevelPopUp,
+                               parentView: view,
+                               topC: 0,
+                               bottomC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
     }
     
     func successBuild() {
@@ -441,9 +459,7 @@ extension LevelController: PurchasePopUpProtocol {
 
 extension LevelController: LevelFinishDelegate {
     func nextMap(view: UIView) {
-        if let tabBarVC = self.tabBarController as? GameTabBarController {
-            tabBarVC.spin()
-        }
+        presenter.nextMap()
     }
 }
 
