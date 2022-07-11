@@ -79,6 +79,7 @@ extension RootRouter {
     
     func logout() {
         KeychainService.standard.removeAll()
+        PreferencesManager.sharedManager.deleteAcc()
         loadStart(toWindow: window!)
     }
 }

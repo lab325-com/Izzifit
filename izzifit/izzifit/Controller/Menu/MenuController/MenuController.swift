@@ -221,6 +221,7 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
 extension MenuController: MenuOutputProtocol{
     func successDeleteAccount() {
         KeychainService.standard.removeAll()
+        PreferencesManager.sharedManager.deleteAcc()
         RootRouter.sharedInstance.loadStart(toWindow: RootRouter.sharedInstance.window!)
     }
     
@@ -270,6 +271,7 @@ extension MenuController: MenuLogoutCellDeleagate {
         alert.addAction(ok)
         let cancel = UIAlertAction(title: "Yes", style: .default, handler: { action in
             KeychainService.standard.removeAll()
+            PreferencesManager.sharedManager.deleteAcc()
             RootRouter.sharedInstance.loadStart(toWindow: RootRouter.sharedInstance.window!)
         })
         

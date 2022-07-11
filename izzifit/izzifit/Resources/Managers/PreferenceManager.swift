@@ -224,4 +224,8 @@ class PreferencesManager : NSObject {
             UserDefaults.standard.set(newValue, forKey: "hummerCount")
         }
     }
+    
+    func deleteAcc() {
+        tempPorifle =  TempProfileModel(name: nil)
+    }
 }
