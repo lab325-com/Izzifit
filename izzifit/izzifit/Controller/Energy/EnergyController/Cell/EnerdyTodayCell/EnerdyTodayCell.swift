@@ -54,16 +54,16 @@ class EnerdyTodayCell: BaseTableViewCell {
             }
         }
         
-        guard !PreferencesManager.sharedManager.afterOnboarding else { return }
-        
-        let onboardingView = GameOnboardingEnergyView(state: .game)
-        
-             ui.genericlLayout(object: onboardingView,
-                               parentView: self,
-                               width: wRatio(cW: 344),
-                               height: wRatio(cW: 64),
-                               bottomC: 10,
-                               centerH: 0)
+//        guard !PreferencesManager.sharedManager.afterOnboarding else { return }
+//        
+//        let onboardingView = GameOnboardingEnergyView(state: .game)
+//        
+//             ui.genericlLayout(object: onboardingView,
+//                               parentView: self,
+//                               width: wRatio(cW: 344),
+//                               height: wRatio(cW: 64),
+//                               bottomC: 10,
+//                               centerH: 0)
     }
     
     @IBAction func actionProgress(_ sender: UIButton) {
