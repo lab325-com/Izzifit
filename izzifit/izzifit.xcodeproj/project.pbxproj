@@ -425,6 +425,7 @@
 		FABE8C0128525ED300E3E53C /* EngLevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE8C0028525ED300E3E53C /* EngLevelController.swift */; };
 		FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAC55B9627EB87F0001DA24C /* Rank.graphql */; };
 		FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC55B9927EB944E001DA24C /* RankModel.swift */; };
+		FAC75D3328783C6D0084222C /* gameOnboardingEnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC75D3228783C6D0084222C /* gameOnboardingEnergyView.swift */; };
 		FACB1E862804325500058773 /* PointersAndTicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1E852804325500058773 /* PointersAndTicks.swift */; };
 		FACD1C13284787A50014AFDC /* ArcticGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD1C12284787A50014AFDC /* ArcticGameController.swift */; };
 		FAD5B29A2864A2DB00A1EF4D /* SaveSteps.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAD5B2982864A2DB00A1EF4D /* SaveSteps.graphql */; };
@@ -865,6 +866,7 @@
 		FABE8C0028525ED300E3E53C /* EngLevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngLevelController.swift; sourceTree = "<group>"; };
 		FAC55B9627EB87F0001DA24C /* Rank.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rank.graphql; sourceTree = "<group>"; };
 		FAC55B9927EB944E001DA24C /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
+		FAC75D3228783C6D0084222C /* gameOnboardingEnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameOnboardingEnergyView.swift; sourceTree = "<group>"; };
 		FACB1E852804325500058773 /* PointersAndTicks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointersAndTicks.swift; sourceTree = "<group>"; };
 		FACD1C12284787A50014AFDC /* ArcticGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGameController.swift; sourceTree = "<group>"; };
 		FAD5B2982864A2DB00A1EF4D /* SaveSteps.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SaveSteps.graphql; sourceTree = "<group>"; };
@@ -1672,6 +1674,7 @@
 		0263388927DB296600DC0325 /* EnergyController */ = {
 			isa = PBXGroup;
 			children = (
+				FAC75D3128783C080084222C /* gameOnboardingEnergyView */,
 				02FAF0AD27D36D7C002CD678 /* EnergyPresenter.swift */,
 				02A5CDA327C393A300D31FB4 /* EnergyController.swift */,
 				028EE3C82835031400F3D148 /* EnergyController+TableView.swift */,
@@ -2826,6 +2829,14 @@
 			path = Rank;
 			sourceTree = "<group>";
 		};
+		FAC75D3128783C080084222C /* gameOnboardingEnergyView */ = {
+			isa = PBXGroup;
+			children = (
+				FAC75D3228783C6D0084222C /* gameOnboardingEnergyView.swift */,
+			);
+			path = gameOnboardingEnergyView;
+			sourceTree = "<group>";
+		};
 		FACD1C14284790940014AFDC /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -3535,6 +3546,7 @@
 				02D066E227BBEBA000D12C5F /* QuizeHeightController.swift in Sources */,
 				02B22AC3281C1502006AB1EA /* ArcticGamePresenter.swift in Sources */,
 				023CDC3528047BEB0056F022 /* QuizeGoalPresenter.swift in Sources */,
+				FAC75D3328783C6D0084222C /* gameOnboardingEnergyView.swift in Sources */,
 				0249D26627B3A88C00F265C1 /* Int+Extension.swift in Sources */,
 				0290B39927D2340800381B42 /* EnerdyTodayCell.swift in Sources */,
 				02ABCF3527CCC3F400E69C06 /* MenuFoodSwitchCell.swift in Sources */,
