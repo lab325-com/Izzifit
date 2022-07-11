@@ -88,6 +88,21 @@ class MainTabBarController: BaseController {
         NotificationCenter.default.addObserver(self, selector:#selector(openWorkout),
                                                name: Constants.Notifications.openWorkoutNotification,
                                                object: nil)
+        
+        
+        guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
+        
+        let onboardingView = MainGameOnboardingView(state: .energy1,
+                                                    delegate: self)
+                
+        view.ui.genericlLayout(object: onboardingView,
+                               parentView: view,
+                               topC: 0,
+                               bottomC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
+        
+        
 
     }
     
@@ -187,6 +202,16 @@ class MainTabBarController: BaseController {
         navigationController?.navigationBar.isHidden = true
         TabBarRouter(presenter: navigationController).pushGame()
     }
+
+    func goToFun(){
+        AudioManager.sharedManager.playSound()
+        UIView.animate(withDuration: 0.3) {
+            self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
+            self.view.layoutIfNeeded()
+        }
+        navigationController?.navigationBar.isHidden = true
+        TabBarRouter(presenter: navigationController).pushGame()
+    }
     
     @IBAction func actionMenu(_ sender: UIButton) {
         AudioManager.sharedManager.playSound()
@@ -197,4 +222,23 @@ class MainTabBarController: BaseController {
 
         TabBarRouter(presenter: navigationController).pushMenu()
     }
+}
+
+
+
+//----------------------------------------------
+// MARK: - MainGameOnboardingDelegate
+//----------------------------------------------
+
+extension MainTabBarController: MainGameOnboardingDelegate {
+    func tapBtn() {
+        AudioManager.sharedManager.playSound()
+        UIView.animate(withDuration: 0.3) {
+            self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
+            self.view.layoutIfNeeded()
+        }
+        navigationController?.navigationBar.isHidden = true
+        TabBarRouter(presenter: navigationController).pushGame()
+    }
+    
 }

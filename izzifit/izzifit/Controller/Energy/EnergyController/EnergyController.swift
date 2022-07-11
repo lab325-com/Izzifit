@@ -130,6 +130,8 @@ class EnergyController: BaseController {
         topView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
         avatarView.gradientBorder(width: 2, colors: [UIColor(rgb: 0xFF42A8), UIColor(rgb: 0x7759B7)], startPoint: .unitCoordinate(.top), endPoint: .unitCoordinate(.bottom), andRoundCornersWithRadius: 20)
+        
+ 
     }
     
     deinit {
@@ -220,3 +222,5 @@ extension EnergyController: EnergyOutputProtocol {
         animationEnergy?.play()
     }
 }
+
+

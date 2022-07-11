@@ -423,9 +423,10 @@
 		FAC340D1287C8A6100B90943 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FAC340D0287C8A6100B90943 /* FirebaseMessaging */; };
 		FAC340D3287C8A6100B90943 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = FAC340D2287C8A6100B90943 /* FirebaseRemoteConfig */; };
 		FAC340D6287C9CB900B90943 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAC340D5287C9CB900B90943 /* SwiftyStoreKit */; };
+		FAC340D9287CAA0C00B90943 /* MainGameOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC340D8287CAA0C00B90943 /* MainGameOnboardingView.swift */; };
 		FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAC55B9627EB87F0001DA24C /* Rank.graphql */; };
 		FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC55B9927EB944E001DA24C /* RankModel.swift */; };
-		FAC75D3328783C6D0084222C /* gameOnboardingEnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC75D3228783C6D0084222C /* gameOnboardingEnergyView.swift */; };
+		FAC75D3328783C6D0084222C /* GameOnboardingEnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC75D3228783C6D0084222C /* GameOnboardingEnergyView.swift */; };
 		FACB1E862804325500058773 /* PointersAndTicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1E852804325500058773 /* PointersAndTicks.swift */; };
 		FACD1C13284787A50014AFDC /* ArcticGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD1C12284787A50014AFDC /* ArcticGameController.swift */; };
 		FAD5B29A2864A2DB00A1EF4D /* SaveSteps.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAD5B2982864A2DB00A1EF4D /* SaveSteps.graphql */; };
@@ -864,9 +865,10 @@
 		FABE8BF728512C6C00E3E53C /* PurchasePop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasePop.swift; sourceTree = "<group>"; };
 		FABE8BFE28520E5000E3E53C /* LevelPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopUpView.swift; sourceTree = "<group>"; };
 		FABE8C0028525ED300E3E53C /* EngLevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngLevelController.swift; sourceTree = "<group>"; };
+		FAC340D8287CAA0C00B90943 /* MainGameOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameOnboardingView.swift; sourceTree = "<group>"; };
 		FAC55B9627EB87F0001DA24C /* Rank.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rank.graphql; sourceTree = "<group>"; };
 		FAC55B9927EB944E001DA24C /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
-		FAC75D3228783C6D0084222C /* gameOnboardingEnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameOnboardingEnergyView.swift; sourceTree = "<group>"; };
+		FAC75D3228783C6D0084222C /* GameOnboardingEnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOnboardingEnergyView.swift; sourceTree = "<group>"; };
 		FACB1E852804325500058773 /* PointersAndTicks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointersAndTicks.swift; sourceTree = "<group>"; };
 		FACD1C12284787A50014AFDC /* ArcticGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGameController.swift; sourceTree = "<group>"; };
 		FAD5B2982864A2DB00A1EF4D /* SaveSteps.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SaveSteps.graphql; sourceTree = "<group>"; };
@@ -2738,6 +2740,7 @@
 		FAB6546B27FEDF1A0057A221 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				FAC340D7287CA9F000B90943 /* MainGameOnboardingView */,
 				02BE942F284F34F4006D361B /* GameRouter.swift */,
 				FA8C4846284E0D34006FF663 /* GamePurchasePopUp */,
 				FAB6546D27FEDF340057A221 /* Game */,
@@ -2820,6 +2823,14 @@
 			path = LevelPopUpView;
 			sourceTree = "<group>";
 		};
+		FAC340D7287CA9F000B90943 /* MainGameOnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				FAC340D8287CAA0C00B90943 /* MainGameOnboardingView.swift */,
+			);
+			path = MainGameOnboardingView;
+			sourceTree = "<group>";
+		};
 		FAC55B9527EB87A9001DA24C /* Rank */ = {
 			isa = PBXGroup;
 			children = (
@@ -2832,7 +2843,7 @@
 		FAC75D3128783C080084222C /* gameOnboardingEnergyView */ = {
 			isa = PBXGroup;
 			children = (
-				FAC75D3228783C6D0084222C /* gameOnboardingEnergyView.swift */,
+				FAC75D3228783C6D0084222C /* GameOnboardingEnergyView.swift */,
 			);
 			path = gameOnboardingEnergyView;
 			sourceTree = "<group>";
@@ -3512,6 +3523,7 @@
 				FAB6548027FFFD480057A221 /* SlotTableViewCell.swift in Sources */,
 				0249D26D27B3A96E00F265C1 /* AuthModel.swift in Sources */,
 				027BFB472844B2AB0008E241 /* GradientView.swift in Sources */,
+				FAC340D9287CAA0C00B90943 /* MainGameOnboardingView.swift in Sources */,
 				02B1E71927DA003B00C9E610 /* EnergyTrainingCell.swift in Sources */,
 				0227DAA927C64F33008AB26B /* MenuRouter.swift in Sources */,
 				024EBCA12840DA2D00E6623F /* MenuDeleteAccount.swift in Sources */,
@@ -3545,7 +3557,7 @@
 				02D066E227BBEBA000D12C5F /* QuizeHeightController.swift in Sources */,
 				02B22AC3281C1502006AB1EA /* ArcticGamePresenter.swift in Sources */,
 				023CDC3528047BEB0056F022 /* QuizeGoalPresenter.swift in Sources */,
-				FAC75D3328783C6D0084222C /* gameOnboardingEnergyView.swift in Sources */,
+				FAC75D3328783C6D0084222C /* GameOnboardingEnergyView.swift in Sources */,
 				0249D26627B3A88C00F265C1 /* Int+Extension.swift in Sources */,
 				0290B39927D2340800381B42 /* EnerdyTodayCell.swift in Sources */,
 				02ABCF3527CCC3F400E69C06 /* MenuFoodSwitchCell.swift in Sources */,
