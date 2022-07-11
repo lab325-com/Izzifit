@@ -221,9 +221,17 @@ extension EnergyController: EnergyChooseActivityProtocol {
     func energyChooseActivitySelect(cell: EnergyChooseActivityCell, model: WorkoutsWidgetMainModel) {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_activity_tap)
         
-        if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .chooseAcivity) {
-            guard let id = model.id else { return }
+//        if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .chooseAcivity) {
+//            guard let id = model.id else { return }
+//            WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
+//        }
+        
+        guard let id = model.id, let isAvailable = model.isAvailable else { return }
+         
+        if isAvailable {
             WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
+        } else {
+            let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .chooseAcivity)
         }
     }
 }

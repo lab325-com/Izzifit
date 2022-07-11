@@ -11,6 +11,7 @@ import Kingfisher
 class EnergyChooseActivityCollectionCell: UICollectionViewCell {
 
     @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var blockedImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var exercisesLabel: UILabel!
     
@@ -27,8 +28,11 @@ class EnergyChooseActivityCollectionCell: UICollectionViewCell {
             exersises = exersises + "\(hours) hour(s)"
         }
         
-        
         exercisesLabel.text = exersises + " \(model.duration?.minutes ?? 0) min"
+        
+        if let isAvailable = model.isAvailable {
+            blockedImageView.isHidden = isAvailable ? true : false
+        }
         
         avatarImageView.kf.setImage(with: URL(string: model.Image?.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_ic(), options: [.transition(.fade(0.25))])
     }
