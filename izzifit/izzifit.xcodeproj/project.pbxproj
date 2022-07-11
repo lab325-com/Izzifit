@@ -424,6 +424,13 @@
 		FAC340D3287C8A6100B90943 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = FAC340D2287C8A6100B90943 /* FirebaseRemoteConfig */; };
 		FAC340D6287C9CB900B90943 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAC340D5287C9CB900B90943 /* SwiftyStoreKit */; };
 		FAC340D9287CAA0C00B90943 /* MainGameOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC340D8287CAA0C00B90943 /* MainGameOnboardingView.swift */; };
+		FAC340E1287CDA7D00B90943 /* point_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = FAC340DA287CDA7D00B90943 /* point_anim.json */; };
+		FAC340E2287CDA7D00B90943 /* menu_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = FAC340DB287CDA7D00B90943 /* menu_anim.json */; };
+		FAC340E3287CDA7D00B90943 /* spark_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = FAC340DC287CDA7D00B90943 /* spark_anim.json */; };
+		FAC340E4287CDA7D00B90943 /* fun_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = FAC340DD287CDA7D00B90943 /* fun_anim.json */; };
+		FAC340E5287CDA7D00B90943 /* congrads_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = FAC340DE287CDA7D00B90943 /* congrads_anim.json */; };
+		FAC340E6287CDA7D00B90943 /* smoke_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = FAC340DF287CDA7D00B90943 /* smoke_anim.json */; };
+		FAC340E7287CDA7D00B90943 /* spin_button_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = FAC340E0287CDA7D00B90943 /* spin_button_anim.json */; };
 		FAC55B9727EB87F0001DA24C /* Rank.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAC55B9627EB87F0001DA24C /* Rank.graphql */; };
 		FAC55B9A27EB944E001DA24C /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC55B9927EB944E001DA24C /* RankModel.swift */; };
 		FAC75D3328783C6D0084222C /* GameOnboardingEnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC75D3228783C6D0084222C /* GameOnboardingEnergyView.swift */; };
@@ -866,6 +873,13 @@
 		FABE8BFE28520E5000E3E53C /* LevelPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopUpView.swift; sourceTree = "<group>"; };
 		FABE8C0028525ED300E3E53C /* EngLevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngLevelController.swift; sourceTree = "<group>"; };
 		FAC340D8287CAA0C00B90943 /* MainGameOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameOnboardingView.swift; sourceTree = "<group>"; };
+		FAC340DA287CDA7D00B90943 /* point_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = point_anim.json; sourceTree = "<group>"; };
+		FAC340DB287CDA7D00B90943 /* menu_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu_anim.json; sourceTree = "<group>"; };
+		FAC340DC287CDA7D00B90943 /* spark_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spark_anim.json; sourceTree = "<group>"; };
+		FAC340DD287CDA7D00B90943 /* fun_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fun_anim.json; sourceTree = "<group>"; };
+		FAC340DE287CDA7D00B90943 /* congrads_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = congrads_anim.json; sourceTree = "<group>"; };
+		FAC340DF287CDA7D00B90943 /* smoke_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smoke_anim.json; sourceTree = "<group>"; };
+		FAC340E0287CDA7D00B90943 /* spin_button_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spin_button_anim.json; sourceTree = "<group>"; };
 		FAC55B9627EB87F0001DA24C /* Rank.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rank.graphql; sourceTree = "<group>"; };
 		FAC55B9927EB944E001DA24C /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		FAC75D3228783C6D0084222C /* GameOnboardingEnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOnboardingEnergyView.swift; sourceTree = "<group>"; };
@@ -2691,6 +2705,13 @@
 		FA8CC856282919450022BFE2 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				FAC340DE287CDA7D00B90943 /* congrads_anim.json */,
+				FAC340DD287CDA7D00B90943 /* fun_anim.json */,
+				FAC340DB287CDA7D00B90943 /* menu_anim.json */,
+				FAC340DA287CDA7D00B90943 /* point_anim.json */,
+				FAC340DF287CDA7D00B90943 /* smoke_anim.json */,
+				FAC340DC287CDA7D00B90943 /* spark_anim.json */,
+				FAC340E0287CDA7D00B90943 /* spin_button_anim.json */,
 				FA8535352875D0D600A9137B /* coins_header.json */,
 				FA1BC1FD286F110100D5569F /* confetti.json */,
 				FA1BC1FB286F052700D5569F /* winner.json */,
@@ -3079,7 +3100,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0268752A27D8C90100FFEA6A /* EnergyWeightCell.xib in Resources */,
+				FAC340E4287CDA7D00B90943 /* fun_anim.json in Resources */,
 				0227DAAE27C66C25008AB26B /* MenuAgeController.xib in Resources */,
+				FAC340E2287CDA7D00B90943 /* menu_anim.json in Resources */,
 				020CB3DF27E9F5E200F97A76 /* RemoveProductFromMeal.graphql in Resources */,
 				025463AD27CE6E9800D433DB /* MenuFitnessController.xib in Resources */,
 				FAA8E88A27F449060081A12A /* CaloriesWidget.graphql in Resources */,
@@ -3090,6 +3113,7 @@
 				FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */,
 				0268752327D8904900FFEA6A /* progress.graphql in Resources */,
 				02FAF0A727D361AE002CD678 /* EnergyDrinkWaterCell.xib in Resources */,
+				FAC340E7287CDA7D00B90943 /* spin_button_anim.json in Resources */,
 				FA1BC1FC286F052700D5569F /* winner.json in Resources */,
 				02AB486B27E07EFB00F35EE2 /* FoodTopTitleCell.xib in Resources */,
 				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
@@ -3111,6 +3135,7 @@
 				0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */,
 				020D282027E863DD00010122 /* FoodAddController.xib in Resources */,
 				02D066CC27BBBB4300D12C5F /* QuizeNameController.xib in Resources */,
+				FAC340E5287CDA7D00B90943 /* congrads_anim.json in Resources */,
 				0249D28327B3AAAE00F265C1 /* LoginController.xib in Resources */,
 				FA1761C127DA3E96002881BB /* WorkoutActivityCollectionCell.xib in Resources */,
 				FE1403B427E1EDC2002F5819 /* ProfileController.xib in Resources */,
@@ -3125,10 +3150,12 @@
 				0256997B2819611600BA1535 /* 1_tap_main.wav in Resources */,
 				02DFE896285A1168005BF69B /* OnboardingSwipeContoller.xib in Resources */,
 				02B225B927BD63FC0035CFA2 /* QuizeEmailController.xib in Resources */,
+				FAC340E3287CDA7D00B90943 /* spark_anim.json in Resources */,
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
 				02B22ACD281C27D8006AB1EA /* UpgradeBuilding.graphql in Resources */,
 				02C5C4632836548000DA189C /* WidgetList.graphql in Resources */,
 				02AD738B284F6F8E00376E4C /* OrderProduct.graphql in Resources */,
+				FAC340E6287CDA7D00B90943 /* smoke_anim.json in Resources */,
 				02BC128E27F329E200678305 /* WorkoutDetailMuscleController.xib in Resources */,
 				0256999228197A7500BA1535 /* 19_super_win.wav in Resources */,
 				0298DDF228606DD900BD0234 /* SpecialWorkouts.graphql in Resources */,
@@ -3197,6 +3224,7 @@
 				02D066D427BBD12600D12C5F /* QuizeGenderController.xib in Resources */,
 				0273F56727D60EC500B19449 /* SleepWidget.graphql in Resources */,
 				02A4649E2811641800B00381 /* GoogleService-Info1.plist in Resources */,
+				FAC340E1287CDA7D00B90943 /* point_anim.json in Resources */,
 				02E9047227F59E56008CFFB4 /* WorkoutExercisesCell.xib in Resources */,
 				02B2810428573268003CAB32 /* GoogleService-Info.plist in Resources */,
 				02F2D94027D0BF5C00E9FB68 /* AskQuestion.graphql in Resources */,

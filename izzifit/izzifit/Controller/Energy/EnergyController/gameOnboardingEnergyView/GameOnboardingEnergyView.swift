@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 enum OnboardingGameState {
     case energy, game
@@ -80,6 +81,18 @@ class GameOnboardingEnergyView: UIView {
         
         switch state {
         case .energy:   mainImgVw.image = image(img: .onboardingLightning)  ?? UIImage()
+            
+            var anim = AnimationView(name: "spark_anim")
+            anim.contentMode = .scaleAspectFill
+            anim.loopMode = .loop
+            
+            ui.genericlLayout(object: anim,
+                              parentView: yellowVw,
+                              width: 100,
+                              height: 100,
+                              trailingC: 1,
+                              centerV: 0)
+            
             ui.genericlLayout(object: mainImgVw,
                               parentView: self,
                               width: wRatio(cW:38.5),
@@ -88,8 +101,22 @@ class GameOnboardingEnergyView: UIView {
                               bottomCG: 6,
                               trailingToO: yellowVw.trailingAnchor,
                               trailingCG: wRatio(cW: 16))
+            anim.play()
             
-        case .game:     mainImgVw.image = image(img: .onboardingVillage)    ?? UIImage()
+        case .game:
+            
+            var anim = AnimationView(name: "smoke_anim")
+            anim.contentMode = .scaleAspectFit
+            anim.loopMode = .loop
+            
+            ui.genericlLayout(object: anim,
+                              parentView: self,
+                              width: 60,
+                              height: 60,
+                              bottomC: 27,
+                              trailingC: 1)
+            
+            mainImgVw.image = image(img: .onboardingVillage)    ?? UIImage()
             ui.genericlLayout(object: mainImgVw,
                               parentView: self,
                               width: wRatio(cW:77),
@@ -98,6 +125,7 @@ class GameOnboardingEnergyView: UIView {
                               topCG: -7,
                               trailingToO: yellowVw.trailingAnchor,
                               trailingCG: wRatio(cW: 9))
+            anim.play()
         }
         
         ui.genericlLayout(object: mainLbl,

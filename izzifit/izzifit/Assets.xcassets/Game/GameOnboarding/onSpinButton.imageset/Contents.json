@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "onSpinButton.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

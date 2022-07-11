@@ -390,7 +390,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 86 files.
+  /// This `R.file` struct is generated, and contains static references to 93 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -554,14 +554,28 @@ struct R: Rswift.Validatable {
     static let coins_headerJson = Rswift.FileResource(bundle: R.hostingBundle, name: "coins_header", pathExtension: "json")
     /// Resource file `confetti.json`.
     static let confettiJson = Rswift.FileResource(bundle: R.hostingBundle, name: "confetti", pathExtension: "json")
+    /// Resource file `congrads_anim.json`.
+    static let congrads_animJson = Rswift.FileResource(bundle: R.hostingBundle, name: "congrads_anim", pathExtension: "json")
     /// Resource file `construction3.gif`.
     static let construction3Gif = Rswift.FileResource(bundle: R.hostingBundle, name: "construction3", pathExtension: "gif")
     /// Resource file `energy_anim.json`.
     static let energy_animJson = Rswift.FileResource(bundle: R.hostingBundle, name: "energy_anim", pathExtension: "json")
+    /// Resource file `fun_anim.json`.
+    static let fun_animJson = Rswift.FileResource(bundle: R.hostingBundle, name: "fun_anim", pathExtension: "json")
+    /// Resource file `menu_anim.json`.
+    static let menu_animJson = Rswift.FileResource(bundle: R.hostingBundle, name: "menu_anim", pathExtension: "json")
+    /// Resource file `point_anim.json`.
+    static let point_animJson = Rswift.FileResource(bundle: R.hostingBundle, name: "point_anim", pathExtension: "json")
     /// Resource file `progress.graphql`.
     static let progressGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "progress", pathExtension: "graphql")
     /// Resource file `ray.gif`.
     static let rayGif = Rswift.FileResource(bundle: R.hostingBundle, name: "ray", pathExtension: "gif")
+    /// Resource file `smoke_anim.json`.
+    static let smoke_animJson = Rswift.FileResource(bundle: R.hostingBundle, name: "smoke_anim", pathExtension: "json")
+    /// Resource file `spark_anim.json`.
+    static let spark_animJson = Rswift.FileResource(bundle: R.hostingBundle, name: "spark_anim", pathExtension: "json")
+    /// Resource file `spin_button_anim.json`.
+    static let spin_button_animJson = Rswift.FileResource(bundle: R.hostingBundle, name: "spin_button_anim", pathExtension: "json")
     /// Resource file `winner.json`.
     static let winnerJson = Rswift.FileResource(bundle: R.hostingBundle, name: "winner", pathExtension: "json")
 
@@ -1051,6 +1065,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "congrads_anim", withExtension: "json")`
+    static func congrads_animJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.congrads_animJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "construction3", withExtension: "gif")`
     static func construction3Gif(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.construction3Gif
@@ -1063,6 +1083,24 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "fun_anim", withExtension: "json")`
+    static func fun_animJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.fun_animJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "menu_anim", withExtension: "json")`
+    static func menu_animJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.menu_animJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "point_anim", withExtension: "json")`
+    static func point_animJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.point_animJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "progress", withExtension: "graphql")`
     static func progressGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.progressGraphql
@@ -1072,6 +1110,24 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "ray", withExtension: "gif")`
     static func rayGif(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.rayGif
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "smoke_anim", withExtension: "json")`
+    static func smoke_animJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.smoke_animJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "spark_anim", withExtension: "json")`
+    static func spark_animJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.spark_animJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "spin_button_anim", withExtension: "json")`
+    static func spin_button_animJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.spin_button_animJson
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -1173,7 +1229,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 316 images.
+  /// This `R.image` struct is generated, and contains static references to 321 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1525,6 +1581,16 @@ struct R: Rswift.Validatable {
     static let moneyBag = Rswift.ImageResource(bundle: R.hostingBundle, name: "moneyBag")
     /// Image `nextMapBtn`.
     static let nextMapBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "nextMapBtn")
+    /// Image `onBuildVillage`.
+    static let onBuildVillage = Rswift.ImageResource(bundle: R.hostingBundle, name: "onBuildVillage")
+    /// Image `onNotEnoughCoins`.
+    static let onNotEnoughCoins = Rswift.ImageResource(bundle: R.hostingBundle, name: "onNotEnoughCoins")
+    /// Image `onSpinButton`.
+    static let onSpinButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "onSpinButton")
+    /// Image `onToEnergy`.
+    static let onToEnergy = Rswift.ImageResource(bundle: R.hostingBundle, name: "onToEnergy")
+    /// Image `onUpgradeBuild`.
+    static let onUpgradeBuild = Rswift.ImageResource(bundle: R.hostingBundle, name: "onUpgradeBuild")
     /// Image `onboading_swipe_1_ic`.
     static let onboading_swipe_1_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboading_swipe_1_ic")
     /// Image `onboading_swipe_2_ic`.
@@ -3030,6 +3096,41 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "nextMapBtn", bundle: ..., traitCollection: ...)`
     static func nextMapBtn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.nextMapBtn, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onBuildVillage", bundle: ..., traitCollection: ...)`
+    static func onBuildVillage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onBuildVillage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onNotEnoughCoins", bundle: ..., traitCollection: ...)`
+    static func onNotEnoughCoins(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onNotEnoughCoins, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onSpinButton", bundle: ..., traitCollection: ...)`
+    static func onSpinButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onSpinButton, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onToEnergy", bundle: ..., traitCollection: ...)`
+    static func onToEnergy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onToEnergy, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onUpgradeBuild", bundle: ..., traitCollection: ...)`
+    static func onUpgradeBuild(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onUpgradeBuild, compatibleWith: traitCollection)
     }
     #endif
 

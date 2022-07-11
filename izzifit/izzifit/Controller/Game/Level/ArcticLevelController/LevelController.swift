@@ -294,6 +294,18 @@ class LevelController: BaseController {
         barBackVw.avatarImgVw.kf.setImage(with: URL(string: KeychainService.standard.me?.Avatar?.url ?? ""),
                                           placeholder: RImage.placeholder_food_ic(),
                                           options: [.transition(.fade(0.25))])
+        
+        guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
+        
+        let onboardingView = MainGameOnboardingView(state: .level2,
+                                                    delegate: self)
+                
+        view.ui.genericlLayout(object: onboardingView,
+                               parentView: view,
+                               topC: 0,
+                               bottomC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
     }
     
     private func drawStates() {
@@ -472,4 +484,15 @@ extension LevelController: LevelPopUpDelegate {
             GameRouter(presenter: self.navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
         }
     }
+}
+
+//----------------------------------------------
+// MARK: - MainGameOnboardingDelegate
+//----------------------------------------------
+
+extension LevelController: MainGameOnboardingDelegate {
+    func tapBtn() {
+
+    }
+    
 }

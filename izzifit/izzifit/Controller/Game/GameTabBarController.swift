@@ -108,6 +108,10 @@ class GameTabBarController: UITabBarController {
         spinBtn.isSelected = true
         
         tabBar.isHidden = true
+        
+        guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
+        
+        selectedIndex = 1
     }
     func selectBtn(_ number: Int) {
         for (index, btn) in btns.enumerated() {

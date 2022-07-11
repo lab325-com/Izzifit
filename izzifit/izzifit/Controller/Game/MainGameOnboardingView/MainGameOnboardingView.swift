@@ -43,11 +43,14 @@ class MainGameOnboardingView: UIView {
                                                      .goToEnergy]
     
     weak var delegate: MainGameOnboardingDelegate?
+    var state: GameOnboardingStates
 
     init(state: GameOnboardingStates, delegate: MainGameOnboardingDelegate ) {
+        self.state = state
         self.delegate = delegate
         super.init(frame: .zero)
-        
+        onboardImgVw.contentMode = .scaleAspectFill
+        layer.backgroundColor = UIColor.clear.cgColor
         change(by: state)
         mainBtn.addTarget(self,
                           action: #selector(btnTapped),
@@ -64,19 +67,24 @@ class MainGameOnboardingView: UIView {
     
     @objc func btnTapped() {
         delegate?.tapBtn()
-        removeFromSuperview()
+        
+        switch state {
+        case .energy1:   removeFromSuperview()
+        default: print("done")
+        }
+     
     }
   
     func change(by state: GameOnboardingStates) {
         
         switch state {
-        case .energy1: ui.genericlLayout(object: mainBtn,
+        case .energy1:
+                        ui.genericlLayout(object: mainBtn,
                                          parentView: self,
                                          width: 60,
                                          height: 60,
-                                         bottomC: 21,
+                                         bottomC: 31,
                                          centerH: 0)
-            additionBtn.backgroundColor = .yellow
                         ui.genericlLayout(object: additionBtn,
                                           parentView: self,
                                           width: wRatio(cW: 344),
@@ -84,7 +92,14 @@ class MainGameOnboardingView: UIView {
                                           topC: 198,
                                           centerH: 0)
             
-        case .level2:  print("empty")
+        case .level2:   onboardImgVw.image = image(img: .onBuildVillage)
+                        ui.genericlLayout(object: onboardImgVw,
+                                          parentView: self,
+                                          width: 200,
+                                          height: 85,
+                                          topC: 309,
+                                          centerH: -50.5)
+            
         case .buildPopUp3:  print("empty")
         case .level4:  print("empty")
         case .buildPopUp5:  print("empty")
