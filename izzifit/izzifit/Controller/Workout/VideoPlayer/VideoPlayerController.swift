@@ -374,6 +374,7 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
             timerPlayer = nil
             
         case .rest:
+            playButton.setImage(RImage.player_stop_ic(), for: .normal)
             mainCircleView.isHidden = false
             restView.isHidden = false
             playerLandskapeShaowImageView.isHidden = true
@@ -388,6 +389,7 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
             timerRest?.fire()
             
         case .restPause:
+            playButton.setImage(RImage.player_play_ic(), for: .normal)
             mainCircleView.isHidden = false
             restView.isHidden = false
             playerLandskapeShaowImageView.isHidden = true

@@ -10,6 +10,9 @@ import UIKit
 
 enum Imgs: String {
     
+    // Game Onboarding
+    case onboardingFun, onboardingVillage, onboardingRightSign, onboardingLightning, onboardingEnergy
+    
     //LevelView - England
     case level_england_back
     

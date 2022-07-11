@@ -104,10 +104,15 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       
         if indexPath.row == 5 + presenter.specialPriceNotBuing.count {
             return Date().isNeedSleepWidget ? tableView.rowHeight : 0
         }
         
+//        switch indexPath.row {
+//        case 0: return !PreferencesManager.sharedManager.afterOnboarding ? 180.0 : 100.0
+//        default: return tableView.rowHeight
+//        }
         return tableView.rowHeight
     }
 }
