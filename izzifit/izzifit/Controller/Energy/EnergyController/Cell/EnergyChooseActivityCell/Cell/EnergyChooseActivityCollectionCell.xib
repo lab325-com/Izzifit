@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,16 +45,21 @@
                         <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workout_blocked_ic" translatesAutoresizingMaskIntoConstraints="NO" id="Oe4-Ju-hTL">
+                        <rect key="frame" x="278" y="113.5" width="24" height="24"/>
+                    </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Faz-E4-7Bo" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.65" id="Hsi-Pz-Hcg"/>
+                <constraint firstItem="Oe4-Ju-hTL" firstAttribute="bottom" secondItem="Faz-E4-7Bo" secondAttribute="bottom" constant="-8" id="O6z-8T-e6b"/>
                 <constraint firstItem="YR7-PX-ADg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="QDp-h9-fH3"/>
                 <constraint firstItem="XIt-wV-8tW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RoQ-iG-FEY"/>
                 <constraint firstAttribute="trailing" secondItem="Faz-E4-7Bo" secondAttribute="trailing" id="SOZ-MX-fhk"/>
                 <constraint firstItem="Faz-E4-7Bo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UQO-0a-gbn"/>
+                <constraint firstItem="Oe4-Ju-hTL" firstAttribute="trailing" secondItem="Faz-E4-7Bo" secondAttribute="trailing" constant="-8" id="VJR-xD-MFN"/>
                 <constraint firstItem="XIt-wV-8tW" firstAttribute="top" secondItem="Faz-E4-7Bo" secondAttribute="bottom" constant="5" id="Y9Z-fm-nQf"/>
                 <constraint firstItem="YR7-PX-ADg" firstAttribute="top" secondItem="XIt-wV-8tW" secondAttribute="bottom" constant="8" id="Z1X-ca-LHP"/>
                 <constraint firstAttribute="trailing" secondItem="YR7-PX-ADg" secondAttribute="trailing" id="l6Y-IB-4p1"/>
@@ -65,6 +70,7 @@
             <size key="customSize" width="310" height="224"/>
             <connections>
                 <outlet property="avatarImageView" destination="Faz-E4-7Bo" id="4Y9-Oh-U7x"/>
+                <outlet property="blockedImageView" destination="Oe4-Ju-hTL" id="J3G-fZ-m7v"/>
                 <outlet property="exercisesLabel" destination="YR7-PX-ADg" id="6Lb-qG-mH7"/>
                 <outlet property="nameLabel" destination="XIt-wV-8tW" id="W6c-Uf-GzE"/>
             </connections>
@@ -73,5 +79,6 @@
     </objects>
     <resources>
         <image name="placeholder_big_sport_ic" width="320" height="184"/>
+        <image name="workout_blocked_ic" width="24" height="24"/>
     </resources>
 </document>

@@ -94,7 +94,7 @@ class EnergyController: BaseController {
             })
         
         if PreferencesManager.sharedManager.afterOnboarding {
-            PreferencesManager.sharedManager.afterOnboarding = true
+        //    PreferencesManager.sharedManager.afterOnboarding = true
             let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .dashboard)
         }
         
@@ -108,8 +108,6 @@ class EnergyController: BaseController {
         updateMe()
         
         tableView.isHidden = true
-        
-        
         
         presenter.getWidgets(date: getDate())
         tableView.tableFooterView = UIView()

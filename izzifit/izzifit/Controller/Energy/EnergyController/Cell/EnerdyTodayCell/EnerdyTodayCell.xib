@@ -26,7 +26,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xa-Ys-cBy">
-                        <rect key="frame" x="16" y="16" width="30" height="68.5"/>
+                        <rect key="frame" x="16" y="16" width="30" height="29.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="3Ri-e8-huX"/>
                         </constraints>
@@ -37,18 +37,18 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCh-ep-o6H">
-                        <rect key="frame" x="149.5" y="35.5" width="70" height="29.5"/>
+                        <rect key="frame" x="149.5" y="16" width="70" height="29.5"/>
                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="24"/>
                         <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUh-um-yn0">
-                        <rect key="frame" x="342" y="16" width="11" height="68.5"/>
+                        <rect key="frame" x="342" y="16" width="11" height="29.5"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" image="energy_arrow_forward_ic"/>
                     </button>
                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kx4-xy-uqN">
-                        <rect key="frame" x="16" y="81" width="337" height="8"/>
+                        <rect key="frame" x="16" y="61.5" width="337" height="8"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZM-SG-q4E">
                                 <rect key="frame" x="0.0" y="0.0" width="40" height="8"/>
@@ -72,13 +72,13 @@
                         </userDefinedRuntimeAttributes>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your progress 37%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9x-OE-VbX">
-                        <rect key="frame" x="16" y="94" width="124.5" height="17"/>
+                        <rect key="frame" x="16" y="74.5" width="124.5" height="37.5"/>
                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                         <color key="textColor" red="0.72941176470588232" green="0.72549019607843135" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_today_pin_ic" translatesAutoresizingMaskIntoConstraints="NO" id="kCi-oe-193">
-                        <rect key="frame" x="313" y="76" width="8" height="13"/>
+                        <rect key="frame" x="313" y="56.5" width="8" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="8" id="EK6-qq-el0"/>
                         </constraints>
@@ -88,13 +88,14 @@
                     <constraint firstItem="kx4-xy-uqN" firstAttribute="top" secondItem="hCh-ep-o6H" secondAttribute="bottom" constant="16" id="7a2-GH-IXf"/>
                     <constraint firstItem="hCh-ep-o6H" firstAttribute="centerY" secondItem="7Xa-Ys-cBy" secondAttribute="centerY" id="8JI-sF-rbM"/>
                     <constraint firstAttribute="trailing" secondItem="kx4-xy-uqN" secondAttribute="trailing" constant="16" id="9XQ-DS-xSb"/>
-                    <constraint firstItem="r9x-OE-VbX" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="5" id="H1m-Ms-3PT"/>
                     <constraint firstAttribute="trailing" secondItem="NUh-um-yn0" secondAttribute="trailing" constant="16" id="L4m-YR-Jm5"/>
                     <constraint firstItem="r9x-OE-VbX" firstAttribute="top" secondItem="kx4-xy-uqN" secondAttribute="bottom" constant="5" id="OOp-kN-1fC"/>
+                    <constraint firstAttribute="bottom" secondItem="r9x-OE-VbX" secondAttribute="bottom" constant="5" id="OWw-zo-yRs"/>
                     <constraint firstItem="NUh-um-yn0" firstAttribute="centerY" secondItem="hCh-ep-o6H" secondAttribute="centerY" id="PGD-lc-TwA"/>
                     <constraint firstItem="kx4-xy-uqN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="RCo-Fl-gZL"/>
                     <constraint firstItem="hCh-ep-o6H" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Z6e-4s-Ajb"/>
                     <constraint firstItem="NUh-um-yn0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="ad7-lv-D5e"/>
+                    <constraint firstItem="hCh-ep-o6H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="fJ0-a8-Zr2"/>
                     <constraint firstItem="kCi-oe-193" firstAttribute="trailing" secondItem="knn-pt-jIQ" secondAttribute="trailing" constant="-32" id="fOs-hE-AHP"/>
                     <constraint firstItem="r9x-OE-VbX" firstAttribute="leading" secondItem="kx4-xy-uqN" secondAttribute="leading" id="iwq-cg-EcG"/>
                     <constraint firstItem="kx4-xy-uqN" firstAttribute="top" secondItem="kCi-oe-193" secondAttribute="bottom" constant="-8" id="ja5-8U-jfK"/>

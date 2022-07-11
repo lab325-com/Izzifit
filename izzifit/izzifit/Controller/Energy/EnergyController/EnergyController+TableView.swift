@@ -104,10 +104,15 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       
         if indexPath.row == 5 + presenter.specialPriceNotBuing.count {
             return Date().isNeedSleepWidget ? tableView.rowHeight : 0
         }
         
+//        switch indexPath.row {
+//        case 0: return !PreferencesManager.sharedManager.afterOnboarding ? 180.0 : 100.0
+//        default: return tableView.rowHeight
+//        }
         return tableView.rowHeight
     }
 }
@@ -221,9 +226,17 @@ extension EnergyController: EnergyChooseActivityProtocol {
     func energyChooseActivitySelect(cell: EnergyChooseActivityCell, model: WorkoutsWidgetMainModel) {
         AnalyticsHelper.sendFirebaseEvents(events: .dash_activity_tap)
         
-        if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .chooseAcivity) {
-            guard let id = model.id else { return }
+//        if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .chooseAcivity) {
+//            guard let id = model.id else { return }
+//            WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
+//        }
+        
+        guard let id = model.id, let isAvailable = model.isAvailable else { return }
+         
+        if isAvailable {
             WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id)
+        } else {
+            let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .chooseAcivity)
         }
     }
 }

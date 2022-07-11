@@ -1173,7 +1173,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 311 images.
+  /// This `R.image` struct is generated, and contains static references to 316 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1533,6 +1533,16 @@ struct R: Rswift.Validatable {
     static let onboading_swipe_3_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboading_swipe_3_ic")
     /// Image `onboading_swipe_4_ic`.
     static let onboading_swipe_4_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboading_swipe_4_ic")
+    /// Image `onboardingEnergy`.
+    static let onboardingEnergy = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboardingEnergy")
+    /// Image `onboardingFun`.
+    static let onboardingFun = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboardingFun")
+    /// Image `onboardingLightning`.
+    static let onboardingLightning = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboardingLightning")
+    /// Image `onboardingRightSign`.
+    static let onboardingRightSign = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboardingRightSign")
+    /// Image `onboardingVillage`.
+    static let onboardingVillage = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboardingVillage")
     /// Image `onboarding_back_ic`.
     static let onboarding_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "onboarding_back_ic")
     /// Image `onboarding_background_ic`.
@@ -3048,6 +3058,41 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "onboading_swipe_4_ic", bundle: ..., traitCollection: ...)`
     static func onboading_swipe_4_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.onboading_swipe_4_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboardingEnergy", bundle: ..., traitCollection: ...)`
+    static func onboardingEnergy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboardingEnergy, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboardingFun", bundle: ..., traitCollection: ...)`
+    static func onboardingFun(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboardingFun, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboardingLightning", bundle: ..., traitCollection: ...)`
+    static func onboardingLightning(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboardingLightning, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboardingRightSign", bundle: ..., traitCollection: ...)`
+    static func onboardingRightSign(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboardingRightSign, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "onboardingVillage", bundle: ..., traitCollection: ...)`
+    static func onboardingVillage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.onboardingVillage, compatibleWith: traitCollection)
     }
     #endif
 
@@ -9163,6 +9208,7 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "placeholder_big_sport_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder_big_sport_ic' is used in nib 'EnergyChooseActivityCollectionCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "workout_blocked_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'workout_blocked_ic' is used in nib 'EnergyChooseActivityCollectionCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
