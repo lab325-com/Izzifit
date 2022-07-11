@@ -24,6 +24,7 @@ class PreferencesManager : NSObject {
     static let coinsZero = "coinsZero"
     static let fcmToken = "fcmToken"
     static let localPushs = "localPushs"
+    static let gameOnboardingDone = "gameOnboardingDone"
     
     var userDefaults: UserDefaults
     
@@ -184,6 +185,16 @@ class PreferencesManager : NSObject {
         }
         set {
             userDefaults.set(newValue, forKey: PreferencesManager.afterOnboarding)
+            userDefaults.synchronize()
+        }
+    }
+    
+    var gameOnboardingDone: Bool {
+        get {
+            return userDefaults.bool(forKey: PreferencesManager.gameOnboardingDone)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.gameOnboardingDone)
             userDefaults.synchronize()
         }
     }

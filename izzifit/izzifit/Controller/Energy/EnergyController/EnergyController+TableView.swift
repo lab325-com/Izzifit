@@ -109,10 +109,10 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             return Date().isNeedSleepWidget ? tableView.rowHeight : 0
         }
         
-//        switch indexPath.row {
-//        case 0: return !PreferencesManager.sharedManager.afterOnboarding ? 180.0 : 100.0
-//        default: return tableView.rowHeight
-//        }
+        switch indexPath.row {
+        case 0: return PreferencesManager.sharedManager.gameOnboardingDone ? 94.0 : 185.0
+        default: return tableView.rowHeight
+        }
         return tableView.rowHeight
     }
 }

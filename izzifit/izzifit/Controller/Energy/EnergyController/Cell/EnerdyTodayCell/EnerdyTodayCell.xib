@@ -72,7 +72,7 @@
                         </userDefinedRuntimeAttributes>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your progress 37%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9x-OE-VbX">
-                        <rect key="frame" x="16" y="74.5" width="124.5" height="37.5"/>
+                        <rect key="frame" x="16" y="74.5" width="124.5" height="17"/>
                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                         <color key="textColor" red="0.72941176470588232" green="0.72549019607843135" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -90,7 +90,6 @@
                     <constraint firstAttribute="trailing" secondItem="kx4-xy-uqN" secondAttribute="trailing" constant="16" id="9XQ-DS-xSb"/>
                     <constraint firstAttribute="trailing" secondItem="NUh-um-yn0" secondAttribute="trailing" constant="16" id="L4m-YR-Jm5"/>
                     <constraint firstItem="r9x-OE-VbX" firstAttribute="top" secondItem="kx4-xy-uqN" secondAttribute="bottom" constant="5" id="OOp-kN-1fC"/>
-                    <constraint firstAttribute="bottom" secondItem="r9x-OE-VbX" secondAttribute="bottom" constant="5" id="OWw-zo-yRs"/>
                     <constraint firstItem="NUh-um-yn0" firstAttribute="centerY" secondItem="hCh-ep-o6H" secondAttribute="centerY" id="PGD-lc-TwA"/>
                     <constraint firstItem="kx4-xy-uqN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="RCo-Fl-gZL"/>
                     <constraint firstItem="hCh-ep-o6H" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Z6e-4s-Ajb"/>
