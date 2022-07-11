@@ -406,6 +406,11 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
     
     
     private func nextVideo() {
+        if let exerciseId = exercises[safe: currentIndex]?.id {
+            presenter.doExercisese(exerciseId: exerciseId)
+        }
+        
+        
         if let _ = exercises[safe: currentIndex + 1] {
             for (index, element) in pogresses.enumerated() {
                 if index <= currentIndex {
@@ -546,9 +551,6 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
         timeRest -= 1
         
         if timeRest < 0 {
-            if let exerciseId = exercises[safe: currentIndex]?.id {
-                presenter.doExercisese(exerciseId: exerciseId)
-            }
             nextVideo()
         } else {
             if let model = exercises[safe: currentIndex] {
@@ -575,9 +577,6 @@ class VideoPlayerController: BaseController, VideoPlayerOutputProtocol {
         timerPlayerTime -= 1
         
         if timerPlayerTime < 0 {
-            if let exerciseId = exercises[safe: currentIndex]?.id {
-                presenter.doExercisese(exerciseId: exerciseId)
-            }
             nextVideo()
         } else {
             if let model = exercises[safe: currentIndex] {

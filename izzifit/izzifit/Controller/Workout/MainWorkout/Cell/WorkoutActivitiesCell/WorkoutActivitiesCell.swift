@@ -35,11 +35,12 @@ class WorkoutActivitiesCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        collectionView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInset.left = 16
         collectionView.contentInset.right = 16
-        collectionView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        
     }
     
     func setupCell(workoutTypes: [WorkoutType], selectedTypeId: Int?) {

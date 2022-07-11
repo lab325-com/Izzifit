@@ -98,11 +98,16 @@ class VideoFinishedController: BaseController {
     //----------------------------------------------
     
     @IBAction func actionBack(_ sender: UIButton) {
-        NotificationCenter.default.post(name: Constants.Notifications.updateEnergyNotification,
-                                        object: self,
-                                        userInfo: nil)
-        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-           self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+        preseneter.getMe { [weak self] in
+            guard let `self` = self else { return }
+            
+            NotificationCenter.default.post(name: Constants.Notifications.updateEnergyNotification,
+                                            object: self,
+                                            userInfo: nil)
+            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+               self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+        }
+        
     }
     
     @IBAction func actionCanDoMore(_ sender: UIButton) {
@@ -127,10 +132,13 @@ class VideoFinishedController: BaseController {
 
 extension VideoFinishedController: VideoPlayerOutputProtocol {
     func successUpdate() {
-        NotificationCenter.default.post(name: Constants.Notifications.updateEnergyNotification,
-                                        object: self,
-                                        userInfo: nil)
-        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-           self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+        preseneter.getMe { [weak self] in
+            guard let `self` = self else { return }
+            NotificationCenter.default.post(name: Constants.Notifications.updateEnergyNotification,
+                                            object: self,
+                                            userInfo: nil)
+            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+        }
     }
 }

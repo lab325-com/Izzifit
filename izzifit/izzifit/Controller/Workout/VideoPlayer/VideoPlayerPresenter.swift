@@ -74,5 +74,15 @@ class VideoPlayerPresenter: VideoPlayerPresenterProtocol {
         })
     }
     
-    
+    func getMe( completion: @escaping ()->()) {
+        view?.startLoader()
+        let query = MeQuery()
+        let _ = Network.shared.query(model: MeModel.self, query, controller: view) { [weak self] model in
+            completion()
+            self?.view?.stopLoading()
+        } failureHandler: { [weak self] error in
+            completion()
+            self?.view?.stopLoading()
+        }
+    }
 }

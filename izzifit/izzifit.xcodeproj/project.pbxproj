@@ -192,7 +192,7 @@
 		0282516228589C9C0059BD17 /* LocalPushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0282516128589C9C0059BD17 /* LocalPushModel.swift */; };
 		028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C02834EE5100F3D148 /* AdSupport.framework */; };
 		028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C22834EE5C00F3D148 /* iAd.framework */; };
-		028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C42834EE6300F3D148 /* AdServices.framework */; };
+		028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C42834EE6300F3D148 /* AdServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		028EE3C72835023A00F3D148 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028EE3C62835023A00F3D148 /* Constant.swift */; };
 		028EE3C92835031400F3D148 /* EnergyController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028EE3C82835031400F3D148 /* EnergyController+TableView.swift */; };
 		0290B39327D2045400381B42 /* ShadowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290B39227D2045400381B42 /* ShadowsView.swift */; };
@@ -900,11 +900,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */,
 				02B2810028571734003CAB32 /* FirebaseMessaging in Frameworks */,
 				02AEDFD728477CC7007C0EA4 /* SwiftyStoreKit in Frameworks */,
 				024EBC9B2840C8CC00E6623F /* AppTrackingTransparency.framework in Frameworks */,
 				FA6B2822285CC9A100D34333 /* FirebaseMessaging in Frameworks */,
-				028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */,
 				028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */,
 				FA6B2820285CC9A100D34333 /* FirebaseCrashlytics in Frameworks */,
 				028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */,

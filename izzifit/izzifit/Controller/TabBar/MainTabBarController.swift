@@ -62,6 +62,7 @@ class MainTabBarController: BaseController {
     //----------------------------------------------
     
     override func viewDidLoad() {
+        hiddenNavigationBar = true
         super.viewDidLoad()
         setup()
     }
