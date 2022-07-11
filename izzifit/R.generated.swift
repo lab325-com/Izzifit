@@ -1173,7 +1173,11 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+<<<<<<< HEAD
   /// This `R.image` struct is generated, and contains static references to 315 images.
+=======
+  /// This `R.image` struct is generated, and contains static references to 311 images.
+>>>>>>> develop
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1255,6 +1259,8 @@ struct R: Rswift.Validatable {
     static let energy_coins_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_coins_ic")
     /// Image `energy_energy_ic`.
     static let energy_energy_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_energy_ic")
+    /// Image `energy_info_ic`.
+    static let energy_info_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_info_ic")
     /// Image `energy_meals_add_ic`.
     static let energy_meals_add_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_meals_add_ic")
     /// Image `energy_mood_badly_ic`.
@@ -2083,6 +2089,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "energy_energy_ic", bundle: ..., traitCollection: ...)`
     static func energy_energy_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.energy_energy_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "energy_info_ic", bundle: ..., traitCollection: ...)`
+    static func energy_info_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.energy_info_ic, compatibleWith: traitCollection)
     }
     #endif
 
@@ -9238,6 +9251,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "energy_info_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_info_ic' is used in nib 'EnergyDrinkWaterCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_water_empty_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_empty_ic' is used in nib 'EnergyDrinkWaterCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergyDrinkWaterCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
@@ -9259,6 +9273,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "energy_info_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_info_ic' is used in nib 'EnergyMealsCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergyMealsCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_selected_ic' is used in nib 'EnergyMealsCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
@@ -9364,6 +9379,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "energy_info_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_info_ic' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "grayText", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayText' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }

@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -18,15 +19,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EnergyDrinkWaterCell" rowHeight="124" id="KGk-i7-Jjw" customClass="EnergyDrinkWaterCell" customModule="izzifit" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="373" height="124"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EnergyDrinkWaterCell" rowHeight="181" id="KGk-i7-Jjw" customClass="EnergyDrinkWaterCell" customModule="izzifit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="181"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="373" height="124"/>
+                <rect key="frame" x="0.0" y="0.0" width="401" height="181"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjT-1J-lIq">
-                        <rect key="frame" x="16" y="4" width="341" height="116"/>
+                        <rect key="frame" x="16" y="4" width="369" height="173"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ik7-9V-u2I">
                                 <rect key="frame" x="16" y="16" width="99.5" height="22"/>
@@ -41,108 +42,138 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXJ-H9-bVu">
-                                <rect key="frame" x="302" y="20.5" width="23" height="13.5"/>
+                                <rect key="frame" x="330" y="20.5" width="23" height="13.5"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="11"/>
                                 <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_water_flash_ic" translatesAutoresizingMaskIntoConstraints="NO" id="AdD-Rr-O7m">
-                                <rect key="frame" x="286" y="21.5" width="10" height="11"/>
+                                <rect key="frame" x="314" y="21.5" width="10" height="11"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ARv-XH-8DF">
-                                <rect key="frame" x="16" y="51" width="309" height="49"/>
+                                <rect key="frame" x="16" y="98" width="337" height="59"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t99-MW-a5Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="13.5" height="49"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                         <buttonConfiguration key="configuration" style="plain" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9c-OE-v0M">
-                                        <rect key="frame" x="19.5" y="0.0" width="14" height="49"/>
+                                        <rect key="frame" x="21.5" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5w7-MY-fCA">
-                                        <rect key="frame" x="39.5" y="0.0" width="13.5" height="49"/>
+                                        <rect key="frame" x="43" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMl-Qs-JPX">
-                                        <rect key="frame" x="59" y="0.0" width="14" height="49"/>
+                                        <rect key="frame" x="64.5" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEm-vH-Hlk">
-                                        <rect key="frame" x="79" y="0.0" width="13.5" height="49"/>
+                                        <rect key="frame" x="86" y="0.0" width="15" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mih-2E-Vrm">
-                                        <rect key="frame" x="98.5" y="0.0" width="13.5" height="49"/>
+                                        <rect key="frame" x="107" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-3O-cSa">
-                                        <rect key="frame" x="118" y="0.0" width="14" height="49"/>
+                                        <rect key="frame" x="128.5" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr3-nX-xM3">
-                                        <rect key="frame" x="138" y="0.0" width="13.5" height="49"/>
+                                        <rect key="frame" x="150" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0T-5A-SXF">
-                                        <rect key="frame" x="157.5" y="0.0" width="13.5" height="49"/>
+                                        <rect key="frame" x="171.5" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bI-cg-XYI">
-                                        <rect key="frame" x="177" y="0.0" width="14" height="49"/>
+                                        <rect key="frame" x="193" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mI7-GT-mse">
-                                        <rect key="frame" x="197" y="0.0" width="13.5" height="49"/>
+                                        <rect key="frame" x="214.5" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYQ-tD-kCp">
-                                        <rect key="frame" x="216.5" y="0.0" width="14" height="49"/>
+                                        <rect key="frame" x="236" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nf-5Y-OZ0">
-                                        <rect key="frame" x="236.5" y="0.0" width="13.5" height="49"/>
+                                        <rect key="frame" x="257.5" y="0.0" width="15" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qav-VI-hkQ">
-                                        <rect key="frame" x="256" y="0.0" width="13.5" height="49"/>
+                                        <rect key="frame" x="278.5" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                         <buttonConfiguration key="configuration" style="plain" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tO-XK-pb3">
-                                        <rect key="frame" x="275.5" y="0.0" width="14" height="49"/>
+                                        <rect key="frame" x="300" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zli-RE-Sje">
-                                        <rect key="frame" x="295.5" y="0.0" width="13.5" height="49"/>
+                                        <rect key="frame" x="321.5" y="0.0" width="15.5" height="59"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4j-Ev-UfA">
+                                <rect key="frame" x="16" y="52" width="337" height="32"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_info_ic" translatesAutoresizingMaskIntoConstraints="NO" id="Xyy-c1-foC">
+                                        <rect key="frame" x="8" y="8" width="16" height="16"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Important to keep a water balance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lxg-CG-GyL">
+                                        <rect key="frame" x="30" y="8.5" width="301" height="15"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                        <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Xyy-c1-foC" firstAttribute="centerY" secondItem="H4j-Ev-UfA" secondAttribute="centerY" id="AqU-Gi-zfq"/>
+                                    <constraint firstAttribute="height" constant="32" id="JUT-eN-dMs"/>
+                                    <constraint firstItem="Xyy-c1-foC" firstAttribute="leading" secondItem="H4j-Ev-UfA" secondAttribute="leading" constant="8" id="Ljk-si-sav"/>
+                                    <constraint firstItem="Lxg-CG-GyL" firstAttribute="centerY" secondItem="Xyy-c1-foC" secondAttribute="centerY" id="dca-Ci-83a"/>
+                                    <constraint firstItem="Lxg-CG-GyL" firstAttribute="leading" secondItem="Xyy-c1-foC" secondAttribute="trailing" constant="6" id="ehs-Yq-pMa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lxg-CG-GyL" secondAttribute="trailing" constant="6" id="vea-bv-5h8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94509803921568625" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ARv-XH-8DF" secondAttribute="trailing" constant="16" id="5Hq-H1-m2M"/>
-                            <constraint firstItem="ARv-XH-8DF" firstAttribute="top" secondItem="ik7-9V-u2I" secondAttribute="bottom" constant="13" id="8e4-PI-fIa"/>
                             <constraint firstAttribute="bottom" secondItem="ARv-XH-8DF" secondAttribute="bottom" constant="16" id="9go-eP-DdR"/>
+                            <constraint firstItem="H4j-Ev-UfA" firstAttribute="leading" secondItem="zjT-1J-lIq" secondAttribute="leading" constant="16" id="9vA-Px-ahJ"/>
+                            <constraint firstItem="H4j-Ev-UfA" firstAttribute="top" secondItem="ik7-9V-u2I" secondAttribute="bottom" constant="14" id="F0H-m2-xRc"/>
                             <constraint firstItem="AdD-Rr-O7m" firstAttribute="centerY" secondItem="bXJ-H9-bVu" secondAttribute="centerY" id="GQ2-gZ-eTw"/>
+                            <constraint firstItem="ARv-XH-8DF" firstAttribute="top" secondItem="H4j-Ev-UfA" secondAttribute="bottom" constant="14" id="Xip-Kf-q2g"/>
                             <constraint firstItem="ik7-9V-u2I" firstAttribute="top" secondItem="zjT-1J-lIq" secondAttribute="top" constant="16" id="arR-pe-Zqn"/>
                             <constraint firstItem="ik7-9V-u2I" firstAttribute="leading" secondItem="zjT-1J-lIq" secondAttribute="leading" constant="16" id="bkN-On-ksk"/>
                             <constraint firstAttribute="trailing" secondItem="bXJ-H9-bVu" secondAttribute="trailing" constant="16" id="d2f-Rm-6lx"/>
@@ -150,6 +181,7 @@
                             <constraint firstItem="eLV-j0-3Q3" firstAttribute="centerY" secondItem="ik7-9V-u2I" secondAttribute="centerY" id="jY8-1N-s4n"/>
                             <constraint firstItem="bXJ-H9-bVu" firstAttribute="centerY" secondItem="eLV-j0-3Q3" secondAttribute="centerY" id="jes-Gy-iay"/>
                             <constraint firstItem="bXJ-H9-bVu" firstAttribute="leading" secondItem="AdD-Rr-O7m" secondAttribute="trailing" constant="6" id="kGH-O2-qQP"/>
+                            <constraint firstAttribute="trailing" secondItem="H4j-Ev-UfA" secondAttribute="trailing" constant="16" id="lDe-oV-zHv"/>
                             <constraint firstItem="ARv-XH-8DF" firstAttribute="leading" secondItem="zjT-1J-lIq" secondAttribute="leading" constant="16" id="wZM-6R-dNE"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -175,11 +207,15 @@
                 <outlet property="mlLeftLabel" destination="eLV-j0-3Q3" id="Lmx-vy-Rbh"/>
                 <outlet property="waterStackView" destination="ARv-XH-8DF" id="PF4-bA-N0z"/>
             </connections>
-            <point key="canvasLocation" x="221.01449275362322" y="125.89285714285714"/>
+            <point key="canvasLocation" x="241.30434782608697" y="143.63839285714286"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="energy_info_ic" width="16" height="16"/>
         <image name="energy_water_empty_ic" width="21" height="19.5"/>
         <image name="energy_water_flash_ic" width="10" height="11"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
