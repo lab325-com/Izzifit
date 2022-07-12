@@ -162,14 +162,24 @@ class MainGameOnboardingView: UIView {
                               centerHtoO: gameTabBar?.spinBtn.centerXAnchor)
             
         case .spinBtn:
-            
+        
             onboardImgVw.image = image(img: .onNotEnoughCoins)
                                 ui.genericlLayout(object: onboardImgVw,
-                                                  parentView: self,
+                                                  parentView: arcGameView!.progressImgVw,
                                                   width: 220,
                                                   height: 102,
-                                                  bottomC: 250,
+                                                  centerV: 10,
                                                   centerH: 0)
+            ui.genericlLayout(object: mainBtn,
+                              parentView:  gameTabBar?.view ?? self,
+                              width: h*0.288,
+                              height: h*0.088,
+                              topC: h/4.51 + h*0.498 + 17,
+                              centerH: 0)
+            
+            arcGameView!.spinBtn.isUserInteractionEnabled = false
+            
+            
         case .blockScreen:  print("empty")
         case .goToEnergy:  print("empty")
         }

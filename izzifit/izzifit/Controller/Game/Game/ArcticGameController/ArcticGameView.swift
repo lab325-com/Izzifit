@@ -17,7 +17,7 @@ class ArcticGameView: UIView, GameAnimationProtocol {
     // Basic view
     private var gameBackImgVw = UIImageView()
     var slotBackImgVw = UIImageView()
-    private var slotHouseImgVw = UIImageView()
+    var slotHouseImgVw = UIImageView()
     private var uponGameBackImgVw = UIImageView()
     var spinBtn = UIButton()
     private var titleLbl = UILabel()
@@ -38,7 +38,7 @@ class ArcticGameView: UIView, GameAnimationProtocol {
     var awardCountLbl = UILabel()
     
     // Progress Img UI
-    private var progressImgVw = UIImageView()
+    var progressImgVw = UIImageView()
     private let progressImg = UIImage(named: "progressActive")
     
     
