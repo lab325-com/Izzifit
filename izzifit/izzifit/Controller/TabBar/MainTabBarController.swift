@@ -92,7 +92,7 @@ class MainTabBarController: BaseController {
         
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         
-        let onboardingView = MainGameOnboardingView(state: .energy1,
+        let onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
                                                     delegate: self)
                 
         view.ui.genericlLayout(object: onboardingView,
@@ -232,6 +232,7 @@ class MainTabBarController: BaseController {
 
 extension MainTabBarController: MainGameOnboardingDelegate {
     func tapBtn() {
+        MainGameOnboardingView.stateCounter += 1
         AudioManager.sharedManager.playSound()
         UIView.animate(withDuration: 0.3) {
             self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
@@ -239,6 +240,8 @@ extension MainTabBarController: MainGameOnboardingDelegate {
         }
         navigationController?.navigationBar.isHidden = true
         TabBarRouter(presenter: navigationController).pushGame()
+        
+
     }
     
 }

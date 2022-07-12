@@ -25,6 +25,7 @@ class GameOnboardingEnergyView: UIView {
         super.init(frame: .zero)
         
         setAndLayout()
+        
     }
     
     func setAndLayout() {

@@ -111,8 +111,18 @@ class GameTabBarController: UITabBarController {
         
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         
-        selectedIndex = 1
+        build()
+        toggleBtnInteraction()
+
     }
+    
+    func toggleBtnInteraction() {
+        for btn in btns {
+            btn.isUserInteractionEnabled.toggle()
+        }
+    }
+    
+    
     func selectBtn(_ number: Int) {
         for (index, btn) in btns.enumerated() {
             switch index {
@@ -148,3 +158,5 @@ class GameTabBarController: UITabBarController {
 enum MapName: String {
     case snow_map, england_map
 }
+
+

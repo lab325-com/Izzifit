@@ -18,13 +18,13 @@ protocol MainGameOnboardingDelegate: AnyObject {
 
 class MainGameOnboardingView: UIView {
     
-    var stateCounter = 0
+   static var stateCounter = 0
     
     var onboardImgVw =  UIImageView()
     var additionBtn =   UIButton()
     var mainBtn =       UIButton()
     
-    var gameOnboardStates: [GameOnboardingStates] = [.energy1,
+   static var gameOnboardStates: [GameOnboardingStates] = [.energy1,
                                                      .level2,
                                                      .buildPopUp3,
                                                      .blockScreen,
@@ -97,10 +97,23 @@ class MainGameOnboardingView: UIView {
                                           parentView: self,
                                           width: 200,
                                           height: 85,
-                                          topC: 309,
-                                          centerH: -50.5)
+                                          topC: 345,
+                                          centerH: 60)
             
-        case .buildPopUp3:  print("empty")
+            ui.genericlLayout(object: mainBtn,
+                             parentView: self,
+                             width: 100,
+                             height: 100,
+                             topC: 400,
+                             trailingC: 58)
+            
+        case .buildPopUp3:
+                                  ui.genericlLayout(object: mainBtn,
+                                                  parentView: self,
+                                                  width: 242,
+                                                  height: 40,
+                                                  topC: 387,
+                                                  centerH: 0)
         case .level4:  print("empty")
         case .buildPopUp5:  print("empty")
         case .spinMenuBtn6:  print("empty")

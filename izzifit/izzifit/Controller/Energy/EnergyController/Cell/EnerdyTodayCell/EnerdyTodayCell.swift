@@ -63,7 +63,7 @@ class EnerdyTodayCell: BaseTableViewCell {
                                width: wRatio(cW: 344),
                                height: 71,
                                bottomC: 10,
-                               centerH: 0)
+                               centerH: 0) 
     }
     
     @IBAction func actionProgress(_ sender: UIButton) {
