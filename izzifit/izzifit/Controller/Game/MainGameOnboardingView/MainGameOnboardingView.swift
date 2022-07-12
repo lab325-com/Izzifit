@@ -67,9 +67,6 @@ class MainGameOnboardingView: UIView {
                                            action: #selector(btnTapped),
                                            for: .touchUpInside)
         
-    
-        
-        
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -80,12 +77,6 @@ class MainGameOnboardingView: UIView {
     
     @objc func btnTapped() {
         delegate?.tapBtn()
-        
-        switch state {
-        case .energy1:   removeFromSuperview()
-        default: print("done")
-        }
-     
     }
   
     func change(by state: GameOnboardingStates) {
@@ -108,21 +99,26 @@ class MainGameOnboardingView: UIView {
             
         case .level2:
       
-            
-            onboardImgVw.image = image(img: .onBuildVillage)
-                        ui.genericlLayout(object: onboardImgVw,
-                                          parentView: self,
-                                          width: 200,
-                                          height: 85,
-                                          topC: 345,
-                                          centerH: 60)
-            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.onboardImgVw.image = self.image(img: .onBuildVillage)
+                       self.ui.genericlLayout(object: self.onboardImgVw,
+                                              parentView: self,
+                                              width: 200,
+                                              height: 85,
+                                              topC: 345,
+                                              centerH: 60)
+                self.onboardImgVw.shake(0.333,
+                                        x: self.w / 2 + 60,
+                                        y: 345 + 42.5)
+            }
                         ui.genericlLayout(object: mainBtn,
                                          parentView: self,
                                          width: 100,
                                          height: 100,
                                          topC: 400,
                                          trailingC: 58)
+            
+       
                         
         case .buildPopUp3:
                                   ui.genericlLayout(object: mainBtn,
@@ -138,6 +134,11 @@ class MainGameOnboardingView: UIView {
                               height: 85,
                               topC: 335,
                               centerH: 60)
+            
+            onboardImgVw.shake(0.333,
+                               x: w / 2 + 60,
+                               y: 345 + 42.5)
+            
             ui.genericlLayout(object: mainBtn,
                              parentView: self,
                              width: 110,
@@ -150,6 +151,7 @@ class MainGameOnboardingView: UIView {
                                                 height: 40,
                                                 topC: 387,
                                                 centerH: 0)
+            
         case .spinMenuBtn6:   onboardImgVw.image = image(img: .onNotEnoughCoins)
                             ui.genericlLayout(object: onboardImgVw,
                                               parentView: self,
@@ -157,6 +159,9 @@ class MainGameOnboardingView: UIView {
                                               height: 101,
                                               bottomC: 119,
                                               leadingC: wRatio(cW:53))
+            onboardImgVw.shake(0.333,
+                               x: wRatio(cW: 53) + 100,
+                               y: h - 170)
        
             ui.genericlLayout(object: mainBtn,
                               parentView: gameTabBar?.view ?? self,
@@ -174,6 +179,11 @@ class MainGameOnboardingView: UIView {
                                                   height: 102,
                                                   centerV: 10,
                                                   centerH: 0)
+            
+            onboardImgVw.shake(0.333,
+                               x: w/2 - 110,
+                               y: 18)
+            
             ui.genericlLayout(object: mainBtn,
                               parentView:  gameTabBar?.view ?? self,
                               width: h*0.288,
@@ -192,6 +202,10 @@ class MainGameOnboardingView: UIView {
                               height: 101,
                               bottomC: 119,
                               leadingC: wRatio(cW:18))
+            
+            onboardImgVw.shake(0.333,
+                               x: wRatio(cW:18) + 100,
+                               y: h - (51 + 119))
 
             ui.genericlLayout(object: mainBtn,
                           parentView: gameTabBar?.view ?? self,
@@ -228,7 +242,6 @@ class MainGameOnboardingView: UIView {
                               topC: hRatio(cH: 32),
                               centerH: 0)
             
-            
             // Description Label
             
             var descriptionLbl = UILabel()
@@ -263,7 +276,6 @@ class MainGameOnboardingView: UIView {
                               topC: hRatio(cH: 79),
                               centerH: 0)
             
-            
             // Graph ImageView
             
             let graphImageView = UIImageView()
@@ -279,8 +291,6 @@ class MainGameOnboardingView: UIView {
                               centerH: 0)
             
             // Ok Button
-            
-            
             let okBtn = UIButton()
             
             okBtn.layer.backgroundColor = UIColor(rgb: 0xFF42A8).cgColor
@@ -299,7 +309,7 @@ class MainGameOnboardingView: UIView {
                               bottomToO: popView.bottomAnchor,
                               bottomCG: 24)
             
-            okBtn.addTarget(self,
+             okBtn.addTarget(self,
                              action: #selector(btnTapped),
                              for: .touchUpInside)
         }

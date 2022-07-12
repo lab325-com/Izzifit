@@ -55,6 +55,16 @@ public extension UIView {
          mask.path = path.cgPath
          layer.mask = mask
      }
+   
+    func shake(_ dur:Double,x: CGFloat, y: CGFloat) {
+            let anim = CABasicAnimation(keyPath: "position")
+            anim.duration = dur
+            anim.repeatCount = Float.infinity
+            anim.autoreverses = true
+            anim.fromValue = NSValue(cgPoint: CGPoint(x: x, y: y - 5))
+            anim.toValue = NSValue(cgPoint: CGPoint(x: x , y: y + 5))
+            self.layer.add(anim, forKey: "position")
+        }
 }
 
 extension UIView {

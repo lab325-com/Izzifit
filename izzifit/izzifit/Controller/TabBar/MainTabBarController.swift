@@ -78,6 +78,7 @@ class MainTabBarController: BaseController {
         }
        
     
+        PreferencesManager.sharedManager.gameOnboardingDone = false
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         
         onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
