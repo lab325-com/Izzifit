@@ -296,8 +296,7 @@ extension ArcticGameController: MainGameOnboardingDelegate {
 
                 }
             case 16:
-                
-                PreferencesManager.sharedManager.gameOnboardingDone = true
+                MainGameOnboardingView.stateCounter += 1
                 tabBarVC.backBtn.sendActions(for: .touchUpInside)
 
             default: print("empty")

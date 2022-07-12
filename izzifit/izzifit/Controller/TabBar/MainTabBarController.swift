@@ -47,6 +47,9 @@ class MainTabBarController: BaseController {
     private lazy var menu = MenuController()
     private lazy var game = ArcticGameController()
     
+    var onboardingView: MainGameOnboardingView?
+    
+    
     private var tab: TabBarType = .energy {
         didSet {
             if tab == oldValue {
@@ -73,6 +76,19 @@ class MainTabBarController: BaseController {
             self.bottomCustomTabBarLayout.constant = 0
             self.view.layoutIfNeeded()
         }
+       
+    
+        guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
+        
+        onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                    delegate: self)
+                
+        view.ui.genericlLayout(object: onboardingView!,
+                               parentView: view,
+                               topC: 0,
+                               bottomC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
     }
     
     deinit {
@@ -89,21 +105,7 @@ class MainTabBarController: BaseController {
                                                name: Constants.Notifications.openWorkoutNotification,
                                                object: nil)
         
-        PreferencesManager.sharedManager.gameOnboardingDone = false
-        guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
-        
-        let onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
-                                                    delegate: self)
-                
-        view.ui.genericlLayout(object: onboardingView,
-                               parentView: view,
-                               topC: 0,
-                               bottomC: 0,
-                               leadingC: 0,
-                               trailingC: 0)
-        
-        
-
+       
     }
     
 
@@ -232,14 +234,24 @@ class MainTabBarController: BaseController {
 
 extension MainTabBarController: MainGameOnboardingDelegate {
     func tapBtn() {
-        MainGameOnboardingView.stateCounter += 1
-        AudioManager.sharedManager.playSound()
-        UIView.animate(withDuration: 0.3) {
-            self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
-            self.view.layoutIfNeeded()
+        
+        
+        switch MainGameOnboardingView.stateCounter {
+        case 17:
+            PreferencesManager.sharedManager.gameOnboardingDone = true
+            onboardingView?.removeFromSuperview()
+        default:
+            onboardingView?.removeFromSuperview()
+            MainGameOnboardingView.stateCounter += 1
+            AudioManager.sharedManager.playSound()
+            UIView.animate(withDuration: 0.3) {
+                self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
+                self.view.layoutIfNeeded()
+            }
+            navigationController?.navigationBar.isHidden = true
+            TabBarRouter(presenter: navigationController).pushGame()
         }
-        navigationController?.navigationBar.isHidden = true
-        TabBarRouter(presenter: navigationController).pushGame()
+     
         
 
     }

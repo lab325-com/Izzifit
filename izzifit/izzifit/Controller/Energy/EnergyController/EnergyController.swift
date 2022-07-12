@@ -64,6 +64,7 @@ class EnergyController: BaseController {
         presenter.getWidgetList()
         presenter.getSteps()
         updateMe()
+        tableView.reloadData()
     }
     
     //----------------------------------------------
