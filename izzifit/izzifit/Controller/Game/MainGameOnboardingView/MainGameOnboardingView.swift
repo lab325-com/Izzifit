@@ -74,6 +74,10 @@ class MainGameOnboardingView: UIView {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
+    deinit {
+        onboardImgVw.removeFromSuperview()
+    }
+    
     @objc func btnTapped() {
         delegate?.tapBtn()
         
@@ -165,7 +169,7 @@ class MainGameOnboardingView: UIView {
         
             onboardImgVw.image = image(img: .onNotEnoughCoins)
                                 ui.genericlLayout(object: onboardImgVw,
-                                                  parentView: arcGameView!.progressImgVw,
+                                                  parentView: arcGameView?.progressImgVw ?? self,
                                                   width: 220,
                                                   height: 102,
                                                   centerV: 10,
@@ -177,11 +181,24 @@ class MainGameOnboardingView: UIView {
                               topC: h/4.51 + h*0.498 + 17,
                               centerH: 0)
             
-            arcGameView!.spinBtn.isUserInteractionEnabled = false
+            arcGameView?.spinBtn.isUserInteractionEnabled = false
             
             
         case .blockScreen:  print("empty")
-        case .goToEnergy:  print("empty")
+        case .goToEnergy: onboardImgVw.image = image(img: .onToEnergy)
+            ui.genericlLayout(object: onboardImgVw,
+                              parentView: self,
+                              width: 200,
+                              height: 101,
+                              bottomC: 119,
+                              leadingC: wRatio(cW:18))
+
+            ui.genericlLayout(object: mainBtn,
+                          parentView: gameTabBar?.view ?? self,
+                          width: gameTabBar?.backBtn.sizeWidth,
+                          height: gameTabBar?.backBtn.sizeHeight,
+                          centerVtoO: gameTabBar?.backBtn.centerYAnchor,
+                          centerHtoO: gameTabBar?.backBtn.centerXAnchor)
         }
     }
 }

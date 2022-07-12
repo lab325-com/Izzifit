@@ -15,6 +15,7 @@ class ArcticGameController: BaseController {
     
     private var gameView: ArcticGameView!
     private var collectionView: UICollectionView!
+    var onboardingView: MainGameOnboardingView?
     
     override func loadView() {
         gameView = ArcticGameView()
@@ -49,17 +50,21 @@ class ArcticGameController: BaseController {
         presenter.getMap()
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         if let tabBarVC = self.tabBarController as? GameTabBarController {
-            let onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
-                                                         delegate: self,
-                                                        gameTabBar: tabBarVC,
-                                                         arcGameView: gameView)
-                     
-             view.ui.genericlLayout(object: onboardingView,
-                                    parentView: gameView.animationImgVw,
-                                    topC: 0,
-                                    bottomC: 0,
-                                    leadingC: 0,
-                                    trailingC: 0)
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                             delegate: self,
+                                                            gameTabBar: tabBarVC,
+                                                             arcGameView: self.gameView)
+                         
+                self.view.ui.genericlLayout(object: self.onboardingView!,
+                                            parentView: self.gameView.animationImgVw,
+                                            topC: 0,
+                                            bottomC: 0,
+                                            leadingC: 0,
+                                            trailingC: 0)
+            }
         }
     }
     
@@ -206,7 +211,6 @@ extension ArcticGameController: ArcticGameOutputProtocol {
         checkAvailableHummers()
         timerSpinManager.counter.combinations = map.map2.spins
         collectionView.reloadData()
-        
     }
 }
 
@@ -255,10 +259,51 @@ extension ArcticGameController: PurchasePopUpProtocol {
 
 extension ArcticGameController: MainGameOnboardingDelegate {
     func tapBtn() {
-        
-        print("natysnuto")
-        gameView.spinBtn.sendActions(for: .touchUpInside)
-        
-        
+       
+        onboardingView?.removeFromSuperview()
+    
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
+            
+            switch MainGameOnboardingView.stateCounter {
+            case 8,10,12,14:  gameView.spinBtn.sendActions(for: .touchUpInside)
+                MainGameOnboardingView.stateCounter += 1
+                onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                         delegate: self,
+                                                        gameTabBar: tabBarVC,
+                                                         arcGameView: gameView)
+                     
+             view.ui.genericlLayout(object: onboardingView!,
+                                    parentView: gameView.animationImgVw,
+                                    topC: 0,
+                                    bottomC: 0,
+                                    leadingC: 0,
+                                    trailingC: 0)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                    self.onboardingView?.removeFromSuperview()
+                    MainGameOnboardingView.stateCounter += 1
+                    self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                             delegate: self,
+                                                            gameTabBar: tabBarVC,
+                                                                 arcGameView: self.gameView)
+                         
+                    self.view.ui.genericlLayout(object: self.onboardingView!,
+                                                parentView: self.gameView.animationImgVw,
+                                                topC: 0,
+                                                bottomC: 0,
+                                                leadingC: 0,
+                                                trailingC: 0)
+
+                }
+                
+            case 16:
+                
+                PreferencesManager.sharedManager.gameOnboardingDone = true
+                tabBarVC.backBtn.sendActions(for: .touchUpInside)
+
+            default: print("empty")
+            }
+            
+        }
     }
 }

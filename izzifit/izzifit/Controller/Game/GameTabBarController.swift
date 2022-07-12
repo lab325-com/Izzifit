@@ -9,7 +9,7 @@ import UIKit
 
 class GameTabBarController: UITabBarController {
     
-    private let backBtn = UIButton()
+   let backBtn = UIButton()
    let spinBtn = UIButton()
     private let buildBtn = UIButton()
     private let mapBtn = UIButton()

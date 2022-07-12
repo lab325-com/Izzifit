@@ -499,9 +499,7 @@ extension LevelController: MainGameOnboardingDelegate {
         switch MainGameOnboardingView.stateCounter {
         case 1,4: igluBtn.sendActions(for: .touchUpInside)
         case 2, 5: buildPopUpVw!.upgradeBtn.sendActions(for: .touchUpInside)
-        case 7:
-            MainGameOnboardingView.stateCounter += 1
-            tabBarVC.spin()
+        case 7: tabBarVC.spin()
             onboardingView!.removeFromSuperview()
         default: print("default")
         }
