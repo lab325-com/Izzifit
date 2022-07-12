@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SwiftUI
+import Lottie
 
 enum GameOnboardingStates {
     case energy1, level2, buildPopUp3, level4, buildPopUp5, spinMenuBtn6, spinBtn, blockScreen, goToEnergy, finalPopUp
@@ -83,6 +83,21 @@ class MainGameOnboardingView: UIView {
         
         switch state {
         case .energy1:
+            
+                      var funAnimationView = AnimationView(name: "fun_anim")
+                            funAnimationView.contentMode = .scaleAspectFill
+                            funAnimationView.loopMode = .loop
+                            funAnimationView.play()
+            
+                        ui.genericlLayout(object: funAnimationView,
+                                         parentView: self,
+                                         width: 60,
+                                         height: 60,
+                                         bottomC: 31,
+                                         centerH: 0)
+            
+            
+            
                         ui.genericlLayout(object: mainBtn,
                                          parentView: self,
                                          width: 60,
