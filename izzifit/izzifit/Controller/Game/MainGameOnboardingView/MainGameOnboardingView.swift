@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 
 enum GameOnboardingStates {
-    case energy1, level2, buildPopUp3, level4, buildPopUp5, spinMenuBtn6, spinBtn, blockScreen, goToEnergy
+    case energy1, level2, buildPopUp3, level4, buildPopUp5, spinMenuBtn6, spinBtn, blockScreen, goToEnergy, finalPopUp
 }
 
 protocol MainGameOnboardingDelegate: AnyObject {
@@ -41,7 +41,8 @@ class MainGameOnboardingView: UIView {
                                                      .blockScreen,
                                                      .spinBtn,
                                                      .blockScreen,
-                                                     .goToEnergy]
+                                                     .goToEnergy,
+                                                     .finalPopUp]
     
     weak var delegate: MainGameOnboardingDelegate?
     var state: GameOnboardingStates
@@ -57,16 +58,15 @@ class MainGameOnboardingView: UIView {
         onboardImgVw.contentMode = .scaleAspectFill
         layer.backgroundColor = UIColor.clear.cgColor
         change(by: state)
-        
-        switch MainGameOnboardingView.stateCounter {
-        default:     mainBtn.addTarget(self,
+      
+        mainBtn.addTarget(self,
                                        action: #selector(btnTapped),
                                        for: .touchUpInside)
                      
                      additionBtn.addTarget(self,
                                            action: #selector(btnTapped),
                                            for: .touchUpInside)
-        }
+        
     
         
         
@@ -199,6 +199,109 @@ class MainGameOnboardingView: UIView {
                           height: gameTabBar?.backBtn.sizeHeight,
                           centerVtoO: gameTabBar?.backBtn.centerYAnchor,
                           centerHtoO: gameTabBar?.backBtn.centerXAnchor)
+        case .finalPopUp:  backgroundColor = UIColor(rgb: 0x3F3E56, alpha: 0.3)
+            
+                            let popView = UIView()
+                            popView.layer.backgroundColor = UIColor.white.cgColor
+                            popView.layer.cornerRadius = wRatio(cW: 20)
+                            popView.layer.masksToBounds = true
+                             
+            ui.genericlLayout(object: popView,
+                              parentView: self,
+                              width: wRatio(cW:344),
+                              height: wRatio(cW: 430),
+                              topC: hRatio(cH:184),
+                              centerH: 0)
+            // Congrats label
+            var mainTitleLbl = UILabel()
+            
+            ui.setLabel(label: mainTitleLbl,
+                        labelText: "Congrats",
+                        textColor: UIColor(rgb: 0x3F3E56),
+                        textAlignment: .center,
+                        fontSize: wRatio(cW: 24),
+                        fontName: "Inter-Medium")
+            
+            
+            ui.genericlLayout(object: mainTitleLbl,
+                              parentView: popView,
+                              topC: hRatio(cH: 32),
+                              centerH: 0)
+            
+            
+            // Description Label
+            
+            var descriptionLbl = UILabel()
+            
+            ui.setLabel(label: descriptionLbl,
+                        textColor: UIColor(rgb: 0x3F3E56),
+                        textAlignment: .center,
+                        fontSize: wRatio(cW: 16),
+                        fontName: "Inter-Regular",
+                        lines: 0)
+          
+            let imageAttachment = NSTextAttachment()
+            imageAttachment.image = image(img: .onboardingFun)
+            let imageOffsetY: CGFloat = -7.0
+            imageAttachment.bounds = CGRect(x: 0,
+                                            y: imageOffsetY,
+                                            width: imageAttachment.image!.size.width + 5,
+                                            height: imageAttachment.image!.size.height + 5)
+            
+  
+            let attachmentString = NSAttributedString(attachment: imageAttachment)
+            let completeText = NSMutableAttributedString(string: "Just play the game, have  ")
+            completeText.append(attachmentString)
+            let textAfterIcon = NSAttributedString(string: ", and  \n do daily simple tasks and lose \n weight!")
+            completeText.append(textAfterIcon)
+            
+            
+            descriptionLbl.attributedText = completeText
+            
+            ui.genericlLayout(object: descriptionLbl,
+                              parentView: popView,
+                              topC: hRatio(cH: 79),
+                              centerH: 0)
+            
+            
+            // Graph ImageView
+            
+            let graphImageView = UIImageView()
+            
+            graphImageView.image = image(img: .onGraph)
+            graphImageView.contentMode = .scaleAspectFill
+            
+            ui.genericlLayout(object: graphImageView,
+                              parentView: popView,
+                              width: wRatio(cW: 296),
+                              height: wRatio(cW: 160),
+                              topC: hRatio(cH: 172),
+                              centerH: 0)
+            
+            // Ok Button
+            
+            
+            let okBtn = UIButton()
+            
+            okBtn.layer.backgroundColor = UIColor(rgb: 0xFF42A8).cgColor
+            okBtn.layer.cornerRadius    = wRatio(cW: 20)
+            okBtn.layer.masksToBounds   = true
+            
+            okBtn.setTitle("OK", for: .normal)
+            okBtn.titleLabel?.font = UIFont(name: "Inter-Medium" , size: wRatio(cW: 18))
+            okBtn.titleLabel?.textColor = UIColor.white
+            
+            ui.genericlLayout(object: okBtn,
+                              parentView: self,
+                              width: wRatio(cW: 296),
+                              height: wRatio(cW: 40),
+                              centerH: 0,
+                              bottomToO: popView.bottomAnchor,
+                              bottomCG: 24)
+            
+            okBtn.addTarget(self,
+                             action: #selector(btnTapped),
+                             for: .touchUpInside)
         }
     }
 }

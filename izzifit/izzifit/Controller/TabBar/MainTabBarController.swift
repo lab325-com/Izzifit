@@ -89,7 +89,7 @@ class MainTabBarController: BaseController {
                                                name: Constants.Notifications.openWorkoutNotification,
                                                object: nil)
         
-        
+        PreferencesManager.sharedManager.gameOnboardingDone = false
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         
         let onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],

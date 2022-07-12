@@ -295,7 +295,6 @@ extension ArcticGameController: MainGameOnboardingDelegate {
                                                 trailingC: 0)
 
                 }
-                
             case 16:
                 
                 PreferencesManager.sharedManager.gameOnboardingDone = true
@@ -303,7 +302,6 @@ extension ArcticGameController: MainGameOnboardingDelegate {
 
             default: print("empty")
             }
-            
         }
     }
 }
