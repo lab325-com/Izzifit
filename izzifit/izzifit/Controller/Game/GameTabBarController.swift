@@ -10,14 +10,14 @@ import UIKit
 class GameTabBarController: UITabBarController {
     
     private let backBtn = UIButton()
-    private let spinBtn = UIButton()
+   let spinBtn = UIButton()
     private let buildBtn = UIButton()
     private let mapBtn = UIButton()
     private var gradientView = UIView()
     private let profileBtn = UIButton()
     
     private lazy var btns: [UIButton] = {[backBtn, spinBtn, buildBtn, mapBtn]}()
-    private var tabBarStackView: UIStackView!
+    var tabBarStackView: UIStackView!
     
     var firstLaunch = true
     

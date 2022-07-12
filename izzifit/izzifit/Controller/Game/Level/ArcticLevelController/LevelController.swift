@@ -494,10 +494,15 @@ extension LevelController: LevelPopUpDelegate {
 
 extension LevelController: MainGameOnboardingDelegate {
     func tapBtn() {
-      
+        
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
         switch MainGameOnboardingView.stateCounter {
         case 1,4: igluBtn.sendActions(for: .touchUpInside)
         case 2, 5: buildPopUpVw!.upgradeBtn.sendActions(for: .touchUpInside)
+        case 7:
+            MainGameOnboardingView.stateCounter += 1
+            tabBarVC.spin()
+            onboardingView!.removeFromSuperview()
         default: print("default")
         }
         MainGameOnboardingView.stateCounter += 1
@@ -514,6 +519,23 @@ extension LevelController: MainGameOnboardingDelegate {
                                leadingC: 0,
                                trailingC: 0)
 
+        guard MainGameOnboardingView.stateCounter == 3 || MainGameOnboardingView.stateCounter == 6 else { return }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.7) {
+            MainGameOnboardingView.stateCounter += 1
+            self.onboardingView!.removeFromSuperview()
+            self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                    delegate: self,
+                                                    gameTabBar: tabBarVC)
+                    
+            self.view.ui.genericlLayout(object: self.onboardingView!,
+                                        parentView: self.view,
+                                           topC: 0,
+                                           bottomC: 0,
+                                           leadingC: 0,
+                                           trailingC: 0)
+        }
+        }
     }
 }
 

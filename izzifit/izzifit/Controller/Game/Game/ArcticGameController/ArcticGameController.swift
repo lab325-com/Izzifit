@@ -35,6 +35,7 @@ class ArcticGameController: BaseController {
         self.view.addGestureRecognizer(swipeRight)
      
         gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchUpInside)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +47,18 @@ class ArcticGameController: BaseController {
         timerSpinManager = TimerSpinManager(collectionView: collectionView,
                                             presenter: presenter)
         presenter.getMap()
+        guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
+
+       let onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                    delegate: self,
+                                                    arcGameView: gameView)
+                
+        view.ui.genericlLayout(object: onboardingView,
+                               parentView: gameView,
+                               topC: 0,
+                               bottomC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
     }
     
     private func setCollectionView() {
@@ -229,5 +242,19 @@ extension ArcticGameController: PurchasePopUpProtocol {
     
     func purchasePopUpSuccess(controller: PurchasePopUp) {
         gameView.updateHeader()
+    }
+}
+
+
+
+//----------------------------------------------
+// MARK: - MainGameOnboardingDelegate
+//----------------------------------------------
+
+extension ArcticGameController: MainGameOnboardingDelegate {
+    func tapBtn() {
+        gameView.spinBtn.sendActions(for: .touchUpInside)
+        
+        
     }
 }
