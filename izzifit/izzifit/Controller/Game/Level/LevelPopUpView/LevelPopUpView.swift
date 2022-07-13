@@ -225,7 +225,7 @@ class LevelPopUpView: UIView {
                           parentView: self,
                           width: 310,
                           height: backImgHeights[popType.rawValue],
-                          topC: hRatio(cH:174),
+                          topC: hRatio(cH:174),     
                           centerH: 0)
         
         ui.genericlLayout(object: titleLbl,

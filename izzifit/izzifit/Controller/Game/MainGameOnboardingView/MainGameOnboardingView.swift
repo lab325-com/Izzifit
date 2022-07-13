@@ -114,18 +114,19 @@ class MainGameOnboardingView: UIView {
             
         case .level2:
       
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.onboardImgVw.image = self.image(img: .onBuildVillage)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                       self.onboardImgVw.image = self.image(img: .onBuildVillage)
                        self.ui.genericlLayout(object: self.onboardImgVw,
                                               parentView: self,
                                               width: 228,
                                               height: 97,
-                                              topC: 345,
-                                              centerH: 60)
+                                              topC: 335,
+                                              centerH: 55)
                 self.onboardImgVw.shake(0.333,
-                                        x: self.w / 2 + 60,
-                                        y: 345 + 48.5)
+                                        x: self.w / 2 + 55,
+                                        y: 335 + 48.5)
             }
+                        
                         ui.genericlLayout(object: mainBtn,
                                          parentView: self,
                                          width: 100,
@@ -135,24 +136,25 @@ class MainGameOnboardingView: UIView {
             
        
                         
-        case .buildPopUp3:          mainBtn.backgroundColor = .red
+        case .buildPopUp3:
                                   ui.genericlLayout(object: mainBtn,
                                                   parentView: self,
                                                   width: 242,
                                                   height: 40,
-                                                  topC: 387,
+                                                  topC: hRatio(cH:174) + (273 - 44 - 40),
                                                   centerH: 0)
+            
         case .level4:     onboardImgVw.image = image(img: .onUpgradeBuild)
-            ui.genericlLayout(object: onboardImgVw,
-                              parentView: self,
-                              width: 228,
-                              height: 97,
-                              topC: 335,
-                              centerH: 60)
+                            ui.genericlLayout(object: onboardImgVw,
+                                              parentView: self,
+                                              width: 228,
+                                              height: 97,
+                                              topC: 315,
+                                              centerH: 48)
             
             onboardImgVw.shake(0.333,
-                               x: w / 2 + 60,
-                               y: 345 + 48.5)
+                               x: w / 2 + 48,
+                               y: 315 + 48.5)
             
             ui.genericlLayout(object: mainBtn,
                              parentView: self,
@@ -160,26 +162,31 @@ class MainGameOnboardingView: UIView {
                              height: 110,
                              topC: 390,
                              trailingC: 58)
-        case .buildPopUp5:
-                             mainBtn.backgroundColor = .red
-
-                             ui.genericlLayout(object: mainBtn,
+            
+        case .buildPopUp5:  ui.genericlLayout(object: mainBtn,
                                                 parentView: self,
                                                 width: 242,
                                                 height: 40,
-                                                topC: 337,
-                                                centerH: -15)
+                                                topC: hRatio(cH:174) + (273 - 44 - 40),
+                                                centerH: 0)
             
         case .spinMenuBtn6:   onboardImgVw.image = image(img: .onNotEnoughCoins)
                             ui.genericlLayout(object: onboardImgVw,
-                                              parentView: self,
+                                              parentView: gameTabBar?.view ?? self,
                                               width: 228,
                                               height: 114,
-                                              bottomC: 119,
-                                              leadingC: wRatio(cW:53))
+                                              bottomC: h - ( h/27.06 + h/10.15 + 10),
+                                              centerHtoO: gameTabBar?.spinBtn.centerXAnchor)
+            
+            let btnWidth =  (h/11.6)
+            let allstack = (4 * h/11.6) + (3 * w/26.78)
+            let leading =  (w - allstack)/2
+            let x = leading + btnWidth + w/26.78 + (btnWidth/2)
+            let y = h - (( h/27.06 + h/10.15 + 10) + 37)
+            
             onboardImgVw.shake(0.333,
-                               x: wRatio(cW: 53) + 114,
-                               y: h - 177)
+                               x:  x,
+                               y: y)
        
             ui.genericlLayout(object: mainBtn,
                               parentView: gameTabBar?.view ?? self,
@@ -215,15 +222,21 @@ class MainGameOnboardingView: UIView {
         case .blockScreen:  print("empty")
         case .goToEnergy: onboardImgVw.image = image(img: .onToEnergy)
             ui.genericlLayout(object: onboardImgVw,
-                              parentView: self,
+                              parentView: gameTabBar?.view ?? self,
                               width: 228,
-                              height: 115,
-                              bottomC: 119,
-                              leadingC: wRatio(cW:18))
+                              height: 114,
+                              bottomC: h - ( h/27.06 + h/10.15 + 10),
+                              centerHtoO: gameTabBar?.backBtn.centerXAnchor)
+            
+            let btnWidth =  (h/11.6)
+            let allstack = (4 * h/11.6) + (3 * w/26.78)
+            let leading =  (w - allstack)/2
+            let x = leading + (btnWidth/2) + 50
+            let y = h - (( h/27.06 + h/10.15 + 10) + 37)
             
             onboardImgVw.shake(0.333,
-                               x: wRatio(cW:18) + 114,
-                               y: h - (57.5 + 119))
+                               x: x,
+                               y: y)
 
             ui.genericlLayout(object: mainBtn,
                           parentView: gameTabBar?.view ?? self,

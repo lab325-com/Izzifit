@@ -90,10 +90,10 @@ class GameTabBarController: UITabBarController {
                                          btn.heightAnchor.constraint(equalToConstant: view.h/10.15)])
         }
         
-        tabBarStackView = UIStackView(arrangedSubviews: btns)
-        tabBarStackView.alignment = .center
-        tabBarStackView.axis = .horizontal
-        tabBarStackView.spacing = view.w/26.78
+        tabBarStackView = UIStackView(arrangedSubviews: btns)         // let btnWidth =  (view.h/11.6)
+        tabBarStackView.alignment = .center                        // let allstack = (4 * view.h/11.6) + (3 * view.w/26.78)
+        tabBarStackView.axis = .horizontal                        // let leading =  (w - allstack)/2
+        tabBarStackView.spacing = view.w/26.78                   // let x = leading + btnWidth + view.w/26.78 + (btnWidth/2)
         
         view.ui.genericlLayout(object: tabBarStackView,
                                parentView: view,
