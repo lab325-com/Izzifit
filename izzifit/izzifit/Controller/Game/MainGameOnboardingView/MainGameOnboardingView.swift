@@ -35,12 +35,6 @@ class MainGameOnboardingView: UIView {
                                                      .spinMenuBtn6,
                                                      .spinBtn,
                                                      .blockScreen,
-                                                     .spinBtn,
-                                                     .blockScreen,
-                                                     .spinBtn,
-                                                     .blockScreen,
-                                                     .spinBtn,
-                                                     .blockScreen,
                                                      .goToEnergy,
                                                      .finalPopUp]
     

@@ -77,7 +77,7 @@ class MainTabBarController: BaseController {
             self.view.layoutIfNeeded()
         }
        
-        PreferencesManager.sharedManager.gameOnboardingDone = false
+      //  PreferencesManager.sharedManager.gameOnboardingDone = false
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         
         onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
@@ -237,7 +237,7 @@ extension MainTabBarController: MainGameOnboardingDelegate {
         
         
         switch MainGameOnboardingView.stateCounter {
-        case 17:
+        case 11:
             PreferencesManager.sharedManager.gameOnboardingDone = true
             onboardingView?.removeFromSuperview()
         default:

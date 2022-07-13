@@ -265,7 +265,8 @@ extension ArcticGameController: MainGameOnboardingDelegate {
         if let tabBarVC = self.tabBarController as? GameTabBarController {
             
             switch MainGameOnboardingView.stateCounter {
-            case 8,10,12,14:  gameView.spinBtn.sendActions(for: .touchUpInside)
+            case 8:
+                gameView.spinBtn.sendActions(for: .touchUpInside)
                 MainGameOnboardingView.stateCounter += 1
                 onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
                                                          delegate: self,
@@ -279,7 +280,18 @@ extension ArcticGameController: MainGameOnboardingDelegate {
                                     leadingC: 0,
                                     trailingC: 0)
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+               
+                DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
+                        self.gameView.spinBtn.sendActions(for: .touchUpInside)
+                    }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 14.0) {
+                    self.gameView.spinBtn.sendActions(for: .touchUpInside)
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 21.0) {
+                    self.gameView.spinBtn.sendActions(for: .touchUpInside)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 28.0) {
                     self.onboardingView?.removeFromSuperview()
                     MainGameOnboardingView.stateCounter += 1
                     self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
@@ -293,9 +305,8 @@ extension ArcticGameController: MainGameOnboardingDelegate {
                                                 bottomC: 0,
                                                 leadingC: 0,
                                                 trailingC: 0)
-
                 }
-            case 16:
+            case 10:
                 MainGameOnboardingView.stateCounter += 1
                 tabBarVC.backBtn.sendActions(for: .touchUpInside)
 
