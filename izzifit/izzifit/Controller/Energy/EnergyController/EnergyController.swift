@@ -62,7 +62,6 @@ class EnergyController: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.getWidgetList()
-        presenter.getSteps()
         updateMe()
     }
     
@@ -196,16 +195,14 @@ extension EnergyController: EnergyOutputProtocol {
         updateMe()
         tableView.isHidden = false
         tableView.reloadData()
+        
+        if presenter.steps.count > 0 {
+            presenter.setSteps()
+        }
     }
     
     func successWidgetList() {
         tableView.reloadData()
-    }
-    
-    func successGetSteps() {
-        if presenter.steps.count > 0 {
-            presenter.setSteps()
-        }
     }
     
     func successStepsEnergy() {
