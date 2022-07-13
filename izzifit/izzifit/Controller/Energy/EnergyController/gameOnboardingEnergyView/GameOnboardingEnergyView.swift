@@ -43,34 +43,8 @@ class GameOnboardingEnergyView: UIView {
                           
         mainImgVw.contentMode = .scaleAspectFill
         
-        // Create Attachment
-        let imageAttachment = NSTextAttachment()
-        imageAttachment.image = image(img: .onboardingEnergy)
-        // Set bound to reposition
-        let imageOffsetY: CGFloat = -5.0
-        imageAttachment.bounds = CGRect(x: 0,
-                                        y: imageOffsetY,
-                                        width: imageAttachment.image!.size.width + 5,
-                                        height: imageAttachment.image!.size.height + 5)
-        
-        let imageAt2 = NSTextAttachment()
-        imageAt2.image = image(img: .onboardingFun)
-        imageAt2.bounds = CGRect(x: 0,
-                                 y: -9.0,
-                                 width: imageAt2.image!.size.width + 5,
-                                 height: imageAt2.image!.size.height + 5)
-        // Create string with attachment
-        let attachmentString = NSAttributedString(attachment: imageAttachment)
-        // Initialize mutable string
-        let completeText = NSMutableAttributedString(string: "You have enough  ")
-        // Add image to mutable string
-        completeText.append(attachmentString)
-        // Add your text to mutable string
-        let textAfterIcon = NSAttributedString(string: "  energy for fun! \nBuild your new world! Tap  ")
-        completeText.append(textAfterIcon)
-        
-        let attString2 = NSAttributedString(attachment: imageAt2)
-        completeText.append(attString2)
+       
+  
       
         ui.setLabel(label: mainLbl,
                     textColor: UIColor(rgb: 0x3F3E56),
@@ -78,12 +52,12 @@ class GameOnboardingEnergyView: UIView {
                     fontSize: wRatio(cW: 14),
                     fontName: "Inter-Regular",
                     lines: 0)
-        mainLbl.attributedText = completeText
+
         
         switch state {
         case .energy:   mainImgVw.image = image(img: .onboardingLightning)  ?? UIImage()
             
-            var anim = AnimationView(name: "spark_anim")
+            let anim = AnimationView(name: "spark_anim")
             anim.contentMode = .scaleAspectFill
             anim.loopMode = .loop
             
@@ -91,22 +65,49 @@ class GameOnboardingEnergyView: UIView {
                               parentView: yellowVw,
                               width: 100,
                               height: 100,
-                              trailingC: 1,
+                              trailingC: -12,
                               centerV: 0)
             
             ui.genericlLayout(object: mainImgVw,
                               parentView: self,
-                              width: wRatio(cW:38.5),
-                              height: wRatio(cW: 51),
+                              width: 38.5,
+                              height: 51,
                               bottomToO: yellowVw.bottomAnchor,
                               bottomCG: 6,
                               trailingToO: yellowVw.trailingAnchor,
-                              trailingCG: wRatio(cW: 16))
+                              trailingCG: 16)
             anim.play()
+            
+            let imageAttachment = NSTextAttachment()
+            imageAttachment.image = image(img: .onboardingEnergy)
+            let imageOffsetY: CGFloat = -5.0
+            imageAttachment.bounds = CGRect(x: 0,
+                                            y: imageOffsetY,
+                                            width: imageAttachment.image!.size.width + 5,
+                                            height: imageAttachment.image!.size.height + 5)
+            
+            let imageAt2 = NSTextAttachment()
+            imageAt2.image = image(img: .onboardingRightSign)
+            imageAt2.bounds = CGRect(x: 0,
+                                     y: -4.0,
+                                     width: imageAt2.image!.size.width + 5,
+                                     height: imageAt2.image!.size.height + 5)
+            let imageAt = NSAttributedString(attachment: imageAttachment)
+            let completeText = NSMutableAttributedString(string: "Get energy ")
+            completeText.append(imageAt)
+            let textAfterIcon = NSAttributedString(string: " from tracking ")
+            completeText.append(textAfterIcon)
+            
+            let imageAtStr2 = NSAttributedString(attachment: imageAt2)
+            completeText.append(imageAtStr2)
+            
+            let lastText = NSAttributedString(string: " your \nmeals, water, activities ")
+            completeText.append(lastText)
+            mainLbl.attributedText = completeText
             
         case .game:
             
-            var anim = AnimationView(name: "smoke_anim")
+            let anim = AnimationView(name: "smoke_anim")
             anim.contentMode = .scaleAspectFit
             anim.loopMode = .loop
             
@@ -120,13 +121,38 @@ class GameOnboardingEnergyView: UIView {
             mainImgVw.image = image(img: .onboardingVillage)    ?? UIImage()
             ui.genericlLayout(object: mainImgVw,
                               parentView: self,
-                              width: wRatio(cW:77),
-                              height: wRatio(cW: 62),
+                              width: 77,
+                              height: 62,
                               topToO: yellowVw.topAnchor,
                               topCG: -7,
                               trailingToO: yellowVw.trailingAnchor,
                               trailingCG: wRatio(cW: 9))
             anim.play()
+            
+            
+            let imageAttachment = NSTextAttachment()
+            imageAttachment.image = image(img: .onboardingEnergy)
+            let imageOffsetY: CGFloat = -5.0
+            imageAttachment.bounds = CGRect(x: 0,
+                                            y: imageOffsetY,
+                                            width: imageAttachment.image!.size.width + 5,
+                                            height: imageAttachment.image!.size.height + 5)
+            
+            let imageAt2 = NSTextAttachment()
+            imageAt2.image = image(img: .onboardingFun)
+            imageAt2.bounds = CGRect(x: 0,
+                                     y: -9.0,
+                                     width: imageAt2.image!.size.width + 5,
+                                     height: imageAt2.image!.size.height + 5)
+            let attachmentString = NSAttributedString(attachment: imageAttachment)
+            let completeText = NSMutableAttributedString(string: "You have enough  ")
+            completeText.append(attachmentString)
+            let textAfterIcon = NSAttributedString(string: "  energy for fun! \nBuild your new world! Tap  ")
+            completeText.append(textAfterIcon)
+            
+            let attString2 = NSAttributedString(attachment: imageAt2)
+            completeText.append(attString2)
+            mainLbl.attributedText = completeText
         }
         
         ui.genericlLayout(object: mainLbl,
