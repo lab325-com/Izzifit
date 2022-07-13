@@ -38,13 +38,19 @@ class EnergyStepsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-                
-        backView.layer.cornerRadius = 20
         
-        stepsCollectionView.backgroundColor = .clear
         stepsCollectionView.dataSource = self
         stepsCollectionView.delegate = self
+        
+        stepsCollectionView.backgroundColor = .clear
+        
         stepsCollectionView.register(UINib(nibName: "EnergyStepsCollectionCell", bundle: nil), forCellWithReuseIdentifier: EnergyStepsCollectionCell.id)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        backView.layer.cornerRadius = 20
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
