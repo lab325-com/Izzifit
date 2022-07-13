@@ -4,7 +4,7 @@ import Foundation
 import Foundation
 import HealthKit
 
-enum HoursType: String {
+enum HoursType: String, CaseIterable {
     case zero        = "00"
     case two         = "02"
     case four        = "04"
@@ -33,7 +33,15 @@ enum CurrentHourType: String, CaseIterable {
 
 struct StepsModel {
     let hourType: HoursType
-    let steps: Int
+    var steps: Int
+    
+    var date: Date {
+        return Date()
+    }
+    
+    mutating func setSteps(steps: Int) {
+        self.steps = steps
+    }
 }
 
 struct CurrentStepsModel {
@@ -52,6 +60,7 @@ class HealthKitManager {
     
     var healthSteps: [HealthStepsModel] = []
     var steps: [CurrentStepsModel] = []
+    var stepsApi: [StepsModel] = []
     
     func querySteps(controller: BaseController?,
                     successHandler: @escaping ((_ model: [HealthStepsModel], _ steps: [CurrentStepsModel]) -> Void),
@@ -86,14 +95,23 @@ class HealthKitManager {
                             }
                         }
                         
+                        self.stepsApi = []
                         var tempArray: [StepsModel] = []
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "HH"
 
+                        for type in HoursType.allCases {
+                            self.stepsApi.append(StepsModel(hourType: type, steps: 0))
+                        }
+                        
                         for steps in self.healthSteps {
                             let day = dateFormatter.string(from: steps.date)
                             let steps = steps.steps
-
+                            
+                            if let index = self.stepsApi.firstIndex(where: {$0.hourType == HoursType(rawValue: day) ?? .zero}) {
+                                self.stepsApi[index].setSteps(steps: steps)
+                            }
+                            
                             tempArray.append(StepsModel(hourType: HoursType(rawValue: day) ?? .zero, steps: steps))
                         }
 

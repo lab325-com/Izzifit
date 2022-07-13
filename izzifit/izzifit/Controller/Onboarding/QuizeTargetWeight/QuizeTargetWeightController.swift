@@ -50,7 +50,9 @@ class QuizeTargetWeightController: BaseController {
                 return
             }
             
+            
             if let targetWeight = targetWeight {
+               
                 switch type {
                 case .kg:
                     self.targetWeight = targetWeight * 0.45359237
@@ -154,6 +156,25 @@ class QuizeTargetWeightController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        if let weight = PreferencesManager.sharedManager.tempPorifle.weight {
+            self.targetWeight = Float(weight)
+        }
+        
+        if let targetWeight = targetWeight {
+            var delta: Float = 1
+            
+            switch  PreferencesManager.sharedManager.tempPorifle.goal  {
+            case .muscle:
+                delta = 0.95
+            case .loseWeight:
+                delta = 0.85
+            default:
+                break
+            }
+            
+            self.targetWeight = targetWeight * delta
+        }
+        
         let jsonName = "energy_anim"
         let animation = Animation.named(jsonName)
         animationEnergy = AnimationView(animation: animation)
