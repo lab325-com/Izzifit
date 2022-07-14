@@ -110,7 +110,7 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
         }
         
         switch indexPath.row {
-        case 0: return PreferencesManager.sharedManager.gameOnboardingDone ? 94.0 : 185.0
+        case 0: return 185.0
         default: return tableView.rowHeight
         }
         return tableView.rowHeight

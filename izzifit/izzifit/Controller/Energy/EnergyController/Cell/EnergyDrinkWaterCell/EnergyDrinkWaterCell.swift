@@ -13,10 +13,10 @@ protocol EnergyDrinkWaterProtocol: AnyObject {
 
 class EnergyDrinkWaterCell: BaseTableViewCell {
 
+    @IBOutlet weak var underView: UIView!
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var waterStackView: UIStackView!
-    
     @IBOutlet weak var mainLabel: UILabel!
-    
     @IBOutlet weak var mlLeftLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
     
@@ -25,7 +25,8 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -64,6 +65,9 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
         
         mlLeftLabel.text = RLocalization.water_widget_ml_left(model.left)
         countLabel.text = "\(Int(model.energy))/\(model.energyTotal)"
+
+  
+  
     }
     
     @objc func buttonAction(sender: UIButton!) {

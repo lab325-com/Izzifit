@@ -25,6 +25,7 @@ class PreferencesManager : NSObject {
     static let fcmToken = "fcmToken"
     static let localPushs = "localPushs"
     static let gameOnboardingDone = "gameOnboardingDone"
+    static let drinkWidgetShowed = "drinkWidgetShowed"
     
     var userDefaults: UserDefaults
     

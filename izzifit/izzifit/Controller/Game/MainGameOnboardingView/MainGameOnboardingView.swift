@@ -24,6 +24,9 @@ class MainGameOnboardingView: UIView {
     var onboardImgVw =  UIImageView()
     var additionBtn =   UIButton()
     var mainBtn =       UIButton()
+    var menuAnim: AnimationView?
+    var spinAnim: AnimationView?
+    
     
    static var gameOnboardStates: [GameOnboardingStates] = [.energy1,
                                                      .level2,
@@ -67,6 +70,8 @@ class MainGameOnboardingView: UIView {
     
     deinit {
         onboardImgVw.removeFromSuperview()
+        menuAnim?.removeFromSuperview()
+        spinAnim?.removeFromSuperview()
     }
     
     @objc func btnTapped() {
@@ -77,7 +82,6 @@ class MainGameOnboardingView: UIView {
         
         switch state {
         case .energy1:
-            
                         var funAnimationView = AnimationView(name: "fun_anim")
                             funAnimationView.contentMode = .scaleAspectFill
                             funAnimationView.loopMode = .loop
@@ -85,9 +89,9 @@ class MainGameOnboardingView: UIView {
             
                         ui.genericlLayout(object: funAnimationView,
                                          parentView: self,
-                                         width: 60,
-                                         height: 60,
-                                         bottomC: 31,
+                                         width: 90,
+                                         height: 90,
+                                         bottomC: 16,
                                          centerH: 0)
             
             
@@ -116,9 +120,16 @@ class MainGameOnboardingView: UIView {
                                               height: 97,
                                               topC: 335,
                                               centerH: 55)
-                self.onboardImgVw.shake(0.333,
+                self.onboardImgVw.shake(0.5,
                                         x: self.w / 2 + 55,
                                         y: 335 + 48.5)
+                
+                if let baseVC = self.gameTabBar?.children[1] as? GameBaseController {
+                    if let levelVC = baseVC.children.first as? LevelController {
+                        levelVC.slideAnimationView?.play()
+                    }
+                }
+                
             }
                         
                         ui.genericlLayout(object: mainBtn,
@@ -138,7 +149,17 @@ class MainGameOnboardingView: UIView {
                                                   topC: hRatio(cH:174) + (273 - 44 - 40),
                                                   centerH: 0)
             
-        case .level4:     onboardImgVw.image = image(img: .onUpgradeBuild)
+        case .level4:
+            
+            if let baseVC = gameTabBar?.children[1] as? GameBaseController {
+                if let levelVC = baseVC.children.first as? LevelController {
+                    levelVC.animationTrailingConstraint.constant = -76
+                    levelVC.view.layoutIfNeeded()
+                }
+            }
+
+            
+            onboardImgVw.image = image(img: .onUpgradeBuild)
                             ui.genericlLayout(object: onboardImgVw,
                                               parentView: self,
                                               width: 228,
@@ -146,7 +167,7 @@ class MainGameOnboardingView: UIView {
                                               topC: 315,
                                               centerH: 48)
             
-            onboardImgVw.shake(0.333,
+            onboardImgVw.shake(0.5,
                                x: w / 2 + 48,
                                y: 315 + 48.5)
             
@@ -164,7 +185,14 @@ class MainGameOnboardingView: UIView {
                                                 topC: hRatio(cH:174) + (273 - 44 - 40),
                                                 centerH: 0)
             
-        case .spinMenuBtn6:   onboardImgVw.image = image(img: .onNotEnoughCoins)
+        case .spinMenuBtn6:
+            if let baseVC = self.gameTabBar?.children[1] as? GameBaseController {
+                if let levelVC = baseVC.children.first as? LevelController {
+                    levelVC.slideAnimationView?.stop()
+                }
+            }
+            
+            onboardImgVw.image = image(img: .onNotEnoughCoins)
                             ui.genericlLayout(object: onboardImgVw,
                                               parentView: gameTabBar?.view ?? self,
                                               width: 228,
@@ -178,16 +206,28 @@ class MainGameOnboardingView: UIView {
             let x = leading + btnWidth + w/26.78 + (btnWidth/2)
             let y = h - (( h/27.06 + h/10.15 + 10) + 37)
             
-            onboardImgVw.shake(0.333,
+            onboardImgVw.shake(0.5,
                                x:  x,
                                y: y)
        
+            menuAnim = .init(name: "menu_anim")
+            menuAnim?.contentMode = .scaleAspectFill
+            menuAnim?.loopMode = .loop
+            
+            ui.genericlLayout(object: menuAnim!,
+                              parentView: gameTabBar?.view ?? self,
+                              width: gameTabBar?.spinBtn.sizeWidth,
+                              height: gameTabBar?.spinBtn.sizeHeight,
+                              centerVtoO: gameTabBar?.spinBtn.centerYAnchor,
+                              centerHtoO: gameTabBar?.spinBtn.centerXAnchor)
+            
             ui.genericlLayout(object: mainBtn,
                               parentView: gameTabBar?.view ?? self,
                               width: gameTabBar?.spinBtn.sizeWidth,
                               height: gameTabBar?.spinBtn.sizeHeight,
                               centerVtoO: gameTabBar?.spinBtn.centerYAnchor,
                               centerHtoO: gameTabBar?.spinBtn.centerXAnchor)
+            menuAnim?.play()
             
         case .spinBtn:
         
@@ -199,7 +239,7 @@ class MainGameOnboardingView: UIView {
                                                   centerV: 10,
                                                   centerH: 0)
             
-            onboardImgVw.shake(0.333,
+            onboardImgVw.shake(0.5,
                                x: w/2 - 125,
                                y: 18)
             
@@ -212,6 +252,18 @@ class MainGameOnboardingView: UIView {
             
             arcGameView?.spinBtn.isUserInteractionEnabled = false
             
+            spinAnim = .init(name: "spin_button_anim")
+            
+            spinAnim?.contentMode = .scaleAspectFill
+            spinAnim?.loopMode = .loop
+            
+            ui.genericlLayout(object: spinAnim!,
+                              parentView: arcGameView?.spinBtn ?? self,
+                              width: (arcGameView?.spinBtn.sizeWidth ?? 0.0) * 1.08,
+                              height: (arcGameView?.spinBtn.sizeHeight ?? 0.0) * 1.1,
+                              centerVtoO: arcGameView?.spinBtn.centerYAnchor,
+                              centerHtoO: arcGameView?.spinBtn.centerXAnchor)
+            spinAnim?.play()
             
         case .blockScreen:  print("empty")
         case .goToEnergy: onboardImgVw.image = image(img: .onToEnergy)
@@ -228,16 +280,31 @@ class MainGameOnboardingView: UIView {
             let x = leading + (btnWidth/2) + 50
             let y = h - (( h/27.06 + h/10.15 + 10) + 37)
             
-            onboardImgVw.shake(0.333,
+            onboardImgVw.shake(0.5,
                                x: x,
                                y: y)
 
+          
+            
+            menuAnim = .init(name: "menu_anim")
+            menuAnim?.contentMode = .scaleAspectFill
+            menuAnim?.loopMode = .loop
+            
+            ui.genericlLayout(object: menuAnim!,
+                              parentView: gameTabBar?.view ?? self,
+                              width: gameTabBar?.backBtn.sizeWidth,
+                              height: gameTabBar?.backBtn.sizeHeight,
+                              centerVtoO: gameTabBar?.backBtn.centerYAnchor,
+                              centerHtoO: gameTabBar?.backBtn.centerXAnchor)
+            
             ui.genericlLayout(object: mainBtn,
                           parentView: gameTabBar?.view ?? self,
                           width: gameTabBar?.backBtn.sizeWidth,
                           height: gameTabBar?.backBtn.sizeHeight,
                           centerVtoO: gameTabBar?.backBtn.centerYAnchor,
                           centerHtoO: gameTabBar?.backBtn.centerXAnchor)
+            menuAnim?.play()
+
         case .finalPopUp:  backgroundColor = UIColor(rgb: 0x3F3E56, alpha: 0.3)
             
                             let popView = UIView()
@@ -315,6 +382,20 @@ class MainGameOnboardingView: UIView {
                               topC: hRatio(cH: 172),
                               centerH: 0)
             
+            
+            // congrads_anim
+            
+            let anim = AnimationView(name: "congrads_anim")
+            anim.loopMode = .playOnce
+            anim.contentMode = .scaleAspectFill
+          
+            ui.genericlLayout(object: anim,
+                              parentView: popView,
+                              width: w,
+                              height: h,
+                              centerV: 0,
+                              centerH: 0)
+            
             // Ok Button
             let okBtn = UIButton()
             
@@ -337,6 +418,10 @@ class MainGameOnboardingView: UIView {
              okBtn.addTarget(self,
                              action: #selector(btnTapped),
                              for: .touchUpInside)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                anim.play()
+            }
         }
     }
 }

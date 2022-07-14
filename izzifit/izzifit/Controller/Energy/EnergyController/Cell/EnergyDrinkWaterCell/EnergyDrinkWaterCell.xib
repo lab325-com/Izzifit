@@ -26,6 +26,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="401" height="181"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="key-SF-Sbp">
+                        <rect key="frame" x="16" y="4" width="369" height="173"/>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjT-1J-lIq">
                         <rect key="frame" x="16" y="4" width="369" height="173"/>
                         <subviews>
@@ -194,6 +197,10 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="zjT-1J-lIq" secondAttribute="trailing" constant="16" id="Ju1-IT-Zq1"/>
                     <constraint firstItem="zjT-1J-lIq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="KM7-Ki-rgl"/>
+                    <constraint firstAttribute="bottom" secondItem="key-SF-Sbp" secondAttribute="bottom" constant="4" id="NY1-Kk-kBF"/>
+                    <constraint firstItem="key-SF-Sbp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="fFx-I7-qO2"/>
+                    <constraint firstItem="key-SF-Sbp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="hje-xP-c1m"/>
+                    <constraint firstAttribute="trailing" secondItem="key-SF-Sbp" secondAttribute="trailing" constant="16" id="i4c-qV-GSt"/>
                     <constraint firstItem="zjT-1J-lIq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="iqt-Nf-nJA"/>
                     <constraint firstAttribute="bottom" secondItem="zjT-1J-lIq" secondAttribute="bottom" constant="4" id="thG-RW-jAK"/>
                 </constraints>
@@ -204,7 +211,9 @@
             <connections>
                 <outlet property="countLabel" destination="bXJ-H9-bVu" id="XDL-Mm-leU"/>
                 <outlet property="mainLabel" destination="ik7-9V-u2I" id="f9d-Bf-2hu"/>
+                <outlet property="mainView" destination="zjT-1J-lIq" id="PGu-Qe-CCB"/>
                 <outlet property="mlLeftLabel" destination="eLV-j0-3Q3" id="Lmx-vy-Rbh"/>
+                <outlet property="underView" destination="key-SF-Sbp" id="4oz-gc-SbO"/>
                 <outlet property="waterStackView" destination="ARv-XH-8DF" id="PF4-bA-N0z"/>
             </connections>
             <point key="canvasLocation" x="241.30434782608697" y="143.63839285714286"/>

@@ -140,3 +140,108 @@ public extension Double {
         Double(String(format: "%.2f", self))!
     }
 }
+
+class CircleAnimView: UIView {
+    var shape = CAShapeLayer()
+    
+    var duration: CGFloat
+    var snakeColor: CGColor
+    
+    init(duration: CGFloat, snakeColor: UIColor) {
+        self.duration = duration
+        self.snakeColor = snakeColor.cgColor
+        super.init(frame: .zero)
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        drawRingFittingInsideView(shape: shape)
+    }
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
+    
+    func drawRingFittingInsideView(shape: CAShapeLayer) -> () {
+     
+        let x = bounds.size.width/2
+        let y = bounds.size.height/2
+        let desiredLineWidth:CGFloat = max( bounds.size.width/2, bounds.size.height/2)// your desired value
+            
+        let circlePath = UIBezierPath(
+                arcCenter: CGPoint(x:x,
+                                   y:y),
+                radius: max(x, y) - (desiredLineWidth/2) ,
+                startAngle: 0,
+                endAngle: .pi * 2,
+                clockwise: true)
+    
+        shape.path = circlePath.cgPath
+        shape.strokeStart = 0
+        shape.strokeEnd = 0.6
+        shape.fillColor = UIColor.clear.cgColor
+        shape.strokeColor = snakeColor
+        shape.lineWidth = desiredLineWidth
+        
+        let rotateAnumation = CABasicAnimation(keyPath: "transform.rotation.z")
+                      rotateAnumation.fromValue = 0
+                      rotateAnumation.toValue = Double.pi * 2
+                      rotateAnumation.duration = duration
+                      rotateAnumation.isCumulative = true
+                      rotateAnumation.repeatCount = Float.greatestFiniteMagnitude
+              
+        let anim1 = CABasicAnimation(keyPath: "strokeEnd")
+                        anim1.fromValue         = 0.2
+                        anim1.toValue           = 0.6
+                        anim1.duration          = 0.3
+                        anim1.repeatCount = Float.infinity
+                        anim1.autoreverses = true
+                        anim1.isRemovedOnCompletion = true
+            
+        layer.addSublayer(shape)
+        
+        layer.add(rotateAnumation, forKey: "nil")
+//shape.add(anim1, forKey: "nil")
+     }
+}
+
+
+extension UIView {
+
+    func runSnakeAnim(duration: CGFloat, snakeColor: UIColor, snakeLineWidth: CGFloat, cornerRadius: CGFloat) {
+        
+       
+        let snakeView = CircleAnimView(duration: duration, snakeColor: snakeColor)
+        
+        let clearView = UIView()
+        clearView.layer.cornerRadius = cornerRadius
+        clearView.layer.backgroundColor = UIColor.clear.cgColor
+        clearView.layer.masksToBounds = true
+        
+        let capView = UIView()
+        capView.layer.backgroundColor = layer.backgroundColor
+        capView.layer.cornerRadius = cornerRadius
+        
+        layer.cornerRadius = cornerRadius
+        
+             ui.genericlLayout(object: clearView,
+                               parentView: self,
+                               width: bounds.size.width + (snakeLineWidth * 2) ,
+                               height: bounds.size.height + (snakeLineWidth * 2) ,
+                               centerV: 0,
+                               centerH: 0)
+        
+        ui.genericlLayout(object: snakeView,
+                          parentView: clearView,
+                          width: bounds.size.width + 100,
+                          height: bounds.size.height + 100,
+                          centerV: 0,
+                          centerH: 0)
+        
+        ui.genericlLayout(object: capView,
+                          parentView: self,
+                          width: bounds.size.width,
+                          height: bounds.size.height,
+                          centerV: 0,
+                          centerH: 0)
+    }
+
+}

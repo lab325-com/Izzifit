@@ -16,14 +16,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LevelController" customModule="izzifit" customModuleProvider="target">
             <connections>
+                <outlet property="animationTrailingConstraint" destination="Flu-d4-fka" id="HtL-Jb-Rrv"/>
                 <outlet property="deerBtn" destination="U73-Gb-06i" id="FYY-bW-ifg"/>
                 <outlet property="fishBtn" destination="XIo-Qm-0VY" id="Cqr-I8-A12"/>
                 <outlet property="goldBtn" destination="Hv4-Wv-c7i" id="VTf-ts-mrC"/>
                 <outlet property="hummerBtn" destination="IG0-LK-f1C" id="eDl-9P-z3n"/>
                 <outlet property="hummerCountLbl" destination="Mwj-5D-O6D" id="Syn-oP-O2o"/>
                 <outlet property="igluBtn" destination="6H2-mJ-PWK" id="YOg-oT-zCK"/>
+                <outlet property="levelBackImageView" destination="3oM-6o-p50" id="2gs-zF-goT"/>
                 <outlet property="scrollView" destination="xAl-BH-3VN" id="5Qw-74-Rsr"/>
                 <outlet property="shipBtn" destination="W58-DR-VgI" id="MOK-c2-4T1"/>
+                <outlet property="slideAnimationView" destination="lxL-1O-Yyk" id="v4j-pL-Ab2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,6 +45,17 @@
                                 <constraint firstAttribute="height" constant="926" id="Pm3-tj-w4T"/>
                             </constraints>
                         </imageView>
+                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxL-1O-Yyk" customClass="AnimationView" customModule="Lottie">
+                            <rect key="frame" x="262" y="455" width="114" height="30"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="114" id="8Gt-AH-TzM"/>
+                                <constraint firstAttribute="height" constant="30" id="Xcy-w0-Jfd"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="point_anim"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W58-DR-VgI">
                             <rect key="frame" x="249" y="227" width="120" height="120"/>
                             <constraints>
@@ -93,11 +107,13 @@
                         <constraint firstItem="XIo-Qm-0VY" firstAttribute="top" secondItem="3oM-6o-p50" secondAttribute="top" constant="298" id="9PL-Li-vkf"/>
                         <constraint firstItem="3oM-6o-p50" firstAttribute="trailing" secondItem="W58-DR-VgI" secondAttribute="trailing" constant="70" id="C3l-h3-HV0"/>
                         <constraint firstItem="6H2-mJ-PWK" firstAttribute="top" secondItem="3oM-6o-p50" secondAttribute="top" constant="375" id="CgR-ln-RjZ"/>
+                        <constraint firstItem="lxL-1O-Yyk" firstAttribute="trailing" secondItem="3oM-6o-p50" secondAttribute="trailing" constant="-63" id="Flu-d4-fka"/>
                         <constraint firstItem="W58-DR-VgI" firstAttribute="top" secondItem="3oM-6o-p50" secondAttribute="top" constant="227" id="Nv2-A6-dtK"/>
                         <constraint firstItem="3oM-6o-p50" firstAttribute="centerX" secondItem="4d5-QO-QEp" secondAttribute="centerX" id="Pxb-gt-SHY"/>
                         <constraint firstItem="3oM-6o-p50" firstAttribute="trailing" secondItem="U73-Gb-06i" secondAttribute="trailing" constant="88" id="QUP-Pp-Kag"/>
                         <constraint firstItem="3oM-6o-p50" firstAttribute="trailing" secondItem="4d5-QO-QEp" secondAttribute="trailing" id="U5p-j1-xsC"/>
                         <constraint firstItem="3oM-6o-p50" firstAttribute="bottom" secondItem="4d5-QO-QEp" secondAttribute="bottom" constant="35" id="W10-fm-Vfc"/>
+                        <constraint firstItem="lxL-1O-Yyk" firstAttribute="top" secondItem="3oM-6o-p50" secondAttribute="top" constant="455" id="Wrb-lg-8KH"/>
                         <constraint firstItem="3oM-6o-p50" firstAttribute="top" secondItem="4d5-QO-QEp" secondAttribute="top" id="YT5-2M-pAa"/>
                         <constraint firstItem="Hv4-Wv-c7i" firstAttribute="top" secondItem="3oM-6o-p50" secondAttribute="top" constant="515" id="c0H-7c-5Ci"/>
                         <constraint firstItem="3oM-6o-p50" firstAttribute="leading" secondItem="4d5-QO-QEp" secondAttribute="leading" id="dFD-DJ-2EE"/>

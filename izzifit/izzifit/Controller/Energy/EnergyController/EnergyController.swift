@@ -17,7 +17,6 @@ class EnergyController: BaseController {
     
     @IBOutlet weak var topView: ShadowView!
     @IBOutlet weak var avatarView: UIView!
-    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -30,6 +29,7 @@ class EnergyController: BaseController {
     // MARK: - Property
     //----------------------------------------------
     
+    @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = String(describing: EnerdyTodayCell.self)
     let cellWaterIdentifier = String(describing: EnergyDrinkWaterCell.self)
     let cellEnergyMood = String(describing: EnergyMoodCell.self)
@@ -47,7 +47,7 @@ class EnergyController: BaseController {
     var currentDate = Date()
     
     private var animationEnergy: AnimationView?
-    
+        
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
@@ -55,8 +55,9 @@ class EnergyController: BaseController {
     override func viewDidLoad() {
         hiddenNavigationBar = true
         super.viewDidLoad()
-        
+
         setup()
+  
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +66,9 @@ class EnergyController: BaseController {
         presenter.getSteps()
         updateMe()
         tableView.reloadData()
+   
     }
+    
     
     //----------------------------------------------
     // MARK: - Setup

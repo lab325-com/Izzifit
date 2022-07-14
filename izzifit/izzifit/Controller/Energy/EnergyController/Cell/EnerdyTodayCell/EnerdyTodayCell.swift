@@ -24,6 +24,8 @@ class EnerdyTodayCell: BaseTableViewCell {
     
     weak var delegate: EnergyTodayProtocol?
     
+    var onboardingView: GameOnboardingEnergyView?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     
@@ -35,6 +37,22 @@ class EnerdyTodayCell: BaseTableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        guard !PreferencesManager.sharedManager.gameOnboardingDone else {
+            onboardingView?.removeFromSuperview()
+            return  }
+        
+          onboardingView = GameOnboardingEnergyView(state: .game)
+        
+             ui.genericlLayout(object: onboardingView ?? UIView(),
+                               parentView: self,
+                               width: wRatio(cW: 344),
+                               height: 71,
+                               bottomC: 10,
+                               centerH: 0)
     }
     
     
@@ -53,12 +71,12 @@ class EnerdyTodayCell: BaseTableViewCell {
                 progressWidthLayout.constant = progress * point
             }
         }
+        switch PreferencesManager.sharedManager.gameOnboardingDone {
+        case true: onboardingView =     GameOnboardingEnergyView(state: .energy)
+        case false: onboardingView =    GameOnboardingEnergyView(state: .game)
+        }
         
-        guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
-        
-        let onboardingView = GameOnboardingEnergyView(state: .game)
-        
-             ui.genericlLayout(object: onboardingView,
+             ui.genericlLayout(object: onboardingView ?? UIView(),
                                parentView: self,
                                width: wRatio(cW: 344),
                                height: 71,

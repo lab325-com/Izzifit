@@ -22,7 +22,7 @@
                 <outlet property="energyLabel" destination="MrR-Dy-Lbk" id="Gyv-gp-sgG"/>
                 <outlet property="energyLottieView" destination="1lX-Io-nut" id="zHn-Bv-qhF"/>
                 <outlet property="nameLabel" destination="EyM-mP-FLf" id="YpK-kG-0DG"/>
-                <outlet property="tableView" destination="Hqa-Fq-ybI" id="ssT-fE-kRk"/>
+                <outlet property="tableView" destination="Hqa-Fq-ybI" id="R2Q-4a-POz"/>
                 <outlet property="topView" destination="9Kh-1f-614" id="WEP-aM-byB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

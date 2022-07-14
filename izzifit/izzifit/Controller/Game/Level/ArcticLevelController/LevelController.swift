@@ -7,18 +7,22 @@
 
 import UIKit
 import SwiftUI
+import Lottie
 
 class LevelController: BaseController {
     
     private var barBackVw = GameBarBackView(backImage: UIImage(named: "levelShadowViewBack")!)
     
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var levelBackImageView: UIImageView!
     @IBOutlet weak var shipBtn: UIButton!
     @IBOutlet weak var fishBtn: UIButton!
     @IBOutlet weak var igluBtn: UIButton!
     @IBOutlet weak var goldBtn: UIButton!
     @IBOutlet weak var deerBtn: UIButton!
     
+    @IBOutlet weak var animationTrailingConstraint: NSLayoutConstraint!
     var onboardingView: MainGameOnboardingView?
     let animation = UIImageView()
     
@@ -26,6 +30,7 @@ class LevelController: BaseController {
     @IBOutlet weak var hummerCountLbl: UILabel!
     
     private var buildPopUpVw: LevelPopUpView?
+    @IBOutlet weak var slideAnimationView: AnimationView!
     
     private lazy var btns = [shipBtn,
                              fishBtn,
@@ -70,6 +75,9 @@ class LevelController: BaseController {
         self.scrollView.setContentOffset(CGPoint(x: x,
                                                  y: 0),
                                          animated: true)
+        guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
+        slideAnimationView.loopMode = .loop
+        slideAnimationView.play()
     }
     
     private func checkAvailableHummers() {

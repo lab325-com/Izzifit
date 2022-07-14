@@ -76,8 +76,8 @@ class MainTabBarController: BaseController {
             self.bottomCustomTabBarLayout.constant = 0
             self.view.layoutIfNeeded()
         }
-       
-      //  PreferencesManager.sharedManager.gameOnboardingDone = false
+        
+       // PreferencesManager.sharedManager.gameOnboardingDone = false
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         
         onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
@@ -240,6 +240,18 @@ extension MainTabBarController: MainGameOnboardingDelegate {
         case 11:
             PreferencesManager.sharedManager.gameOnboardingDone = true
             onboardingView?.removeFromSuperview()
+            if let vc = children.first as? EnergyController {
+                let indexPath = IndexPath(row: 1, section: 0)
+                
+                          vc.tableView.reloadData()
+                          if let cell = vc.tableView.cellForRow(at: indexPath) as? EnergyDrinkWaterCell {
+                              cell.underView.runSnakeAnim(duration: 2,
+                                                          snakeColor: self.view.clr(color: .intensivePurple)!,
+                                                         snakeLineWidth: 1,
+                                                         cornerRadius: 20)
+          
+                          }
+            }
         default:
             onboardingView?.removeFromSuperview()
             MainGameOnboardingView.stateCounter += 1
@@ -251,9 +263,5 @@ extension MainTabBarController: MainGameOnboardingDelegate {
             navigationController?.navigationBar.isHidden = true
             TabBarRouter(presenter: navigationController).pushGame()
         }
-     
-        
-
     }
-    
 }
