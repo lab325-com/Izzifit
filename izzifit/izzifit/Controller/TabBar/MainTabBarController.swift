@@ -50,6 +50,7 @@ class MainTabBarController: BaseController {
     var onboardingView: MainGameOnboardingView?
     
     
+    
     private var tab: TabBarType = .energy {
         didSet {
             if tab == oldValue {
@@ -76,19 +77,57 @@ class MainTabBarController: BaseController {
             self.bottomCustomTabBarLayout.constant = 0
             self.view.layoutIfNeeded()
         }
-        
-       // PreferencesManager.sharedManager.gameOnboardingDone = false
+
+   
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         
-        onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
-                                                    delegate: self)
+        
+        let state = MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter]
+        
+        switch state {
+        case .finalPopUp: print("realize here drink Water logic")
+           
+            if let vc = children.first as? EnergyController {
+                let indexPath = IndexPath(row: 1, section: 0)
+                          vc.tableView.reloadData()
                 
-        view.ui.genericlLayout(object: onboardingView!,
-                               parentView: view,
-                               topC: 0,
-                               bottomC: 0,
-                               leadingC: 0,
-                               trailingC: 0)
+                          if let cell = vc.tableView.cellForRow(at: indexPath) as? EnergyDrinkWaterCell {
+                              cell.underView.runSnakeAnim(duration: 2,
+                                                          snakeColor: self.view.clr(color: .intensivePurple)!,
+                                                          snakeLineWidth: 1,
+                                                          cornerRadius: 20)
+                          }
+                
+                vc.tableView.isScrollEnabled = false
+                
+                onboardingView = MainGameOnboardingView(state: .blockScreen,
+                                                            delegate: self)
+                        
+                view.ui.genericlLayout(object: onboardingView!,
+                                       parentView: view,
+                                       topC: 390,
+                                       bottomC: 0,
+                                       leadingC: 0,
+                                       trailingC: 0)
+                
+                //   block all cells except drink cell
+            }
+        case .blockScreen: break
+            
+        default:
+            onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                        delegate: self)
+                    
+            view.ui.genericlLayout(object: onboardingView!,
+                                   parentView: view,
+                                   topC: 0,
+                                   bottomC: 0,
+                                   leadingC: 0,
+                                   trailingC: 0)
+            
+        }
+        
+
     }
     
     deinit {
@@ -241,17 +280,9 @@ extension MainTabBarController: MainGameOnboardingDelegate {
             PreferencesManager.sharedManager.gameOnboardingDone = true
             onboardingView?.removeFromSuperview()
             if let vc = children.first as? EnergyController {
-                let indexPath = IndexPath(row: 1, section: 0)
-                
-                          vc.tableView.reloadData()
-                          if let cell = vc.tableView.cellForRow(at: indexPath) as? EnergyDrinkWaterCell {
-                              cell.underView.runSnakeAnim(duration: 2,
-                                                          snakeColor: self.view.clr(color: .intensivePurple)!,
-                                                         snakeLineWidth: 1,
-                                                         cornerRadius: 20)
-          
-                          }
+                vc.tableView.reloadData()
             }
+     
         default:
             onboardingView?.removeFromSuperview()
             MainGameOnboardingView.stateCounter += 1

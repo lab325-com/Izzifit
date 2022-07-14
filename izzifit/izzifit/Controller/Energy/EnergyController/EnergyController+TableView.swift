@@ -165,6 +165,27 @@ extension EnergyController: EnergyDrinkWaterProtocol {
         if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .drinkWater) {
             presenter.setWater(index: index, date: getDate())
         }
+        
+        guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
+        tableView.isScrollEnabled = true
+        let indexPath = IndexPath(row: 1, section: 0)
+        if let cell = tableView.cellForRow(at: indexPath) as? EnergyDrinkWaterCell {
+            cell.underView.removeFromSuperview()
+        }
+        tableView.reloadData()
+        if let tabBarVC = parent as? MainTabBarController {
+            
+            tabBarVC.onboardingView?.removeFromSuperview()
+            tabBarVC.onboardingView = MainGameOnboardingView(state: .finalPopUp,
+                                                    delegate: tabBarVC)
+                
+            view.ui.genericlLayout(object: tabBarVC.onboardingView!,
+                               parentView: view,
+                               topC: 0,
+                               bottomC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
+        }
     }
 }
 

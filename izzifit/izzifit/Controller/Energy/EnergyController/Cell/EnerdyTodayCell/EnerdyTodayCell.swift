@@ -39,24 +39,10 @@ class EnerdyTodayCell: BaseTableViewCell {
         // Configure the view for the selected state
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        guard !PreferencesManager.sharedManager.gameOnboardingDone else {
-            onboardingView?.removeFromSuperview()
-            return  }
-        
-          onboardingView = GameOnboardingEnergyView(state: .game)
-        
-             ui.genericlLayout(object: onboardingView ?? UIView(),
-                               parentView: self,
-                               width: wRatio(cW: 344),
-                               height: 71,
-                               bottomC: 10,
-                               centerH: 0)
-    }
-    
     
     func setupCell(model: TodayProgressMainModel) {
+        
+        onboardingView?.removeFromSuperview()
         
         progressPercentLabel.text = RLocalization.energy_progress_percent(model.progress ?? 0)
         
