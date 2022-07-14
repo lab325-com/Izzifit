@@ -17,7 +17,7 @@ enum HoursType: String, CaseIterable {
     case eighteen    = "18"
     case twenty      = "20"
     case twentyTwo   = "22"
-    case twentyThree = "23"
+//    case twentyThree = "23"
 }
 
 enum CurrentHourType: String, CaseIterable {
@@ -34,9 +34,38 @@ enum CurrentHourType: String, CaseIterable {
 struct StepsModel {
     let hourType: HoursType
     var steps: Int
-    
-    var date: Date {
-        return Date()
+    var date: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        switch hourType {
+        case .zero:
+            return dateFormatter.string(from: Calendar.current.date(bySettingHour: 00, minute: 00, second: 00, of: Date())!)
+        case .two:
+            return dateFormatter.string(from:Calendar.current.date(bySettingHour: 02, minute: 00, second: 00, of: Date())!)
+        case .four:
+            return dateFormatter.string(from:Calendar.current.date(bySettingHour: 04, minute: 00, second: 00, of: Date())!)
+        case .six:
+            return dateFormatter.string(from:Calendar.current.date(bySettingHour: 06, minute: 00, second: 00, of: Date())!)
+        case .eight:
+            return dateFormatter.string(from:Calendar.current.date(bySettingHour: 08, minute: 00, second: 00, of: Date())!)
+        case .ten:
+            return dateFormatter.string(from:Calendar.current.date(bySettingHour: 10, minute: 00, second: 00, of: Date())!)
+        case .twelve:
+            return dateFormatter.string(from:Calendar.current.date(bySettingHour: 12, minute: 00, second: 00, of: Date())!)
+        case .fourteen:
+            return dateFormatter.string(from:Calendar.current.date(bySettingHour: 14, minute: 00, second: 00, of: Date())!)
+        case .sixteen:
+            return dateFormatter.string(from:Calendar.current.date(bySettingHour: 16, minute: 00, second: 00, of: Date())!)
+        case .eighteen:
+            return dateFormatter.string(from:Calendar.current.date(bySettingHour: 18, minute: 00, second: 00, of: Date())!)
+        case .twenty:
+            return dateFormatter.string(from:Calendar.current.date(bySettingHour: 20, minute: 00, second: 00, of: Date())!)
+        case .twentyTwo:
+            return dateFormatter.string(from:Calendar.current.date(bySettingHour: 22, minute: 00, second: 00, of: Date())!)
+//        case .twentyThree:
+//            return dateFormatter.string(from:Calendar.current.date(bySettingHour: 23, minute: 00, second: 00, of: Date())!)
+        }
     }
     
     mutating func setSteps(steps: Int) {
@@ -63,7 +92,7 @@ class HealthKitManager {
     var stepsApi: [StepsModel] = []
     
     func querySteps(controller: BaseController?,
-                    successHandler: @escaping ((_ model: [HealthStepsModel], _ steps: [CurrentStepsModel]) -> Void),
+                    successHandler: @escaping ((_ model: [StepsModel], _ steps: [CurrentStepsModel]) -> Void),
                     failureHandler: @escaping ((_ error: Error) -> Void)) {
         
         healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { success, error in
@@ -95,7 +124,6 @@ class HealthKitManager {
                             }
                         }
                         
-                        self.stepsApi = []
                         var tempArray: [StepsModel] = []
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "HH"
@@ -107,8 +135,7 @@ class HealthKitManager {
                         for steps in self.healthSteps {
                             let day = dateFormatter.string(from: steps.date)
                             let steps = steps.steps
-                            
-                            if let index = self.stepsApi.firstIndex(where: {$0.hourType == HoursType(rawValue: day) ?? .zero}) {
+                            if let index = self.stepsApi.firstIndex(where: {$0.hourType == HoursType(rawValue: day)}) {
                                 self.stepsApi[index].setSteps(steps: steps)
                             }
                             
@@ -119,7 +146,7 @@ class HealthKitManager {
                             self.steps.append(CurrentStepsModel(hourType: hourType, steps: self.getSteps(hourType: hourType, model: tempArray)))
                         }
                         
-                        successHandler(self.healthSteps, self.steps)
+                        successHandler(self.stepsApi, self.steps)
                         
                     } else if let error = error {
                         failureHandler(error)
@@ -156,9 +183,10 @@ class HealthKitManager {
         case .twenty:
             return model.first(where: {$0.hourType == .twenty})?.steps ?? 0
         case .twentyTwo:
-            let twentyTwo = model.first(where: {$0.hourType == .twentyTwo})?.steps ?? 0
-            let twentyThree = model.first(where: {$0.hourType == .twentyThree})?.steps ?? 0
-            return twentyTwo + twentyThree
+//            let twentyTwo = model.first(where: {$0.hourType == .twentyTwo})?.steps ?? 0
+//            let twentyThree = model.first(where: {$0.hourType == .twentyThree})?.steps ?? 0
+//            return twentyTwo + twentyThree
+            return model.first(where: {$0.hourType == .twentyTwo})?.steps ?? 0
         }
     }
 }
