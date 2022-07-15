@@ -70,8 +70,8 @@ class GameOnboardingEnergyView: UIView {
             
             ui.genericlLayout(object: mainImgVw,
                               parentView: self,
-                              width: 38.5,
-                              height: 51,
+                              width: 32.5,
+                              height: 45,
                               bottomToO: yellowVw.bottomAnchor,
                               bottomCG: 6,
                               trailingToO: yellowVw.trailingAnchor,
