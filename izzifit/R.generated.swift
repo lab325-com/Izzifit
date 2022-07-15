@@ -1229,11 +1229,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-<<<<<<< HEAD
-  /// This `R.image` struct is generated, and contains static references to 322 images.
-=======
-  /// This `R.image` struct is generated, and contains static references to 318 images.
->>>>>>> develop
+  /// This `R.image` struct is generated, and contains static references to 324 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
