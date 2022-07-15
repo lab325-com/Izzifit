@@ -167,6 +167,7 @@ extension EnglandGameController: ArcticGameOutputProtocol {
                 self.gameView.startSpinLbl.text = " "
                 self.spinManager.accrueBonuses(by: tupleResult.0,
                                                homeView: self.gameView,
+                                               barBackVw: self.gameView.barBackVw,
                                                hiddenStack: self.gameView.resultStackView,
                                                awardImgVw: self.gameView.awardImgVw,
                                                awardTitleLbl: self.gameView.awardTitleLbl,

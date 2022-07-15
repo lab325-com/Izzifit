@@ -18,7 +18,8 @@ class GameBarBackView: UIView {
     var energyImgVw = UIImageView()
     var energyCountLbl = UILabel()
     
-    private var coinsAnimationView:      AnimationView?
+    private var coinsAnimationView:   AnimationView?
+    var energyAnimationView: AnimationView?
     
     init(backImage: UIImage) {
         super.init(frame: .zero)
@@ -130,12 +131,24 @@ class GameBarBackView: UIView {
                           parentView: coinsImgVw,
                           width: 30,
                           height: 100,
-                          topC: 0,
+                          topC: 22,
                           centerH: 0)
+        
+        energyAnimationView =  .init(name: "energy_anim")
+        energyAnimationView!.contentMode = .scaleAspectFill
+        energyAnimationView!.loopMode = .playOnce
+        
+        ui.genericlLayout(object: energyAnimationView!,
+                          parentView: energyImgVw,
+                          width: 30,
+                          height: 100,
+                          topC: 22,
+                          centerH: 0)
+        
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }

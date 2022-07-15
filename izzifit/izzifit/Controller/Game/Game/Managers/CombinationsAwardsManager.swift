@@ -97,6 +97,7 @@ struct CombinationsAwardsManager {
     
     func accrueBonuses(by combination: SpinCombination,
                        homeView: GameAnimationProtocol,
+                       barBackVw: GameBarBackView,
                        hiddenStack: UIStackView,
                        awardImgVw: UIImageView,
                        awardTitleLbl: UILabel,
@@ -114,6 +115,7 @@ struct CombinationsAwardsManager {
                                           awardTitleLbl.text = "SPINS"
                                           awardCountLbl.text = "\(spinsAmount)"
                                           hiddenStack.isHidden.toggle()
+                                          barBackVw.energyAnimationView?.play()
                         case .setHummers: awardImgVw.image = SlotImgs.hammer
                                           awardTitleLbl.text = "BUILD"
                                           awardCountLbl.text = "1"
@@ -138,10 +140,12 @@ struct CombinationsAwardsManager {
                                           awardCountLbl.text = "\(spinsAmount)"
                                           hiddenStack.isHidden.toggle()
                                           homeView.animate(type: .snowflake, imageView: homeView.animationImgVw)
+                                          barBackVw.energyAnimationView?.play()
                     case .setSnowflakes:  awardImgVw.image = SlotImgs.snowflake
                                           awardTitleLbl.text = "SPINS"
                                           awardCountLbl.text = "\(spinsAmount)"
                                           hiddenStack.isHidden.toggle()
+                                          barBackVw.energyAnimationView?.play()
                                           homeView.animate(type: .snowflake, imageView: homeView.animationImgVw)
                                           DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
                                                  awardTitleLbl.text = "COINS"
@@ -161,12 +165,14 @@ struct CombinationsAwardsManager {
                                          AudioManager.sharedManager.playSound(type: .coinsPackX3_16)
                     case .pairLightning: awardImgVw.image = SlotImgs.lightning
                                          awardTitleLbl.text = "SPINS"
+                                         barBackVw.energyAnimationView?.play()
                                          awardCountLbl.text = "\(spinsAmount)"
                                          homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
                                          AudioManager.sharedManager.playSound(type: .energyX2_17)
                                          hiddenStack.isHidden.toggle()
                     case .setLightning:  awardImgVw.image = SlotImgs.lightning
                                          awardTitleLbl.text = "SPINS"
+                                         barBackVw.energyAnimationView?.play()
                                          awardCountLbl.text = "\(spinsAmount)"
                                          homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
                                          AudioManager.sharedManager.playSound(type: .energyX3_18)
@@ -176,6 +182,7 @@ struct CombinationsAwardsManager {
                 switch combination {
                        case .pairHummers: awardImgVw.image = UK_SlotImgs.hammer
                                           awardTitleLbl.text = "SPINS"
+                                          barBackVw.energyAnimationView?.play()
                                           awardCountLbl.text = "\(spinsAmount)"
                                           hiddenStack.isHidden.toggle()
                         case .setHummers: awardImgVw.image = UK_SlotImgs.hammer
@@ -199,11 +206,13 @@ struct CombinationsAwardsManager {
                                       homeView.animate(type: .coin3, imageView: homeView.animationImgVw)
                     case .pairSnowflakes: awardImgVw.image = UK_SlotImgs.flag
                                           awardTitleLbl.text = "SPINS"
+                                          barBackVw.energyAnimationView?.play()
                                           awardCountLbl.text = "\(spinsAmount)"
                                           hiddenStack.isHidden.toggle()
                                           homeView.animate(type: .snowflake, imageView: homeView.animationImgVw)
                 case .setSnowflakes:  awardImgVw.image = UK_SlotImgs.flag
                                           awardTitleLbl.text = "SPINS"
+                                          barBackVw.energyAnimationView?.play()
                                           awardCountLbl.text = "\(spinsAmount)"
                                           hiddenStack.isHidden.toggle()
                                           homeView.animate(type: .snowflake, imageView: homeView.animationImgVw)
@@ -225,12 +234,14 @@ struct CombinationsAwardsManager {
                                          AudioManager.sharedManager.playSound(type: .coinsPackX3_16)
                     case .pairLightning: awardImgVw.image = UK_SlotImgs.lightning
                                          awardTitleLbl.text = "SPINS"
+                                         barBackVw.energyAnimationView?.play()
                                          awardCountLbl.text = "\(spinsAmount)"
                                          homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
                                          AudioManager.sharedManager.playSound(type: .energyX2_17)
                                          hiddenStack.isHidden.toggle()
                     case .setLightning:  awardImgVw.image = UK_SlotImgs.lightning
                                          awardTitleLbl.text = "SPINS"
+                                         barBackVw.energyAnimationView?.play()
                                          awardCountLbl.text = "\(spinsAmount)"
                                          homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
                                          AudioManager.sharedManager.playSound(type: .energyX3_18)

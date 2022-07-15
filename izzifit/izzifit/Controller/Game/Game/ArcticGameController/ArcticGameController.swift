@@ -187,6 +187,7 @@ extension ArcticGameController: ArcticGameOutputProtocol {
                 if let tupleResult = self.spinManager.recognizeSetCombinations(spinTags) {
                 self.spinManager.accrueBonuses(by: tupleResult.0,
                                                homeView: self.gameView,
+                                               barBackVw: self.gameView.barBackVw,
                                                hiddenStack: self.gameView.resultStackView,
                                                awardImgVw: self.gameView.awardImgVw,
                                                awardTitleLbl: self.gameView.awardTitleLbl,
