@@ -25,6 +25,7 @@ class EnergyController: BaseController {
     
     @IBOutlet weak var energyLottieView: UIView!
     
+    @IBOutlet weak var coinsLottieView: UIImageView!
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
@@ -47,6 +48,7 @@ class EnergyController: BaseController {
     var currentDate = Date()
     
     private var animationEnergy: AnimationView?
+     var animationCoins: AnimationView?
         
     //----------------------------------------------
     // MARK: - Life cycle
@@ -82,6 +84,12 @@ class EnergyController: BaseController {
         animationEnergy = AnimationView(animation: animation)
         energyLottieView.addSubview(animationEnergy!)
         animationEnergy?.contentMode = .scaleAspectFit
+        
+        animationCoins = .init(name: "coins_header")
+        coinsLottieView.addSubview(animationCoins!)
+        animationCoins?.contentMode = .scaleAspectFit
+        
+        
         
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(
@@ -224,6 +232,7 @@ extension EnergyController: EnergyOutputProtocol {
     func showEnergyAnimation() {
         animationEnergy?.play()
     }
+    
 }
 
 

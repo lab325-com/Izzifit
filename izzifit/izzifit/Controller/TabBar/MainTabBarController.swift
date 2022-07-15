@@ -282,6 +282,7 @@ extension MainTabBarController: MainGameOnboardingDelegate {
             if let vc = children.first as? EnergyController {
                 vc.tableView.reloadData()
                 vc.showEnergyAnimation()
+                vc.animationCoins?.play()
             }
      
         default:
