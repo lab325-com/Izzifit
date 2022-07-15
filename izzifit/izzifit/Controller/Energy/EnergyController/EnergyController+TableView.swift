@@ -33,6 +33,10 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             if let model = presenter.drinkWidget {
                 cell.setupCell(model: model)
             }
+            cell.onSeeMoreDidTap {
+                    tableView.reloadData()
+            }
+            
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellEnergyMood) as? EnergyMoodCell else { return UITableViewCell() }
@@ -47,11 +51,19 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
                 cell.delegate = self
                 cell.setupCell(model: model)
             }
+            
+            cell.onSeeMoreDidTap {
+                    tableView.reloadData()
+            }
             return cell
         case 4:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellStepsIdentifier) as? EnergyStepsCell else { return UITableViewCell() }
             if let widget = presenter.stepsWidget {
                 cell.setupCell(steps: presenter.steps, widget: widget)
+            }
+            
+            cell.onSeeMoreDidTap {
+                    tableView.reloadData()
             }
             return cell
         case 5..<5 + presenter.specialPriceNotBuing.count:
@@ -113,7 +125,7 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
 //        case 0: return !PreferencesManager.sharedManager.afterOnboarding ? 180.0 : 100.0
 //        default: return tableView.rowHeight
 //        }
-        return tableView.rowHeight
+        return UITableView.automaticDimension
     }
 }
 

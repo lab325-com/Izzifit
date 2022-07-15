@@ -17,9 +17,16 @@ class EnergyStepsCell: UITableViewCell {
     @IBOutlet weak var stepsCollectionView: UICollectionView!
     @IBOutlet var timeLabelsCollection: [UILabel]!
     
+    @IBOutlet weak var arrowImageView: UIImageView!
+    @IBOutlet weak var infoBottomView: UIView!
+    @IBOutlet weak var infoStackView: UIStackView!
+    
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
+    
+    private var seeMoreDidTapHandler: (() -> Void)?
+    
     private var lineLayer: CAShapeLayer = {
         let lineLayer = CAShapeLayer()
         lineLayer.lineWidth = 1
@@ -38,6 +45,8 @@ class EnergyStepsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        infoBottomView.isHidden = true
         
         stepsCollectionView.dataSource = self
         stepsCollectionView.delegate = self
@@ -85,6 +94,18 @@ class EnergyStepsCell: UITableViewCell {
         targetLabel.text = RLocalization.profile_target()
         targetLabel.topAnchor.constraint(equalTo: stepsCollectionView.topAnchor,
                                          constant: targetInt - 13).isActive = true
+    }
+    
+    func onSeeMoreDidTap(_ handler: @escaping () -> Void) {
+        
+        self.seeMoreDidTapHandler = handler
+    }
+    
+    @IBAction func actionRotate(_ sender: UIButton) {
+        self.arrowImageView.transform = self.arrowImageView.transform.rotated(by: .pi)
+        self.infoStackView.layoutIfNeeded()
+        self.infoBottomView.isHidden = !self.infoBottomView.isHidden
+        self.seeMoreDidTapHandler?()
     }
     
     func calculateMeasureY(value: CGFloat,
