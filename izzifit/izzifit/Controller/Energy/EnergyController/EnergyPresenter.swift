@@ -18,7 +18,6 @@ import SwiftyStoreKit
 protocol EnergyOutputProtocol: BaseController {
     func success()
     func successWidgetList()
-    func successGetSteps()
     func successStepsEnergy()
     func failure()
     func showEnergyAnimation()
@@ -36,7 +35,6 @@ protocol EnergyPresenterProtocol: AnyObject {
     
     func updateWeight()
     func getWidgetList()
-    func getSteps()
 }
 
 class EnergyPresenter: EnergyPresenterProtocol {
@@ -60,7 +58,7 @@ class EnergyPresenter: EnergyPresenterProtocol {
     var specialPriceNotBuing: [WorkoutsWidgetMainModel] = []
     var specialPriceBuing: [WorkoutsWidgetMainModel] = []
     var chooseWorkoutWidgets: [WorkoutsWidgetMainModel] = []
-    var stepsHealth: [HealthStepsModel] = []
+    var stepsApi: [StepsModel] = []
     var steps: [CurrentStepsModel] = []
     var stepsWidget: StapsWidgetModel?
     
@@ -167,29 +165,26 @@ class EnergyPresenter: EnergyPresenterProtocol {
             self?.view?.failure()
         })
         
+        group.enter()
+        let _ = HealthKitManager.sharedManager.querySteps(controller: view) { [weak self] stepsApi, stepsModel in
+            self?.stepsApi = stepsApi
+            self?.steps = stepsModel
+            group.leave()
+        } failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        }
+        
         group.notify(queue: DispatchQueue.main) { [weak self] in
             self?.view?.stopLoading()
             self?.view?.success()
         }
     }
     
-    func getSteps() {
-        let _ = HealthKitManager.sharedManager.querySteps(controller: view) { [weak self] healthModel, stepsModel in
-            self?.stepsHealth = healthModel
-            self?.steps = stepsModel
-            self?.view?.successGetSteps()
-        } failureHandler: { [weak self] error in
-            self?.view?.failure()
-        }
-    }
-    
     func setSteps() {
         var steps = [SaveStepsInputRecord]()
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        for step in stepsHealth {
-            let date = dateFormatter.string(from: step.date)
+        for step in stepsApi {
+            let date = step.date
             let count = step.steps
             let record = SaveStepsInputRecord(date: date, count: count)
             steps.append(record)
@@ -198,7 +193,6 @@ class EnergyPresenter: EnergyPresenterProtocol {
         let _ = Network.shared.mutation(model: SaveStepsModel.self, mutation, controller: view) { [weak self] model in
             self?.getStepsEnergy()
         } failureHandler: { [weak self] error in
-            self?.view?.stopLoading()
             self?.view?.failure()
         }
     }

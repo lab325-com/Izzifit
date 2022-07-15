@@ -17,9 +17,16 @@ class EnergyStepsCell: UITableViewCell {
     @IBOutlet weak var stepsCollectionView: UICollectionView!
     @IBOutlet var timeLabelsCollection: [UILabel]!
     
+    @IBOutlet weak var arrowImageView: UIImageView!
+    @IBOutlet weak var infoBottomView: UIView!
+    @IBOutlet weak var infoStackView: UIStackView!
+    
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
+    
+    private var seeMoreDidTapHandler: (() -> Void)?
+    
     private var lineLayer: CAShapeLayer = {
         let lineLayer = CAShapeLayer()
         lineLayer.lineWidth = 1
@@ -28,7 +35,11 @@ class EnergyStepsCell: UITableViewCell {
         return lineLayer
     }()
     
-    private var steps = [CurrentStepsModel]()
+    private var steps = [CurrentStepsModel]() {
+        didSet {
+            stepsCollectionView.reloadData()
+        }
+    }
     
     static let id = "EnergyStepsCell"
 
@@ -38,13 +49,21 @@ class EnergyStepsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-                
-        backView.layer.cornerRadius = 20
         
-        stepsCollectionView.backgroundColor = .clear
+        infoBottomView.isHidden = true
+        
         stepsCollectionView.dataSource = self
         stepsCollectionView.delegate = self
+        
+        stepsCollectionView.backgroundColor = .clear
+        
         stepsCollectionView.register(UINib(nibName: "EnergyStepsCollectionCell", bundle: nil), forCellWithReuseIdentifier: EnergyStepsCollectionCell.id)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        backView.layer.cornerRadius = 20
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -79,6 +98,21 @@ class EnergyStepsCell: UITableViewCell {
         targetLabel.text = RLocalization.profile_target()
         targetLabel.topAnchor.constraint(equalTo: stepsCollectionView.topAnchor,
                                          constant: targetInt - 13).isActive = true
+    }
+    
+    func onSeeMoreDidTap(_ handler: @escaping () -> Void) {
+        
+        self.seeMoreDidTapHandler = handler
+    }
+    
+    @IBAction func actionRotate(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.3) {
+            self.arrowImageView.transform = self.arrowImageView.transform.rotated(by: .pi)
+            self.infoBottomView.isHidden = !self.infoBottomView.isHidden
+            self.infoStackView.layoutIfNeeded()
+            self.contentView.layoutIfNeeded()
+            self.seeMoreDidTapHandler?()
+        }
     }
     
     func calculateMeasureY(value: CGFloat,

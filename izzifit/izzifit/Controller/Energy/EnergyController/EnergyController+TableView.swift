@@ -33,6 +33,11 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             if let model = presenter.drinkWidget {
                 cell.setupCell(model: model)
             }
+            cell.onSeeMoreDidTap {
+                tableView.beginUpdates()
+                tableView.endUpdates()
+            }
+            
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellEnergyMood) as? EnergyMoodCell else { return UITableViewCell() }
@@ -47,11 +52,21 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
                 cell.delegate = self
                 cell.setupCell(model: model)
             }
+            
+            cell.onSeeMoreDidTap {
+                tableView.beginUpdates()
+                tableView.endUpdates()
+            }
             return cell
         case 4:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellStepsIdentifier) as? EnergyStepsCell else { return UITableViewCell() }
             if let widget = presenter.stepsWidget {
                 cell.setupCell(steps: presenter.steps, widget: widget)
+            }
+            
+            cell.onSeeMoreDidTap {
+                tableView.beginUpdates()
+                tableView.endUpdates()
             }
             return cell
         case 5..<5 + presenter.specialPriceNotBuing.count:
@@ -105,15 +120,15 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        
+        if indexPath.row == 0 { return 185.0 }
+        
+        
         if indexPath.row == 5 + presenter.specialPriceNotBuing.count {
             return Date().isNeedSleepWidget ? tableView.rowHeight : 0
         }
-        
-        switch indexPath.row {
-        case 0: return 185.0
-        default: return tableView.rowHeight
-        }
-        return tableView.rowHeight
+
+        return UITableView.automaticDimension
+
     }
 }
 

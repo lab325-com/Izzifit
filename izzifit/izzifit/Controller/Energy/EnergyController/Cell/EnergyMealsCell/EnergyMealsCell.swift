@@ -51,6 +51,11 @@ class EnergyMealsCell: BaseTableViewCell {
     @IBOutlet weak var snackImageView: UIImageView!
     @IBOutlet weak var dinnerImageView: UIImageView!
     
+    @IBOutlet weak var arrowImageView: UIImageView!
+    @IBOutlet weak var infoBottomView: UIView!
+    @IBOutlet weak var infoStackView: UIStackView!
+    
+    
     
     //----------------------------------------------
     // MARK: - Property
@@ -60,6 +65,7 @@ class EnergyMealsCell: BaseTableViewCell {
     private var circularProgressFatsView: CircularProgressBarView!
     private var circularProgressCarbsView: CircularProgressBarView!
     
+    private var seeMoreDidTapHandler: (() -> Void)?
     private var circularViewDuration: TimeInterval = 1
     private var model: MealsWidgetMainModel?
     
@@ -68,6 +74,7 @@ class EnergyMealsCell: BaseTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        infoBottomView.isHidden = true
         mainTitleLabel.text = RLocalization.energy_meals_title()
         
         protainLabel.text = RLocalization.energy_meals_protein()
@@ -184,6 +191,21 @@ class EnergyMealsCell: BaseTableViewCell {
         }
         
         layoutIfNeeded()
+    }
+    
+    func onSeeMoreDidTap(_ handler: @escaping () -> Void) {
+        
+        self.seeMoreDidTapHandler = handler
+    }
+    
+    @IBAction func actionRotate(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.3) {
+            self.arrowImageView.transform = self.arrowImageView.transform.rotated(by: .pi)
+            self.infoBottomView.isHidden = !self.infoBottomView.isHidden
+            self.infoStackView.layoutIfNeeded()
+            self.contentView.layoutIfNeeded()
+            self.seeMoreDidTapHandler?()
+        }
     }
     
     @IBAction func actionBreakfast(_ sender: UIButton) {

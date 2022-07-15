@@ -30,16 +30,16 @@
                         <rect key="frame" x="16" y="4" width="546" height="744"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1T-0R-bME">
-                                <rect key="frame" x="505" y="84.5" width="23" height="13.5"/>
+                                <rect key="frame" x="505" y="20.5" width="23" height="13.5"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="11"/>
                                 <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_water_flash_ic" translatesAutoresizingMaskIntoConstraints="NO" id="b3R-EW-ecL">
-                                <rect key="frame" x="487" y="85.5" width="10" height="11"/>
+                                <rect key="frame" x="487" y="21.5" width="10" height="11"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Your meals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbM-UH-da5">
-                                <rect key="frame" x="16" y="16" width="95" height="150"/>
+                                <rect key="frame" x="16" y="16" width="95" height="22"/>
                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
                                 <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -510,53 +510,105 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRC-EK-p19">
-                                <rect key="frame" x="16" y="180" width="514" height="32"/>
+                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ULr-wm-gM1">
+                                <rect key="frame" x="16" y="54" width="514" height="162"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_info_ic" translatesAutoresizingMaskIntoConstraints="NO" id="7j4-7m-QD6">
-                                        <rect key="frame" x="8" y="8" width="16" height="16"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Proper nutrition is a 80% of success" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="xlF-9M-Fuk">
-                                        <rect key="frame" x="30" y="8.5" width="478" height="15"/>
-                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
-                                        <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPR-6Z-hOg">
+                                        <rect key="frame" x="0.0" y="0.0" width="514" height="32"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_info_ic" translatesAutoresizingMaskIntoConstraints="NO" id="BwW-aq-VrD">
+                                                <rect key="frame" x="8" y="8" width="16" height="16"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Proper nutrition is 80% of success" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="1CL-K5-4pi">
+                                                <rect key="frame" x="30" y="8.5" width="193.5" height="15"/>
+                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                                <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaR-dJ-db9">
+                                                <rect key="frame" x="455" y="9" width="29" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkO-KC-VSS">
+                                                <rect key="frame" x="414" y="0.0" width="100" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="xcs-nn-goN"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="actionRotate:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yCk-VW-mlY"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_arrow_down_ic" translatesAutoresizingMaskIntoConstraints="NO" id="juR-40-x9Q">
+                                                <rect key="frame" x="490" y="13" width="11" height="6.5"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="30A-Nu-mqg"/>
+                                            <constraint firstAttribute="trailing" secondItem="juR-40-x9Q" secondAttribute="trailing" constant="13" id="Cpz-ZD-JFG"/>
+                                            <constraint firstAttribute="bottom" secondItem="AkO-KC-VSS" secondAttribute="bottom" id="LH2-Hx-Xtf"/>
+                                            <constraint firstItem="BwW-aq-VrD" firstAttribute="leading" secondItem="WPR-6Z-hOg" secondAttribute="leading" constant="8" id="MTo-3m-F6Q"/>
+                                            <constraint firstItem="juR-40-x9Q" firstAttribute="centerY" secondItem="KaR-dJ-db9" secondAttribute="centerY" id="SgM-Ex-rFp"/>
+                                            <constraint firstItem="1CL-K5-4pi" firstAttribute="leading" secondItem="BwW-aq-VrD" secondAttribute="trailing" constant="6" id="W8M-g8-iLd"/>
+                                            <constraint firstItem="BwW-aq-VrD" firstAttribute="centerY" secondItem="WPR-6Z-hOg" secondAttribute="centerY" id="WX9-Pr-Jml"/>
+                                            <constraint firstItem="juR-40-x9Q" firstAttribute="leading" secondItem="KaR-dJ-db9" secondAttribute="trailing" constant="6" id="X4y-UV-oHC"/>
+                                            <constraint firstItem="KaR-dJ-db9" firstAttribute="centerY" secondItem="1CL-K5-4pi" secondAttribute="centerY" id="ZE6-SV-II0"/>
+                                            <constraint firstItem="1CL-K5-4pi" firstAttribute="centerY" secondItem="BwW-aq-VrD" secondAttribute="centerY" id="m9U-rQ-wmd"/>
+                                            <constraint firstItem="AkO-KC-VSS" firstAttribute="top" secondItem="WPR-6Z-hOg" secondAttribute="top" id="oJ9-F6-jpF"/>
+                                            <constraint firstAttribute="trailing" secondItem="AkO-KC-VSS" secondAttribute="trailing" id="t8K-VF-IoA"/>
+                                            <constraint firstItem="KaR-dJ-db9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1CL-K5-4pi" secondAttribute="trailing" constant="10" id="v7d-Ra-flk"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWC-ro-jdh">
+                                        <rect key="frame" x="0.0" y="32" width="514" height="130"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSF-1M-cxH">
+                                                <rect key="frame" x="16" y="9" width="482" height="112"/>
+                                                <string key="text">Track your meals easily and fast! Now you don't need to burden yourself with complex diets. No need to choose from a million dishes to eat. Mark only the main products that you consume, as they give the main result. Stick to a simple diet and progress towards your goals.</string>
+                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                                <color key="textColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="bSF-1M-cxH" firstAttribute="leading" secondItem="WWC-ro-jdh" secondAttribute="leading" constant="16" id="0bc-xa-7Ut"/>
+                                            <constraint firstAttribute="bottom" secondItem="bSF-1M-cxH" secondAttribute="bottom" constant="9" id="Ez3-q5-eFW"/>
+                                            <constraint firstItem="bSF-1M-cxH" firstAttribute="top" secondItem="WWC-ro-jdh" secondAttribute="top" constant="9" id="JLB-fN-YSz"/>
+                                            <constraint firstAttribute="trailing" secondItem="bSF-1M-cxH" secondAttribute="trailing" constant="16" id="qRq-eF-7gl"/>
+                                            <constraint firstAttribute="height" priority="250" constant="100" id="v3Y-XW-Zl3"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="7j4-7m-QD6" firstAttribute="centerY" secondItem="ZRC-EK-p19" secondAttribute="centerY" id="MFC-AV-7Rv"/>
-                                    <constraint firstItem="xlF-9M-Fuk" firstAttribute="leading" secondItem="7j4-7m-QD6" secondAttribute="trailing" constant="6" id="U4R-Ae-zeQ"/>
-                                    <constraint firstItem="7j4-7m-QD6" firstAttribute="leading" secondItem="ZRC-EK-p19" secondAttribute="leading" constant="8" id="UKk-r9-QN2"/>
-                                    <constraint firstAttribute="trailing" secondItem="xlF-9M-Fuk" secondAttribute="trailing" constant="6" id="UNv-Ip-9IL"/>
-                                    <constraint firstAttribute="height" constant="32" id="Yau-Qo-CPf"/>
-                                    <constraint firstItem="xlF-9M-Fuk" firstAttribute="centerY" secondItem="7j4-7m-QD6" secondAttribute="centerY" id="aT1-9I-Cv4"/>
-                                </constraints>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </view>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.94509803921568625" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="LBG-q4-3B8" secondAttribute="trailing" constant="30" id="4XC-jZ-e2g"/>
                             <constraint firstAttribute="trailing" secondItem="u1T-0R-bME" secondAttribute="trailing" constant="18" id="6vZ-H1-Vwp"/>
                             <constraint firstItem="Ck3-IA-2si" firstAttribute="top" secondItem="LBG-q4-3B8" secondAttribute="bottom" constant="16" id="Aad-LN-h7U"/>
+                            <constraint firstItem="ULr-wm-gM1" firstAttribute="leading" secondItem="FLb-aj-IMb" secondAttribute="leading" constant="16" id="EFY-gJ-egE"/>
                             <constraint firstAttribute="trailing" secondItem="Ck3-IA-2si" secondAttribute="trailing" constant="16" id="P3d-0A-3oN"/>
                             <constraint firstItem="u1T-0R-bME" firstAttribute="leading" secondItem="b3R-EW-ecL" secondAttribute="trailing" constant="8" id="Q7q-2T-NgY"/>
                             <constraint firstItem="u1T-0R-bME" firstAttribute="centerY" secondItem="FbM-UH-da5" secondAttribute="centerY" id="Urf-vL-dGl"/>
-                            <constraint firstItem="ZRC-EK-p19" firstAttribute="leading" secondItem="FLb-aj-IMb" secondAttribute="leading" constant="16" id="Uz1-AF-Sao"/>
                             <constraint firstItem="b3R-EW-ecL" firstAttribute="centerY" secondItem="u1T-0R-bME" secondAttribute="centerY" id="WUx-F4-UmU"/>
                             <constraint firstItem="FbM-UH-da5" firstAttribute="top" secondItem="FLb-aj-IMb" secondAttribute="top" constant="16" id="X5K-BZ-bne"/>
-                            <constraint firstItem="LBG-q4-3B8" firstAttribute="top" secondItem="ZRC-EK-p19" secondAttribute="bottom" constant="20" id="bAF-4d-7gx"/>
+                            <constraint firstItem="LBG-q4-3B8" firstAttribute="top" secondItem="ULr-wm-gM1" secondAttribute="bottom" constant="16" id="XZM-C5-sXn"/>
                             <constraint firstItem="FbM-UH-da5" firstAttribute="leading" secondItem="FLb-aj-IMb" secondAttribute="leading" constant="16" id="g6j-MB-S26"/>
                             <constraint firstItem="Ck3-IA-2si" firstAttribute="leading" secondItem="FLb-aj-IMb" secondAttribute="leading" constant="16" id="giG-tv-zRZ"/>
                             <constraint firstAttribute="bottom" secondItem="Ck3-IA-2si" secondAttribute="bottom" constant="16" id="ilN-Um-76g"/>
                             <constraint firstItem="LBG-q4-3B8" firstAttribute="leading" secondItem="FLb-aj-IMb" secondAttribute="leading" constant="30" id="n3V-hr-x7x"/>
-                            <constraint firstAttribute="trailing" secondItem="ZRC-EK-p19" secondAttribute="trailing" constant="16" id="tLv-Hx-tDb"/>
-                            <constraint firstItem="ZRC-EK-p19" firstAttribute="top" secondItem="FbM-UH-da5" secondAttribute="bottom" constant="14" id="tUj-Jg-Keo"/>
+                            <constraint firstAttribute="trailing" secondItem="ULr-wm-gM1" secondAttribute="trailing" constant="16" id="nw8-th-iYk"/>
+                            <constraint firstItem="ULr-wm-gM1" firstAttribute="top" secondItem="FbM-UH-da5" secondAttribute="bottom" constant="16" id="vt7-Mm-5j3"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -576,6 +628,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <inset key="separatorInset" minX="10000" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
+                <outlet property="arrowImageView" destination="juR-40-x9Q" id="jUt-EK-K6O"/>
                 <outlet property="breakfestImageView" destination="tZk-sO-7FP" id="PTk-Oj-jjm"/>
                 <outlet property="breakfestLabel" destination="Ide-Mn-92j" id="wJb-Ug-bZ8"/>
                 <outlet property="breakfestSubTitleLabel" destination="owP-d1-eco" id="MxI-ls-i9J"/>
@@ -591,6 +644,8 @@
                 <outlet property="fatsGrammLabel" destination="4JK-vg-krb" id="F2t-6a-YU7"/>
                 <outlet property="fatsLabel" destination="2iO-0g-mQl" id="2YE-zC-sCQ"/>
                 <outlet property="fatsPercentLabel" destination="eFo-AX-81L" id="1KF-FQ-Qba"/>
+                <outlet property="infoBottomView" destination="WWC-ro-jdh" id="f7u-CX-rmr"/>
+                <outlet property="infoStackView" destination="ULr-wm-gM1" id="hFQ-dc-Rwd"/>
                 <outlet property="lunchImageView" destination="yVP-KB-9WF" id="83B-Ci-Ic8"/>
                 <outlet property="lunchLabel" destination="761-8q-xBK" id="6Ir-W9-Wmc"/>
                 <outlet property="lunchSubTitleLabel" destination="bf6-Ef-rFt" id="zfU-NK-Pak"/>
@@ -607,6 +662,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="energy_arrow_down_ic" width="11" height="6.5"/>
         <image name="energy_info_ic" width="16" height="16"/>
         <image name="energy_water_flash_ic" width="10" height="11"/>
         <image name="onboarding_selected_ic" width="24" height="24"/>

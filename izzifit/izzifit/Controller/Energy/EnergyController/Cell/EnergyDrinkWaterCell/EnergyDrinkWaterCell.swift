@@ -20,13 +20,19 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
     @IBOutlet weak var mlLeftLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
     
+    @IBOutlet weak var arrowImageView: UIImageView!
+    @IBOutlet weak var infoBottomView: UIView!
+    @IBOutlet weak var infoStackView: UIStackView!
+    
+    private var seeMoreDidTapHandler: (() -> Void)?
     private var model: DrinkWidgetMainModel?
     weak var delegate: EnergyDrinkWaterProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        
+        infoBottomView.isHidden = true
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,6 +40,7 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
 
         // Configure the view for the selected state
     }
+    
     
     func setupCell(model: DrinkWidgetMainModel) {
         self.model = model
@@ -70,8 +77,24 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
   
     }
     
+    func onSeeMoreDidTap(_ handler: @escaping () -> Void) {
+        
+        self.seeMoreDidTapHandler = handler
+    }
+    
     @objc func buttonAction(sender: UIButton!) {
         debugPrint(sender.tag + 1)
         delegate?.energyDrinkWaterSelectIndex(cell: self, index: sender.tag + 1)
     }
+    
+    @IBAction func actionRotate(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.3) {
+            self.arrowImageView.transform = self.arrowImageView.transform.rotated(by: .pi)
+            self.infoBottomView.isHidden = !self.infoBottomView.isHidden
+            self.infoStackView.layoutIfNeeded()
+            self.contentView.layoutIfNeeded()
+            self.seeMoreDidTapHandler?()
+        }
+    }
+    
 }

@@ -65,7 +65,6 @@ class EnergyController: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.getWidgetList()
-        presenter.getSteps()
         updateMe()
         tableView.reloadData()
    
@@ -124,6 +123,7 @@ class EnergyController: BaseController {
         presenter.getWidgets(date: getDate())
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 30
         tableView.contentInset = UIEdgeInsets(top: 88, left: 0, bottom: 20, right: 0)
         
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
@@ -209,16 +209,14 @@ extension EnergyController: EnergyOutputProtocol {
         updateMe()
         tableView.isHidden = false
         tableView.reloadData()
+        
+        if presenter.steps.count > 0 {
+            presenter.setSteps()
+        }
     }
     
     func successWidgetList() {
         tableView.reloadData()
-    }
-    
-    func successGetSteps() {
-        if presenter.steps.count > 0 {
-            presenter.setSteps()
-        }
     }
     
     func successStepsEnergy() {

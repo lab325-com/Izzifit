@@ -1229,7 +1229,11 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+<<<<<<< HEAD
   /// This `R.image` struct is generated, and contains static references to 322 images.
+=======
+  /// This `R.image` struct is generated, and contains static references to 318 images.
+>>>>>>> develop
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1305,12 +1309,16 @@ struct R: Rswift.Validatable {
     static let en_pound = Rswift.ImageResource(bundle: R.hostingBundle, name: "en_pound")
     /// Image `energy_arrow_back_ic`.
     static let energy_arrow_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_arrow_back_ic")
+    /// Image `energy_arrow_down_ic`.
+    static let energy_arrow_down_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_arrow_down_ic")
     /// Image `energy_arrow_forward_ic`.
     static let energy_arrow_forward_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_arrow_forward_ic")
     /// Image `energy_coins_ic`.
     static let energy_coins_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_coins_ic")
     /// Image `energy_energy_ic`.
     static let energy_energy_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_energy_ic")
+    /// Image `energy_eyea_ic`.
+    static let energy_eyea_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_eyea_ic")
     /// Image `energy_info_ic`.
     static let energy_info_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_info_ic")
     /// Image `energy_meals_add_ic`.
@@ -2136,6 +2144,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "energy_arrow_down_ic", bundle: ..., traitCollection: ...)`
+    static func energy_arrow_down_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.energy_arrow_down_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "energy_arrow_forward_ic", bundle: ..., traitCollection: ...)`
     static func energy_arrow_forward_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.energy_arrow_forward_ic, compatibleWith: traitCollection)
@@ -2153,6 +2168,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "energy_energy_ic", bundle: ..., traitCollection: ...)`
     static func energy_energy_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.energy_energy_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "energy_eyea_ic", bundle: ..., traitCollection: ...)`
+    static func energy_eyea_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.energy_eyea_ic, compatibleWith: traitCollection)
     }
     #endif
 
@@ -9358,6 +9380,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "energy_arrow_down_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_arrow_down_ic' is used in nib 'EnergyDrinkWaterCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_info_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_info_ic' is used in nib 'EnergyDrinkWaterCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_water_empty_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_empty_ic' is used in nib 'EnergyDrinkWaterCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergyDrinkWaterCell', but couldn't be loaded.") }
@@ -9380,6 +9403,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "energy_arrow_down_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_arrow_down_ic' is used in nib 'EnergyMealsCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_info_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_info_ic' is used in nib 'EnergyMealsCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergyMealsCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_selected_ic' is used in nib 'EnergyMealsCell', but couldn't be loaded.") }
@@ -9486,6 +9510,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "energy_arrow_down_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_arrow_down_ic' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_info_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_info_ic' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergyStepsCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
@@ -10082,9 +10107,13 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "paywall_close_dark_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_close_dark_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_above_text_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_above_text_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_close_white_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_close_white_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_fade_down_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_fade_down_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "paywall_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_selected_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "paywall_top_ellipse_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_top_ellipse_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_women_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_women_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_women_shadow_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_women_shadow_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
