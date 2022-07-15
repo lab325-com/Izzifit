@@ -327,7 +327,7 @@ class MainGameOnboardingView: UIView {
             var mainTitleLbl = UILabel()
             
             ui.setLabel(label: mainTitleLbl,
-                        labelText: "Congrats",
+                        labelText: "Congratulations",
                         textColor: UIColor(rgb: 0x3F3E56),
                         textAlignment: .center,
                         fontSize: wRatio(cW: 24),
@@ -344,6 +344,7 @@ class MainGameOnboardingView: UIView {
             var descriptionLbl = UILabel()
             
             ui.setLabel(label: descriptionLbl,
+                        labelText: "You have taken your first steps toward \n a new, healthier life and learned the \n basic features of our app! Play, \n complete easy daily tasks, get fit, and \n get healthy!",
                         textColor: UIColor(rgb: 0x3F3E56),
                         textAlignment: .center,
                         fontSize: wRatio(cW: 16),
@@ -366,7 +367,7 @@ class MainGameOnboardingView: UIView {
             completeText.append(textAfterIcon)
             
             
-            descriptionLbl.attributedText = completeText
+          //  descriptionLbl.attributedText = completeText
             
             ui.genericlLayout(object: descriptionLbl,
                               parentView: popView,

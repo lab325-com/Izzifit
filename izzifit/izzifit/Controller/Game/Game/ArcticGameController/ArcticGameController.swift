@@ -108,6 +108,7 @@ class ArcticGameController: BaseController {
         }
         guard !PreferencesManager.sharedManager.gameOnboardingDone  else { return }
         ArcticGameView.counter += 1
+        gameView.showProgress()
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void { actionBack() }

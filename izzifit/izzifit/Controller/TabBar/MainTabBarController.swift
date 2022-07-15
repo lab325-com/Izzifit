@@ -281,6 +281,7 @@ extension MainTabBarController: MainGameOnboardingDelegate {
             onboardingView?.removeFromSuperview()
             if let vc = children.first as? EnergyController {
                 vc.tableView.reloadData()
+                vc.showEnergyAnimation()
             }
      
         default:
