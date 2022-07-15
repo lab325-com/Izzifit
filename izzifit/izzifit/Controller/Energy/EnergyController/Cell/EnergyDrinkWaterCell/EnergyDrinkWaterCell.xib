@@ -54,125 +54,122 @@
                                 <rect key="frame" x="314" y="21.5" width="10" height="11"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ARv-XH-8DF">
-                                <rect key="frame" x="16" y="253.5" width="337" height="89.5"/>
+                                <rect key="frame" x="16" y="309.5" width="337" height="33.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t99-MW-a5Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                         <buttonConfiguration key="configuration" style="plain" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9c-OE-v0M">
-                                        <rect key="frame" x="21.5" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="21.5" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5w7-MY-fCA">
-                                        <rect key="frame" x="43" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="43" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMl-Qs-JPX">
-                                        <rect key="frame" x="64.5" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="64.5" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEm-vH-Hlk">
-                                        <rect key="frame" x="86" y="0.0" width="15" height="89.5"/>
+                                        <rect key="frame" x="86" y="0.0" width="15" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mih-2E-Vrm">
-                                        <rect key="frame" x="107" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="107" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-3O-cSa">
-                                        <rect key="frame" x="128.5" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="128.5" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr3-nX-xM3">
-                                        <rect key="frame" x="150" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="150" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0T-5A-SXF">
-                                        <rect key="frame" x="171.5" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="171.5" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bI-cg-XYI">
-                                        <rect key="frame" x="193" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="193" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mI7-GT-mse">
-                                        <rect key="frame" x="214.5" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="214.5" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYQ-tD-kCp">
-                                        <rect key="frame" x="236" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="236" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nf-5Y-OZ0">
-                                        <rect key="frame" x="257.5" y="0.0" width="15" height="89.5"/>
+                                        <rect key="frame" x="257.5" y="0.0" width="15" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qav-VI-hkQ">
-                                        <rect key="frame" x="278.5" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="278.5" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                         <buttonConfiguration key="configuration" style="plain" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tO-XK-pb3">
-                                        <rect key="frame" x="300" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="300" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zli-RE-Sje">
-                                        <rect key="frame" x="321.5" y="0.0" width="15.5" height="89.5"/>
+                                        <rect key="frame" x="321.5" y="0.0" width="15.5" height="33.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="energy_water_empty_ic"/>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QRF-1C-v0E">
-                                <rect key="frame" x="16" y="54" width="337" height="183.5"/>
+                                <rect key="frame" x="16" y="54" width="337" height="239.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4j-Ev-UfA">
-                                        <rect key="frame" x="0.0" y="0.0" width="337" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="337" height="88"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_info_ic" translatesAutoresizingMaskIntoConstraints="NO" id="Xyy-c1-foC">
-                                                <rect key="frame" x="8" y="8" width="16" height="16"/>
+                                                <rect key="frame" x="8" y="8" width="16" height="72"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Keep the proper water balance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lxg-CG-GyL">
-                                                <rect key="frame" x="30" y="8.5" width="175.5" height="15"/>
+                                                <rect key="frame" x="30" y="36.5" width="175.5" height="15"/>
                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
                                                 <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMz-UR-szV">
-                                                <rect key="frame" x="278" y="9" width="29" height="14.5"/>
+                                                <rect key="frame" x="278" y="37" width="29" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgz-LO-23H">
-                                                <rect key="frame" x="237" y="0.0" width="100" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="hw1-eQ-fKV"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="0.0" width="337" height="88"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
                                                     <action selector="actionRotate:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="V8e-hj-PW9"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_arrow_down_ic" translatesAutoresizingMaskIntoConstraints="NO" id="6Ue-US-3Bz">
-                                                <rect key="frame" x="313" y="13" width="11" height="6.5"/>
+                                                <rect key="frame" x="313" y="41" width="11" height="6.5"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -180,36 +177,38 @@
                                             <constraint firstItem="6Ue-US-3Bz" firstAttribute="leading" secondItem="OMz-UR-szV" secondAttribute="trailing" constant="6" id="4us-Wk-L9g"/>
                                             <constraint firstItem="Xyy-c1-foC" firstAttribute="centerY" secondItem="H4j-Ev-UfA" secondAttribute="centerY" id="AqU-Gi-zfq"/>
                                             <constraint firstAttribute="trailing" secondItem="Dgz-LO-23H" secondAttribute="trailing" id="HHL-ab-DgN"/>
-                                            <constraint firstAttribute="height" priority="999" constant="32" id="JUT-eN-dMs"/>
+                                            <constraint firstAttribute="bottom" secondItem="Xyy-c1-foC" secondAttribute="bottom" constant="8" id="I44-Rl-TU6"/>
                                             <constraint firstItem="Xyy-c1-foC" firstAttribute="leading" secondItem="H4j-Ev-UfA" secondAttribute="leading" constant="8" id="Ljk-si-sav"/>
                                             <constraint firstAttribute="trailing" secondItem="6Ue-US-3Bz" secondAttribute="trailing" constant="13" id="PCg-0Z-7Xi"/>
                                             <constraint firstAttribute="bottom" secondItem="Dgz-LO-23H" secondAttribute="bottom" id="RF9-P7-LO5"/>
+                                            <constraint firstItem="Dgz-LO-23H" firstAttribute="leading" secondItem="H4j-Ev-UfA" secondAttribute="leading" id="Zah-is-iyd"/>
                                             <constraint firstItem="OMz-UR-szV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Lxg-CG-GyL" secondAttribute="trailing" constant="10" id="bvd-aJ-C99"/>
                                             <constraint firstItem="Lxg-CG-GyL" firstAttribute="centerY" secondItem="Xyy-c1-foC" secondAttribute="centerY" id="dca-Ci-83a"/>
                                             <constraint firstItem="Lxg-CG-GyL" firstAttribute="leading" secondItem="Xyy-c1-foC" secondAttribute="trailing" constant="6" id="ehs-Yq-pMa"/>
                                             <constraint firstItem="6Ue-US-3Bz" firstAttribute="centerY" secondItem="OMz-UR-szV" secondAttribute="centerY" id="hAn-xU-Nbi"/>
                                             <constraint firstItem="Dgz-LO-23H" firstAttribute="top" secondItem="H4j-Ev-UfA" secondAttribute="top" id="jlY-rb-JAv"/>
+                                            <constraint firstItem="Xyy-c1-foC" firstAttribute="top" secondItem="H4j-Ev-UfA" secondAttribute="top" constant="8" id="lQj-GJ-Jfk"/>
                                             <constraint firstItem="OMz-UR-szV" firstAttribute="centerY" secondItem="Lxg-CG-GyL" secondAttribute="centerY" id="vYc-QE-HMP"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUv-qE-bSp">
-                                        <rect key="frame" x="0.0" y="32" width="337" height="151.5"/>
+                                        <rect key="frame" x="0.0" y="88" width="337" height="151.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQc-n3-Rtc">
-                                                <rect key="frame" x="16" y="9" width="305" height="102"/>
+                                                <rect key="frame" x="16" y="0.0" width="305" height="102"/>
                                                 <string key="text">Drinking clean water is very important when it comes to health. Not drinking enough water daily might contribute to slower metabolism and serious health issues later down the line, so it’s better to track every drink to make sure that you’re properly hydrated!</string>
                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                                 <color key="textColor" red="0.396078431372549" green="0.396078431372549" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t show at the next time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KyI-ll-Utp">
-                                                <rect key="frame" x="16" y="117" width="156" height="20.5"/>
+                                                <rect key="frame" x="16" y="108" width="156" height="29.5"/>
                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
                                                 <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_eyea_ic" translatesAutoresizingMaskIntoConstraints="NO" id="L8c-9U-Fxe">
-                                                <rect key="frame" x="182" y="121" width="18" height="13"/>
+                                                <rect key="frame" x="182" y="116.5" width="18" height="13"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivE-8c-PTm">
                                                 <rect key="frame" x="16" y="103.5" width="305" height="40"/>
@@ -226,7 +225,7 @@
                                         <constraints>
                                             <constraint firstItem="DQc-n3-Rtc" firstAttribute="leading" secondItem="KUv-qE-bSp" secondAttribute="leading" constant="16" id="3sS-xz-e6n"/>
                                             <constraint firstAttribute="bottom" secondItem="KyI-ll-Utp" secondAttribute="bottom" constant="14" id="4TH-HV-xF2"/>
-                                            <constraint firstItem="DQc-n3-Rtc" firstAttribute="top" secondItem="KUv-qE-bSp" secondAttribute="top" constant="9" id="5vg-Zs-XxX"/>
+                                            <constraint firstItem="DQc-n3-Rtc" firstAttribute="top" secondItem="KUv-qE-bSp" secondAttribute="top" id="5vg-Zs-XxX"/>
                                             <constraint firstItem="ivE-8c-PTm" firstAttribute="leading" secondItem="KUv-qE-bSp" secondAttribute="leading" constant="16" id="FIy-bV-tow"/>
                                             <constraint firstAttribute="trailing" secondItem="ivE-8c-PTm" secondAttribute="trailing" constant="16" id="JFw-jN-Hbr"/>
                                             <constraint firstAttribute="height" priority="250" constant="100" id="LyC-yK-Ob8"/>
