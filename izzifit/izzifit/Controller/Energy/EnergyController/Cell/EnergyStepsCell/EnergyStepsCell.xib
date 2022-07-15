@@ -211,8 +211,8 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_info_ic" translatesAutoresizingMaskIntoConstraints="NO" id="k5J-0o-CXI">
                                                 <rect key="frame" x="8" y="8" width="16" height="16"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Go on walks for better time efficiency " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="K83-VJ-gKD">
-                                                <rect key="frame" x="30" y="8.5" width="216.5" height="15"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Shorter strolls instead of walks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="K83-VJ-gKD">
+                                                <rect key="frame" x="30" y="8.5" width="175.5" height="15"/>
                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
                                                 <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -259,7 +259,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxx-OU-EDm">
                                                 <rect key="frame" x="16" y="9" width="335" height="128.5"/>
-                                                <string key="text">Instead of spending a lot of time on workouts, you could use the spare time in-between your other responsibilities, such as work, chores, etc, to do short activities to keep your body active! These short exercises help you to become fitter and healthy faster, all while helping you feel better.</string>
+                                                <string key="text">Keep your body active throughout the day instead of spending more time on walks! Going on shorter strolls will help you become fitter and healthier fast, all while helping you feel better.</string>
                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                                 <color key="textColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>

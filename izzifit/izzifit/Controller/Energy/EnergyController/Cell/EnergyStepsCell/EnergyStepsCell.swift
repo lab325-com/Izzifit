@@ -35,7 +35,11 @@ class EnergyStepsCell: UITableViewCell {
         return lineLayer
     }()
     
-    private var steps = [CurrentStepsModel]()
+    private var steps = [CurrentStepsModel]() {
+        didSet {
+            stepsCollectionView.reloadData()
+        }
+    }
     
     static let id = "EnergyStepsCell"
 
