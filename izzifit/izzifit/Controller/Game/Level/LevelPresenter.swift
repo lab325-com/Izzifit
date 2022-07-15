@@ -12,7 +12,7 @@ import Apollo
 // MARK: - Outputs Protocol
 //----------------------------------------------
 protocol LevelOutputProtocol: BaseController {
-    func success()
+    func failure()
     func successBuildings(model: [BuildingsModel])
     func successBuild()
     func successMe()
@@ -56,6 +56,7 @@ class LevelPresenter: LevelProtocol {
             self?.view?.successBuildings(model: model.map2.buildings)
             self?.view?.stopLoading()
         }, failureHandler: { [weak self] error in
+  
             self?.view?.stopLoading()
         })
     }
@@ -69,6 +70,7 @@ class LevelPresenter: LevelProtocol {
             self?.view?.successBuild()
             self?.getBuildings()
         }, failureHandler: { [weak self] error in
+            self?.view?.failure()
             self?.view?.stopLoading()
         })
     }

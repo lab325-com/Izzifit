@@ -92,6 +92,7 @@ class ArcticGameController: BaseController {
     }
     
     @objc func spinAction() {
+        
         timerSpinManager.generalSpin(resultLbl: gameView.startSpinLbl,
                                      resultStackView: gameView.resultStackView,
                                      coinsLbl: gameView.barBackVw.coinsLbl,
@@ -105,6 +106,8 @@ class ArcticGameController: BaseController {
                 GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
             }
         }
+        guard !PreferencesManager.sharedManager.gameOnboardingDone  else { return }
+        ArcticGameView.counter += 1
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void { actionBack() }
@@ -177,6 +180,7 @@ extension ArcticGameController: ArcticGameOutputProtocol {
             }
         }
         gameView.startSpinLbl.text = ""
+     
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let spinTags = self.timerSpinManager.convertSpinTypes(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds)
                 if let tupleResult = self.spinManager.recognizeSetCombinations(spinTags) {
@@ -189,6 +193,7 @@ extension ArcticGameController: ArcticGameOutputProtocol {
                                                coinsAmount: coinsAmount,
                                                spinsAmount: spinsAmount) { self.threeHummersCombination() }
                 self.gameView.showProgress()
+                 
                 } else {
                     self.spinManager.coinBag(in: spinTags,
                                              hiddenStack: self.gameView.resultStackView,
@@ -281,17 +286,17 @@ extension ArcticGameController: MainGameOnboardingDelegate {
                                     trailingC: 0)
                 
                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 7.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
                         self.gameView.spinBtn.sendActions(for: .touchUpInside)
                     }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 14.0) {
                     self.gameView.spinBtn.sendActions(for: .touchUpInside)
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 22.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 21.0) {
                     self.gameView.spinBtn.sendActions(for: .touchUpInside)
                 }
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 30.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 28.0) {
                     self.onboardingView?.removeFromSuperview()
                     MainGameOnboardingView.stateCounter += 1
                     self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],

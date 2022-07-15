@@ -11,6 +11,10 @@ class ArcticGameView: UIView, GameAnimationProtocol {
     
     
     var animationImgVw: UIImageView = UIImageView()
+    static var currentEnergy = CGFloat()
+    static var counter = 0
+    
+    var onBoardingValues = [CGFloat]()
     
     // bar
     var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
@@ -253,8 +257,34 @@ class ArcticGameView: UIView, GameAnimationProtocol {
         default: break
         }
         let hiddenPart = 100.0 - spinsRemainder
-        progressImgVw.hideImage(hiddenPart: hiddenPart,
-                                img: progressImg ?? UIImage())
+     
+        print("usd")
+        
+        switch PreferencesManager.sharedManager.gameOnboardingDone {
+        case true:    progressImgVw.hideImage(hiddenPart: hiddenPart,
+                                              img: progressImg ?? UIImage())
+        case false:
+            
+            switch ArcticGameView.counter {
+            case 0:
+                ArcticGameView.currentEnergy = CGFloat(KeychainService.standard.me?.energy ?? 0)
+                progressImgVw.hideImage(hiddenPart: hiddenPart,
+                                           img: progressImg ?? UIImage())
+                let energy = ArcticGameView.currentEnergy
+                onBoardingValues = [ energy * 0.75 ,
+                                     energy * 0.5 ,
+                                     energy * 0.25,
+                                     0]
+                ArcticGameView.counter += 1
+            default:
+                let part = 100.0 - onBoardingValues[ArcticGameView.counter - 2]
+                progressImgVw.hideImage(hiddenPart: part,
+                                           img: progressImg ?? UIImage())
+            }
+           
+        }
+        
+        
     }
     
     func updateHeader() {

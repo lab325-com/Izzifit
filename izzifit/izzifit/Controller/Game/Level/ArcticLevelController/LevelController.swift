@@ -377,7 +377,11 @@ extension LevelController: LevelOutputProtocol {
         }
     }
 
-    func success() { }
+    func failure() {
+        self.animation.removeFromSuperview()
+        drawStates()
+        pointers.drawPointers(model: player, btns: btns)
+    }
     
     func successBuildings(model: [BuildingsModel]) {
         checkAvailableHummers()

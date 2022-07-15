@@ -261,7 +261,7 @@ extension EngLevelController: LevelOutputProtocol {
    
     func mapSwitched() { }
     
-    func success() { }
+    func failure() { }
     
     func successBuildings(model: [BuildingsModel]) {
         
