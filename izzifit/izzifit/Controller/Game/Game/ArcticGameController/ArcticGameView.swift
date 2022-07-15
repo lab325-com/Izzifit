@@ -92,6 +92,7 @@ class ArcticGameView: UIView, GameAnimationProtocol {
         titleLbl.layer.shadowOpacity =  1.0
         titleLbl.layer.shadowRadius =   2.0
         titleLbl.layer.shadowOffset =   CGSize(width: -1.5, height: -1.5)
+        titleLbl.layer.shadowRadius = 0
         
         // hummers
         hummerBtn.setImage(image(img: .freeHummer), for: .normal)

@@ -27,6 +27,9 @@ class MainGameOnboardingView: UIView {
     var menuAnim: AnimationView?
     var spinAnim: AnimationView?
     
+    static var currentState: GameOnboardingStates {
+        MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter]
+    }
     
    static var gameOnboardStates: [GameOnboardingStates] = [.energy1,
                                                      .level2,
@@ -82,7 +85,7 @@ class MainGameOnboardingView: UIView {
         
         switch state {
         case .energy1:
-                        var funAnimationView = AnimationView(name: "fun_anim")
+                        var funAnimationView = AnimationView(name: "menu_anim")
                             funAnimationView.contentMode = .scaleAspectFill
                             funAnimationView.loopMode = .loop
                             funAnimationView.play()
@@ -153,7 +156,9 @@ class MainGameOnboardingView: UIView {
             
             if let baseVC = gameTabBar?.children[1] as? GameBaseController {
                 if let levelVC = baseVC.children.first as? LevelController {
-                    levelVC.animationTrailingConstraint.constant = -76
+                    levelVC.animationWidthAnchor.constant = 150
+                    levelVC.animationHeightAnchor.constant = 46
+                    levelVC.animationTrailingConstraint.constant = -58
                     levelVC.view.layoutIfNeeded()
                 }
             }

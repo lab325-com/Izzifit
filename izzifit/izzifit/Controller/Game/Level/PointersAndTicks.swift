@@ -167,6 +167,8 @@ class PointersAndTicks {
     
     func drawPointers(model: PlayerModel, btns: [UIButton?]) {
         
+        
+        
         for img in imgVwArray {
             img.removeFromSuperview()
         }

@@ -16,7 +16,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LevelController" customModule="izzifit" customModuleProvider="target">
             <connections>
+                <outlet property="animationHeightAnchor" destination="Xcy-w0-Jfd" id="RfJ-rs-SP0"/>
                 <outlet property="animationTrailingConstraint" destination="Flu-d4-fka" id="HtL-Jb-Rrv"/>
+                <outlet property="animationWidthAnchor" destination="8Gt-AH-TzM" id="bSK-4j-cWa"/>
                 <outlet property="deerBtn" destination="U73-Gb-06i" id="FYY-bW-ifg"/>
                 <outlet property="fishBtn" destination="XIo-Qm-0VY" id="Cqr-I8-A12"/>
                 <outlet property="goldBtn" destination="Hv4-Wv-c7i" id="VTf-ts-mrC"/>

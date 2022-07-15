@@ -23,6 +23,8 @@ class LevelController: BaseController {
     @IBOutlet weak var deerBtn: UIButton!
     
     @IBOutlet weak var animationTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var animationWidthAnchor: NSLayoutConstraint!
+    @IBOutlet weak var animationHeightAnchor: NSLayoutConstraint!
     var onboardingView: MainGameOnboardingView?
     let animation = UIImageView()
     
@@ -235,9 +237,9 @@ class LevelController: BaseController {
         view.layoutIfNeeded()
         animation.prepareAnimation(name: "construction3", loopRepeated: true)
         animation.isHidden = false
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.6) { [self] in
-            self.animation.removeFromSuperview()
+          
             
             var price = Int()
             var buildType: BuildingType
@@ -285,10 +287,11 @@ class LevelController: BaseController {
                 btn?.isUserInteractionEnabled.toggle()
             }
         
-            for imgVw in  pointers.imgVwArray { imgVw.removeFromSuperview()}
+            
        
-            pointers.drawPointers(model: self.player, btns: self.btns)
+          //  pointers.drawPointers(model: self.player, btns: self.btns)
             presenter.upgradeBuild(buildingId: buildingId)
+         
         }
     }
     
@@ -378,8 +381,8 @@ extension LevelController: LevelOutputProtocol {
     
     func successBuildings(model: [BuildingsModel]) {
         checkAvailableHummers()
-        drawStates()
-        pointers.drawPointers(model: player, btns: btns)
+//        drawStates()
+//        pointers.drawPointers(model: player, btns: btns)
         
       
         for building in model {
@@ -404,8 +407,10 @@ extension LevelController: LevelOutputProtocol {
             default: break
             }
         }
+        self.animation.removeFromSuperview()
         drawStates()
         pointers.drawPointers(model: player, btns: btns)
+      
         let maxLevel = player.checkMaxLevel()
         guard maxLevel else { return }
         

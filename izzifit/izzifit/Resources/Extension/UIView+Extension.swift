@@ -176,7 +176,7 @@ class CircleAnimView: UIView {
     
         shape.path = circlePath.cgPath
         shape.strokeStart = 0
-        shape.strokeEnd = 0.6
+        shape.strokeEnd = 0.4
         shape.fillColor = UIColor.clear.cgColor
         shape.strokeColor = snakeColor
         shape.lineWidth = desiredLineWidth

@@ -78,7 +78,7 @@ class MainTabBarController: BaseController {
             self.view.layoutIfNeeded()
         }
 
-   
+        PreferencesManager.sharedManager.gameOnboardingDone = false
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         
         
