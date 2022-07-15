@@ -102,10 +102,13 @@ class EnergyStepsCell: UITableViewCell {
     }
     
     @IBAction func actionRotate(_ sender: UIButton) {
-        self.arrowImageView.transform = self.arrowImageView.transform.rotated(by: .pi)
-        self.infoStackView.layoutIfNeeded()
-        self.infoBottomView.isHidden = !self.infoBottomView.isHidden
-        self.seeMoreDidTapHandler?()
+        UIView.animate(withDuration: 0.3) {
+            self.arrowImageView.transform = self.arrowImageView.transform.rotated(by: .pi)
+            self.infoBottomView.isHidden = !self.infoBottomView.isHidden
+            self.infoStackView.layoutIfNeeded()
+            self.contentView.layoutIfNeeded()
+            self.seeMoreDidTapHandler?()
+        }
     }
     
     func calculateMeasureY(value: CGFloat,

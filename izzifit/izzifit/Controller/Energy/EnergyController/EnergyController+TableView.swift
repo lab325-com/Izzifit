@@ -34,7 +34,8 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
                 cell.setupCell(model: model)
             }
             cell.onSeeMoreDidTap {
-                    tableView.reloadData()
+                tableView.beginUpdates()
+                tableView.endUpdates()
             }
             
             return cell
@@ -53,7 +54,8 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.onSeeMoreDidTap {
-                    tableView.reloadData()
+                tableView.beginUpdates()
+                tableView.endUpdates()
             }
             return cell
         case 4:
@@ -63,7 +65,8 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.onSeeMoreDidTap {
-                    tableView.reloadData()
+                tableView.beginUpdates()
+                tableView.endUpdates()
             }
             return cell
         case 5..<5 + presenter.specialPriceNotBuing.count:
