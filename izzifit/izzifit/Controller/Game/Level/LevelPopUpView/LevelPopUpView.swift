@@ -320,12 +320,21 @@ class LevelPopUpView: UIView {
         switch popType {
         case .buildPopType: break
         case .notEnoughMoney:
-            ui.genericlLayout(object: upgradeBtnShadowView,
-                              parentView: upgradeBtn,
-                              topC: 0,
-                              bottomC: 0,
-                              leadingC: 0,
-                              trailingC: 0)
+            
+            upgradeBtn.setImage(UIImage(named: "upgradeBtnUnActive"), for: .normal)
+            priceLbl.textColor = .white.withAlphaComponent(0.6)
+            
+            upgradeBtn.layer.cornerRadius = 15
+            upgradeBtn.layer.masksToBounds = true
+        
+          
+            
+//            ui.genericlLayout(object: upgradeBtnShadowView,
+//                              parentView: upgradeBtn,
+//                              topC: 0,
+//                              bottomC: 0,
+//                              leadingC: 0,
+//                              trailingC: 0)
             
             ui.genericlLayout(object: downLbl,
                               parentView: mainBackImgVw,

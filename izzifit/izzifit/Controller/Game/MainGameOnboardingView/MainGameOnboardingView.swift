@@ -236,7 +236,7 @@ class MainGameOnboardingView: UIView {
             
         case .spinBtn:
         
-            onboardImgVw.image = image(img: .onNotEnoughCoins)
+            onboardImgVw.image = image(img: .onSpinButton)
                                 ui.genericlLayout(object: onboardImgVw,
                                                   parentView: arcGameView?.progressImgVw ?? self,
                                                   width: 251,
