@@ -1229,7 +1229,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 327 images.
+  /// This `R.image` struct is generated, and contains static references to 328 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1673,6 +1673,8 @@ struct R: Rswift.Validatable {
     static let paywall_selected_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_selected_ic")
     /// Image `paywall_top_ellipse_ic`.
     static let paywall_top_ellipse_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_top_ellipse_ic")
+    /// Image `paywall_women_complete_ic`.
+    static let paywall_women_complete_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_women_complete_ic")
     /// Image `paywall_women_ic`.
     static let paywall_women_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_women_ic")
     /// Image `paywall_women_shadow_ic`.
@@ -3430,6 +3432,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "paywall_top_ellipse_ic", bundle: ..., traitCollection: ...)`
     static func paywall_top_ellipse_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.paywall_top_ellipse_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_women_complete_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_women_complete_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_women_complete_ic, compatibleWith: traitCollection)
     }
     #endif
 
@@ -10135,11 +10144,8 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "paywall_above_text_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_above_text_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "paywall_close_white_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_close_white_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "paywall_fade_down_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_fade_down_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "paywall_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_selected_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "paywall_top_ellipse_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_top_ellipse_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "paywall_women_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_women_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "paywall_women_shadow_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_women_shadow_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_women_complete_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_women_complete_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
