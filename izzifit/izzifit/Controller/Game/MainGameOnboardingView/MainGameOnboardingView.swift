@@ -88,6 +88,22 @@ class MainGameOnboardingView: UIView {
             backgroundColor = UIColor(rgb: 0x574B70, alpha: 0.3)
             
             
+            
+            onboardImgVw.image = image(img: .onFUN)
+                            ui.genericlLayout(object: onboardImgVw,
+                                              parentView: self,
+                                              width: 264,
+                                              height: 102,
+                                              bottomC: 100,
+                                              centerH: 0)
+            
+            let y = h - 100
+            
+            onboardImgVw.shake(0.5,
+                               x: w / 2,
+                               y: y - 41)
+            
+            
             var yellowGameView = GameOnboardingEnergyView(state: .game)
             
             ui.genericlLayout(object: yellowGameView ?? UIView(),

@@ -105,10 +105,26 @@ class MainTabBarController: BaseController {
                         
                 view.ui.genericlLayout(object: onboardingView!,
                                        parentView: view,
-                                       topC: 390,
+                                       topC: 425,
                                        bottomC: 0,
                                        leadingC: 0,
                                        trailingC: 0)
+                
+                let onboardImgVw = UIImageView()
+                onboardImgVw.image = view.image(img: .onCUP)
+                onboardImgVw.contentMode = .scaleAspectFill
+                view.ui.genericlLayout(object: onboardImgVw,
+                                                  parentView: onboardingView!,
+                                                  width: 264,
+                                                  height: 102,
+                                                  topC: 45,
+                                                  centerH: 0)
+                
+              
+                
+                onboardImgVw.shake(0.5,
+                                   x: view.w / 2,
+                                   y: 63)
                 
                 //   block all cells except drink cell
             }
