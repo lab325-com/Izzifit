@@ -62,19 +62,64 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
             doneCups = model.totalCups
         }
         
+       var animBtns = [UIButton]()
+        
         for index in doneCups..<model.totalCups {
             let button = UIButton()
             button.setImage(RImage.energy_water_empty_ic(), for: .normal)
             button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
             button.tag = index
             waterStackView.addArrangedSubview(button)
+            animBtns.append(button)
         }
         
         mlLeftLabel.text = RLocalization.water_widget_ml_left(model.left)
         countLabel.text = "\(Int(model.energy))/\(model.energyTotal)"
-
-  
-  
+        
+        // перевірка
+        
+        guard !PreferencesManager.sharedManager.gameOnboardingDone,
+              MainGameOnboardingView.currentState == .finalPopUp
+        else { return }
+        
+        animateCups(animBtns)
+    }
+    
+    func animateCups(_ cups: [UIButton]) {
+        var guardCount = Int()
+        switch cups.count {
+        case let x where x  <= 7:   guardCount = 4
+        case let x where x <= 12:   guardCount = 6
+        default : break
+        }
+        
+        var animTimeStride = 0.0
+        for _ in 0...99 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + animTimeStride) {
+                var strideCount = 0.0
+                for (index, cup) in cups.enumerated() {
+                 
+                 //   guard  index <= guardCount else { return }
+                    cup.setImage(RImage.energy_water_active_ic(), for: .normal)
+                    strideCount += 0.15
+                    cup.layer.opacity = 0.4
+                    DispatchQueue.main.asyncAfter(deadline: .now() + strideCount) {
+                        animOneCup(cup)
+                    }
+                }
+            }
+            animTimeStride += 3.2
+        }
+       
+        func animOneCup(_ btn: UIButton) {
+            UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear) {
+                btn.layer.opacity = 1.0
+            } completion: { (_) in
+                UIView.animate(withDuration: 0.4, delay: 0,  options: .curveLinear) {
+                    btn.layer.opacity = 0.4
+                } completion: { (_) in }
+            }
+        }
     }
     
     func onSeeMoreDidTap(_ handler: @escaping () -> Void) {

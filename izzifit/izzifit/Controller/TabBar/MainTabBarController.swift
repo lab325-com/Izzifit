@@ -78,7 +78,7 @@ class MainTabBarController: BaseController {
             self.view.layoutIfNeeded()
         }
 //        MainGameOnboardingView.stateCounter = 11
-  // PreferencesManager.sharedManager.gameOnboardingDone = false
+ //  PreferencesManager.sharedManager.gameOnboardingDone = true
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         
         
@@ -120,13 +120,9 @@ class MainTabBarController: BaseController {
                                                   topC: 45,
                                                   centerH: 0)
                 
-              
-                
                 onboardImgVw.shake(0.5,
                                    x: view.w / 2,
                                    y: 63)
-                
-                //   block all cells except drink cell
             }
         case .blockScreen: break
             

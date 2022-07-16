@@ -180,7 +180,8 @@ extension EnergyController: EnergyDrinkWaterProtocol {
         if !PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .drinkWater) {
             presenter.setWater(index: index, date: getDate())
         }
-        
+    
+        //
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         tableView.isScrollEnabled = true
         let indexPath = IndexPath(row: 1, section: 0)

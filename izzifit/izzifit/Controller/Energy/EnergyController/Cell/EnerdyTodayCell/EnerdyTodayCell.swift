@@ -59,23 +59,31 @@ class EnerdyTodayCell: BaseTableViewCell {
         }
         switch PreferencesManager.sharedManager.gameOnboardingDone {
         case true: onboardingView =     GameOnboardingEnergyView(state: .game)
-        case false:
-            switch MainGameOnboardingView.currentState {
-            case .finalPopUp: onboardingView =     GameOnboardingEnergyView(state: .energy)
-            default:          onboardingView =     GameOnboardingEnergyView(state: .game)
-            }
-        }
-      
-        switch MainGameOnboardingView.currentState {
-        case .energy1: break
-        default:
             ui.genericlLayout(object: onboardingView ?? UIView(),
                                                  parentView: self,
                                                  width: wRatio(cW: 344),
                                                  height: 71,
                                                  bottomC: 10,
                                                  centerH: 0)
+        case false:
+            switch MainGameOnboardingView.currentState {
+            case .finalPopUp: onboardingView =     GameOnboardingEnergyView(state: .energy)
+            default:          onboardingView =     GameOnboardingEnergyView(state: .game)
+            }
+            
+            switch MainGameOnboardingView.currentState {
+            case .energy1: break
+            default:
+                ui.genericlLayout(object: onboardingView ?? UIView(),
+                                                     parentView: self,
+                                                     width: wRatio(cW: 344),
+                                                     height: 71,
+                                                     bottomC: 10,
+                                                     centerH: 0)
+            }
         }
+      
+
         
         
     }
