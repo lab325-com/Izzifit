@@ -195,7 +195,7 @@ extension EnergyController: EnergyDrinkWaterProtocol {
                                                     delegate: tabBarVC)
                 
             view.ui.genericlLayout(object: tabBarVC.onboardingView!,
-                               parentView: view,
+                                   parentView: tabBarVC.view,
                                topC: 0,
                                bottomC: 0,
                                leadingC: 0,

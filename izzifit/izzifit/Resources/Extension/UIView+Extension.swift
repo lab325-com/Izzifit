@@ -214,8 +214,8 @@ extension UIView {
         let clearView = UIView()
         clearView.layer.cornerRadius = cornerRadius
         clearView.layer.backgroundColor = UIColor.clear.cgColor
-        clearView.layer.masksToBounds = true
-        
+       // clearView.layer.masksToBounds = true
+        clearView.clipsToBounds = true
         let capView = UIView()
         capView.layer.backgroundColor = layer.backgroundColor
         capView.layer.cornerRadius = cornerRadius

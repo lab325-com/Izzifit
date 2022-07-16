@@ -320,7 +320,7 @@ class MainGameOnboardingView: UIView {
             ui.genericlLayout(object: popView,
                               parentView: self,
                               width: wRatio(cW:344),
-                              height: wRatio(cW: 430),
+                              height: wRatio(cW: 480),
                               topC: hRatio(cH:184),
                               centerH: 0)
             // Congrats label
@@ -344,30 +344,37 @@ class MainGameOnboardingView: UIView {
             var descriptionLbl = UILabel()
             
             ui.setLabel(label: descriptionLbl,
-                        labelText: "You have taken your first steps toward \n a new, healthier life and learned the \n basic features of our app! Play, \n complete easy daily tasks, get fit, and \n get healthy!",
+//                        labelText: "You have taken your first steps toward \n a new, healthier life and learned the \n basic features of our app! Play, \n complete easy daily tasks, get fit, and \n get healthy!",
                         textColor: UIColor(rgb: 0x3F3E56),
                         textAlignment: .center,
                         fontSize: wRatio(cW: 16),
                         fontName: "Inter-Regular",
                         lines: 0)
           
-            let imageAttachment = NSTextAttachment()
-            imageAttachment.image = image(img: .onboardingFun)
-            let imageOffsetY: CGFloat = -7.0
-            imageAttachment.bounds = CGRect(x: 0,
-                                            y: imageOffsetY,
-                                            width: imageAttachment.image!.size.width + 5,
-                                            height: imageAttachment.image!.size.height + 5)
+//            let imageAttachment = NSTextAttachment()
+//            imageAttachment.image = image(img: .onboardingFun)
+//            let imageOffsetY: CGFloat = -7.0
+//            imageAttachment.bounds = CGRect(x: 0,
+//                                            y: imageOffsetY,
+//                                            width: imageAttachment.image!.size.width + 5,
+//                                            height: imageAttachment.image!.size.height + 5)
+//
+//
+//            let attachmentString = NSAttributedString(attachment: imageAttachment)
+//            let completeText = NSMutableAttributedString(string: "Just play the game, have  ")
+//            completeText.append(attachmentString)
+//            let textAfterIcon = NSAttributedString(string: ", and  \n do daily simple tasks and lose \n weight!")
+//            completeText.append(textAfterIcon)
+//
+//
+//          //  descriptionLbl.attributedText = completeText
             
-  
-            let attachmentString = NSAttributedString(attachment: imageAttachment)
-            let completeText = NSMutableAttributedString(string: "Just play the game, have  ")
-            completeText.append(attachmentString)
-            let textAfterIcon = NSAttributedString(string: ", and  \n do daily simple tasks and lose \n weight!")
-            completeText.append(textAfterIcon)
             
-            
-          //  descriptionLbl.attributedText = completeText
+            descriptionLbl.lineBreakMode = .byWordWrapping
+            var paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineHeightMultiple = 1.24
+            paragraphStyle.alignment = .center
+            descriptionLbl.attributedText = NSMutableAttributedString(string: "You have taken your first steps toward \n a new, healthier life and learned the \n basic features of our app! Play, \n complete easy daily tasks, get fit, and \n get healthy!", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
             
             ui.genericlLayout(object: descriptionLbl,
                               parentView: popView,
@@ -375,7 +382,6 @@ class MainGameOnboardingView: UIView {
                               centerH: 0)
             
             // Graph ImageView
-            
             let graphImageView = UIImageView()
             
             graphImageView.image = image(img: .onGraph)
@@ -385,9 +391,8 @@ class MainGameOnboardingView: UIView {
                               parentView: popView,
                               width: wRatio(cW: 296),
                               height: wRatio(cW: 160),
-                              topC: hRatio(cH: 172),
+                              topC: hRatio(cH: 232),
                               centerH: 0)
-            
             
             // congrads_anim
             

@@ -1229,7 +1229,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 324 images.
+  /// This `R.image` struct is generated, and contains static references to 325 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1841,6 +1841,8 @@ struct R: Rswift.Validatable {
     static let top_view_flash_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_view_flash_ic")
     /// Image `twoPurchaseBack`.
     static let twoPurchaseBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "twoPurchaseBack")
+    /// Image `upgradeBtnUnActive`.
+    static let upgradeBtnUnActive = Rswift.ImageResource(bundle: R.hostingBundle, name: "upgradeBtnUnActive")
     /// Image `upgradeBtn`.
     static let upgradeBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "upgradeBtn")
     /// Image `upgradeLevel`.
@@ -4019,6 +4021,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "upgradeBtn", bundle: ..., traitCollection: ...)`
     static func upgradeBtn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.upgradeBtn, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "upgradeBtnUnActive", bundle: ..., traitCollection: ...)`
+    static func upgradeBtnUnActive(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.upgradeBtnUnActive, compatibleWith: traitCollection)
     }
     #endif
 
