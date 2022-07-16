@@ -25,7 +25,9 @@ class EnergyController: BaseController {
     
     @IBOutlet weak var energyLottieView: UIView!
     
-    @IBOutlet weak var coinsLottieView: UIImageView!
+    @IBOutlet weak var coinsImgVw: UIImageView!
+    
+    @IBOutlet weak var coinsAnimationView: UIView!
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
@@ -48,7 +50,7 @@ class EnergyController: BaseController {
     var currentDate = Date()
     
     private var animationEnergy: AnimationView?
-     var animationCoins: AnimationView?
+    var animationCoins: AnimationView?
         
     //----------------------------------------------
     // MARK: - Life cycle
@@ -67,8 +69,9 @@ class EnergyController: BaseController {
         presenter.getWidgetList()
         updateMe()
         tableView.reloadData()
-   
+       
     }
+
     
     
     //----------------------------------------------
@@ -85,8 +88,14 @@ class EnergyController: BaseController {
         animationEnergy?.contentMode = .scaleAspectFit
         
         animationCoins = .init(name: "coins_header")
-        coinsLottieView.addSubview(animationCoins!)
         animationCoins?.contentMode = .scaleAspectFit
+        
+        view.ui.genericlLayout(object: animationCoins!,
+                               parentView: coinsAnimationView,
+                               width: 30,
+                               height: 100,
+                               topC: 8,
+                               centerH: 3)
         
         
         

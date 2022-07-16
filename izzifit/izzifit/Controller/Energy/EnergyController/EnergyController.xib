@@ -18,7 +18,8 @@
             <connections>
                 <outlet property="avatarImageView" destination="IoB-MZ-iw5" id="vho-tg-LKn"/>
                 <outlet property="avatarView" destination="54w-nJ-ly0" id="lNK-RA-fJf"/>
-                <outlet property="coinsLottieView" destination="WHe-cG-ACv" id="jEV-9H-6TH"/>
+                <outlet property="coinsAnimationView" destination="n3f-WW-Zes" id="788-dw-o1i"/>
+                <outlet property="coinsImgVw" destination="WHe-cG-ACv" id="jEV-9H-6TH"/>
                 <outlet property="cointLabel" destination="urr-CY-WRE" id="yUt-SQ-Aeo"/>
                 <outlet property="energyLabel" destination="MrR-Dy-Lbk" id="Gyv-gp-sgG"/>
                 <outlet property="energyLottieView" destination="1lX-Io-nut" id="zHn-Bv-qhF"/>
