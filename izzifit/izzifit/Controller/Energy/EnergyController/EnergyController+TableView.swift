@@ -40,13 +40,6 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
         case 2:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellEnergyMood) as? EnergyMoodCell else { return UITableViewCell() }
-            if let model = presenter.moodWidget {
-                cell.setupCell(model: model)
-            }
-            cell.delegate = self
-            return cell
-        case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellMealsIdentifier) as? EnergyMealsCell else { return UITableViewCell() }
             if let model = presenter.mealsWidget {
                 cell.delegate = self
@@ -57,6 +50,13 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
                 tableView.beginUpdates()
                 tableView.endUpdates()
             }
+            return cell
+        case 3:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellEnergyMood) as? EnergyMoodCell else { return UITableViewCell() }
+            if let model = presenter.moodWidget {
+                cell.setupCell(model: model)
+            }
+            cell.delegate = self
             return cell
         case 4:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellStepsIdentifier) as? EnergyStepsCell else { return UITableViewCell() }

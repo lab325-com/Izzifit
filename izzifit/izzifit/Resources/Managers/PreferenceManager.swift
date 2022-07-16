@@ -7,6 +7,22 @@
 
 import Foundation
 
+enum KeysPreference: String, CaseIterable {
+   case  tempPorifle = "tempPorifle"
+   case  foods =  "foods"
+   case  screensPaywall = "screensPaywall"
+   case  afterOnboarding = "afterOnboarding"
+   case  preOnboardingRemote = "preOnboardingRemote"
+   case  enegyZero = "enegyZero"
+   case  coinsZero = "coinsZero"
+   case  localPushs = "localPushs"
+   case  gameOnboardingDone = "gameOnboardingDone"
+   case  drinkWidgetShowed = "drinkWidgetShowed"
+   case  drintWaterInfoHidden = "drintWaterInfoHidden"
+   case  mealsPlanInfoHidden = "mealsPlanInfoHidden"
+   case  stepsInfoHidden = "stepsInfoHidden"
+}
+
 class PreferencesManager : NSObject {
     
     private lazy var jsonDecoder = JSONDecoder()
@@ -26,6 +42,10 @@ class PreferencesManager : NSObject {
     static let localPushs = "localPushs"
     static let gameOnboardingDone = "gameOnboardingDone"
     static let drinkWidgetShowed = "drinkWidgetShowed"
+    
+    static let drintWaterInfoHidden = "drintWaterInfoHidden"
+    static let mealsPlanInfoHidden = "mealsPlanInfoHidden"
+    static let stepsInfoHidden = "stepsInfoHidden"
     
     var userDefaults: UserDefaults
     
@@ -190,6 +210,36 @@ class PreferencesManager : NSObject {
         }
     }
     
+    var stepsInfoHidden: Bool {
+        get {
+            return userDefaults.bool(forKey: PreferencesManager.stepsInfoHidden)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.stepsInfoHidden)
+            userDefaults.synchronize()
+        }
+    }
+    
+    var mealsPlanInfoHidden: Bool {
+        get {
+            return userDefaults.bool(forKey: PreferencesManager.mealsPlanInfoHidden)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.mealsPlanInfoHidden)
+            userDefaults.synchronize()
+        }
+    }
+    
+    var drintWaterInfoHidden: Bool {
+        get {
+            return userDefaults.bool(forKey: PreferencesManager.drintWaterInfoHidden)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.drintWaterInfoHidden)
+            userDefaults.synchronize()
+        }
+    }
+    
     var gameOnboardingDone: Bool {
         get {
             return userDefaults.bool(forKey: PreferencesManager.gameOnboardingDone)
@@ -238,6 +288,9 @@ class PreferencesManager : NSObject {
     }
     
     func deleteAcc() {
+        for key in KeysPreference.allCases {
+            userDefaults.removeObject(forKey: key.rawValue)
+        }
         tempPorifle =  TempProfileModel(name: nil)
     }
 }

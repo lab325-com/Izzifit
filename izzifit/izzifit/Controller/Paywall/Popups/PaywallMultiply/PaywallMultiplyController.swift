@@ -13,6 +13,7 @@ class PaywallMultiplyController: BaseController {
     
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
+    @IBOutlet weak var bestValueView: UIView!
     @IBOutlet weak var firstSubView: UIView!
     @IBOutlet weak var firstSubNameLabel: UILabel!
     @IBOutlet weak var firstSubPriceLabel: UILabel!
@@ -87,6 +88,10 @@ class PaywallMultiplyController: BaseController {
         setup()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
@@ -94,6 +99,7 @@ class PaywallMultiplyController: BaseController {
     private func setup() {
         AnalyticsHelper.sendFirebaseEvents(events: .pay_open, params: ["place": place.rawValue, "screen": screen.rawValue])
         subStackView.isHidden = true
+        bestValueView.isHidden = true
         
         firstSubView.layer.borderWidth = 2
         secondSubView.layer.borderWidth = 2
@@ -119,9 +125,9 @@ class PaywallMultiplyController: BaseController {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.32
         
-        let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Inter-Regular", size: 12), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x3F3E56), .paragraphStyle: paragraphStyle]
+        let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Inter-Regular", size: 12), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x797889), .paragraphStyle: paragraphStyle]
         
-        let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Inter-Regular", size: 12), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x797889), .paragraphStyle: paragraphStyle]
+        let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Inter-Regular", size: 12), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x3F3E56), .paragraphStyle: paragraphStyle]
         
         let attributedString1 = NSMutableAttributedString(string:RLocalization.login_by_continue(), attributes:attrs1 as [NSAttributedString.Key : Any])
         
@@ -176,24 +182,24 @@ class PaywallMultiplyController: BaseController {
             return
         }
         
-        UIView.animate(withDuration: 0.3, delay: 0, options: .allowUserInteraction, animations: {
-            switch self.priceType {
-            case .oneYear50:
-                self.firstSubView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-                self.secondSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                self.thirdSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            case .theeMonth, .oneMonth, .theeMonth30:
-                self.firstSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                self.secondSubView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-                self.thirdSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            case .oneWeek:
-                self.firstSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                self.secondSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                self.thirdSubView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-            case .oneYear:
-                return
-            }
-        }) { (_) in }
+//        UIView.animate(withDuration: 0.3, delay: 0, options: .allowUserInteraction, animations: {
+//            switch self.priceType {
+//            case .oneYear50:
+//                self.firstSubView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+//                self.secondSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+//                self.thirdSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+//            case .theeMonth, .oneMonth, .theeMonth30:
+//                self.firstSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+//                self.secondSubView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+//                self.thirdSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+//            case .oneWeek:
+//                self.firstSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+//                self.secondSubView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+//                self.thirdSubView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+//            case .oneYear:
+//                return
+//            }
+//        }) { (_) in }
     }
     
     //----------------------------------------------
@@ -269,6 +275,7 @@ class PaywallMultiplyController: BaseController {
 extension PaywallMultiplyController: SubscribeOutputProtocol {
     func successRetrive() {
         subStackView.isHidden = false
+        bestValueView.isHidden = false
         activity.isHidden = true
         
         switch screen {

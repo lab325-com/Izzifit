@@ -20,6 +20,9 @@ class EnergyStepsCell: UITableViewCell {
     @IBOutlet weak var arrowImageView: UIImageView!
     @IBOutlet weak var infoBottomView: UIView!
     @IBOutlet weak var infoStackView: UIStackView!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var infoBottomLayour: NSLayoutConstraint!
+    @IBOutlet weak var infoTopView: UIView!
     
     //----------------------------------------------
     // MARK: - Property
@@ -49,6 +52,15 @@ class EnergyStepsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        if PreferencesManager.sharedManager.stepsInfoHidden {
+            hiddenInfo()
+        }
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.24
+
+        infoLabel.attributedText = NSMutableAttributedString(string: "Keep your body active throughout the day instead of spending more time on walks! Going on shorter strolls will help you become fitter and healthier fast, all while helping you feel better.", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         
         infoBottomView.isHidden = true
         
@@ -103,6 +115,23 @@ class EnergyStepsCell: UITableViewCell {
     func onSeeMoreDidTap(_ handler: @escaping () -> Void) {
         
         self.seeMoreDidTapHandler = handler
+    }
+    
+    private func hiddenInfo() {
+        infoStackView.isHidden = true
+        infoTopView.isHidden = true
+        infoBottomView.isHidden = true
+        infoBottomLayour.constant = 0
+        infoStackView.layoutIfNeeded()
+        contentView.layoutIfNeeded()
+        seeMoreDidTapHandler?()
+    }
+    
+    @IBAction func actionHiddenInfo(_ sender: UIButton) {
+        PreferencesManager.sharedManager.stepsInfoHidden = true
+        UIView.animate(withDuration: 0.3) {
+            self.hiddenInfo()
+        }
     }
     
     @IBAction func actionRotate(_ sender: UIButton) {
