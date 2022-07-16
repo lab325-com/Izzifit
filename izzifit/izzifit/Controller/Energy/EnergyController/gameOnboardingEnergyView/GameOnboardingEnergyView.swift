@@ -80,18 +80,18 @@ class GameOnboardingEnergyView: UIView {
             
             let imageAttachment = NSTextAttachment()
             imageAttachment.image = image(img: .onboardingEnergy)
-            let imageOffsetY: CGFloat = -5.0
+            let imageOffsetY: CGFloat = -2.5
             imageAttachment.bounds = CGRect(x: 0,
                                             y: imageOffsetY,
-                                            width: imageAttachment.image!.size.width + 5,
-                                            height: imageAttachment.image!.size.height + 5)
+                                            width: imageAttachment.image!.size.width ,
+                                            height: imageAttachment.image!.size.height )
             
             let imageAt2 = NSTextAttachment()
             imageAt2.image = image(img: .onboardingRightSign)
             imageAt2.bounds = CGRect(x: 0,
-                                     y: -4.0,
-                                     width: imageAt2.image!.size.width + 5,
-                                     height: imageAt2.image!.size.height + 5)
+                                     y: -1.5,
+                                     width: imageAt2.image!.size.width ,
+                                     height: imageAt2.image!.size.height)
             let imageAt = NSAttributedString(attachment: imageAttachment)
             let completeText = NSMutableAttributedString(string: "Get energy ")
             completeText.append(imageAt)
@@ -132,18 +132,18 @@ class GameOnboardingEnergyView: UIView {
             
             let imageAttachment = NSTextAttachment()
             imageAttachment.image = image(img: .onboardingEnergy)
-            let imageOffsetY: CGFloat = -5.0
+            let imageOffsetY: CGFloat = -2.5
             imageAttachment.bounds = CGRect(x: 0,
                                             y: imageOffsetY,
-                                            width: imageAttachment.image!.size.width + 5,
-                                            height: imageAttachment.image!.size.height + 5)
+                                            width: imageAttachment.image!.size.width ,
+                                            height: imageAttachment.image!.size.height )
             
             let imageAt2 = NSTextAttachment()
             imageAt2.image = image(img: .onboardingFun)
             imageAt2.bounds = CGRect(x: 0,
-                                     y: -9.0,
-                                     width: imageAt2.image!.size.width + 5,
-                                     height: imageAt2.image!.size.height + 5)
+                                     y: -6.5,
+                                     width: imageAt2.image!.size.width ,
+                                     height: imageAt2.image!.size.height )
             let attachmentString = NSAttributedString(attachment: imageAttachment)
             let completeText = NSMutableAttributedString(string: "You have enough  ")
             completeText.append(attachmentString)

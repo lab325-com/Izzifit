@@ -85,26 +85,58 @@ class MainGameOnboardingView: UIView {
         
         switch state {
         case .energy1:
+            backgroundColor = UIColor(rgb: 0x574B70, alpha: 0.3)
+            
+            
+            var yellowGameView = GameOnboardingEnergyView(state: .game)
+            
+            ui.genericlLayout(object: yellowGameView ?? UIView(),
+                                                 parentView: self,
+                                                 width: wRatio(cW: 344),
+                                                 height: 71,
+                                                 topC: 191,
+                                                 centerH: 0)
+
                         var funAnimationView = AnimationView(name: "menu_anim")
                             funAnimationView.contentMode = .scaleAspectFill
                             funAnimationView.loopMode = .loop
                             funAnimationView.play()
             
-                        ui.genericlLayout(object: funAnimationView,
-                                         parentView: self,
-                                         width: 90,
-                                         height: 90,
-                                         bottomC: 16,
-                                         centerH: 0)
+            let whiteView = UIView()
+            whiteView.layer.backgroundColor =   UIColor.white.withAlphaComponent(0.95).cgColor
+            whiteView.layer.cornerRadius =      38
+            whiteView.layer.masksToBounds =     true
             
+            ui.genericlLayout(object: whiteView,
+                             parentView: self,
+                             width: 76,
+                             height: 76,
+                             bottomC: 23,
+                             centerH: 0)
+            let imgVw = UIImageView(image:  UIImage(named: "tab_bar_fun_ic"))
             
+            ui.genericlLayout(object: imgVw,
+                              parentView: self,
+                              width: 60,
+                              height: 60,
+                              bottomC: 31,
+                              centerH: 0)
             
-                        ui.genericlLayout(object: mainBtn,
-                                         parentView: self,
-                                         width: 60,
-                                         height: 60,
-                                         bottomC: 31,
-                                         centerH: 0)
+        
+                    
+            
+            ui.genericlLayout(object: funAnimationView,
+                             parentView: self,
+                             width: 90,
+                             height: 90,
+                             bottomC: 16,
+                             centerH: 0)
+            ui.genericlLayout(object: mainBtn,
+                             parentView: self,
+                             width: 60,
+                             height: 60,
+                             bottomC: 31,
+                             centerH: 0)
             
                         ui.genericlLayout(object: additionBtn,
                                           parentView: self,

@@ -13,7 +13,7 @@ enum Imgs: String {
     // Game Onboarding View
     case onboardingFun, onboardingVillage, onboardingRightSign, onboardingLightning, onboardingEnergy
     // Game Onboarding Messages
-    case onBuildVillage, onUpgradeBuild, onNotEnoughCoins, onSpinButton, onToEnergy, onGraph
+    case onBuildVillage, onUpgradeBuild, onNotEnoughCoins, onSpinButton, onToEnergy, onGraph, onFUN, onCUP
     
     //LevelView - England
     case level_england_back

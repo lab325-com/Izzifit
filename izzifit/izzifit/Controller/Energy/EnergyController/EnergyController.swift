@@ -52,6 +52,8 @@ class EnergyController: BaseController {
     private var animationEnergy: AnimationView?
     var animationCoins: AnimationView?
         
+    
+    var onboardingShadowView: UIView?
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
@@ -69,7 +71,22 @@ class EnergyController: BaseController {
         presenter.getWidgetList()
         updateMe()
         tableView.reloadData()
-       
+        
+        
+        // Onboarding
+        onboardingShadowView?.removeFromSuperview()
+        
+//        guard !PreferencesManager.sharedManager.gameOnboardingDone,
+//              MainGameOnboardingView.currentState == .energy1 else { return }
+//        
+//        onboardingShadowView = UIView()
+//        
+//        onboardingShadowView.backgroundColor = UIColor(rgb: 0x574B70, alpha: 0.3)
+//        view.ui.genericlLayout(object: onboardingShadowView,
+//                               parentView: view,
+//                               topC: 0,
+//                               bottomC: 0, leadingC: 0, trailingC: 0, centerV: <#T##CGFloat?#>, centerH: <#T##CGFloat?#>, centerVtoO: <#T##Any?#>, centerHtoO: <#T##Any?#>, topToO: <#T##Any?#>, topCG: <#T##CGFloat?#>, bottomToO: <#T##Any?#>, bottomCG: <#T##CGFloat?#>, leadingToO: <#T##Any?#>, leadingCG: <#T##CGFloat?#>, trailingToO: <#T##Any?#>, trailingCG: <#T##CGFloat?#>)
+//       
     }
 
     

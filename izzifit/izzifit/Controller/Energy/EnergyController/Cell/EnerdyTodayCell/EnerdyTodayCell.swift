@@ -66,14 +66,18 @@ class EnerdyTodayCell: BaseTableViewCell {
             }
         }
       
+        switch MainGameOnboardingView.currentState {
+        case .energy1: break
+        default:
+            ui.genericlLayout(object: onboardingView ?? UIView(),
+                                                 parentView: self,
+                                                 width: wRatio(cW: 344),
+                                                 height: 71,
+                                                 bottomC: 10,
+                                                 centerH: 0)
+        }
         
         
-             ui.genericlLayout(object: onboardingView ?? UIView(),
-                               parentView: self,
-                               width: wRatio(cW: 344),
-                               height: 71,
-                               bottomC: 10,
-                               centerH: 0) 
     }
     
     @IBAction func actionProgress(_ sender: UIButton) {
