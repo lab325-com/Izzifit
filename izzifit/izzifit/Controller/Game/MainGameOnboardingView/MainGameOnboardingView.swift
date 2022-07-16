@@ -242,7 +242,7 @@ class MainGameOnboardingView: UIView {
                                                   width: 251,
                                                   height: 116,
                                                   centerV: 10,
-                                                  centerH: 0)
+                                                  centerH: 10)
             
             onboardImgVw.shake(0.5,
                                x: w/2 - 125,
