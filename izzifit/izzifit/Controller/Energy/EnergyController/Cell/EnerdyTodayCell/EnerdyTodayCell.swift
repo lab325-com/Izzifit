@@ -58,7 +58,7 @@ class EnerdyTodayCell: BaseTableViewCell {
             }
         }
         switch PreferencesManager.sharedManager.gameOnboardingDone {
-        case true: onboardingView =     GameOnboardingEnergyView(state: .energy)
+        case true: onboardingView =     GameOnboardingEnergyView(state: .game)
         case false:
             switch MainGameOnboardingView.currentState {
             case .finalPopUp: onboardingView =     GameOnboardingEnergyView(state: .energy)
