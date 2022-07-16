@@ -65,17 +65,17 @@ class GameOnboardingEnergyView: UIView {
                               parentView: yellowVw,
                               width: 100,
                               height: 100,
-                              trailingC: -12,
+                              trailingC: 0,
                               centerV: 0)
             
             ui.genericlLayout(object: mainImgVw,
                               parentView: self,
-                              width: 32.5,
-                              height: 45,
+                              width: 31,
+                              height: 51,
                               bottomToO: yellowVw.bottomAnchor,
                               bottomCG: 6,
                               trailingToO: yellowVw.trailingAnchor,
-                              trailingCG: 16)
+                              trailingCG: 20)
             anim.play()
             
             let imageAttachment = NSTextAttachment()
@@ -118,7 +118,7 @@ class GameOnboardingEnergyView: UIView {
                               bottomC: 27,
                               trailingC: 1)
             
-            mainImgVw.image = image(img: .onboardingVillage)    ?? UIImage()
+            mainImgVw.image = image(img: .onboardingVillage)  ?? UIImage()
             ui.genericlLayout(object: mainImgVw,
                               parentView: self,
                               width: 77,
