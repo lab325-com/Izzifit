@@ -106,16 +106,18 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
         }
         
         var animTimeStride = 0.0
-        for _ in 0...99 {
+        for _ in 0...149 {
                         DispatchQueue.main.asyncAfter(deadline: .now() + animTimeStride) {
                 var strideCount = 0.0
                 for (index, cup) in cups.enumerated() {
                  
                  //   guard  index <= guardCount else { return }
-                    cup.setImage(RImage.energy_water_active_ic(), for: .normal)
-                    strideCount += 0.15
-                    cup.layer.opacity = 0.4
+                 
+                    strideCount += 0.08
+                   
                     DispatchQueue.main.asyncAfter(deadline: .now() + strideCount) {
+                        cup.setImage(RImage.energy_water_active_ic(), for: .normal)
+                        cup.layer.opacity = 0.4
                         animOneCup(cup)
                     }
                 }
@@ -124,12 +126,14 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
         }
        
         func animOneCup(_ btn: UIButton) {
-            UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear) {
+            UIView.animate(withDuration: 0.25, delay: 0, options: .curveLinear) {
                 btn.layer.opacity = 1.0
             } completion: { (_) in
-                UIView.animate(withDuration: 0.4, delay: 0,  options: .curveLinear) {
+                UIView.animate(withDuration: 0.25, delay: 0,  options: .curveLinear) {
                     btn.layer.opacity = 0.4
-                } completion: { (_) in }
+                } completion: { (_) in
+               //     btn.setImage(RImage.energy_water_empty_ic(), for: .normal)
+                }
             }
         }
     }

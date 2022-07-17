@@ -85,7 +85,7 @@ class MainGameOnboardingView: UIView {
         
         switch state {
         case .energy1:
-            backgroundColor = UIColor(rgb: 0x574B70, alpha: 0.3)
+          //  backgroundColor = UIColor(rgb: 0x574B70, alpha: 0.3)
             
             
             
@@ -207,6 +207,7 @@ class MainGameOnboardingView: UIView {
                     levelVC.animationWidthAnchor.constant = 150
                     levelVC.animationHeightAnchor.constant = 46
                     levelVC.animationTrailingConstraint.constant = -58
+                    levelVC.animationTopConstraint.constant = 445
                     levelVC.view.layoutIfNeeded()
                 }
             }
