@@ -111,7 +111,7 @@ class PaywallMultiplyController: BaseController {
         secondSubPerDayLabel.text = "per day"
         thirdSubPerDayLabel.text = "per day"
         
-        firstSubNameLabel.text = "Annually"
+        firstSubNameLabel.text = "12 month"
         secondSubNameLabel.text = screen == .threePrice ? "3 month" : "1 month"
         thirdSubNameLabel.text = "1 week"
         
@@ -296,7 +296,7 @@ extension PaywallMultiplyController: SubscribeOutputProtocol {
             
             if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneWeek.productId}) {
                 thirdSubSalePriceLabel.text = ""
-                thirdSubSaleDiscountLabel.text = info.prettyPrice
+                thirdSubSaleDiscountLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price)
                 thirdSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 14)
                 thirdSubPerDayPriceLabel.text = ""
                 thirdSubSaleDiscountLineView.isHidden = true

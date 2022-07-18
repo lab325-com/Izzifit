@@ -135,6 +135,10 @@ class EnergyController: BaseController {
             let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .dashboard)
         }
         
+//        let controller = PaywallMultiplyController(delegate: self, screen: .threePrice, place: .dashboard)
+//        controller.modalPresentationStyle = .fullScreen
+//        navigationController?.present(controller, animated: true)
+        
         tableView.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector:#selector(updateEnegyNotification),
