@@ -165,6 +165,7 @@ class EnergyDrinkWaterCell: BaseTableViewCell {
     }
     
     @IBAction func actionRotate(_ sender: UIButton) {
+        guard  PreferencesManager.sharedManager.gameOnboardingDone else { return }
         UIView.animate(withDuration: 0.3) {
             self.arrowImageView.transform = self.arrowImageView.transform.rotated(by: .pi)
             self.infoBottomView.isHidden = !self.infoBottomView.isHidden

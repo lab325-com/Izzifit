@@ -392,6 +392,7 @@
 		FA65F4F9283E238C00F2427C /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65F4F8283E238C00F2427C /* UIImageView+Extension.swift */; };
 		FA6628A327F184C200FBB946 /* Moods.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA6628A227F184C200FBB946 /* Moods.graphql */; };
 		FA6699CA281ABCF600B394E0 /* OffsetCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */; };
+		FA7E481628859C72005AEAC1 /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7E481528859C72005AEAC1 /* MainTabBarPresenter.swift */; };
 		FA8535362875D0D600A9137B /* coins_header.json in Resources */ = {isa = PBXBuildFile; fileRef = FA8535352875D0D600A9137B /* coins_header.json */; };
 		FA85353E287707DD00A9137B /* FinishMap.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA85353C287707DD00A9137B /* FinishMap.graphql */; };
 		FA85353F287707DD00A9137B /* FinishMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85353D287707DD00A9137B /* FinishMapModel.swift */; };
@@ -847,6 +848,7 @@
 		FA65F4F8283E238C00F2427C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		FA6628A227F184C200FBB946 /* Moods.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moods.graphql; sourceTree = "<group>"; };
 		FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetCounter.swift; sourceTree = "<group>"; };
+		FA7E481528859C72005AEAC1 /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
 		FA8535352875D0D600A9137B /* coins_header.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coins_header.json; sourceTree = "<group>"; };
 		FA85353C287707DD00A9137B /* FinishMap.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FinishMap.graphql; sourceTree = "<group>"; };
 		FA85353D287707DD00A9137B /* FinishMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishMapModel.swift; sourceTree = "<group>"; };
@@ -1058,6 +1060,7 @@
 				0227DA9127C52EC1008AB26B /* TabBarRouter.swift */,
 				021A6F4C27BF99710000D863 /* MainTabBarController.swift */,
 				021A6F4D27BF99710000D863 /* MainTabBarController.xib */,
+				FA7E481528859C72005AEAC1 /* MainTabBarPresenter.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -3514,6 +3517,7 @@
 				024779CD27DCB8BF00AAFE3D /* Date+Extension.swift in Sources */,
 				026338A027DB6D0200DC0325 /* EnergyProgressesPresenter.swift in Sources */,
 				FA856FFE27EC8BEC0012F433 /* ProfilePresenter.swift in Sources */,
+				FA7E481628859C72005AEAC1 /* MainTabBarPresenter.swift in Sources */,
 				FAD5B29B2864A2DB00A1EF4D /* SaveStepsModel.swift in Sources */,
 				021A6F4727BF8FFA0000D863 /* ProfileUpdateModel.swift in Sources */,
 				FAA8E88C27F450A80081A12A /* CaloriesWidgetModel.swift in Sources */,
