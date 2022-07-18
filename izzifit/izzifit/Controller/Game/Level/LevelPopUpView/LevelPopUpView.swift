@@ -326,6 +326,7 @@ class LevelPopUpView: UIView {
             
             upgradeBtn.layer.cornerRadius = 15
             upgradeBtn.layer.masksToBounds = true
+            upgradeBtn.isUserInteractionEnabled = false
         
           
             
