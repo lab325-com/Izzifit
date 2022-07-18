@@ -78,7 +78,7 @@ class MainTabBarController: BaseController {
             self.view.layoutIfNeeded()
         }
 //        MainGameOnboardingView.stateCounter = 11
- //  PreferencesManager.sharedManager.gameOnboardingDone = true
+ //  PreferencesManager.sharedManager.gameOnboardingDone = false
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         
         

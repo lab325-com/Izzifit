@@ -76,23 +76,23 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             cell.delegate = self
             return cell
         case 5 + presenter.specialPriceNotBuing.count:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellChooseActivity) as? EnergyChooseActivityCell else { return UITableViewCell() }
+            cell.delegate = self
+            cell.setupCell(models: presenter.chooseWorkoutWidgets)
+            return cell
+        case 6 + presenter.specialPriceNotBuing.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSleepIdentifier) as? EnergySleepCell else { return UITableViewCell() }
             cell.delegate = self
             if let model = presenter.sleepWidget {
                 cell.setupCell(model: model)
             }
             return cell
-        case 6 + presenter.specialPriceNotBuing.count:
+        case 7 + presenter.specialPriceNotBuing.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellWeightIdentifier) as? EnergyWeightCell else { return UITableViewCell() }
             cell.delegate = self
             if let model = presenter.weightWidget {
                 cell.setupCell(model: model)
             }
-            return cell
-        case 7 + presenter.specialPriceNotBuing.count:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellChooseActivity) as? EnergyChooseActivityCell else { return UITableViewCell() }
-            cell.delegate = self
-            cell.setupCell(models: presenter.chooseWorkoutWidgets)
             return cell
         case (8 + presenter.specialPriceNotBuing.count)..<8 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count:
             if presenter.workoutWidgets.count == 0 {

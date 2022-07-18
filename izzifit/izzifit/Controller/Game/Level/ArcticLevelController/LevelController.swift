@@ -22,6 +22,7 @@ class LevelController: BaseController {
     @IBOutlet weak var goldBtn: UIButton!
     @IBOutlet weak var deerBtn: UIButton!
     
+    @IBOutlet weak var animationTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var animationTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var animationWidthAnchor: NSLayoutConstraint!
     @IBOutlet weak var animationHeightAnchor: NSLayoutConstraint!

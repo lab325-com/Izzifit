@@ -65,7 +65,7 @@ class GameOnboardingEnergyView: UIView {
                               parentView: yellowVw,
                               width: 100,
                               height: 100,
-                              trailingC: 0,
+                              trailingC: -10,
                               centerV: 0)
             
             ui.genericlLayout(object: mainImgVw,
