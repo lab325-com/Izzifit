@@ -123,7 +123,7 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 { return 185.0 }
         
         
-        if indexPath.row == 5 + presenter.specialPriceNotBuing.count {
+        if indexPath.row == 6 + presenter.specialPriceNotBuing.count {
             return Date().isNeedSleepWidget ? tableView.rowHeight : 0
         }
 
