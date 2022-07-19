@@ -69,7 +69,9 @@ class MainTabBarPresenter: MainTabBarProtocol {
                 PreferencesManager.sharedManager.gameOnboardingDone = false
             
             } else {
-                PreferencesManager.sharedManager.gameOnboardingDone = true 
+                PreferencesManager.sharedManager.gameOnboardingDone = true
+                guard MainGameOnboardingView.stateCounter == 11 else { return }
+                PreferencesManager.sharedManager.gameOnboardingDone = false
             }
                   
         

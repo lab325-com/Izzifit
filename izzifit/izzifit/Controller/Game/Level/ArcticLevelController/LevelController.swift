@@ -524,7 +524,6 @@ extension LevelController: MainGameOnboardingDelegate {
         MainGameOnboardingView.stateCounter += 1
         onboardingView!.removeFromSuperview()
         
-        
         onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
                                                 delegate: self)
                 

@@ -19,7 +19,6 @@ class MainTabBarController: BaseController {
     //----------------------------------------------
     // MARK: - IBOutlet
     //----------------------------------------------
-    
     @IBOutlet weak var containerEnergyView: UIView!
     @IBOutlet weak var containerWorkoutView: UIView!
     @IBOutlet weak var containerProfileView: UIView!
@@ -69,9 +68,7 @@ class MainTabBarController: BaseController {
         hiddenNavigationBar = true
         super.viewDidLoad()
         setup()
-
-        guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
-        presenter.getMe()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,7 +77,12 @@ class MainTabBarController: BaseController {
             self.bottomCustomTabBarLayout.constant = 0
             self.view.layoutIfNeeded()
         }
-         onboarding()
+        
+        if let vc = children.first as? EnergyController {
+            vc.tableView.reloadData()
+        }
+        guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
+        presenter.getMe()
     }
     
     deinit {  NotificationCenter.default.removeObserver(self) }
@@ -297,6 +299,7 @@ extension MainTabBarController: MainGameOnboardingDelegate {
                 vc.showEnergyAnimation()
                 vc.animationCoins?.play()
             }
+            MainGameOnboardingView.stateCounter = 0
      
         default:
             onboardingView?.removeFromSuperview()
