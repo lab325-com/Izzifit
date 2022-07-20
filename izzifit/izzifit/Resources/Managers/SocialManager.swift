@@ -4,12 +4,6 @@ import FBSDKLoginKit
 import Firebase
 import AuthenticationServices
 
-enum Social: String {
-    case apple
-    case fb
-    case email
-}
-
 protocol SocialManagerDelegate: AnyObject {
     func login(authType: AuthType, token: String)
     func login(authType: AuthType, error: Error?)
