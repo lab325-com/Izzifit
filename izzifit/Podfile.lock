@@ -1,13 +1,13 @@
 PODS:
-  - AppsFlyerFramework (6.6.1):
-    - AppsFlyerFramework/Main (= 6.6.1)
-  - AppsFlyerFramework/Main (6.6.1)
-  - FBAEMKit (13.2.0):
-    - FBSDKCoreKit_Basics (= 13.2.0)
-  - FBSDKCoreKit (13.2.0):
-    - FBAEMKit (= 13.2.0)
-    - FBSDKCoreKit_Basics (= 13.2.0)
-  - FBSDKCoreKit_Basics (13.2.0)
+  - AppsFlyerFramework (6.8.0):
+    - AppsFlyerFramework/Main (= 6.8.0)
+  - AppsFlyerFramework/Main (6.8.0)
+  - FBAEMKit (14.1.0):
+    - FBSDKCoreKit_Basics (= 14.1.0)
+  - FBSDKCoreKit (14.1.0):
+    - FBAEMKit (= 14.1.0)
+    - FBSDKCoreKit_Basics (= 14.1.0)
+  - FBSDKCoreKit_Basics (14.1.0)
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
@@ -33,10 +33,10 @@ SPEC REPOS:
     - SpreadsheetView
 
 SPEC CHECKSUMS:
-  AppsFlyerFramework: 5e4b385a27dc6179e132b1617f76809412eb2f88
-  FBAEMKit: c2b2895363b7e57192013d1dc49fdf498b28624c
-  FBSDKCoreKit: 58139803d861e72c7661dc875611a759352a55ac
-  FBSDKCoreKit_Basics: 1ffc68326a5ece051d85574f02a0adcf27c2a5f2
+  AppsFlyerFramework: a8de532f81b1d3c1dfc451f0ecded91ebb6a0e47
+  FBAEMKit: a899515e45476027f73aef377b5cffadcd56ca3a
+  FBSDKCoreKit: 24f8bc8d3b5b2a8c5c656a1329492a12e8efa792
+  FBSDKCoreKit_Basics: 6e578c9bdc7aa1365dbbbde633c9ebb536bcaa98
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   Siren: de768099aff1f1c9acda4247064788a4940b4bf3
