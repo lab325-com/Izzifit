@@ -46,7 +46,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
                     <color key="backgroundColor" systemColor="systemYellowColor"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxE-sx-cP6">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxE-sx-cP6" customClass="ShadowView" customModule="izzifit" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="812" width="414" height="84"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NQz-Rf-fsS">
@@ -99,6 +99,17 @@
                         <constraint firstItem="NQz-Rf-fsS" firstAttribute="leading" secondItem="YxE-sx-cP6" secondAttribute="leading" constant="16" id="jaR-eR-kqW"/>
                         <constraint firstAttribute="bottom" secondItem="NQz-Rf-fsS" secondAttribute="bottom" id="ka1-Q1-eM4"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" red="0.39215686274509803" green="0.44313725490196076" blue="0.47058823529411764" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFS-tn-2Ae">
                     <rect key="frame" x="42" y="814" width="24" height="2"/>
