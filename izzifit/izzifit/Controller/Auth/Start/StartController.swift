@@ -13,7 +13,6 @@ class StartController: BaseController {
     // MARK: - IBOutlet
     //----------------------------------------------
     
-    @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var mainLabel: UILabel!
     
     @IBOutlet weak var workoutLabel: UILabel!
@@ -21,6 +20,7 @@ class StartController: BaseController {
     @IBOutlet weak var plaingLabel: UILabel!
     
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var termsButton: UIButton!
     @IBOutlet weak var privacyButton: UIButton!
     
@@ -50,8 +50,10 @@ class StartController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        loginButton.layer.borderWidth = 2
+        loginButton.layer.borderColor = UIColor(red: 0.8, green: 0.745, blue: 0.914, alpha: 1).cgColor
         
-        loginLabel.text = RLocalization.login_button()
+        loginButton.setTitle(RLocalization.login_button(), for: .normal)
         mainLabel.text = RLocalization.login_title_update()
         
         workoutLabel.text = RLocalization.login_workouts()
