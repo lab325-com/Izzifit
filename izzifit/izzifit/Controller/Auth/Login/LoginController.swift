@@ -195,6 +195,14 @@ class LoginController: BaseController {
         }
     }
     
+    @IBAction func actionApple(_ sender: UIButton) {
+        presenter.socialAuthType(authType: .authTypeApple)
+    }
+    
+    @IBAction func actionFacebook(_ sender: UIButton) {
+        presenter.socialAuthType(authType: .authTypeFacebook)
+    }
+    
     @IBAction func actionLogin(_ sender: UIButton) {
         if checkingContinue() {
             presenter.login(email: emailTextField.text!, password: passwordTextField.text!)
@@ -218,5 +226,9 @@ extension LoginController: LoginOutputProtocol {
     
     func successGoOnboarding() {
         OnboardingRouter(presenter: navigationController).pushSwipe()
+    }
+    
+    func failure(error: String) {
+        
     }
 }

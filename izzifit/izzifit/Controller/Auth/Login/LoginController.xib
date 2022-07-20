@@ -171,12 +171,23 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdC-Sb-7B0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="327" height="48"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <connections>
+                                                        <action selector="actionApple:" destination="-1" eventType="touchUpInside" id="t9G-2c-Gks"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstItem="YdC-Sb-7B0" firstAttribute="leading" secondItem="llL-DS-Hrl" secondAttribute="leading" id="5Nf-fH-jRd"/>
                                                 <constraint firstItem="cOb-G5-43G" firstAttribute="centerY" secondItem="llL-DS-Hrl" secondAttribute="centerY" id="72z-l6-KOY"/>
                                                 <constraint firstAttribute="height" constant="48" id="7hN-wE-8aH"/>
+                                                <constraint firstAttribute="bottom" secondItem="YdC-Sb-7B0" secondAttribute="bottom" id="Bwh-8n-6Vm"/>
                                                 <constraint firstItem="h3j-Rn-ZqE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cOb-G5-43G" secondAttribute="trailing" constant="10" id="E11-De-1ng"/>
+                                                <constraint firstAttribute="trailing" secondItem="YdC-Sb-7B0" secondAttribute="trailing" id="SLc-7e-J1Z"/>
+                                                <constraint firstItem="YdC-Sb-7B0" firstAttribute="top" secondItem="llL-DS-Hrl" secondAttribute="top" id="T6q-fi-uiA"/>
                                                 <constraint firstItem="h3j-Rn-ZqE" firstAttribute="centerX" secondItem="llL-DS-Hrl" secondAttribute="centerX" priority="750" id="car-sx-84N"/>
                                                 <constraint firstItem="cOb-G5-43G" firstAttribute="leading" secondItem="llL-DS-Hrl" secondAttribute="leading" constant="18" id="dPg-lG-n5T"/>
                                                 <constraint firstItem="h3j-Rn-ZqE" firstAttribute="centerY" secondItem="llL-DS-Hrl" secondAttribute="centerY" id="mJX-au-7sb"/>
@@ -199,14 +210,25 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYt-jA-uS4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="327" height="48"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <connections>
+                                                        <action selector="actionFacebook:" destination="-1" eventType="touchUpInside" id="538-5s-Ko9"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.054901960784313725" green="0.46666666666666667" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="1o9-LI-bUS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5RS-pe-T5i" secondAttribute="trailing" constant="10" id="3QE-aS-tcV"/>
                                                 <constraint firstItem="5RS-pe-T5i" firstAttribute="centerY" secondItem="vcC-Fg-w11" secondAttribute="centerY" id="7oJ-vB-udv"/>
+                                                <constraint firstAttribute="trailing" secondItem="wYt-jA-uS4" secondAttribute="trailing" id="AXM-Ms-fNa"/>
                                                 <constraint firstItem="1o9-LI-bUS" firstAttribute="centerX" secondItem="vcC-Fg-w11" secondAttribute="centerX" priority="750" id="N8H-9c-5mH"/>
+                                                <constraint firstAttribute="bottom" secondItem="wYt-jA-uS4" secondAttribute="bottom" id="QxB-Ki-BUV"/>
                                                 <constraint firstAttribute="height" constant="48" id="b9X-g7-5Ud"/>
+                                                <constraint firstItem="wYt-jA-uS4" firstAttribute="top" secondItem="vcC-Fg-w11" secondAttribute="top" id="hgI-Vv-HRA"/>
                                                 <constraint firstItem="1o9-LI-bUS" firstAttribute="centerY" secondItem="vcC-Fg-w11" secondAttribute="centerY" id="icx-Mz-Otk"/>
+                                                <constraint firstItem="wYt-jA-uS4" firstAttribute="leading" secondItem="vcC-Fg-w11" secondAttribute="leading" id="keO-HQ-GVL"/>
                                                 <constraint firstItem="5RS-pe-T5i" firstAttribute="leading" secondItem="vcC-Fg-w11" secondAttribute="leading" constant="18" id="plg-f5-pTU"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>

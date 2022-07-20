@@ -387,6 +387,7 @@
 		FA42CC00283CE52700C6C959 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */; };
 		FA45FD71285C585F00F80ACD /* GameAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45FD70285C585F00F80ACD /* GameAnimationProtocol.swift */; };
 		FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */; };
+		FA58DB4528880FED005D80B1 /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58DB4428880FED005D80B1 /* SocialManager.swift */; };
 		FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */; };
 		FA62C54E27F5B58800AC463A /* WeightsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */; };
 		FA65F4F9283E238C00F2427C /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65F4F8283E238C00F2427C /* UIImageView+Extension.swift */; };
@@ -843,6 +844,7 @@
 		FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		FA45FD70285C585F00F80ACD /* GameAnimationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAnimationProtocol.swift; sourceTree = "<group>"; };
 		FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometryManager.swift; sourceTree = "<group>"; };
+		FA58DB4428880FED005D80B1 /* SocialManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialManager.swift; sourceTree = "<group>"; };
 		FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WeightsWidget.graphql; sourceTree = "<group>"; };
 		FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsWidgetModel.swift; sourceTree = "<group>"; };
 		FA65F4F8283E238C00F2427C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -1453,6 +1455,7 @@
 				0263389627DB48D000DC0325 /* CalendarManager.swift */,
 				02569977281960BA00BA1535 /* AudioManager.swift */,
 				0282515F285899790059BD17 /* LocalPushManager.swift */,
+				FA58DB4428880FED005D80B1 /* SocialManager.swift */,
 				FA2794F3285CA8A900AEEA70 /* HealthKitManager.swift */,
 			);
 			path = Managers;
@@ -3493,6 +3496,7 @@
 				0249D26927B3A92300F265C1 /* KeychainService.swift in Sources */,
 				FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */,
 				02E3F9DA2808478D006F5A99 /* CMTime+Extension.swift in Sources */,
+				FA58DB4528880FED005D80B1 /* SocialManager.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
 				02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
