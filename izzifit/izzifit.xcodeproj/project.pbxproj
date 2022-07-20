@@ -387,6 +387,7 @@
 		FA42CC00283CE52700C6C959 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */; };
 		FA45FD71285C585F00F80ACD /* GameAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45FD70285C585F00F80ACD /* GameAnimationProtocol.swift */; };
 		FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */; };
+		FA58DB432887FFA5005D80B1 /* PaywallTrialType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58DB422887FFA4005D80B1 /* PaywallTrialType.swift */; };
 		FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */; };
 		FA62C54E27F5B58800AC463A /* WeightsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */; };
 		FA65F4F9283E238C00F2427C /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65F4F8283E238C00F2427C /* UIImageView+Extension.swift */; };
@@ -843,6 +844,7 @@
 		FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		FA45FD70285C585F00F80ACD /* GameAnimationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAnimationProtocol.swift; sourceTree = "<group>"; };
 		FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometryManager.swift; sourceTree = "<group>"; };
+		FA58DB422887FFA4005D80B1 /* PaywallTrialType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallTrialType.swift; sourceTree = "<group>"; };
 		FA62C54B27F5B46000AC463A /* WeightsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WeightsWidget.graphql; sourceTree = "<group>"; };
 		FA62C54D27F5B58800AC463A /* WeightsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsWidgetModel.swift; sourceTree = "<group>"; };
 		FA65F4F8283E238C00F2427C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -2609,6 +2611,7 @@
 			isa = PBXGroup;
 			children = (
 				FA1A2567283D0C8500240E28 /* PaywallPriceType.swift */,
+				FA58DB422887FFA4005D80B1 /* PaywallTrialType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -3645,6 +3648,7 @@
 				02B3016F27EAFB310045C607 /* DrinkWaterModel.swift in Sources */,
 				0251D24527E219440098A54D /* RecommendProductsModel.swift in Sources */,
 				02E9047A27F5A0E8008CFFB4 /* WorkoutExercisesDetailCell.swift in Sources */,
+				FA58DB432887FFA5005D80B1 /* PaywallTrialType.swift in Sources */,
 				0268753827D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.swift in Sources */,
 				0249D24A27B3A67900F265C1 /* BaseRouter.swift in Sources */,
 				0227DA9227C52EC1008AB26B /* TabBarRouter.swift in Sources */,

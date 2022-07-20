@@ -59,6 +59,7 @@
                 <outlet property="thirdSubSaleDiscountLineView" destination="ZBU-vJ-lrc" id="pfx-v2-3UM"/>
                 <outlet property="thirdSubSalePriceLabel" destination="r7u-M8-LrB" id="Atx-Kn-jd8"/>
                 <outlet property="thirdSubView" destination="RFa-AT-xYu" id="abd-Uq-VYe"/>
+                <outlet property="trialButton" destination="wOi-n2-7LL" id="xvF-8W-plg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -503,8 +504,28 @@
                                         <action selector="actionSubscribe:" destination="-1" eventType="touchUpInside" id="tUa-cL-3L0"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOi-n2-7LL">
+                                    <rect key="frame" x="24" y="804.66666666666663" width="342" height="48"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="Yl8-lt-BDi"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Try 3 days trial">
+                                        <color key="titleColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="24"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="actionTrial:" destination="-1" eventType="touchUpInside" id="3z4-6Y-Gun"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zf1-w3-mNN">
-                                    <rect key="frame" x="24" y="825.66666666666663" width="342" height="27"/>
+                                    <rect key="frame" x="24" y="881.66666666666663" width="342" height="27"/>
                                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" title="RESORE PURCHASES">
@@ -515,13 +536,13 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="privacy policy and adfasdfasdfsadfasdf asdfasdf  terms and condition" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eU-X8-mrk">
-                                    <rect key="frame" x="24" y="870.66666666666663" width="342" height="40.666666666666629"/>
+                                    <rect key="frame" x="24" y="926.66666666666663" width="342" height="40.666666666666629"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rb-0H-PZf">
-                                    <rect key="frame" x="24" y="931.33333333333337" width="342" height="66.333333333333371"/>
+                                    <rect key="frame" x="24" y="987.33333333333337" width="342" height="10.333333333333371"/>
                                     <string key="text">Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.</string>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="11"/>
                                     <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -531,8 +552,11 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Sah-a0-kC0" firstAttribute="top" secondItem="UK5-UI-ztV" secondAttribute="top" id="0Xp-wV-Ayd"/>
+                                <constraint firstItem="Zf1-w3-mNN" firstAttribute="top" secondItem="wOi-n2-7LL" secondAttribute="bottom" constant="29" id="6LC-yc-knA"/>
                                 <constraint firstItem="DUV-iK-NLU" firstAttribute="leading" secondItem="boE-oP-gs5" secondAttribute="leading" id="7BI-Ci-DLf"/>
+                                <constraint firstAttribute="trailing" secondItem="wOi-n2-7LL" secondAttribute="trailing" constant="24" id="8qj-IB-j4z"/>
                                 <constraint firstAttribute="trailing" secondItem="RCZ-8i-0Jl" secondAttribute="trailing" constant="24" id="8r7-jA-8Ke"/>
+                                <constraint firstItem="wOi-n2-7LL" firstAttribute="top" secondItem="tJQ-vz-PY1" secondAttribute="bottom" constant="8" id="AQk-Xi-lQY"/>
                                 <constraint firstAttribute="trailing" secondItem="Zf1-w3-mNN" secondAttribute="trailing" constant="24" id="C5A-kg-F1F"/>
                                 <constraint firstAttribute="trailing" secondItem="0eU-X8-mrk" secondAttribute="trailing" constant="24" id="CvJ-rZ-Ex2"/>
                                 <constraint firstAttribute="trailing" secondItem="Cly-EN-HKd" secondAttribute="trailing" constant="24" id="DEM-W7-a4O"/>
@@ -542,12 +566,12 @@
                                 <constraint firstAttribute="trailing" secondItem="4rb-0H-PZf" secondAttribute="trailing" constant="24" id="JoC-Ed-5Zl"/>
                                 <constraint firstItem="Zf1-w3-mNN" firstAttribute="leading" secondItem="boE-oP-gs5" secondAttribute="leading" constant="24" id="Jpb-uw-ALB"/>
                                 <constraint firstItem="DUV-iK-NLU" firstAttribute="top" secondItem="boE-oP-gs5" secondAttribute="top" id="KQT-za-QX4"/>
+                                <constraint firstItem="wOi-n2-7LL" firstAttribute="leading" secondItem="boE-oP-gs5" secondAttribute="leading" constant="24" id="L5X-Zu-3bv"/>
                                 <constraint firstItem="Cly-EN-HKd" firstAttribute="leading" secondItem="boE-oP-gs5" secondAttribute="leading" constant="24" id="Lgb-ZW-d5W"/>
                                 <constraint firstItem="4nS-2B-wEQ" firstAttribute="top" secondItem="y4z-u3-Cok" secondAttribute="bottom" id="Ltt-ck-Dp2"/>
                                 <constraint firstItem="4nS-2B-wEQ" firstAttribute="leading" secondItem="boE-oP-gs5" secondAttribute="leading" constant="24" id="LxL-dv-GCs"/>
                                 <constraint firstItem="4rb-0H-PZf" firstAttribute="leading" secondItem="boE-oP-gs5" secondAttribute="leading" constant="24" id="NdN-6f-ZIG"/>
                                 <constraint firstItem="DUV-iK-NLU" firstAttribute="top" secondItem="boE-oP-gs5" secondAttribute="top" id="OFw-ti-vyt"/>
-                                <constraint firstItem="Zf1-w3-mNN" firstAttribute="top" secondItem="tJQ-vz-PY1" secondAttribute="bottom" constant="29" id="P8P-Cv-Pp8"/>
                                 <constraint firstItem="0eU-X8-mrk" firstAttribute="top" secondItem="Zf1-w3-mNN" secondAttribute="bottom" constant="18" id="Qbu-7E-BUC"/>
                                 <constraint firstItem="y4z-u3-Cok" firstAttribute="top" secondItem="Fta-qb-4PP" secondAttribute="bottom" constant="-10" id="RgC-FD-FZV"/>
                                 <constraint firstItem="RCZ-8i-0Jl" firstAttribute="leading" secondItem="boE-oP-gs5" secondAttribute="leading" constant="24" id="WbX-xa-fcZ"/>
