@@ -44,6 +44,7 @@ class LoginPresenter: LoginPresenterProtocol {
         view?.startLoader()
         let mutation = LoginMutation(record: LoginRecordInput(email: email, password: password, authType: .authTypeEmail, firebaseId: PreferencesManager.sharedManager.fcmToken, timezone: TimeZone.current.identifier))
         let _ = Network.shared.mutation(model: LoginModel.self, mutation, controller: view, successHandler: { [weak self] model in
+            KeychainService.standard.newAuthToken = AuthModel(token: model.login.token)
             self?.me(token: model.login.token)
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
@@ -72,6 +73,7 @@ class LoginPresenter: LoginPresenterProtocol {
         let record = LoginRecordInput(token: token, udid: udid, authType: authType, firebaseId: PreferencesManager.sharedManager.fcmToken, timezone: TimeZone.current.identifier)
         let mutation = LoginMutation(record: record)
         let _ = Network.shared.mutation(model: LoginModel.self, mutation, controller: view, successHandler: { [weak self] model in
+            KeychainService.standard.newAuthToken = AuthModel(token: model.login.token)
             self?.me(token: model.login.token)
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
@@ -83,7 +85,6 @@ class LoginPresenter: LoginPresenterProtocol {
         
         let _ = Network.shared.query(model: MeModel.self, query, controller: view) { [weak self] model in
             self?.view?.stopLoading()
-            KeychainService.standard.newAuthToken = AuthModel(token: token)
             KeychainService.standard.me = model.me
             
             if model.me.showOnBoarding == true {
