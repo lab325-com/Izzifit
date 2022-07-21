@@ -82,11 +82,9 @@ class LoginPresenter: LoginPresenterProtocol {
     
     func me(token: String) {
         let query = MeQuery()
-        
         let _ = Network.shared.query(model: MeModel.self, query, controller: view) { [weak self] model in
             self?.view?.stopLoading()
             KeychainService.standard.me = model.me
-            
             if model.me.showOnBoarding == true {
                 self?.view?.successGoOnboarding()
             } else {
@@ -95,7 +93,6 @@ class LoginPresenter: LoginPresenterProtocol {
         } failureHandler: { [weak self] error in
             self?.view?.stopLoading()
         }
-
     }
     
     func forgotPasswordUpdate(email: String) {
