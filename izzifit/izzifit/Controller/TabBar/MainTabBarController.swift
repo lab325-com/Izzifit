@@ -25,7 +25,7 @@ class MainTabBarController: BaseController {
     @IBOutlet weak var containerMenuView: UIView!
     
     @IBOutlet weak var selectedView: UIView!
-    @IBOutlet weak var mainTabBarVw: UIView!
+    @IBOutlet weak var mainTabBarVw: ShadowView!
     
     @IBOutlet weak var selectedEnergyLayout: NSLayoutConstraint!
     @IBOutlet weak var selectWorkoutLayout: NSLayoutConstraint!
