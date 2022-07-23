@@ -29,8 +29,8 @@ class LevelPopUpView: UIView {
     var hummerImgVw = UIImageView()
     var hummerCountLbl = UILabel()
     
-    private let downLbl = UILabel()
-    private let arrowBtn = UIButton()
+    private let arrowBtn =  UIButton()
+    var emptySpaceBtn =     UIButton()
     
     private lazy var imgVwStates: [UIImageView] = {
        var imgs = [UIImageView]()
@@ -202,25 +202,43 @@ class LevelPopUpView: UIView {
                     textAlignment: .right,
                     fontSize: 13,
                     fontName: "Inter-BoldItalic")
-        
-        ui.setLabel(label: downLbl,
-                    labelText: "Spin to get coins",
-                    textColor: UIColor(rgb: 0x6A534C),
-                    textAlignment: .left,
-                    fontSize: 15,
-                    fontName: "Inter-Medium")
-        
-        arrowBtn.setImage(image(img: .yellowPointer),
-                          for: .normal)
-        arrowBtn.addTarget(self,
-                           action: #selector(arrowAction),
-                           for: .touchUpInside)
+
+                    arrowBtn.addTarget(self,
+                                       action: #selector(arrowAction),
+                                       for: .touchUpInside)
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = image(img: .yellowPointer)
+        imageAttachment.bounds = CGRect(x: 0,
+                                        y: -2,
+                                        width: 18,
+                                        height: 14)
+        let imageAt = NSAttributedString(attachment: imageAttachment)
+        let color = UIColor(rgb: 0x6A534C)
+        let attributes = [NSAttributedString.Key.font : UIFont(name: "Inter-Medium", size: 15),
+                          NSAttributedString.Key.foregroundColor : color]
+        let completeText = NSMutableAttributedString(string: "Spin to get coins   ",attributes: attributes)
+        completeText.append(imageAt)
+        arrowBtn.setAttributedTitle(completeText, for: .normal)
     }
     
     private func layout() {
         
         let backImgHeights: [CGFloat] = [273, 297]
-        
+       
+        ui.genericlLayout(object: emptySpaceBtn,
+                          parentView: self,
+                          topC: 0,
+                          bottomC: 0,
+                          leadingC: 0,
+                          trailingC: 0)
+           let dummyBtn = UIButton()
+        ui.genericlLayout(object: dummyBtn,
+                          parentView: self,
+                          width: 310,
+                          height: backImgHeights[popType.rawValue],
+                          topC: hRatio(cH:174),
+                          centerH: 0)
+
         ui.genericlLayout(object: mainBackImgVw,
                           parentView: self,
                           width: 310,
@@ -267,10 +285,10 @@ class LevelPopUpView: UIView {
         
         ui.genericlLayout(object: arrowImgVw,
                           parentView: mainBackImgVw,
-                          width: 27,
-                          height: 22,
-                          topC: 86,
-                          centerH: 0)
+                          width:    27,
+                          height:   22,
+                          topC:     86,
+                          centerH:  0)
         
         ui.genericlLayout(object: previousStateImgVw,
                           parentView: mainBackImgVw,
@@ -336,19 +354,16 @@ class LevelPopUpView: UIView {
 //                              bottomC: 0,
 //                              leadingC: 0,
 //                              trailingC: 0)
-            
-            ui.genericlLayout(object: downLbl,
-                              parentView: mainBackImgVw,
-                              bottomC: 42.5,
-                              centerH: -12)
-            
+
             ui.genericlLayout(object: arrowBtn,
                               parentView: self,
-                              width: 18,
-                              height: 14,
-                              centerVtoO: downLbl.centerYAnchor,
-                              leadingToO: downLbl.trailingAnchor,
-                              leadingCG: 9)
+                              height: 30,
+                              bottomToO: mainBackImgVw.bottomAnchor,
+                              bottomCG: 34.5,
+                              leadingToO: mainBackImgVw.leadingAnchor,
+                              leadingCG: 30,
+                              trailingToO: mainBackImgVw.trailingAnchor,
+                              trailingCG: 25)
         }
     }
     

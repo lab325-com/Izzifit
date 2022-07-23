@@ -43,6 +43,7 @@ class PaywallMultiplyController: BaseController {
     @IBOutlet weak var thirdSubSaleDiscountLeadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var subscribeButton: UIButton!
+    @IBOutlet weak var trialButton: UIButton!
     @IBOutlet weak var restoreButton: UIButton!
     
     @IBOutlet weak var privacyLabel: UILabel!
@@ -62,6 +63,8 @@ class PaywallMultiplyController: BaseController {
             updateSubsView()
         }
     }
+    
+    private var trialType: PaywallTrialType = .oneYear
     
     //----------------------------------------------
     // MARK: - Init
@@ -98,6 +101,7 @@ class PaywallMultiplyController: BaseController {
     
     private func setup() {
         AnalyticsHelper.sendFirebaseEvents(events: .pay_open, params: ["place": place.rawValue, "screen": screen.rawValue])
+        
         subStackView.isHidden = true
         bestValueView.isHidden = true
         
@@ -111,9 +115,12 @@ class PaywallMultiplyController: BaseController {
         secondSubPerDayLabel.text = "per day"
         thirdSubPerDayLabel.text = "per day"
         
-        firstSubNameLabel.text = "Annually"
+        firstSubNameLabel.text = "12 month"
         secondSubNameLabel.text = screen == .threePrice ? "3 month" : "1 month"
         thirdSubNameLabel.text = "1 week"
+        
+        trialButton.layer.borderWidth = 1
+        trialButton.layer.borderColor = UIColor(rgb: 0xCCBEE9).cgColor
         
         createPrivacyLabel()
         updateSubsView()
@@ -154,8 +161,8 @@ class PaywallMultiplyController: BaseController {
             secondSubView.backgroundColor = UIColor(rgb: 0xF1EFF5)
             thirdSubView.backgroundColor = UIColor(rgb: 0xF1EFF5)
             
-            subStackView.sendSubviewToBack(secondSubView)
-            subStackView.sendSubviewToBack(thirdSubView)
+//            subStackView.sendSubviewToBack(secondSubView)
+//            subStackView.sendSubviewToBack(thirdSubView)
         case .theeMonth, .oneMonth, .theeMonth30:
             firstSubView.layer.borderColor = UIColor.clear.cgColor
             secondSubView.layer.borderColor = UIColor(red: 1, green: 0.258, blue: 0.659, alpha: 1).cgColor
@@ -165,8 +172,8 @@ class PaywallMultiplyController: BaseController {
             secondSubView.backgroundColor = UIColor(rgb: 0xFCEDFB)
             thirdSubView.backgroundColor = UIColor(rgb: 0xF1EFF5)
             
-            subStackView.sendSubviewToBack(firstSubView)
-            subStackView.sendSubviewToBack(thirdSubView)
+//            subStackView.sendSubviewToBack(firstSubView)
+//            subStackView.sendSubviewToBack(thirdSubView)
         case .oneWeek:
             firstSubView.layer.borderColor = UIColor.clear.cgColor
             secondSubView.layer.borderColor = UIColor.clear.cgColor
@@ -176,8 +183,8 @@ class PaywallMultiplyController: BaseController {
             secondSubView.backgroundColor = UIColor(rgb: 0xF1EFF5)
             thirdSubView.backgroundColor = UIColor(rgb: 0xFCEDFB)
             
-            subStackView.sendSubviewToBack(firstSubView)
-            subStackView.sendSubviewToBack(secondSubView)
+//            subStackView.sendSubviewToBack(firstSubView)
+//            subStackView.sendSubviewToBack(secondSubView)
         case .oneYear:
             return
         }
@@ -237,18 +244,31 @@ class PaywallMultiplyController: BaseController {
     
     @IBAction func actionFirstSub(_ sender: UIButton) {
         priceType = .oneYear50
+        trialType = .oneYear
     }
     
     @IBAction func actionSecondSub(_ sender: UIButton) {
         priceType = screen == .threePrice ? .theeMonth30 : .oneMonth
+        trialType = .oneMonth
     }
     
     @IBAction func actionThirdSub(_ sender: UIButton) {
         priceType = .oneWeek
+        trialType = .oneWeek
     }
     
     @IBAction func actionSubscribe(_ sender: UIButton) {
         presenter.purchase(id: priceType.productId, screen: screen, place: place) { [weak self] result, error in
+            guard let `self` = self else { return }
+            if result {
+                self.delegate?.paywallSuccess(controller: self)
+                self.dismiss(animated: true)
+            }
+        }
+    }
+    
+    @IBAction func actionTrial(_ sender: UIButton) {
+        presenter.purchase(id: trialType.productId, screen: screen, place: place) { [weak self] result, error in
             guard let `self` = self else { return }
             if result {
                 self.delegate?.paywallSuccess(controller: self)
@@ -296,7 +316,7 @@ extension PaywallMultiplyController: SubscribeOutputProtocol {
             
             if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneWeek.productId}) {
                 thirdSubSalePriceLabel.text = ""
-                thirdSubSaleDiscountLabel.text = info.prettyPrice
+                thirdSubSaleDiscountLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price)
                 thirdSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 14)
                 thirdSubPerDayPriceLabel.text = ""
                 thirdSubSaleDiscountLineView.isHidden = true

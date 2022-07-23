@@ -197,6 +197,9 @@ class LevelController: BaseController {
         buildPopUpVw.closeBtn.addTarget(self,
                                        action: #selector(closePopUp),
                                        for: .touchUpInside)
+        buildPopUpVw.emptySpaceBtn.addTarget(self,
+                                             action: #selector(closePopUp),
+                                             for: .touchUpInside)
         
         view.ui.genericlLayout(object: animation,
                                parentView: sender,
@@ -523,7 +526,6 @@ extension LevelController: MainGameOnboardingDelegate {
         }
         MainGameOnboardingView.stateCounter += 1
         onboardingView!.removeFromSuperview()
-        
         
         onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
                                                 delegate: self)

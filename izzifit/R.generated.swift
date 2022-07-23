@@ -378,10 +378,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.entitlements` struct is generated, and contains static references to 3 properties.
+  /// This `R.entitlements` struct is generated, and contains static references to 4 properties.
   struct entitlements {
     static let apsEnvironment = infoPlistString(path: [], key: "aps-environment") ?? "development"
     static let comAppleDeveloperHealthkit = true
+
+    struct comAppleDeveloperApplesignin {
+      static let `default` = infoPlistString(path: ["com.apple.developer.applesignin"], key: "Default") ?? "Default"
+
+      fileprivate init() {}
+    }
 
     struct comAppleDeveloperHealthkitAccess {
       fileprivate init() {}
@@ -1229,7 +1235,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 328 images.
+  /// This `R.image` struct is generated, and contains static references to 330 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1255,6 +1261,10 @@ struct R: Rswift.Validatable {
     static let unselected5Scale = Rswift.ImageResource(bundle: R.hostingBundle, name: "Unselected5Scale")
     /// Image `arrow_right_ic`.
     static let arrow_right_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "arrow_right_ic")
+    /// Image `auth_apple_ic`.
+    static let auth_apple_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_apple_ic")
+    /// Image `auth_fb_ic`.
+    static let auth_fb_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_fb_ic")
     /// Image `auth_note_see_pass_ic`.
     static let auth_note_see_pass_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "auth_note_see_pass_ic")
     /// Image `auth_see_pass_ic`.
@@ -1969,6 +1979,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "arrow_right_ic", bundle: ..., traitCollection: ...)`
     static func arrow_right_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.arrow_right_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "auth_apple_ic", bundle: ..., traitCollection: ...)`
+    static func auth_apple_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.auth_apple_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "auth_fb_ic", bundle: ..., traitCollection: ...)`
+    static func auth_fb_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.auth_fb_ic, compatibleWith: traitCollection)
     }
     #endif
 
@@ -9725,6 +9749,8 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "auth_apple_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'auth_apple_ic' is used in nib 'LoginController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "auth_fb_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'auth_fb_ic' is used in nib 'LoginController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "auth_note_see_pass_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'auth_note_see_pass_ic' is used in nib 'LoginController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'LoginController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'LoginController', but couldn't be loaded.") }
@@ -10504,7 +10530,6 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "start_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_back_ic' is used in nib 'StartController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "start_gradient_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_gradient_ic' is used in nib 'StartController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "start_login_button_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_login_button_ic' is used in nib 'StartController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "start_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'start_logo_ic' is used in nib 'StartController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }

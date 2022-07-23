@@ -19,14 +19,13 @@ class MainTabBarController: BaseController {
     //----------------------------------------------
     // MARK: - IBOutlet
     //----------------------------------------------
-    
     @IBOutlet weak var containerEnergyView: UIView!
     @IBOutlet weak var containerWorkoutView: UIView!
     @IBOutlet weak var containerProfileView: UIView!
     @IBOutlet weak var containerMenuView: UIView!
     
     @IBOutlet weak var selectedView: UIView!
-    @IBOutlet weak var mainTabBarVw: UIView!
+    @IBOutlet weak var mainTabBarVw: ShadowView!
     
     @IBOutlet weak var selectedEnergyLayout: NSLayoutConstraint!
     @IBOutlet weak var selectWorkoutLayout: NSLayoutConstraint!
@@ -47,8 +46,8 @@ class MainTabBarController: BaseController {
     private lazy var menu = MenuController()
     private lazy var game = ArcticGameController()
     
-    var onboardingView: MainGameOnboardingView?
-    
+    var onboardingView: MainGameOnboardingView? 
+    private lazy var presenter = MainTabBarPresenter(view: self)
     
     
     private var tab: TabBarType = .energy {
@@ -69,6 +68,7 @@ class MainTabBarController: BaseController {
         hiddenNavigationBar = true
         super.viewDidLoad()
         setup()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,16 +77,37 @@ class MainTabBarController: BaseController {
             self.bottomCustomTabBarLayout.constant = 0
             self.view.layoutIfNeeded()
         }
-//        MainGameOnboardingView.stateCounter = 11
- //  PreferencesManager.sharedManager.gameOnboardingDone = false
+        
+        if let vc = children.first as? EnergyController {
+            vc.tableView.reloadData()
+        }
+        guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
+        presenter.getMe()
+    }
+    
+    deinit {  NotificationCenter.default.removeObserver(self) }
+    
+    //----------------------------------------------
+    // MARK: - Setup
+    //----------------------------------------------
+    
+    private func setup() {
+        changeTab()
+        NotificationCenter.default.addObserver(self, selector:#selector(openWorkout),
+                                               name: Constants.Notifications.openWorkoutNotification,
+                                               object: nil)
+    }
+    
+    private func onboarding() {
+        
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         
-        
+    
         let state = MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter]
         
         switch state {
-        case .finalPopUp: print("realize here drink Water logic")
-           
+        case .finalPopUp:
+            
             if let vc = children.first as? EnergyController {
                 let indexPath = IndexPath(row: 1, section: 0)
                           vc.tableView.reloadData()
@@ -99,10 +120,9 @@ class MainTabBarController: BaseController {
                           }
                 
                 vc.tableView.isScrollEnabled = false
-                
+                self.onboardingView?.removeFromSuperview()
                 onboardingView = MainGameOnboardingView(state: .blockScreen,
                                                             delegate: self)
-                        
                 view.ui.genericlLayout(object: onboardingView!,
                                        parentView: view,
                                        topC: 425,
@@ -124,39 +144,22 @@ class MainTabBarController: BaseController {
                                    x: view.w / 2,
                                    y: 63)
             }
+            
         case .blockScreen: break
             
         default:
+            
+            self.onboardingView?.removeFromSuperview()
             onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
                                                         delegate: self)
-                    
+          
             view.ui.genericlLayout(object: onboardingView!,
                                    parentView: view,
                                    topC: 0,
                                    bottomC: 0,
                                    leadingC: 0,
                                    trailingC: 0)
-            
         }
-        
-
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    //----------------------------------------------
-    // MARK: - Setup
-    //----------------------------------------------
-    
-    private func setup() {
-        changeTab()
-        
-        NotificationCenter.default.addObserver(self, selector:#selector(openWorkout),
-                                               name: Constants.Notifications.openWorkoutNotification,
-                                               object: nil)
-        
-       
     }
     
 
@@ -296,6 +299,7 @@ extension MainTabBarController: MainGameOnboardingDelegate {
                 vc.showEnergyAnimation()
                 vc.animationCoins?.play()
             }
+            MainGameOnboardingView.stateCounter = 0
      
         default:
             onboardingView?.removeFromSuperview()
@@ -308,5 +312,17 @@ extension MainTabBarController: MainGameOnboardingDelegate {
             navigationController?.navigationBar.isHidden = true
             TabBarRouter(presenter: navigationController).pushGame()
         }
+    }
+}
+
+
+
+//----------------------------------------------
+// MARK: - ArcticGameOutputProtocol
+//----------------------------------------------
+
+extension MainTabBarController: MainTabBarOutputProtocol {
+    func drawOnboarding() {
+        onboarding()
     }
 }

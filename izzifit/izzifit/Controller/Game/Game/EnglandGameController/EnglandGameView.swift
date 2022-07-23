@@ -43,7 +43,7 @@ class EnglandGameView: UIView, GameAnimationProtocol {
     }
     
     private func setUI() {
-        gameBackImgVw.image = image(img: .england_gameBack)
+        gameBackImgVw.image = RImage.england_gameBack()//image(img: .england_gameBack)
         gameBackImgVw.contentMode = .scaleAspectFill
         
         slotBackImgVw.image = image(img: .england_slotBack)

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,6 +48,15 @@
                         <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0d4-s7-A0q">
+                        <rect key="frame" x="0.0" y="0.0" width="296" height="184"/>
+                        <color key="backgroundColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="0.070000000000000007" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5mF-sw-swN">
                         <rect key="frame" x="0.0" y="0.0" width="296" height="184"/>
                         <color key="backgroundColor" red="1" green="0.85490196078431369" blue="0.93333333333333335" alpha="0.096250157777954926" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -71,12 +80,16 @@
                 <constraint firstItem="zb8-ai-BqT" firstAttribute="bottom" secondItem="5mF-sw-swN" secondAttribute="bottom" constant="-8" id="FaL-mT-PFZ"/>
                 <constraint firstItem="pue-xa-KP9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="GYE-kP-9en"/>
                 <constraint firstItem="f0r-sj-hCr" firstAttribute="top" secondItem="pue-xa-KP9" secondAttribute="bottom" constant="8" id="Hhj-wZ-b7t"/>
+                <constraint firstItem="0d4-s7-A0q" firstAttribute="centerX" secondItem="5mF-sw-swN" secondAttribute="centerX" id="MfN-wB-ldt"/>
                 <constraint firstAttribute="trailing" secondItem="zb8-ai-BqT" secondAttribute="trailing" constant="8" id="OyV-Jd-pkn"/>
                 <constraint firstItem="5mF-sw-swN" firstAttribute="width" secondItem="pue-xa-KP9" secondAttribute="width" id="P9t-3j-dLf"/>
                 <constraint firstAttribute="trailing" secondItem="tdB-co-Ob0" secondAttribute="trailing" id="QHt-4I-o1C"/>
                 <constraint firstItem="tdB-co-Ob0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SuN-Pw-xKk"/>
+                <constraint firstItem="0d4-s7-A0q" firstAttribute="height" secondItem="5mF-sw-swN" secondAttribute="height" id="TfA-Wn-9xB"/>
                 <constraint firstItem="5mF-sw-swN" firstAttribute="height" secondItem="pue-xa-KP9" secondAttribute="height" id="UQw-K0-0hD"/>
                 <constraint firstAttribute="trailing" secondItem="f0r-sj-hCr" secondAttribute="trailing" id="Ugr-Ms-Dpk"/>
+                <constraint firstItem="0d4-s7-A0q" firstAttribute="width" secondItem="5mF-sw-swN" secondAttribute="width" id="e5a-Sm-eE5"/>
+                <constraint firstItem="0d4-s7-A0q" firstAttribute="centerY" secondItem="5mF-sw-swN" secondAttribute="centerY" id="il8-tl-jy6"/>
                 <constraint firstItem="f0r-sj-hCr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kkC-VP-fWm"/>
                 <constraint firstItem="pue-xa-KP9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="r33-W7-xoF"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tdB-co-Ob0" secondAttribute="bottom" id="rtQ-yQ-VNH"/>

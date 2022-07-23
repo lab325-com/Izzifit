@@ -252,6 +252,12 @@ class SubscribePresenter: SubscribePresenterProtocol {
         }
         view?.startLoader()
         SwiftyStoreKit.retrieveProductsInfo(id) { [weak self] results in
+            func getSymbolForCurrencyCode(code: String) -> String?
+            {
+              let locale = NSLocale(localeIdentifier: code)
+              return locale.displayName(forKey: NSLocale.Key.currencySymbol, value: code)
+            }
+            
             if let invalidProductId = results.invalidProductIDs.first {
                 print("Invalid product identifier: \(invalidProductId)")
                 self?.view?.stopLoading()
@@ -263,7 +269,12 @@ class SubscribePresenter: SubscribePresenterProtocol {
                    let number = product.subscriptionPeriod?.numberOfUnits,
                    let period = self?.getCurrentPeriod(product.subscriptionPeriod?.unit, number: number)?.components(separatedBy: " ").last {
                     
-                    let model = PaymentsModel(product: product.productIdentifier, prettyPrice: priceString, period: period, number: number, price: Double(truncating: product.price), currencySymbol: product.priceLocale.currencySymbol)
+                    var symbol = product.priceLocale.currencySymbol ?? "$"
+                    if let fromCode = getSymbolForCurrencyCode(code: symbol) {
+                        symbol = fromCode
+                    }
+                    
+                    let model = PaymentsModel(product: product.productIdentifier, prettyPrice: priceString, period: period, number: number, price: Double(truncating: product.price), currencySymbol: symbol)
                     self?.paymentsInfo.append(model)
                 } else {
                     self?.view?.stopLoading()

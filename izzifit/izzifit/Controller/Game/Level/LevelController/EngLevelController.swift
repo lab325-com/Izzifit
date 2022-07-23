@@ -245,6 +245,10 @@ class EngLevelController: BaseController {
                                        action: #selector(closePopUp),
                                        for: .touchUpInside)
         
+        buildPopUpVw.emptySpaceBtn.addTarget(self,
+                                             action: #selector(closePopUp),
+                                             for: .touchUpInside)
+        
         view.ui.genericlLayout(object: animation,
                                parentView: sender,
                                width: 200,

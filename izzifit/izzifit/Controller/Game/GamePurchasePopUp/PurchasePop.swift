@@ -39,6 +39,7 @@ class PurchaseStack: UIStackView {
     private var purchaseType: PurchaseType
     private var count: Int
     
+    
     init(purchaseType: PurchaseType,
          count: Int) {
         self.purchaseType = purchaseType
@@ -128,14 +129,13 @@ class PurchasePop: UIView {
     private var buyBtns = [BuyBtn]()
     private var purchaseStacks = [PurchaseStack]()
     
-    private let downLbl = UILabel()
-    private let arrowBtn = UIButton()
+    private let downLbl =       UILabel()
+    private let arrowBtn =      UIButton()
     
     private var purchases: [Purchase]
     private var title: String
     
     weak var delegate: GamePurchasePopProtocol?
-    
     private let activitys = [UIActivityIndicatorView(style: .medium), UIActivityIndicatorView(style: .medium), UIActivityIndicatorView(style: .medium)]
 
     
@@ -217,7 +217,8 @@ class PurchasePop: UIView {
                     fontName: "Inter-BoldItalic")
         
         closeBtn.setImage(image(img: .backBtn), for: .normal)
-        closeBtn.addTarget(self, action: #selector(acionClose), for: .touchUpInside)
+        closeBtn.addTarget(self, action: #selector(actionClose), for: .touchUpInside)
+
         
         var downLblText: String
         
@@ -228,21 +229,33 @@ class PurchasePop: UIView {
             downLblText = "Or make some fitness"
         }
         
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = image(img: .yellowPointer)
+        imageAttachment.bounds = CGRect(x: 0,
+                                        y: -2,
+                                        width: 18,
+                                        height: 14)
+        let imageAt = NSAttributedString(attachment: imageAttachment)
+        let color = UIColor(rgb: 0x6A534C)
+        let attributes = [NSAttributedString.Key.font : UIFont(name: "Inter-Medium", size: 15),
+                          NSAttributedString.Key.foregroundColor : color]
         
-        ui.setLabel(label: downLbl,
-                    labelText: downLblText,
-                    textColor: UIColor(rgb: 0x6A534C),
-                    textAlignment: .left,
-                    fontSize: 15,
-                    fontName: "Inter-Medium")
-        
-        arrowBtn.setImage(image(img: .yellowPointer), for: .normal)
+        let completeText = NSMutableAttributedString(string: "\(downLblText) ",attributes: attributes)
+        completeText.append(imageAt)
+        arrowBtn.setAttributedTitle(completeText, for: .normal)
     }
     
     private func layout() {
         
         let backImgHeights: [CGFloat] = [217, 273, 337]
         
+        let dummyBtn = UIButton()
+        ui.genericlLayout(object: dummyBtn,
+                          parentView: self,
+                          width: 310,
+                          height: backImgHeights[popType.rawValue],
+                          topC: hRatio(cH:174),
+                          centerH: 0)
         ui.genericlLayout(object: mainBackImgVw,
                           parentView: self,
                           width: 310,
@@ -269,18 +282,22 @@ class PurchasePop: UIView {
                           topC: 58,
                           leadingC: 66)
         
-        ui.genericlLayout(object: downLbl,
-                          parentView: mainBackImgVw,
-                          bottomC: 42.5,
-                          centerH: -12)
+        var sideConstraitnConst: CGFloat
+        
+        switch purchaseTypes.first! {
+        case .coins: sideConstraitnConst = 90
+        case .spins: sideConstraitnConst = 45
+        }
         
         ui.genericlLayout(object: arrowBtn,
                           parentView: self,
-                          width: 18,
-                          height: 14,
-                          centerVtoO: downLbl.centerYAnchor,
-                          leadingToO: downLbl.trailingAnchor,
-                          leadingCG: 9)
+                          height: 30,
+                          bottomToO: mainBackImgVw.bottomAnchor,
+                          bottomCG: 34.5,
+                          leadingToO: mainBackImgVw.leadingAnchor,
+                          leadingCG: sideConstraitnConst,
+                          trailingToO: mainBackImgVw.trailingAnchor,
+                          trailingCG: sideConstraitnConst - 5)
         
         let stackVerticalStride = 57
         for (index,stack) in purchaseStacks.enumerated() {
@@ -344,8 +361,12 @@ class PurchasePop: UIView {
         delegate?.gamePurchasePopBuy(view: self, tag: sender.tag)
     }
     
-    @objc func acionClose(sender: UIButton!) {
+    @objc func actionClose(sender: UIButton!) {
         delegate?.gamePurchasePopClose(view: self)
+    }
+    
+    @objc func remove() {
+        self.removeFromSuperview()
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }

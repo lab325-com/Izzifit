@@ -302,8 +302,8 @@ extension ArcticGameController: MainGameOnboardingDelegate {
                     self.onboardingView?.removeFromSuperview()
                     MainGameOnboardingView.stateCounter += 1
                     self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
-                                                             delegate: self,
-                                                            gameTabBar: tabBarVC,
+                                                                 delegate: self,
+                                                                 gameTabBar: tabBarVC,
                                                                  arcGameView: self.gameView)
                          
                     self.view.ui.genericlLayout(object: self.onboardingView!,
@@ -313,10 +313,10 @@ extension ArcticGameController: MainGameOnboardingDelegate {
                                                 leadingC: 0,
                                                 trailingC: 0)
                 }
+                
             case 10:
                 MainGameOnboardingView.stateCounter += 1
                 tabBarVC.backBtn.sendActions(for: .touchUpInside)
-
             default: print("empty")
             }
         }

@@ -69,6 +69,15 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4U-0D-92e">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <color key="backgroundColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.070000000000000007" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifb-Ou-8yq">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <color key="backgroundColor" white="1" alpha="0.69992148470716409" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,15 +103,19 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="31L-XM-RtB" secondAttribute="bottom" constant="16" id="62I-Ew-C7g"/>
+                                    <constraint firstItem="X4U-0D-92e" firstAttribute="centerX" secondItem="hMy-GE-kD2" secondAttribute="centerX" id="MPk-eq-4xe"/>
                                     <constraint firstItem="ifb-Ou-8yq" firstAttribute="centerY" secondItem="hMy-GE-kD2" secondAttribute="centerY" id="Ngk-XU-HCn"/>
                                     <constraint firstItem="ifb-Ou-8yq" firstAttribute="height" secondItem="hMy-GE-kD2" secondAttribute="height" id="NqB-vE-zJ2"/>
                                     <constraint firstItem="EoX-kG-cmT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="31L-XM-RtB" secondAttribute="trailing" constant="10" id="PK9-q1-0gM"/>
                                     <constraint firstItem="31L-XM-RtB" firstAttribute="top" secondItem="UME-DC-GaR" secondAttribute="top" constant="16" id="PlK-Ah-eiK"/>
+                                    <constraint firstItem="X4U-0D-92e" firstAttribute="width" secondItem="hMy-GE-kD2" secondAttribute="width" id="aoc-h2-wPV"/>
+                                    <constraint firstItem="X4U-0D-92e" firstAttribute="height" secondItem="hMy-GE-kD2" secondAttribute="height" id="bpG-NT-1iZ"/>
                                     <constraint firstAttribute="trailing" secondItem="EoX-kG-cmT" secondAttribute="trailing" constant="16" id="eXJ-o2-xQK"/>
                                     <constraint firstItem="ifb-Ou-8yq" firstAttribute="width" secondItem="hMy-GE-kD2" secondAttribute="width" id="lPP-dh-Qa1"/>
                                     <constraint firstItem="31L-XM-RtB" firstAttribute="leading" secondItem="hMy-GE-kD2" secondAttribute="trailing" constant="16" id="m3d-E9-MW2"/>
                                     <constraint firstAttribute="bottom" secondItem="hMy-GE-kD2" secondAttribute="bottom" id="qjA-JQ-GJ4"/>
                                     <constraint firstItem="hMy-GE-kD2" firstAttribute="leading" secondItem="UME-DC-GaR" secondAttribute="leading" id="sUN-WU-FAw"/>
+                                    <constraint firstItem="X4U-0D-92e" firstAttribute="centerY" secondItem="hMy-GE-kD2" secondAttribute="centerY" id="u4I-Tp-EKh"/>
                                     <constraint firstItem="EoX-kG-cmT" firstAttribute="top" secondItem="UME-DC-GaR" secondAttribute="top" constant="16" id="wpS-gI-LNO"/>
                                     <constraint firstItem="ifb-Ou-8yq" firstAttribute="centerX" secondItem="hMy-GE-kD2" secondAttribute="centerX" id="yxi-7H-7fC"/>
                                     <constraint firstItem="hMy-GE-kD2" firstAttribute="top" secondItem="UME-DC-GaR" secondAttribute="top" id="z9d-Ag-HFr"/>
@@ -122,6 +135,15 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOE-5E-GaT">
+                                        <rect key="frame" x="0.0" y="0.0" width="385" height="178"/>
+                                        <color key="backgroundColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.070000000000000007" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Good workout for the knees(do not keep your knees and feet together)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuU-gE-Dk9">
                                         <rect key="frame" x="8" y="186" width="369" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
@@ -131,14 +153,18 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="bOE-5E-GaT" firstAttribute="width" secondItem="uo3-cG-YAR" secondAttribute="width" id="BEa-2s-8i1"/>
                                     <constraint firstItem="KuU-gE-Dk9" firstAttribute="top" secondItem="uo3-cG-YAR" secondAttribute="bottom" constant="8" id="Eua-dz-jjw"/>
                                     <constraint firstAttribute="trailing" secondItem="KuU-gE-Dk9" secondAttribute="trailing" constant="24" id="JCT-cr-onI"/>
+                                    <constraint firstItem="bOE-5E-GaT" firstAttribute="centerX" secondItem="uo3-cG-YAR" secondAttribute="centerX" id="JPh-sB-Zt7"/>
                                     <constraint firstItem="uo3-cG-YAR" firstAttribute="top" secondItem="dlW-m3-6zt" secondAttribute="top" id="Kfx-hY-nYE"/>
                                     <constraint firstAttribute="trailing" secondItem="uo3-cG-YAR" secondAttribute="trailing" constant="16" id="UIg-vl-3MP"/>
                                     <constraint firstAttribute="height" priority="250" constant="259" id="VK8-RG-sa3"/>
                                     <constraint firstAttribute="bottom" secondItem="KuU-gE-Dk9" secondAttribute="bottom" constant="8" id="f0z-oe-ci0"/>
                                     <constraint firstItem="uo3-cG-YAR" firstAttribute="leading" secondItem="dlW-m3-6zt" secondAttribute="leading" id="fwp-ba-9TL"/>
+                                    <constraint firstItem="bOE-5E-GaT" firstAttribute="centerY" secondItem="uo3-cG-YAR" secondAttribute="centerY" id="vWz-K6-mOM"/>
                                     <constraint firstItem="KuU-gE-Dk9" firstAttribute="leading" secondItem="dlW-m3-6zt" secondAttribute="leading" constant="8" id="yPn-Zp-2QY"/>
+                                    <constraint firstItem="bOE-5E-GaT" firstAttribute="height" secondItem="uo3-cG-YAR" secondAttribute="height" id="za6-gG-I9D"/>
                                 </constraints>
                             </view>
                         </subviews>

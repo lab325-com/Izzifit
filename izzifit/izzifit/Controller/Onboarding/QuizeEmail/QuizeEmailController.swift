@@ -43,6 +43,10 @@ class QuizeEmailController: BaseController {
 
         emailField.becomeFirstResponder()
         
+        if let me = KeychainService.standard.me, let email = me.email, email != nil {
+            emailField.text = email
+        }
+        
         mainTitleLabel.text = RLocalization.onboarding_email_title()
         goNextButton.setTitle(RLocalization.onboarding_email_get_plan(), for: .normal)
     }
