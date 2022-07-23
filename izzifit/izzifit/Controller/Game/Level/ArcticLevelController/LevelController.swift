@@ -197,6 +197,9 @@ class LevelController: BaseController {
         buildPopUpVw.closeBtn.addTarget(self,
                                        action: #selector(closePopUp),
                                        for: .touchUpInside)
+        buildPopUpVw.emptySpaceBtn.addTarget(self,
+                                             action: #selector(closePopUp),
+                                             for: .touchUpInside)
         
         view.ui.genericlLayout(object: animation,
                                parentView: sender,

@@ -95,12 +95,28 @@ class PurchasePopUp: BaseController {
     // MARK: - Life cycle
     //----------------------------------------------
 
-    override func loadView() { self.view =  popUp }
+ //   override func loadView() { self.view =  popUp }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.retriveNotAutoProduct(id: Set(idProducts.compactMap({$0.rawValue})))
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.touchTapped(_:)))
+        self.view.addGestureRecognizer(tap)
+        
+        view.ui.genericlLayout(object: popUp,
+                               parentView: view,
+                               topC: 0,
+                               bottomC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
     }
+    
+    @objc func touchTapped(_ sender: UITapGestureRecognizer) {
+        delegate?.purchasePopUpClose(controller: self)
+        dismiss(animated: true)
+    }
+
 }
 
 //----------------------------------------------
