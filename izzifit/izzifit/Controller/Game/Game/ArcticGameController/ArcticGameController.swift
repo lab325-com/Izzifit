@@ -273,8 +273,6 @@ extension ArcticGameController: PurchasePopUpProtocol {
     }
 }
 
-
-
 //----------------------------------------------
 // MARK: - MainGameOnboardingDelegate
 //----------------------------------------------
@@ -303,16 +301,16 @@ extension ArcticGameController: MainGameOnboardingDelegate {
                                     trailingC: 0)
                 
                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
                         self.gameView.spinBtn.sendActions(for: .touchDown)
                     }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 14.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
                     self.gameView.spinBtn.sendActions(for: .touchDown)
                     }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 21.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
                     self.gameView.spinBtn.sendActions(for: .touchDown)
                     }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 28.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 20.0) {
                     self.onboardingView?.removeFromSuperview()
                     MainGameOnboardingView.stateCounter += 1
                     self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],

@@ -42,13 +42,13 @@ struct CombinationsAwardsManager {
                 table.reloadData()
             }
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             AudioManager.sharedManager.playSound(type: .spinnerMain_11)
         }
         
         runTimer()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.8) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.3) {
             spinBtn.isUserInteractionEnabled = true
           //  spinBtn.isSelected.toggle()
             coinsLbl.text = String(user.coins!)

@@ -42,7 +42,7 @@ class OffsetCounter: OffsetCounterProtocol {
    lazy var defaultSpeed: CGFloat = {
       let neededDistance = oneCellStrideOffset * CGFloat(minStridesCount)
        let forsage = neededDistance - raceBrakeDistance
-       let speedStride = forsage / 48
+       let speedStride = forsage / 28
        return speedStride
     }()
     
@@ -77,19 +77,19 @@ class OffsetCounter: OffsetCounterProtocol {
                   OffsetCounter.secondArray,
                   OffsetCounter.thirdArray]
     
-    var speedIteraror: CGFloat = 48.0
+    var speedIteraror: CGFloat = 28.0
     
     var raceBrakeDistance: CGFloat = {
-        let first = StrideConstants.firstStride * 12
-        let second = StrideConstants.secondStride * 10
-        let third = StrideConstants.thirdStride * 10
-        let fourth = StrideConstants.fourthStride * 10
-        let fifth = StrideConstants.fifthStride * 10
-        let sixth = StrideConstants.sixthStride * 10
-        let seventh = StrideConstants.seventhStride * 10
-        let eighth = StrideConstants.eighthStride * 10
-        let nineth = StrideConstants.ninethStride * 10
-        let tenth = StrideConstants.tenthStride * 10
+        let first = StrideConstants.firstStride * 6
+        let second = StrideConstants.secondStride * 6
+        let third = StrideConstants.thirdStride * 6
+        let fourth = StrideConstants.fourthStride * 6
+        let fifth = StrideConstants.fifthStride * 6
+        let sixth = StrideConstants.sixthStride * 6
+        let seventh = StrideConstants.seventhStride * 6
+        let eighth = StrideConstants.eighthStride * 6
+        let nineth = StrideConstants.ninethStride * 6
+        let tenth = StrideConstants.tenthStride * 2
         let distance = first + second + third + fourth + fifth + sixth + seventh + eighth + nineth + tenth
         return distance
     }()
