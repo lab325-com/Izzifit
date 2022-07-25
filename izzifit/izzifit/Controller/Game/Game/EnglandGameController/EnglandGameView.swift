@@ -43,6 +43,7 @@ class EnglandGameView: UIView, GameAnimationProtocol {
     override func draw(_ rect: CGRect) {
         setUI()
         layout()
+        do { try R.validate() } catch { print(error.localizedDescription) }
     }
     
     private func setUI() {

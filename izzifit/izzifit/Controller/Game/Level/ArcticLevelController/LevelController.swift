@@ -294,6 +294,7 @@ class LevelController: BaseController {
             
        
           //  pointers.drawPointers(model: self.player, btns: self.btns)
+            barBackVw.prevCoins = KeychainService.standard.me?.coins ?? 0
             presenter.upgradeBuild(buildingId: buildingId)
          
         }
@@ -451,6 +452,10 @@ extension LevelController: LevelOutputProtocol {
     func successMe() {
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+        barBackVw.runNumbers(isCoins: true,
+                             duration: 3,
+                             startValue: barBackVw.prevCoins,
+                             endValue: KeychainService.standard.me?.coins ?? 0)
     }
 }
 

@@ -171,9 +171,24 @@ extension ArcticGameController: ArcticGameOutputProtocol {
         for award in model {
             switch award.type {
             case .spinObjectRewardTypeCoin:
+                let expense = KeychainService.standard.me?.coins ?? 0
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                         self.gameView.barBackVw.runNumbers(isCoins: true,
+                                                       duration: 3,
+                                                       startValue:  expense,
+                                                       endValue:  expense + award.amount)
+                     }
+                 
                 KeychainService.standard.me?.coins! += award.amount
                 coinsAmount = award.amount
             case .spinObjectRewardTypeEnergy:
+                let energy = KeychainService.standard.me?.energy ?? 0
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.gameView.barBackVw.runNumbers(isCoins: false,
+                                                      duration: 3,
+                                                      startValue:  Int(energy),
+                                                      endValue:  Int(energy) + award.amount)
+                }
                 KeychainService.standard.me?.energy! += Float(award.amount)
                 spinsAmount = award.amount
             case .spinObjectRewardTypeBuild: print("")

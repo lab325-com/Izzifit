@@ -9,7 +9,7 @@ import UIKit
 
 class EngLevelController: BaseController {
     
-    private var englandView: LevelView!
+    private var engLevelView: LevelView!
     private var buildPopUpVw: LevelPopUpView?
     
     private lazy var presenter = LevelPresenter(view: self)
@@ -24,8 +24,8 @@ class EngLevelController: BaseController {
     let animation = UIImageView()
     
     override func loadView() {
-        englandView = LevelView(cgRects: cgRects)
-        self.view = englandView
+        engLevelView = LevelView(cgRects: cgRects)
+        self.view = engLevelView
     }
 
     override func viewDidLoad() {
@@ -41,12 +41,12 @@ class EngLevelController: BaseController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        englandView.barBackVw.getCoinsAndEnergy()
+        engLevelView.barBackVw.getCoinsAndEnergy()
         checkAvailableHummers()
     }
     
     private func addTargets() {
-        for btn in englandView.stateBtns {
+        for btn in engLevelView.stateBtns {
             btn.addTarget(self,
                          action: #selector(showPopUp(sender:)),
                          for: .touchUpInside)
@@ -56,12 +56,12 @@ class EngLevelController: BaseController {
     private func checkAvailableHummers() {
         switch presenter.freeBuildingsCount {
         case 0:
-            englandView.hummerBtn.isHidden = true
-            englandView.hummerCountLbl.isHidden = true
+            engLevelView.hummerBtn.isHidden = true
+            engLevelView.hummerCountLbl.isHidden = true
         default:
-            englandView.hummerBtn.isHidden = false
-            englandView.hummerCountLbl.isHidden = false
-            englandView.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
+            engLevelView.hummerBtn.isHidden = false
+            engLevelView.hummerCountLbl.isHidden = false
+            engLevelView.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
         }
     }
     
@@ -121,7 +121,7 @@ class EngLevelController: BaseController {
     
     @objc func upgradeBuilding(sender: UIButton) {
    
-        for btn in englandView.stateBtns {
+        for btn in engLevelView.stateBtns {
             btn.isUserInteractionEnabled.toggle()
         }
         
@@ -191,10 +191,11 @@ class EngLevelController: BaseController {
             case .none: break
             }
             
-            for btn in englandView.stateBtns {
+            for btn in engLevelView.stateBtns {
                 btn.isUserInteractionEnabled.toggle()
             }
      
+            engLevelView.barBackVw.prevCoins = KeychainService.standard.me?.coins ?? 0
             presenter.upgradeBuild(buildingId: buildingId)
         }
     }
@@ -293,7 +294,7 @@ extension EngLevelController: LevelOutputProtocol {
             default: break
             }
         }
-        englandView.drawStates(player: player, imgStatesArr: englandView.englandLevelImgs)
+        engLevelView.drawStates(player: player, imgStatesArr: engLevelView.englandLevelImgs)
     }
     
     func successBuild() {
@@ -301,7 +302,11 @@ extension EngLevelController: LevelOutputProtocol {
     }
     
     func successMe() {
-        englandView.barBackVw.getCoinsAndEnergy()
+        engLevelView.barBackVw.getCoinsAndEnergy()
+        engLevelView.barBackVw.runNumbers(isCoins: true,
+                                          duration: 3,
+                                          startValue: engLevelView.barBackVw.prevCoins,
+                                          endValue: KeychainService.standard.me?.coins ?? 0)
     }
 }
 
@@ -332,18 +337,21 @@ extension EngLevelController: PurchasePopUpProtocol {
     }
     
     func purchasePopUpSuccess(controller: PurchasePopUp) {
-        englandView.barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        englandView.barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+        engLevelView.barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        engLevelView.barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
     }
 }
 
 extension EngLevelController: LevelPopUpDelegate {
     func arrowBtnAction(view: UIView) {
         view.removeFromSuperview()
-        let result = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .goldZero)
+        let result = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self,
+                                                                                        place: .goldZero)
 
         if !result, let ids = PreferencesManager.sharedManager.coinsZero?.idProducts {
-            GameRouter(presenter: self.navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
+            GameRouter(presenter: self.navigationController).presentEnergyPopUp(idProducts: ids,
+                                                                                titlePopUp: "Arctic",
+                                                                                delegate: self)
         }
     }
 }

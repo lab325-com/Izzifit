@@ -64,12 +64,8 @@ class ArcticGameView: UIView, GameAnimationProtocol {
         
         uponGameBackImgVw.image = image(img: .gameBackOne)
         uponGameBackImgVw.contentMode = .top
-//        do {
-//            try R.validate()
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//
+       
+
         greenCounterImgVw.image = RImage.greenCounterImg() ?? UIImage()
         greenCounterImgVw.contentMode = .scaleAspectFill
         
