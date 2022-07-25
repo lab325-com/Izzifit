@@ -44,6 +44,7 @@ class LoginPresenter: LoginPresenterProtocol {
         view?.startLoader()
         let mutation = LoginMutation(record: LoginRecordInput(email: email, password: password, authType: .authTypeEmail, firebaseId: PreferencesManager.sharedManager.fcmToken, timezone: TimeZone.current.identifier))
         let _ = Network.shared.mutation(model: LoginModel.self, mutation, controller: view, successHandler: { [weak self] model in
+            AnalyticsHelper.sendFirebaseEvents(events: .login_mail_true)
             KeychainService.standard.newAuthToken = AuthModel(token: model.login.token)
             self?.me(token: model.login.token)
         }, failureHandler: { [weak self] error in
@@ -75,6 +76,20 @@ class LoginPresenter: LoginPresenterProtocol {
         let _ = Network.shared.mutation(model: LoginModel.self, mutation, controller: view, successHandler: { [weak self] model in
             KeychainService.standard.newAuthToken = AuthModel(token: model.login.token)
             self?.me(token: model.login.token)
+            switch authType {
+            case .authTypeFacebook:
+                AnalyticsHelper.sendFirebaseEvents(events: .login_fb_true)
+            case .authTypeGoogle:
+                return
+            case .authTypeUdid:
+                return
+            case .authTypeApple:
+                AnalyticsHelper.sendFirebaseEvents(events: .login_apple_true)
+            case .authTypeEmail:
+                return
+            case .__unknown(_):
+                return
+            }
         }, failureHandler: { [weak self] error in
             self?.view?.stopLoading()
         })

@@ -100,14 +100,14 @@ class QuizeFoodController: BaseController {
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setFood(type)
             PreferencesManager.sharedManager.tempPorifle = model
-            AnalyticsHelper.sendFirebaseEvents(events: .onb_set_diet)
+            AnalyticsHelper.sendFirebaseEvents(events: .quiz_set_diet)
             presenterProfile.profileUpdate()
             OnboardingRouter(presenter: navigationController).pushSport(isSkip: false)
         }
     }
     
     @IBAction func actionSkip(_ sender: UIButton) {
-        AnalyticsHelper.sendFirebaseEvents(events: .onb_skip_step)
+        AnalyticsHelper.sendFirebaseEvents(events: .quiz_skip_step)
         var model = PreferencesManager.sharedManager.tempPorifle
         model.setFood(nil)
         PreferencesManager.sharedManager.tempPorifle = model

@@ -63,7 +63,7 @@ class QuizeGoalController: BaseController {
     
     private var goalType: QuizeGoalType? {
         didSet {
-            AnalyticsHelper.sendFirebaseEvents(events: .onb_set_goal)
+            AnalyticsHelper.sendFirebaseEvents(events: .quiz_set_goal)
             updateType()
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setGoal(goalType!)

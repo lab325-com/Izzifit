@@ -202,6 +202,13 @@
                                     <constraint firstAttribute="height" constant="10" id="FuC-f9-Ncx"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fc1-sF-kvC">
+                                <rect key="frame" x="0.0" y="0.0" width="399" height="420"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="actionTapWidget:" destination="DNG-ek-ncU" eventType="touchUpInside" id="6UY-2F-wPE"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="k1v-qX-1V6">
                                 <rect key="frame" x="16" y="54" width="367" height="229"/>
                                 <subviews>
@@ -317,16 +324,20 @@
                             <constraint firstAttribute="trailing" secondItem="k1v-qX-1V6" secondAttribute="trailing" constant="16" id="6uv-vo-cpC"/>
                             <constraint firstItem="RYm-Jx-3CG" firstAttribute="top" secondItem="ppf-xz-eR7" secondAttribute="top" constant="16" id="FzQ-xI-HfM"/>
                             <constraint firstItem="k1v-qX-1V6" firstAttribute="top" secondItem="RYm-Jx-3CG" secondAttribute="bottom" constant="16" id="GXG-v1-KJZ"/>
+                            <constraint firstItem="fc1-sF-kvC" firstAttribute="top" secondItem="ppf-xz-eR7" secondAttribute="top" id="Nab-NJ-fZu"/>
                             <constraint firstItem="t2o-cu-wmQ" firstAttribute="leading" secondItem="ppf-xz-eR7" secondAttribute="leading" constant="16" id="Njq-DN-Bgf"/>
                             <constraint firstAttribute="bottom" secondItem="t2o-cu-wmQ" secondAttribute="bottom" constant="32" id="Pqp-aY-h5l"/>
                             <constraint firstItem="xGO-aX-P10" firstAttribute="top" secondItem="t2o-cu-wmQ" secondAttribute="bottom" constant="6" id="R3b-CS-EDI"/>
                             <constraint firstAttribute="trailing" secondItem="t2o-cu-wmQ" secondAttribute="trailing" constant="48" id="Trr-rH-dHz"/>
+                            <constraint firstAttribute="trailing" secondItem="fc1-sF-kvC" secondAttribute="trailing" id="WvK-Gf-TCM"/>
+                            <constraint firstItem="fc1-sF-kvC" firstAttribute="leading" secondItem="ppf-xz-eR7" secondAttribute="leading" id="ayd-E7-Rbn"/>
                             <constraint firstItem="k1v-qX-1V6" firstAttribute="leading" secondItem="ppf-xz-eR7" secondAttribute="leading" constant="16" id="bUX-2F-CIO"/>
                             <constraint firstItem="JIp-y6-zzc" firstAttribute="leading" secondItem="EF0-Lf-I6W" secondAttribute="trailing" constant="6" id="cDR-29-mqI"/>
                             <constraint firstItem="EF0-Lf-I6W" firstAttribute="centerY" secondItem="RYm-Jx-3CG" secondAttribute="centerY" id="dnO-0r-IZu"/>
                             <constraint firstItem="xGO-aX-P10" firstAttribute="trailing" secondItem="t2o-cu-wmQ" secondAttribute="trailing" id="edG-ow-q8Q"/>
                             <constraint firstAttribute="trailing" secondItem="JIp-y6-zzc" secondAttribute="trailing" constant="16" id="fPE-RQ-UXy"/>
                             <constraint firstItem="JIp-y6-zzc" firstAttribute="centerY" secondItem="EF0-Lf-I6W" secondAttribute="centerY" id="grB-PL-Ymi"/>
+                            <constraint firstAttribute="bottom" secondItem="fc1-sF-kvC" secondAttribute="bottom" id="jlh-vX-xHO"/>
                             <constraint firstItem="t2o-cu-wmQ" firstAttribute="top" secondItem="k1v-qX-1V6" secondAttribute="bottom" priority="999" constant="16" id="l8r-xy-AJ0"/>
                             <constraint firstItem="RYm-Jx-3CG" firstAttribute="leading" secondItem="ppf-xz-eR7" secondAttribute="leading" constant="16" id="rxe-8X-shW"/>
                             <constraint firstItem="YIc-eE-piN" firstAttribute="bottom" secondItem="t2o-cu-wmQ" secondAttribute="bottom" id="xmP-Lz-udE"/>

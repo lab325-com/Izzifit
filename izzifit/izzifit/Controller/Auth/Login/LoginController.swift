@@ -196,15 +196,18 @@ class LoginController: BaseController {
     }
     
     @IBAction func actionApple(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .login_apple)
         presenter.socialAuthType(authType: .authTypeApple)
     }
     
     @IBAction func actionFacebook(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .login_fb)
         presenter.socialAuthType(authType: .authTypeFacebook)
     }
     
     @IBAction func actionLogin(_ sender: UIButton) {
         if checkingContinue() {
+            AnalyticsHelper.sendFirebaseEvents(events: .login_mail)
             presenter.login(email: emailTextField.text!, password: passwordTextField.text!)
         }
     }
