@@ -178,9 +178,9 @@ extension ArcticGameController: ArcticGameOutputProtocol {
                                                        startValue:  expense,
                                                        endValue:  expense + award.amount)
                      }
-                 
                 KeychainService.standard.me?.coins! += award.amount
                 coinsAmount = award.amount
+                
             case .spinObjectRewardTypeEnergy:
                 let energy = KeychainService.standard.me?.energy ?? 0
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -191,8 +191,9 @@ extension ArcticGameController: ArcticGameOutputProtocol {
                 }
                 KeychainService.standard.me?.energy! += Float(award.amount)
                 spinsAmount = award.amount
+                
             case .spinObjectRewardTypeBuild: print("")
-            case .__unknown(_): print("")
+            case .__unknown(_):  print("")
             }
         }
         gameView.startSpinLbl.text = ""

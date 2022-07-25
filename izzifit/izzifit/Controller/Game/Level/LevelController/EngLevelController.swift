@@ -146,7 +146,7 @@ class EngLevelController: BaseController {
         animation.prepareAnimation(name: "construction3", loopRepeated: true)
         animation.isHidden = false
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.6) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) { [self] in
             self.animation.removeFromSuperview()
             
             var price = Int()

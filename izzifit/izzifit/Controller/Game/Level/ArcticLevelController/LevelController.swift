@@ -242,7 +242,7 @@ class LevelController: BaseController {
         animation.prepareAnimation(name: "construction3", loopRepeated: true)
         animation.isHidden = false
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.6) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) { [self] in
           
             
             var price = Int()
@@ -544,7 +544,7 @@ extension LevelController: MainGameOnboardingDelegate {
 
         guard MainGameOnboardingView.stateCounter == 3 || MainGameOnboardingView.stateCounter == 6 else { return }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.7) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.9) {
             MainGameOnboardingView.stateCounter += 1
             self.onboardingView!.removeFromSuperview()
             self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
