@@ -78,7 +78,16 @@ class MainGameOnboardingView: UIView {
     }
     
     @objc func btnTapped() {
+   
         delegate?.tapBtn()
+        
+        switch state {
+        case .buildPopUp5: DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+                            AnalyticsHelper.sendFirebaseEvents(events: .onb_upgrade_ok)
+                            }
+        case .finalPopUp:   AnalyticsHelper.sendFirebaseEvents(events: .onb_finish)
+        default:  break
+        }
     }
   
     func change(by state: GameOnboardingStates) {
@@ -86,8 +95,6 @@ class MainGameOnboardingView: UIView {
         switch state {
         case .energy1:
           //  backgroundColor = UIColor(rgb: 0x574B70, alpha: 0.3)
-            
-            
             
             onboardImgVw.image = image(img: .onFUN)
                             ui.genericlLayout(object: onboardImgVw,
@@ -129,6 +136,7 @@ class MainGameOnboardingView: UIView {
                              height: 76,
                              bottomC: 23,
                              centerH: 0)
+            
             let imgVw = UIImageView(image:  UIImage(named: "tab_bar_fun_ic"))
             
             ui.genericlLayout(object: imgVw,
@@ -138,15 +146,13 @@ class MainGameOnboardingView: UIView {
                               bottomC: 31,
                               centerH: 0)
             
-        
-                    
-            
             ui.genericlLayout(object: funAnimationView,
                              parentView: self,
                              width: 90,
                              height: 90,
                              bottomC: 16,
                              centerH: 0)
+            
             ui.genericlLayout(object: mainBtn,
                              parentView: self,
                              width: 60,
@@ -160,6 +166,8 @@ class MainGameOnboardingView: UIView {
                                           height: 64,
                                           topC: 198,
                                           centerH: 0)
+            
+            AnalyticsHelper.sendFirebaseEvents(events: .onb_start)
             
         case .level2:
       
@@ -192,14 +200,12 @@ class MainGameOnboardingView: UIView {
             
        
                         
-        case .buildPopUp3:
-                                  ui.genericlLayout(object: mainBtn,
-                                                  parentView: self,
-                                                  width: 242,
-                                                  height: 40,
-                                                  topC: hRatio(cH:174) + (273 - 44 - 40),
-                                                  centerH: 0)
-            
+        case .buildPopUp3:    ui.genericlLayout(object: mainBtn,
+                                                parentView: self,
+                                                width: 242,
+                                                height: 40,
+                                                topC: hRatio(cH:174) + (273 - 44 - 40),
+                                                centerH: 0)
         case .level4:
             
             if let baseVC = gameTabBar?.children[1] as? GameBaseController {
@@ -211,7 +217,6 @@ class MainGameOnboardingView: UIView {
                     levelVC.view.layoutIfNeeded()
                 }
             }
-
             
             onboardImgVw.image = image(img: .onUpgradeBuild)
                             ui.genericlLayout(object: onboardImgVw,
@@ -220,7 +225,6 @@ class MainGameOnboardingView: UIView {
                                               height: 97,
                                               topC: 315,
                                               centerH: 48)
-            
             onboardImgVw.shake(0.5,
                                x: w / 2 + 48,
                                y: 315 + 48.5)
@@ -361,6 +365,7 @@ class MainGameOnboardingView: UIView {
 
         case .finalPopUp:  backgroundColor = UIColor(rgb: 0x3F3E56, alpha: 0.3)
             
+            AnalyticsHelper.sendFirebaseEvents(events: .onb_water_ok)
                             let popView = UIView()
                             popView.layer.backgroundColor = UIColor.white.cgColor
                             popView.layer.cornerRadius = wRatio(cW: 20)
