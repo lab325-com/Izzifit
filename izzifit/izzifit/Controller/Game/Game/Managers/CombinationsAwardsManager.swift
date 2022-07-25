@@ -33,7 +33,7 @@ struct CombinationsAwardsManager {
         
         energyLbl.text = String(Int(user.energy!))
         spinBtn.isUserInteractionEnabled = false
-        spinBtn.isSelected.toggle()
+      //  spinBtn.isSelected.toggle()
         for item in collectionView.visibleCells.indices {
             let table = ( collectionView.cellForItem(at: [0,item]) as! SlotCollectionCell).tableView
             for i in  0...2 {
@@ -50,7 +50,7 @@ struct CombinationsAwardsManager {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.8) {
             spinBtn.isUserInteractionEnabled = true
-            spinBtn.isSelected.toggle()
+          //  spinBtn.isSelected.toggle()
             coinsLbl.text = String(user.coins!)
             energyLbl.text = String(Int(user.energy!))
         }

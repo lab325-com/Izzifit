@@ -70,7 +70,7 @@ class ArcticGameView: UIView, GameAnimationProtocol {
         greenCounterImgVw.contentMode = .scaleAspectFill
         
         spinBtn.setImage(image(img: .spinBtnNormal), for: .normal)
-        spinBtn.setImage(image(img: .spinBtnSelected), for: .selected)
+        spinBtn.setImage(image(img: .spinBtnSelected), for: .highlighted)
         
         //MARK: - barBackVw
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"

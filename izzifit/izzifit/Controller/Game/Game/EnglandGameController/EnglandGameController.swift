@@ -34,7 +34,7 @@ class EnglandGameController: BaseController {
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
 
-        gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchUpInside)
+        gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchDown)
     }
      
     override func viewWillAppear(_ animated: Bool) {
