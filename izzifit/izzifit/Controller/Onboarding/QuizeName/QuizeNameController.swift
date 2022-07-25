@@ -62,7 +62,7 @@ class QuizeNameController: BaseController, UITextFieldDelegate {
     
     private func setup() {
         
-        AnalyticsHelper.sendFirebaseEvents(events: .onb_start)
+        AnalyticsHelper.sendFirebaseEvents(events: .quiz_start)
         backButton.isHidden = isHiddenBackButton
         goNextButton.alpha = 0.5
 
@@ -116,7 +116,7 @@ class QuizeNameController: BaseController, UITextFieldDelegate {
     
     @IBAction func actionGoNext(_ sender: UIButton) {
         if nameField.text!.count > 0 {
-            AnalyticsHelper.sendFirebaseEvents(events: .onb_set_name)
+            AnalyticsHelper.sendFirebaseEvents(events: .quiz_set_name)
             
             AudioManager.sharedManager.playSound()
             var model = PreferencesManager.sharedManager.tempPorifle

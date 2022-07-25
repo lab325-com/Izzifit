@@ -78,7 +78,8 @@ class QuizeEmailController: BaseController {
     
     @IBAction func actionGoNext(_ sender: UIButton) {
         if emailField.text!.count > 0, textFieldValidatorEmail( emailField.text!) {
-            AnalyticsHelper.sendFirebaseEvents(events: .onb_set_email)
+            AnalyticsHelper.sendFirebaseEvents(events: .quiz_set_email)
+            AnalyticsHelper.sendFirebaseEvents(events: .quiz_email_validation)
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setEmail(emailField.text!)
             PreferencesManager.sharedManager.tempPorifle = model

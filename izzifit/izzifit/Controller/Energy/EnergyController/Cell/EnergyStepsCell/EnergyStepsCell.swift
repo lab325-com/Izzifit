@@ -144,6 +144,10 @@ class EnergyStepsCell: UITableViewCell {
         }
     }
     
+    @IBAction func actionTapWidget(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .dash_steps_tap)
+    }
+    
     func calculateMeasureY(value: CGFloat,
                            upper: CGFloat = 1200,
                            lower: CGFloat = 0) -> CGFloat {

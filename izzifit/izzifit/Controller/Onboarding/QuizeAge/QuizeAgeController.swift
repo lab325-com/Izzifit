@@ -101,7 +101,7 @@ class QuizeAgeController: BaseController {
     
     @IBAction func actionGoNext(_ sender: UIButton) {
         if sender.alpha == 1.0, let age = Int(ageTextField.text!) {
-            AnalyticsHelper.sendFirebaseEvents(events: .onb_set_age)
+            AnalyticsHelper.sendFirebaseEvents(events: .quiz_set_age)
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setAge(age)
             PreferencesManager.sharedManager.tempPorifle = model

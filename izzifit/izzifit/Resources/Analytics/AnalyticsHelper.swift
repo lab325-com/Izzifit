@@ -20,26 +20,44 @@ enum FirebaseEvents: String {
     case login_skip
     case login_false
     
+    case login_fb
+    case login_apple
+    case login_mail
+    case login_fb_true
+    case login_apple_true
+    case login_mail_true
+    
     case onb_start
+    case onb_upgrade_ok
+    case onb_spin_ok
+    case onb_water_ok
     case onb_finish
-    case onb_close
-    case onb_skip_step
-    case onb_set_name
-    case onb_set_gender
-    case onb_set_goal
-    case onb_set_age
-    case onb_set_height
-    case onb_set_weight
-    case onb_set_target_weight
-    case onb_set_diet
-    case onb_set_activity
-    case onb_set_email
+    
+    case quiz_start
+    case quiz_popup_show
+    case quiz_finish
+    case quiz_close
+    case quiz_skip_step
+    case quiz_set_name
+    case quiz_set_gender
+    case quiz_set_goal
+    case quiz_set_age
+    case quiz_set_height
+    case quiz_set_weight
+    case quiz_set_target_weight
+    case quiz_set_diet
+    case quiz_set_activity
+    case quiz_set_email
+    case quiz_email_validation
     
     case pay_open
     case pay_close
     case pay_purchase
     case pay_purchase_success
     case pay_purchase_false
+    case pay_inapp_open
+    case pay_inapp_close
+    case pay_buy_free_trial
     
     case dash_open
     case dash_water_tap
@@ -56,6 +74,7 @@ enum FirebaseEvents: String {
     case dash_meal_food_true
     case dash_meal_food_add
     case dash_meal_fodd_add_own
+    case dash_steps_tap
     
     case exe_open
     case exe_filter_tap
