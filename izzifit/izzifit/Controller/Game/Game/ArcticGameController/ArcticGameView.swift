@@ -158,14 +158,14 @@ class ArcticGameView: UIView, GameAnimationProtocol {
                           width: h/3.44,
                           height: h/4.34,
                           topC: h/2.51,
-                          centerH: 0)
+                          centerH: -wRatio(cW:6))
         
         ui.genericlLayout(object: slotHouseImgVw,
                           parentView: gameBackImgVw,
                           width: h*0.459,
                           height: h*0.498,
                           topC: h/4.51,
-                          centerH: 0)
+                          centerH: -wRatio(cW:6))
         
         ui.genericlLayout(object: uponGameBackImgVw,
                           parentView: gameBackImgVw,
