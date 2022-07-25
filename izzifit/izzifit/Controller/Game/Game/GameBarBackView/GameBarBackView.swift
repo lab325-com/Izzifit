@@ -29,8 +29,24 @@ class GameBarBackView: UIView {
     
     init(backImage: UIImage) {
         super.init(frame: .zero)
-        mainImgVw.image = backImage
-        mainImgVw.contentMode = .scaleAspectFill
+//        mainImgVw.image = backImage
+//        mainImgVw.contentMode = .scaleAspectFill
+          backgroundColor = .clear
+          let blurEffect = UIBlurEffect(style: .light)
+          let blurEffectView = UIVisualEffectView(effect: blurEffect)
+          blurEffectView.alpha = 0.666
+        
+          blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        ui.genericlLayout(object: blurEffectView,
+                          parentView: self,
+                          topC: 0,
+                          bottomC: 0,
+                          leadingC: 0,
+                          trailingC: 0)
+        
+        blurEffectView.clipsToBounds = true
+        blurEffectView.layer.cornerRadius = hRatio(cH: 28)
+        blurEffectView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         layout()
         getCoinsAndEnergy()
     }
