@@ -43,6 +43,9 @@ class EngLevelController: BaseController {
         super.viewDidAppear(animated)
         engLevelView.barBackVw.getCoinsAndEnergy()
         checkAvailableHummers()
+        let x = (428 - UIScreen.main.bounds.size.width) / 2
+        engLevelView.scrollView.setContentOffset(CGPoint(x: x,y: 0),
+                                                animated: true)
     }
     
     private func addTargets() {

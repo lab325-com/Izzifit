@@ -92,6 +92,9 @@ class LevelView: UIView {
                           parentView: hummerBtn,
                           bottomC: h/203,
                           trailingC: h/203)
+        
+        
+    
     }
     
     func drawStates(player: PlayerModel, imgStatesArr imgs: [UIImage]) {
