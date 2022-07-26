@@ -12,6 +12,6 @@ struct PasswordForgotRequestModel: Codable {
 }
 
 struct PasswordForgotMainRequestModel: Codable {
-    let token: String
+    let token: String?
 }
 

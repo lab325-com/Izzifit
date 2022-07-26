@@ -220,7 +220,15 @@ class LoginController: BaseController {
 
 extension LoginController: LoginOutputProtocol {
     func successForgotPass() {
+        let alert = UIAlertController(title: "izzifit",
+                                      message: "We sent a password to your email",
+                                      preferredStyle: .alert)
         
+        let okAction = UIAlertAction(title: "Close", style: .default) { _ in
+            
+        }
+        alert.addAction(okAction)
+        present(alert,animated: true)
     }
     
     func successGoMain() {
