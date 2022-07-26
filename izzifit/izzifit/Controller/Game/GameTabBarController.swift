@@ -156,7 +156,7 @@ class GameTabBarController: UITabBarController {
 }
 
 enum MapName: String {
-    case snow_map, england_map
+    case snow_map, england_map, france_map
 }
 
 

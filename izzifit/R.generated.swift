@@ -1235,7 +1235,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 332 images.
+  /// This `R.image` struct is generated, and contains static references to 399 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1487,6 +1487,138 @@ struct R: Rswift.Validatable {
     static let food_clear_search_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "food_clear_search_ic")
     /// Image `food_search_ic`.
     static let food_search_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "food_search_ic")
+    /// Image `fr_1archPop`.
+    static let fr_1archPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_1archPop")
+    /// Image `fr_1fieldPop`.
+    static let fr_1fieldPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_1fieldPop")
+    /// Image `fr_1luvrPop`.
+    static let fr_1luvrPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_1luvrPop")
+    /// Image `fr_1towerPop`.
+    static let fr_1towerPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_1towerPop")
+    /// Image `fr_1vineyardPop`.
+    static let fr_1vineyardPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_1vineyardPop")
+    /// Image `fr_2archPop`.
+    static let fr_2archPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_2archPop")
+    /// Image `fr_2fieldPop`.
+    static let fr_2fieldPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_2fieldPop")
+    /// Image `fr_2luvrPop`.
+    static let fr_2luvrPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_2luvrPop")
+    /// Image `fr_2towerPop`.
+    static let fr_2towerPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_2towerPop")
+    /// Image `fr_2vineyardPop`.
+    static let fr_2vineyardPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_2vineyardPop")
+    /// Image `fr_3archPop`.
+    static let fr_3archPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_3archPop")
+    /// Image `fr_3fieldPop`.
+    static let fr_3fieldPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_3fieldPop")
+    /// Image `fr_3luvrPop`.
+    static let fr_3luvrPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_3luvrPop")
+    /// Image `fr_3towerPop`.
+    static let fr_3towerPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_3towerPop")
+    /// Image `fr_3vineyardPop`.
+    static let fr_3vineyardPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_3vineyardPop")
+    /// Image `fr_4archPop`.
+    static let fr_4archPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_4archPop")
+    /// Image `fr_4fieldPop`.
+    static let fr_4fieldPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_4fieldPop")
+    /// Image `fr_4luvrPop`.
+    static let fr_4luvrPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_4luvrPop")
+    /// Image `fr_4towerPop`.
+    static let fr_4towerPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_4towerPop")
+    /// Image `fr_4vineyardPop`.
+    static let fr_4vineyardPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_4vineyardPop")
+    /// Image `fr_5archPop`.
+    static let fr_5archPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_5archPop")
+    /// Image `fr_5fieldPop`.
+    static let fr_5fieldPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_5fieldPop")
+    /// Image `fr_5luvrPop`.
+    static let fr_5luvrPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_5luvrPop")
+    /// Image `fr_5towerPop`.
+    static let fr_5towerPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_5towerPop")
+    /// Image `fr_5vineyardPop`.
+    static let fr_5vineyardPop = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_5vineyardPop")
+    /// Image `fr_archFinish`.
+    static let fr_archFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_archFinish")
+    /// Image `fr_archFirst`.
+    static let fr_archFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_archFirst")
+    /// Image `fr_archFourth`.
+    static let fr_archFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_archFourth")
+    /// Image `fr_archSecond`.
+    static let fr_archSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_archSecond")
+    /// Image `fr_archStart`.
+    static let fr_archStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_archStart")
+    /// Image `fr_archThird`.
+    static let fr_archThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_archThird")
+    /// Image `fr_fieldFinish`.
+    static let fr_fieldFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_fieldFinish")
+    /// Image `fr_fieldFirst`.
+    static let fr_fieldFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_fieldFirst")
+    /// Image `fr_fieldFourth`.
+    static let fr_fieldFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_fieldFourth")
+    /// Image `fr_fieldSecond`.
+    static let fr_fieldSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_fieldSecond")
+    /// Image `fr_fieldStart`.
+    static let fr_fieldStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_fieldStart")
+    /// Image `fr_fieldThird`.
+    static let fr_fieldThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_fieldThird")
+    /// Image `fr_flag`.
+    static let fr_flag = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_flag")
+    /// Image `fr_hammer`.
+    static let fr_hammer = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_hammer")
+    /// Image `fr_lightning`.
+    static let fr_lightning = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_lightning")
+    /// Image `fr_luvrFinish`.
+    static let fr_luvrFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_luvrFinish")
+    /// Image `fr_luvrFirst`.
+    static let fr_luvrFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_luvrFirst")
+    /// Image `fr_luvrFourth`.
+    static let fr_luvrFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_luvrFourth")
+    /// Image `fr_luvrSecond`.
+    static let fr_luvrSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_luvrSecond")
+    /// Image `fr_luvrStart`.
+    static let fr_luvrStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_luvrStart")
+    /// Image `fr_luvrThird`.
+    static let fr_luvrThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_luvrThird")
+    /// Image `fr_moneyBag`.
+    static let fr_moneyBag = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_moneyBag")
+    /// Image `fr_pound`.
+    static let fr_pound = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_pound")
+    /// Image `fr_towerFinish`.
+    static let fr_towerFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_towerFinish")
+    /// Image `fr_towerFirst`.
+    static let fr_towerFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_towerFirst")
+    /// Image `fr_towerFourth`.
+    static let fr_towerFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_towerFourth")
+    /// Image `fr_towerSecond`.
+    static let fr_towerSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_towerSecond")
+    /// Image `fr_towerStart`.
+    static let fr_towerStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_towerStart")
+    /// Image `fr_towerThird`.
+    static let fr_towerThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_towerThird")
+    /// Image `fr_vineyardFinish`.
+    static let fr_vineyardFinish = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_vineyardFinish")
+    /// Image `fr_vineyardFirst`.
+    static let fr_vineyardFirst = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_vineyardFirst")
+    /// Image `fr_vineyardFourth`.
+    static let fr_vineyardFourth = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_vineyardFourth")
+    /// Image `fr_vineyardSecond`.
+    static let fr_vineyardSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_vineyardSecond")
+    /// Image `fr_vineyardStart`.
+    static let fr_vineyardStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_vineyardStart")
+    /// Image `fr_vineyardThird`.
+    static let fr_vineyardThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "fr_vineyardThird")
+    /// Image `france_bump`.
+    static let france_bump = Rswift.ImageResource(bundle: R.hostingBundle, name: "france_bump")
+    /// Image `france_freeHummer`.
+    static let france_freeHummer = Rswift.ImageResource(bundle: R.hostingBundle, name: "france_freeHummer")
+    /// Image `france_gameBack`.
+    static let france_gameBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "france_gameBack")
+    /// Image `france_slotBack`.
+    static let france_slotBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "france_slotBack")
+    /// Image `france_slotHouse`.
+    static let france_slotHouse = Rswift.ImageResource(bundle: R.hostingBundle, name: "france_slotHouse")
+    /// Image `france_uponBack`.
+    static let france_uponBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "france_uponBack")
     /// Image `freeHummer`.
     static let freeHummer = Rswift.ImageResource(bundle: R.hostingBundle, name: "freeHummer")
     /// Image `gameBackOne`.
@@ -1553,6 +1685,8 @@ struct R: Rswift.Validatable {
     static let levelShadowViewBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "levelShadowViewBack")
     /// Image `level_england_back`.
     static let level_england_back = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_england_back")
+    /// Image `level_france_back`.
+    static let level_france_back = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_france_back")
     /// Image `lightning`.
     static let lightning = Rswift.ImageResource(bundle: R.hostingBundle, name: "lightning")
     /// Image `mapBarBack`.
@@ -2778,6 +2912,468 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_1archPop", bundle: ..., traitCollection: ...)`
+    static func fr_1archPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_1archPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_1fieldPop", bundle: ..., traitCollection: ...)`
+    static func fr_1fieldPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_1fieldPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_1luvrPop", bundle: ..., traitCollection: ...)`
+    static func fr_1luvrPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_1luvrPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_1towerPop", bundle: ..., traitCollection: ...)`
+    static func fr_1towerPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_1towerPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_1vineyardPop", bundle: ..., traitCollection: ...)`
+    static func fr_1vineyardPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_1vineyardPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_2archPop", bundle: ..., traitCollection: ...)`
+    static func fr_2archPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_2archPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_2fieldPop", bundle: ..., traitCollection: ...)`
+    static func fr_2fieldPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_2fieldPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_2luvrPop", bundle: ..., traitCollection: ...)`
+    static func fr_2luvrPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_2luvrPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_2towerPop", bundle: ..., traitCollection: ...)`
+    static func fr_2towerPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_2towerPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_2vineyardPop", bundle: ..., traitCollection: ...)`
+    static func fr_2vineyardPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_2vineyardPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_3archPop", bundle: ..., traitCollection: ...)`
+    static func fr_3archPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_3archPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_3fieldPop", bundle: ..., traitCollection: ...)`
+    static func fr_3fieldPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_3fieldPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_3luvrPop", bundle: ..., traitCollection: ...)`
+    static func fr_3luvrPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_3luvrPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_3towerPop", bundle: ..., traitCollection: ...)`
+    static func fr_3towerPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_3towerPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_3vineyardPop", bundle: ..., traitCollection: ...)`
+    static func fr_3vineyardPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_3vineyardPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_4archPop", bundle: ..., traitCollection: ...)`
+    static func fr_4archPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_4archPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_4fieldPop", bundle: ..., traitCollection: ...)`
+    static func fr_4fieldPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_4fieldPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_4luvrPop", bundle: ..., traitCollection: ...)`
+    static func fr_4luvrPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_4luvrPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_4towerPop", bundle: ..., traitCollection: ...)`
+    static func fr_4towerPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_4towerPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_4vineyardPop", bundle: ..., traitCollection: ...)`
+    static func fr_4vineyardPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_4vineyardPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_5archPop", bundle: ..., traitCollection: ...)`
+    static func fr_5archPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_5archPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_5fieldPop", bundle: ..., traitCollection: ...)`
+    static func fr_5fieldPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_5fieldPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_5luvrPop", bundle: ..., traitCollection: ...)`
+    static func fr_5luvrPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_5luvrPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_5towerPop", bundle: ..., traitCollection: ...)`
+    static func fr_5towerPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_5towerPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_5vineyardPop", bundle: ..., traitCollection: ...)`
+    static func fr_5vineyardPop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_5vineyardPop, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_archFinish", bundle: ..., traitCollection: ...)`
+    static func fr_archFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_archFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_archFirst", bundle: ..., traitCollection: ...)`
+    static func fr_archFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_archFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_archFourth", bundle: ..., traitCollection: ...)`
+    static func fr_archFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_archFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_archSecond", bundle: ..., traitCollection: ...)`
+    static func fr_archSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_archSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_archStart", bundle: ..., traitCollection: ...)`
+    static func fr_archStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_archStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_archThird", bundle: ..., traitCollection: ...)`
+    static func fr_archThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_archThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_fieldFinish", bundle: ..., traitCollection: ...)`
+    static func fr_fieldFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_fieldFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_fieldFirst", bundle: ..., traitCollection: ...)`
+    static func fr_fieldFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_fieldFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_fieldFourth", bundle: ..., traitCollection: ...)`
+    static func fr_fieldFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_fieldFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_fieldSecond", bundle: ..., traitCollection: ...)`
+    static func fr_fieldSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_fieldSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_fieldStart", bundle: ..., traitCollection: ...)`
+    static func fr_fieldStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_fieldStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_fieldThird", bundle: ..., traitCollection: ...)`
+    static func fr_fieldThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_fieldThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_flag", bundle: ..., traitCollection: ...)`
+    static func fr_flag(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_flag, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_hammer", bundle: ..., traitCollection: ...)`
+    static func fr_hammer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_hammer, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_lightning", bundle: ..., traitCollection: ...)`
+    static func fr_lightning(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_lightning, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_luvrFinish", bundle: ..., traitCollection: ...)`
+    static func fr_luvrFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_luvrFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_luvrFirst", bundle: ..., traitCollection: ...)`
+    static func fr_luvrFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_luvrFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_luvrFourth", bundle: ..., traitCollection: ...)`
+    static func fr_luvrFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_luvrFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_luvrSecond", bundle: ..., traitCollection: ...)`
+    static func fr_luvrSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_luvrSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_luvrStart", bundle: ..., traitCollection: ...)`
+    static func fr_luvrStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_luvrStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_luvrThird", bundle: ..., traitCollection: ...)`
+    static func fr_luvrThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_luvrThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_moneyBag", bundle: ..., traitCollection: ...)`
+    static func fr_moneyBag(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_moneyBag, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_pound", bundle: ..., traitCollection: ...)`
+    static func fr_pound(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_pound, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_towerFinish", bundle: ..., traitCollection: ...)`
+    static func fr_towerFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_towerFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_towerFirst", bundle: ..., traitCollection: ...)`
+    static func fr_towerFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_towerFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_towerFourth", bundle: ..., traitCollection: ...)`
+    static func fr_towerFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_towerFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_towerSecond", bundle: ..., traitCollection: ...)`
+    static func fr_towerSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_towerSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_towerStart", bundle: ..., traitCollection: ...)`
+    static func fr_towerStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_towerStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_towerThird", bundle: ..., traitCollection: ...)`
+    static func fr_towerThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_towerThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_vineyardFinish", bundle: ..., traitCollection: ...)`
+    static func fr_vineyardFinish(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_vineyardFinish, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_vineyardFirst", bundle: ..., traitCollection: ...)`
+    static func fr_vineyardFirst(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_vineyardFirst, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_vineyardFourth", bundle: ..., traitCollection: ...)`
+    static func fr_vineyardFourth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_vineyardFourth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_vineyardSecond", bundle: ..., traitCollection: ...)`
+    static func fr_vineyardSecond(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_vineyardSecond, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_vineyardStart", bundle: ..., traitCollection: ...)`
+    static func fr_vineyardStart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_vineyardStart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fr_vineyardThird", bundle: ..., traitCollection: ...)`
+    static func fr_vineyardThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fr_vineyardThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "france_bump", bundle: ..., traitCollection: ...)`
+    static func france_bump(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.france_bump, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "france_freeHummer", bundle: ..., traitCollection: ...)`
+    static func france_freeHummer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.france_freeHummer, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "france_gameBack", bundle: ..., traitCollection: ...)`
+    static func france_gameBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.france_gameBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "france_slotBack", bundle: ..., traitCollection: ...)`
+    static func france_slotBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.france_slotBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "france_slotHouse", bundle: ..., traitCollection: ...)`
+    static func france_slotHouse(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.france_slotHouse, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "france_uponBack", bundle: ..., traitCollection: ...)`
+    static func france_uponBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.france_uponBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "freeHummer", bundle: ..., traitCollection: ...)`
     static func freeHummer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.freeHummer, compatibleWith: traitCollection)
@@ -3005,6 +3601,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "level_england_back", bundle: ..., traitCollection: ...)`
     static func level_england_back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.level_england_back, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "level_france_back", bundle: ..., traitCollection: ...)`
+    static func level_france_back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_france_back, compatibleWith: traitCollection)
     }
     #endif
 

@@ -24,18 +24,21 @@ extension GameAnimationProtocol {
                             switch mapName {
                             case .snow_map:     rotateSun(with: SlotImgs.hammer ?? UIImage(), on: imageView, hummerAnimation: true)
                             case .england_map:  rotateSun(with: UK_SlotImgs.hammer ?? UIImage(), on: imageView, hummerAnimation: true)
+                            case .france_map:   rotateSun(with: FR_SlotImgs.hammer ?? UIImage(), on: imageView, hummerAnimation: true)
                             }
                         }
         case .lightning:    if let mapName = PreferencesManager.sharedManager.currentMapName {
                             switch mapName {
                             case .snow_map:     rotateSun(with: SlotImgs.lightning ?? UIImage(), on: imageView)
                             case .england_map:  rotateSun(with: UK_SlotImgs.lightning ?? UIImage(), on: imageView)
+                            case .france_map:   rotateSun(with: FR_SlotImgs.lightning ?? UIImage(), on: imageView, hummerAnimation: true)
                             }
                         }
         case .snowflake:    if let mapName = PreferencesManager.sharedManager.currentMapName {
                             switch mapName {
                             case .snow_map:     rotateSun(with: SlotImgs.snowflake ?? UIImage(), on: imageView)
                             case .england_map:  rotateSun(with: UK_SlotImgs.flag ?? UIImage(), on: imageView)
+                            case .france_map:   rotateSun(with: FR_SlotImgs.flag ?? UIImage(), on: imageView, hummerAnimation: true)
                             }
                 }
         }
