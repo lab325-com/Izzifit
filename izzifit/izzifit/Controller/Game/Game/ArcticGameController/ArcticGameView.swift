@@ -9,13 +9,10 @@ import UIKit
 
 class ArcticGameView: UIView, GameAnimationProtocol {
     
-    
     var animationImgVw: UIImageView = UIImageView()
     static var currentEnergy = CGFloat()
     static var counter = 0
-    
     var onBoardingValues = [CGFloat]()
-    
     // bar
     var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
     // Basic view
@@ -25,6 +22,8 @@ class ArcticGameView: UIView, GameAnimationProtocol {
     private var uponGameBackImgVw = UIImageView()
     var spinBtn = UIButton()
     private var titleLbl = UILabel()
+    private var greenCounterLbl = UILabel()
+    private let greenCounterImgVw = UIImageView()
     // hummer
     var hummerBtn = UIButton()
     var hummerCountLbl = UILabel()
@@ -65,9 +64,13 @@ class ArcticGameView: UIView, GameAnimationProtocol {
         
         uponGameBackImgVw.image = image(img: .gameBackOne)
         uponGameBackImgVw.contentMode = .top
+       
+
+        greenCounterImgVw.image = RImage.greenCounterImg() ?? UIImage()
+        greenCounterImgVw.contentMode = .scaleAspectFill
         
         spinBtn.setImage(image(img: .spinBtnNormal), for: .normal)
-        spinBtn.setImage(image(img: .spinBtnSelected), for: .selected)
+        spinBtn.setImage(image(img: .spinBtnSelected), for: .highlighted)
         
         //MARK: - barBackVw
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
@@ -133,6 +136,12 @@ class ArcticGameView: UIView, GameAnimationProtocol {
                     textAlignment: .left,
                     fontSize: h/46.6,
                     fontName: "Inter-BoldItalic")
+        
+        ui.setLabel(label: greenCounterLbl,
+                    textColor: .white,
+                    textAlignment: .center,
+                    fontSize: 16,
+                    fontName: "Inter-Bold")
     }
     
     private func layout() {
@@ -149,14 +158,14 @@ class ArcticGameView: UIView, GameAnimationProtocol {
                           width: h/3.44,
                           height: h/4.34,
                           topC: h/2.51,
-                          centerH: 0)
+                          centerH: -wRatio(cW:6))
         
         ui.genericlLayout(object: slotHouseImgVw,
                           parentView: gameBackImgVw,
                           width: h*0.459,
                           height: h*0.498,
                           topC: h/4.51,
-                          centerH: 0)
+                          centerH: -wRatio(cW:6))
         
         ui.genericlLayout(object: uponGameBackImgVw,
                           parentView: gameBackImgVw,
@@ -188,6 +197,18 @@ class ArcticGameView: UIView, GameAnimationProtocol {
                           bottomCG: h/39,
                           trailingToO: slotHouseImgVw.trailingAnchor,
                           trailingCG: h/8.54)
+        
+        ui.genericlLayout(object: greenCounterImgVw,
+                          parentView: progressImgVw,
+                          width: 72,
+                          height: 24,
+                          topC: -34,
+                          centerH: 0)
+        
+        ui.genericlLayout(object: greenCounterLbl,
+                          parentView: greenCounterImgVw,
+                          centerV: 0,
+                          centerH: 0)
         
         ui.genericlLayout(object: titleLbl,
                           parentView: slotHouseImgVw,
@@ -251,6 +272,7 @@ class ArcticGameView: UIView, GameAnimationProtocol {
     }
     
     func showProgress() {
+        greenCounterLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))/50"
         var spinsRemainder = CGFloat(KeychainService.standard.me?.energy ?? 0.0)
         switch spinsRemainder {
         case let x where x > 100.0: spinsRemainder = 100.0

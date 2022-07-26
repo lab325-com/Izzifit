@@ -35,7 +35,7 @@ class ArcticGameController: BaseController {
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
      
-        gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchUpInside)
+        gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchDown)
         
     }
     
@@ -116,7 +116,7 @@ class ArcticGameController: BaseController {
     func threeHummersCombination() {
         presenter.freeBuildingsCount += 1
         gameView.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
-        gameView.hummerBtn.isHidden = false
+        gameView.hummerBtn.isHidden =      false
         gameView.hummerCountLbl.isHidden = false
     }
     
@@ -124,10 +124,10 @@ class ArcticGameController: BaseController {
         gameView.hummerBtn.isUserInteractionEnabled = false
         switch presenter.freeBuildingsCount {
         case 0:
-            gameView.hummerBtn.isHidden = true
+            gameView.hummerBtn.isHidden =      true
             gameView.hummerCountLbl.isHidden = true
         default:
-            gameView.hummerBtn.isHidden = false
+            gameView.hummerBtn.isHidden =      false
             gameView.hummerCountLbl.isHidden = false
             gameView.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
         }
@@ -171,13 +171,29 @@ extension ArcticGameController: ArcticGameOutputProtocol {
         for award in model {
             switch award.type {
             case .spinObjectRewardTypeCoin:
+                let expense = KeychainService.standard.me?.coins ?? 0
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                         self.gameView.barBackVw.runNumbers(isCoins: true,
+                                                       duration: 3,
+                                                       startValue:  expense,
+                                                       endValue:  expense + award.amount)
+                     }
                 KeychainService.standard.me?.coins! += award.amount
                 coinsAmount = award.amount
+                
             case .spinObjectRewardTypeEnergy:
+                let energy = KeychainService.standard.me?.energy ?? 0
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.gameView.barBackVw.runNumbers(isCoins: false,
+                                                      duration: 3,
+                                                      startValue:  Int(energy),
+                                                      endValue:  Int(energy) + award.amount)
+                }
                 KeychainService.standard.me?.energy! += Float(award.amount)
                 spinsAmount = award.amount
+                
             case .spinObjectRewardTypeBuild: print("")
-            case .__unknown(_): print("")
+            case .__unknown(_):  print("")
             }
         }
         gameView.startSpinLbl.text = ""
@@ -195,7 +211,6 @@ extension ArcticGameController: ArcticGameOutputProtocol {
                                                coinsAmount: coinsAmount,
                                                spinsAmount: spinsAmount) { self.threeHummersCombination() }
                 self.gameView.showProgress()
-                 
                 } else {
                     self.spinManager.coinBag(in: spinTags,
                                              hiddenStack: self.gameView.resultStackView,
@@ -258,8 +273,6 @@ extension ArcticGameController: PurchasePopUpProtocol {
     }
 }
 
-
-
 //----------------------------------------------
 // MARK: - MainGameOnboardingDelegate
 //----------------------------------------------
@@ -273,7 +286,7 @@ extension ArcticGameController: MainGameOnboardingDelegate {
             
             switch MainGameOnboardingView.stateCounter {
             case 8:
-                gameView.spinBtn.sendActions(for: .touchUpInside)
+                gameView.spinBtn.sendActions(for: .touchDown)
                 MainGameOnboardingView.stateCounter += 1
                 onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
                                                          delegate: self,
@@ -288,17 +301,16 @@ extension ArcticGameController: MainGameOnboardingDelegate {
                                     trailingC: 0)
                 
                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
-                        self.gameView.spinBtn.sendActions(for: .touchUpInside)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                        self.gameView.spinBtn.sendActions(for: .touchDown)
                     }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 14.0) {
-                    self.gameView.spinBtn.sendActions(for: .touchUpInside)
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 21.0) {
-                    self.gameView.spinBtn.sendActions(for: .touchUpInside)
-                }
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 28.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+                    self.gameView.spinBtn.sendActions(for: .touchDown)
+                    }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
+                    self.gameView.spinBtn.sendActions(for: .touchDown)
+                    }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 20.0) {
                     self.onboardingView?.removeFromSuperview()
                     MainGameOnboardingView.stateCounter += 1
                     self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
@@ -312,8 +324,8 @@ extension ArcticGameController: MainGameOnboardingDelegate {
                                                 bottomC: 0,
                                                 leadingC: 0,
                                                 trailingC: 0)
+                    AnalyticsHelper.sendFirebaseEvents(events: .onb_spin_ok)
                 }
-                
             case 10:
                 MainGameOnboardingView.stateCounter += 1
                 tabBarVC.backBtn.sendActions(for: .touchUpInside)

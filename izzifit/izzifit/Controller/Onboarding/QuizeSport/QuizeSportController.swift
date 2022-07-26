@@ -205,7 +205,7 @@ class QuizeSportController: BaseController {
     
     @IBAction func actionGoNext(_ sender: UIButton) {
         if let type = type {
-            AnalyticsHelper.sendFirebaseEvents(events: .onb_set_activity)
+            AnalyticsHelper.sendFirebaseEvents(events: .quiz_set_activity)
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setSport(type)
             PreferencesManager.sharedManager.tempPorifle = model
@@ -215,7 +215,7 @@ class QuizeSportController: BaseController {
     }
     
     @IBAction func actionSkip(_ sender: UIButton) {
-        AnalyticsHelper.sendFirebaseEvents(events: .onb_skip_step)
+        AnalyticsHelper.sendFirebaseEvents(events: .quiz_skip_step)
         var model = PreferencesManager.sharedManager.tempPorifle
         model.setSport(nil)
         PreferencesManager.sharedManager.tempPorifle = model

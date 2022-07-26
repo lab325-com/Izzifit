@@ -43,6 +43,10 @@ class QuizeEmailController: BaseController {
 
         emailField.becomeFirstResponder()
         
+        if let me = KeychainService.standard.me, let email = me.email, email != nil {
+            emailField.text = email
+        }
+        
         mainTitleLabel.text = RLocalization.onboarding_email_title()
         goNextButton.setTitle(RLocalization.onboarding_email_get_plan(), for: .normal)
     }
@@ -74,7 +78,8 @@ class QuizeEmailController: BaseController {
     
     @IBAction func actionGoNext(_ sender: UIButton) {
         if emailField.text!.count > 0, textFieldValidatorEmail( emailField.text!) {
-            AnalyticsHelper.sendFirebaseEvents(events: .onb_set_email)
+            AnalyticsHelper.sendFirebaseEvents(events: .quiz_set_email)
+            AnalyticsHelper.sendFirebaseEvents(events: .quiz_email_validation)
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setEmail(emailField.text!)
             PreferencesManager.sharedManager.tempPorifle = model

@@ -268,6 +268,7 @@ class PaywallMultiplyController: BaseController {
     }
     
     @IBAction func actionTrial(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_buy_free_trial)
         presenter.purchase(id: trialType.productId, screen: screen, place: place) { [weak self] result, error in
             guard let `self` = self else { return }
             if result {

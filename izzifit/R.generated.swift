@@ -1235,7 +1235,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 330 images.
+  /// This `R.image` struct is generated, and contains static references to 332 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1525,6 +1525,8 @@ struct R: Rswift.Validatable {
     static let goldThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "goldThird")
     /// Image `greenBuyBtn`.
     static let greenBuyBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "greenBuyBtn")
+    /// Image `greenCounterImg`.
+    static let greenCounterImg = Rswift.ImageResource(bundle: R.hostingBundle, name: "greenCounterImg")
     /// Image `greenDone`.
     static let greenDone = Rswift.ImageResource(bundle: R.hostingBundle, name: "greenDone")
     /// Image `hammer`.
@@ -1793,6 +1795,8 @@ struct R: Rswift.Validatable {
     static let purchaseLightning2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "purchaseLightning2")
     /// Image `purchaseLightning3`.
     static let purchaseLightning3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "purchaseLightning3")
+    /// Image `rTest `.
+    static let rTest = Rswift.ImageResource(bundle: R.hostingBundle, name: "rTest ")
     /// Image `ray.gif`.
     static let rayGif = Rswift.ImageResource(bundle: R.hostingBundle, name: "ray.gif")
     /// Image `shipFinish`.
@@ -2907,6 +2911,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "greenCounterImg", bundle: ..., traitCollection: ...)`
+    static func greenCounterImg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.greenCounterImg, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "greenDone", bundle: ..., traitCollection: ...)`
     static func greenDone(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.greenDone, compatibleWith: traitCollection)
@@ -3841,6 +3852,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "purchaseLightning3", bundle: ..., traitCollection: ...)`
     static func purchaseLightning3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.purchaseLightning3, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "rTest ", bundle: ..., traitCollection: ...)`
+    static func rTest(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.rTest, compatibleWith: traitCollection)
     }
     #endif
 

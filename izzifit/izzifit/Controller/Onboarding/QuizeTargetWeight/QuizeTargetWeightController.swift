@@ -269,7 +269,7 @@ class QuizeTargetWeightController: BaseController {
         model.setTargetWeight(Double(currentCountLabel.text!)!)
         PreferencesManager.sharedManager.tempPorifle = model
         
-        AnalyticsHelper.sendFirebaseEvents(events: .onb_set_target_weight)
+        AnalyticsHelper.sendFirebaseEvents(events: .quiz_set_target_weight)
         presenterProfile.profileUpdate()
         OnboardingRouter(presenter: navigationController).pushFood()
     }

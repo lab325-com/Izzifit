@@ -43,7 +43,7 @@ class TimerSpinManager {
          presenter: ArcticGamePresenter) {
         self.collectionView = collectionView
         self.presenter = presenter
-        timerCounters = [152, 152, 152]
+        timerCounters = [87, 87, 87]
     }
     
     func getTableView(by index: Int) -> UITableView {
@@ -83,28 +83,28 @@ class TimerSpinManager {
         var multiplier: CGFloat = 0
         
         switch timerCounters[index]{
-        case 151: tableContentOffsets[index] = tables[index].contentOffset.y
+        case 86: tableContentOffsets[index] = tables[index].contentOffset.y
             multiplier = StrideConstants.firstStride
-        case 147...150: multiplier = StrideConstants.firstStride
-        case 142...146: multiplier = StrideConstants.secondStride
-        case 137...141: multiplier = StrideConstants.thirdStride
-        case 132...136: multiplier = StrideConstants.fourthStride
-        case 127...131: multiplier = StrideConstants.fifthStride
-        case 122...126: multiplier = StrideConstants.sixthStride
-        case 117...121: multiplier = StrideConstants.seventhStride
-        case 112...116: multiplier = StrideConstants.eighthStride
-        case 107...111: multiplier = StrideConstants.ninethStride
-        case 102...106: multiplier = StrideConstants.tenthStride
-        case 49...53: multiplier = StrideConstants.tenthStride
-        case 44...48: multiplier = StrideConstants.ninethStride
-        case 39...43: multiplier = StrideConstants.eighthStride
-        case 33...38: multiplier = StrideConstants.seventhStride
-        case 29...32: multiplier = StrideConstants.sixthStride
-        case 24...28: multiplier = StrideConstants.fifthStride
-        case 19...23: multiplier = StrideConstants.fourthStride
-        case 14...18: multiplier = StrideConstants.thirdStride
-        case 9...13: multiplier = StrideConstants.secondStride
-        case 3...8: multiplier = StrideConstants.firstStride
+        case 84,85: multiplier = StrideConstants.firstStride
+        case 81...83: multiplier = StrideConstants.secondStride
+        case 78...80: multiplier = StrideConstants.thirdStride
+        case 75...77: multiplier = StrideConstants.fourthStride
+        case 72...74: multiplier = StrideConstants.fifthStride
+        case 69...71: multiplier = StrideConstants.sixthStride
+        case 66...68: multiplier = StrideConstants.seventhStride
+        case 63...65: multiplier = StrideConstants.eighthStride
+        case 60...62: multiplier = StrideConstants.ninethStride
+        case 59: multiplier = StrideConstants.tenthStride
+        case 30 : multiplier = StrideConstants.tenthStride
+        case 27...29: multiplier = StrideConstants.ninethStride
+        case 24...26: multiplier = StrideConstants.eighthStride
+        case 21...23: multiplier = StrideConstants.seventhStride
+        case 18...20: multiplier = StrideConstants.sixthStride
+        case 15...17: multiplier = StrideConstants.fifthStride
+        case 12...14: multiplier = StrideConstants.fourthStride
+        case 9...11: multiplier = StrideConstants.thirdStride
+        case 6...8: multiplier = StrideConstants.secondStride //6
+        case 3...5: multiplier = StrideConstants.firstStride  //3
         default: multiplier = speeds[index]
         }
         
@@ -115,7 +115,7 @@ class TimerSpinManager {
             self.tables[index].contentOffset.y = self.tableContentOffsets[index]
             self.tables[index].layoutIfNeeded()
         } completion: { bool in
-            guard self.timerCounters[index] == 3 || self.timerCounters[index] == 152 else { return }
+            guard self.timerCounters[index] == 3 || self.timerCounters[index] == 87 else { return }
             // докручивать к середине
             let cells = self.tables[index].visibleCells
             if let indexPath = self.tables[index].indexPath(for: cells[1]) {
@@ -123,7 +123,7 @@ class TimerSpinManager {
             }
         }
         guard timerCounters[index] == 3 else { return }
-        timerCounters[index] = 152
+        timerCounters[index] = 87
         self.timers[index].invalidate()
         completion()
     }

@@ -33,8 +33,9 @@ class EnglandGameController: BaseController {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
-
-        gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchUpInside)
+   
+        
+        gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchDown)
     }
      
     override func viewWillAppear(_ animated: Bool) {
@@ -151,9 +152,24 @@ extension EnglandGameController: ArcticGameOutputProtocol {
         for award in model {
             switch award.type {
             case .spinObjectRewardTypeCoin:
+           let expense = KeychainService.standard.me?.coins ?? 0
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.gameView.barBackVw.runNumbers(isCoins: true,
+                                                  duration: 3,
+                                                  startValue:  expense,
+                                                  endValue:  expense + award.amount)
+                }
+            
                 KeychainService.standard.me?.coins! += award.amount
                 coinsAmount = award.amount
             case .spinObjectRewardTypeEnergy:
+                let energy = KeychainService.standard.me?.energy ?? 0
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.gameView.barBackVw.runNumbers(isCoins: false,
+                                                      duration: 3,
+                                                      startValue:  Int(energy),
+                                                      endValue:  Int(energy) + award.amount)
+                }
                 KeychainService.standard.me?.energy! += Float(award.amount)
                 spinsAmount = award.amount
             case .spinObjectRewardTypeBuild: print("")
@@ -226,7 +242,5 @@ extension EnglandGameController: PurchasePopUpProtocol {
         }
     }
     
-    func purchasePopUpSuccess(controller: PurchasePopUp) {
-        gameView.barBackVw.getCoinsAndEnergy()
-    }
+    func purchasePopUpSuccess(controller: PurchasePopUp) {  gameView.barBackVw.getCoinsAndEnergy() }
 }

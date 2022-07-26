@@ -40,7 +40,7 @@ class LevelView: UIView {
     
     private func setUI() {
         imgUponScroll.image = image(img: .level_england_back)
-        
+      
         hummerBtn.setImage(image(img: .england_freeHummer), for: .normal)
         hummerBtn.isUserInteractionEnabled = false
         ui.setLabel(label: hummerCountLbl,
@@ -50,6 +50,7 @@ class LevelView: UIView {
                     fontName: "Inter-BoldItalic")
         hummerBtn.isHidden = true
         hummerCountLbl.isHidden = true
+        
     }
     
     private func layout() {
@@ -92,6 +93,8 @@ class LevelView: UIView {
                           bottomC: h/203,
                           trailingC: h/203)
         
+        
+    
     }
     
     func drawStates(player: PlayerModel, imgStatesArr imgs: [UIImage]) {
@@ -220,8 +223,7 @@ class LevelView: UIView {
          image(img: .eng_busSecond) ?? UIImage(),
          image(img: .eng_busThird) ?? UIImage(),
          image(img: .eng_busFourth) ?? UIImage(),
-         image(img: .eng_busFinish) ?? UIImage()
-        ]
+         image(img: .eng_busFinish) ?? UIImage() ]
     }()
 
 }

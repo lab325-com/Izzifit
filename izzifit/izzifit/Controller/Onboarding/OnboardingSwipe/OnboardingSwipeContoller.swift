@@ -57,6 +57,8 @@ class OnboardingSwipeContoller: BaseController {
     
     private func setup() {
         
+        AnalyticsHelper.sendFirebaseEvents(events: .quiz_popup_show)
+        
         if (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0) == 0  {
             pageTopLayout.constant = 20
             pageBottomLayout.constant = 20

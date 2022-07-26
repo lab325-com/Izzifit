@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 struct Purchase {
     var type: PurchaseType
     var count: Int
@@ -16,10 +15,9 @@ struct Purchase {
 
 protocol PurchasePopUpProtocol: AnyObject {
     func purchasePopUpSuccess(controller: PurchasePopUp)
-    func purchasePopUpClose(controller: PurchasePopUp)
-    func purchasePopUpSpin(controller: PurchasePopUp)
+    func purchasePopUpClose(controller:   PurchasePopUp)
+    func purchasePopUpSpin(controller:    PurchasePopUp)
 }
-
 
 enum InAppPurchaseType: String, Codable {
     case izzifit_energy_100
@@ -95,12 +93,29 @@ class PurchasePopUp: BaseController {
     // MARK: - Life cycle
     //----------------------------------------------
 
-    override func loadView() { self.view =  popUp }
+ //   override func loadView() { self.view =  popUp }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.retriveNotAutoProduct(id: Set(idProducts.compactMap({$0.rawValue})))
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_inapp_open, params: [ "idProduct" : idProducts])
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.touchTapped(_:)))
+        self.view.addGestureRecognizer(tap)
+        
+        view.ui.genericlLayout(object: popUp,
+                               parentView: view,
+                               topC: 0,
+                               bottomC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
     }
+    
+    @objc func touchTapped(_ sender: UITapGestureRecognizer) {
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_inapp_close, params: [ "idProduct" : idProducts])
+        delegate?.purchasePopUpClose(controller: self)
+        dismiss(animated: true)
+    }
+
 }
 
 //----------------------------------------------
@@ -110,6 +125,7 @@ class PurchasePopUp: BaseController {
 extension PurchasePopUp: GamePurchasePopProtocol {
     
     func gamePurchaseSpin(view: PurchasePop) {
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_inapp_close, params: [ "idProduct" : idProducts])
         delegate?.purchasePopUpSpin(controller: self)
         dismiss(animated: false)
     }
@@ -125,6 +141,7 @@ extension PurchasePopUp: GamePurchasePopProtocol {
     }
 
     func gamePurchasePopClose(view: PurchasePop) {
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_inapp_close, params: [ "idProduct" : idProducts])
         delegate?.purchasePopUpClose(controller: self)
         dismiss(animated: true)
     }
@@ -148,7 +165,6 @@ extension PurchasePopUp: SubscribeOutputProtocol {
         if let model = presenter.paymentsInfo.first(where: {$0.product == idProducts[safe: 2]?.rawValue ?? ""}) {
             prices.append(model.prettyPrice)
         }
-        
         popUp.setPrice(prices: prices)
     }
     

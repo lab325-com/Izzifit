@@ -153,7 +153,7 @@ class QuizeGenderController: BaseController {
     
     @IBAction func actionGetPlan(_ sender: UIButton) {
         if let type = type {
-            AnalyticsHelper.sendFirebaseEvents(events: .onb_set_gender)
+            AnalyticsHelper.sendFirebaseEvents(events: .quiz_set_gender)
             var model = PreferencesManager.sharedManager.tempPorifle
             model.setGender(type)
             PreferencesManager.sharedManager.tempPorifle = model

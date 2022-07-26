@@ -197,6 +197,9 @@ class LevelController: BaseController {
         buildPopUpVw.closeBtn.addTarget(self,
                                        action: #selector(closePopUp),
                                        for: .touchUpInside)
+        buildPopUpVw.emptySpaceBtn.addTarget(self,
+                                             action: #selector(closePopUp),
+                                             for: .touchUpInside)
         
         view.ui.genericlLayout(object: animation,
                                parentView: sender,
@@ -239,7 +242,7 @@ class LevelController: BaseController {
         animation.prepareAnimation(name: "construction3", loopRepeated: true)
         animation.isHidden = false
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.6) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) { [self] in
           
             
             var price = Int()
@@ -291,6 +294,7 @@ class LevelController: BaseController {
             
        
           //  pointers.drawPointers(model: self.player, btns: self.btns)
+            barBackVw.prevCoins = KeychainService.standard.me?.coins ?? 0
             presenter.upgradeBuild(buildingId: buildingId)
          
         }
@@ -448,6 +452,10 @@ extension LevelController: LevelOutputProtocol {
     func successMe() {
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
         barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+        barBackVw.runNumbers(isCoins: true,
+                             duration: 3,
+                             startValue: barBackVw.prevCoins,
+                             endValue: KeychainService.standard.me?.coins ?? 0)
     }
 }
 
@@ -536,7 +544,7 @@ extension LevelController: MainGameOnboardingDelegate {
 
         guard MainGameOnboardingView.stateCounter == 3 || MainGameOnboardingView.stateCounter == 6 else { return }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.7) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.9) {
             MainGameOnboardingView.stateCounter += 1
             self.onboardingView!.removeFromSuperview()
             self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],

@@ -193,7 +193,7 @@ class QuizeHeightController: BaseController {
         }
         PreferencesManager.sharedManager.tempPorifle = model
         
-        AnalyticsHelper.sendFirebaseEvents(events: .onb_set_height)
+        AnalyticsHelper.sendFirebaseEvents(events: .quiz_set_height)
         presenterProfile.profileUpdate()
         OnboardingRouter(presenter: navigationController).pushWeight()
     }

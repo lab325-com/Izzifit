@@ -19,6 +19,9 @@ class EnglandGameView: UIView, GameAnimationProtocol {
     private var uponGameBackImgVw = UIImageView()
     var spinBtn = UIButton()
     private var titleLbl = UILabel()
+    
+    private var greenCounterLbl = UILabel()
+    private let greenCounterImgVw = UIImageView()
     // hummer
     var hummerBtn = UIButton()
     var hummerCountLbl = UILabel()
@@ -40,10 +43,11 @@ class EnglandGameView: UIView, GameAnimationProtocol {
     override func draw(_ rect: CGRect) {
         setUI()
         layout()
+        do { try R.validate() } catch { print(error.localizedDescription) }
     }
     
     private func setUI() {
-        gameBackImgVw.image = image(img: .england_gameBack)
+        gameBackImgVw.image = RImage.england_gameBack()//image(img: .england_gameBack)
         gameBackImgVw.contentMode = .scaleAspectFill
         
         slotBackImgVw.image = image(img: .england_slotBack)
@@ -55,8 +59,11 @@ class EnglandGameView: UIView, GameAnimationProtocol {
         uponGameBackImgVw.image = image(img: .england_uponBack)
         uponGameBackImgVw.contentMode = .scaleAspectFill
         
+        greenCounterImgVw.image = RImage.greenCounterImg() ?? UIImage()
+        greenCounterImgVw.contentMode = .scaleAspectFill
+        
         spinBtn.setImage(image(img: .spinBtnNormal), for: .normal)
-        spinBtn.setImage(image(img: .spinBtnSelected), for: .selected)
+        spinBtn.setImage(image(img: .spinBtnSelected), for: .highlighted)
         
         //MARK: - barBackVw
         barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
@@ -122,6 +129,11 @@ class EnglandGameView: UIView, GameAnimationProtocol {
                     textAlignment: .left,
                     fontSize: h/46.6,
                     fontName: "Inter-BoldItalic")
+        ui.setLabel(label: greenCounterLbl,
+                    textColor: .white,
+                    textAlignment: .center,
+                    fontSize: 16,
+                    fontName: "Inter-Bold")
         }
     
     private func layout() {
@@ -170,6 +182,18 @@ class EnglandGameView: UIView, GameAnimationProtocol {
                           bottomCG: h/35.3,
                           trailingToO: slotHouseImgVw.trailingAnchor,
                           trailingCG: h/7.9)
+        
+        ui.genericlLayout(object: greenCounterImgVw,
+                          parentView: progressImgVw,
+                          width: 72,
+                          height: 24,
+                          topC: -37,
+                          centerH: 0)
+        
+        ui.genericlLayout(object: greenCounterLbl,
+                          parentView: greenCounterImgVw,
+                          centerV: 0,
+                          centerH: 0)
        
         ui.genericlLayout(object: titleLbl,
                           parentView: slotHouseImgVw,
@@ -240,6 +264,7 @@ class EnglandGameView: UIView, GameAnimationProtocol {
     }
     
     func showProgress() {
+        greenCounterLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))/50"
         var spinsRemainder = CGFloat(KeychainService.standard.me?.energy ?? 0.0)
         switch spinsRemainder {
         case let x where x > 100.0: spinsRemainder = 100.0
