@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
+import NVActivityIndicatorViewExtended
 
 public extension UIView {
     

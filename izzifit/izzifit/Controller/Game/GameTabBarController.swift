@@ -23,10 +23,24 @@ class GameTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupVCs()
-        self.setupTabBar()
+        setupVCs()
+        setupTabBar()
+        
+        if let vc = viewControllers?.first as? BaseController {
+            GameNetworkLayer.shared.getMap(view: vc,
+                                           startLoader: startLoader,
+                                           stopLoader: stopLoading)
+        }
     }
     
+    private func responseToBack() {
+        if let vc = viewControllers?.first as? BaseController {
+            GameNetworkLayer.shared.getMap(view: vc,
+                                           startLoader: startLoader,
+                                           stopLoader: stopLoading)
+        }
+    }
+        
     private func createNavController(for rootViewController: UIViewController, image: UIImage) -> UIViewController {
         let vc = rootViewController
         vc.tabBarItem.isEnabled = false
@@ -34,15 +48,17 @@ class GameTabBarController: UITabBarController {
     }
     
     private func setupVCs() {
-        viewControllers = [createNavController(for: GameBaseController(firstVC: ArcticGameController(),
-                                                                       secondVC: EnglandGameController()),
-                                               image: view.image(img: .gameTabBarSpin)!),
-                           createNavController(for: GameBaseController(firstVC: LevelController(),
-                                                                       secondVC: EngLevelController()),
-                                               image: view.image(img: .gameTabBarBuild)!) ,
-                           createNavController(for:  MapController(),
-                                               image: view.image(img: .gameTabBarSpin)!)
-        ]
+        viewControllers = [ GameBaseController(firstVC: UIViewController(), secondVC: UIViewController()),
+        GameBaseController(firstVC: UIViewController(), secondVC: UIViewController())]
+//        [createNavController(for: GameBaseController(firstVC: ArcticGameController(),
+//                                                                       secondVC: EnglandGameController()),
+//                                               image: view.image(img: .gameTabBarSpin)!),
+//                           createNavController(for: GameBaseController(firstVC: LevelController(),
+//                                                                       secondVC: EngLevelController()),
+//                                               image: view.image(img: .gameTabBarBuild)!) ,
+//                           createNavController(for:  MapController(),
+//                                               image: view.image(img: .gameTabBarSpin)!)
+//        ]
     }
     
     private func setupTabBar() {
@@ -113,7 +129,6 @@ class GameTabBarController: UITabBarController {
         
         build()
         toggleBtnInteraction()
-
     }
     
     func toggleBtnInteraction() {
@@ -121,7 +136,6 @@ class GameTabBarController: UITabBarController {
             btn.isUserInteractionEnabled.toggle()
         }
     }
-    
     
     func selectBtn(_ number: Int) {
         for (index, btn) in btns.enumerated() {
@@ -137,17 +151,21 @@ class GameTabBarController: UITabBarController {
     @objc func spin() {
         selectedIndex = 0
         selectBtn(1)
+        responseToBack()
     }
     
     @objc func build() {
         selectedIndex = 1
         selectBtn(2)
         AnalyticsHelper.sendFirebaseEvents(events: .map_open)
+        responseToBack()
     }
     
     @objc func map() {
         selectBtn(3)
-        selectedIndex = 2 }
+        selectedIndex = 2
+        responseToBack()
+    }
     
     @objc func profile() {
         navigationController?.popToRootViewController(animated: true)
@@ -158,5 +176,4 @@ class GameTabBarController: UITabBarController {
 enum MapName: String {
     case snow_map, england_map, france_map
 }
-
 
