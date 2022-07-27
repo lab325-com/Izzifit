@@ -106,6 +106,10 @@ enum FirebaseEvents: String {
     case map_building_updgrade
     case map_hummer_use
     case map_building_complete
+    
+    case dash_paid_mk_tap
+    case pay_paid_mk_open
+    case pay_paid_mk_close
 }
 
 enum FacebookEvents: String {

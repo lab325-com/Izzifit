@@ -94,6 +94,7 @@ class WorkoutDetailController: BaseController {
     
     @IBAction func actionStartWorkout(_ sender: UIButton) {
         if let  idSpecialId = idSpecialId, presenter.workout?.isAvailable != true  {
+            AnalyticsHelper.sendFirebaseEvents(events: .pay_paid_mk_open, params: ["id": idSpecialId])
             presenterSubscribe.purchaseProduct(id: idSpecialId, screen: .wokoutInApp, place: .workout) { [weak self] result, error in
                 guard let `self` = self else { return }
                 if result {
@@ -200,6 +201,9 @@ extension WorkoutDetailController: UITableViewDelegate, UITableViewDataSource {
 
 extension WorkoutDetailController: WorkoutDetailHeaderProtocol {
     func workoutDetailHeaderBack(cell: WorkoutDetailHeaderCell) {
+        if let idSpecialId = idSpecialId {
+            AnalyticsHelper.sendFirebaseEvents(events: .pay_paid_mk_close, params: ["id": idSpecialId])
+        }
         actionBack()
     }
 }

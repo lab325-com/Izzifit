@@ -330,6 +330,10 @@ extension EnergyController: EnergySpecialPriceCellDelegate {
         guard let id = model.id, let specialID = model.externalId else {
             return
         }
+        
+        if !(model.isAvailable ?? false) {
+            AnalyticsHelper.sendFirebaseEvents(events: .dash_paid_mk_tap, params: ["id": specialID])
+        }
         WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id, idSpecialId: specialID)
     }
 }
