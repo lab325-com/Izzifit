@@ -76,6 +76,7 @@ class LevelPopUpView: UIView {
         switch mapName {
         case .snow_map:     hummerImgVw.image = image(img: .freeHummer)
         case .england_map:  hummerImgVw.image = image(img: .england_freeHummer)
+        case .france_map:   hummerImgVw.image = image(img: .france_freeHummer)
         }
     }
     
@@ -88,6 +89,7 @@ class LevelPopUpView: UIView {
         switch title {
         case "Arctic": imgs =   arcticLevelPopImgs
         case "England": imgs =  englandLevelPopImgs
+        case "France": imgs = franceLevelPopImgs
         default: return
         }
         
@@ -288,11 +290,11 @@ class LevelPopUpView: UIView {
                           width:    27,
                           height:   22,
                           topC:     86,
-                          centerH:  0)
+                          centerH:   0)
         
         ui.genericlLayout(object: previousStateImgVw,
                           parentView: mainBackImgVw,
-                          width: 110,
+                          width:  110,
                           height: 110,
                           centerVtoO: arrowImgVw.centerYAnchor,
                           trailingToO: arrowImgVw.leadingAnchor,
@@ -300,7 +302,7 @@ class LevelPopUpView: UIView {
         
         ui.genericlLayout(object: nextStateImgVw,
                           parentView: mainBackImgVw,
-                          width: 110,
+                          width:  110,
                           height: 110,
                           centerVtoO: arrowImgVw.centerYAnchor,
                           leadingToO: arrowImgVw.trailingAnchor,
@@ -444,6 +446,45 @@ class LevelPopUpView: UIView {
          image(img: .eng_3busPop) ?? UIImage(),
          image(img: .eng_4busPop) ?? UIImage(),
          image(img: .eng_5busPop) ?? UIImage()
+        ]
+    }()
+    
+    lazy var franceLevelPopImgs: [UIImage] = {
+        [
+            RImage.eng_popStart() ?? UIImage(),
+            RImage.fr_1luvrPop() ?? UIImage(),
+            RImage.fr_2luvrPop() ?? UIImage(),
+            RImage.fr_3luvrPop() ?? UIImage(),
+            RImage.fr_4luvrPop() ?? UIImage(),
+            RImage.fr_5luvrPop() ?? UIImage(),
+            
+            RImage.eng_popStart() ?? UIImage(),
+            RImage.fr_1towerPop() ?? UIImage(),
+            RImage.fr_2towerPop() ?? UIImage(),
+            RImage.fr_3towerPop() ?? UIImage(),
+            RImage.fr_4towerPop() ?? UIImage(),
+            RImage.fr_5towerPop() ?? UIImage(),
+            
+            RImage.eng_popStart() ?? UIImage(),
+            RImage.fr_1vineyardPop() ?? UIImage(),
+            RImage.fr_2vineyardPop() ?? UIImage(),
+            RImage.fr_3vineyardPop() ?? UIImage(),
+            RImage.fr_4vineyardPop() ?? UIImage(),
+            RImage.fr_5vineyardPop() ?? UIImage(),
+            
+            RImage.eng_popStart() ?? UIImage(),
+            RImage.fr_1archPop() ?? UIImage(),
+            RImage.fr_2archPop() ?? UIImage(),
+            RImage.fr_3archPop() ?? UIImage(),
+            RImage.fr_4archPop() ?? UIImage(),
+            RImage.fr_5archPop() ?? UIImage(),
+            
+            RImage.eng_popStart() ?? UIImage(),
+            RImage.fr_1fieldPop() ?? UIImage(),
+            RImage.fr_2fieldPop() ?? UIImage(),
+            RImage.fr_3fieldPop() ?? UIImage(),
+            RImage.fr_4fieldPop() ?? UIImage(),
+            RImage.fr_5fieldPop() ?? UIImage()
         ]
     }()
 }

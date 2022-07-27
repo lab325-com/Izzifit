@@ -247,6 +247,7 @@ struct CombinationsAwardsManager {
                                          AudioManager.sharedManager.playSound(type: .energyX3_18)
                                          hiddenStack.isHidden.toggle()
                 }
+            case .france_map: break 
             }
         }
     }

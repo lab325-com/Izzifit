@@ -209,6 +209,11 @@ class EngLevelController: BaseController {
                         sender: UIButton) {
         
         buildPopUpVw = nil
+//        buildPopUpVw = LevelPopUpView(popType: popType,
+//                                      title: "France",
+//                                      mapName: .england_map,
+//                                      delegate: self)
+        
         buildPopUpVw = LevelPopUpView(popType: popType,
                                       title: "England",
                                       mapName: .england_map,

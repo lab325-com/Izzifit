@@ -37,8 +37,13 @@ enum Imgs: String {
     case map_3pathAct, map_3pathPass
     case map_4pathAct, map_4pathPass
     
+    
+    
     // England GameView
     case england_gameBack, england_uponBack, england_slotBack, england_slotHouse, england_freeHummer
+    
+    // France GameView
+    case france_gameBack, france_uponBack, france_slotBack, france_slotHouse, france_freeHummer, france_bump
     
     // Arctic LevelStates
     case shipStart, shipFirst, shipSecond, shipThird, shipFourth, shipFinish
@@ -97,6 +102,14 @@ struct UK_SlotImgs {
     static let moneyBag =   UIImage(named: "en_moneyBag")
     static let hammer =     UIImage(named: "en_hammer")
     static let lightning =  UIImage(named: "en_lightning")
+}
+
+struct FR_SlotImgs {
+    static let pound =      UIImage(named: "fr_pound")
+    static let flag =       UIImage(named: "fr_flag")
+    static let moneyBag =   UIImage(named: "fr_moneyBag")
+    static let hammer =     UIImage(named: "fr_hammer")
+    static let lightning =  UIImage(named: "fr_lightning")
 }
 
 struct ScaleImgs {

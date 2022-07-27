@@ -384,6 +384,8 @@
 		FA2794FD2861AC1200AEEA70 /* EnergyStepsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2794FB2861AC1200AEEA70 /* EnergyStepsCollectionCell.xib */; };
 		FA3319C528461E490021C433 /* TimerSpinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3319C428461E490021C433 /* TimerSpinManager.swift */; };
 		FA3319C8284683100021C433 /* ArcticGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3319C7284683100021C433 /* ArcticGameView.swift */; };
+		FA3F6394289002F50003FA5A /* FranceGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F6393289002F50003FA5A /* FranceGameView.swift */; };
+		FA3F6397289004830003FA5A /* FranceLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F6396289004830003FA5A /* FranceLevelView.swift */; };
 		FA42CC00283CE52700C6C959 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */; };
 		FA45FD71285C585F00F80ACD /* GameAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45FD70285C585F00F80ACD /* GameAnimationProtocol.swift */; };
 		FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */; };
@@ -843,6 +845,8 @@
 		FA2794FB2861AC1200AEEA70 /* EnergyStepsCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyStepsCollectionCell.xib; sourceTree = "<group>"; };
 		FA3319C428461E490021C433 /* TimerSpinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSpinManager.swift; sourceTree = "<group>"; };
 		FA3319C7284683100021C433 /* ArcticGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticGameView.swift; sourceTree = "<group>"; };
+		FA3F6393289002F50003FA5A /* FranceGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranceGameView.swift; sourceTree = "<group>"; };
+		FA3F6396289004830003FA5A /* FranceLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranceLevelView.swift; sourceTree = "<group>"; };
 		FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		FA45FD70285C585F00F80ACD /* GameAnimationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAnimationProtocol.swift; sourceTree = "<group>"; };
 		FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometryManager.swift; sourceTree = "<group>"; };
@@ -2677,6 +2681,22 @@
 			path = ArcticGameController;
 			sourceTree = "<group>";
 		};
+		FA3F6392289002D90003FA5A /* FranceGameController */ = {
+			isa = PBXGroup;
+			children = (
+				FA3F6393289002F50003FA5A /* FranceGameView.swift */,
+			);
+			path = FranceGameController;
+			sourceTree = "<group>";
+		};
+		FA3F63952890045A0003FA5A /* FranceLevelController */ = {
+			isa = PBXGroup;
+			children = (
+				FA3F6396289004830003FA5A /* FranceLevelView.swift */,
+			);
+			path = FranceLevelController;
+			sourceTree = "<group>";
+		};
 		FA62C54A27F5B43800AC463A /* WeightsWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -2788,6 +2808,7 @@
 		FAB6546C27FEDF290057A221 /* Level */ = {
 			isa = PBXGroup;
 			children = (
+				FA3F63952890045A0003FA5A /* FranceLevelController */,
 				FA1BC1F5286ECB7000D5569F /* LevelFinishView */,
 				FABE8BFB28520DF500E3E53C /* LevelPopUpView */,
 				FADD5115284F59A400F3A292 /* LevelController */,
@@ -2802,6 +2823,7 @@
 		FAB6546D27FEDF340057A221 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				FA3F6392289002D90003FA5A /* FranceGameController */,
 				FA9400032833986400CE5021 /* GameBarBackView */,
 				FAB6547E27FFFD330057A221 /* Cells */,
 				FACD1C14284790940014AFDC /* Managers */,
@@ -3600,6 +3622,7 @@
 				02D066E227BBEBA000D12C5F /* QuizeHeightController.swift in Sources */,
 				02B22AC3281C1502006AB1EA /* ArcticGamePresenter.swift in Sources */,
 				023CDC3528047BEB0056F022 /* QuizeGoalPresenter.swift in Sources */,
+				FA3F6397289004830003FA5A /* FranceLevelView.swift in Sources */,
 				FAC75D3328783C6D0084222C /* GameOnboardingEnergyView.swift in Sources */,
 				0249D26627B3A88C00F265C1 /* Int+Extension.swift in Sources */,
 				0290B39927D2340800381B42 /* EnerdyTodayCell.swift in Sources */,
@@ -3640,6 +3663,7 @@
 				FA9400052833989C00CE5021 /* GameBarBackView.swift in Sources */,
 				FAA9DBEE27D9ECFF004A14FB /* WorkoutPresenter.swift in Sources */,
 				021A6F5127BFA1AD0000D863 /* LoginPresenter.swift in Sources */,
+				FA3F6394289002F50003FA5A /* FranceGameView.swift in Sources */,
 				02BACF1027F4554900B7562C /* WorkoutSpecialCell.swift in Sources */,
 				FEBFD7B327E0F1880027ADD2 /* ImgsAndClrs.swift in Sources */,
 				FADD5114284F2C8900F3A292 /* PurchasePopUp.swift in Sources */,

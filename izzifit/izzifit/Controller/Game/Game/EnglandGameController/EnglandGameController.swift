@@ -33,8 +33,7 @@ class EnglandGameController: BaseController {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
-   
-        
+
         gameView.spinBtn.addTarget(self, action: #selector(spinAction), for: .touchDown)
     }
      

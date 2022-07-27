@@ -27,6 +27,12 @@ class SlotTableViewCell: BaseTableViewCell {
                            4: UK_SlotImgs.flag,
                            5: UK_SlotImgs.hammer]
     
+    var franceImgsDict = [1: FR_SlotImgs.pound,
+                           2: FR_SlotImgs.moneyBag,
+                           3: FR_SlotImgs.lightning,
+                           4: FR_SlotImgs.flag,
+                           5: FR_SlotImgs.hammer]
+    
     override init(style: BaseTableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -83,6 +89,8 @@ class SlotTableViewCell: BaseTableViewCell {
                                 options: [.transition(.fade(0.25))])
         case .england:
             slotBtn.setImage(englandImgsDict[tagBtn] ?? UIImage(), for: .normal)
+        case .france:
+            slotBtn.setImage(franceImgsDict[tagBtn] ?? UIImage(), for: .normal)
         }
         
         borderView.isHidden = true
@@ -91,5 +99,5 @@ class SlotTableViewCell: BaseTableViewCell {
 }
 
 enum Games {
-    case arctic, england
+    case arctic, england, france
 }

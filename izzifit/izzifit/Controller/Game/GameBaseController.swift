@@ -30,6 +30,7 @@ class GameBaseController: BaseController {
         switch currentScreen {
         case .england_map:  self.addContainer(child: second, to: self.view)
         case .snow_map: self.addContainer(child: first, to: self.view)
+        case .france_map: break 
         }
         NotificationCenter.default.addObserver(self,
                                                selector:#selector(self.endLoadConfigNotification),
@@ -53,6 +54,7 @@ class GameBaseController: BaseController {
             self.addContainer(child: second, to: self.view)
         case .snow_map: self.addContainer(child: first, to: self.view)
         case .none: break
+        case .some(.france_map): break
         }
     }
 }
