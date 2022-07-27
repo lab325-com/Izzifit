@@ -77,21 +77,29 @@ class SlotTableViewCell: BaseTableViewCell {
 //                                                                     right: 8))
     }
     
-    func fillCellby(tagBtn: Int, model: MapModel?,game: Games) {
+    func fillCellby(tagBtn: Int) {
         slotBtn.tag = tagBtn
-        switch game {
-        case .arctic:
-            let image = model?.map2.spinObjects.first(where: {$0.id == "\(tagBtn)"})?.image.urlIosFull
-            
-            //slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal)
-            slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal,
-                                placeholder: slotImgsDict[tagBtn]!,
-                                options: [.transition(.fade(0.25))])
-        case .england:
-            slotBtn.setImage(englandImgsDict[tagBtn] ?? UIImage(), for: .normal)
-        case .france:
-            slotBtn.setImage(franceImgsDict[tagBtn] ?? UIImage(), for: .normal)
+        
+//        switch GameNetworkLayer.shared.mapName {
+//        case .snow_map:
+//        case .england_map:
+//        case .france_map:
+//        }
+//        switch game {
+//        case .arctic:
+        if let slotObjects = GameNetworkLayer.shared.slotObjects {
+            let image = slotObjects.first(where: {$0.id == "\(tagBtn)"})?.image.urlIosFull
+            slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal)
         }
+   
+//            slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal,
+//                                placeholder: slotImgsDict[tagBtn]!,
+//                                options: [.transition(.fade(0.25))])
+//        case .england:
+//            slotBtn.setImage(englandImgsDict[tagBtn] ?? UIImage(), for: .normal)
+//        case .france:
+//            slotBtn.setImage(franceImgsDict[tagBtn] ?? UIImage(), for: .normal)
+//        }
         
         borderView.isHidden = true
         slotBtn.clipsToBounds = true

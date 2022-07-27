@@ -48,7 +48,7 @@ class GameTabBarController: UITabBarController {
     }
     
     private func setupVCs() {
-        viewControllers = [ GameBaseController(firstVC: UIViewController(), secondVC: UIViewController()),
+        viewControllers = [ GameController(),
         GameBaseController(firstVC: UIViewController(), secondVC: UIViewController())]
 //        [createNavController(for: GameBaseController(firstVC: ArcticGameController(),
 //                                                                       secondVC: EnglandGameController()),

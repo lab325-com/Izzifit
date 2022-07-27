@@ -152,7 +152,7 @@ extension ArcticGameController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlotCollectionCell.id, for: indexPath) as! SlotCollectionCell
         cell.section = indexPath.row
-        cell.setupCell(model: presenter.maps, game: .arctic)
+        cell.setupCell()
         return cell
     }
 }

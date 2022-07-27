@@ -7,30 +7,30 @@
 
 import UIKit
 
-class EnglandGameView: UIView, GameAnimationProtocol {
-   
+class EnglandGameView: UIView, SpinGameViewProtocol {
+    
     var animationImgVw: UIImageView = UIImageView()
+    var hummerBtn: UIButton = UIButton()
+    var hummerCountLbl: UILabel = UILabel()
+    var spinBtn: UIButton = UIButton()
+    var slotBackImgVw: UIImageView = UIImageView()
+    var resultStackView: UIStackView!
+    
     // bar
     var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
     // Basic view
     private var gameBackImgVw = UIImageView()
-    var slotBackImgVw = UIImageView()
     private var slotHouseImgVw = UIImageView()
     private var uponGameBackImgVw = UIImageView()
-    var spinBtn = UIButton()
     private var titleLbl = UILabel()
     
     private var greenCounterLbl = UILabel()
     private let greenCounterImgVw = UIImageView()
-    // hummer
-    var hummerBtn = UIButton()
-    var hummerCountLbl = UILabel()
     // logo
     private var logoImgVw = UIImageView()
     //startSpinLbl
     var startSpinLbl = UILabel()
     //resultStack
-    var resultStackView: UIStackView!
     private var awardsVerticalStackView: UIStackView!
     
     var awardImgVw = UIImageView()

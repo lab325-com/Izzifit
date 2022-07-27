@@ -68,12 +68,12 @@ class SlotCollectionCell: UICollectionViewCell {
                   trailingC: 0)
     }
     
-    func setupCell(model: MapModel?,game: Games) {
-        self.game = game
-        if self.model == nil {
-            self.model = model
-            tableView.reloadData()
-        }
+    func setupCell() {
+//        self.game = game
+//        if self.model == nil {
+//            self.model = model
+//            tableView.reloadData()
+//        }
     }
     
     required init?(coder: NSCoder) {
@@ -89,7 +89,9 @@ extension SlotCollectionCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SlotTableViewCell.id,
                                                  for: indexPath) as! SlotTableViewCell
-        cell.fillCellby(tagBtn: arrays[section][indexPath.row], model: model, game: game)
+//        cell.fillCellby(tagBtn: arrays[section][indexPath.row], model: model, game: game)
+        
+        cell.fillCellby(tagBtn: arrays[section][indexPath.row])
         cell.tag = arrays[section][indexPath.row]
         cell.tagBtn = arrays[section][indexPath.row]
         return cell

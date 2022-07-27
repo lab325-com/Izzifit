@@ -7,9 +7,15 @@
 
 import UIKit
 
-class ArcticGameView: UIView, GameAnimationProtocol {
+class ArcticGameView: UIView, SpinGameViewProtocol {
     
     var animationImgVw: UIImageView = UIImageView()
+    var hummerBtn: UIButton = UIButton()
+    var hummerCountLbl: UILabel = UILabel()
+    var spinBtn: UIButton = UIButton()
+    var slotBackImgVw: UIImageView = UIImageView()
+    var resultStackView: UIStackView!
+    
     static var currentEnergy = CGFloat()
     static var counter = 0
     var onBoardingValues = [CGFloat]()
@@ -17,23 +23,20 @@ class ArcticGameView: UIView, GameAnimationProtocol {
     var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
     // Basic view
     private var gameBackImgVw = UIImageView()
-    var slotBackImgVw = UIImageView()
+   
     var slotHouseImgVw = UIImageView()
     private var uponGameBackImgVw = UIImageView()
-    var spinBtn = UIButton()
     private var titleLbl = UILabel()
     private var greenCounterLbl = UILabel()
     private let greenCounterImgVw = UIImageView()
-    // hummer
-    var hummerBtn = UIButton()
-    var hummerCountLbl = UILabel()
+
     // logo
     private var logoImgVw = UIImageView()
     //startSpinLbl
     var startSpinLbl = UILabel()
     
     //resultStack
-    var resultStackView: UIStackView!
+  
     private var awardsVerticalStackView: UIStackView!
     
     var awardImgVw = UIImageView()

@@ -406,6 +406,8 @@
 		FA9400052833989C00CE5021 /* GameBarBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9400042833989C00CE5021 /* GameBarBackView.swift */; };
 		FA95F149289140FC007725F0 /* GameNetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95F148289140FC007725F0 /* GameNetworkLayer.swift */; };
 		FA95F14B28915DAF007725F0 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95F14A28915DAF007725F0 /* UITabBarController+Extension.swift */; };
+		FA95F14D28917C08007725F0 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95F14C28917C08007725F0 /* GameController.swift */; };
+		FA95F14F2891869D007725F0 /* SpinGameViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95F14E2891869D007725F0 /* SpinGameViewProtocol.swift */; };
 		FAA8E88A27F449060081A12A /* CaloriesWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAA8E88927F449060081A12A /* CaloriesWidget.graphql */; };
 		FAA8E88C27F450A80081A12A /* CaloriesWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8E88B27F450A80081A12A /* CaloriesWidgetModel.swift */; };
 		FAA9DBEB27D9ECD4004A14FB /* WorkoutTypesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */; };
@@ -869,6 +871,8 @@
 		FA9400042833989C00CE5021 /* GameBarBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBarBackView.swift; sourceTree = "<group>"; };
 		FA95F148289140FC007725F0 /* GameNetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNetworkLayer.swift; sourceTree = "<group>"; };
 		FA95F14A28915DAF007725F0 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
+		FA95F14C28917C08007725F0 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		FA95F14E2891869D007725F0 /* SpinGameViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinGameViewProtocol.swift; sourceTree = "<group>"; };
 		FAA8E88927F449060081A12A /* CaloriesWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CaloriesWidget.graphql; sourceTree = "<group>"; };
 		FAA8E88B27F450A80081A12A /* CaloriesWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesWidgetModel.swift; sourceTree = "<group>"; };
 		FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTypesModel.swift; sourceTree = "<group>"; };
@@ -2844,6 +2848,8 @@
 				FA3319C6284682D30021C433 /* ArcticGameController */,
 				FAB65AAF2848C4A600664399 /* EnglandGameController */,
 				FA45FD70285C585F00F80ACD /* GameAnimationProtocol.swift */,
+				FA95F14C28917C08007725F0 /* GameController.swift */,
+				FA95F14E2891869D007725F0 /* SpinGameViewProtocol.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -3462,6 +3468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02AB486A27E07EFB00F35EE2 /* FoodTopTitleCell.swift in Sources */,
+				FA95F14F2891869D007725F0 /* SpinGameViewProtocol.swift in Sources */,
 				0290B39327D2045400381B42 /* ShadowsView.swift in Sources */,
 				FA2794FC2861AC1200AEEA70 /* EnergyStepsCollectionCell.swift in Sources */,
 				FA1A256E283D0D0400240E28 /* PaywallSingleController.swift in Sources */,
@@ -3614,6 +3621,7 @@
 				0249D24C27B3A67900F265C1 /* RootRouter.swift in Sources */,
 				02C3DD6527BEDA82004E5C65 /* QuizeProgressController.swift in Sources */,
 				0268753327D8E54E00FFEA6A /* EnergyChooseActivityCell.swift in Sources */,
+				FA95F14D28917C08007725F0 /* GameController.swift in Sources */,
 				FA6699CA281ABCF600B394E0 /* OffsetCounter.swift in Sources */,
 				023D171E27BE258A005F95C0 /* UITapGesture+Extension.swift in Sources */,
 				0249D28227B3AAAE00F265C1 /* LoginController.swift in Sources */,
