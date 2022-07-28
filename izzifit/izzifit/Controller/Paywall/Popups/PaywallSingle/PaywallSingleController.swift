@@ -163,7 +163,7 @@ extension PaywallSingleController: SubscribeOutputProtocol {
         activity.isHidden = true
         
         if let info = presenter.paymentsInfo.first {
-            subSalePriceLabel.text = String(format: "Sale %@%@", info.currencySymbol ?? "", info.prettyPrice.trimmingCharacters(in: .whitespacesAndNewlines))
+            subSalePriceLabel.text = String(format: "Sale %@%.2f", info.currencySymbol ?? "", info.price)
             subSaleDiscountLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", (info.price * 2))
             subPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 365)
             subPerDayPriceLabel.text = String(format: "%@%.2f ", info.currencySymbol ?? "", (info.price * 2) / 365)

@@ -253,7 +253,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if #available(iOS 14.0, *) {
             completionHandler([[.banner, .badge, .sound]])
         } else {
-            completionHandler([[.badge, .sound]])
+            completionHandler([[.badge, .sound, .alert]])
         }
     }
     
@@ -277,6 +277,10 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID from userNotificationCenter didReceive: \(messageID)")
+        }
+        
+        if let aps = userInfo["aps"] as? Dictionary<String, Any>, let alert = aps["alert"] as? Dictionary<String, Any>, let title = alert["title"] as? String {
+            AnalyticsHelper.sendFirebaseEvents(events: .push_open, params: ["title": title])
         }
         
         completionHandler()
