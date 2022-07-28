@@ -196,7 +196,7 @@ class PaywallController: BaseController {
             
             priceStackView.sendSubviewToBack(secondView)
             priceStackView.sendSubviewToBack(firstView)
-        case .oneMonth, .theeMonth30, .oneYear50:
+        case .oneMonth, .theeMonth30, .oneYear50, .theeMonth50, .oneYear70:
             return
         }
         
@@ -214,7 +214,7 @@ class PaywallController: BaseController {
                 self.firstView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.secondView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.threeView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-            case .oneMonth, .theeMonth30, .oneYear50:
+            case .oneMonth, .theeMonth30, .oneYear50, .theeMonth50, .oneYear70:
                 return
             }
         }) { (_) in }
