@@ -185,7 +185,7 @@ class PaywallMultiplyController: BaseController {
             
 //            subStackView.sendSubviewToBack(firstSubView)
 //            subStackView.sendSubviewToBack(secondSubView)
-        case .oneYear:
+        case .oneYear, .oneYear70, .theeMonth50:
             return
         }
         
@@ -249,7 +249,7 @@ class PaywallMultiplyController: BaseController {
     
     @IBAction func actionSecondSub(_ sender: UIButton) {
         priceType = screen == .threePrice ? .theeMonth30 : .oneMonth
-        trialType = .oneMonth
+        trialType = .threeMonth
     }
     
     @IBAction func actionThirdSub(_ sender: UIButton) {
