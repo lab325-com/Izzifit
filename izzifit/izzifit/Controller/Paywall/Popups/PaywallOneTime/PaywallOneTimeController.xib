@@ -28,11 +28,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaywallOneTimeController" customModule="izzifit" customModuleProvider="target">
             <connections>
-                <outlet property="fitFasterLabel" destination="TeI-WA-Ctr" id="q7o-9f-1Jb"/>
-                <outlet property="healthyHabitsLabel" destination="P4D-SR-KC7" id="gfh-vE-Kxc"/>
-                <outlet property="improveHealthLabel" destination="c1d-Vb-icL" id="hcq-ZO-lSS"/>
+                <outlet property="caloriesGameLabel" destination="TeI-WA-Ctr" id="2A2-bg-7XL"/>
+                <outlet property="habitsLabel" destination="P4D-SR-KC7" id="K8X-f5-z6v"/>
+                <outlet property="hungerLabel" destination="c1d-Vb-icL" id="ft0-Ul-IoW"/>
                 <outlet property="infoLabel" destination="BmA-iC-RFw" id="YHy-Sw-8Fi"/>
-                <outlet property="loseWeightLabel" destination="QPZ-Nw-NoO" id="6Xh-Gr-XYh"/>
                 <outlet property="offerLabel" destination="dfG-Iu-Yfr" id="UIR-Eg-ucc"/>
                 <outlet property="oneTimeLabel" destination="eMo-pH-5l2" id="nCR-23-bAF"/>
                 <outlet property="personalLabel" destination="dWR-kf-bCE" id="2uK-bi-lpa"/>
@@ -47,6 +46,7 @@
                 <outlet property="subscribeButton" destination="gDk-1a-tIs" id="5lx-dU-d9y"/>
                 <outlet property="trialButton" destination="SGB-1e-BSo" id="IlM-ly-EXd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wellbeingLabel" destination="QPZ-Nw-NoO" id="Oyj-vd-tYT"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -115,10 +115,10 @@
                                     </connections>
                                 </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" distribution="equalSpacing" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="WaC-09-7mj">
-                                    <rect key="frame" x="24" y="300" width="175" height="164"/>
+                                    <rect key="frame" x="24" y="300" width="75.666666666666671" height="164"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="YiB-tm-3fp">
-                                            <rect key="frame" x="0.0" y="0.0" width="175" height="24"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="24"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="paywall_selected_ic" translatesAutoresizingMaskIntoConstraints="NO" id="5yE-M8-4ZE">
                                                     <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -126,8 +126,8 @@
                                                         <constraint firstAttribute="width" constant="24" id="gMg-zV-VIf"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPZ-Nw-NoO">
-                                                    <rect key="frame" x="39" y="0.0" width="136" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPZ-Nw-NoO">
+                                                    <rect key="frame" x="39" y="0.0" width="36.666666666666657" height="24"/>
                                                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -135,7 +135,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dwG-xm-ccI">
-                                            <rect key="frame" x="0.0" y="35" width="175" height="24"/>
+                                            <rect key="frame" x="0.0" y="35" width="75.666666666666671" height="24"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="paywall_selected_ic" translatesAutoresizingMaskIntoConstraints="NO" id="wau-J9-cta">
                                                     <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -144,7 +144,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1d-Vb-icL">
-                                                    <rect key="frame" x="39" y="0.0" width="136" height="24"/>
+                                                    <rect key="frame" x="39" y="0.0" width="36.666666666666657" height="24"/>
                                                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -152,7 +152,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dcH-3M-Rf1">
-                                            <rect key="frame" x="0.0" y="70" width="175" height="24"/>
+                                            <rect key="frame" x="0.0" y="70" width="75.666666666666671" height="24"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="paywall_selected_ic" translatesAutoresizingMaskIntoConstraints="NO" id="u6W-9c-1QM">
                                                     <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -160,8 +160,8 @@
                                                         <constraint firstAttribute="width" constant="24" id="pHy-cP-OPU"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeI-WA-Ctr">
-                                                    <rect key="frame" x="39" y="0.0" width="136" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeI-WA-Ctr">
+                                                    <rect key="frame" x="39" y="0.0" width="36.666666666666657" height="24"/>
                                                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -169,7 +169,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3Dn-mk-Rpx">
-                                            <rect key="frame" x="0.0" y="105" width="175" height="24"/>
+                                            <rect key="frame" x="0.0" y="105" width="75.666666666666671" height="24"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="paywall_selected_ic" translatesAutoresizingMaskIntoConstraints="NO" id="WfD-6I-NIq">
                                                     <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -177,8 +177,8 @@
                                                         <constraint firstAttribute="width" constant="24" id="ob0-pE-n47"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4D-SR-KC7">
-                                                    <rect key="frame" x="39" y="0.0" width="136" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4D-SR-KC7">
+                                                    <rect key="frame" x="39" y="0.0" width="36.666666666666657" height="24"/>
                                                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -186,7 +186,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6oW-iJ-Gdl">
-                                            <rect key="frame" x="0.0" y="140" width="175" height="24"/>
+                                            <rect key="frame" x="0.0" y="140" width="75.666666666666671" height="24"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" image="paywall_selected_ic" translatesAutoresizingMaskIntoConstraints="NO" id="MDi-7e-Sqb">
                                                     <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -194,8 +194,8 @@
                                                         <constraint firstAttribute="width" constant="24" id="htZ-3J-3nG"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJN-qg-Fv6">
-                                                    <rect key="frame" x="39" y="0.0" width="136" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJN-qg-Fv6">
+                                                    <rect key="frame" x="39" y="0.0" width="36.666666666666657" height="24"/>
                                                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -376,7 +376,6 @@
                                 <constraint firstItem="dfG-Iu-Yfr" firstAttribute="top" secondItem="dWR-kf-bCE" secondAttribute="bottom" constant="-10" id="mso-qy-QuL"/>
                                 <constraint firstItem="LBY-jl-JvM" firstAttribute="top" secondItem="fCF-yA-Aqv" secondAttribute="bottom" constant="10" id="poV-85-IqW"/>
                                 <constraint firstItem="vlE-j0-cqq" firstAttribute="leading" secondItem="nkC-Qa-26E" secondAttribute="leading" constant="24" id="pw8-LS-MId"/>
-                                <constraint firstItem="z0P-5R-O4K" firstAttribute="leading" secondItem="WaC-09-7mj" secondAttribute="trailing" id="qk5-rz-uLI"/>
                                 <constraint firstAttribute="trailing" secondItem="vlE-j0-cqq" secondAttribute="trailing" constant="24" id="uYm-N3-MGI"/>
                                 <constraint firstItem="EOy-cy-Upc" firstAttribute="top" secondItem="z0P-5R-O4K" secondAttribute="top" id="uyB-ZG-YYt"/>
                                 <constraint firstItem="WQf-51-l6Q" firstAttribute="leading" secondItem="nkC-Qa-26E" secondAttribute="leading" constant="-152" id="vTu-Dj-jCa"/>

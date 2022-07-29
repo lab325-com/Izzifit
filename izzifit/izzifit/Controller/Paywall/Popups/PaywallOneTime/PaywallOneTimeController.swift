@@ -10,10 +10,10 @@ class PaywallOneTimeController: BaseController {
     @IBOutlet weak var oneTimeLabel: UILabel!
     @IBOutlet weak var personalLabel: UILabel!
     @IBOutlet weak var offerLabel: UILabel!
-    @IBOutlet weak var loseWeightLabel: UILabel!
-    @IBOutlet weak var improveHealthLabel: UILabel!
-    @IBOutlet weak var fitFasterLabel: UILabel!
-    @IBOutlet weak var healthyHabitsLabel: UILabel!
+    @IBOutlet weak var wellbeingLabel: UILabel!
+    @IBOutlet weak var hungerLabel: UILabel!
+    @IBOutlet weak var caloriesGameLabel: UILabel!
+    @IBOutlet weak var habitsLabel: UILabel!
     @IBOutlet weak var premiumAccessLabel: UILabel!
     @IBOutlet weak var subNameLabel: UILabel!
     @IBOutlet weak var subSaveLabel: UILabel!
@@ -73,10 +73,10 @@ class PaywallOneTimeController: BaseController {
         personalLabel.text = RLocalization.paywall_one_time_personal()
         offerLabel.text = RLocalization.paywall_one_time_offer()
         
-        loseWeightLabel.text = RLocalization.paywall_one_time_loose_weight()
-        improveHealthLabel.text = RLocalization.paywall_one_time_improve_health()
-        fitFasterLabel.text = RLocalization.paywall_one_time_fit_faster()
-        healthyHabitsLabel.text = RLocalization.paywall_one_time_habits()
+        wellbeingLabel.text = RLocalization.paywall_one_time_wellbeing()
+        hungerLabel.text = RLocalization.paywall_one_time_hunger()
+        caloriesGameLabel.text = RLocalization.paywall_one_time_calories_game()
+        habitsLabel.text = RLocalization.paywall_one_time_habits()
         premiumAccessLabel.text = RLocalization.paywall_one_time_premium_access()
         
         subNameLabel.text = RLocalization.paywall_one_time_one_year()
