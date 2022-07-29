@@ -83,7 +83,6 @@ enum FirebaseEvents: String {
     case workout_open
     case workout_start
     case workout_finish
-    case workout_mark_tap
     case workout_pause
     case workout_next_exe
     case workout_prev_exe
@@ -111,6 +110,7 @@ enum FirebaseEvents: String {
     case pay_paid_mk_open
     case pay_paid_mk_close
     case push_open
+    
 }
 
 enum FacebookEvents: String {

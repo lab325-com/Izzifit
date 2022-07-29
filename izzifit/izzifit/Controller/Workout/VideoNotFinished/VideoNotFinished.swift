@@ -111,18 +111,22 @@ class VideoNotFinished: BaseController {
     }
     
     @IBAction func actinHard(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_skip, params: ["alias": "hard"])
         preseneter.updateEnd(of: .workoutAttemptFeedbackTypeHard, attemptId: attemptId)
     }
     
     @IBAction func actionToLong(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_skip, params: ["alias": "long"])
         preseneter.updateEnd(of: .workoutAttemptFeedbackTypeLong, attemptId: attemptId)
     }
     
     @IBAction func actionWatching(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_skip, params: ["alias": "watching"])
         preseneter.updateEnd(of: .workoutAttemptFeedbackTypeWatching, attemptId: attemptId)
     }
     
     @IBAction func actionOther(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_skip, params: ["alias": "watching"])
         preseneter.updateEnd(of: .workoutAttemptFeedbackTypeOther, attemptId: attemptId)
     }
 }

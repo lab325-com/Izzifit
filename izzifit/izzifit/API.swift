@@ -182,8 +182,9 @@ public struct OrderCreateInputRecord: GraphQLMapConvertible {
 
   /// - Parameters:
   ///   - receipt
-  public init(receipt: Swift.Optional<String?> = nil) {
-    graphQLMap = ["receipt": receipt]
+  ///   - productId
+  public init(receipt: Swift.Optional<String?> = nil, productId: Swift.Optional<String?> = nil) {
+    graphQLMap = ["receipt": receipt, "productId": productId]
   }
 
   public var receipt: Swift.Optional<String?> {
@@ -192,6 +193,15 @@ public struct OrderCreateInputRecord: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "receipt")
+    }
+  }
+
+  public var productId: Swift.Optional<String?> {
+    get {
+      return graphQLMap["productId"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "productId")
     }
   }
 }
@@ -241,8 +251,9 @@ public struct OrderProductInputRecord: GraphQLMapConvertible {
 
   /// - Parameters:
   ///   - receipt
-  public init(receipt: Swift.Optional<String?> = nil) {
-    graphQLMap = ["receipt": receipt]
+  ///   - productId
+  public init(receipt: Swift.Optional<String?> = nil, productId: Swift.Optional<String?> = nil) {
+    graphQLMap = ["receipt": receipt, "productId": productId]
   }
 
   public var receipt: Swift.Optional<String?> {
@@ -251,6 +262,15 @@ public struct OrderProductInputRecord: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "receipt")
+    }
+  }
+
+  public var productId: Swift.Optional<String?> {
+    get {
+      return graphQLMap["productId"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "productId")
     }
   }
 }
