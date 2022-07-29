@@ -111,17 +111,17 @@ class VideoFinishedController: BaseController {
     }
     
     @IBAction func actionCanDoMore(_ sender: UIButton) {
-        AnalyticsHelper.sendFirebaseEvents(events: .workout_mark_tap, params: ["type": "workoutAttemptFeedbackTypeCanDoMore"])
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_finish, params: ["alias": "do_more"])
         preseneter.updateEnd(of: .workoutAttemptFeedbackTypeCanDoMore, attemptId: attemptId)
     }
     
     @IBAction func actionExcelent(_ sender: UIButton) {
-        AnalyticsHelper.sendFirebaseEvents(events: .workout_mark_tap, params: ["type": "workoutAttemptFeedbackTypeExcellent"])
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_finish, params: ["alias": "excellent"])
         preseneter.updateEnd(of: .workoutAttemptFeedbackTypeExcellent, attemptId: attemptId)
     }
     
     @IBAction func actionHard(_ sender: UIButton) {
-        AnalyticsHelper.sendFirebaseEvents(events: .workout_mark_tap, params: ["type": "workoutAttemptFeedbackTypeHard"])
+        AnalyticsHelper.sendFirebaseEvents(events: .workout_finish, params: ["alias": "very_hard"])
         preseneter.updateEnd(of: .workoutAttemptFeedbackTypeHard, attemptId: attemptId)
     }
 }

@@ -173,13 +173,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.33" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aos-fS-HDe">
-                                            <rect key="frame" x="274" y="47.333333333333314" width="34.333333333333314" height="14.666666666666664"/>
+                                            <rect key="frame" x="278" y="47.333333333333314" width="34.333333333333314" height="14.666666666666664"/>
                                             <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="12"/>
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMi-co-pYd">
-                                            <rect key="frame" x="274" y="54.333333333333314" width="34.333333333333314" height="1"/>
+                                            <rect key="frame" x="278" y="54.333333333333314" width="34.333333333333314" height="1"/>
                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="GOc-gx-8qr"/>
@@ -204,7 +204,7 @@
                                         <constraint firstItem="BXh-YN-rVq" firstAttribute="trailing" secondItem="iNG-nG-dRR" secondAttribute="trailing" id="bPj-K5-epC"/>
                                         <constraint firstItem="BXh-YN-rVq" firstAttribute="centerY" secondItem="iNG-nG-dRR" secondAttribute="centerY" id="eDy-73-7cO"/>
                                         <constraint firstItem="7q9-Sj-g46" firstAttribute="leading" secondItem="DdG-uc-3DJ" secondAttribute="leading" constant="20" id="es1-4V-VZH"/>
-                                        <constraint firstItem="3L2-bV-qTA" firstAttribute="leading" secondItem="Aos-fS-HDe" secondAttribute="trailing" constant="8" id="fma-oh-psK"/>
+                                        <constraint firstItem="3L2-bV-qTA" firstAttribute="leading" secondItem="Aos-fS-HDe" secondAttribute="trailing" constant="4" id="fma-oh-psK"/>
                                         <constraint firstAttribute="height" constant="72" id="h62-4s-dQP"/>
                                         <constraint firstAttribute="bottom" secondItem="3L2-bV-qTA" secondAttribute="bottom" constant="10" id="xxl-C0-5eF"/>
                                     </constraints>

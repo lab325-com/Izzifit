@@ -90,20 +90,32 @@ class EnergySpecialPriceCell: UITableViewCell {
     }
     
     func setPrice(model: WorkoutsWidgetMainModel, paymentInfo: PaymentsModel) {
-        if model.isAvailable != true {
+        if KeychainService.standard.me?.Subscription != nil {
             priceLabel.isHidden = false
             discountLabel.isHidden = false
+            
+            priceLabel.text = "Free"
+            
+            let dicount = Int(paymentInfo.price)
+            let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "$\(dicount).99")
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSRange(location: 0, length: attributeString.length))
+            
+            discountLabel.attributedText = attributeString
+            
+        } else if model.isAvailable != true {
+            priceLabel.isHidden = false
+            discountLabel.isHidden = false
+            
+            priceLabel.text = paymentInfo.prettyPrice
+            
+            let dicount = Int(paymentInfo.price)
+            let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "$\(dicount * 2).99")
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSRange(location: 0, length: attributeString.length))
+            
+            discountLabel.attributedText = attributeString
         } else {
             priceLabel.isHidden = true
             discountLabel.isHidden = true
         }
-        
-        priceLabel.text = paymentInfo.prettyPrice
-        
-        let dicount = Int(paymentInfo.price)
-        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "$\(dicount * 2).99")
-        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSRange(location: 0, length: attributeString.length))
-        
-        discountLabel.attributedText = attributeString
     }
 }

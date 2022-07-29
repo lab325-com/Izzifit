@@ -93,7 +93,7 @@ class WorkoutDetailController: BaseController {
     }
     
     @IBAction func actionStartWorkout(_ sender: UIButton) {
-        if let  idSpecialId = idSpecialId, presenter.workout?.isAvailable != true  {
+        if let  idSpecialId = idSpecialId, presenter.workout?.isAvailable != true, KeychainService.standard.me?.Subscription == nil  {
             AnalyticsHelper.sendFirebaseEvents(events: .pay_paid_mk_open, params: ["id": idSpecialId])
             presenterSubscribe.purchaseProduct(id: idSpecialId, screen: .wokoutInApp, place: .workout) { [weak self] result, error in
                 guard let `self` = self else { return }
@@ -214,7 +214,11 @@ extension WorkoutDetailController: WorkoutDetailHeaderProtocol {
 
 extension WorkoutDetailController: WorkoutDetailOutputProtocol {
     func success() {
-        startWorkoutButton.setTitle(presenter.workout?.isAvailable == true ? RLocalization.workout_detail_start() : "Buy Now", for: .normal)
+        if KeychainService.standard.me?.Subscription != nil {
+            startWorkoutButton.setTitle(RLocalization.workout_detail_start(), for: .normal)
+        } else {
+            startWorkoutButton.setTitle(presenter.workout?.isAvailable == true ? RLocalization.workout_detail_start() : "Buy Now", for: .normal)
+        }
         
         tableView.isHidden = false
         tableView.reloadData()
