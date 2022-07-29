@@ -399,6 +399,7 @@
 		FA6699CA281ABCF600B394E0 /* OffsetCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */; };
 		FA6E8B302892D68E0008F36C /* PaywallOneTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E8B2E2892D68E0008F36C /* PaywallOneTimeController.swift */; };
 		FA6E8B312892D68E0008F36C /* PaywallOneTimeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6E8B2F2892D68E0008F36C /* PaywallOneTimeController.xib */; };
+		FA6E8B332894028F0008F36C /* Inter-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6E8B322894028F0008F36C /* Inter-BlackItalic.ttf */; };
 		FA7E481628859C72005AEAC1 /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7E481528859C72005AEAC1 /* MainTabBarPresenter.swift */; };
 		FA8535362875D0D600A9137B /* coins_header.json in Resources */ = {isa = PBXBuildFile; fileRef = FA8535352875D0D600A9137B /* coins_header.json */; };
 		FA85353E287707DD00A9137B /* FinishMap.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA85353C287707DD00A9137B /* FinishMap.graphql */; };
@@ -862,6 +863,7 @@
 		FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetCounter.swift; sourceTree = "<group>"; };
 		FA6E8B2E2892D68E0008F36C /* PaywallOneTimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallOneTimeController.swift; sourceTree = "<group>"; };
 		FA6E8B2F2892D68E0008F36C /* PaywallOneTimeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaywallOneTimeController.xib; sourceTree = "<group>"; };
+		FA6E8B322894028F0008F36C /* Inter-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BlackItalic.ttf"; sourceTree = "<group>"; };
 		FA7E481528859C72005AEAC1 /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
 		FA8535352875D0D600A9137B /* coins_header.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coins_header.json; sourceTree = "<group>"; };
 		FA85353C287707DD00A9137B /* FinishMap.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FinishMap.graphql; sourceTree = "<group>"; };
@@ -2376,6 +2378,7 @@
 		02D066B427BBB54200D12C5F /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				FA6E8B322894028F0008F36C /* Inter-BlackItalic.ttf */,
 				02D066BC27BBB57D00D12C5F /* Inter-Black.ttf */,
 				02D066BB27BBB57C00D12C5F /* Inter-Bold.ttf */,
 				02D066B627BBB57B00D12C5F /* Inter-ExtraBold.ttf */,
@@ -3182,6 +3185,7 @@
 				FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */,
 				0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */,
 				020D282027E863DD00010122 /* FoodAddController.xib in Resources */,
+				FA6E8B332894028F0008F36C /* Inter-BlackItalic.ttf in Resources */,
 				02D066CC27BBBB4300D12C5F /* QuizeNameController.xib in Resources */,
 				FAC340E5287CDA7D00B90943 /* congrads_anim.json in Resources */,
 				0249D28327B3AAAE00F265C1 /* LoginController.xib in Resources */,
@@ -3394,7 +3398,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
 		};
 		02D066AB27BBA8A800D12C5F /* RSwift */ = {
 			isa = PBXShellScriptBuildPhase;

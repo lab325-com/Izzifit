@@ -3,21 +3,95 @@ import UIKit
 
 class PaywallOneTimeController: BaseController {
     
-    @IBOutlet weak var privacyLabel: UILabel!
+    //----------------------------------------------
+    // MARK: - IBOutlet
+    //----------------------------------------------
     
+    @IBOutlet weak var oneTimeLabel: UILabel!
+    @IBOutlet weak var personalLabel: UILabel!
+    @IBOutlet weak var offerLabel: UILabel!
+    @IBOutlet weak var loseWeightLabel: UILabel!
+    @IBOutlet weak var improveHealthLabel: UILabel!
+    @IBOutlet weak var fitFasterLabel: UILabel!
+    @IBOutlet weak var healthyHabitsLabel: UILabel!
+    @IBOutlet weak var premiumAccessLabel: UILabel!
+    @IBOutlet weak var subNameLabel: UILabel!
+    @IBOutlet weak var subSaveLabel: UILabel!
+    @IBOutlet weak var subPriceLabel: UILabel!
+    @IBOutlet weak var subFullPriceLabel: UILabel!
+    @IBOutlet weak var subPerYearLabel: UILabel!
+    @IBOutlet weak var privacyLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
+    
+    @IBOutlet weak var subscribeButton: UIButton!
     @IBOutlet weak var trialButton: UIButton!
+    @IBOutlet weak var restoreButton: UIButton!
+    
+    //----------------------------------------------
+    // MARK: - Property
+    //----------------------------------------------
+    
+    weak var delegate: PaywallProtocol?
+    let screen: PaywallScreenType
+    let place: PlaceType
+    
+    private lazy var presenter = SubscribePresenter(view: self)
+    private var priceType: PaywallPriceType = .oneYear70
+    private var trialType: PaywallTrialType = .oneYear70
+    
+    //----------------------------------------------
+    // MARK: - Init
+    //----------------------------------------------
+    
+    init(delegate: PaywallProtocol, screen: PaywallScreenType, place: PlaceType) {
+        self.delegate = delegate
+        self.screen = screen
+        self.place = place
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
+    //----------------------------------------------
+    // MARK: - Life cycle
+    //----------------------------------------------
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setup()
     }
     
+    //----------------------------------------------
+    // MARK: - Setup
+    //----------------------------------------------
+    
     private func setup() {
+        oneTimeLabel.text = RLocalization.paywall_one_time_one_time()
+        personalLabel.text = RLocalization.paywall_one_time_personal()
+        offerLabel.text = RLocalization.paywall_one_time_offer()
+        
+        loseWeightLabel.text = RLocalization.paywall_one_time_loose_weight()
+        improveHealthLabel.text = RLocalization.paywall_one_time_improve_health()
+        fitFasterLabel.text = RLocalization.paywall_one_time_fit_faster()
+        healthyHabitsLabel.text = RLocalization.paywall_one_time_habits()
+        premiumAccessLabel.text = RLocalization.paywall_one_time_premium_access()
+        
+        subNameLabel.text = RLocalization.paywall_one_time_one_year()
+        subPerYearLabel.text = RLocalization.paywall_one_time_per_year()
+        infoLabel.text = RLocalization.paywall_one_time_purchase_info()
+        
         createPrivacyLabel()
         
-        trialButton.layer.borderWidth = 1
-        trialButton.layer.borderColor = UIColor(rgb: 0xCCBEE9).cgColor
+        trialButton.setTitle(RLocalization.paywall_one_time_trial(), for: .normal)
+        restoreButton.setTitle(RLocalization.paywall_one_time_restore(), for: .normal)
+        
+        subscribeButton.layer.borderWidth = 1
+        subscribeButton.layer.borderColor = UIColor(rgb: 0xCCBEE9).cgColor
+        
+        presenter.retriveProduct(id: Set([PaywallPriceType.oneYear70.productId]))
     }
     
     private func createPrivacyLabel() {
@@ -68,5 +142,75 @@ class PaywallOneTimeController: BaseController {
             guard let url = URL(string: "https://mob325.com/izzifit/terms_and_conditions.html") else { return }
             UIApplication.shared.open(url)
         }
+    }
+    
+    @IBAction func actionClose(_ sender: UIButton) {
+//        AnalyticsHelper.sendFirebaseEvents(events: .pay_close, params: ["place": place.rawValue, "screen": screen.rawValue])
+        self.delegate?.paywallActionBack(controller: self)
+    }
+    
+    @IBAction func actionTrial(_ sender: UIButton) {
+//        AnalyticsHelper.sendFirebaseEvents(events: .pay_buy_free_trial)
+        presenter.purchase(id: trialType.productId, screen: screen, place: place) { [weak self] result, error in
+            guard let `self` = self else { return }
+            if result {
+                self.delegate?.paywallSuccess(controller: self)
+                self.dismiss(animated: true)
+            }
+        }
+    }
+    
+    @IBAction func actionSubscribe(_ sender: UIButton) {
+        presenter.purchase(id: priceType.productId, screen: screen, place: place) { [weak self] result, error in
+            guard let `self` = self else { return }
+            if result {
+                self.delegate?.paywallSuccess(controller: self)
+                self.dismiss(animated: true)
+            }
+        }
+    }
+    
+    @IBAction func actionRestore(_ sender: UIButton) {
+        presenter.restore { [weak self] result in
+            guard let `self` = self else { return }
+            if result {
+                self.delegate?.paywallSuccess(controller: self)
+                self.dismiss(animated: true)
+            }
+        }
+    }
+}
+
+//----------------------------------------------
+// MARK: - SubscribeOutputProtocol
+//----------------------------------------------
+
+extension PaywallOneTimeController: SubscribeOutputProtocol {
+    
+    func successRetrive() {
+        
+        switch screen {
+        case .oneTime:
+            if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneYear70.productId}) {
+                let price = Float(info.price)
+                let fullPrice = Float(info.price / 0.3)
+                let diff = Int(ceil(fullPrice - price))
+                
+                let fullPriceStr = "\(Int(fullPrice)).99"
+                let diffStr = "\(diff)"
+                
+                subPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", price)
+                subFullPriceLabel.text = String(format: "%@%@", info.currencySymbol ?? "", fullPriceStr)
+                subSaveLabel.text = String(format: "%@ %@%@",  RLocalization.paywall_one_time_save(), info.currencySymbol ?? "", diffStr)
+                subscribeButton.setTitle(String(format: "%@ %@%@", RLocalization.paywall_one_time_subscribe(), info.currencySymbol ?? "", diffStr), for: .normal)
+            }
+            
+        case .base, .onePrice, .twoPrice, .threePrice, .energyBuy, .wokoutInApp:
+            return
+        }
+    }
+    
+    func failure(error: String) {
+        
     }
 }

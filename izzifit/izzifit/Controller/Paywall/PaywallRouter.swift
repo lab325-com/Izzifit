@@ -31,6 +31,9 @@ class PaywallRouter: BaseRouter {
         case .threePrice:
             let controller = PaywallMultiplyController(delegate: delegate, screen: .threePrice, place: place)
             present(controller: controller)
+        case .oneTime:
+            let controller = PaywallOneTimeController(delegate: delegate, screen: .oneTime, place: place)
+            present(controller: controller)
         default:
             if place == .afterOnboarding || place == .workout || place == .workoutTraini {
                 let controller = PaywallMultiplyController(delegate: delegate, screen: .threePrice, place: place)
