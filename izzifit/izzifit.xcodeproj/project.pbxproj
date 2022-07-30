@@ -400,6 +400,8 @@
 		FA6E8B302892D68E0008F36C /* PaywallOneTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E8B2E2892D68E0008F36C /* PaywallOneTimeController.swift */; };
 		FA6E8B312892D68E0008F36C /* PaywallOneTimeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6E8B2F2892D68E0008F36C /* PaywallOneTimeController.xib */; };
 		FA6E8B332894028F0008F36C /* Inter-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6E8B322894028F0008F36C /* Inter-BlackItalic.ttf */; };
+		FA6E8B3728951E4E0008F36C /* PaywallCongratulationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E8B3528951E4E0008F36C /* PaywallCongratulationsController.swift */; };
+		FA6E8B3828951E4E0008F36C /* PaywallCongratulationsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6E8B3628951E4E0008F36C /* PaywallCongratulationsController.xib */; };
 		FA7E481628859C72005AEAC1 /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7E481528859C72005AEAC1 /* MainTabBarPresenter.swift */; };
 		FA8535362875D0D600A9137B /* coins_header.json in Resources */ = {isa = PBXBuildFile; fileRef = FA8535352875D0D600A9137B /* coins_header.json */; };
 		FA85353E287707DD00A9137B /* FinishMap.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA85353C287707DD00A9137B /* FinishMap.graphql */; };
@@ -864,6 +866,8 @@
 		FA6E8B2E2892D68E0008F36C /* PaywallOneTimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallOneTimeController.swift; sourceTree = "<group>"; };
 		FA6E8B2F2892D68E0008F36C /* PaywallOneTimeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaywallOneTimeController.xib; sourceTree = "<group>"; };
 		FA6E8B322894028F0008F36C /* Inter-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BlackItalic.ttf"; sourceTree = "<group>"; };
+		FA6E8B3528951E4E0008F36C /* PaywallCongratulationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCongratulationsController.swift; sourceTree = "<group>"; };
+		FA6E8B3628951E4E0008F36C /* PaywallCongratulationsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaywallCongratulationsController.xib; sourceTree = "<group>"; };
 		FA7E481528859C72005AEAC1 /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
 		FA8535352875D0D600A9137B /* coins_header.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coins_header.json; sourceTree = "<group>"; };
 		FA85353C287707DD00A9137B /* FinishMap.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FinishMap.graphql; sourceTree = "<group>"; };
@@ -2638,6 +2642,7 @@
 				FA1A256B283D0CBF00240E28 /* PaywallSingle */,
 				FA1A256A283D0CB300240E28 /* PaywallMultiply */,
 				FA6E8B2D2892D59F0008F36C /* PaywallOneTime */,
+				FA6E8B3428951DED0008F36C /* PaywallCongratulations */,
 			);
 			path = Popups;
 			sourceTree = "<group>";
@@ -2730,6 +2735,15 @@
 				FA6E8B2F2892D68E0008F36C /* PaywallOneTimeController.xib */,
 			);
 			path = PaywallOneTime;
+			sourceTree = "<group>";
+		};
+		FA6E8B3428951DED0008F36C /* PaywallCongratulations */ = {
+			isa = PBXGroup;
+			children = (
+				FA6E8B3528951E4E0008F36C /* PaywallCongratulationsController.swift */,
+				FA6E8B3628951E4E0008F36C /* PaywallCongratulationsController.xib */,
+			);
+			path = PaywallCongratulations;
 			sourceTree = "<group>";
 		};
 		FA8535382876FF0400A9137B /* FinishMap */ = {
@@ -3151,6 +3165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0268752A27D8C90100FFEA6A /* EnergyWeightCell.xib in Resources */,
+				FA6E8B3828951E4E0008F36C /* PaywallCongratulationsController.xib in Resources */,
 				FAC340E4287CDA7D00B90943 /* fun_anim.json in Resources */,
 				0227DAAE27C66C25008AB26B /* MenuAgeController.xib in Resources */,
 				FAC340E2287CDA7D00B90943 /* menu_anim.json in Resources */,
@@ -3497,6 +3512,7 @@
 				021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */,
 				0227DAC127C6A19C008AB26B /* MenuTargetWeightController.swift in Sources */,
 				02BC9ECA2806F10000B13401 /* PlainHorizontalProgressBar.swift in Sources */,
+				FA6E8B3728951E4E0008F36C /* PaywallCongratulationsController.swift in Sources */,
 				FAB6548227FFFD650057A221 /* SlotCollectionCell.swift in Sources */,
 				FA65F4F9283E238C00F2427C /* UIImageView+Extension.swift in Sources */,
 				023CDC2D280408400056F022 /* MenuLogoutCell.swift in Sources */,
