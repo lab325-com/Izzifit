@@ -29,6 +29,7 @@ enum PaywallScreenType: String, Codable {
     case onePrice
     case twoPrice
     case threePrice
+    case oneTime
     
     case energyBuy
     case wokoutInApp

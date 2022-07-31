@@ -396,7 +396,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 93 files.
+  /// This `R.file` struct is generated, and contains static references to 94 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -450,6 +450,8 @@ struct R: Rswift.Validatable {
     static let googleServiceInfo1Plist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info1", pathExtension: "plist")
     /// Resource file `Inter-Black.ttf`.
     static let interBlackTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Black", pathExtension: "ttf")
+    /// Resource file `Inter-BlackItalic.ttf`.
+    static let interBlackItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-BlackItalic", pathExtension: "ttf")
     /// Resource file `Inter-Bold.ttf`.
     static let interBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-Bold", pathExtension: "ttf")
     /// Resource file `Inter-BoldItalic.ttf`.
@@ -738,6 +740,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Inter-Black", withExtension: "ttf")`
     static func interBlackTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.interBlackTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Inter-BlackItalic", withExtension: "ttf")`
+    static func interBlackItalicTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.interBlackItalicTtf
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -1146,8 +1154,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.font` struct is generated, and contains static references to 10 fonts.
+  /// This `R.font` struct is generated, and contains static references to 11 fonts.
   struct font: Rswift.Validatable {
+    /// Font `Inter-BlackItalic`.
+    static let interBlackItalic = Rswift.FontResource(fontName: "Inter-BlackItalic")
     /// Font `Inter-Black`.
     static let interBlack = Rswift.FontResource(fontName: "Inter-Black")
     /// Font `Inter-BoldItalic`.
@@ -1172,6 +1182,11 @@ struct R: Rswift.Validatable {
     /// `UIFont(name: "Inter-Black", size: ...)`
     static func interBlack(size: CGFloat) -> UIKit.UIFont? {
       return UIKit.UIFont(resource: interBlack, size: size)
+    }
+
+    /// `UIFont(name: "Inter-BlackItalic", size: ...)`
+    static func interBlackItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: interBlackItalic, size: size)
     }
 
     /// `UIFont(name: "Inter-Bold", size: ...)`
@@ -1221,6 +1236,7 @@ struct R: Rswift.Validatable {
 
     static func validate() throws {
       if R.font.interBlack(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Black' could not be loaded, is 'Inter-Black.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.interBlackItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-BlackItalic' could not be loaded, is 'Inter-BlackItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Bold' could not be loaded, is 'Inter-Bold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interBoldItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-BoldItalic' could not be loaded, is 'Inter-BoldItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interExtraBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-ExtraBold' could not be loaded, is 'Inter-ExtraBold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
@@ -1235,7 +1251,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 399 images.
+  /// This `R.image` struct is generated, and contains static references to 403 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1813,6 +1829,14 @@ struct R: Rswift.Validatable {
     static let paywall_close_white_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_close_white_ic")
     /// Image `paywall_fade_down_ic`.
     static let paywall_fade_down_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_fade_down_ic")
+    /// Image `paywall_one_time_back_women_ic`.
+    static let paywall_one_time_back_women_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_one_time_back_women_ic")
+    /// Image `paywall_one_time_front_women_ic`.
+    static let paywall_one_time_front_women_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_one_time_front_women_ic")
+    /// Image `paywall_one_time_main_ellipse_ic`.
+    static let paywall_one_time_main_ellipse_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_one_time_main_ellipse_ic")
+    /// Image `paywall_one_time_top_ellipse_ic`.
+    static let paywall_one_time_top_ellipse_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_one_time_top_ellipse_ic")
     /// Image `paywall_sale_ic`.
     static let paywall_sale_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_sale_ic")
     /// Image `paywall_selected_ic`.
@@ -4053,6 +4077,34 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_one_time_back_women_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_one_time_back_women_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_one_time_back_women_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_one_time_front_women_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_one_time_front_women_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_one_time_front_women_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_one_time_main_ellipse_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_one_time_main_ellipse_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_one_time_main_ellipse_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_one_time_top_ellipse_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_one_time_top_ellipse_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_one_time_top_ellipse_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "paywall_sale_ic", bundle: ..., traitCollection: ...)`
     static func paywall_sale_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.paywall_sale_ic, compatibleWith: traitCollection)
@@ -4832,7 +4884,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 87 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 88 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -4932,6 +4984,8 @@ struct R: Rswift.Validatable {
     static let paywallController = _R.nib._PaywallController()
     /// Nib `PaywallMultiplyController`.
     static let paywallMultiplyController = _R.nib._PaywallMultiplyController()
+    /// Nib `PaywallOneTimeController`.
+    static let paywallOneTimeController = _R.nib._PaywallOneTimeController()
     /// Nib `PaywallSingleController`.
     static let paywallSingleController = _R.nib._PaywallSingleController()
     /// Nib `PositionTableCell`.
@@ -5398,6 +5452,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.paywallMultiplyController) instead")
     static func paywallMultiplyController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.paywallMultiplyController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "PaywallOneTimeController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.paywallOneTimeController) instead")
+    static func paywallOneTimeController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.paywallOneTimeController)
     }
     #endif
 
@@ -5901,6 +5963,10 @@ struct R: Rswift.Validatable {
       return R.nib.paywallMultiplyController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func paywallOneTimeController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.paywallOneTimeController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func paywallSingleController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.paywallSingleController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -6144,7 +6210,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 189 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 204 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -6218,6 +6284,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let energy_mood_badly = Rswift.StringResource(key: "energy_mood_badly", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.
+      ///
+      /// Locales: en
+      static let paywall_one_time_purchase_info = Rswift.StringResource(key: "paywall_one_time_purchase_info", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Better boiled or steamed
       ///
       /// Locales: en
@@ -6230,10 +6300,18 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let food_breakfast = Rswift.StringResource(key: "food_breakfast", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Build healthy habits
+      ///
+      /// Locales: en
+      static let paywall_one_time_habits = Rswift.StringResource(key: "paywall_one_time_habits", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Build muscle
       ///
       /// Locales: en
       static let onboarding_goal_muscle = Rswift.StringResource(key: "onboarding_goal_muscle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Burn calories and play game
+      ///
+      /// Locales: en
+      static let paywall_one_time_calories_game = Rswift.StringResource(key: "paywall_one_time_calories_game", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: By continuing you accept our
       ///
       /// Locales: en
@@ -6406,6 +6484,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let onboarding_email_get_plan = Rswift.StringResource(key: "onboarding_email_get_plan", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Get access to premium fitness programs, workouts & meal plans
+      ///
+      /// Locales: en
+      static let paywall_one_time_premium_access = Rswift.StringResource(key: "paywall_one_time_premium_access", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Get ready
       ///
       /// Locales: en
@@ -6470,6 +6552,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let player_not_finisged_watching = Rswift.StringResource(key: "player_not_finisged_watching", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Improve your life & wellbeing
+      ///
+      /// Locales: en
+      static let paywall_one_time_wellbeing = Rswift.StringResource(key: "paywall_one_time_wellbeing", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: It's hard for me
       ///
       /// Locales: en
@@ -6554,6 +6640,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let video_player_next = Rswift.StringResource(key: "video_player_next", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: No, I don't want to save
+      ///
+      /// Locales: en
+      static let paywall_one_time_subscribe = Rswift.StringResource(key: "paywall_one_time_subscribe", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Not at all
       ///
       /// Locales: en
@@ -6566,6 +6656,18 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let menu_notification = Rswift.StringResource(key: "menu_notification", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Offer
+      ///
+      /// Locales: en
+      static let paywall_one_time_offer = Rswift.StringResource(key: "paywall_one_time_offer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: One Time
+      ///
+      /// Locales: en
+      static let paywall_one_time_one_time = Rswift.StringResource(key: "paywall_one_time_one_time", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: One year
+      ///
+      /// Locales: en
+      static let paywall_one_time_one_year = Rswift.StringResource(key: "paywall_one_time_one_year", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Other
       ///
       /// Locales: en
@@ -6578,6 +6680,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let login_password = Rswift.StringResource(key: "login_password", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Personal
+      ///
+      /// Locales: en
+      static let paywall_one_time_personal = Rswift.StringResource(key: "paywall_one_time_personal", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Pescatarian
       ///
       /// Locales: en
@@ -6646,6 +6752,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let food_recent = Rswift.StringResource(key: "food_recent", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Reduce hunger
+      ///
+      /// Locales: en
+      static let paywall_one_time_hunger = Rswift.StringResource(key: "paywall_one_time_hunger", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Reminders
       ///
       /// Locales: en
@@ -6654,6 +6764,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let workout_detail_resting = Rswift.StringResource(key: "workout_detail_resting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Restore Purchases
+      ///
+      /// Locales: en
+      static let paywall_one_time_restore = Rswift.StringResource(key: "paywall_one_time_restore", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: SM
       ///
       /// Locales: en
@@ -6662,6 +6776,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let progress_sat = Rswift.StringResource(key: "progress_sat", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Save
+      ///
+      /// Locales: en
+      static let paywall_one_time_save = Rswift.StringResource(key: "paywall_one_time_save", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Save Changes
       ///
       /// Locales: en
@@ -6774,6 +6892,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let energy_training_training = Rswift.StringResource(key: "energy_training_training", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Try 3 days for free
+      ///
+      /// Locales: en
+      static let paywall_one_time_trial = Rswift.StringResource(key: "paywall_one_time_trial", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Tue
       ///
       /// Locales: en
@@ -6898,6 +7020,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let login_and = Rswift.StringResource(key: "login_and", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: per year
+      ///
+      /// Locales: en
+      static let paywall_one_time_per_year = Rswift.StringResource(key: "paywall_one_time_per_year", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: reps
       ///
       /// Locales: en
@@ -7189,6 +7315,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("energy_mood_badly", bundle: bundle, comment: "")
       }
 
+      /// en translation: Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.
+      ///
+      /// Locales: en
+      static func paywall_one_time_purchase_info(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_purchase_info", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_purchase_info"
+        }
+
+        return NSLocalizedString("paywall_one_time_purchase_info", bundle: bundle, comment: "")
+      }
+
       /// en translation: Better boiled or steamed
       ///
       /// Locales: en
@@ -7234,6 +7375,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("food_breakfast", bundle: bundle, comment: "")
       }
 
+      /// en translation: Build healthy habits
+      ///
+      /// Locales: en
+      static func paywall_one_time_habits(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_habits", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_habits"
+        }
+
+        return NSLocalizedString("paywall_one_time_habits", bundle: bundle, comment: "")
+      }
+
       /// en translation: Build muscle
       ///
       /// Locales: en
@@ -7247,6 +7403,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("onboarding_goal_muscle", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Burn calories and play game
+      ///
+      /// Locales: en
+      static func paywall_one_time_calories_game(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_calories_game", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_calories_game"
+        }
+
+        return NSLocalizedString("paywall_one_time_calories_game", bundle: bundle, comment: "")
       }
 
       /// en translation: By continuing you accept our
@@ -7904,6 +8075,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("onboarding_email_get_plan", bundle: bundle, comment: "")
       }
 
+      /// en translation: Get access to premium fitness programs, workouts & meal plans
+      ///
+      /// Locales: en
+      static func paywall_one_time_premium_access(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_premium_access", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_premium_access"
+        }
+
+        return NSLocalizedString("paywall_one_time_premium_access", bundle: bundle, comment: "")
+      }
+
       /// en translation: Get ready
       ///
       /// Locales: en
@@ -8146,6 +8332,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("player_not_finisged_watching", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Improve your life & wellbeing
+      ///
+      /// Locales: en
+      static func paywall_one_time_wellbeing(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_wellbeing", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_wellbeing"
+        }
+
+        return NSLocalizedString("paywall_one_time_wellbeing", bundle: bundle, comment: "")
       }
 
       /// en translation: It's hard for me
@@ -8463,6 +8664,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("video_player_next", bundle: bundle, comment: "")
       }
 
+      /// en translation: No, I don't want to save
+      ///
+      /// Locales: en
+      static func paywall_one_time_subscribe(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_subscribe", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_subscribe"
+        }
+
+        return NSLocalizedString("paywall_one_time_subscribe", bundle: bundle, comment: "")
+      }
+
       /// en translation: Not at all
       ///
       /// Locales: en
@@ -8508,6 +8724,51 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("menu_notification", bundle: bundle, comment: "")
       }
 
+      /// en translation: Offer
+      ///
+      /// Locales: en
+      static func paywall_one_time_offer(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_offer", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_offer"
+        }
+
+        return NSLocalizedString("paywall_one_time_offer", bundle: bundle, comment: "")
+      }
+
+      /// en translation: One Time
+      ///
+      /// Locales: en
+      static func paywall_one_time_one_time(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_one_time", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_one_time"
+        }
+
+        return NSLocalizedString("paywall_one_time_one_time", bundle: bundle, comment: "")
+      }
+
+      /// en translation: One year
+      ///
+      /// Locales: en
+      static func paywall_one_time_one_year(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_one_year", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_one_year"
+        }
+
+        return NSLocalizedString("paywall_one_time_one_year", bundle: bundle, comment: "")
+      }
+
       /// en translation: Other
       ///
       /// Locales: en
@@ -8551,6 +8812,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("login_password", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Personal
+      ///
+      /// Locales: en
+      static func paywall_one_time_personal(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_personal", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_personal"
+        }
+
+        return NSLocalizedString("paywall_one_time_personal", bundle: bundle, comment: "")
       }
 
       /// en translation: Pescatarian
@@ -8812,6 +9088,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("food_recent", bundle: bundle, comment: "")
       }
 
+      /// en translation: Reduce hunger
+      ///
+      /// Locales: en
+      static func paywall_one_time_hunger(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_hunger", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_hunger"
+        }
+
+        return NSLocalizedString("paywall_one_time_hunger", bundle: bundle, comment: "")
+      }
+
       /// en translation: Reminders
       ///
       /// Locales: en
@@ -8842,6 +9133,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("workout_detail_resting", bundle: bundle, comment: "")
       }
 
+      /// en translation: Restore Purchases
+      ///
+      /// Locales: en
+      static func paywall_one_time_restore(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_restore", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_restore"
+        }
+
+        return NSLocalizedString("paywall_one_time_restore", bundle: bundle, comment: "")
+      }
+
       /// en translation: SM
       ///
       /// Locales: en
@@ -8870,6 +9176,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("progress_sat", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Save
+      ///
+      /// Locales: en
+      static func paywall_one_time_save(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_save", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_save"
+        }
+
+        return NSLocalizedString("paywall_one_time_save", bundle: bundle, comment: "")
       }
 
       /// en translation: Save Changes
@@ -9290,6 +9611,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("energy_training_training", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Try 3 days for free
+      ///
+      /// Locales: en
+      static func paywall_one_time_trial(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_trial", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_trial"
+        }
+
+        return NSLocalizedString("paywall_one_time_trial", bundle: bundle, comment: "")
       }
 
       /// en translation: Tue
@@ -9761,6 +10097,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("login_and", bundle: bundle, comment: "")
       }
 
+      /// en translation: per year
+      ///
+      /// Locales: en
+      static func paywall_one_time_per_year(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_one_time_per_year", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_one_time_per_year"
+        }
+
+        return NSLocalizedString("paywall_one_time_per_year", bundle: bundle, comment: "")
+      }
+
       /// en translation: reps
       ///
       /// Locales: en
@@ -9845,6 +10196,7 @@ struct _R: Rswift.Validatable {
       try _OnboardingSwipeContoller.validate()
       try _PaywallController.validate()
       try _PaywallMultiplyController.validate()
+      try _PaywallOneTimeController.validate()
       try _PaywallSingleController.validate()
       try _ProfileController.validate()
       try _QuizeAgeController.validate()
@@ -10793,6 +11145,29 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "paywall_close_white_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_close_white_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "paywall_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_selected_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "paywall_women_complete_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_women_complete_ic' is used in nib 'PaywallMultiplyController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _PaywallOneTimeController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "PaywallOneTimeController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "paywall_above_text_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_above_text_ic' is used in nib 'PaywallOneTimeController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_close_white_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_close_white_ic' is used in nib 'PaywallOneTimeController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_one_time_back_women_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_one_time_back_women_ic' is used in nib 'PaywallOneTimeController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_one_time_front_women_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_one_time_front_women_ic' is used in nib 'PaywallOneTimeController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_one_time_main_ellipse_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_one_time_main_ellipse_ic' is used in nib 'PaywallOneTimeController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_one_time_top_ellipse_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_one_time_top_ellipse_ic' is used in nib 'PaywallOneTimeController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_selected_ic' is used in nib 'PaywallOneTimeController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
