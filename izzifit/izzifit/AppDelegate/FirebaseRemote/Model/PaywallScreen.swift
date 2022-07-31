@@ -15,6 +15,7 @@ enum PlaceType: String, Codable {
     case afterSpeen
     case energyZero
     case goldZero
+    case afterAnimateOnboarding
     
     case workoutTraini //+
     case meals //+
@@ -30,6 +31,7 @@ enum PaywallScreenType: String, Codable {
     case twoPrice
     case threePrice
     case oneTime
+    case congratulations
     
     case energyBuy
     case wokoutInApp

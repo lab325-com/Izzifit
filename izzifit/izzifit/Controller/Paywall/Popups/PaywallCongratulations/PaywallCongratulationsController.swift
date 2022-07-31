@@ -129,7 +129,7 @@ extension PaywallCongratulationsController: SubscribeOutputProtocol {
                 subscribeButton.setTitle(String(format: "%@ %@%@", RLocalization.paywall_one_time_subscribe(), info.currencySymbol ?? "", diffStr), for: .normal)
             }
             
-        case .base, .onePrice, .twoPrice, .threePrice, .energyBuy, .wokoutInApp:
+         default:
             return
         }
     }

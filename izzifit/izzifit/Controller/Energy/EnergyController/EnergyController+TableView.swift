@@ -189,18 +189,24 @@ extension EnergyController: EnergyDrinkWaterProtocol {
             cell.underView.removeFromSuperview()
         }
         tableView.reloadData()
+        
+       
         if let tabBarVC = parent as? MainTabBarController {
-            
             tabBarVC.onboardingView?.removeFromSuperview()
-            tabBarVC.onboardingView = MainGameOnboardingView(state: .finalPopUp,
-                                                    delegate: tabBarVC)
+            let isShowOnboard = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterAnimateOnboarding)
+            
+            if isShowOnboard == false {
                 
-            view.ui.genericlLayout(object: tabBarVC.onboardingView!,
-                                   parentView: tabBarVC.view,
-                               topC: 0,
-                               bottomC: 0,
-                               leadingC: 0,
-                               trailingC: 0)
+                tabBarVC.onboardingView = MainGameOnboardingView(state: .finalPopUp,
+                                                                 delegate: tabBarVC)
+                
+                view.ui.genericlLayout(object: tabBarVC.onboardingView!,
+                                       parentView: tabBarVC.view,
+                                       topC: 0,
+                                       bottomC: 0,
+                                       leadingC: 0,
+                                       trailingC: 0)
+            }
         }
     }
 }

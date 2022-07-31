@@ -20,8 +20,6 @@ class PaywallRouter: BaseRouter {
         case .base:
             let controller = PaywallController(delegate: delegate, screen: .base, place: place)
             present(controller: controller)
-//            let controller = PaywallSingleController(delegate: delegate)
-//            present(controller: controller)
         case .onePrice:
             let controller = PaywallSingleController(delegate: delegate, screen: .onePrice, place: place)
             present(controller: controller)
@@ -33,6 +31,9 @@ class PaywallRouter: BaseRouter {
             present(controller: controller)
         case .oneTime:
             let controller = PaywallOneTimeController(delegate: delegate, screen: .oneTime, place: place)
+            present(controller: controller)
+        case .congratulations:
+            let controller = PaywallCongratulationsController(delegate: delegate, screen: .congratulations, place: place)
             present(controller: controller)
         default:
             if place == .afterOnboarding || place == .workout || place == .workoutTraini {
