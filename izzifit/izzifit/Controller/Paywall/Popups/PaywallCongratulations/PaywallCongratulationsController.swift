@@ -147,7 +147,7 @@ extension PaywallCongratulationsController: SubscribeOutputProtocol {
     func successRetrive() {
         priceView.isHidden = false
         switch screen {
-        case .oneTime:
+        case .congratulations:
             if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneYear70.productId}) {
                 let price = Float(info.price)
                 let fullPrice = Float(info.price / 0.3)
