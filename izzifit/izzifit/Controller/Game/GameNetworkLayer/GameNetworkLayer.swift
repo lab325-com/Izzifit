@@ -50,7 +50,7 @@ class GameNetworkLayer {
     // send BuildingID
     
     
-    func getMe(view: BaseController, stopLoader: @escaping () -> ()) {
+   private func getMe(view: BaseController, stopLoader: @escaping () -> ()) {
         let query = MeQuery()
         let _ = Network.shared.query(model: MeModel.self, query, controller: view) { model in
             KeychainService.standard.me = model.me

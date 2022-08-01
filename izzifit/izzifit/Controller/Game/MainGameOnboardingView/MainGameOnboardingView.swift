@@ -447,7 +447,6 @@ class MainGameOnboardingView: UIView {
                               height: wRatio(cW: 160),
                               topC: hRatio(cH: 232),
                               centerH: 0)
-            
             // congrads_anim
             
             let anim = AnimationView(name: "congrads_anim")

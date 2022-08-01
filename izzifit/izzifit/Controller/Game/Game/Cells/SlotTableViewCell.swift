@@ -14,24 +14,24 @@ class SlotTableViewCell: BaseTableViewCell {
     let slotBtn = UIButton()
     let borderView = UIView()
     var tagBtn = Int()
-    
-    var slotImgsDict = [1: SlotImgs.dollar,
-                        2: SlotImgs.moneyBag,
-                        3: SlotImgs.lightning,
-                        4: SlotImgs.snowflake,
-                        5: SlotImgs.hammer]
-    
-    var englandImgsDict = [1: UK_SlotImgs.pound,
-                           2: UK_SlotImgs.moneyBag,
-                           3: UK_SlotImgs.lightning,
-                           4: UK_SlotImgs.flag,
-                           5: UK_SlotImgs.hammer]
-    
-    var franceImgsDict = [1: FR_SlotImgs.pound,
-                           2: FR_SlotImgs.moneyBag,
-                           3: FR_SlotImgs.lightning,
-                           4: FR_SlotImgs.flag,
-                           5: FR_SlotImgs.hammer]
+//    
+//    var slotImgsDict = [1: SlotImgs.dollar,
+//                        2: SlotImgs.moneyBag,
+//                        3: SlotImgs.lightning,
+//                        4: SlotImgs.snowflake,
+//                        5: SlotImgs.hammer]
+//    
+//    var englandImgsDict = [1: UK_SlotImgs.pound,
+//                           2: UK_SlotImgs.moneyBag,
+//                           3: UK_SlotImgs.lightning,
+//                           4: UK_SlotImgs.flag,
+//                           5: UK_SlotImgs.hammer]
+//    
+//    var franceImgsDict = [1: FR_SlotImgs.pound,
+//                           2: FR_SlotImgs.moneyBag,
+//                           3: FR_SlotImgs.lightning,
+//                           4: FR_SlotImgs.flag,
+//                           5: FR_SlotImgs.hammer]
     
     override init(style: BaseTableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -70,37 +70,15 @@ class SlotTableViewCell: BaseTableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10,
-//                                                                     left: 8,
-//                                                                     bottom: 10,
-//                                                                     right: 8))
     }
     
     func fillCellby(tagBtn: Int) {
         slotBtn.tag = tagBtn
         
-//        switch GameNetworkLayer.shared.mapName {
-//        case .snow_map:
-//        case .england_map:
-//        case .france_map:
-//        }
-//        switch game {
-//        case .arctic:
         if let slotObjects = GameNetworkLayer.shared.slotObjects {
-            let image = slotObjects.first(where: {$0.id == "\(tagBtn)"})?.image.urlIosFull
+            let image = slotObjects[tagBtn - 1].image.urlIosFull
             slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal)
         }
-   
-//            slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal,
-//                                placeholder: slotImgsDict[tagBtn]!,
-//                                options: [.transition(.fade(0.25))])
-//        case .england:
-//            slotBtn.setImage(englandImgsDict[tagBtn] ?? UIImage(), for: .normal)
-//        case .france:
-//            slotBtn.setImage(franceImgsDict[tagBtn] ?? UIImage(), for: .normal)
-//        }
-        
         borderView.isHidden = true
         slotBtn.clipsToBounds = true
     }
