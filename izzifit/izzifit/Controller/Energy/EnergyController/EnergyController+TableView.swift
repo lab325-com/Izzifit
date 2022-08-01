@@ -190,7 +190,6 @@ extension EnergyController: EnergyDrinkWaterProtocol {
         }
         tableView.reloadData()
         
-       
         if let tabBarVC = parent as? MainTabBarController {
             tabBarVC.onboardingView?.removeFromSuperview()
             let isShowOnboard = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterAnimateOnboarding)
@@ -206,6 +205,9 @@ extension EnergyController: EnergyDrinkWaterProtocol {
                                        bottomC: 0,
                                        leadingC: 0,
                                        trailingC: 0)
+            } else {
+                PreferencesManager.sharedManager.gameOnboardingDone = true
+                MainGameOnboardingView.stateCounter = 0
             }
         }
     }
