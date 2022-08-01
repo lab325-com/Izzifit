@@ -87,7 +87,9 @@ extension QuizeProgressController: QuizeProgressOutputProtocol {
                     OnboardingRouter(presenter: self.navigationController).presentVideo(delegate: self)
                 }
             } else {
-                let _ = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .afterOnboarding)
+                if PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .afterOnboarding) == false {
+                    RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
+                }
             }
             
             
@@ -121,6 +123,8 @@ extension QuizeProgressController: PaywallProtocol {
 
 extension QuizeProgressController: QuizeVideoPotocol {
     func quizeVideoEnd(contoller: QuizeVideoController) {
-        let _ = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .afterOnboarding)
+        if PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self, place: .afterOnboarding) == false {
+            RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
+        }
     }
 }

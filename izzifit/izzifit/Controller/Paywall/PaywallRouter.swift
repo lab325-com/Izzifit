@@ -36,7 +36,7 @@ class PaywallRouter: BaseRouter {
             let controller = PaywallCongratulationsController(delegate: delegate, screen: .congratulations, place: place)
             present(controller: controller)
         default:
-            if place == .afterOnboarding || place == .workout || place == .workoutTraini {
+            if place == .workout || place == .workoutTraini {
                 let controller = PaywallMultiplyController(delegate: delegate, screen: .threePrice, place: place)
                 present(controller: controller)
             } else {
