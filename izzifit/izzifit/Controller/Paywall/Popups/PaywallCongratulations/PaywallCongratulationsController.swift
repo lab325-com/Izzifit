@@ -22,6 +22,8 @@ class PaywallCongratulationsController: BaseController {
     @IBOutlet weak var subFullPriceLabel: UILabel!
     @IBOutlet weak var subPerYearLabel: UILabel!
     
+    @IBOutlet weak var priceView: UIView!
+    
     @IBOutlet weak var subscribeButton: UIButton!
     @IBOutlet weak var trialButton: UIButton!
     
@@ -60,6 +62,8 @@ class PaywallCongratulationsController: BaseController {
         super.viewDidLoad()
 
         setup()
+        
+        presenter.retriveProduct(id: Set([PaywallPriceType.oneYear70.productId]))
     }
     
     //----------------------------------------------
@@ -67,11 +71,40 @@ class PaywallCongratulationsController: BaseController {
     //----------------------------------------------
     
     private func setup() {
-        createOffSaveLabel()
+        сongratulationsLabel.text = RLocalization.paywall_congratulation_title()
+        infosLabel.text = RLocalization.paywall_congratulation_info()
+        specialOfferLabel.text = RLocalization.paywall_congratulation_special_offer()
+        unlockLabel.text = RLocalization.paywall_congratulation_unlock()
+        wellbeingLabel.text = RLocalization.paywall_congratulation_wellbeing()
+        hungerLabel.text = RLocalization.paywall_congratulation_hunger()
+        caloriesGameLabel.text = RLocalization.paywall_congratulation_calories_game()
+        habitsLabel.text = RLocalization.paywall_congratulation_habits()
+        subNameLabel.text = RLocalization.paywall_congratulation_one_year()
+        subPerYearLabel.text = RLocalization.paywall_congratulation_per_year()
+        
+        subscribeButton.setTitle(RLocalization.paywall_congratulation_subscribe(), for: .normal)
+        trialButton.setTitle(RLocalization.paywall_congratulation_trial(), for: .normal)
+        
+        subscribeButton.layer.borderWidth = 1
+        subscribeButton.layer.borderColor = UIColor(rgb: 0xC9C0ED).cgColor
     }
     
-    private func createOffSaveLabel() {
+    private func createOffSaveLabel(price: String) {
+        let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Inter-BoldItalic", size: 20), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x3F3E56)]
+        let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Inter-BoldItalic", size: 20), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0xFF42A8)]
         
+        let attributedString1 = NSMutableAttributedString(string: "\(RLocalization.paywall_congratulation_get()) ", attributes:attrs1 as [NSAttributedString.Key : Any])
+        let attributedString2 = NSMutableAttributedString(string: "\(RLocalization.paywall_congratulation_70_off()) ", attributes:attrs2 as [NSAttributedString.Key : Any])
+        let attributedString3 = NSMutableAttributedString(string: "\(RLocalization.paywall_congratulation_and()) ", attributes:attrs1 as [NSAttributedString.Key : Any])
+        let attributedString4 = NSMutableAttributedString(string: String(format: "%@ %@ ", RLocalization.paywall_congratulation_save(), price), attributes:attrs2 as [NSAttributedString.Key : Any])
+        let attributedString5 = NSMutableAttributedString(string: RLocalization.paywall_congratulation_subscription(), attributes:attrs1 as [NSAttributedString.Key : Any])
+        
+        attributedString1.append(attributedString2)
+        attributedString1.append(attributedString3)
+        attributedString1.append(attributedString4)
+        attributedString1.append(attributedString5)
+        
+        offSaveLabel.attributedText = attributedString1
     }
     
     //----------------------------------------------
@@ -112,7 +145,7 @@ class PaywallCongratulationsController: BaseController {
 extension PaywallCongratulationsController: SubscribeOutputProtocol {
     
     func successRetrive() {
-        
+        priceView.isHidden = false
         switch screen {
         case .oneTime:
             if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneYear70.productId}) {
@@ -125,10 +158,10 @@ extension PaywallCongratulationsController: SubscribeOutputProtocol {
                 
                 subPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", price)
                 subFullPriceLabel.text = String(format: "%@%@", info.currencySymbol ?? "", fullPriceStr)
-                subSaveLabel.text = String(format: "%@ %@%@",  RLocalization.paywall_one_time_save(), info.currencySymbol ?? "", diffStr)
-                subscribeButton.setTitle(String(format: "%@ %@%@", RLocalization.paywall_one_time_subscribe(), info.currencySymbol ?? "", diffStr), for: .normal)
+                subSaveLabel.text = String(format: "%@ %@%@",  RLocalization.paywall_congratulation_save(), info.currencySymbol ?? "", diffStr)
+                
+                createOffSaveLabel(price: String(format: "%@%@", info.currencySymbol ?? "", diffStr))
             }
-            
          default:
             return
         }

@@ -6260,7 +6260,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 204 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 222 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -6294,6 +6294,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let water_widget_ml_left = Rswift.StringResource(key: "water_widget_ml_left", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: 70% off
+      ///
+      /// Locales: en
+      static let paywall_congratulation_70_off = Rswift.StringResource(key: "paywall_congratulation_70_off", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: 70% off
+      ///
+      /// Locales: en
+      static let paywall_congratulation_off = Rswift.StringResource(key: "paywall_congratulation_off", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Add
       ///
       /// Locales: en
@@ -6353,11 +6361,19 @@ struct R: Rswift.Validatable {
       /// en translation: Build healthy habits
       ///
       /// Locales: en
+      static let paywall_congratulation_habits = Rswift.StringResource(key: "paywall_congratulation_habits", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Build healthy habits
+      ///
+      /// Locales: en
       static let paywall_one_time_habits = Rswift.StringResource(key: "paywall_one_time_habits", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Build muscle
       ///
       /// Locales: en
       static let onboarding_goal_muscle = Rswift.StringResource(key: "onboarding_goal_muscle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Burn calories and play game
+      ///
+      /// Locales: en
+      static let paywall_congratulation_calories_game = Rswift.StringResource(key: "paywall_congratulation_calories_game", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Burn calories and play game
       ///
       /// Locales: en
@@ -6410,6 +6426,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let payer_finished_title = Rswift.StringResource(key: "payer_finished_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Congratulations!
+      ///
+      /// Locales: en
+      static let paywall_congratulation_title = Rswift.StringResource(key: "paywall_congratulation_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Continue training
       ///
       /// Locales: en
@@ -6530,6 +6550,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let progress_fri = Rswift.StringResource(key: "progress_fri", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Get
+      ///
+      /// Locales: en
+      static let paywall_congratulation_get = Rswift.StringResource(key: "paywall_congratulation_get", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Get My Plan
       ///
       /// Locales: en
@@ -6538,6 +6562,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let paywall_one_time_premium_access = Rswift.StringResource(key: "paywall_one_time_premium_access", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Get fit & play with 70% off
+      ///
+      /// Locales: en
+      static let paywall_congratulation_trial = Rswift.StringResource(key: "paywall_congratulation_trial", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Get ready
       ///
       /// Locales: en
@@ -6602,6 +6630,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let player_not_finisged_watching = Rswift.StringResource(key: "player_not_finisged_watching", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Improve your life & well-being
+      ///
+      /// Locales: en
+      static let paywall_congratulation_wellbeing = Rswift.StringResource(key: "paywall_congratulation_wellbeing", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Improve your life & wellbeing
       ///
       /// Locales: en
@@ -6694,6 +6726,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let paywall_one_time_subscribe = Rswift.StringResource(key: "paywall_one_time_subscribe", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: No, I will purchase later for full price
+      ///
+      /// Locales: en
+      static let paywall_congratulation_subscribe = Rswift.StringResource(key: "paywall_congratulation_subscribe", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Not at all
       ///
       /// Locales: en
@@ -6714,6 +6750,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let paywall_one_time_one_time = Rswift.StringResource(key: "paywall_one_time_one_time", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: One time special offer
+      ///
+      /// Locales: en
+      static let paywall_congratulation_special_offer = Rswift.StringResource(key: "paywall_congratulation_special_offer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: One year
+      ///
+      /// Locales: en
+      static let paywall_congratulation_one_year = Rswift.StringResource(key: "paywall_congratulation_one_year", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: One year
       ///
       /// Locales: en
@@ -6805,6 +6849,10 @@ struct R: Rswift.Validatable {
       /// en translation: Reduce hunger
       ///
       /// Locales: en
+      static let paywall_congratulation_hunger = Rswift.StringResource(key: "paywall_congratulation_hunger", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Reduce hunger
+      ///
+      /// Locales: en
       static let paywall_one_time_hunger = Rswift.StringResource(key: "paywall_one_time_hunger", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Reminders
       ///
@@ -6826,6 +6874,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let progress_sat = Rswift.StringResource(key: "progress_sat", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Save
+      ///
+      /// Locales: en
+      static let paywall_congratulation_save = Rswift.StringResource(key: "paywall_congratulation_save", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Save
       ///
       /// Locales: en
@@ -6950,6 +7002,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let progress_tue = Rswift.StringResource(key: "progress_tue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Unlock all premium programs, workouts and keto meal plans
+      ///
+      /// Locales: en
+      static let paywall_congratulation_unlock = Rswift.StringResource(key: "paywall_congratulation_unlock", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Update
       ///
       /// Locales: en
@@ -7022,6 +7078,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let payer_finished_subTitle = Rswift.StringResource(key: "payer_finished_subTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: You have learned the basic features of our app and taken your first steps toward a new, healthier life!
+      ///
+      /// Locales: en
+      static let paywall_congratulation_info = Rswift.StringResource(key: "paywall_congratulation_info", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: You have not finished your fasting!
       ///
       /// Locales: en
@@ -7070,6 +7130,18 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let login_and = Rswift.StringResource(key: "login_and", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: and
+      ///
+      /// Locales: en
+      static let paywall_congratulation_and = Rswift.StringResource(key: "paywall_congratulation_and", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: on a 1-year subscription
+      ///
+      /// Locales: en
+      static let paywall_congratulation_subscription = Rswift.StringResource(key: "paywall_congratulation_subscription", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: per year
+      ///
+      /// Locales: en
+      static let paywall_congratulation_per_year = Rswift.StringResource(key: "paywall_congratulation_per_year", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: per year
       ///
       /// Locales: en
@@ -7213,6 +7285,36 @@ struct R: Rswift.Validatable {
 
         let format = NSLocalizedString("water_widget_ml_left", bundle: bundle, comment: "")
         return String(format: format, locale: locale, value1)
+      }
+
+      /// en translation: 70% off
+      ///
+      /// Locales: en
+      static func paywall_congratulation_70_off(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_70_off", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_70_off"
+        }
+
+        return NSLocalizedString("paywall_congratulation_70_off", bundle: bundle, comment: "")
+      }
+
+      /// en translation: 70% off
+      ///
+      /// Locales: en
+      static func paywall_congratulation_off(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_off", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_off"
+        }
+
+        return NSLocalizedString("paywall_congratulation_off", bundle: bundle, comment: "")
       }
 
       /// en translation: Add
@@ -7428,6 +7530,21 @@ struct R: Rswift.Validatable {
       /// en translation: Build healthy habits
       ///
       /// Locales: en
+      static func paywall_congratulation_habits(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_habits", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_habits"
+        }
+
+        return NSLocalizedString("paywall_congratulation_habits", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Build healthy habits
+      ///
+      /// Locales: en
       static func paywall_one_time_habits(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("paywall_one_time_habits", bundle: hostingBundle, comment: "")
@@ -7453,6 +7570,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("onboarding_goal_muscle", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Burn calories and play game
+      ///
+      /// Locales: en
+      static func paywall_congratulation_calories_game(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_calories_game", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_calories_game"
+        }
+
+        return NSLocalizedString("paywall_congratulation_calories_game", bundle: bundle, comment: "")
       }
 
       /// en translation: Burn calories and play game
@@ -7652,6 +7784,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("payer_finished_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Congratulations!
+      ///
+      /// Locales: en
+      static func paywall_congratulation_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_title"
+        }
+
+        return NSLocalizedString("paywall_congratulation_title", bundle: bundle, comment: "")
       }
 
       /// en translation: Continue training
@@ -8110,6 +8257,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("progress_fri", bundle: bundle, comment: "")
       }
 
+      /// en translation: Get
+      ///
+      /// Locales: en
+      static func paywall_congratulation_get(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_get", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_get"
+        }
+
+        return NSLocalizedString("paywall_congratulation_get", bundle: bundle, comment: "")
+      }
+
       /// en translation: Get My Plan
       ///
       /// Locales: en
@@ -8138,6 +8300,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("paywall_one_time_premium_access", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Get fit & play with 70% off
+      ///
+      /// Locales: en
+      static func paywall_congratulation_trial(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_trial", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_trial"
+        }
+
+        return NSLocalizedString("paywall_congratulation_trial", bundle: bundle, comment: "")
       }
 
       /// en translation: Get ready
@@ -8382,6 +8559,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("player_not_finisged_watching", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Improve your life & well-being
+      ///
+      /// Locales: en
+      static func paywall_congratulation_wellbeing(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_wellbeing", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_wellbeing"
+        }
+
+        return NSLocalizedString("paywall_congratulation_wellbeing", bundle: bundle, comment: "")
       }
 
       /// en translation: Improve your life & wellbeing
@@ -8729,6 +8921,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("paywall_one_time_subscribe", bundle: bundle, comment: "")
       }
 
+      /// en translation: No, I will purchase later for full price
+      ///
+      /// Locales: en
+      static func paywall_congratulation_subscribe(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_subscribe", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_subscribe"
+        }
+
+        return NSLocalizedString("paywall_congratulation_subscribe", bundle: bundle, comment: "")
+      }
+
       /// en translation: Not at all
       ///
       /// Locales: en
@@ -8802,6 +9009,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("paywall_one_time_one_time", bundle: bundle, comment: "")
+      }
+
+      /// en translation: One time special offer
+      ///
+      /// Locales: en
+      static func paywall_congratulation_special_offer(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_special_offer", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_special_offer"
+        }
+
+        return NSLocalizedString("paywall_congratulation_special_offer", bundle: bundle, comment: "")
+      }
+
+      /// en translation: One year
+      ///
+      /// Locales: en
+      static func paywall_congratulation_one_year(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_one_year", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_one_year"
+        }
+
+        return NSLocalizedString("paywall_congratulation_one_year", bundle: bundle, comment: "")
       }
 
       /// en translation: One year
@@ -9141,6 +9378,21 @@ struct R: Rswift.Validatable {
       /// en translation: Reduce hunger
       ///
       /// Locales: en
+      static func paywall_congratulation_hunger(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_hunger", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_hunger"
+        }
+
+        return NSLocalizedString("paywall_congratulation_hunger", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Reduce hunger
+      ///
+      /// Locales: en
       static func paywall_one_time_hunger(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("paywall_one_time_hunger", bundle: hostingBundle, comment: "")
@@ -9226,6 +9478,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("progress_sat", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Save
+      ///
+      /// Locales: en
+      static func paywall_congratulation_save(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_save", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_save"
+        }
+
+        return NSLocalizedString("paywall_congratulation_save", bundle: bundle, comment: "")
       }
 
       /// en translation: Save
@@ -9693,6 +9960,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("progress_tue", bundle: bundle, comment: "")
       }
 
+      /// en translation: Unlock all premium programs, workouts and keto meal plans
+      ///
+      /// Locales: en
+      static func paywall_congratulation_unlock(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_unlock", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_unlock"
+        }
+
+        return NSLocalizedString("paywall_congratulation_unlock", bundle: bundle, comment: "")
+      }
+
       /// en translation: Update
       ///
       /// Locales: en
@@ -9963,6 +10245,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("payer_finished_subTitle", bundle: bundle, comment: "")
       }
 
+      /// en translation: You have learned the basic features of our app and taken your first steps toward a new, healthier life!
+      ///
+      /// Locales: en
+      static func paywall_congratulation_info(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_info", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_info"
+        }
+
+        return NSLocalizedString("paywall_congratulation_info", bundle: bundle, comment: "")
+      }
+
       /// en translation: You have not finished your fasting!
       ///
       /// Locales: en
@@ -10145,6 +10442,51 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("login_and", bundle: bundle, comment: "")
+      }
+
+      /// en translation: and
+      ///
+      /// Locales: en
+      static func paywall_congratulation_and(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_and", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_and"
+        }
+
+        return NSLocalizedString("paywall_congratulation_and", bundle: bundle, comment: "")
+      }
+
+      /// en translation: on a 1-year subscription
+      ///
+      /// Locales: en
+      static func paywall_congratulation_subscription(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_subscription", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_subscription"
+        }
+
+        return NSLocalizedString("paywall_congratulation_subscription", bundle: bundle, comment: "")
+      }
+
+      /// en translation: per year
+      ///
+      /// Locales: en
+      static func paywall_congratulation_per_year(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paywall_congratulation_per_year", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paywall_congratulation_per_year"
+        }
+
+        return NSLocalizedString("paywall_congratulation_per_year", bundle: bundle, comment: "")
       }
 
       /// en translation: per year

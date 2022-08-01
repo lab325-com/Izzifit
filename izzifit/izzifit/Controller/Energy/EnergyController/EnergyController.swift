@@ -139,7 +139,7 @@ class EnergyController: BaseController {
 //        controller.modalPresentationStyle = .fullScreen
 //        navigationController?.present(controller, animated: true)
         
-//        let controller = PaywallOneTimeController(delegate: self, screen: .oneTime, place: .dashboard)
+//        let controller = PaywallCongratulationsController(delegate: self, screen: .oneTime, place: .dashboard)
 //        controller.modalPresentationStyle = .fullScreen
 //        navigationController?.present(controller, animated: true)
         

@@ -23,6 +23,8 @@ class PaywallOneTimeController: BaseController {
     @IBOutlet weak var privacyLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     
+    @IBOutlet weak var priceStack: UIStackView!
+    
     @IBOutlet weak var subscribeButton: UIButton!
     @IBOutlet weak var trialButton: UIButton!
     @IBOutlet weak var restoreButton: UIButton!
@@ -188,7 +190,7 @@ class PaywallOneTimeController: BaseController {
 extension PaywallOneTimeController: SubscribeOutputProtocol {
     
     func successRetrive() {
-        
+        priceStack.isHidden = false
         switch screen {
         case .oneTime:
             if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneYear70.productId}) {
@@ -204,7 +206,6 @@ extension PaywallOneTimeController: SubscribeOutputProtocol {
                 subSaveLabel.text = String(format: "%@ %@%@",  RLocalization.paywall_one_time_save(), info.currencySymbol ?? "", diffStr)
                 subscribeButton.setTitle(String(format: "%@ %@%@", RLocalization.paywall_one_time_subscribe(), info.currencySymbol ?? "", diffStr), for: .normal)
             }
-            
         default:
             return
         }

@@ -36,6 +36,7 @@
                 <outlet property="oneTimeLabel" destination="eMo-pH-5l2" id="nCR-23-bAF"/>
                 <outlet property="personalLabel" destination="dWR-kf-bCE" id="2uK-bi-lpa"/>
                 <outlet property="premiumAccessLabel" destination="HJN-qg-Fv6" id="ZyS-za-8Jo"/>
+                <outlet property="priceStack" destination="uh4-z8-mUr" id="uZa-kE-LHr"/>
                 <outlet property="privacyLabel" destination="vlE-j0-cqq" id="cZB-KR-PoK"/>
                 <outlet property="restoreButton" destination="PRq-ea-3dc" id="npN-ao-16i"/>
                 <outlet property="subFullPriceLabel" destination="fHx-eI-mxZ" id="VA3-fU-y11"/>
@@ -211,7 +212,7 @@
                                         <constraint firstAttribute="height" constant="1" id="b1Z-9K-qh7"/>
                                     </constraints>
                                 </view>
-                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uh4-z8-mUr">
+                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uh4-z8-mUr">
                                     <rect key="frame" x="24" y="514.5" width="366" height="49"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vsi-pi-aZj">
