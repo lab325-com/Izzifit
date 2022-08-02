@@ -112,12 +112,12 @@ class PaywallCongratulationsController: BaseController {
     //----------------------------------------------
     
     @IBAction func actionClose(_ sender: UIButton) {
-//        AnalyticsHelper.sendFirebaseEvents(events: .pay_close, params: ["place": place.rawValue, "screen": screen.rawValue])
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_close, params: ["place": place.rawValue, "screen": screen.rawValue])
         self.delegate?.paywallActionBack(controller: self)
     }
     
     @IBAction func actionTrial(_ sender: UIButton) {
-//        AnalyticsHelper.sendFirebaseEvents(events: .pay_buy_free_trial)
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_buy_free_trial, params: ["place": place.rawValue, "screen": screen.rawValue])
         presenter.purchase(id: trialType.productId, screen: screen, place: place) { [weak self] result, error in
             guard let `self` = self else { return }
             if result {
