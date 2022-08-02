@@ -218,6 +218,9 @@
 		02A5CDBE27C3DE9F00D31FB4 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDBD27C3DE9F00D31FB4 /* ImageModel.swift */; };
 		02A5CDC227C4247300D31FB4 /* QuizeFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDC027C4247300D31FB4 /* QuizeFoodCell.swift */; };
 		02A5CDC327C4247300D31FB4 /* QuizeFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDC127C4247300D31FB4 /* QuizeFoodCell.xib */; };
+		02A5EEB52898FDC500B0D40B /* Paywall30Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5EEB32898FDC500B0D40B /* Paywall30Controller.swift */; };
+		02A5EEB62898FDC500B0D40B /* Paywall30Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5EEB42898FDC500B0D40B /* Paywall30Controller.xib */; };
+		02A5EEB82899052200B0D40B /* PaywallPushRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5EEB72899052200B0D40B /* PaywallPushRouter.swift */; };
 		02AB486427E06DEE00F35EE2 /* FoodRecomendedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB486227E06DEE00F35EE2 /* FoodRecomendedCell.swift */; };
 		02AB486527E06DEE00F35EE2 /* FoodRecomendedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02AB486327E06DEE00F35EE2 /* FoodRecomendedCell.xib */; };
 		02AB486A27E07EFB00F35EE2 /* FoodTopTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB486827E07EFB00F35EE2 /* FoodTopTitleCell.swift */; };
@@ -686,6 +689,9 @@
 		02A5CDBD27C3DE9F00D31FB4 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		02A5CDC027C4247300D31FB4 /* QuizeFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeFoodCell.swift; sourceTree = "<group>"; };
 		02A5CDC127C4247300D31FB4 /* QuizeFoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeFoodCell.xib; sourceTree = "<group>"; };
+		02A5EEB32898FDC500B0D40B /* Paywall30Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paywall30Controller.swift; sourceTree = "<group>"; };
+		02A5EEB42898FDC500B0D40B /* Paywall30Controller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Paywall30Controller.xib; sourceTree = "<group>"; };
+		02A5EEB72899052200B0D40B /* PaywallPushRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallPushRouter.swift; sourceTree = "<group>"; };
 		02AB486227E06DEE00F35EE2 /* FoodRecomendedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecomendedCell.swift; sourceTree = "<group>"; };
 		02AB486327E06DEE00F35EE2 /* FoodRecomendedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodRecomendedCell.xib; sourceTree = "<group>"; };
 		02AB486827E07EFB00F35EE2 /* FoodTopTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTopTitleCell.swift; sourceTree = "<group>"; };
@@ -1297,6 +1303,7 @@
 			isa = PBXGroup;
 			children = (
 				023FBC3E27FACCC0004D0CEA /* PaywallRouter.swift */,
+				02A5EEB72899052200B0D40B /* PaywallPushRouter.swift */,
 				02E6D85727FC255100E29509 /* SubscribePresenter.swift */,
 				023FBC3A27FACC8C004D0CEA /* PaywallController.swift */,
 				023FBC3B27FACC8C004D0CEA /* PaywallController.xib */,
@@ -1980,6 +1987,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		02A5EEB22898FDA900B0D40B /* Paywall30 */ = {
+			isa = PBXGroup;
+			children = (
+				02A5EEB32898FDC500B0D40B /* Paywall30Controller.swift */,
+				02A5EEB42898FDC500B0D40B /* Paywall30Controller.xib */,
+			);
+			path = Paywall30;
+			sourceTree = "<group>";
+		};
 		02AB486127E06DCA00F35EE2 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2639,6 +2655,7 @@
 		FA1A2569283D0C8E00240E28 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
+				02A5EEB22898FDA900B0D40B /* Paywall30 */,
 				FA1A256B283D0CBF00240E28 /* PaywallSingle */,
 				FA1A256A283D0CB300240E28 /* PaywallMultiply */,
 				FA6E8B2D2892D59F0008F36C /* PaywallOneTime */,
@@ -3289,6 +3306,7 @@
 				02A5CDB527C3949700D31FB4 /* MenuController.xib in Resources */,
 				FEE119C627E9D1520058EE6D /* AwardsTableCell.xib in Resources */,
 				0251D23E27E215480098A54D /* ProductsByMeal.graphql in Resources */,
+				02A5EEB62898FDC500B0D40B /* Paywall30Controller.xib in Resources */,
 				02D066D427BBD12600D12C5F /* QuizeGenderController.xib in Resources */,
 				0273F56727D60EC500B19449 /* SleepWidget.graphql in Resources */,
 				02A4649E2811641800B00381 /* GoogleService-Info1.plist in Resources */,
@@ -3597,7 +3615,9 @@
 				02FAF0A627D361AE002CD678 /* EnergyDrinkWaterCell.swift in Sources */,
 				FA2794F4285CA8A900AEEA70 /* HealthKitManager.swift in Sources */,
 				020CB3D527E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift in Sources */,
+				02A5EEB82899052200B0D40B /* PaywallPushRouter.swift in Sources */,
 				02B225B827BD63FC0035CFA2 /* QuizeEmailController.swift in Sources */,
+				02A5EEB52898FDC500B0D40B /* Paywall30Controller.swift in Sources */,
 				FABE8BF828512C6C00E3E53C /* PurchasePop.swift in Sources */,
 				0227DAAD27C66C25008AB26B /* MenuAgeController.swift in Sources */,
 				0227A9BB2849F39E00BA29A8 /* QuizeVideoController.swift in Sources */,

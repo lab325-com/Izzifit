@@ -13,5 +13,6 @@ struct Constants {
         static let endRemoteConfigEndNotification: NSNotification.Name = NSNotification.Name("endRemoteConfigEndNotification")
         static let newEndRemoteConfigEndNotification: NSNotification.Name = NSNotification.Name("newEndRemoteConfigEndNotification")
         static let openWorkoutNotification: NSNotification.Name = NSNotification.Name("openWorkoutNotification")
+        static let pushNotification: NSNotification.Name = NSNotification.Name("pushNotification")
     }
 }

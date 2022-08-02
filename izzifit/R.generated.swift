@@ -1251,7 +1251,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 407 images.
+  /// This `R.image` struct is generated, and contains static references to 414 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1819,6 +1819,20 @@ struct R: Rswift.Validatable {
     static let onePurchaseBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "onePurchaseBack")
     /// Image `payer_shadow_ic`.
     static let payer_shadow_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "payer_shadow_ic")
+    /// Image `paywall_30_back_ic`.
+    static let paywall_30_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_30_back_ic")
+    /// Image `paywall_30_close_ic`.
+    static let paywall_30_close_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_30_close_ic")
+    /// Image `paywall_30_girl_ic`.
+    static let paywall_30_girl_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_30_girl_ic")
+    /// Image `paywall_30_percent_ic`.
+    static let paywall_30_percent_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_30_percent_ic")
+    /// Image `paywall_50_percent_ic`.
+    static let paywall_50_percent_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_50_percent_ic")
+    /// Image `paywall_50_var12_girl_ic`.
+    static let paywall_50_var12_girl_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_50_var12_girl_ic")
+    /// Image `paywall_50_var13_girl_ic`.
+    static let paywall_50_var13_girl_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_50_var13_girl_ic")
     /// Image `paywall_above_text_ic`.
     static let paywall_above_text_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "paywall_above_text_ic")
     /// Image `paywall_bottom_ellipse_ic`.
@@ -4050,6 +4064,55 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_30_back_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_30_back_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_30_back_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_30_close_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_30_close_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_30_close_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_30_girl_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_30_girl_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_30_girl_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_30_percent_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_30_percent_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_30_percent_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_50_percent_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_50_percent_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_50_percent_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_50_var12_girl_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_50_var12_girl_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_50_var12_girl_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "paywall_50_var13_girl_ic", bundle: ..., traitCollection: ...)`
+    static func paywall_50_var13_girl_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.paywall_50_var13_girl_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "paywall_above_text_ic", bundle: ..., traitCollection: ...)`
     static func paywall_above_text_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.paywall_above_text_ic, compatibleWith: traitCollection)
@@ -4920,7 +4983,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 89 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 90 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -5016,6 +5079,8 @@ struct R: Rswift.Validatable {
     static let onboardingSwipeCell = _R.nib._OnboardingSwipeCell()
     /// Nib `OnboardingSwipeContoller`.
     static let onboardingSwipeContoller = _R.nib._OnboardingSwipeContoller()
+    /// Nib `Paywall30Controller`.
+    static let paywall30Controller = _R.nib._Paywall30Controller()
     /// Nib `PaywallCongratulationsController`.
     static let paywallCongratulationsController = _R.nib._PaywallCongratulationsController()
     /// Nib `PaywallController`.
@@ -5474,6 +5539,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.onboardingSwipeContoller) instead")
     static func onboardingSwipeContoller(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.onboardingSwipeContoller)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "Paywall30Controller", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.paywall30Controller) instead")
+    static func paywall30Controller(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.paywall30Controller)
     }
     #endif
 
@@ -5999,6 +6072,10 @@ struct R: Rswift.Validatable {
 
     static func onboardingSwipeContoller(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.onboardingSwipeContoller.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func paywall30Controller(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.paywall30Controller.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func paywallCongratulationsController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -10586,6 +10663,7 @@ struct _R: Rswift.Validatable {
       try _MoodTableCell.validate()
       try _OnboardingSwipeCell.validate()
       try _OnboardingSwipeContoller.validate()
+      try _Paywall30Controller.validate()
       try _PaywallCongratulationsController.validate()
       try _PaywallController.validate()
       try _PaywallMultiplyController.validate()
@@ -11495,6 +11573,29 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'OnboardingSwipeContoller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_swipe_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_swipe_back_ic' is used in nib 'OnboardingSwipeContoller', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_swipe_logo_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_swipe_logo_ic' is used in nib 'OnboardingSwipeContoller', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _Paywall30Controller: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Paywall30Controller"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "paywall_30_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_30_back_ic' is used in nib 'Paywall30Controller', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_30_close_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_30_close_ic' is used in nib 'Paywall30Controller', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_30_percent_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_30_percent_ic' is used in nib 'Paywall30Controller', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_50_var13_girl_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_50_var13_girl_ic' is used in nib 'Paywall30Controller', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_above_text_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_above_text_ic' is used in nib 'Paywall30Controller', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_fade_down_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_fade_down_ic' is used in nib 'Paywall30Controller', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "paywall_selected_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paywall_selected_ic' is used in nib 'Paywall30Controller', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

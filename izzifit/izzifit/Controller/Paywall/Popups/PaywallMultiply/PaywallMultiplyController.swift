@@ -185,7 +185,7 @@ class PaywallMultiplyController: BaseController {
             
 //            subStackView.sendSubviewToBack(firstSubView)
 //            subStackView.sendSubviewToBack(secondSubView)
-        case .oneYear, .oneYear70, .theeMonth50:
+        default:
             return
         }
         
