@@ -128,13 +128,15 @@ class PaywallCongratulationsController: BaseController {
     }
     
     @IBAction func actionSubscribe(_ sender: UIButton) {
-        presenter.purchase(id: priceType.productId, screen: screen, place: place) { [weak self] result, error in
-            guard let `self` = self else { return }
-            if result {
-                self.delegate?.paywallSuccess(controller: self)
-                self.dismiss(animated: true)
-            }
-        }
+//        presenter.purchase(id: priceType.productId, screen: screen, place: place) { [weak self] result, error in
+//            guard let `self` = self else { return }
+//            if result {
+//                self.delegate?.paywallSuccess(controller: self)
+//                self.dismiss(animated: true)
+//            }
+//        }
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_close, params: ["place": place.rawValue, "screen": screen.rawValue])
+        self.delegate?.paywallActionBack(controller: self)
     }
 }
 
