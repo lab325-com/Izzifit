@@ -85,8 +85,8 @@ class PaywallCongratulationsController: BaseController {
         subscribeButton.setTitle(RLocalization.paywall_congratulation_subscribe(), for: .normal)
         trialButton.setTitle(RLocalization.paywall_congratulation_trial(), for: .normal)
         
-        subscribeButton.layer.borderWidth = 1
-        subscribeButton.layer.borderColor = UIColor(rgb: 0xC9C0ED).cgColor
+        subscribeButton.layer.borderWidth = 2
+        subscribeButton.layer.borderColor = UIColor(rgb: 0xC9C0ED, alpha: 0.3).cgColor
     }
     
     private func createOffSaveLabel(price: String) {

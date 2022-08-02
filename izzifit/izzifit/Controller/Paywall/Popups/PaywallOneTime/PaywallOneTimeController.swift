@@ -66,6 +66,11 @@ class PaywallOneTimeController: BaseController {
         setup()
     }
     
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     //----------------------------------------------
     // MARK: - Setup
     //----------------------------------------------
@@ -90,8 +95,8 @@ class PaywallOneTimeController: BaseController {
         trialButton.setTitle(RLocalization.paywall_one_time_trial(), for: .normal)
         restoreButton.setTitle(RLocalization.paywall_one_time_restore(), for: .normal)
         
-        subscribeButton.layer.borderWidth = 1
-        subscribeButton.layer.borderColor = UIColor(rgb: 0xCCBEE9).cgColor
+        subscribeButton.layer.borderWidth = 2
+        subscribeButton.layer.borderColor = UIColor(rgb: 0xCCBEE9, alpha: 0.3).cgColor
         
         presenter.retriveProduct(id: Set([PaywallPriceType.oneYear70.productId]))
     }
