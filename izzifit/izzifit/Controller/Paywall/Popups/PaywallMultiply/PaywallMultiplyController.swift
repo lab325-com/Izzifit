@@ -119,8 +119,8 @@ class PaywallMultiplyController: BaseController {
         secondSubNameLabel.text = screen == .threePrice ? "3 month" : "1 month"
         thirdSubNameLabel.text = "1 week"
         
-        trialButton.layer.borderWidth = 1
-        trialButton.layer.borderColor = UIColor(rgb: 0xCCBEE9).cgColor
+        trialButton.layer.borderWidth = 2
+        trialButton.layer.borderColor = UIColor(rgb: 0xCCBEE9, alpha: 0.3).cgColor
         
         createPrivacyLabel()
         updateSubsView()
