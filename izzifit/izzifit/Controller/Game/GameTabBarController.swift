@@ -18,27 +18,12 @@ class GameTabBarController: UITabBarController {
     
     private lazy var btns: [UIButton] = {[backBtn, spinBtn, buildBtn, mapBtn]}()
     var tabBarStackView: UIStackView!
-    
     var firstLaunch = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVCs()
         setupTabBar()
-        
-        if let vc = viewControllers?.first as? BaseController {
-            GameNetworkLayer.shared.getMap(view: vc,
-                                           startLoader: startLoader,
-                                           stopLoader: stopLoading)
-        }
-    }
-    
-    private func responseToBack() {
-        if let vc = viewControllers?.first as? BaseController {
-            GameNetworkLayer.shared.getMap(view: vc,
-                                           startLoader: startLoader,
-                                           stopLoader: stopLoading)
-        }
     }
         
     private func createNavController(for rootViewController: UIViewController, image: UIImage) -> UIViewController {
@@ -48,17 +33,7 @@ class GameTabBarController: UITabBarController {
     }
     
     private func setupVCs() {
-        viewControllers = [ GameController(),
-        GameBaseController(firstVC: UIViewController(), secondVC: UIViewController())]
-//        [createNavController(for: GameBaseController(firstVC: ArcticGameController(),
-//                                                                       secondVC: EnglandGameController()),
-//                                               image: view.image(img: .gameTabBarSpin)!),
-//                           createNavController(for: GameBaseController(firstVC: LevelController(),
-//                                                                       secondVC: EngLevelController()),
-//                                               image: view.image(img: .gameTabBarBuild)!) ,
-//                           createNavController(for:  MapController(),
-//                                               image: view.image(img: .gameTabBarSpin)!)
-//        ]
+        viewControllers = [GameController(), LevController(), MapController()]
     }
     
     private func setupTabBar() {
@@ -90,6 +65,7 @@ class GameTabBarController: UITabBarController {
                                height: 90.0,
                                topC: 0,
                                leadingC: 0)
+        
         profileBtn.addTarget(self, action: #selector(profile), for: .touchUpInside)
         
         // stackView
@@ -106,10 +82,10 @@ class GameTabBarController: UITabBarController {
                                          btn.heightAnchor.constraint(equalToConstant: view.h/10.15)])
         }
         
-        tabBarStackView = UIStackView(arrangedSubviews: btns)         // let btnWidth =  (view.h/11.6)
-        tabBarStackView.alignment = .center                        // let allstack = (4 * view.h/11.6) + (3 * view.w/26.78)
-        tabBarStackView.axis = .horizontal                        // let leading =  (w - allstack)/2
-        tabBarStackView.spacing = view.w/26.78                   // let x = leading + btnWidth + view.w/26.78 + (btnWidth/2)
+        tabBarStackView = UIStackView(arrangedSubviews: btns)
+        tabBarStackView.alignment = .center
+        tabBarStackView.axis = .horizontal
+        tabBarStackView.spacing = view.w/26.78
         
         view.ui.genericlLayout(object: tabBarStackView,
                                parentView: view,
@@ -124,6 +100,7 @@ class GameTabBarController: UITabBarController {
         spinBtn.isSelected = true
         
         tabBar.isHidden = true
+   
         
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         
@@ -151,20 +128,17 @@ class GameTabBarController: UITabBarController {
     @objc func spin() {
         selectedIndex = 0
         selectBtn(1)
-        responseToBack()
     }
     
     @objc func build() {
         selectedIndex = 1
         selectBtn(2)
         AnalyticsHelper.sendFirebaseEvents(events: .map_open)
-        responseToBack()
     }
     
     @objc func map() {
         selectBtn(3)
         selectedIndex = 2
-        responseToBack()
     }
     
     @objc func profile() {

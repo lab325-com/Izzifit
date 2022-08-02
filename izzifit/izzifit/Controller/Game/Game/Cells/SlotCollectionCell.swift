@@ -69,11 +69,7 @@ class SlotCollectionCell: UICollectionViewCell {
     }
     
     func setupCell() {
-//        self.game = game
-//        if self.model == nil {
-//            self.model = model
-//            tableView.reloadData()
-//        }
+ //   tableView.reloadData()
     }
     
     required init?(coder: NSCoder) {

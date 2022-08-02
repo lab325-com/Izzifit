@@ -9,7 +9,7 @@ import UIKit
 
 class GameBaseController: BaseController {
     
-    var first: UIViewController
+    var first:  UIViewController
     var second: UIViewController
     private var currentScreen = PreferencesManager.sharedManager.currentMapName ?? .snow_map
     

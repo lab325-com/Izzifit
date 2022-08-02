@@ -1,71 +1,105 @@
 //
-//  EngLevelController.swift
+//  LevController.swift
 //  izzifit
 //
-//  Created by O l e h on 09.06.2022.
+//  Created by O l e h on 02.08.2022.
 //
 
 import UIKit
 
-class EngLevelController: BaseController {
-    
-    private var engLevelView: LevelView!
-    private var buildPopUpVw: LevelPopUpView?
-    
-    private lazy var presenter = LevelPresenter(view: self)
-    
-    var cgRects = [CGRect(x: 35, y: 223, width: 144, height: 132),
-                   CGRect(x: 227, y: 352, width: 138, height: 119),
-                   CGRect(x: 65, y: 491, width: 96, height: 134),
-                   CGRect(x: 264, y: 506, width: 101, height: 154),
-                   CGRect(x: 134, y: 641, width: 127, height: 137)]
+class LevController: BaseController {
+
+    private var levelView:          LevelView!
+    private var buildPopUpVw:       LevelPopUpView?
+    private var finishLevelPopUp:   LevelFinishView?
     
     var player = PlayerModel()
     let animation = UIImageView()
+    private var pointers = PointersAndTicks()
     
-    override func loadView() {
-        engLevelView = LevelView()
-        self.view = engLevelView
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        levelView = LevelView()
+        levelView.frame = view.bounds
+        view.addSubview(levelView)
         hiddenNavigationBar = true
         addTargets()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.getBuildings()
+        GameNetworkLayer.shared.getMap(view: self) { self.succesBuildings() }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        engLevelView.barBackVw.getCoinsAndEnergy()
+        levelView.barBackVw.getCoinsAndEnergy()
         checkAvailableHummers()
         let x = (428 - UIScreen.main.bounds.size.width) / 2
-        engLevelView.scrollView.setContentOffset(CGPoint(x: x,y: 0),
+        levelView.scrollView.setContentOffset(CGPoint(x: x,y: 0),
                                                 animated: true)
+    
     }
     
     private func addTargets() {
-        for btn in engLevelView.stateBtns {
+        for btn in levelView.stateBtns {
             btn.addTarget(self,
                          action: #selector(showPopUp(sender:)),
                          for: .touchUpInside)
         }
     }
     
-    private func checkAvailableHummers() {
-        switch presenter.freeBuildingsCount {
-        case 0:
-            engLevelView.hummerBtn.isHidden = true
-            engLevelView.hummerCountLbl.isHidden = true
-        default:
-            engLevelView.hummerBtn.isHidden = false
-            engLevelView.hummerCountLbl.isHidden = false
-            engLevelView.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
+    private func succesBuildings() {
+        
+        checkAvailableHummers()
+        
+        guard let buildings = GameNetworkLayer.shared.buildings else { return }
+        for building in buildings {
+            var state: LevelStates
+            let level = building.level
+            switch level {
+            case 0: state =     .start
+            case 1: state =     .first
+            case 2: state =     .second
+            case 3: state =     .third
+            case 4: state =     .fourth
+            case 5: state =     .finish
+            default: state =    .finish
+            }
+            
+            switch building.name {
+            case BuildingType.building1.rawValue: player.firstState =   state
+            case BuildingType.building2.rawValue: player.secondState =  state
+            case BuildingType.building3.rawValue: player.thirdState =   state
+            case BuildingType.building4.rawValue: player.fourthState =  state
+            case BuildingType.building5.rawValue: player.fifthState =   state
+            default: break
+            }
         }
+        levelView.drawStates(player: player)
+        if GameNetworkLayer.shared.mapName == .snow_map {
+            pointers.drawPointers(model: player, btns: levelView.stateBtns)
+        }
+        
+        let maxLevel = player.checkMaxLevel()
+        guard maxLevel else { return }
+        var title = String()
+        
+        switch GameNetworkLayer.shared.mapName {
+        case .snow_map:    title = "Arctic"
+        case .england_map: title = "EngLand"
+        default: break
+        }
+        
+        finishLevelPopUp = LevelFinishView(title: title,
+                                               delegate: self)
+        
+        view.ui.genericlLayout(object: finishLevelPopUp ?? UIView(),
+                               parentView: view,
+                               topC: 0,
+                               bottomC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
     }
     
     @objc
@@ -76,21 +110,21 @@ class EngLevelController: BaseController {
         
         switch sender.tag {
         case 0: price = player.firstState.rawValue
-            buildType = .building1
+                buildType = .building1
         case 1: price = player.secondState.rawValue
-            buildType = .building2
+                buildType = .building2
         case 2: price = player.thirdState.rawValue
-            buildType = .building3
+                buildType = .building3
         case 3: price = player.fourthState.rawValue
-            buildType = .building4
+                buildType = .building4
         case 4: price = player.fifthState.rawValue
-            buildType = .building5
+                buildType = .building5
         default: buildType = .building1
         }
         
         guard price != 0 else { return }
-        
-        if presenter.freeBuildingsCount > 0 {
+        if let count = GameNetworkLayer.shared.hummersCount {
+        if count > 0 {
             // здесь рисуй попАп за молоточек
             drawBuildPopUp(price: price,
                            buildType: buildType,
@@ -98,24 +132,27 @@ class EngLevelController: BaseController {
                            sender: sender)
             buildPopUpVw!.priceLbl.text = "Free"
         }
-        
+        }
         guard KeychainService.standard.me?.coins ?? 0 >= price else {
-            if presenter.freeBuildingsCount <= 0 {
+            if let count = GameNetworkLayer.shared.hummersCount {
+            if count <= 0 {
                 drawBuildPopUp(price: price,
                                buildType: buildType,
                                popType: .notEnoughMoney,
                                sender: sender)
         }
+        }
             return
         }
         // тут малюй попАп за монети
-        guard presenter.freeBuildingsCount == 0 else { return }
+        if let count =  GameNetworkLayer.shared.hummersCount {
+        guard count == 0 else { return }
         drawBuildPopUp(price: price,
                        buildType: buildType,
                        popType: .buildPopType,
                        sender: sender)
+        }
     }
-    
     
     @objc func closePopUp() {
         guard let buildPopUpVw = buildPopUpVw else { return }
@@ -124,7 +161,7 @@ class EngLevelController: BaseController {
     
     @objc func upgradeBuilding(sender: UIButton) {
    
-        for btn in engLevelView.stateBtns {
+        for btn in levelView.stateBtns {
             btn.isUserInteractionEnabled.toggle()
         }
         
@@ -139,10 +176,9 @@ class EngLevelController: BaseController {
         default: break
         }
         
-        let building = presenter.buildings.filter({$0.name == buildingName})
-        
-        guard let buildingId = building.first?.id else { return }
-        guard let buildPopUpVw = buildPopUpVw else { return }
+        let building = GameNetworkLayer.shared.buildings?.filter({$0.name == buildingName})
+        guard let buildingId = building?.first?.id else { return }
+        guard let buildPopUpVw = buildPopUpVw     else { return }
         buildPopUpVw.removeFromSuperview()
         view.layoutIfNeeded()
         
@@ -157,15 +193,15 @@ class EngLevelController: BaseController {
             
             switch sender.tag {
             case 0: price = self.player.firstState.rawValue
-                buildType = .building1
+                    buildType = .building1
             case 1: price = self.player.secondState.rawValue
-                buildType = .building2
+                    buildType = .building2
             case 2: price = self.player.thirdState.rawValue
-                buildType = .building3
+                    buildType = .building3
             case 3: price = self.player.fourthState.rawValue
-                buildType = .building4
+                    buildType = .building4
             case 4: price = self.player.fifthState.rawValue
-                buildType = .building5
+                    buildType = .building5
             default: buildType = .building1
             }
             
@@ -194,12 +230,27 @@ class EngLevelController: BaseController {
             case .none: break
             }
             
-            for btn in engLevelView.stateBtns {
+            for btn in levelView.stateBtns {
                 btn.isUserInteractionEnabled.toggle()
             }
      
-            engLevelView.barBackVw.prevCoins = KeychainService.standard.me?.coins ?? 0
-            presenter.upgradeBuild(buildingId: buildingId)
+            levelView.barBackVw.prevCoins = KeychainService.standard.me?.coins ?? 0
+            GameNetworkLayer.shared.upgradeBuild(buildingId: buildingId,
+                                                 view: self) {
+                let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
+            } completion: { self.succesBuildings() }
+        }
+    }
+    
+    private func checkAvailableHummers() {
+        if let count =  GameNetworkLayer.shared.hummersCount {
+            switch count {
+            case 0:  levelView.hummerBtn.isHidden = true
+                     levelView.hummerCountLbl.isHidden = true
+            default: levelView.hummerBtn.isHidden = false
+                     levelView.hummerCountLbl.isHidden = false
+                     levelView.hummerCountLbl.text = "x\(count)"
+            }
         }
     }
     
@@ -209,11 +260,6 @@ class EngLevelController: BaseController {
                         sender: UIButton) {
         
         buildPopUpVw = nil
-//        buildPopUpVw = LevelPopUpView(popType: popType,
-//                                      title: "France",
-//                                      mapName: .england_map,
-//                                      delegate: self)
-        
         buildPopUpVw = LevelPopUpView(popType: popType,
                                       title: "England",
                                       mapName: .england_map,
@@ -229,16 +275,16 @@ class EngLevelController: BaseController {
                                    trailingC: 0)
         view.layoutIfNeeded()
         checkAvailableHummers()
-        
-            switch presenter.freeBuildingsCount {
-            case 0:
-                buildPopUpVw.hummerImgVw.isHidden = true
-                buildPopUpVw.hummerCountLbl.isHidden = true
-            default:
-                buildPopUpVw.hummerImgVw.isHidden = false
-                buildPopUpVw.hummerCountLbl.isHidden = false
-                buildPopUpVw.hummerCountLbl.text = "x\(presenter.freeBuildingsCount)"
+        if let count =  GameNetworkLayer.shared.hummersCount {
+            switch count {
+            case 0:  buildPopUpVw.hummerImgVw.isHidden = true
+                     buildPopUpVw.hummerCountLbl.isHidden = true
+            
+            default: buildPopUpVw.hummerImgVw.isHidden = false
+                     buildPopUpVw.hummerCountLbl.isHidden = false
+                     buildPopUpVw.hummerCountLbl.text = "x\(count)"
             }
+        }
         
         buildPopUpVw.fillStates(by: LevelStates(rawValue: price) ?? .finish)
         AnalyticsHelper.sendFirebaseEvents(events: .map_building_tap, params: ["building" : buildType.rawValue])
@@ -268,89 +314,11 @@ class EngLevelController: BaseController {
         animation.isHidden = true
         view.layoutIfNeeded()
     }
+    
 }
 
-extension EngLevelController: LevelOutputProtocol {
-   
-    func mapSwitched() { }
-    
-    func failure() { }
-    
-    func successBuildings(model: [BuildingsModel]) {
-        
-        checkAvailableHummers()
-        print(model)
-        for building in model {
-            var state: LevelStates
-            let level = building.level
-            switch level {
-            case 0: state =     .start
-            case 1: state =     .first
-            case 2: state =     .second
-            case 3: state =     .third
-            case 4: state =     .fourth
-            case 5: state =     .finish
-            default: state =    .finish
-            }
-            
-            switch building.name {
-            case BuildingType.building1.rawValue: player.firstState = state
-            case BuildingType.building2.rawValue: player.secondState = state
-            case BuildingType.building3.rawValue: player.thirdState = state
-            case BuildingType.building4.rawValue: player.fourthState = state
-            case BuildingType.building5.rawValue: player.fifthState = state
-            default: break
-            }
-        }
-        engLevelView.drawStates(player: player)
-    }
-    
-    func successBuild() {
-        let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
-    }
-    
-    func successMe() {
-        engLevelView.barBackVw.getCoinsAndEnergy()
-        engLevelView.barBackVw.runNumbers(isCoins: true,
-                                          duration: 3,
-                                          startValue: engLevelView.barBackVw.prevCoins,
-                                          endValue: KeychainService.standard.me?.coins ?? 0)
-    }
-}
 
-//----------------------------------------------
-// MARK: - PaywallProtocol
-//----------------------------------------------
-
-extension EngLevelController: PaywallProtocol {
-    func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
-    func paywallSuccess(controller: BaseController) { }
-}
-
-//----------------------------------------------
-// MARK: - GamePurchasePopProtocol
-//----------------------------------------------
-
-extension EngLevelController: PurchasePopUpProtocol {
-    func purchasePopUpSpin(controller: PurchasePopUp) {
-        if let tabBarVC = self.tabBarController as? GameTabBarController {
-            tabBarVC.spin()
-        }
-    }
-    
-    func purchasePopUpClose(controller: PurchasePopUp) {
-        if let model = PreferencesManager.sharedManager.localPushs.first(where: {$0.type == .goldZero}) {
-            LocalPushManager.sharedManager.sendNotification(title: model.title, body: model.description, idetifier: "goldZero")
-        }
-    }
-    
-    func purchasePopUpSuccess(controller: PurchasePopUp) {
-        engLevelView.barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        engLevelView.barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
-    }
-}
-
-extension EngLevelController: LevelPopUpDelegate {
+extension LevController: LevelPopUpDelegate {
     func arrowBtnAction(view: UIView) {
         view.removeFromSuperview()
         let result = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self,
@@ -364,3 +332,52 @@ extension EngLevelController: LevelPopUpDelegate {
     }
 }
 
+//----------------------------------------------
+// MARK: - PaywallProtocol
+//----------------------------------------------
+
+extension LevController: PaywallProtocol {
+    func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
+    func paywallSuccess(controller: BaseController) { }
+}
+
+//----------------------------------------------
+// MARK: - GamePurchasePopProtocol
+//----------------------------------------------
+
+extension LevController: PurchasePopUpProtocol {
+    func purchasePopUpSpin(controller: PurchasePopUp) {
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
+            tabBarVC.spin()
+        }
+    }
+    
+    func purchasePopUpClose(controller: PurchasePopUp) {
+        if let model = PreferencesManager.sharedManager.localPushs.first(where: {$0.type == .goldZero}) {
+            LocalPushManager.sharedManager.sendNotification(title: model.title, body: model.description, idetifier: "goldZero")
+        }
+    }
+    
+    func purchasePopUpSuccess(controller: PurchasePopUp) {
+        levelView.barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
+        levelView.barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
+    }
+}
+
+//----------------------------------------------
+// MARK: - LevelFinishDelegate
+//----------------------------------------------
+
+extension LevController: LevelFinishDelegate {
+    func nextMap(view: UIView) {
+        finishLevelPopUp?.removeFromSuperview()
+        levelView.removeFromSuperview()
+        levelView = LevelView()
+        levelView.frame = self.view.bounds
+        self.view.addSubview(levelView)
+        addTargets()
+        GameNetworkLayer.shared.nextMap(view: self) {
+        if let tabBarVC = self.tabBarController as? GameTabBarController { tabBarVC.spin() }
+        }
+    }
+}

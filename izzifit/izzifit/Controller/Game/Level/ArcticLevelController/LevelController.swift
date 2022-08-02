@@ -11,7 +11,7 @@ import Lottie
 
 class LevelController: BaseController {
     
-    private var barBackVw = GameBarBackView(backImage: UIImage(named: "levelShadowViewBack")!)
+    private var barBackVw = GameBarBackView()
     
     @IBOutlet weak var scrollView: UIScrollView!
     

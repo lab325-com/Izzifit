@@ -74,12 +74,10 @@ class SlotTableViewCell: BaseTableViewCell {
     
     func fillCellby(tagBtn: Int) {
         slotBtn.tag = tagBtn
-        
-        if let slotObjects = GameNetworkLayer.shared.slotObjects {
-            let image = slotObjects[tagBtn - 1].image.urlIosFull
-            slotBtn.kf.setImage(with: URL(string: image ?? ""), for: .normal)
+        if let urls = GameNetworkLayer.shared.slotURLs{
+            slotBtn.kf.setImage(with: urls[tagBtn - 1], for: .normal)
         }
-        borderView.isHidden = true
+        borderView.isHidden =   true
         slotBtn.clipsToBounds = true
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class FranceLevelView: UIView {
     
-    var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
+    var barBackVw = GameBarBackView()
     
     private let imgUponScroll = UIImageView()
     let scrollView = UIScrollView()

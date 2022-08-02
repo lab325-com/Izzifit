@@ -27,10 +27,8 @@ class GameBarBackView: UIView {
     private var coinsAnimationView:   AnimationView?
     var energyAnimationView:          AnimationView?
     
-    init(backImage: UIImage) {
+    init() {
         super.init(frame: .zero)
-//        mainImgVw.image = backImage
-//        mainImgVw.contentMode = .scaleAspectFill
           backgroundColor = .clear
           let blurEffect = UIBlurEffect(style: .light)
           let blurEffectView = UIVisualEffectView(effect: blurEffect)

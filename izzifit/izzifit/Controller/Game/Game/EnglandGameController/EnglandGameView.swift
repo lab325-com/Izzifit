@@ -17,7 +17,7 @@ class EnglandGameView: UIView, SpinGameViewProtocol {
     var resultStackView: UIStackView!
     
     // bar
-    var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
+    var barBackVw = GameBarBackView()
     // Basic view
     private var gameBackImgVw = UIImageView()
     private var slotHouseImgVw = UIImageView()

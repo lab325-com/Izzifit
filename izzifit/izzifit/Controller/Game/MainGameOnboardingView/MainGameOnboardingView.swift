@@ -60,12 +60,12 @@ class MainGameOnboardingView: UIView {
         change(by: state)
       
         mainBtn.addTarget(self,
-                                       action: #selector(btnTapped),
-                                       for: .touchUpInside)
+                          action: #selector(btnTapped),
+                          for: .touchUpInside)
                      
-                     additionBtn.addTarget(self,
-                                           action: #selector(btnTapped),
-                                           for: .touchUpInside)
+        additionBtn.addTarget(self,
+                              action: #selector(btnTapped),
+                              for: .touchUpInside)
         
     }
     

@@ -16,7 +16,7 @@ class FranceGameView: UIView, SpinGameViewProtocol {
     var slotBackImgVw: UIImageView = UIImageView()
     var resultStackView: UIStackView!
     // bar
-    var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
+    var barBackVw = GameBarBackView()
     // Basic view
     private var gameBackImgVw = UIImageView()
     private var slotHouseImgVw = UIImageView()
@@ -230,7 +230,6 @@ class FranceGameView: UIView, SpinGameViewProtocol {
         
         ui.genericlLayout(object: uponGameBackImgVw,
                           parentView: gameBackImgVw,
-                         // height: hRatio(cH:370),
                           bottomC: 0,
                           leadingC: 0,
                           trailingC: 0

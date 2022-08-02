@@ -20,7 +20,7 @@ class ArcticGameView: UIView, SpinGameViewProtocol {
     static var counter = 0
     var onBoardingValues = [CGFloat]()
     // bar
-    var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
+    var barBackVw = GameBarBackView()
     // Basic view
     private var gameBackImgVw = UIImageView()
    

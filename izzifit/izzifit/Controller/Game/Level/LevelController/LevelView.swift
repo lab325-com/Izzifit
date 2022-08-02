@@ -9,7 +9,8 @@ import UIKit
 
 class LevelView: UIView {
     
-    var barBackVw = GameBarBackView(backImage: UIImage(named: "gameBarBack")!)
+    // перенести в mainTabBar
+    var barBackVw = GameBarBackView()
     
     private let imgUponScroll = UIImageView()
     let scrollView = UIScrollView()
@@ -29,19 +30,32 @@ class LevelView: UIView {
     
     var cgRects: [CGRect]
     
-    init(cgRects: [CGRect]) {
-        self.cgRects = cgRects
+    init() {
+        switch PreferencesManager.sharedManager.currentMapName {
+        case .snow_map:     self.cgRects = LevelView.arcCGRects
+        case .england_map:  self.cgRects = LevelView.engCGRects
+        case .france_map:   self.cgRects = LevelView.franceCGRects
+        case .none:         self.cgRects = LevelView.arcCGRects
+        }
         super.init(frame: .zero)
         setUI()
         layout()
     }
-    
+
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func setUI() {
-        imgUponScroll.image = image(img: .level_england_back)
-      
-        hummerBtn.setImage(image(img: .england_freeHummer), for: .normal)
+        
+        switch PreferencesManager.sharedManager.currentMapName {
+        case .snow_map:     imgUponScroll.image = RImage.levelBack()
+            hummerBtn.setImage(image(img: .freeHummer), for: .normal)
+        case .england_map:  imgUponScroll.image = image(img: .level_england_back)
+            hummerBtn.setImage(image(img: .england_freeHummer), for: .normal)
+        case .france_map:   imgUponScroll.image = RImage.level_france_back()
+            hummerBtn.setImage(image(img: .france_freeHummer), for: .normal)
+        case .none:         break
+        }
+        
         hummerBtn.isUserInteractionEnabled = false
         ui.setLabel(label: hummerCountLbl,
                     textColor: .white,
@@ -50,20 +64,19 @@ class LevelView: UIView {
                     fontName: "Inter-BoldItalic")
         hummerBtn.isHidden = true
         hummerCountLbl.isHidden = true
-        
     }
     
     private func layout() {
-        
+
         ui.setAndLayScrollView(contentV: imgUponScroll,
                                scrollV: scrollView,
                                parentView: self,
                                backColor: clr(color: .clrMainMapBack) ?? UIColor(),
                                showScrollIndicators: false,
                                bounces: false,
-                               width: 428,
+                               width: PreferencesManager.sharedManager.currentMapName == .france_map ? 484 : 428,
                                height: 926)
-        
+
         ui.genericlLayout(object: barBackVw,
                           parentView: self,
                           height: h / 9.2,
@@ -92,12 +105,18 @@ class LevelView: UIView {
                           parentView: hummerBtn,
                           bottomC: h/203,
                           trailingC: h/203)
-        
-        
-    
     }
     
-    func drawStates(player: PlayerModel, imgStatesArr imgs: [UIImage]) {
+    func drawStates(player: PlayerModel) {
+        
+        var imgs = [UIImage]()
+        
+        switch PreferencesManager.sharedManager.currentMapName {
+        case .snow_map:     imgs = arcticLevelImgs
+        case .england_map:  imgs = englandLevelImgs
+        case .france_map:   imgs = franceLevelImgs
+        case .none: break
+        }
         
         guard imgs.count == 30 else { return }
         
@@ -225,6 +244,62 @@ class LevelView: UIView {
          image(img: .eng_busFourth) ?? UIImage(),
          image(img: .eng_busFinish) ?? UIImage() ]
     }()
-
+    
+    lazy var franceLevelImgs: [UIImage] = {
+        [
+            RImage.fr_luvrStart() ?? UIImage(),
+            RImage.fr_luvrFirst() ?? UIImage(),
+            RImage.fr_luvrSecond() ?? UIImage(),
+            RImage.fr_luvrThird() ?? UIImage(),
+            RImage.fr_luvrFourth() ?? UIImage(),
+            RImage.fr_luvrFinish() ?? UIImage(),
+            
+            RImage.fr_towerStart() ?? UIImage(),
+            RImage.fr_towerFirst() ?? UIImage(),
+            RImage.fr_towerSecond() ?? UIImage(),
+            RImage.fr_towerThird() ?? UIImage(),
+            RImage.fr_towerFourth() ?? UIImage(),
+            RImage.fr_towerFinish() ?? UIImage(),
+            
+            RImage.fr_vineyardStart() ?? UIImage(),
+            RImage.fr_vineyardFirst() ?? UIImage(),
+            RImage.fr_vineyardSecond() ?? UIImage(),
+            RImage.fr_vineyardThird() ?? UIImage(),
+            RImage.fr_vineyardFourth() ?? UIImage(),
+            RImage.fr_vineyardFinish() ?? UIImage(),
+            
+            RImage.fr_archStart() ?? UIImage(),
+            RImage.fr_archFirst() ?? UIImage(),
+            RImage.fr_archSecond() ?? UIImage(),
+            RImage.fr_archThird() ?? UIImage(),
+            RImage.fr_archFourth() ?? UIImage(),
+            RImage.fr_archFinish() ?? UIImage(),
+            
+            RImage.fr_fieldStart() ?? UIImage(),
+            RImage.fr_fieldFirst() ?? UIImage(),
+            RImage.fr_fieldSecond() ?? UIImage(),
+            RImage.fr_fieldThird() ?? UIImage(),
+            RImage.fr_fieldFourth() ?? UIImage(),
+            RImage.fr_fieldFinish() ?? UIImage()
+        ]
+    }()
+    
+    private static let arcCGRects = [CGRect(x: 249, y: 227, width: 120, height: 120),
+                                     CGRect(x: 59, y: 298, width: 140, height: 101),
+                                     CGRect(x: 209, y: 375, width: 170, height: 138),
+                                     CGRect(x: 44, y: 515, width: 165, height: 84),
+                                     CGRect(x: 205, y: 595, width: 146, height: 104)]
+    
+    private static let engCGRects = [CGRect(x: 35, y: 223, width: 144, height: 132),
+                                     CGRect(x: 227, y: 352, width: 138, height: 119),
+                                     CGRect(x: 65, y: 491, width: 96, height: 134),
+                                     CGRect(x: 264, y: 506, width: 101, height: 154),
+                                     CGRect(x: 134, y: 641, width: 127, height: 137)]
+    
+    private static let franceCGRects = [CGRect(x: 58, y: 202, width: 152, height: 158),
+                                        CGRect(x: 279, y: 252, width: 139, height: 153),
+                                        CGRect(x: 69.3, y: 382.8, width: 154, height: 158),
+                                        CGRect(x: 261, y: 503, width: 132, height: 161),
+                                        CGRect(x: 84, y: 572, width: 172, height: 117)]
 }
 

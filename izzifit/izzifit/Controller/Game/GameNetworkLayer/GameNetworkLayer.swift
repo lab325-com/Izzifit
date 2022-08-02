@@ -20,11 +20,11 @@ class GameNetworkLayer {
     var spins: [MapSpinsModel]?
     var buildings: [BuildingsModel]?
     var slotObjects: [SpinObjectsModel]?
+    var slotURLs: [URL]?
+    var backMapId = String()
     
-    // get Map Data
-    
-    func getMap(view: BaseController, startLoader: @escaping () -> (), stopLoader: @escaping () -> ()) {
-        startLoader()
+    func getMap(view: BaseController, completion: @escaping () -> ()) {
+        view.startLoader()
         let query = Map2Query()
         
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
@@ -40,26 +40,62 @@ class GameNetworkLayer {
             self?.spins =        model.map2.spins
             self?.buildings =    model.map2.buildings
             self?.slotObjects =  model.map2.spinObjects
+            self?.backMapId =    model.map2.id
             
-            self?.getMe(view: view, stopLoader: stopLoader)
-        }, failureHandler: { error in  stopLoader() })
+            if let slotObjects = self?.slotObjects {
+             var urls = [URL]()
+            for object in slotObjects {
+                if let urlString = object.image.urlIosFull,
+                   let url = URL(string: urlString) {
+                    urls.append(url)
+                }
+            }
+                self?.slotURLs = urls
+            }
+            self?.getMe(view: view)
+            completion()
+        }, failureHandler: { error in
+            view.stopLoading()
+        })
     }
-    
-    // send SpinID
-    
-    // send BuildingID
-    
-    
-   private func getMe(view: BaseController, stopLoader: @escaping () -> ()) {
+
+   private func getMe(view: BaseController) {
         let query = MeQuery()
         let _ = Network.shared.query(model: MeModel.self, query, controller: view) { model in
             KeychainService.standard.me = model.me
-            stopLoader()
-        } failureHandler: { error in stopLoader()}
+            view.stopLoading()
+        } failureHandler: { error in
+            view.stopLoading()
+        }
     }
-
-    private init() { }
     
+    func nextMap(view: BaseController, completion: @escaping () -> ()) {
+        view.startLoader()
+        let mutation = FinishMapMutation(mapId: backMapId)
+        let _ = Network.shared.mutation(model: FinishMapModel.self, mutation, controller: view) {
+            [weak self] model in
+            guard model.finishMap else { return }
+            completion()
+        } failureHandler: { error in
+            view.stopLoading()
+        }
+    }
+    
+    func upgradeBuild(buildingId: String,
+                      view: BaseController,
+                      buildCompletion: @escaping () -> (),
+                      completion: @escaping () -> ()) {
+        view.startLoader()
+        let mutation = UpgradeBuildingMutation(buildingId: buildingId)
+        let _ = Network.shared.mutation(model: UpgradeBuildingModel.self,
+                                        mutation,
+                                        controller: view,
+                                        successHandler: { [weak self] model in
+            buildCompletion()
+            self?.getMap(view: view, completion: { completion() })
+        }, failureHandler: { [weak self] error in view.stopLoading() })
+    }
+    private init() { }
 }
 
 extension GameNetworkLayer: NSCopying {

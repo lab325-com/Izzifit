@@ -9,7 +9,7 @@ import UIKit
 
 class MapView: UIView {
 
-    var barBackVw = GameBarBackView(backImage: UIImage(named: "mapBarBack")!)
+    var barBackVw = GameBarBackView()
     
     private let backImgVw = UIImageView()
     private let viewUponScrollView = UIView()
