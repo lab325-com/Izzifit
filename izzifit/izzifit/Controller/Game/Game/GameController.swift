@@ -15,6 +15,7 @@ class GameController: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         hiddenNavigationBar = true
         showCorrectView()
     }
@@ -28,7 +29,6 @@ class GameController: BaseController {
     
     func showCorrectView() {
         gameView?.removeFromSuperview()
-        
         switch PreferencesManager.sharedManager.currentMapName {
         case .snow_map:     self.gameView = ArcticGameView()
         case .england_map:  self.gameView = EnglandGameView()
@@ -43,11 +43,9 @@ class GameController: BaseController {
                                leadingC: 0,
                                trailingC: 0)
         
-        
         gameView?.hummerBtn.isHidden = true
         gameView?.hummerCountLbl.isHidden = true
         setCollectionView()
-        
     }
     
     private func setCollectionView() {
@@ -64,12 +62,21 @@ class GameController: BaseController {
         collectionView.register(SlotCollectionCell.self,
                                 forCellWithReuseIdentifier: SlotCollectionCell.id)
         
+        var width = CGFloat()
+        var centerH = CGFloat()
+        switch PreferencesManager.sharedManager.currentMapName {
+        case .snow_map:     width = view.h / 3.90 ; centerH = view.h / 116
+        case .england_map:  width = view.h / 3.70 ; centerH = view.h / 126
+        case .france_map:   width = view.hRatio(cH: 220); centerH = view.hRatio(cH: 9)
+        case .none:         break
+        }
+        
         view.ui.genericlLayout(object: collectionView,
                                parentView: gameView?.slotBackImgVw ?? UIImageView(),
-                               width: view.h / 3.90,
+                               width: width,
                                height: view.h / 5.77,
                                centerV: -view.h / 73,
-                               centerH: view.h / 116)
+                               centerH: centerH)
     }
 }
 

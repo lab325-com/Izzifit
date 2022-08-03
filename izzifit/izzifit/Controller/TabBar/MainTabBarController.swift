@@ -68,6 +68,7 @@ class MainTabBarController: BaseController {
         hiddenNavigationBar = true
         super.viewDidLoad()
         setup()
+     //   PreferencesManager.sharedManager.gameOnboardingDone = true
         
     }
     

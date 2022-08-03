@@ -37,7 +37,7 @@ class LevelView: UIView {
         case .france_map:   self.cgRects = LevelView.franceCGRects
         case .none:         self.cgRects = LevelView.arcCGRects
         }
-        super.init(frame: .zero)
+        super.init(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         setUI()
         layout()
     }
