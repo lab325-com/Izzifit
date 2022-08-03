@@ -10,26 +10,29 @@ import UIKit
 class EnglandGameView: UIView, SpinGameViewProtocol {
     
     var animationImgVw: UIImageView = UIImageView()
+    
+    
     var hummerBtn: UIButton = UIButton()
     var hummerCountLbl: UILabel = UILabel()
+    var startSpinLbl: UILabel = UILabel()
     var spinBtn: UIButton = UIButton()
     var slotBackImgVw: UIImageView = UIImageView()
     var resultStackView: UIStackView!
+    var barBackVw: GameBarBackView = GameBarBackView()
+    var progressImgVw: UIImageView  = UIImageView()
+    var greenCounterLbl: UILabel = UILabel()
     
-    // bar
-    var barBackVw = GameBarBackView()
-    // Basic view
     private var gameBackImgVw = UIImageView()
     private var slotHouseImgVw = UIImageView()
     private var uponGameBackImgVw = UIImageView()
     private var titleLbl = UILabel()
     
-    private var greenCounterLbl = UILabel()
+    
     private let greenCounterImgVw = UIImageView()
     // logo
     private var logoImgVw = UIImageView()
     //startSpinLbl
-    var startSpinLbl = UILabel()
+  
     //resultStack
     private var awardsVerticalStackView: UIStackView!
     
@@ -37,8 +40,7 @@ class EnglandGameView: UIView, SpinGameViewProtocol {
     var awardTitleLbl = UILabel()
     var awardCountLbl = UILabel()
     // Progress Img UI
-    private var progressImgVw = UIImageView()
-    private let progressImg = UIImage(named: "progressActive")
+  
 
     override func draw(_ rect: CGRect) {
         setUI()

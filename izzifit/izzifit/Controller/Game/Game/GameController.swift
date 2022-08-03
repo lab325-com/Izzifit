@@ -10,27 +10,46 @@ import UIKit
 class GameController: BaseController {
  
     var gameView: SpinGameViewProtocol?
-    private var collectionView: UICollectionView!
-    var firstLaunch = true
+    private var collectionView: UICollectionView?
+    private var firstLaunch = true
+    private var timerSpinManager: TimerSpinManager!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        hiddenNavigationBar = true
         GameNetworkLayer.shared.getMap(view: self) {
             self.showCorrectView()
             self.firstLaunch = false
+            self.gameView?.checkAvailableHummers()
+            self.gameView?.updateHeader()
+            self.timerSpinManager = TimerSpinManager(collectionView: self.collectionView ?? UICollectionView())
+            self.timerSpinManager.counter.combinations = GameNetworkLayer.shared.spins ?? [MapSpinsModel]()
         }
+        
+        AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
+        needSoundTap = false
+        hiddenNavigationBar = true
+        let swipeRight = UISwipeGestureRecognizer(target: self,
+                                                  action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        guard !firstLaunch  else { return }
+        guard !firstLaunch else { return }
         GameNetworkLayer.shared.getMap(view: self) {
+            self.collectionView?.removeFromSuperview()
             self.showCorrectView()
+            self.gameView?.checkAvailableHummers()
+            self.gameView?.updateHeader()
+            self.timerSpinManager = TimerSpinManager(collectionView: self.collectionView ?? UICollectionView())
+            self.timerSpinManager.counter.combinations = GameNetworkLayer.shared.spins ?? [MapSpinsModel]()
         }
     }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void { actionBack() }
     
     func showCorrectView() {
         gameView?.removeFromSuperview()
@@ -50,6 +69,9 @@ class GameController: BaseController {
         
         gameView?.hummerBtn.isHidden = true
         gameView?.hummerCountLbl.isHidden = true
+        gameView?.spinBtn.addTarget(self,
+                                   action: #selector(spinAction),
+                                   for: .touchDown)
         setCollectionView()
     }
     
@@ -61,10 +83,10 @@ class GameController: BaseController {
         layout.minimumLineSpacing = view.h / 101.5
         collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: layout)
-        collectionView.backgroundColor = . clear
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(SlotCollectionCell.self,
+        collectionView?.backgroundColor = . clear
+        collectionView?.dataSource = self
+        collectionView?.delegate = self
+        collectionView?.register(SlotCollectionCell.self,
                                 forCellWithReuseIdentifier: SlotCollectionCell.id)
         
         var width = CGFloat()
@@ -76,12 +98,47 @@ class GameController: BaseController {
         case .none:         break
         }
         
-        view.ui.genericlLayout(object: collectionView,
+        view.ui.genericlLayout(object: collectionView ?? UICollectionView(),
                                parentView: gameView?.slotBackImgVw ?? UIImageView(),
                                width: width,
                                height: view.h / 5.77,
                                centerV: -view.h / 73,
                                centerH: centerH)
+    }
+    
+    private func spinsRunOut() {
+        let alert = UIAlertController(title: "Congratulation",
+                                      message: "You can upgrade all the buildings. The new level is coming soon.",
+                                      preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK",
+                                     style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+
+    
+    
+    // Spin Methods
+    
+    @objc func spinAction() {
+        if let gameView = gameView {
+            timerSpinManager.generalSpin(resultLbl: gameView.startSpinLbl,
+                                         resultStackView: gameView.resultStackView,
+                                         coinsLbl: gameView.barBackVw.coinsLbl,
+                                         energyCountLbl: gameView.barBackVw.energyCountLbl,
+                                         spinBtn: gameView.spinBtn,
+                                         showProgress: { DispatchQueue.main.async { gameView.showProgress() }}
+                                         ,spinsRunOut: spinsRunOut) {
+                let result = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
+
+                if !result, let ids = PreferencesManager.sharedManager.enegyZero?.idProducts {
+                    GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
+                }
+            }
+            guard !PreferencesManager.sharedManager.gameOnboardingDone  else { return }
+            ArcticGameView.counter += 1
+            gameView.showProgress()
+        }
     }
 }
 
@@ -99,5 +156,43 @@ extension GameController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.section = indexPath.row
         cell.setupCell()
         return cell
+    }
+}
+
+
+//----------------------------------------------
+// MARK: - PaywallProtocol
+//----------------------------------------------
+
+extension GameController: PaywallProtocol {
+    func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
+    func paywallSuccess(controller: BaseController) { }
+}
+
+//----------------------------------------------
+// MARK: - PurchasePopUpProtocol
+//----------------------------------------------
+
+extension GameController: PurchasePopUpProtocol {
+    func purchasePopUpSpin(controller: PurchasePopUp) {
+        
+        /// сделай тоже самое по англии
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
+           
+            NotificationCenter.default.post(name: Constants.Notifications.openWorkoutNotification,
+                                            object: self,
+                                            userInfo: nil)
+            tabBarVC.actionBack()
+        }
+    }
+    
+    func purchasePopUpClose(controller: PurchasePopUp) {
+        if let model = PreferencesManager.sharedManager.localPushs.first(where: {$0.type == .energyZero}) {
+            LocalPushManager.sharedManager.sendNotification(title: model.title, body: model.description, idetifier: "energyZero")
+        }
+    }
+    
+    func purchasePopUpSuccess(controller: PurchasePopUp) {
+        gameView?.updateHeader()
     }
 }

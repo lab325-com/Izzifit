@@ -16,7 +16,7 @@ class FranceGameView: UIView, SpinGameViewProtocol {
     var slotBackImgVw: UIImageView = UIImageView()
     var resultStackView: UIStackView!
     // bar
-    var barBackVw = GameBarBackView()
+    var barBackVw: GameBarBackView = GameBarBackView()
     // Basic view
     private var gameBackImgVw = UIImageView()
     private var slotHouseImgVw = UIImageView()
@@ -35,8 +35,10 @@ class FranceGameView: UIView, SpinGameViewProtocol {
     var awardTitleLbl = UILabel()
     var awardCountLbl = UILabel()
     // Progress Img UI
-    private var progressImgVw = UIImageView()
-    private let progressImg = UIImage(named: "progressActive")
+    var progressImgVw: UIImageView = UIImageView()
+    
+    var greenCounterLbl: UILabel = UILabel()
+    private let greenCounterImgVw = UIImageView()
 
     override func draw(_ rect: CGRect) {
         setUI()

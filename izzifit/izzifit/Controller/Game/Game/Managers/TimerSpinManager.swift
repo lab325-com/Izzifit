@@ -10,7 +10,7 @@ import UIKit
 class TimerSpinManager {
     
     var collectionView: UICollectionView
-    var presenter: ArcticGamePresenter
+  //  var presenter: ArcticGamePresenter
     var combinationManager = CombinationsAwardsManager()
     var counter = OffsetCounter(strideOffset: UIScreen.main.bounds.size.height / 12.799)
 
@@ -42,7 +42,13 @@ class TimerSpinManager {
     init(collectionView: UICollectionView,
          presenter: ArcticGamePresenter) {
         self.collectionView = collectionView
-        self.presenter = presenter
+      //  self.presenter = presenter
+        timerCounters = [87, 87, 87]
+    }
+    
+    init(collectionView: UICollectionView) {
+        self.collectionView = collectionView
+      //  self.presenter = presenter
         timerCounters = [87, 87, 87]
     }
     
@@ -183,7 +189,7 @@ class TimerSpinManager {
     @objc func x3Spin() {
         spinner(by: 2) { [self] in
             guard combinationCounter < counter.combinations.count else { return }
-            presenter.getSpin(spinId: counter.combinations[combinationCounter].id)
+   //         presenter.getSpin(spinId: counter.combinations[combinationCounter].id)
         }
     }
 }

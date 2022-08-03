@@ -10,30 +10,32 @@ import UIKit
 class ArcticGameView: UIView, SpinGameViewProtocol {
     
     var animationImgVw: UIImageView = UIImageView()
+    
     var hummerBtn: UIButton = UIButton()
     var hummerCountLbl: UILabel = UILabel()
+    var startSpinLbl: UILabel = UILabel()
     var spinBtn: UIButton = UIButton()
     var slotBackImgVw: UIImageView = UIImageView()
     var resultStackView: UIStackView!
+    var barBackVw: GameBarBackView = GameBarBackView()
+    var progressImgVw: UIImageView = UIImageView()
     
     static var currentEnergy = CGFloat()
     static var counter = 0
-    var onBoardingValues = [CGFloat]()
     // bar
-    var barBackVw = GameBarBackView()
     // Basic view
     private var gameBackImgVw = UIImageView()
    
     var slotHouseImgVw = UIImageView()
     private var uponGameBackImgVw = UIImageView()
     private var titleLbl = UILabel()
-    private var greenCounterLbl = UILabel()
+    var greenCounterLbl = UILabel()
     private let greenCounterImgVw = UIImageView()
 
     // logo
     private var logoImgVw = UIImageView()
     //startSpinLbl
-    var startSpinLbl = UILabel()
+  
     
     //resultStack
   
@@ -44,8 +46,7 @@ class ArcticGameView: UIView, SpinGameViewProtocol {
     var awardCountLbl = UILabel()
     
     // Progress Img UI
-    var progressImgVw = UIImageView()
-    private let progressImg = UIImage(named: "progressActive")
+
     
     
     override func draw(_ rect: CGRect) {
@@ -274,48 +275,7 @@ class ArcticGameView: UIView, SpinGameViewProtocol {
                           leadingCG: 0)
     }
     
-    func showProgress() {
-        greenCounterLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))/50"
-        var spinsRemainder = CGFloat(KeychainService.standard.me?.energy ?? 0.0)
-        switch spinsRemainder {
-        case let x where x > 100.0: spinsRemainder = 100.0
-        default: break
-        }
-        let hiddenPart = 100.0 - spinsRemainder
-     
-        print("usd")
-        
-        switch PreferencesManager.sharedManager.gameOnboardingDone {
-        case true:    progressImgVw.hideImage(hiddenPart: hiddenPart,
-                                              img: progressImg ?? UIImage())
-        case false:
-            
-            switch ArcticGameView.counter {
-            case 0:
-                ArcticGameView.currentEnergy = CGFloat(KeychainService.standard.me?.energy ?? 0)
-                progressImgVw.hideImage(hiddenPart: hiddenPart,
-                                           img: progressImg ?? UIImage())
-                let energy = ArcticGameView.currentEnergy
-                onBoardingValues = [ energy * 0.75 ,
-                                     energy * 0.5 ,
-                                     energy * 0.25,
-                                     0]
-                ArcticGameView.counter += 1
-            default:
-                let part = 100.0 - onBoardingValues[ArcticGameView.counter - 2]
-                progressImgVw.hideImage(hiddenPart: part,
-                                           img: progressImg ?? UIImage())
-            }
-           
-        }
-        
-        
-    }
-    
-    func updateHeader() {
-        barBackVw.coinsLbl.text = "\(KeychainService.standard.me?.coins ?? 0)"
-        barBackVw.energyCountLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))"
-    }
+
 }
 
 enum GameAnimation {
