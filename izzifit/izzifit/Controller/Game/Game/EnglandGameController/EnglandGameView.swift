@@ -104,10 +104,8 @@ class EnglandGameView: UIView, SpinGameViewProtocol {
                     textAlignment: .right,
                     fontSize: h / 60.75,
                     fontName: "Inter-BoldItalic")
-
         // logo
         logoImgVw.image = image(img: .start_logo_ic)
-        
         //startSpinLbl
         ui.setLabel(label: startSpinLbl,
                     labelText: "START!",

@@ -9,15 +9,18 @@ import Foundation
 import UIKit
 
 protocol SpinGameViewProtocol: UIView, GameAnimationProtocol {
-    var hummerBtn: UIButton { get set }
-    var hummerCountLbl: UILabel { get set }
-    var startSpinLbl: UILabel { get set }
-    var spinBtn: UIButton { get set }
-    var slotBackImgVw: UIImageView { get set}
-    var resultStackView: UIStackView! {get set}
-    var barBackVw: GameBarBackView {get set}
-    var progressImgVw: UIImageView { get set }
-    var greenCounterLbl: UILabel {get set}
+    var hummerBtn: UIButton             {get set}
+    var hummerCountLbl: UILabel         {get set}
+    var startSpinLbl: UILabel           {get set}
+    var spinBtn: UIButton               {get set}
+    var slotBackImgVw: UIImageView      {get set}
+    var resultStackView: UIStackView!   {get set}
+    var barBackVw: GameBarBackView      {get set}
+    var progressImgVw: UIImageView      {get set}
+    var greenCounterLbl: UILabel        {get set}
+    var awardImgVw: UIImageView         {get set}
+    var awardTitleLbl: UILabel          {get set}
+    var awardCountLbl: UILabel          {get set}
     func showProgress() -> ()
     func updateHeader() -> ()
 }
@@ -59,7 +62,6 @@ extension SpinGameViewProtocol {
                 progressImgVw.hideImage(hiddenPart: part,
                                            img: progressImg ?? UIImage())
             }
-           
         }
     }
     
@@ -79,6 +81,51 @@ extension SpinGameViewProtocol {
             hummerCountLbl.isHidden = false
             hummerCountLbl.text = "x\(GameNetworkLayer.shared.hummersCount)"
         }
+    }
+    
+    func showAwards(model: [SpinMainModel]) -> (coinsAward: Int, spinsAward: Int) {
+        var coinsAmount = Int()
+        var spinsAmount = Int()
+        for award in model {
+            switch award.type {
+            case .spinObjectRewardTypeCoin:
+                let expense = KeychainService.standard.me?.coins ?? 0
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                         self.barBackVw.runNumbers(isCoins: true,
+                                                       duration: 3,
+                                                       startValue:  expense,
+                                                       endValue:  expense + award.amount)
+                     }
+                KeychainService.standard.me?.coins! += award.amount
+                coinsAmount = award.amount
+                
+            case .spinObjectRewardTypeEnergy:
+                let energy = KeychainService.standard.me?.energy ?? 0
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.barBackVw.runNumbers(isCoins: false,
+                                                      duration: 3,
+                                                      startValue:  Int(energy),
+                                                      endValue:  Int(energy) + award.amount)
+                }
+                KeychainService.standard.me?.energy! += Float(award.amount)
+                spinsAmount = award.amount
+                
+            case .spinObjectRewardTypeBuild: print("")
+            case .__unknown(_):  print("")
+            }
+        }
+        startSpinLbl.text = ""
+        return (coinsAmount,spinsAmount)
+    }
+    
+    func threeHummersCombination() {
+       if var count = GameNetworkLayer.shared.hummersCount {
+           count += 1
+        GameNetworkLayer.shared.hummersCount = count
+        }
+       hummerCountLbl.text = "x\(GameNetworkLayer.shared.hummersCount)"
+       hummerBtn.isHidden = false
+       hummerCountLbl.isHidden = false
     }
 }
 

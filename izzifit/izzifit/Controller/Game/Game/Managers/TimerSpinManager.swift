@@ -10,6 +10,7 @@ import UIKit
 class TimerSpinManager {
     
     var collectionView: UICollectionView
+    weak var delegate: SpinAwardProtocol?
   //  var presenter: ArcticGamePresenter
     var combinationManager = CombinationsAwardsManager()
     var counter = OffsetCounter(strideOffset: UIScreen.main.bounds.size.height / 12.799)
@@ -46,8 +47,10 @@ class TimerSpinManager {
         timerCounters = [87, 87, 87]
     }
     
-    init(collectionView: UICollectionView) {
+    init(collectionView: UICollectionView,
+         delegate: SpinAwardProtocol) {
         self.collectionView = collectionView
+        self.delegate = delegate
       //  self.presenter = presenter
         timerCounters = [87, 87, 87]
     }
@@ -90,8 +93,8 @@ class TimerSpinManager {
         
         switch timerCounters[index]{
         case 86: tableContentOffsets[index] = tables[index].contentOffset.y
-            multiplier = StrideConstants.firstStride
-        case 84,85: multiplier = StrideConstants.firstStride
+            multiplier =           StrideConstants.firstStride
+        case 84,85: multiplier =   StrideConstants.firstStride
         case 81...83: multiplier = StrideConstants.secondStride
         case 78...80: multiplier = StrideConstants.thirdStride
         case 75...77: multiplier = StrideConstants.fourthStride
@@ -100,18 +103,18 @@ class TimerSpinManager {
         case 66...68: multiplier = StrideConstants.seventhStride
         case 63...65: multiplier = StrideConstants.eighthStride
         case 60...62: multiplier = StrideConstants.ninethStride
-        case 59: multiplier = StrideConstants.tenthStride
-        case 30 : multiplier = StrideConstants.tenthStride
+        case 59: multiplier =      StrideConstants.tenthStride
+        case 30 : multiplier =     StrideConstants.tenthStride
         case 27...29: multiplier = StrideConstants.ninethStride
         case 24...26: multiplier = StrideConstants.eighthStride
         case 21...23: multiplier = StrideConstants.seventhStride
         case 18...20: multiplier = StrideConstants.sixthStride
         case 15...17: multiplier = StrideConstants.fifthStride
         case 12...14: multiplier = StrideConstants.fourthStride
-        case 9...11: multiplier = StrideConstants.thirdStride
-        case 6...8: multiplier = StrideConstants.secondStride //6
-        case 3...5: multiplier = StrideConstants.firstStride  //3
-        default: multiplier = speeds[index]
+        case 9...11: multiplier =  StrideConstants.thirdStride
+        case 6...8: multiplier =   StrideConstants.secondStride //6
+        case 3...5: multiplier =   StrideConstants.firstStride  //3
+        default: multiplier =      speeds[index]
         }
         
         tableContentOffsets[index] -= multiplier
@@ -190,6 +193,9 @@ class TimerSpinManager {
         spinner(by: 2) { [self] in
             guard combinationCounter < counter.combinations.count else { return }
    //         presenter.getSpin(spinId: counter.combinations[combinationCounter].id)
+            // send request here, but make some actions in GameController
+            GameNetworkLayer.shared.getSpin(spinId: counter.combinations[combinationCounter].id,
+                                            view: delegate!)
         }
     }
 }

@@ -8,6 +8,11 @@
 import Apollo
 import UIKit
 
+protocol SpinAwardProtocol: BaseController {
+    func completeAward(model: [SpinMainModel])
+}
+
+
 class GameNetworkLayer {
     
     static var shared: GameNetworkLayer = {
@@ -95,6 +100,19 @@ class GameNetworkLayer {
             self?.getMap(view: view, completion: { completion() })
         }, failureHandler: { [weak self] error in view.stopLoading() })
     }
+    
+    func getSpin(spinId: String,
+                 view: SpinAwardProtocol) {
+        view.startLoader()
+        let query = SpinQuery(spinId: spinId)
+        let _ = Network.shared.query(model: SpinModel.self, query, controller: view, successHandler: { [weak self] model in
+            view.completeAward(model: model.spin)
+            view.stopLoading()
+        }, failureHandler: { [weak self] error in
+            view.stopLoading()
+        })
+    }
+    
     private init() { }
 }
 

@@ -15,6 +15,20 @@ class GameController: BaseController {
     private var timerSpinManager: TimerSpinManager!
 
     
+    override func loadView() {
+        super.loadView()
+        switch PreferencesManager.sharedManager.currentMapName {
+        case .snow_map:     self.gameView = ArcticGameView()
+        case .england_map:  self.gameView = EnglandGameView()
+        case .france_map:   self.gameView = FranceGameView()
+        case .none:         self.gameView = ArcticGameView()
+        }
+        
+        gameView?.frame = view.bounds
+        view.addSubview(gameView ?? UIView())
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         GameNetworkLayer.shared.getMap(view: self) {
@@ -22,7 +36,7 @@ class GameController: BaseController {
             self.firstLaunch = false
             self.gameView?.checkAvailableHummers()
             self.gameView?.updateHeader()
-            self.timerSpinManager = TimerSpinManager(collectionView: self.collectionView ?? UICollectionView())
+            self.timerSpinManager = TimerSpinManager(collectionView: self.collectionView ?? UICollectionView(), delegate: self)
             self.timerSpinManager.counter.combinations = GameNetworkLayer.shared.spins ?? [MapSpinsModel]()
         }
         
@@ -33,7 +47,6 @@ class GameController: BaseController {
                                                   action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +57,7 @@ class GameController: BaseController {
             self.showCorrectView()
             self.gameView?.checkAvailableHummers()
             self.gameView?.updateHeader()
-            self.timerSpinManager = TimerSpinManager(collectionView: self.collectionView ?? UICollectionView())
+            self.timerSpinManager = TimerSpinManager(collectionView: self.collectionView ?? UICollectionView(), delegate: self)
             self.timerSpinManager.counter.combinations = GameNetworkLayer.shared.spins ?? [MapSpinsModel]()
         }
     }
@@ -159,6 +172,47 @@ extension GameController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
+//----------------------------------------------
+// MARK: - SpinAwardProtocol
+//----------------------------------------------
+extension GameController: SpinAwardProtocol {
+    func completeAward(model: [SpinMainModel]) {
+        if let tupleAward = gameView?.showAwards(model: model),
+           let gameView = gameView {
+        
+        var spinManager = CombinationsAwardsManager()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let spinTags = self.timerSpinManager.convertSpinTypes(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds)
+                if let tupleResult = spinManager.recognizeSetCombinations(spinTags) {
+                spinManager.accrueBonuses(by: tupleResult.0,
+                                               homeView: gameView,
+                                               barBackVw: gameView.barBackVw,
+                                               hiddenStack: gameView.resultStackView,
+                                               awardImgVw: gameView.awardImgVw,
+                                               awardTitleLbl: gameView.awardTitleLbl,
+                                               awardCountLbl: gameView.awardCountLbl,
+                                               coinsAmount: tupleAward.coinsAward,
+                                               spinsAmount: tupleAward.spinsAward) { gameView.threeHummersCombination() }
+                gameView.showProgress()
+                } else {
+                    spinManager.coinBag(in: spinTags,
+                                             hiddenStack: gameView.resultStackView,
+                                             awardImgVw: gameView.awardImgVw,
+                                             awardTitleLbl: gameView.awardTitleLbl,
+                                             awardCountLbl: gameView.awardCountLbl,
+                                             coinsAmount: tupleAward.coinsAward,
+                                             animateCoins: gameView.barBackVw.animateCoins(speed:))
+                }
+            let lastSpinIndex = self.timerSpinManager.counter.combinations.count - 1
+            switch self.timerSpinManager.combinationCounter {
+            case lastSpinIndex: self.timerSpinManager.combinationCounter = 0
+            default:  self.timerSpinManager.combinationCounter += 1
+            }
+        }
+        let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterSpeen)
+        }
+    }
+}
 
 //----------------------------------------------
 // MARK: - PaywallProtocol

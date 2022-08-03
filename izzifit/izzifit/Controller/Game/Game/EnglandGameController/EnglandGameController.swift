@@ -59,16 +59,16 @@ class EnglandGameController: BaseController {
         collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: layout)
         
-        collectionView.backgroundColor = . clear
+        collectionView.backgroundColor = .clear
         collectionView.dataSource = self
-        collectionView.delegate = self
+        collectionView.delegate =   self
         collectionView.register(SlotCollectionCell.self,
                                 forCellWithReuseIdentifier: SlotCollectionCell.id)
         
-        view.ui.genericlLayout(object: collectionView,
+        view.ui.genericlLayout(object:  collectionView,
                                parentView: gameView.slotBackImgVw,
-                               width: view.h / 3.60,
-                               height: view.h / 5.77,
+                               width:   view.h / 3.60,
+                               height:  view.h / 5.77,
                                centerV: -view.h / 73,
                                centerH: view.h / 116)
     }
