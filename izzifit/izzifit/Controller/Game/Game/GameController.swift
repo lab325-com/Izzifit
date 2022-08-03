@@ -11,17 +11,22 @@ class GameController: BaseController {
  
     var gameView: SpinGameViewProtocol?
     private var collectionView: UICollectionView!
+    var firstLaunch = true
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
       
         hiddenNavigationBar = true
-        showCorrectView()
+        GameNetworkLayer.shared.getMap(view: self) {
+            self.showCorrectView()
+            self.firstLaunch = false
+        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard !firstLaunch  else { return }
         GameNetworkLayer.shared.getMap(view: self) {
             self.showCorrectView()
         }
