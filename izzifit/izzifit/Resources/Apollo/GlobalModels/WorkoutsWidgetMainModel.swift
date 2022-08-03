@@ -17,6 +17,7 @@ struct WorkoutsWidgetMainModel: Codable, Equatable {
     let energy: Int?
     let energyTotal: Int?
     let id: String?
+    let description: String?
     let isAvailable: Bool?
     let isFinished: Bool?
     let title: String?

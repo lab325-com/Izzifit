@@ -15,6 +15,7 @@ query ChooseWorkoutWidget($date: Date) {
         id
         isAvailable
         isFinished
+        description
         title
         totalExercises
         totalFinishedExercises

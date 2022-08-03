@@ -14,6 +14,7 @@ query RecommendWorkouts {
         id
         isAvailable
         isFinished
+        description
         title
         totalExercises
         totalFinishedExercises

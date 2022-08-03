@@ -20,10 +20,7 @@ class EnergySpecialPriceCell: UITableViewCell {
     @IBOutlet weak var specialView: UIView!
     @IBOutlet weak var avatarImageView: UIImageView!
     
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var discountLabel: UILabel!
-    
+    @IBOutlet weak var descriptionLabel: UILabel!
     weak var delegate: EnergySpecialPriceCellDelegate?
     
     private var model: WorkoutsWidgetMainModel?
@@ -38,9 +35,6 @@ class EnergySpecialPriceCell: UITableViewCell {
         specialView.clipsToBounds = true
         specialView.layer.cornerRadius = 4
         specialView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        priceLabel.isHidden = true
-        discountLabel.isHidden = true
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -52,7 +46,7 @@ class EnergySpecialPriceCell: UITableViewCell {
     
     func setupCell(model: WorkoutsWidgetMainModel, paymentInfo: PaymentsModel?) {
         self.model = model
-        timeLabel.text = "\(model.duration?.minutes ?? 0) min"
+        
         avatarImageView.kf.setImage(with: URL(string: model.Image?.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_ic(), options: [.transition(.fade(0.25))])
         
         let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Inter-Medium", size: 14), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x3F3E56)]
@@ -72,13 +66,7 @@ class EnergySpecialPriceCell: UITableViewCell {
 
         // draw the result in a label
         nameLabel.attributedText = fullString
-        
-        if let paymentInfo = paymentInfo {
-            setPrice(model: model, paymentInfo: paymentInfo)
-        } else {
-            priceLabel.isHidden = false
-            discountLabel.isHidden = false
-        }
+        descriptionLabel.text = model.description
     }
     
     @IBAction func actionStartWokout(_ sender: UIButton) {
@@ -87,35 +75,5 @@ class EnergySpecialPriceCell: UITableViewCell {
         }
 
         delegate?.energySpecialPriceSelect(cell: self, model: model)
-    }
-    
-    func setPrice(model: WorkoutsWidgetMainModel, paymentInfo: PaymentsModel) {
-        if KeychainService.standard.me?.Subscription != nil {
-            priceLabel.isHidden = false
-            discountLabel.isHidden = false
-            
-            priceLabel.text = "Free"
-            
-            let dicount = Int(paymentInfo.price)
-            let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "$\(dicount).99")
-            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSRange(location: 0, length: attributeString.length))
-            
-            discountLabel.attributedText = attributeString
-            
-        } else if model.isAvailable != true {
-            priceLabel.isHidden = false
-            discountLabel.isHidden = false
-            
-            priceLabel.text = paymentInfo.prettyPrice
-            
-            let dicount = Int(paymentInfo.price)
-            let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "$\(dicount * 2).99")
-            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSRange(location: 0, length: attributeString.length))
-            
-            discountLabel.attributedText = attributeString
-        } else {
-            priceLabel.isHidden = true
-            discountLabel.isHidden = true
-        }
     }
 }

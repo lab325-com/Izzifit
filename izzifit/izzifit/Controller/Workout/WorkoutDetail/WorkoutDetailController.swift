@@ -24,6 +24,8 @@ class WorkoutDetailController: BaseController {
     private let cellIdentifier = String(describing: WorkoutDetailHeaderCell.self)
     private let cellIDescriptiondentifier = String(describing: WorkoutDetailDescriptionCell.self)
     private let cellTrainingIdentifier = String(describing: WorkoutDetailTrainCell.self)
+    private let cellSpecialIdentifier = String(describing: WorkoutDetailSpecialCell.self)
+    
     
     private let sectionTitleIdentifier = String(describing: WorkoutDetailSectionCell.self)
     
@@ -87,6 +89,7 @@ class WorkoutDetailController: BaseController {
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.register(UINib(nibName: cellTrainingIdentifier, bundle: nil), forCellReuseIdentifier: cellTrainingIdentifier)
         tableView.register(UINib(nibName: cellIDescriptiondentifier, bundle: nil), forCellReuseIdentifier: cellIDescriptiondentifier)
+        tableView.register(UINib(nibName: cellSpecialIdentifier, bundle: nil), forCellReuseIdentifier: cellSpecialIdentifier)
         
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
         tableView.register(UINib(nibName: sectionTitleIdentifier, bundle: nil), forHeaderFooterViewReuseIdentifier: sectionTitleIdentifier)
@@ -139,7 +142,7 @@ extension WorkoutDetailController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        if idSpecialId != nil {
             switch indexPath.row {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as? WorkoutDetailHeaderCell else { return UITableViewCell() }
@@ -147,21 +150,38 @@ extension WorkoutDetailController: UITableViewDelegate, UITableViewDataSource {
                 cell.setupCell(model: presenter.workout)
                 return cell
             case 1:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIDescriptiondentifier) as? WorkoutDetailDescriptionCell else { return UITableViewCell() }
-                cell.delegate = self
-                cell.setupCell(model: presenter.workout, isSpecial: idSpecialId != nil, paymentInfo: presenter.paymentsInfo.first(where: {$0.product == idSpecialId}))
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSpecialIdentifier) as? WorkoutDetailSpecialCell else { return UITableViewCell() }
+                cell.setupCell(model: presenter.workout)
                 return cell
+                
             default:
                 return UITableViewCell()
             }
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellTrainingIdentifier) as? WorkoutDetailTrainCell else { return UITableViewCell() }
-            if let model = presenter.workout?.exerciseGroups?[safe: indexPath.section - 1]?.exercises?[safe: indexPath.row] {
-                let nextExecise = presenter.workout?.exerciseGroups?[safe: indexPath.section - 1]?.exercises?[safe: indexPath.row + 1]
-                
-                cell.setupCell(model: model, isSelected: selectedId == model.id, isHiddenSepate: nextExecise == nil ? true : false)
+            if indexPath.section == 0 {
+                switch indexPath.row {
+                case 0:
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as? WorkoutDetailHeaderCell else { return UITableViewCell() }
+                    cell.delegate = self
+                    cell.setupCell(model: presenter.workout)
+                    return cell
+                case 1:
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIDescriptiondentifier) as? WorkoutDetailDescriptionCell else { return UITableViewCell() }
+                    cell.delegate = self
+                    cell.setupCell(model: presenter.workout, isSpecial: idSpecialId != nil, paymentInfo: presenter.paymentsInfo.first(where: {$0.product == idSpecialId}))
+                    return cell
+                default:
+                    return UITableViewCell()
+                }
+            } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellTrainingIdentifier) as? WorkoutDetailTrainCell else { return UITableViewCell() }
+                if let model = presenter.workout?.exerciseGroups?[safe: indexPath.section - 1]?.exercises?[safe: indexPath.row] {
+                    let nextExecise = presenter.workout?.exerciseGroups?[safe: indexPath.section - 1]?.exercises?[safe: indexPath.row + 1]
+                    
+                    cell.setupCell(model: model, isSelected: selectedId == model.id, isHiddenSepate: nextExecise == nil ? true : false)
+                }
+                return cell
             }
-            return cell
         }
     }
     
