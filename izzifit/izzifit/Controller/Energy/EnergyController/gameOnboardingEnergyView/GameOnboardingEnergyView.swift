@@ -26,17 +26,13 @@ class GameOnboardingEnergyView: UIView {
         setAndLayout()
     }
     
-//    @objc func testBtn() {
-//        print("tapped")
-//    }
-    
     func setAndLayout() {
         
         yellowBtn.layer.backgroundColor = UIColor(rgb: 0xFFF2D2).cgColor
         yellowBtn.layer.cornerRadius = 20
         yellowBtn.layer.masksToBounds = true
         
-     //   yellowBtn.addTarget(self, action: #selector(testBtn), for: .touchUpInside)
+        yellowBtn.addTarget(self, action: #selector(actionYellow), for: .touchUpInside)
         
         ui.genericlLayout(object: yellowBtn,
                           parentView: self,
@@ -164,6 +160,10 @@ class GameOnboardingEnergyView: UIView {
                           trailingCG: 0)
         
         
+    }
+    
+    @objc func actionYellow() {
+        NotificationCenter.default.post(name: Constants.Notifications.openGameSpin, object: self, userInfo: nil)
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
