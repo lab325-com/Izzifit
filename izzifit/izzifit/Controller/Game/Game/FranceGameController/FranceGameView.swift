@@ -58,6 +58,9 @@ class FranceGameView: UIView, SpinGameViewProtocol {
         uponGameBackImgVw.image = image(img: .france_uponBack)
         uponGameBackImgVw.contentMode = .scaleAspectFill
         
+        greenCounterImgVw.image = RImage.greenCounterImg() ?? UIImage()
+        greenCounterImgVw.contentMode = .scaleAspectFill
+        
         spinBtn.setImage(image(img: .spinBtnNormal), for: .normal)
         spinBtn.setImage(image(img: .spinBtnSelected), for: .highlighted)
         
@@ -128,6 +131,12 @@ class FranceGameView: UIView, SpinGameViewProtocol {
                     textAlignment: .left,
                     fontSize: h/46.6,
                     fontName: "Inter-BoldItalic")
+        
+        ui.setLabel(label: greenCounterLbl,
+                    textColor: .white,
+                    textAlignment: .center,
+                    fontSize: 16,
+                    fontName: "Inter-Bold")
         }
     
     private func layout() {
@@ -178,7 +187,19 @@ class FranceGameView: UIView, SpinGameViewProtocol {
                           bottomCG: h/35.3,
                           trailingToO: slotHouseImgVw.trailingAnchor,
                           trailingCG: h/7.9)
-       
+        
+        ui.genericlLayout(object: greenCounterImgVw,
+                          parentView: progressImgVw,
+                          width: 72,
+                          height: 24,
+                          topC: -34,
+                          centerH: 0)
+        
+        ui.genericlLayout(object: greenCounterLbl,
+                          parentView: greenCounterImgVw,
+                          centerV: 0,
+                          centerH: 0)
+
         ui.genericlLayout(object: titleLbl,
                           parentView: slotHouseImgVw,
                           topC: hRatio(cH:184),
@@ -245,16 +266,5 @@ class FranceGameView: UIView, SpinGameViewProtocol {
                           topCG: 0,
                           leadingToO: barBackVw.leadingAnchor,
                           leadingCG: 0)
-    }
-    
-    func showProgress() {
-        var spinsRemainder = CGFloat(KeychainService.standard.me?.energy ?? 0.0)
-        switch spinsRemainder {
-        case let x where x > 100.0: spinsRemainder = 100.0
-        default: break
-        }
-        let hiddenPart = 100.0 - spinsRemainder
-        progressImgVw.hideImage(hiddenPart: hiddenPart,
-                                img: progressImg ?? UIImage())
     }
 }

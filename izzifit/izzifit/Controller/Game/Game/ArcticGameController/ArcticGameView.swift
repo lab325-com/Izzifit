@@ -26,18 +26,13 @@ class ArcticGameView: UIView, SpinGameViewProtocol {
     // Basic view
     private var gameBackImgVw = UIImageView()
    
-    var slotHouseImgVw = UIImageView()
+    var slotHouseImgVw =            UIImageView()
     private var uponGameBackImgVw = UIImageView()
-    private var titleLbl = UILabel()
-    var greenCounterLbl = UILabel()
+    private var titleLbl =          UILabel()
+    var greenCounterLbl =           UILabel()
     private let greenCounterImgVw = UIImageView()
-
     // logo
     private var logoImgVw = UIImageView()
-    //startSpinLbl
-  
-    
-    //resultStack
   
     private var awardsVerticalStackView: UIStackView!
     
@@ -68,8 +63,7 @@ class ArcticGameView: UIView, SpinGameViewProtocol {
         
         uponGameBackImgVw.image = image(img: .gameBackOne)
         uponGameBackImgVw.contentMode = .top
-       
-
+    
         greenCounterImgVw.image = RImage.greenCounterImg() ?? UIImage()
         greenCounterImgVw.contentMode = .scaleAspectFill
         

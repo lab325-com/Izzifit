@@ -120,11 +120,11 @@ extension SpinGameViewProtocol {
     
     func threeHummersCombination() {
        if var count = GameNetworkLayer.shared.hummersCount {
-           count += 1
+        count += 1
         GameNetworkLayer.shared.hummersCount = count
-        }
+       }
        hummerCountLbl.text = "x\(GameNetworkLayer.shared.hummersCount)"
-       hummerBtn.isHidden = false
+       hummerBtn.isHidden =      false
        hummerCountLbl.isHidden = false
     }
 }
