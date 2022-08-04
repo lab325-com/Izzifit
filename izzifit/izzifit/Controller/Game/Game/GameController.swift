@@ -13,6 +13,7 @@ class GameController: BaseController {
     private var collectionView: UICollectionView?
     private var firstLaunch = true
     private var timerSpinManager: TimerSpinManager!
+    var onboardingView: MainGameOnboardingView?
 
     
     override func loadView() {
@@ -38,6 +39,7 @@ class GameController: BaseController {
             self.gameView?.updateHeader()
             self.timerSpinManager = TimerSpinManager(collectionView: self.collectionView ?? UICollectionView(), delegate: self)
             self.timerSpinManager.counter.combinations = GameNetworkLayer.shared.spins ?? [MapSpinsModel]()
+            self.onboardingDraw()
         }
         
         AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
@@ -51,7 +53,8 @@ class GameController: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        guard !firstLaunch else { return }
+        guard !firstLaunch else {
+            return }
         GameNetworkLayer.shared.getMap(view: self) {
             self.collectionView?.removeFromSuperview()
             self.showCorrectView()
@@ -59,8 +62,31 @@ class GameController: BaseController {
             self.gameView?.updateHeader()
             self.timerSpinManager = TimerSpinManager(collectionView: self.collectionView ?? UICollectionView(), delegate: self)
             self.timerSpinManager.counter.combinations = GameNetworkLayer.shared.spins ?? [MapSpinsModel]()
+            self.onboardingDraw()
         }
     }
+     
+    func onboardingDraw() {
+        guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                             delegate: self,
+                                                            gameTabBar: tabBarVC,
+                                                             arcGameView: self.gameView)
+                         
+                self.view.ui.genericlLayout(object: self.onboardingView!,
+                                            parentView: self.gameView?.animationImgVw ?? UIImageView(),
+                                            topC: 0,
+                                            bottomC: 0,
+                                            leadingC: 0,
+                                            trailingC: 0)
+            }
+        }
+    }
+    
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void { actionBack() }
     
@@ -248,5 +274,73 @@ extension GameController: PurchasePopUpProtocol {
     
     func purchasePopUpSuccess(controller: PurchasePopUp) {
         gameView?.updateHeader()
+    }
+}
+
+
+
+
+//----------------------------------------------
+// MARK: - MainGameOnboardingDelegate
+//----------------------------------------------
+
+extension GameController: MainGameOnboardingDelegate {
+    func tapBtn() {
+       
+        onboardingView?.removeFromSuperview()
+    
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
+            
+            switch MainGameOnboardingView.stateCounter {
+            case 8:
+                
+                if let gameView = gameView {
+                gameView.spinBtn.sendActions(for: .touchDown)
+                MainGameOnboardingView.stateCounter += 1
+                onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                         delegate: self,
+                                                        gameTabBar: tabBarVC,
+                                                         arcGameView: gameView)
+                     
+              view.ui.genericlLayout(object: onboardingView!,
+                                    parentView: gameView.animationImgVw,
+                                    topC: 0,
+                                    bottomC: 0,
+                                    leadingC: 0,
+                                    trailingC: 0)
+                
+               
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                        gameView.spinBtn.sendActions(for: .touchDown)
+                    }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+                    gameView.spinBtn.sendActions(for: .touchDown)
+                    }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
+                    gameView.spinBtn.sendActions(for: .touchDown)
+                    }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 20.0) {
+                    self.onboardingView?.removeFromSuperview()
+                    MainGameOnboardingView.stateCounter += 1
+                    self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                                 delegate: self,
+                                                                 gameTabBar: tabBarVC,
+                                                                 arcGameView: gameView)
+                         
+                    self.view.ui.genericlLayout(object: self.onboardingView!,
+                                                parentView: gameView.animationImgVw,
+                                                topC: 0,
+                                                bottomC: 0,
+                                                leadingC: 0,
+                                                trailingC: 0)
+                    AnalyticsHelper.sendFirebaseEvents(events: .onb_spin_ok)
+                }
+                }
+            case 10:
+                MainGameOnboardingView.stateCounter += 1
+                tabBarVC.backBtn.sendActions(for: .touchUpInside)
+            default: print("empty")
+            }
+        }
     }
 }

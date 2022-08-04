@@ -86,21 +86,12 @@ struct CombinationsAwardsManager {
         hiddenStack.isHidden.toggle()
         // remove dummy when back is ready
         if let urls = GameNetworkLayer.shared.slotURLs {
-            switch urls.count {
-            case 5:
-                switch number {
-                case 2:     awardImgVw.kf.setImage(with: urls[1])
-                            animateCoins(0.3)
-                default:    awardImgVw.kf.setImage(with: urls[0])
-                            animateCoins(1.0)
-                }
-            default:
-                switch number {
-                case 2:     awardImgVw.image = FR_SlotImgs.moneyBag
-                            animateCoins(0.3)
-                default:    awardImgVw.image = FR_SlotImgs.pound
-                            animateCoins(1.0)
-                }
+            
+            switch number {
+            case 2:     awardImgVw.kf.setImage(with: urls[1])
+                        animateCoins(0.3)
+            default:    awardImgVw.kf.setImage(with: urls[0])
+                        animateCoins(1.0)
             }
         }
     }
@@ -118,8 +109,6 @@ struct CombinationsAwardsManager {
         AnalyticsHelper.sendFirebaseEvents(events: .spin_reward, params: ["award" : combination.rawValue])
         hiddenStack.isHidden.toggle()
         if let urls = GameNetworkLayer.shared.slotURLs {
-            switch urls.count {
-            case 5:
                 switch combination {
                 case .pairHummers:
                     awardImgVw.kf.setImage(with: urls[4])
@@ -185,79 +174,10 @@ struct CombinationsAwardsManager {
                     awardTitleLbl.text = "SPINS"
                     barBackVw.energyAnimationView?.play()
                     awardCountLbl.text = "\(spinsAmount)"
-                    homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
+                    homeView.animate(type: .lightning, imageView:
+                                        homeView.animationImgVw)
                     AudioManager.sharedManager.playSound(type: .energyX3_18)
                 }
-            default:
-                switch combination {
-            case .pairHummers:
-                awardImgVw.image = FR_SlotImgs.hammer
-                awardTitleLbl.text = "SPINS"
-                awardCountLbl.text = "\(spinsAmount)"
-                barBackVw.energyAnimationView?.play()
-            case .setHummers:
-                awardImgVw.image = FR_SlotImgs.hammer
-                awardTitleLbl.text = "BUILD"
-                awardCountLbl.text = "1"
-                AudioManager.sharedManager.playSound(type: .superWin_19)
-                threeHummers()
-                homeView.animate(type: .hammer3, imageView: homeView.animationImgVw)
-            case .pairDollars:
-                awardImgVw.image = FR_SlotImgs.pound
-                awardTitleLbl.text = "COINS"
-                awardCountLbl.text = "\(coinsAmount)"
-                AudioManager.sharedManager.playSound(type: .coinsX2_13)
-                homeView.animate(type: .coin2, imageView: homeView.animationImgVw)
-            case .setDollars:
-                awardImgVw.image = FR_SlotImgs.pound
-                awardTitleLbl.text = "COINS"
-                awardCountLbl.text = "\(coinsAmount)"
-                AudioManager.sharedManager.playSound(type: .coinsX3_14)
-                homeView.animate(type: .coin3, imageView: homeView.animationImgVw)
-            case .pairSnowflakes:
-                awardImgVw.image = FR_SlotImgs.flag
-                awardTitleLbl.text = "SPINS"
-                awardCountLbl.text = "\(spinsAmount)"
-                homeView.animate(type: .snowflake, imageView: homeView.animationImgVw)
-                barBackVw.energyAnimationView?.play()
-            case .setSnowflakes:
-                awardImgVw.image = FR_SlotImgs.flag
-                awardTitleLbl.text = "SPINS"
-                awardCountLbl.text = "\(spinsAmount)"
-                barBackVw.energyAnimationView?.play()
-                homeView.animate(type: .snowflake, imageView: homeView.animationImgVw)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
-                    awardTitleLbl.text = "COINS"
-                    awardCountLbl.text = "\(coinsAmount)"
-                }
-            case .pairMoneyBags:
-                awardImgVw.image = FR_SlotImgs.moneyBag
-                awardTitleLbl.text = "COINS"
-                awardCountLbl.text = "\(coinsAmount)"
-                AudioManager.sharedManager.playSound(type: .coinsPackX2_15)
-                homeView.animate(type: .coin2, imageView: homeView.animationImgVw)
-            case .setMoneyBags:
-                awardImgVw.image = FR_SlotImgs.moneyBag
-                awardTitleLbl.text = "COINS"
-                awardCountLbl.text = "\(coinsAmount)"
-                homeView.animate(type: .coin3, imageView: homeView.animationImgVw)
-                AudioManager.sharedManager.playSound(type: .coinsPackX3_16)
-            case .pairLightning:
-                awardImgVw.image = FR_SlotImgs.lightning
-                awardTitleLbl.text = "SPINS"
-                barBackVw.energyAnimationView?.play()
-                awardCountLbl.text = "\(spinsAmount)"
-                homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
-                AudioManager.sharedManager.playSound(type: .energyX2_17)
-            case .setLightning:
-                awardImgVw.image = FR_SlotImgs.lightning
-                awardTitleLbl.text = "SPINS"
-                barBackVw.energyAnimationView?.play()
-                awardCountLbl.text = "\(spinsAmount)"
-                homeView.animate(type: .lightning, imageView: homeView.animationImgVw)
-                AudioManager.sharedManager.playSound(type: .energyX3_18)
-            }
-            }
         }
     }
     

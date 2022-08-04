@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Lottie
+import SwiftUI
 
 class LevelView: UIView {
     
@@ -17,6 +19,7 @@ class LevelView: UIView {
     
     var hummerBtn = UIButton()
     var hummerCountLbl = UILabel()
+    var slideAnimationView = AnimationView(name: "point_anim")
     
     lazy var stateBtns: [UIButton] = {
         var btns = [UIButton]()
@@ -84,13 +87,22 @@ class LevelView: UIView {
                           leadingC: 0,
                           trailingC: 0)
         
+        slideAnimationView.contentMode = .scaleAspectFill
+        slideAnimationView.loopMode = .loop
+        ui.genericlLayout(object: slideAnimationView,
+                          parentView: imgUponScroll,
+                          width: 114,
+                          height: 30,
+                          topC: 455,
+                          trailingC: 54)
+        
         for (index, rect) in cgRects.enumerated() {
             
             ui.genericlLayout(object: stateBtns[index],
                               parentView: scrollView,
-                              width: rect.width,
-                              height: rect.height,
-                              topC: rect.minY,
+                              width:    rect.width,
+                              height:   rect.height,
+                              topC:     rect.minY,
                               leadingC: rect.minX)
         }
         

@@ -47,9 +47,9 @@ class MainGameOnboardingView: UIView {
     weak var delegate: MainGameOnboardingDelegate?
     var state: GameOnboardingStates
     var gameTabBar: GameTabBarController?
-    var arcGameView: ArcticGameView?
+    var arcGameView: SpinGameViewProtocol?
 
-    init(state: GameOnboardingStates, delegate: MainGameOnboardingDelegate, gameTabBar: GameTabBarController? = nil, arcGameView: ArcticGameView? = nil ) {
+    init(state: GameOnboardingStates, delegate: MainGameOnboardingDelegate, gameTabBar: GameTabBarController? = nil, arcGameView: SpinGameViewProtocol? = nil ) {
         self.state = state
         self.delegate = delegate
         self.gameTabBar = gameTabBar
@@ -94,8 +94,6 @@ class MainGameOnboardingView: UIView {
         
         switch state {
         case .energy1:
-          //  backgroundColor = UIColor(rgb: 0x574B70, alpha: 0.3)
-            
             onboardImgVw.image = image(img: .onFUN)
                             ui.genericlLayout(object: onboardImgVw,
                                               parentView: self,

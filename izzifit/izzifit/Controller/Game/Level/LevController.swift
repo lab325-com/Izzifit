@@ -16,6 +16,7 @@ class LevController: BaseController {
     var player = PlayerModel()
     let animation = UIImageView()
     private var pointers = PointersAndTicks()
+    var onboardingView: MainGameOnboardingView?
     
     private var firstLaunch = true
     
@@ -41,6 +42,8 @@ class LevController: BaseController {
                     let x = (428 - UIScreen.main.bounds.size.width) / 2
                     self.levelView.scrollView.setContentOffset(CGPoint(x: x,y: 0),
                                                             animated: true)
+                guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
+                self.levelView.slideAnimationView.play()
             }
         hiddenNavigationBar = true
     }
@@ -61,6 +64,8 @@ class LevController: BaseController {
             let x = (428 - UIScreen.main.bounds.size.width) / 2
             self.levelView.scrollView.setContentOffset(CGPoint(x: x,y: 0),
                                                     animated: true)
+            guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
+            self.levelView.slideAnimationView.play()
         }
     }
     
@@ -401,5 +406,49 @@ extension LevController: LevelFinishDelegate {
         GameNetworkLayer.shared.nextMap(view: self) {
         if let tabBarVC = self.tabBarController as? GameTabBarController { tabBarVC.spin() }
         }
+    }
+}
+
+extension LevController: MainGameOnboardingDelegate {
+    func tapBtn() {
+
+        if let tabBarVC = self.tabBarController as? GameTabBarController {
+        switch MainGameOnboardingView.stateCounter {
+        case 1,4: levelView.stateBtns[2].sendActions(for: .touchUpInside)
+        case 2, 5: buildPopUpVw!.upgradeBtn.sendActions(for: .touchUpInside)
+        case 7: tabBarVC.spin()
+            onboardingView!.removeFromSuperview()
+        default: print("default")
+        }
+        MainGameOnboardingView.stateCounter += 1
+        onboardingView!.removeFromSuperview()
+
+        onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                delegate: self)
+
+        view.ui.genericlLayout(object: onboardingView!,
+                               parentView: view,
+                               topC: 0,
+                               bottomC: 0,
+                               leadingC: 0,
+                               trailingC: 0)
+
+        guard MainGameOnboardingView.stateCounter == 3 || MainGameOnboardingView.stateCounter == 6 else { return }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.9) {
+            MainGameOnboardingView.stateCounter += 1
+            self.onboardingView!.removeFromSuperview()
+            self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                    delegate: self,
+                                                    gameTabBar: tabBarVC)
+
+            self.view.ui.genericlLayout(object: self.onboardingView!,
+                                        parentView: self.view,
+                                           topC: 0,
+                                           bottomC: 0,
+                                           leadingC: 0,
+                                           trailingC: 0)
+        }
+      }
     }
 }
