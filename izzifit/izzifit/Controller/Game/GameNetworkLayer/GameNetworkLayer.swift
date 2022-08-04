@@ -33,7 +33,7 @@ class GameNetworkLayer {
         let query = Map2Query()
         
         let _ = Network.shared.query(model: MapModel.self, query, controller: view, successHandler: { [weak self] model in
-            
+            print(model)
             switch model.map2.name {
             case "snow_map":    PreferencesManager.sharedManager.currentMapName = .snow_map
             case "england_map": PreferencesManager.sharedManager.currentMapName = .england_map

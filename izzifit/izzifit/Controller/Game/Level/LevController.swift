@@ -17,28 +17,56 @@ class LevController: BaseController {
     let animation = UIImageView()
     private var pointers = PointersAndTicks()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private var firstLaunch = true
+    
+    override func loadView() {
+        super.loadView()
         levelView = LevelView()
         levelView.frame = view.bounds
         view.addSubview(levelView)
+        succesBuildings()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+            GameNetworkLayer.shared.getMap(view: self) {
+                    self.levelView.removeFromSuperview()
+                    self.levelView = LevelView()
+                    self.levelView.frame = self.view.bounds
+                    self.view.addSubview(self.levelView)
+                    self.addTargets()
+                    self.succesBuildings()
+                    self.levelView.barBackVw.getCoinsAndEnergy()
+                    self.checkAvailableHummers()
+                    let x = (428 - UIScreen.main.bounds.size.width) / 2
+                    self.levelView.scrollView.setContentOffset(CGPoint(x: x,y: 0),
+                                                            animated: true)
+            }
         hiddenNavigationBar = true
-        addTargets()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        GameNetworkLayer.shared.getMap(view: self) { self.succesBuildings() }
+        guard !firstLaunch else { firstLaunch = false
+            return}
+        GameNetworkLayer.shared.getMap(view: self) {
+            self.levelView.removeFromSuperview()
+            self.levelView = LevelView()
+            self.levelView.frame = self.view.bounds
+            self.view.addSubview(self.levelView)
+            self.addTargets()
+            self.succesBuildings()
+            self.levelView.barBackVw.getCoinsAndEnergy()
+            self.checkAvailableHummers()
+            let x = (428 - UIScreen.main.bounds.size.width) / 2
+            self.levelView.scrollView.setContentOffset(CGPoint(x: x,y: 0),
+                                                    animated: true)
+        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        levelView.barBackVw.getCoinsAndEnergy()
-        checkAvailableHummers()
-        let x = (428 - UIScreen.main.bounds.size.width) / 2
-        levelView.scrollView.setContentOffset(CGPoint(x: x,y: 0),
-                                                animated: true)
-    }
+
+    
+    
     
     private func addTargets() {
         for btn in levelView.stateBtns {
@@ -87,11 +115,11 @@ class LevController: BaseController {
         switch GameNetworkLayer.shared.mapName {
         case .snow_map:    title = "Arctic"
         case .england_map: title = "EngLand"
-        default: break
+        default: return
         }
         
         finishLevelPopUp = LevelFinishView(title: title,
-                                               delegate: self)
+                                            delegate: self)
         
         view.ui.genericlLayout(object: finishLevelPopUp ?? UIView(),
                                parentView: view,
@@ -313,7 +341,6 @@ class LevController: BaseController {
         animation.isHidden = true
         view.layoutIfNeeded()
     }
-    
 }
 
 
@@ -370,11 +397,7 @@ extension LevController: PurchasePopUpProtocol {
 extension LevController: LevelFinishDelegate {
     func nextMap(view: UIView) {
         finishLevelPopUp?.removeFromSuperview()
-        levelView.removeFromSuperview()
-        levelView = LevelView()
-        levelView.frame = self.view.bounds
-        self.view.addSubview(levelView)
-        addTargets()
+  
         GameNetworkLayer.shared.nextMap(view: self) {
         if let tabBarVC = self.tabBarController as? GameTabBarController { tabBarVC.spin() }
         }

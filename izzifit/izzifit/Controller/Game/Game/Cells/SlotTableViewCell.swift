@@ -14,24 +14,21 @@ class SlotTableViewCell: BaseTableViewCell {
     let slotBtn = UIButton()
     let borderView = UIView()
     var tagBtn = Int()
-//    
-//    var slotImgsDict = [1: SlotImgs.dollar,
-//                        2: SlotImgs.moneyBag,
-//                        3: SlotImgs.lightning,
-//                        4: SlotImgs.snowflake,
-//                        5: SlotImgs.hammer]
+
+    
+//    var slotImgsDict = [1: SlotUK_SlotImgs
 //    
 //    var englandImgsDict = [1: UK_SlotImgs.pound,
-//                           2: UK_SlotImgs.moneyBag,
+//                           2: .moneyBag,
 //                           3: UK_SlotImgs.lightning,
 //                           4: UK_SlotImgs.flag,
 //                           5: UK_SlotImgs.hammer]
 //    
-//    var franceImgsDict = [1: FR_SlotImgs.pound,
-//                           2: FR_SlotImgs.moneyBag,
-//                           3: FR_SlotImgs.lightning,
-//                           4: FR_SlotImgs.flag,
-//                           5: FR_SlotImgs.hammer]
+    var franceImgsDict = [1: FR_SlotImgs.pound,
+                           2: FR_SlotImgs.moneyBag,
+                           3: FR_SlotImgs.lightning,
+                           4: FR_SlotImgs.flag,
+                           5: FR_SlotImgs.hammer]
     
     override init(style: BaseTableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -74,8 +71,14 @@ class SlotTableViewCell: BaseTableViewCell {
     
     func fillCellby(tagBtn: Int) {
         slotBtn.tag = tagBtn
-        if let urls = GameNetworkLayer.shared.slotURLs{
+        
+        // Remove dummy when back is ready
+        switch  PreferencesManager.sharedManager.currentMapName {
+        case .france_map: slotBtn.setImage(franceImgsDict[tagBtn] ?? UIImage(), for: .normal)
+        default:
+            if let urls = GameNetworkLayer.shared.slotURLs {
             slotBtn.kf.setImage(with: urls[tagBtn - 1], for: .normal)
+        }
         }
         borderView.isHidden =   true
         slotBtn.clipsToBounds = true

@@ -43,9 +43,6 @@ class GameOnboardingEnergyView: UIView {
                           
         mainImgVw.contentMode = .scaleAspectFill
         
-       
-  
-      
         ui.setLabel(label: mainLbl,
                     textColor: UIColor(rgb: 0x3F3E56),
                     textAlignment: .left,
@@ -53,7 +50,6 @@ class GameOnboardingEnergyView: UIView {
                     fontName: "Inter-Regular",
                     lines: 0)
 
-        
         switch state {
         case .energy:   mainImgVw.image = image(img: .onboardingLightning)  ?? UIImage()
             
