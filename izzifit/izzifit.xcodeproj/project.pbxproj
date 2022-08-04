@@ -3911,6 +3911,7 @@
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We used Steps from Apple Helth for our sports widget to provide a great user experience: display number of steps and give a reward.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
@@ -3950,6 +3951,7 @@
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We used Steps from Apple Helth for our sports widget to provide a great user experience: display number of steps and give a reward.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
@@ -4050,6 +4052,7 @@
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We used Steps from Apple Helth for our sports widget to provide a great user experience: display number of steps and give a reward.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
