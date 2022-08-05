@@ -162,15 +162,15 @@ class LevelController: BaseController {
                                       title: "Arctic",
                                       mapName: .snow_map,
                                       delegate: self)
-        guard let buildPopUpVw = buildPopUpVw else { return }
-            buildPopUpVw.hummerImgVw.isHidden = true
-            buildPopUpVw.hummerCountLbl.isHidden = true
-            view.ui.genericlLayout(object: buildPopUpVw,
-                                   parentView: view,
-                                   topC: 0,
-                                   bottomC: 0,
-                                   leadingC: 0,
-                                   trailingC: 0)
+        guard let buildPopUpVw = buildPopUpVw else {return}
+                  buildPopUpVw.hummerImgVw.isHidden = true
+                  buildPopUpVw.hummerCountLbl.isHidden = true
+                  view.ui.genericlLayout(object: buildPopUpVw,
+                                         parentView: view,
+                                         topC: 0,
+                                         bottomC: 0,
+                                         leadingC: 0,
+                                         trailingC: 0)
         view.layoutIfNeeded()
         checkAvailableHummers()
         

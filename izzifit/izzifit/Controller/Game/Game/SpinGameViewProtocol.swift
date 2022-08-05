@@ -43,24 +43,23 @@ extension SpinGameViewProtocol {
         
         switch PreferencesManager.sharedManager.gameOnboardingDone {
         case true:    progressImgVw.hideImage(hiddenPart: hiddenPart,
-                                              img: progressImg ?? UIImage())
+                                              img: progressImg )
         case false:
             var onBoardingValues = [CGFloat]()
+            let energy = CGFloat(KeychainService.standard.me?.energy ?? 0.0)
+            onBoardingValues = [ energy * 0.75 ,
+                                 energy * 0.5 ,
+                                 energy * 0.25,
+                                 0]
+       
             switch ArcticGameView.counter {
-            case 0:
-                ArcticGameView.currentEnergy = CGFloat(KeychainService.standard.me?.energy ?? 0)
-                progressImgVw.hideImage(hiddenPart: hiddenPart,
-                                           img: progressImg ?? UIImage())
-                let energy = ArcticGameView.currentEnergy
-               onBoardingValues = [ energy * 0.75 ,
-                                     energy * 0.5 ,
-                                     energy * 0.25,
-                                     0]
-                ArcticGameView.counter += 1
+            case 0:  progressImgVw.hideImage(hiddenPart: hiddenPart,
+                                             img: progressImg )
             default:
-                let part = 100.0 - onBoardingValues[ArcticGameView.counter - 2]
+                let part = 100.0 - onBoardingValues[ArcticGameView.counter - 1]
+                // mistake is here
                 progressImgVw.hideImage(hiddenPart: part,
-                                           img: progressImg ?? UIImage())
+                                           img: progressImg )
             }
         }
     }
@@ -72,15 +71,17 @@ extension SpinGameViewProtocol {
     
     func checkAvailableHummers() {
         hummerBtn.isUserInteractionEnabled = false
-        switch GameNetworkLayer.shared.hummersCount {
+        if let hummers = GameNetworkLayer.shared.hummersCount{
+        switch hummers {
         case 0:
             hummerBtn.isHidden =      true
             hummerCountLbl.isHidden = true
         default:
             hummerBtn.isHidden =      false
             hummerCountLbl.isHidden = false
-            hummerCountLbl.text = "x\(GameNetworkLayer.shared.hummersCount)"
+            hummerCountLbl.text = "x\(hummers)"
         }
+      }
     }
     
     func showAwards(model: [SpinMainModel]) -> (coinsAward: Int, spinsAward: Int) {
@@ -123,7 +124,9 @@ extension SpinGameViewProtocol {
         count += 1
         GameNetworkLayer.shared.hummersCount = count
        }
-       hummerCountLbl.text = "x\(GameNetworkLayer.shared.hummersCount)"
+        if let hummers = GameNetworkLayer.shared.hummersCount {
+            hummerCountLbl.text = "x\(hummers)"
+        }
        hummerBtn.isHidden =      false
        hummerCountLbl.isHidden = false
     }

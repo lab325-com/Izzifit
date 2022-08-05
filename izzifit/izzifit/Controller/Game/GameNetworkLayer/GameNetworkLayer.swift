@@ -12,7 +12,6 @@ protocol SpinAwardProtocol: BaseController {
     func completeAward(model: [SpinMainModel])
 }
 
-
 class GameNetworkLayer {
     
     static var shared: GameNetworkLayer = {
@@ -57,17 +56,20 @@ class GameNetworkLayer {
             }
                 self?.slotURLs = urls
             }
-            self?.getMe(view: view)
-            completion()
+            self?.getMe(view: view) {
+                completion()
+            }
+       
         }, failureHandler: { error in
             view.stopLoading()
         })
     }
 
-   private func getMe(view: BaseController) {
+   private func getMe(view: BaseController, completion: @escaping () -> ()) {
         let query = MeQuery()
         let _ = Network.shared.query(model: MeModel.self, query, controller: view) { model in
             KeychainService.standard.me = model.me
+            completion()
             view.stopLoading()
         } failureHandler: { error in
             view.stopLoading()

@@ -168,24 +168,22 @@ class MainGameOnboardingView: UIView {
             AnalyticsHelper.sendFirebaseEvents(events: .onb_start)
             
         case .level2:
+            
+            if let levelVC = self.gameTabBar?.children[1] as? LevController {
+                    levelVC.levelView.slideAnimationView.play()
+                }
       
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
                        self.onboardImgVw.image = self.image(img: .onBuildVillage)
                        self.ui.genericlLayout(object: self.onboardImgVw,
                                               parentView: self,
                                               width: 228,
                                               height: 97,
                                               topC: 335,
-                                              centerH: 55)
+                                              centerH: 60)
                 self.onboardImgVw.shake(0.5,
-                                        x: self.w / 2 + 55,
+                                        x: self.w / 2 + 60,
                                         y: 335 + 48.5)
-                
-                if let baseVC = self.gameTabBar?.children[1] as? GameBaseController {
-                    if let levelVC = baseVC.children.first as? LevelController {
-                        levelVC.slideAnimationView?.play()
-                    }
-                }
                 
             }
                         
@@ -194,7 +192,7 @@ class MainGameOnboardingView: UIView {
                                          width: 100,
                                          height: 100,
                                          topC: 400,
-                                         trailingC: 58)
+                                         trailingC: 53)
             
        
                         
@@ -206,15 +204,10 @@ class MainGameOnboardingView: UIView {
                                                 centerH: 0)
         case .level4:
             
-            if let baseVC = gameTabBar?.children[1] as? GameBaseController {
-                if let levelVC = baseVC.children.first as? LevelController {
-                    levelVC.animationWidthAnchor.constant = 150
-                    levelVC.animationHeightAnchor.constant = 46
-                    levelVC.animationTrailingConstraint.constant = -58
-                    levelVC.animationTopConstraint.constant = 445
-                    levelVC.view.layoutIfNeeded()
+            if let levelVC = self.gameTabBar?.children[1] as? LevController {
+                levelVC.levelView.onboardLevelFour()
                 }
-            }
+  
             
             onboardImgVw.image = image(img: .onUpgradeBuild)
                             ui.genericlLayout(object: onboardImgVw,
@@ -222,9 +215,9 @@ class MainGameOnboardingView: UIView {
                                               width: 228,
                                               height: 97,
                                               topC: 315,
-                                              centerH: 48)
+                                              centerH: 51)
             onboardImgVw.shake(0.5,
-                               x: w / 2 + 48,
+                               x: w / 2 + 51,
                                y: 315 + 48.5)
             
             ui.genericlLayout(object: mainBtn,
@@ -242,11 +235,10 @@ class MainGameOnboardingView: UIView {
                                                 centerH: 0)
             
         case .spinMenuBtn6:
-            if let baseVC = self.gameTabBar?.children[1] as? GameBaseController {
-                if let levelVC = baseVC.children.first as? LevelController {
-                    levelVC.slideAnimationView?.stop()
+    
+            if let levelVC = self.gameTabBar?.children[1] as? LevController {
+                levelVC.levelView.slideAnimationView.stop()
                 }
-            }
             
             onboardImgVw.image = image(img: .onNotEnoughCoins)
                             ui.genericlLayout(object: onboardImgVw,
@@ -294,7 +286,6 @@ class MainGameOnboardingView: UIView {
                                                   height: 116,
                                                   centerV: 10,
                                                   centerH: 10)
-            
             onboardImgVw.shake(0.5,
                                x: w/2 - 125,
                                y: 18)
@@ -336,12 +327,8 @@ class MainGameOnboardingView: UIView {
             let x = leading + (btnWidth/2) + 50
             let y = h - (( h/27.06 + h/10.15 + 10) + 37)
             
-            onboardImgVw.shake(0.5,
-                               x: x,
-                               y: y)
+            onboardImgVw.shake(0.5,x: x,y: y)
 
-          
-            
             menuAnim = .init(name: "menu_anim")
             menuAnim?.contentMode = .scaleAspectFill
             menuAnim?.loopMode = .loop

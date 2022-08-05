@@ -9,7 +9,7 @@ import UIKit
 
 class LevController: BaseController {
 
-    private var levelView:          LevelView!
+    var levelView:                  LevelView!
     private var buildPopUpVw:       LevelPopUpView?
     private var finishLevelPopUp:   LevelFinishView?
     
@@ -43,7 +43,18 @@ class LevController: BaseController {
                     self.levelView.scrollView.setContentOffset(CGPoint(x: x,y: 0),
                                                             animated: true)
                 guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
-                self.levelView.slideAnimationView.play()
+                if let tabBarVC = self.tabBarController as? GameTabBarController {
+                self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                            delegate: self,
+                                                            gameTabBar: tabBarVC)
+                        
+                self.view.ui.genericlLayout(object: self.onboardingView!,
+                                            parentView: self.view,
+                                            topC: 0,
+                                            bottomC: 0,
+                                            leadingC: 0,
+                                            trailingC: 0)
+                }
             }
         hiddenNavigationBar = true
     }
@@ -64,15 +75,9 @@ class LevController: BaseController {
             let x = (428 - UIScreen.main.bounds.size.width) / 2
             self.levelView.scrollView.setContentOffset(CGPoint(x: x,y: 0),
                                                     animated: true)
-            guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
-            self.levelView.slideAnimationView.play()
         }
     }
-    
-
-    
-    
-    
+  
     private func addTargets() {
         for btn in levelView.stateBtns {
             btn.addTarget(self,
@@ -270,7 +275,12 @@ class LevController: BaseController {
             GameNetworkLayer.shared.upgradeBuild(buildingId: buildingId,
                                                  view: self) {
                 let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .upgraidBuilding)
-            } completion: { self.succesBuildings() }
+            } completion: { self.succesBuildings()
+                self.levelView.barBackVw.runNumbers(isCoins: true,
+                                     duration: 3,
+                                    startValue:  self.levelView.barBackVw.prevCoins,
+                                     endValue: KeychainService.standard.me?.coins ?? 0)
+            }
         }
     }
     

@@ -154,8 +154,6 @@ class GameController: BaseController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-
-    
     
     // Spin Methods
     

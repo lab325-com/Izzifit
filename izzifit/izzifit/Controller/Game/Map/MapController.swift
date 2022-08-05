@@ -23,7 +23,9 @@ class MapController: BaseController {
             case .england_map:
                 mapView = MapView(mapPoint: .england)
                 mapView.scrollView.setContentOffset(CGPoint(x: x, y: 2625 - (UIScreen.main.bounds.height + 248)),animated: true)
-            case .france_map: break
+            case .france_map:
+                mapView = MapView(mapPoint: .france)
+                mapView.scrollView.setContentOffset(CGPoint(x: x, y: 2625 - (UIScreen.main.bounds.height + 200)),animated: true)
             }
             currentMapState = mapName
         }

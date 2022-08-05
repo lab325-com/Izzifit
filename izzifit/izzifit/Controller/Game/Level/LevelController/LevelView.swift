@@ -119,6 +119,18 @@ class LevelView: UIView {
                           trailingC: h/203)
     }
     
+    func onboardLevelFour() {
+        slideAnimationView.removeFromSuperview()
+        ui.genericlLayout(object: slideAnimationView,
+                          parentView: imgUponScroll,
+                          width: 150,
+                          height: 46,
+                          topC: 450,
+                          trailingC: 63)
+        layoutIfNeeded()
+        slideAnimationView.play()
+    }
+    
     func drawStates(player: PlayerModel) {
         
         var imgs = [UIImage]()

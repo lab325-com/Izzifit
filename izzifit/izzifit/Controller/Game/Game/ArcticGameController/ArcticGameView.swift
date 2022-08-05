@@ -41,7 +41,6 @@ class ArcticGameView: UIView, SpinGameViewProtocol {
     var awardCountLbl = UILabel()
     
     // Progress Img UI
-
     
     
     override func draw(_ rect: CGRect) {
