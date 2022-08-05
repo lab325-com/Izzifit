@@ -119,8 +119,8 @@ class PaywallMultiplyController: BaseController {
         secondSubNameLabel.text = screen == .threePrice ? "3 month" : "1 month"
         thirdSubNameLabel.text = "1 week"
         
-        trialButton.layer.borderWidth = 1
-        trialButton.layer.borderColor = UIColor(rgb: 0xCCBEE9).cgColor
+        trialButton.layer.borderWidth = 2
+        trialButton.layer.borderColor = UIColor(rgb: 0xCCBEE9, alpha: 0.3).cgColor
         
         createPrivacyLabel()
         updateSubsView()
@@ -185,7 +185,7 @@ class PaywallMultiplyController: BaseController {
             
 //            subStackView.sendSubviewToBack(firstSubView)
 //            subStackView.sendSubviewToBack(secondSubView)
-        case .oneYear:
+        default:
             return
         }
         
@@ -249,7 +249,7 @@ class PaywallMultiplyController: BaseController {
     
     @IBAction func actionSecondSub(_ sender: UIButton) {
         priceType = screen == .threePrice ? .theeMonth30 : .oneMonth
-        trialType = .oneMonth
+        trialType = .threeMonth
     }
     
     @IBAction func actionThirdSub(_ sender: UIButton) {
@@ -302,14 +302,14 @@ extension PaywallMultiplyController: SubscribeOutputProtocol {
         switch screen {
         case .threePrice:
             if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneYear50.productId}) {
-                firstSubSalePriceLabel.text = String(format: "Sale %@%@", info.currencySymbol ?? "", info.prettyPrice.trimmingCharacters(in: .whitespacesAndNewlines))
+                firstSubSalePriceLabel.text = String(format: "Sale %@%.2f", info.currencySymbol ?? "", info.price)
                 firstSubSaleDiscountLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", (info.price * 2))
                 firstSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 365)
                 firstSubPerDayPriceLabel.text = String(format: "%@%.2f ", info.currencySymbol ?? "", (info.price * 2) / 365)
             }
             
             if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.theeMonth30.productId}) {
-                secondSubSalePriceLabel.text = String(format: "Sale %@%@", info.currencySymbol ?? "", info.prettyPrice.trimmingCharacters(in: .whitespacesAndNewlines))
+                secondSubSalePriceLabel.text = String(format: "Sale %@%.2f", info.currencySymbol ?? "", info.price)
                 secondSubSaleDiscountLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", (info.price * 2))
                 secondSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 90)
                 secondSubPerDayPriceLabel.text = String(format: "%@%.2f ", info.currencySymbol ?? "", (info.price * 2) / 90)
@@ -317,7 +317,7 @@ extension PaywallMultiplyController: SubscribeOutputProtocol {
             
             if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneWeek.productId}) {
                 thirdSubSalePriceLabel.text = ""
-                thirdSubSaleDiscountLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price)
+                thirdSubSaleDiscountLabel.text = String(format: "Sale %@%.2f", info.currencySymbol ?? "", info.price)
                 thirdSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 14)
                 thirdSubPerDayPriceLabel.text = ""
                 thirdSubSaleDiscountLineView.isHidden = true
@@ -325,7 +325,7 @@ extension PaywallMultiplyController: SubscribeOutputProtocol {
             }
         case .twoPrice:
             if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneYear50.productId}) {
-                firstSubSalePriceLabel.text = String(format: "Sale %@%@", info.currencySymbol ?? "", info.prettyPrice.trimmingCharacters(in: .whitespacesAndNewlines))
+                firstSubSalePriceLabel.text = String(format: "Sale %@%.2f", info.currencySymbol ?? "", info.price)
                 firstSubSaleDiscountLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", (info.price * 2))
                 firstSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 365)
                 firstSubPerDayPriceLabel.text = String(format: "%@%.2f ", info.currencySymbol ?? "", (info.price * 2) / 365)
@@ -339,7 +339,7 @@ extension PaywallMultiplyController: SubscribeOutputProtocol {
                 secondSubSaleDiscountLineView.isHidden = true
                 secondSubSaleDiscountLeadingConstraint.constant = 0
             }
-        case .base, .onePrice, .energyBuy, .wokoutInApp:
+        default:
             return
         }
         

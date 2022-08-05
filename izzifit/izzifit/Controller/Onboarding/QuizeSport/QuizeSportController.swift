@@ -210,7 +210,12 @@ class QuizeSportController: BaseController {
             model.setSport(type)
             PreferencesManager.sharedManager.tempPorifle = model
             presenterProfile.profileUpdate()
-            OnboardingRouter(presenter: navigationController).pushEmail()
+            
+            if PreferencesManager.sharedManager.isStart == true {
+                OnboardingRouter(presenter: navigationController).pushProgress()
+            } else {
+                OnboardingRouter(presenter: navigationController).pushEmail()
+            }
         }
     }
     
@@ -219,7 +224,12 @@ class QuizeSportController: BaseController {
         var model = PreferencesManager.sharedManager.tempPorifle
         model.setSport(nil)
         PreferencesManager.sharedManager.tempPorifle = model
-        OnboardingRouter(presenter: navigationController).pushEmail()
+        
+        if PreferencesManager.sharedManager.isStart == true {
+            OnboardingRouter(presenter: navigationController).pushProgress()
+        } else {
+            OnboardingRouter(presenter: navigationController).pushEmail()
+        }
     }
 }
 

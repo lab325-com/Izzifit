@@ -96,6 +96,14 @@ class MainTabBarController: BaseController {
         NotificationCenter.default.addObserver(self, selector:#selector(openWorkout),
                                                name: Constants.Notifications.openWorkoutNotification,
                                                object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(pushNotification),
+                                               name: Constants.Notifications.pushNotification,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(actionGame(_:)),
+                                               name: Constants.Notifications.openGameSpin,
+                                               object: nil)
     }
     
     private func onboarding() {
@@ -227,6 +235,15 @@ class MainTabBarController: BaseController {
     //----------------------------------------------
     // MARK: - Actions
     //----------------------------------------------
+    
+    @objc func pushNotification() {
+        if KeychainService.standard.me?.Subscription != nil {
+            return
+        }
+        
+        self.tab = .energy
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     
     @objc func openWorkout() {
         tab = .workout

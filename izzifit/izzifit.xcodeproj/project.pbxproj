@@ -207,6 +207,8 @@
 		029EDBD5280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029EDBD4280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift */; };
 		02A27B59282A657400B435B0 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A27B58282A657400B435B0 /* AnalyticsHelper.swift */; };
 		02A4649E2811641800B00381 /* GoogleService-Info1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02A4649D2811641800B00381 /* GoogleService-Info1.plist */; };
+		02A51782289A6999009EE673 /* WorkoutDetailSpecialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A51780289A6999009EE673 /* WorkoutDetailSpecialCell.swift */; };
+		02A51783289A6999009EE673 /* WorkoutDetailSpecialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A51781289A6999009EE673 /* WorkoutDetailSpecialCell.xib */; };
 		02A5CDA527C393A300D31FB4 /* EnergyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA327C393A300D31FB4 /* EnergyController.swift */; };
 		02A5CDA627C393A300D31FB4 /* EnergyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDA427C393A300D31FB4 /* EnergyController.xib */; };
 		02A5CDAA27C393DC00D31FB4 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */; };
@@ -218,6 +220,9 @@
 		02A5CDBE27C3DE9F00D31FB4 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDBD27C3DE9F00D31FB4 /* ImageModel.swift */; };
 		02A5CDC227C4247300D31FB4 /* QuizeFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5CDC027C4247300D31FB4 /* QuizeFoodCell.swift */; };
 		02A5CDC327C4247300D31FB4 /* QuizeFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5CDC127C4247300D31FB4 /* QuizeFoodCell.xib */; };
+		02A5EEB52898FDC500B0D40B /* Paywall30Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5EEB32898FDC500B0D40B /* Paywall30Controller.swift */; };
+		02A5EEB62898FDC500B0D40B /* Paywall30Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A5EEB42898FDC500B0D40B /* Paywall30Controller.xib */; };
+		02A5EEB82899052200B0D40B /* PaywallPushRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5EEB72899052200B0D40B /* PaywallPushRouter.swift */; };
 		02AB486427E06DEE00F35EE2 /* FoodRecomendedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB486227E06DEE00F35EE2 /* FoodRecomendedCell.swift */; };
 		02AB486527E06DEE00F35EE2 /* FoodRecomendedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02AB486327E06DEE00F35EE2 /* FoodRecomendedCell.xib */; };
 		02AB486A27E07EFB00F35EE2 /* FoodTopTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB486827E07EFB00F35EE2 /* FoodTopTitleCell.swift */; };
@@ -330,6 +335,9 @@
 		02D1631F27FADC2F007C6686 /* Inter-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D1631E27FADC2F007C6686 /* Inter-BoldItalic.ttf */; };
 		02D5703C27E9AE4C00F14911 /* WorkoutsWidget.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02D5703B27E9AE4B00F14911 /* WorkoutsWidget.graphql */; };
 		02D5703E27E9AF3B00F14911 /* WorkoutsWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */; };
+		02DC289D289A90EA0040A968 /* Inter-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02DC289C289A90620040A968 /* Inter-Italic.ttf */; };
+		02DC28A1289A940B0040A968 /* WorkoutReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC289F289A940B0040A968 /* WorkoutReviewCell.swift */; };
+		02DC28A2289A940B0040A968 /* WorkoutReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02DC28A0289A940B0040A968 /* WorkoutReviewCell.xib */; };
 		02DFE895285A1168005BF69B /* OnboardingSwipeContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFE893285A1168005BF69B /* OnboardingSwipeContoller.swift */; };
 		02DFE896285A1168005BF69B /* OnboardingSwipeContoller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02DFE894285A1168005BF69B /* OnboardingSwipeContoller.xib */; };
 		02DFE89A285A154A005BF69B /* OnboardingSwipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFE898285A154A005BF69B /* OnboardingSwipeCell.swift */; };
@@ -392,6 +400,11 @@
 		FA65F4F9283E238C00F2427C /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65F4F8283E238C00F2427C /* UIImageView+Extension.swift */; };
 		FA6628A327F184C200FBB946 /* Moods.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA6628A227F184C200FBB946 /* Moods.graphql */; };
 		FA6699CA281ABCF600B394E0 /* OffsetCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */; };
+		FA6E8B302892D68E0008F36C /* PaywallOneTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E8B2E2892D68E0008F36C /* PaywallOneTimeController.swift */; };
+		FA6E8B312892D68E0008F36C /* PaywallOneTimeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6E8B2F2892D68E0008F36C /* PaywallOneTimeController.xib */; };
+		FA6E8B332894028F0008F36C /* Inter-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6E8B322894028F0008F36C /* Inter-BlackItalic.ttf */; };
+		FA6E8B3728951E4E0008F36C /* PaywallCongratulationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E8B3528951E4E0008F36C /* PaywallCongratulationsController.swift */; };
+		FA6E8B3828951E4E0008F36C /* PaywallCongratulationsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6E8B3628951E4E0008F36C /* PaywallCongratulationsController.xib */; };
 		FA7E481628859C72005AEAC1 /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7E481528859C72005AEAC1 /* MainTabBarPresenter.swift */; };
 		FA8535362875D0D600A9137B /* coins_header.json in Resources */ = {isa = PBXBuildFile; fileRef = FA8535352875D0D600A9137B /* coins_header.json */; };
 		FA85353E287707DD00A9137B /* FinishMap.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA85353C287707DD00A9137B /* FinishMap.graphql */; };
@@ -663,6 +676,8 @@
 		029EDBD4280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAttemptUpdateModel.swift; sourceTree = "<group>"; };
 		02A27B58282A657400B435B0 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		02A4649D2811641800B00381 /* GoogleService-Info1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info1.plist"; sourceTree = "<group>"; };
+		02A51780289A6999009EE673 /* WorkoutDetailSpecialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailSpecialCell.swift; sourceTree = "<group>"; };
+		02A51781289A6999009EE673 /* WorkoutDetailSpecialCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutDetailSpecialCell.xib; sourceTree = "<group>"; };
 		02A5CDA327C393A300D31FB4 /* EnergyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyController.swift; sourceTree = "<group>"; };
 		02A5CDA427C393A300D31FB4 /* EnergyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyController.xib; sourceTree = "<group>"; };
 		02A5CDA827C393DC00D31FB4 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
@@ -674,6 +689,9 @@
 		02A5CDBD27C3DE9F00D31FB4 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		02A5CDC027C4247300D31FB4 /* QuizeFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeFoodCell.swift; sourceTree = "<group>"; };
 		02A5CDC127C4247300D31FB4 /* QuizeFoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizeFoodCell.xib; sourceTree = "<group>"; };
+		02A5EEB32898FDC500B0D40B /* Paywall30Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paywall30Controller.swift; sourceTree = "<group>"; };
+		02A5EEB42898FDC500B0D40B /* Paywall30Controller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Paywall30Controller.xib; sourceTree = "<group>"; };
+		02A5EEB72899052200B0D40B /* PaywallPushRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallPushRouter.swift; sourceTree = "<group>"; };
 		02AB486227E06DEE00F35EE2 /* FoodRecomendedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecomendedCell.swift; sourceTree = "<group>"; };
 		02AB486327E06DEE00F35EE2 /* FoodRecomendedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodRecomendedCell.xib; sourceTree = "<group>"; };
 		02AB486827E07EFB00F35EE2 /* FoodTopTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTopTitleCell.swift; sourceTree = "<group>"; };
@@ -783,6 +801,9 @@
 		02D1631E27FADC2F007C6686 /* Inter-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.ttf"; sourceTree = "<group>"; };
 		02D5703B27E9AE4B00F14911 /* WorkoutsWidget.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutsWidget.graphql; sourceTree = "<group>"; };
 		02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsWidgetModel.swift; sourceTree = "<group>"; };
+		02DC289C289A90620040A968 /* Inter-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Italic.ttf"; sourceTree = "<group>"; };
+		02DC289F289A940B0040A968 /* WorkoutReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutReviewCell.swift; sourceTree = "<group>"; };
+		02DC28A0289A940B0040A968 /* WorkoutReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutReviewCell.xib; sourceTree = "<group>"; };
 		02DFE893285A1168005BF69B /* OnboardingSwipeContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSwipeContoller.swift; sourceTree = "<group>"; };
 		02DFE894285A1168005BF69B /* OnboardingSwipeContoller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingSwipeContoller.xib; sourceTree = "<group>"; };
 		02DFE898285A154A005BF69B /* OnboardingSwipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSwipeCell.swift; sourceTree = "<group>"; };
@@ -846,6 +867,11 @@
 		FA65F4F8283E238C00F2427C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		FA6628A227F184C200FBB946 /* Moods.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moods.graphql; sourceTree = "<group>"; };
 		FA6699C9281ABCF600B394E0 /* OffsetCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetCounter.swift; sourceTree = "<group>"; };
+		FA6E8B2E2892D68E0008F36C /* PaywallOneTimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallOneTimeController.swift; sourceTree = "<group>"; };
+		FA6E8B2F2892D68E0008F36C /* PaywallOneTimeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaywallOneTimeController.xib; sourceTree = "<group>"; };
+		FA6E8B322894028F0008F36C /* Inter-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BlackItalic.ttf"; sourceTree = "<group>"; };
+		FA6E8B3528951E4E0008F36C /* PaywallCongratulationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCongratulationsController.swift; sourceTree = "<group>"; };
+		FA6E8B3628951E4E0008F36C /* PaywallCongratulationsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaywallCongratulationsController.xib; sourceTree = "<group>"; };
 		FA7E481528859C72005AEAC1 /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
 		FA8535352875D0D600A9137B /* coins_header.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coins_header.json; sourceTree = "<group>"; };
 		FA85353C287707DD00A9137B /* FinishMap.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FinishMap.graphql; sourceTree = "<group>"; };
@@ -1273,6 +1299,7 @@
 			isa = PBXGroup;
 			children = (
 				023FBC3E27FACCC0004D0CEA /* PaywallRouter.swift */,
+				02A5EEB72899052200B0D40B /* PaywallPushRouter.swift */,
 				02E6D85727FC255100E29509 /* SubscribePresenter.swift */,
 				023FBC3A27FACC8C004D0CEA /* PaywallController.swift */,
 				023FBC3B27FACC8C004D0CEA /* PaywallController.xib */,
@@ -1883,6 +1910,16 @@
 			path = Analytics;
 			sourceTree = "<group>";
 		};
+		02A5177F289A6974009EE673 /* WorkoutDetailSpecialCell */ = {
+			isa = PBXGroup;
+			children = (
+				02DC289E289A93080040A968 /* Cell */,
+				02A51780289A6999009EE673 /* WorkoutDetailSpecialCell.swift */,
+				02A51781289A6999009EE673 /* WorkoutDetailSpecialCell.xib */,
+			);
+			path = WorkoutDetailSpecialCell;
+			sourceTree = "<group>";
+		};
 		02A5CDA227C3938200D31FB4 /* Energy */ = {
 			isa = PBXGroup;
 			children = (
@@ -1954,6 +1991,15 @@
 				02A5CDC127C4247300D31FB4 /* QuizeFoodCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		02A5EEB22898FDA900B0D40B /* Paywall30 */ = {
+			isa = PBXGroup;
+			children = (
+				02A5EEB32898FDC500B0D40B /* Paywall30Controller.swift */,
+				02A5EEB42898FDC500B0D40B /* Paywall30Controller.xib */,
+			);
+			path = Paywall30;
 			sourceTree = "<group>";
 		};
 		02AB486127E06DCA00F35EE2 /* Cell */ = {
@@ -2323,6 +2369,7 @@
 				02BC127427F1CF4200678305 /* WorkoutDetailDescriptionCell */,
 				02BC128027F3005B00678305 /* WorkoutDetailSectionCell */,
 				02BC128527F30AA100678305 /* WorkoutDetailTrainCell */,
+				02A5177F289A6974009EE673 /* WorkoutDetailSpecialCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2358,9 +2405,11 @@
 		02D066B427BBB54200D12C5F /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				FA6E8B322894028F0008F36C /* Inter-BlackItalic.ttf */,
 				02D066BC27BBB57D00D12C5F /* Inter-Black.ttf */,
 				02D066BB27BBB57C00D12C5F /* Inter-Bold.ttf */,
 				02D066B627BBB57B00D12C5F /* Inter-ExtraBold.ttf */,
+				02DC289C289A90620040A968 /* Inter-Italic.ttf */,
 				02D066B527BBB57B00D12C5F /* Inter-ExtraLight.ttf */,
 				02D066B927BBB57C00D12C5F /* Inter-Light.ttf */,
 				02D066B727BBB57B00D12C5F /* Inter-Medium.ttf */,
@@ -2455,6 +2504,15 @@
 				02D5703D27E9AF3B00F14911 /* WorkoutsWidgetModel.swift */,
 			);
 			path = WorkoutsWidget;
+			sourceTree = "<group>";
+		};
+		02DC289E289A93080040A968 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				02DC289F289A940B0040A968 /* WorkoutReviewCell.swift */,
+				02DC28A0289A940B0040A968 /* WorkoutReviewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		02DFE892285A1107005BF69B /* OnboardingSwipe */ = {
@@ -2614,8 +2672,11 @@
 		FA1A2569283D0C8E00240E28 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
+				02A5EEB22898FDA900B0D40B /* Paywall30 */,
 				FA1A256B283D0CBF00240E28 /* PaywallSingle */,
 				FA1A256A283D0CB300240E28 /* PaywallMultiply */,
+				FA6E8B2D2892D59F0008F36C /* PaywallOneTime */,
+				FA6E8B3428951DED0008F36C /* PaywallCongratulations */,
 			);
 			path = Popups;
 			sourceTree = "<group>";
@@ -2665,6 +2726,24 @@
 				FADA6BD027F188B200913F67 /* MoodsModel.swift */,
 			);
 			path = Moods;
+			sourceTree = "<group>";
+		};
+		FA6E8B2D2892D59F0008F36C /* PaywallOneTime */ = {
+			isa = PBXGroup;
+			children = (
+				FA6E8B2E2892D68E0008F36C /* PaywallOneTimeController.swift */,
+				FA6E8B2F2892D68E0008F36C /* PaywallOneTimeController.xib */,
+			);
+			path = PaywallOneTime;
+			sourceTree = "<group>";
+		};
+		FA6E8B3428951DED0008F36C /* PaywallCongratulations */ = {
+			isa = PBXGroup;
+			children = (
+				FA6E8B3528951E4E0008F36C /* PaywallCongratulationsController.swift */,
+				FA6E8B3628951E4E0008F36C /* PaywallCongratulationsController.xib */,
+			);
+			path = PaywallCongratulations;
 			sourceTree = "<group>";
 		};
 		FA8535382876FF0400A9137B /* FinishMap */ = {
@@ -3081,6 +3160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0268752A27D8C90100FFEA6A /* EnergyWeightCell.xib in Resources */,
+				FA6E8B3828951E4E0008F36C /* PaywallCongratulationsController.xib in Resources */,
 				FAC340E4287CDA7D00B90943 /* fun_anim.json in Resources */,
 				0227DAAE27C66C25008AB26B /* MenuAgeController.xib in Resources */,
 				FAC340E2287CDA7D00B90943 /* menu_anim.json in Resources */,
@@ -3115,6 +3195,7 @@
 				FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */,
 				0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */,
 				020D282027E863DD00010122 /* FoodAddController.xib in Resources */,
+				FA6E8B332894028F0008F36C /* Inter-BlackItalic.ttf in Resources */,
 				02D066CC27BBBB4300D12C5F /* QuizeNameController.xib in Resources */,
 				FAC340E5287CDA7D00B90943 /* congrads_anim.json in Resources */,
 				0249D28327B3AAAE00F265C1 /* LoginController.xib in Resources */,
@@ -3122,6 +3203,7 @@
 				FE1403B427E1EDC2002F5819 /* ProfileController.xib in Resources */,
 				02D066C027BBB57D00D12C5F /* Inter-Medium.ttf in Resources */,
 				FE7CF8B727E48F760099682E /* PositionTableCell.xib in Resources */,
+				FA6E8B312892D68E0008F36C /* PaywallOneTimeController.xib in Resources */,
 				FA8CC858282919B80022BFE2 /* construction3.gif in Resources */,
 				029EDBD0280D3FCB00FC8748 /* VideoFinishedController.xib in Resources */,
 				0256999028197A7500BA1535 /* 22_complete_building.wav in Resources */,
@@ -3152,6 +3234,7 @@
 				0251D24327E218FF0098A54D /* RecommendProducts.graphql in Resources */,
 				02B225BE27BD7B110035CFA2 /* Login.graphql in Resources */,
 				FE1403BE27E2019C002F5819 /* ChartTableCell.xib in Resources */,
+				02DC289D289A90EA0040A968 /* Inter-Italic.ttf in Resources */,
 				0251D23927E214020098A54D /* SourcesByMeal.graphql in Resources */,
 				0263388E27DB299600DC0325 /* EnergyProgressController.xib in Resources */,
 				02E6D85D27FC385F00E29509 /* Localizable.stringsdict in Resources */,
@@ -3201,6 +3284,7 @@
 				02A5CDB527C3949700D31FB4 /* MenuController.xib in Resources */,
 				FEE119C627E9D1520058EE6D /* AwardsTableCell.xib in Resources */,
 				0251D23E27E215480098A54D /* ProductsByMeal.graphql in Resources */,
+				02A5EEB62898FDC500B0D40B /* Paywall30Controller.xib in Resources */,
 				02D066D427BBD12600D12C5F /* QuizeGenderController.xib in Resources */,
 				0273F56727D60EC500B19449 /* SleepWidget.graphql in Resources */,
 				02A4649E2811641800B00381 /* GoogleService-Info1.plist in Resources */,
@@ -3215,6 +3299,7 @@
 				FAD5B2A22865BBF400A1EF4D /* StepsWidget.graphql in Resources */,
 				02B3017227EB22EA0045C607 /* SaveMood.graphql in Resources */,
 				FA2794FD2861AC1200AEEA70 /* EnergyStepsCollectionCell.xib in Resources */,
+				02A51783289A6999009EE673 /* WorkoutDetailSpecialCell.xib in Resources */,
 				02A5CDAB27C393DC00D31FB4 /* WorkoutController.xib in Resources */,
 				02D066BE27BBB57D00D12C5F /* Inter-ExtraLight.ttf in Resources */,
 				02B22AC8281C18F2006AB1EA /* Spin.graphql in Resources */,
@@ -3253,6 +3338,7 @@
 				02D066C327BBB57D00D12C5F /* Inter-Regular.ttf in Resources */,
 				02F01C5227D794450066656D /* MoodWidget.graphql in Resources */,
 				0227DA9D27C63A3B008AB26B /* FoodGroups.graphql in Resources */,
+				02DC28A2289A940B0040A968 /* WorkoutReviewCell.xib in Resources */,
 				0227A9BC2849F39E00BA29A8 /* QuizeVideoController.xib in Resources */,
 				0290B39A27D2340800381B42 /* EnerdyTodayCell.xib in Resources */,
 				0273F55A27D5F08E00B19449 /* EnergyMoodCell.xib in Resources */,
@@ -3401,6 +3487,7 @@
 				029EDBCF280D3FCB00FC8748 /* VideoFinishedController.swift in Sources */,
 				FA51A360288E443D00241CEA /* DisplayLinkEntity.swift in Sources */,
 				0256999528197C6C00BA1535 /* BaseTableViewCell.swift in Sources */,
+				02A51782289A6999009EE673 /* WorkoutDetailSpecialCell.swift in Sources */,
 				0249D28627B3AB4600F265C1 /* AppConfiguration.swift in Sources */,
 				02B22AC1281C0B3D006AB1EA /* MapModel.swift in Sources */,
 				FA1A2573283D0D0D00240E28 /* PaywallMultiplyController.swift in Sources */,
@@ -3423,6 +3510,7 @@
 				021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */,
 				0227DAC127C6A19C008AB26B /* MenuTargetWeightController.swift in Sources */,
 				02BC9ECA2806F10000B13401 /* PlainHorizontalProgressBar.swift in Sources */,
+				FA6E8B3728951E4E0008F36C /* PaywallCongratulationsController.swift in Sources */,
 				FAB6548227FFFD650057A221 /* SlotCollectionCell.swift in Sources */,
 				FA65F4F9283E238C00F2427C /* UIImageView+Extension.swift in Sources */,
 				023CDC2D280408400056F022 /* MenuLogoutCell.swift in Sources */,
@@ -3508,7 +3596,9 @@
 				02FAF0A627D361AE002CD678 /* EnergyDrinkWaterCell.swift in Sources */,
 				FA2794F4285CA8A900AEEA70 /* HealthKitManager.swift in Sources */,
 				020CB3D527E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift in Sources */,
+				02A5EEB82899052200B0D40B /* PaywallPushRouter.swift in Sources */,
 				02B225B827BD63FC0035CFA2 /* QuizeEmailController.swift in Sources */,
+				02A5EEB52898FDC500B0D40B /* Paywall30Controller.swift in Sources */,
 				FABE8BF828512C6C00E3E53C /* PurchasePop.swift in Sources */,
 				0227DAAD27C66C25008AB26B /* MenuAgeController.swift in Sources */,
 				0227A9BB2849F39E00BA29A8 /* QuizeVideoController.swift in Sources */,
@@ -3530,9 +3620,11 @@
 				025463A227CE2F1500D433DB /* MenuWriteQuestionController.swift in Sources */,
 				FA1A6D8B28097F0D0040518A /* GameTabBarController.swift in Sources */,
 				FAD5B2A12865BBF400A1EF4D /* StepsWidgetModel.swift in Sources */,
+				02DC28A1289A940B0040A968 /* WorkoutReviewCell.swift in Sources */,
 				FAB6548027FFFD480057A221 /* SlotTableViewCell.swift in Sources */,
 				0249D26D27B3A96E00F265C1 /* AuthModel.swift in Sources */,
 				027BFB472844B2AB0008E241 /* GradientView.swift in Sources */,
+				FA6E8B302892D68E0008F36C /* PaywallOneTimeController.swift in Sources */,
 				FAC340D9287CAA0C00B90943 /* MainGameOnboardingView.swift in Sources */,
 				02B1E71927DA003B00C9E610 /* EnergyTrainingCell.swift in Sources */,
 				0227DAA927C64F33008AB26B /* MenuRouter.swift in Sources */,
@@ -3790,11 +3882,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 62;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We used Steps from Apple Helth for our sports widget to provide a great user experience: display number of steps and give a reward.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
@@ -3809,7 +3902,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3829,11 +3922,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 62;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We used Steps from Apple Helth for our sports widget to provide a great user experience: display number of steps and give a reward.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
@@ -3848,7 +3942,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3929,11 +4023,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 62;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = izzifit/Info.plist;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We used Steps from Apple Helth for our sports widget to provide a great user experience: display number of steps and give a reward.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Izzifit needs your permission to access your Health data in order to display the number of steps";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used for making user experience and interface more friendly and useful in our product.";
@@ -3948,7 +4043,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

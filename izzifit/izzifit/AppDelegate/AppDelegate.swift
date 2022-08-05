@@ -253,7 +253,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if #available(iOS 14.0, *) {
             completionHandler([[.banner, .badge, .sound]])
         } else {
-            completionHandler([[.badge, .sound]])
+            completionHandler([[.badge, .sound, .alert]])
         }
     }
     
@@ -278,6 +278,12 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID from userNotificationCenter didReceive: \(messageID)")
         }
+        
+        if let aps = userInfo["aps"] as? Dictionary<String, Any>, let alert = aps["alert"] as? Dictionary<String, Any>, let title = alert["title"] as? String {
+            AnalyticsHelper.sendFirebaseEvents(events: .push_open, params: ["title": title])
+        }
+        
+        parsingPush(userInfo: userInfo)
         
         completionHandler()
     }
@@ -308,4 +314,33 @@ extension AppDelegate: AppsFlyerLibDelegate {
     func onConversionDataFail(_ error: Error) {
         debugPrint("")
     }
+}
+
+//----------------------------------------------
+// MARK: - Parsing push
+//----------------------------------------------
+
+extension AppDelegate {
+    func parsingPush(userInfo: [AnyHashable : Any]) {
+        if let event = userInfo["event"] as? String, let type = ParsingEvent(rawValue: event) {
+            PreferencesManager.sharedManager.pushOpen = type
+            NotificationCenter.default.post(name: Constants.Notifications.pushNotification,
+                                            object: self,
+                                            userInfo: nil)
+        }
+    }
+}
+
+enum ParsingEvent: String {
+    case gold = "gold-reached"
+    case energy = "energy-reached"
+    case meals = "meals-reminder"
+    case water = "water-reminder"
+    case mood = "mood-reminder"
+    case continueWorkout = "continue-workout-reminder"
+    case waterNotFinished = "water-not-finished-reminder"
+    case sleep = "sleep-reminder"
+    case onboardingReminder = "continue-onboarding-reminder"
+    case stepReminder = "step-reminder"
+    case stepNotFinished = "step-not-finished-reminder"
 }

@@ -21,6 +21,7 @@ enum KeysPreference: String, CaseIterable {
    case  drintWaterInfoHidden = "drintWaterInfoHidden"
    case  mealsPlanInfoHidden = "mealsPlanInfoHidden"
    case  stepsInfoHidden = "stepsInfoHidden"
+   case pushOpen = "pushOpen"
 }
 
 class PreferencesManager : NSObject {
@@ -30,6 +31,7 @@ class PreferencesManager : NSObject {
     
     //MARK: - Keys
     static let isFirstRun = "isFirstRun"
+    static let isStart = "isStart"
     static let tempPorifle = "tempPorifle"
     static let foods =  "foods"
     //static let widgetList = "widgetList"
@@ -46,6 +48,7 @@ class PreferencesManager : NSObject {
     static let drintWaterInfoHidden = "drintWaterInfoHidden"
     static let mealsPlanInfoHidden = "mealsPlanInfoHidden"
     static let stepsInfoHidden = "stepsInfoHidden"
+    static let pushOpen = "pushOpen"
     
     var userDefaults: UserDefaults
     
@@ -133,6 +136,16 @@ class PreferencesManager : NSObject {
         }
         set {
             userDefaults.set(newValue, forKey: PreferencesManager.isFirstRun)
+            userDefaults.synchronize()
+        }
+    }
+    
+    var isStart: Bool {
+        get {
+            return userDefaults.bool(forKey: PreferencesManager.isStart)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.isStart)
             userDefaults.synchronize()
         }
     }
@@ -284,6 +297,16 @@ class PreferencesManager : NSObject {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "hummerCount")
+        }
+    }
+    
+    var pushOpen: ParsingEvent? {
+        get {
+            return ParsingEvent(rawValue: UserDefaults.standard.string(forKey: PreferencesManager.pushOpen) ?? "")
+        }
+        set {
+            userDefaults.set(newValue?.rawValue, forKey: PreferencesManager.pushOpen)
+            userDefaults.synchronize()
         }
     }
     

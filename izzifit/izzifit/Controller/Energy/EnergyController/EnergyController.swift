@@ -63,7 +63,6 @@ class EnergyController: BaseController {
         super.viewDidLoad()
 
         setup()
-  
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,14 +134,20 @@ class EnergyController: BaseController {
             let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .dashboard)
         }
         
-//        let controller = PaywallMultiplyController(delegate: self, screen: .threePrice, place: .dashboard)
-//        controller.modalPresentationStyle = .fullScreen
-//        navigationController?.present(controller, animated: true)
+        if (PreferencesManager.sharedManager.pushOpen != nil) {
+            let _ = PaywallPushRouter(presenter: navigationController).presentPaywall(delegate: self)
+            PreferencesManager.sharedManager.pushOpen = nil
+        }
         
+
         tableView.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector:#selector(updateEnegyNotification),
                                                name: Constants.Notifications.updateEnergyNotification,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(pushNotification),
+                                               name: Constants.Notifications.pushNotification,
                                                object: nil)
         
         AnalyticsHelper.sendFirebaseEvents(events: .dash_open)
@@ -212,6 +217,14 @@ class EnergyController: BaseController {
     //----------------------------------------------
     // MARK: - Notifications
     //----------------------------------------------
+    
+    @objc func pushNotification() {
+        DispatchQueue.main.async { [weak self] in
+            guard let `self` = self else { return }
+            let _ = PaywallPushRouter(presenter: self.navigationController).presentPaywall(delegate: self)
+            PreferencesManager.sharedManager.pushOpen = nil
+        }
+    }
     
     @objc func updateEnegyNotification(_ notification: Notification) {
         presenter.getWidgets(date: getDate())
