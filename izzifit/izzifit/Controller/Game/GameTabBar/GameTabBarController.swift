@@ -33,7 +33,7 @@ class GameTabBarController: UITabBarController {
     }
     
     private func setupVCs() {
-        viewControllers = [GameController(), LevController(), MapController()]
+        viewControllers = [GameController(), LevelController(), MapController()]
     }
     
     private func setupTabBar() {

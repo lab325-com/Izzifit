@@ -55,18 +55,6 @@ struct CombinationsAwardsManager {
         }
     }
     
-    func showProgress(imgVw: UIImageView, img: UIImage ) {
-        
-        var spinsRemainder = CGFloat(KeychainService.standard.me?.energy ?? 0.0)
-        switch spinsRemainder {
-        case let x where x > 100.0: spinsRemainder = 100.0
-        default: break
-        }
-        let hiddenPart = 100.0 - spinsRemainder
-        imgVw.hideImage(hiddenPart: hiddenPart,
-                        img: img)
-    }
-    
     func bagOrCoin(_  array: [Int]) -> Int? {
         if array.contains(2) { return 2 }
         if array.contains(1) { return 1 }
@@ -177,7 +165,7 @@ struct CombinationsAwardsManager {
                     homeView.animate(type: .lightning, imageView:
                                         homeView.animationImgVw)
                     AudioManager.sharedManager.playSound(type: .energyX3_18)
-                }
+             }
         }
     }
     

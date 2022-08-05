@@ -64,19 +64,25 @@ class LevelPopUpView: UIView {
     weak var delegate: LevelPopUpDelegate?
   
     init(popType: LevelPopType,
-         title: String,
-         mapName: MapName,
          delegate: LevelPopUpDelegate) {
         self.popType =  popType
-        self.title =    title
         self.delegate = delegate
+        switch PreferencesManager.sharedManager.currentMapName {
+        case .snow_map:     self.title = "Arctic"
+        case .england_map:  self.title = "England"
+        case .france_map:   self.title = "France"
+        default:            self.title = "Arctic"
+        }
         super.init(frame: .zero)
+        
         setUI()
         layout()
-        switch mapName {
-        case .snow_map:     hummerImgVw.image = image(img: .freeHummer)
+        
+        switch PreferencesManager.sharedManager.currentMapName {
+        case .snow_map:     hummerImgVw.image = image(img: .freeHummer) 
         case .england_map:  hummerImgVw.image = image(img: .england_freeHummer)
         case .france_map:   hummerImgVw.image = image(img: .france_freeHummer)
+        default:            break
         }
     }
     

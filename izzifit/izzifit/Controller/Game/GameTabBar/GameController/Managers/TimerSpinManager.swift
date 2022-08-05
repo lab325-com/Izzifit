@@ -11,7 +11,6 @@ class TimerSpinManager {
     
     var collectionView: UICollectionView
     weak var delegate: SpinAwardProtocol?
-  //  var presenter: ArcticGamePresenter
     var combinationManager = CombinationsAwardsManager()
     var counter = OffsetCounter(strideOffset: UIScreen.main.bounds.size.height / 12.799)
 
@@ -39,19 +38,10 @@ class TimerSpinManager {
                            getSpeed(by: 2)] }
     }
     
-    // INIT
-    init(collectionView: UICollectionView,
-         presenter: ArcticGamePresenter) {
-        self.collectionView = collectionView
-      //  self.presenter = presenter
-        timerCounters = [87, 87, 87]
-    }
-    
     init(collectionView: UICollectionView,
          delegate: SpinAwardProtocol) {
         self.collectionView = collectionView
         self.delegate = delegate
-      //  self.presenter = presenter
         timerCounters = [87, 87, 87]
     }
     
@@ -59,6 +49,7 @@ class TimerSpinManager {
         guard let cell = collectionView.cellForItem(at: [0,index]) as? SlotCollectionCell else { return UITableView() }
         return cell.tableView
     }
+    
     func convertSpinTypeObjectToInt(_ object: SpinObjectType) -> Int {
         var int: Int
         switch object {
@@ -192,8 +183,6 @@ class TimerSpinManager {
     @objc func x3Spin() {
         spinner(by: 2) { [self] in
             guard combinationCounter < counter.combinations.count else { return }
-   //         presenter.getSpin(spinId: counter.combinations[combinationCounter].id)
-            // send request here, but make some actions in GameController
             GameNetworkLayer.shared.getSpin(spinId: counter.combinations[combinationCounter].id,
                                             view: delegate!)
         }

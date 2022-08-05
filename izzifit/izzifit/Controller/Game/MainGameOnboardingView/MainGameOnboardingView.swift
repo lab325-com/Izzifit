@@ -16,38 +16,37 @@ protocol MainGameOnboardingDelegate: AnyObject {
     func tapBtn()
 }
 
-
 class MainGameOnboardingView: UIView {
     
-   static var stateCounter = 0
-    
-    var onboardImgVw =  UIImageView()
-    var additionBtn =   UIButton()
-    var mainBtn =       UIButton()
-    var menuAnim: AnimationView?
-    var spinAnim: AnimationView?
+    static var stateCounter = 0
     
     static var currentState: GameOnboardingStates {
         MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter]
     }
     
-   static var gameOnboardStates: [GameOnboardingStates] = [.energy1,
-                                                     .level2,
-                                                     .buildPopUp3,
-                                                     .blockScreen,
-                                                     .level4,
-                                                     .buildPopUp5,
-                                                     .blockScreen,
-                                                     .spinMenuBtn6,
-                                                     .spinBtn,
-                                                     .blockScreen,
-                                                     .goToEnergy,
-                                                     .finalPopUp]
+   static var gameOnboardStates: [GameOnboardingStates] = [  .energy1,
+                                                             .level2,
+                                                             .buildPopUp3,
+                                                             .blockScreen,
+                                                             .level4,
+                                                             .buildPopUp5,
+                                                             .blockScreen,
+                                                             .spinMenuBtn6,
+                                                             .spinBtn,
+                                                             .blockScreen,
+                                                             .goToEnergy,
+                                                             .finalPopUp]
     
-    weak var delegate: MainGameOnboardingDelegate?
-    var state: GameOnboardingStates
-    var gameTabBar: GameTabBarController?
-    var arcGameView: SpinGameViewProtocol?
+    var onboardImgVw =  UIImageView()
+    var additionBtn =   UIButton()
+    var mainBtn =       UIButton()
+    var menuAnim:       AnimationView?
+    var spinAnim:       AnimationView?
+    
+    weak var delegate:  MainGameOnboardingDelegate?
+    var state:          GameOnboardingStates
+    var gameTabBar:     GameTabBarController?
+    var arcGameView:    SpinGameViewProtocol?
 
     init(state: GameOnboardingStates, delegate: MainGameOnboardingDelegate, gameTabBar: GameTabBarController? = nil, arcGameView: SpinGameViewProtocol? = nil ) {
         self.state = state
@@ -95,33 +94,30 @@ class MainGameOnboardingView: UIView {
         switch state {
         case .energy1:
             onboardImgVw.image = image(img: .onFUN)
-                            ui.genericlLayout(object: onboardImgVw,
-                                              parentView: self,
-                                              width: 264,
-                                              height: 102,
-                                              bottomC: 100,
-                                              centerH: 0)
+            ui.genericlLayout(object: onboardImgVw,
+                              parentView: self,
+                              width: 264,
+                              height: 102,
+                              bottomC: 100,
+                              centerH: 0)
             
             let y = h - 100
             
-            onboardImgVw.shake(0.5,
-                               x: w / 2,
-                               y: y - 41)
-            
+            onboardImgVw.shake(0.5, x: w / 2, y: y - 41)
             
             var yellowGameView = GameOnboardingEnergyView(state: .game)
             
             ui.genericlLayout(object: yellowGameView ?? UIView(),
-                                                 parentView: self,
-                                                 width: wRatio(cW: 344),
-                                                 height: 71,
-                                                 topC: 191,
-                                                 centerH: 0)
+                              parentView: self,
+                              width: wRatio(cW: 344),
+                              height: 71,
+                              topC: 191,
+                              centerH: 0)
 
-                        var funAnimationView = AnimationView(name: "menu_anim")
-                            funAnimationView.contentMode = .scaleAspectFill
-                            funAnimationView.loopMode = .loop
-                            funAnimationView.play()
+            var funAnimationView = AnimationView(name: "menu_anim")
+                funAnimationView.contentMode = .scaleAspectFill
+                funAnimationView.loopMode = .loop
+                funAnimationView.play()
             
             let whiteView = UIView()
             whiteView.layer.backgroundColor =   UIColor.white.withAlphaComponent(0.95).cgColor
@@ -158,18 +154,18 @@ class MainGameOnboardingView: UIView {
                              bottomC: 31,
                              centerH: 0)
             
-                        ui.genericlLayout(object: additionBtn,
-                                          parentView: self,
-                                          width: wRatio(cW: 344),
-                                          height: 64,
-                                          topC: 198,
-                                          centerH: 0)
+            ui.genericlLayout(object: additionBtn,
+                              parentView: self,
+                              width: wRatio(cW: 344),
+                              height: 64,
+                              topC: 198,
+                              centerH: 0)
             
             AnalyticsHelper.sendFirebaseEvents(events: .onb_start)
             
         case .level2:
             
-            if let levelVC = self.gameTabBar?.children[1] as? LevController {
+            if let levelVC = self.gameTabBar?.children[1] as? LevelController {
                     levelVC.levelView.slideAnimationView.play()
                 }
       
@@ -187,38 +183,36 @@ class MainGameOnboardingView: UIView {
                 
             }
                         
-                        ui.genericlLayout(object: mainBtn,
-                                         parentView: self,
-                                         width: 100,
-                                         height: 100,
-                                         topC: 400,
-                                         trailingC: 53)
+            ui.genericlLayout(object: mainBtn,
+                             parentView: self,
+                             width: 100,
+                             height: 100,
+                             topC: 400,
+                             trailingC: 53)
             
-       
-                        
-        case .buildPopUp3:    ui.genericlLayout(object: mainBtn,
-                                                parentView: self,
-                                                width: 242,
-                                                height: 40,
-                                                topC: hRatio(cH:174) + (273 - 44 - 40),
-                                                centerH: 0)
+        case .buildPopUp3:
+            ui.genericlLayout(object: mainBtn,
+                              parentView: self,
+                              width: 242,
+                              height: 40,
+                              topC: hRatio(cH:174) + (273 - 44 - 40),
+                              centerH: 0)
         case .level4:
             
-            if let levelVC = self.gameTabBar?.children[1] as? LevController {
+            if let levelVC = self.gameTabBar?.children[1] as? LevelController {
                 levelVC.levelView.onboardLevelFour()
                 }
-  
-            
+
             onboardImgVw.image = image(img: .onUpgradeBuild)
-                            ui.genericlLayout(object: onboardImgVw,
-                                              parentView: self,
-                                              width: 228,
-                                              height: 97,
-                                              topC: 315,
-                                              centerH: 51)
-            onboardImgVw.shake(0.5,
-                               x: w / 2 + 51,
-                               y: 315 + 48.5)
+              
+            ui.genericlLayout(object: onboardImgVw,
+                              parentView: self,
+                              width: 228,
+                              height: 97,
+                              topC: 315,
+                              centerH: 51)
+            
+            onboardImgVw.shake(0.5, x: w / 2 + 51, y: 315 + 48.5)
             
             ui.genericlLayout(object: mainBtn,
                              parentView: self,
@@ -236,7 +230,7 @@ class MainGameOnboardingView: UIView {
             
         case .spinMenuBtn6:
     
-            if let levelVC = self.gameTabBar?.children[1] as? LevController {
+            if let levelVC = self.gameTabBar?.children[1] as? LevelController {
                 levelVC.levelView.slideAnimationView.stop()
                 }
             
@@ -383,32 +377,12 @@ class MainGameOnboardingView: UIView {
             var descriptionLbl = UILabel()
             
             ui.setLabel(label: descriptionLbl,
-//                        labelText: "You have taken your first steps toward \n a new, healthier life and learned the \n basic features of our app! Play, \n complete easy daily tasks, get fit, and \n get healthy!",
                         textColor: UIColor(rgb: 0x3F3E56),
                         textAlignment: .center,
                         fontSize: wRatio(cW: 16),
                         fontName: "Inter-Regular",
                         lines: 0)
-          
-//            let imageAttachment = NSTextAttachment()
-//            imageAttachment.image = image(img: .onboardingFun)
-//            let imageOffsetY: CGFloat = -7.0
-//            imageAttachment.bounds = CGRect(x: 0,
-//                                            y: imageOffsetY,
-//                                            width: imageAttachment.image!.size.width + 5,
-//                                            height: imageAttachment.image!.size.height + 5)
-//
-//
-//            let attachmentString = NSAttributedString(attachment: imageAttachment)
-//            let completeText = NSMutableAttributedString(string: "Just play the game, have  ")
-//            completeText.append(attachmentString)
-//            let textAfterIcon = NSAttributedString(string: ", and  \n do daily simple tasks and lose \n weight!")
-//            completeText.append(textAfterIcon)
-//
-//
-//          //  descriptionLbl.attributedText = completeText
-            
-            
+
             descriptionLbl.lineBreakMode = .byWordWrapping
             var paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineHeightMultiple = 1.24

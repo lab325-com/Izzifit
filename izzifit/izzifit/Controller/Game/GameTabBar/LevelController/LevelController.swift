@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LevController: BaseController {
+class LevelController: BaseController {
 
     var levelView:                  LevelView!
     private var buildPopUpVw:       LevelPopUpView?
@@ -31,17 +31,7 @@ class LevController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
             GameNetworkLayer.shared.getMap(view: self) {
-                    self.levelView.removeFromSuperview()
-                    self.levelView = LevelView()
-                    self.levelView.frame = self.view.bounds
-                    self.view.addSubview(self.levelView)
-                    self.addTargets()
-                    self.succesBuildings()
-                    self.levelView.barBackVw.getCoinsAndEnergy()
-                    self.checkAvailableHummers()
-                    let x = (428 - UIScreen.main.bounds.size.width) / 2
-                    self.levelView.scrollView.setContentOffset(CGPoint(x: x,y: 0),
-                                                            animated: true)
+                self.drawLevel()
                 guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
                 if let tabBarVC = self.tabBarController as? GameTabBarController {
                 self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
@@ -64,18 +54,22 @@ class LevController: BaseController {
         guard !firstLaunch else { firstLaunch = false
             return}
         GameNetworkLayer.shared.getMap(view: self) {
-            self.levelView.removeFromSuperview()
-            self.levelView = LevelView()
-            self.levelView.frame = self.view.bounds
-            self.view.addSubview(self.levelView)
-            self.addTargets()
-            self.succesBuildings()
-            self.levelView.barBackVw.getCoinsAndEnergy()
-            self.checkAvailableHummers()
-            let x = (428 - UIScreen.main.bounds.size.width) / 2
-            self.levelView.scrollView.setContentOffset(CGPoint(x: x,y: 0),
-                                                    animated: true)
+            self.drawLevel()
         }
+    }
+    
+    private func drawLevel() {
+        self.levelView.removeFromSuperview()
+        self.levelView = LevelView()
+        self.levelView.frame = self.view.bounds
+        self.view.addSubview(self.levelView)
+        self.addTargets()
+        self.succesBuildings()
+        self.levelView.barBackVw.getCoinsAndEnergy()
+        self.checkAvailableHummers()
+        let x = (428 - UIScreen.main.bounds.size.width) / 2
+        self.levelView.scrollView.setContentOffset(CGPoint(x: x,y: 0),
+                                                animated: true)
     }
   
     private func addTargets() {
@@ -302,9 +296,8 @@ class LevController: BaseController {
                         sender: UIButton) {
         
         buildPopUpVw = nil
+   
         buildPopUpVw = LevelPopUpView(popType: popType,
-                                      title: "England",
-                                      mapName: .england_map,
                                       delegate: self)
         guard let buildPopUpVw = buildPopUpVw else { return }
             buildPopUpVw.hummerImgVw.isHidden = true
@@ -359,7 +352,7 @@ class LevController: BaseController {
 }
 
 
-extension LevController: LevelPopUpDelegate {
+extension LevelController: LevelPopUpDelegate {
     func arrowBtnAction(view: UIView) {
         view.removeFromSuperview()
         let result = PaywallRouter(presenter: self.navigationController).presentPaywall(delegate: self,
@@ -377,7 +370,7 @@ extension LevController: LevelPopUpDelegate {
 // MARK: - PaywallProtocol
 //----------------------------------------------
 
-extension LevController: PaywallProtocol {
+extension LevelController: PaywallProtocol {
     func paywallActionBack(controller: BaseController) { self.dismiss(animated: true) }
     func paywallSuccess(controller: BaseController) { }
 }
@@ -386,7 +379,7 @@ extension LevController: PaywallProtocol {
 // MARK: - GamePurchasePopProtocol
 //----------------------------------------------
 
-extension LevController: PurchasePopUpProtocol {
+extension LevelController: PurchasePopUpProtocol {
     func purchasePopUpSpin(controller: PurchasePopUp) {
         if let tabBarVC = self.tabBarController as? GameTabBarController {
             tabBarVC.spin()
@@ -409,7 +402,7 @@ extension LevController: PurchasePopUpProtocol {
 // MARK: - LevelFinishDelegate
 //----------------------------------------------
 
-extension LevController: LevelFinishDelegate {
+extension LevelController: LevelFinishDelegate {
     func nextMap(view: UIView) {
         finishLevelPopUp?.removeFromSuperview()
   
@@ -419,7 +412,7 @@ extension LevController: LevelFinishDelegate {
     }
 }
 
-extension LevController: MainGameOnboardingDelegate {
+extension LevelController: MainGameOnboardingDelegate {
     func tapBtn() {
 
         if let tabBarVC = self.tabBarController as? GameTabBarController {

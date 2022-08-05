@@ -262,16 +262,4 @@ class EnglandGameView: UIView, SpinGameViewProtocol {
                           leadingToO: barBackVw.leadingAnchor,
                           leadingCG: 0)
     }
-    
-    func showProgress() {
-        greenCounterLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))/50"
-        var spinsRemainder = CGFloat(KeychainService.standard.me?.energy ?? 0.0)
-        switch spinsRemainder {
-        case let x where x > 100.0: spinsRemainder = 100.0
-        default: break
-        }
-        let hiddenPart = 100.0 - spinsRemainder
-        progressImgVw.hideImage(hiddenPart: hiddenPart,
-                                img: progressImg ?? UIImage())
-    }
 }
