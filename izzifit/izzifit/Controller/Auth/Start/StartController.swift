@@ -83,10 +83,12 @@ class StartController: BaseController {
     
     @IBAction func actionLogin(_ sender: UIButton) {
         AuthRouter(presenter: navigationController).pushLogin()
+        PreferencesManager.sharedManager.isStart = false
     }
     
     @IBAction func actionStart(_ sender: UIButton) {
         AnalyticsHelper.sendFirebaseEvents(events: .login_skip)
+        PreferencesManager.sharedManager.isStart = true
         AudioManager.sharedManager.playSound()
         presenter.login()
     }

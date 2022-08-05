@@ -31,6 +31,7 @@ class PreferencesManager : NSObject {
     
     //MARK: - Keys
     static let isFirstRun = "isFirstRun"
+    static let isStart = "isStart"
     static let tempPorifle = "tempPorifle"
     static let foods =  "foods"
     //static let widgetList = "widgetList"
@@ -135,6 +136,16 @@ class PreferencesManager : NSObject {
         }
         set {
             userDefaults.set(newValue, forKey: PreferencesManager.isFirstRun)
+            userDefaults.synchronize()
+        }
+    }
+    
+    var isStart: Bool {
+        get {
+            return userDefaults.bool(forKey: PreferencesManager.isStart)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.isStart)
             userDefaults.synchronize()
         }
     }
