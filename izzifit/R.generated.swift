@@ -390,6 +390,8 @@ struct R: Rswift.Validatable {
     }
 
     struct comAppleDeveloperHealthkitAccess {
+      static let healthRecords = infoPlistString(path: ["com.apple.developer.healthkit.access"], key: "health-records") ?? "health-records"
+
       fileprivate init() {}
     }
 

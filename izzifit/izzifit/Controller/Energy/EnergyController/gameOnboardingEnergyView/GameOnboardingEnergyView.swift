@@ -18,23 +18,23 @@ class GameOnboardingEnergyView: UIView {
     
     var mainLbl = UILabel()
     var mainImgVw = UIImageView()
-    var yellowVw = UIView()
+    var yellowBtn = UIButton()
     
     init(state: OnboardingGameState) {
         self.state = state
         super.init(frame: .zero)
-        
         setAndLayout()
-        
     }
     
     func setAndLayout() {
         
-        yellowVw.layer.backgroundColor = UIColor(rgb: 0xFFF2D2).cgColor
-        yellowVw.layer.cornerRadius = 20
-        yellowVw.layer.masksToBounds = true
+        yellowBtn.layer.backgroundColor = UIColor(rgb: 0xFFF2D2).cgColor
+        yellowBtn.layer.cornerRadius = 20
+        yellowBtn.layer.masksToBounds = true
         
-        ui.genericlLayout(object: yellowVw,
+        yellowBtn.addTarget(self, action: #selector(actionYellow), for: .touchUpInside)
+        
+        ui.genericlLayout(object: yellowBtn,
                           parentView: self,
                           width: wRatio(cW:344),
                           height: 64,
@@ -43,9 +43,6 @@ class GameOnboardingEnergyView: UIView {
                           
         mainImgVw.contentMode = .scaleAspectFill
         
-       
-  
-      
         ui.setLabel(label: mainLbl,
                     textColor: UIColor(rgb: 0x3F3E56),
                     textAlignment: .left,
@@ -62,7 +59,7 @@ class GameOnboardingEnergyView: UIView {
             anim.loopMode = .loop
             
             ui.genericlLayout(object: anim,
-                              parentView: yellowVw,
+                              parentView: yellowBtn,
                               width: 100,
                               height: 100,
                               trailingC: -10,
@@ -72,9 +69,9 @@ class GameOnboardingEnergyView: UIView {
                               parentView: self,
                               width: 31,
                               height: 51,
-                              bottomToO: yellowVw.bottomAnchor,
+                              bottomToO: yellowBtn.bottomAnchor,
                               bottomCG: 6,
-                              trailingToO: yellowVw.trailingAnchor,
+                              trailingToO: yellowBtn.trailingAnchor,
                               trailingCG: 20)
             anim.play()
             
@@ -123,9 +120,9 @@ class GameOnboardingEnergyView: UIView {
                               parentView: self,
                               width: 77,
                               height: 62,
-                              topToO: yellowVw.topAnchor,
+                              topToO: yellowBtn.topAnchor,
                               topCG: -7,
-                              trailingToO: yellowVw.trailingAnchor,
+                              trailingToO: yellowBtn.trailingAnchor,
                               trailingCG: wRatio(cW: 9))
             anim.play()
             
@@ -156,13 +153,17 @@ class GameOnboardingEnergyView: UIView {
         }
         
         ui.genericlLayout(object: mainLbl,
-                          parentView: yellowVw,
+                          parentView: yellowBtn,
                           leadingC: wRatio(cW:16),
                           centerV: 0,
                           trailingToO: mainImgVw.leadingAnchor,
                           trailingCG: 0)
         
         
+    }
+    
+    @objc func actionYellow() {
+        NotificationCenter.default.post(name: Constants.Notifications.openGameSpin, object: self, userInfo: nil)
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }

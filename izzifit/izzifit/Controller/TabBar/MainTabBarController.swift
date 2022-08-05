@@ -100,6 +100,10 @@ class MainTabBarController: BaseController {
         NotificationCenter.default.addObserver(self, selector:#selector(pushNotification),
                                                name: Constants.Notifications.pushNotification,
                                                object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(actionGame(_:)),
+                                               name: Constants.Notifications.openGameSpin,
+                                               object: nil)
     }
     
     private func onboarding() {

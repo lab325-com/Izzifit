@@ -64,7 +64,6 @@ class QuizeProgressPresenter: QuizeProgressPresenterProtocol {
             profileUpdateInput.growthMeasure = api
         }
         
-        
         if let smHeight = profile.smHeight, profile.heightMetric == .sm {
             profileUpdateInput.growth = smHeight
         }
@@ -95,6 +94,10 @@ class QuizeProgressPresenter: QuizeProgressPresenterProtocol {
         
         let _ = Network.shared.mutation(model: ProfileUpdateModel.self, mutation, controller: view, successHandler: { [weak self] model in
             AnalyticsHelper.sendFirebaseEvents(events: .quiz_finish)
+            if let _ = profile.weight, let _ = profile.targetWeight {
+                PreferencesManager.sharedManager.tempPorifle.weight = nil
+                PreferencesManager.sharedManager.tempPorifle.targetWeight = nil
+            }
             KeychainService.standard.me = model.profileUpdate
             self?.view?.success()
         }, failureHandler: { [weak self] error in
