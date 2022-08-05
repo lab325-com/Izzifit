@@ -20,6 +20,7 @@ class LevelView: UIView {
     var hummerBtn = UIButton()
     var hummerCountLbl = UILabel()
     var slideAnimationView = AnimationView(name: "point_anim")
+    var levelCounterLbl = UILabel()
     
     lazy var stateBtns: [UIButton] = {
         var btns = [UIButton]()
@@ -51,11 +52,11 @@ class LevelView: UIView {
         
         switch PreferencesManager.sharedManager.currentMapName {
         case .snow_map:     imgUponScroll.image = RImage.levelBack()
-            hummerBtn.setImage(image(img: .freeHummer), for: .normal)
+                            hummerBtn.setImage(image(img: .freeHummer), for: .normal)
         case .england_map:  imgUponScroll.image = image(img: .level_england_back)
-            hummerBtn.setImage(image(img: .england_freeHummer), for: .normal)
+                            hummerBtn.setImage(image(img: .england_freeHummer), for: .normal)
         case .france_map:   imgUponScroll.image = RImage.level_france_back()
-            hummerBtn.setImage(image(img: .france_freeHummer), for: .normal)
+                            hummerBtn.setImage(image(img: .france_freeHummer), for: .normal)
         case .none:         break
         }
         
@@ -67,6 +68,12 @@ class LevelView: UIView {
                     fontName: "Inter-BoldItalic")
         hummerBtn.isHidden = true
         hummerCountLbl.isHidden = true
+        
+        ui.setLabel(label: levelCounterLbl,
+                    textColor: .white,
+                    textAlignment: .center,
+                    fontSize: 16,
+                    fontName: "Inter-Bold")
     }
     
     private func layout() {
@@ -117,6 +124,31 @@ class LevelView: UIView {
                           parentView: hummerBtn,
                           bottomC: h/203,
                           trailingC: h/203)
+        
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.alpha = 0.555
+      
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+      ui.genericlLayout(object: blurEffectView,
+                        parentView: self,
+                        width:  72,
+                        height: 26,
+                        topC: (h/9.2) + 18,
+                        centerH: 0)
+      
+      blurEffectView.clipsToBounds = true
+      blurEffectView.layer.cornerRadius = 13
+        
+        ui.genericlLayout(object: levelCounterLbl,
+                          parentView: self,
+                          width:  72,
+                          height: 26,
+                          topC: (h/9.2) + 18,
+                          centerH: 0)
+
+        
+        
     }
     
     func onboardLevelFour() {

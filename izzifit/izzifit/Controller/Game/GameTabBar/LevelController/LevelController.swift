@@ -85,6 +85,7 @@ class LevelController: BaseController {
         checkAvailableHummers()
         
         guard let buildings = GameNetworkLayer.shared.buildings else { return }
+        var levelCounter = 0
         for building in buildings {
             var state: LevelStates
             let level = building.level
@@ -97,7 +98,7 @@ class LevelController: BaseController {
             case 5: state =     .finish
             default: state =    .finish
             }
-            
+            levelCounter += level
             switch building.name {
             case BuildingType.building1.rawValue: player.firstState =   state
             case BuildingType.building2.rawValue: player.secondState =  state
@@ -107,6 +108,8 @@ class LevelController: BaseController {
             default: break
             }
         }
+        
+        levelView.levelCounterLbl.text = "\(levelCounter)/25"
         levelView.drawStates(player: player)
         if GameNetworkLayer.shared.mapName == .snow_map {
             pointers.drawPointers(model: player, btns: levelView.stateBtns)
