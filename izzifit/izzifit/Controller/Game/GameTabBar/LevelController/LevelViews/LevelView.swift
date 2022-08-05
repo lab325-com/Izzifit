@@ -146,9 +146,6 @@ class LevelView: UIView {
                           height: 26,
                           topC: (h/9.2) + 18,
                           centerH: 0)
-
-        
-        
     }
     
     func onboardLevelFour() {
