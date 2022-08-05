@@ -17,6 +17,12 @@ class WorkoutDetailController: BaseController {
     @IBOutlet weak var startWorkoutButton: UIButton!
     @IBOutlet weak var botomView: UIView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var priceContinueView: UIView!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var separatorDiscount: UIView!
+    @IBOutlet weak var discountLabel: UILabel!
+    
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
@@ -81,6 +87,8 @@ class WorkoutDetailController: BaseController {
         
         if let idSpecialId = idSpecialId {
             presenter.retriveNotAutoProduct(id: [idSpecialId])
+        } else {
+            priceContinueView.isHidden = true
         }
         
         tableView.tableFooterView = UIView()
@@ -236,9 +244,27 @@ extension WorkoutDetailController: WorkoutDetailOutputProtocol {
     func success() {
         if KeychainService.standard.me?.Subscription != nil {
             startWorkoutButton.setTitle(RLocalization.workout_detail_start(), for: .normal)
+            priceContinueView.isHidden = true
         } else {
-            startWorkoutButton.setTitle(presenter.workout?.isAvailable == true ? RLocalization.workout_detail_start() : "Buy Now", for: .normal)
+            if presenter.workout?.isAvailable == true {
+                startWorkoutButton.setTitle(RLocalization.workout_detail_start(), for: .normal)
+                priceContinueView.isHidden = true
+            } else {
+                activityIndicator.stopAnimating()
+                priceLabel.text = "Start by \(presenter.paymentsInfo.first?.currencySymbol ?? "$")\(String(format: "%.2f", presenter.paymentsInfo.first?.price ?? 1.99))"
+                
+                
+                let price = floor((presenter.paymentsInfo.first?.price ?? 1.99) * 10)
+                let fraction = (presenter.paymentsInfo.first?.price ?? 1.99).truncatingRemainder(dividingBy: 1)
+
+                discountLabel.text = "\(presenter.paymentsInfo.first?.currencySymbol ?? "$")\(String(format: "%.2f", price + fraction))"
+                
+                priceLabel.isHidden = false
+                discountLabel.isHidden = false
+                separatorDiscount.isHidden = false
+            }
         }
+        
         
         tableView.isHidden = false
         tableView.reloadData()

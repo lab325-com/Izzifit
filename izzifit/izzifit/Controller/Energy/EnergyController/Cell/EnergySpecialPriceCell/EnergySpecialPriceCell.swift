@@ -66,7 +66,7 @@ class EnergySpecialPriceCell: UITableViewCell {
 
         // draw the result in a label
         nameLabel.attributedText = fullString
-        descriptionLabel.text = model.description
+        descriptionLabel.text = model.shortDescription
     }
     
     @IBAction func actionStartWokout(_ sender: UIButton) {

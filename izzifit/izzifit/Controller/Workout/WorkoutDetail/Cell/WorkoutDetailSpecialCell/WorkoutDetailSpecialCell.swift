@@ -26,12 +26,12 @@ class WorkoutDetailSpecialCell: UITableViewCell {
     
     private let cellIdentifier = String(describing: WorkoutReviewCell.self)
     
-    let modelReview = [ReviewModel(text: "asdfasdf asdfasdfasdfasddf", isFive: true, name: "asdfasdfasdf"),
-                       ReviewModel(text: "asdfasdf asdfasdfasdfasddf", isFive: true, name: "asdfasdfasdf"),
-                       ReviewModel(text: "asdfasdf asdfasdfasdfasddf", isFive: true, name: "asdfasdfasdf"),
-                       ReviewModel(text: "asdfasdf asdfasdfasdfasddf", isFive: true, name: "asdfasdfasdf"),
-                                          ReviewModel(text: "asdfasdf asdfasdfasdfasddf", isFive: true, name: "asdfasdfasdf"),
-                                          ReviewModel(text: "asdfasdf asdfasdfasdfasddf", isFive: true, name: "asdfasdfasdf")]
+    let modelReview = [ReviewModel(text: "Anyone who feels lost in their weight loss journey needs to try it ASAP. I loved the product and see the changes in a few weeks, doing yoga a few times per week. But keep control on diet and water balance.", isFive: true, name: "Ann, 36 y.o."),
+                       ReviewModel(text: "I don't really do it to lose weight as I am thin but more to keep fit as I am 44 but I can promise my body is definitely tighter and firmer and I feel wonderful.", isFive: false, name: "Clara, 44 y.o."),
+                       ReviewModel(text: "This is really the first program that has made a difference in my body.", isFive: false, name: "Stella, 27 y.o."),
+                       ReviewModel(text: "I like that the workouts are 15 minutes long and you can do as many rounds as you have the time and energy to spare.", isFive: true, name: "Ruby 24 y.o."),
+                                          ReviewModel(text: "Like with everything else it takes a little bit time to get used the poses, but If one really listen carefully to the instructions you get a lot of help. It gets better and easier for each time you practice, like everything else new that you learn.", isFive: false, name: "Evelyn 33 y.o.")]
+    var pageControll = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,8 +46,7 @@ class WorkoutDetailSpecialCell: UITableViewCell {
                                            bundle: nil),
                                 forCellWithReuseIdentifier: cellIdentifier)
         
-        //collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-
+        collectionView.decelerationRate = .fast
         collectionView.reloadData()
     }
 
@@ -105,6 +104,7 @@ extension WorkoutDetailSpecialCell: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  cellIdentifier, for: indexPath) as! WorkoutReviewCell
+        cell.setupCell(model: modelReview[indexPath.row])
         return cell
     }
 }
@@ -122,6 +122,25 @@ extension WorkoutDetailSpecialCell: UICollectionViewDelegateFlowLayout {
         return CGSize(width: UIScreen.main.bounds.size.width - 16 - 24, height: 256)
     }
     
-    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let pageWidth = Float(UIScreen.main.bounds.size.width - 16 - 24)
+        let targetXContentOffset = Float(targetContentOffset.pointee.x)
+        let contentWidth = Float(collectionView!.contentSize.width  )
+        var newPage = Float(pageControll)
+        if velocity.x == 0 {
+            newPage = floor( (targetXContentOffset - Float(pageWidth) / 2) / Float(pageWidth)) + 1.0
+        } else {
+            newPage = Float(velocity.x > 0 ? pageControll + 1 : pageControll - 1)
+            if newPage < 0 {
+                newPage = 0
+            }
+            if (newPage > contentWidth / pageWidth) {
+                newPage = ceil(contentWidth / pageWidth) - 1.0
+            }
+        }
+        pageControll = Int(newPage)
+        let point = CGPoint (x: CGFloat(newPage * pageWidth), y: targetContentOffset.pointee.y)
+        targetContentOffset.pointee = point
+    }
 }
 
