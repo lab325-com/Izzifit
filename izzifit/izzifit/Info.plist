@@ -47,6 +47,7 @@
 		<string>Inter-SemiBold</string>
 		<string>Inter-Thin</string>
 		<string>Inter-BoldItalic</string>
+		<string>Inter-Italic</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

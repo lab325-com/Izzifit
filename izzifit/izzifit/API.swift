@@ -3100,6 +3100,8 @@ public final class ChooseWorkoutWidgetQuery: GraphQLQuery {
         id
         isAvailable
         isFinished
+        shortDescription
+        description
         title
         totalExercises
         totalFinishedExercises
@@ -3160,6 +3162,8 @@ public final class ChooseWorkoutWidgetQuery: GraphQLQuery {
           GraphQLField("id", type: .scalar(GraphQLID.self)),
           GraphQLField("isAvailable", type: .scalar(Bool.self)),
           GraphQLField("isFinished", type: .scalar(Bool.self)),
+          GraphQLField("shortDescription", type: .scalar(String.self)),
+          GraphQLField("description", type: .scalar(String.self)),
           GraphQLField("title", type: .scalar(String.self)),
           GraphQLField("totalExercises", type: .scalar(Int.self)),
           GraphQLField("totalFinishedExercises", type: .scalar(Int.self)),
@@ -3172,8 +3176,8 @@ public final class ChooseWorkoutWidgetQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(image: Image? = nil, duration: Duration? = nil, energy: Int? = nil, energyTotal: Int? = nil, id: GraphQLID? = nil, isAvailable: Bool? = nil, isFinished: Bool? = nil, title: String? = nil, totalExercises: Int? = nil, totalFinishedExercises: Int? = nil) {
-        self.init(unsafeResultMap: ["__typename": "WorkoutShort", "Image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "duration": duration.flatMap { (value: Duration) -> ResultMap in value.resultMap }, "energy": energy, "energyTotal": energyTotal, "id": id, "isAvailable": isAvailable, "isFinished": isFinished, "title": title, "totalExercises": totalExercises, "totalFinishedExercises": totalFinishedExercises])
+      public init(image: Image? = nil, duration: Duration? = nil, energy: Int? = nil, energyTotal: Int? = nil, id: GraphQLID? = nil, isAvailable: Bool? = nil, isFinished: Bool? = nil, shortDescription: String? = nil, description: String? = nil, title: String? = nil, totalExercises: Int? = nil, totalFinishedExercises: Int? = nil) {
+        self.init(unsafeResultMap: ["__typename": "WorkoutShort", "Image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "duration": duration.flatMap { (value: Duration) -> ResultMap in value.resultMap }, "energy": energy, "energyTotal": energyTotal, "id": id, "isAvailable": isAvailable, "isFinished": isFinished, "shortDescription": shortDescription, "description": description, "title": title, "totalExercises": totalExercises, "totalFinishedExercises": totalFinishedExercises])
       }
 
       public var __typename: String {
@@ -3245,6 +3249,24 @@ public final class ChooseWorkoutWidgetQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "isFinished")
+        }
+      }
+
+      public var shortDescription: String? {
+        get {
+          return resultMap["shortDescription"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "shortDescription")
+        }
+      }
+
+      public var description: String? {
+        get {
+          return resultMap["description"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "description")
         }
       }
 
@@ -6798,6 +6820,7 @@ public final class RecommendWorkoutsQuery: GraphQLQuery {
         id
         isAvailable
         isFinished
+        description
         title
         totalExercises
         totalFinishedExercises
@@ -6851,6 +6874,7 @@ public final class RecommendWorkoutsQuery: GraphQLQuery {
           GraphQLField("id", type: .scalar(GraphQLID.self)),
           GraphQLField("isAvailable", type: .scalar(Bool.self)),
           GraphQLField("isFinished", type: .scalar(Bool.self)),
+          GraphQLField("description", type: .scalar(String.self)),
           GraphQLField("title", type: .scalar(String.self)),
           GraphQLField("totalExercises", type: .scalar(Int.self)),
           GraphQLField("totalFinishedExercises", type: .scalar(Int.self)),
@@ -6863,8 +6887,8 @@ public final class RecommendWorkoutsQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(image: Image? = nil, duration: Duration? = nil, energy: Int? = nil, energyTotal: Int? = nil, id: GraphQLID? = nil, isAvailable: Bool? = nil, isFinished: Bool? = nil, title: String? = nil, totalExercises: Int? = nil, totalFinishedExercises: Int? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Workout", "Image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "duration": duration.flatMap { (value: Duration) -> ResultMap in value.resultMap }, "energy": energy, "energyTotal": energyTotal, "id": id, "isAvailable": isAvailable, "isFinished": isFinished, "title": title, "totalExercises": totalExercises, "totalFinishedExercises": totalFinishedExercises])
+      public init(image: Image? = nil, duration: Duration? = nil, energy: Int? = nil, energyTotal: Int? = nil, id: GraphQLID? = nil, isAvailable: Bool? = nil, isFinished: Bool? = nil, description: String? = nil, title: String? = nil, totalExercises: Int? = nil, totalFinishedExercises: Int? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Workout", "Image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "duration": duration.flatMap { (value: Duration) -> ResultMap in value.resultMap }, "energy": energy, "energyTotal": energyTotal, "id": id, "isAvailable": isAvailable, "isFinished": isFinished, "description": description, "title": title, "totalExercises": totalExercises, "totalFinishedExercises": totalFinishedExercises])
       }
 
       public var __typename: String {
@@ -6936,6 +6960,15 @@ public final class RecommendWorkoutsQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "isFinished")
+        }
+      }
+
+      public var description: String? {
+        get {
+          return resultMap["description"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "description")
         }
       }
 
@@ -7483,6 +7516,8 @@ public final class SpecialWorkoutsQuery: GraphQLQuery {
         id
         isAvailable
         isFinished
+        shortDescription
+        description
         title
         totalExercises
         totalFinishedExercises
@@ -7538,6 +7573,8 @@ public final class SpecialWorkoutsQuery: GraphQLQuery {
           GraphQLField("id", type: .scalar(GraphQLID.self)),
           GraphQLField("isAvailable", type: .scalar(Bool.self)),
           GraphQLField("isFinished", type: .scalar(Bool.self)),
+          GraphQLField("shortDescription", type: .scalar(String.self)),
+          GraphQLField("description", type: .scalar(String.self)),
           GraphQLField("title", type: .scalar(String.self)),
           GraphQLField("totalExercises", type: .scalar(Int.self)),
           GraphQLField("totalFinishedExercises", type: .scalar(Int.self)),
@@ -7552,8 +7589,8 @@ public final class SpecialWorkoutsQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(image: Image? = nil, duration: Duration? = nil, energy: Int? = nil, energyTotal: Int? = nil, id: GraphQLID? = nil, isAvailable: Bool? = nil, isFinished: Bool? = nil, title: String? = nil, totalExercises: Int? = nil, totalFinishedExercises: Int? = nil, isSpecial: Bool? = nil, externalId: String? = nil) {
-        self.init(unsafeResultMap: ["__typename": "WorkoutShort", "Image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "duration": duration.flatMap { (value: Duration) -> ResultMap in value.resultMap }, "energy": energy, "energyTotal": energyTotal, "id": id, "isAvailable": isAvailable, "isFinished": isFinished, "title": title, "totalExercises": totalExercises, "totalFinishedExercises": totalFinishedExercises, "isSpecial": isSpecial, "externalId": externalId])
+      public init(image: Image? = nil, duration: Duration? = nil, energy: Int? = nil, energyTotal: Int? = nil, id: GraphQLID? = nil, isAvailable: Bool? = nil, isFinished: Bool? = nil, shortDescription: String? = nil, description: String? = nil, title: String? = nil, totalExercises: Int? = nil, totalFinishedExercises: Int? = nil, isSpecial: Bool? = nil, externalId: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "WorkoutShort", "Image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "duration": duration.flatMap { (value: Duration) -> ResultMap in value.resultMap }, "energy": energy, "energyTotal": energyTotal, "id": id, "isAvailable": isAvailable, "isFinished": isFinished, "shortDescription": shortDescription, "description": description, "title": title, "totalExercises": totalExercises, "totalFinishedExercises": totalFinishedExercises, "isSpecial": isSpecial, "externalId": externalId])
       }
 
       public var __typename: String {
@@ -7625,6 +7662,24 @@ public final class SpecialWorkoutsQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "isFinished")
+        }
+      }
+
+      public var shortDescription: String? {
+        get {
+          return resultMap["shortDescription"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "shortDescription")
+        }
+      }
+
+      public var description: String? {
+        get {
+          return resultMap["description"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "description")
         }
       }
 
@@ -8475,6 +8530,7 @@ public final class WorkoutByIdQuery: GraphQLQuery {
         id
         isAvailable
         isFinished
+        description
         kCal
         title
         totalExercises
@@ -8539,6 +8595,7 @@ public final class WorkoutByIdQuery: GraphQLQuery {
           GraphQLField("id", type: .scalar(GraphQLID.self)),
           GraphQLField("isAvailable", type: .scalar(Bool.self)),
           GraphQLField("isFinished", type: .scalar(Bool.self)),
+          GraphQLField("description", type: .scalar(String.self)),
           GraphQLField("kCal", type: .scalar(Int.self)),
           GraphQLField("title", type: .scalar(String.self)),
           GraphQLField("totalExercises", type: .scalar(Int.self)),
@@ -9671,6 +9728,8 @@ public final class WorkoutsWidgetQuery: GraphQLQuery {
         id
         isAvailable
         isFinished
+        shortDescription
+        description
         title
         totalExercises
         totalFinishedExercises
@@ -9731,6 +9790,8 @@ public final class WorkoutsWidgetQuery: GraphQLQuery {
           GraphQLField("id", type: .scalar(GraphQLID.self)),
           GraphQLField("isAvailable", type: .scalar(Bool.self)),
           GraphQLField("isFinished", type: .scalar(Bool.self)),
+          GraphQLField("shortDescription", type: .scalar(String.self)),
+          GraphQLField("description", type: .scalar(String.self)),
           GraphQLField("title", type: .scalar(String.self)),
           GraphQLField("totalExercises", type: .scalar(Int.self)),
           GraphQLField("totalFinishedExercises", type: .scalar(Int.self)),
@@ -9743,8 +9804,8 @@ public final class WorkoutsWidgetQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(image: Image? = nil, duration: Duration? = nil, energy: Int? = nil, energyTotal: Int? = nil, id: GraphQLID? = nil, isAvailable: Bool? = nil, isFinished: Bool? = nil, title: String? = nil, totalExercises: Int? = nil, totalFinishedExercises: Int? = nil) {
-        self.init(unsafeResultMap: ["__typename": "WorkoutShort", "Image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "duration": duration.flatMap { (value: Duration) -> ResultMap in value.resultMap }, "energy": energy, "energyTotal": energyTotal, "id": id, "isAvailable": isAvailable, "isFinished": isFinished, "title": title, "totalExercises": totalExercises, "totalFinishedExercises": totalFinishedExercises])
+      public init(image: Image? = nil, duration: Duration? = nil, energy: Int? = nil, energyTotal: Int? = nil, id: GraphQLID? = nil, isAvailable: Bool? = nil, isFinished: Bool? = nil, shortDescription: String? = nil, description: String? = nil, title: String? = nil, totalExercises: Int? = nil, totalFinishedExercises: Int? = nil) {
+        self.init(unsafeResultMap: ["__typename": "WorkoutShort", "Image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "duration": duration.flatMap { (value: Duration) -> ResultMap in value.resultMap }, "energy": energy, "energyTotal": energyTotal, "id": id, "isAvailable": isAvailable, "isFinished": isFinished, "shortDescription": shortDescription, "description": description, "title": title, "totalExercises": totalExercises, "totalFinishedExercises": totalFinishedExercises])
       }
 
       public var __typename: String {
@@ -9816,6 +9877,24 @@ public final class WorkoutsWidgetQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "isFinished")
+        }
+      }
+
+      public var shortDescription: String? {
+        get {
+          return resultMap["shortDescription"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "shortDescription")
+        }
+      }
+
+      public var description: String? {
+        get {
+          return resultMap["description"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "description")
         }
       }
 

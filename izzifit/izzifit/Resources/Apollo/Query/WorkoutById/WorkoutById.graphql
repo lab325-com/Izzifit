@@ -45,6 +45,7 @@ query WorkoutById($id: String!) {
         id
         isAvailable
         isFinished
+        description
         kCal
         title
         totalExercises
