@@ -342,6 +342,7 @@ extension EnergyController: EnergySpecialPriceCellDelegate {
         if !(model.isAvailable ?? false) {
             AnalyticsHelper.sendFirebaseEvents(events: .dash_paid_mk_tap, params: ["id": specialID])
         }
-        WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id, idSpecialId: specialID)
+        WorkoutRouter(presenter: navigationController).pushDietDetail(id: id, idSpecialId: specialID)
+        //WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id, idSpecialId: specialID)
     }
 }

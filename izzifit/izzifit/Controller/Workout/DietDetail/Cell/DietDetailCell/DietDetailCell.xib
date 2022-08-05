@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-BoldItalic.ttf">
+            <string>Inter-BoldItalic</string>
+        </array>
+        <array key="Inter-Italic.ttf">
+            <string>Inter-Italic</string>
+        </array>
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DietDetailCell" rowHeight="980" id="KHi-m0-hLQ" customClass="DietDetailCell" customModule="izzifit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="427" height="783"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KHi-m0-hLQ" id="tJF-ba-9xd">
+                <rect key="frame" x="0.0" y="0.0" width="427" height="783"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rYi-79-1wZ">
+                        <rect key="frame" x="16" y="0.0" width="141" height="297"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOT SUMMER OFFER -90% " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbe-rh-80l">
+                                <rect key="frame" x="4" y="1" width="133" height="294"/>
+                                <fontDescription key="fontDescription" name="Inter-BoldItalic" family="Inter" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.25882352939999997" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Gbe-rh-80l" secondAttribute="bottom" constant="2" id="7UO-ML-nWs"/>
+                            <constraint firstItem="Gbe-rh-80l" firstAttribute="leading" secondItem="rYi-79-1wZ" secondAttribute="leading" constant="4" id="7V7-ZX-bQZ"/>
+                            <constraint firstItem="Gbe-rh-80l" firstAttribute="top" secondItem="rYi-79-1wZ" secondAttribute="top" constant="1" id="SLR-EY-onj"/>
+                            <constraint firstAttribute="trailing" secondItem="Gbe-rh-80l" secondAttribute="trailing" constant="4" id="Z7B-Jz-79S"/>
+                        </constraints>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzO-ob-I1U">
+                        <rect key="frame" x="16" y="313" width="395" height="83"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfh-Ue-PiN">
+                                <rect key="frame" x="0.0" y="0.0" width="197" height="83"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="4HI-YN-YNv">
+                                        <rect key="frame" x="2" y="0.0" width="175" height="70"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workout_special_month_ic" translatesAutoresizingMaskIntoConstraints="NO" id="n7d-Ds-wYI">
+                                                <rect key="frame" x="0.0" y="0.0" width="22" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="22" id="iPp-VE-AEJ"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last month purchased 34 817" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrJ-yv-LUw">
+                                                <rect key="frame" x="35" y="0.0" width="140" height="70"/>
+                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                                <color key="textColor" red="0.63921568630000003" green="0.63137254899999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4HI-YN-YNv" secondAttribute="trailing" constant="20" id="1Rx-M3-XyP"/>
+                                    <constraint firstItem="4HI-YN-YNv" firstAttribute="leading" secondItem="kfh-Ue-PiN" secondAttribute="leading" constant="2" id="23O-cr-1lX"/>
+                                    <constraint firstItem="4HI-YN-YNv" firstAttribute="top" secondItem="kfh-Ue-PiN" secondAttribute="top" id="SLe-I7-zca"/>
+                                    <constraint firstAttribute="bottom" secondItem="4HI-YN-YNv" secondAttribute="bottom" constant="13" id="UK2-XM-Kbk"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMK-Un-S4f">
+                                <rect key="frame" x="197" y="0.0" width="1" height="83"/>
+                                <color key="backgroundColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="Ruo-hp-yWI"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zba-A8-GOq">
+                                <rect key="frame" x="198" y="0.0" width="197" height="83"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Eq2-dH-WTC">
+                                        <rect key="frame" x="20" y="0.0" width="157" height="70"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="workout_special_average_ic" translatesAutoresizingMaskIntoConstraints="NO" id="C17-Ah-hB4">
+                                                <rect key="frame" x="0.0" y="0.0" width="22" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="22" id="7g4-ii-QTd"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average weekly weight loss -2kg" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZu-dw-DAw">
+                                                <rect key="frame" x="35" y="0.0" width="122" height="70"/>
+                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                                <color key="textColor" red="0.63921568630000003" green="0.63137254899999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Eq2-dH-WTC" secondAttribute="trailing" constant="20" id="B7o-yY-1xQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Eq2-dH-WTC" secondAttribute="bottom" constant="13" id="MBj-kx-zKj"/>
+                                    <constraint firstItem="Eq2-dH-WTC" firstAttribute="leading" secondItem="Zba-A8-GOq" secondAttribute="leading" constant="20" id="MBx-2G-vai"/>
+                                    <constraint firstItem="Eq2-dH-WTC" firstAttribute="top" secondItem="Zba-A8-GOq" secondAttribute="top" id="SZs-qW-M8n"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Zba-A8-GOq" firstAttribute="width" secondItem="kfh-Ue-PiN" secondAttribute="width" id="iIx-Tb-uGP"/>
+                        </constraints>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFE-ig-kJl">
+                        <rect key="frame" x="16" y="396" width="395" height="1"/>
+                        <color key="backgroundColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="a2a-hI-PUR"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vq-WZ-Qjx">
+                        <rect key="frame" x="16" y="421" width="71.5" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                        <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.49982810509999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icb-Lj-ub3">
+                        <rect key="frame" x="16" y="461.5" width="395" height="75"/>
+                        <string key="text">Leukocytes are the most important element of the blood and the basis of the body's immunity. Our blood is red, thanks to erythrocytes - red blood cells. Our blood is red, thanks to erythrocytes.</string>
+                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                        <color key="textColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8Y-Ib-tau">
+                        <rect key="frame" x="16" y="665.5" width="411" height="1"/>
+                        <color key="backgroundColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="v8A-jC-H2h"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workout_special_avatar_ic" translatesAutoresizingMaskIntoConstraints="NO" id="d3m-3Q-vXc">
+                        <rect key="frame" x="16" y="686.5" width="48" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="c3d-AE-kxt"/>
+                            <constraint firstAttribute="height" constant="48" id="hEm-jh-MHX"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="It was made by certified yoga instructor Faut" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="ylU-Y8-T1P">
+                        <rect key="frame" x="80" y="703.5" width="311" height="14"/>
+                        <fontDescription key="fontDescription" name="Inter-Italic" family="Inter" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XbN-hE-cAD">
+                        <rect key="frame" x="24" y="552.5" width="237.5" height="89"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="PA5-91-mwh">
+                                <rect key="frame" x="0.0" y="0.0" width="237.5" height="19"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diet_check_ic" translatesAutoresizingMaskIntoConstraints="NO" id="Fgq-DK-jhM">
+                                        <rect key="frame" x="0.0" y="0.0" width="14" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="GrG-Rk-9iL"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy delicious food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUg-6G-NwL">
+                                        <rect key="frame" x="30" y="0.0" width="207.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <color key="textColor" red="0.396078431372549" green="0.396078431372549" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7aK-oT-W4c">
+                                <rect key="frame" x="0.0" y="35" width="237.5" height="19"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diet_check_ic" translatesAutoresizingMaskIntoConstraints="NO" id="TgY-K0-j3x">
+                                        <rect key="frame" x="0.0" y="0.0" width="14" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="My7-F2-Z30"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lose weight with less hunger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbQ-wF-gBW">
+                                        <rect key="frame" x="30" y="0.0" width="207.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <color key="textColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Toq-h0-hEt">
+                                <rect key="frame" x="0.0" y="70" width="237.5" height="19"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diet_check_ic" translatesAutoresizingMaskIntoConstraints="NO" id="usE-GB-wPe">
+                                        <rect key="frame" x="0.0" y="0.0" width="14" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="YYz-Rv-Dlu"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get fast results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85V-uQ-BRW">
+                                        <rect key="frame" x="30" y="0.0" width="207.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <color key="textColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Week Meal Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnh-hz-WQv">
+                        <rect key="frame" x="16" y="758.5" width="100.5" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                        <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.49982810509999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="v8Y-Ib-tau" firstAttribute="leading" secondItem="tJF-ba-9xd" secondAttribute="leading" constant="16" id="0r0-5G-Ogl"/>
+                    <constraint firstItem="d3m-3Q-vXc" firstAttribute="top" secondItem="v8Y-Ib-tau" secondAttribute="bottom" constant="20" id="6gq-Sg-cP8"/>
+                    <constraint firstItem="YFE-ig-kJl" firstAttribute="leading" secondItem="tJF-ba-9xd" secondAttribute="leading" constant="16" id="7ZO-5Y-kaG"/>
+                    <constraint firstItem="qzO-ob-I1U" firstAttribute="top" secondItem="rYi-79-1wZ" secondAttribute="bottom" constant="16" id="9A4-bx-grg"/>
+                    <constraint firstAttribute="trailing" secondItem="qzO-ob-I1U" secondAttribute="trailing" constant="16" id="9Q4-CB-DP4"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ylU-Y8-T1P" secondAttribute="trailing" constant="16" id="BCO-LD-9k1"/>
+                    <constraint firstItem="6Vq-WZ-Qjx" firstAttribute="top" secondItem="YFE-ig-kJl" secondAttribute="bottom" constant="24" id="IRl-c3-VYg"/>
+                    <constraint firstItem="YFE-ig-kJl" firstAttribute="top" secondItem="qzO-ob-I1U" secondAttribute="bottom" id="Oiy-hD-Uf4"/>
+                    <constraint firstItem="rYi-79-1wZ" firstAttribute="top" secondItem="tJF-ba-9xd" secondAttribute="top" id="PKH-ip-T2c"/>
+                    <constraint firstAttribute="bottom" secondItem="qnh-hz-WQv" secondAttribute="bottom" constant="8" id="RpT-Ed-wFa"/>
+                    <constraint firstAttribute="trailing" secondItem="v8Y-Ib-tau" secondAttribute="trailing" id="VRM-OU-Te9"/>
+                    <constraint firstItem="Icb-Lj-ub3" firstAttribute="top" secondItem="6Vq-WZ-Qjx" secondAttribute="bottom" constant="24" id="XAS-7e-14y"/>
+                    <constraint firstItem="XbN-hE-cAD" firstAttribute="leading" secondItem="tJF-ba-9xd" secondAttribute="leading" constant="24" id="cWs-Ry-fra"/>
+                    <constraint firstItem="ylU-Y8-T1P" firstAttribute="centerY" secondItem="d3m-3Q-vXc" secondAttribute="centerY" id="cf4-4a-QxK"/>
+                    <constraint firstItem="ylU-Y8-T1P" firstAttribute="leading" secondItem="d3m-3Q-vXc" secondAttribute="trailing" constant="16" id="fPy-bT-sMO"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="XbN-hE-cAD" secondAttribute="trailing" constant="24" id="fV4-PT-tVz"/>
+                    <constraint firstItem="qzO-ob-I1U" firstAttribute="leading" secondItem="tJF-ba-9xd" secondAttribute="leading" constant="16" id="ies-4s-puW"/>
+                    <constraint firstAttribute="trailing" secondItem="Icb-Lj-ub3" secondAttribute="trailing" constant="16" id="ix9-VL-ReT"/>
+                    <constraint firstItem="rYi-79-1wZ" firstAttribute="leading" secondItem="tJF-ba-9xd" secondAttribute="leading" constant="16" id="k4b-DA-lUN"/>
+                    <constraint firstItem="d3m-3Q-vXc" firstAttribute="leading" secondItem="tJF-ba-9xd" secondAttribute="leading" constant="16" id="knd-Pb-08o"/>
+                    <constraint firstItem="6Vq-WZ-Qjx" firstAttribute="leading" secondItem="rYi-79-1wZ" secondAttribute="leading" id="ldE-Vr-TPS"/>
+                    <constraint firstItem="qnh-hz-WQv" firstAttribute="top" secondItem="d3m-3Q-vXc" secondAttribute="bottom" constant="24" id="t0w-1k-A5z"/>
+                    <constraint firstItem="Icb-Lj-ub3" firstAttribute="leading" secondItem="6Vq-WZ-Qjx" secondAttribute="leading" id="v3A-Nj-4gp"/>
+                    <constraint firstItem="XbN-hE-cAD" firstAttribute="top" secondItem="Icb-Lj-ub3" secondAttribute="bottom" constant="16" id="vcf-p8-1hh"/>
+                    <constraint firstItem="v8Y-Ib-tau" firstAttribute="top" secondItem="XbN-hE-cAD" secondAttribute="bottom" constant="24" id="vod-sF-TpQ"/>
+                    <constraint firstItem="qnh-hz-WQv" firstAttribute="leading" secondItem="tJF-ba-9xd" secondAttribute="leading" constant="16" id="wCP-Vg-NRk"/>
+                    <constraint firstAttribute="trailing" secondItem="YFE-ig-kJl" secondAttribute="trailing" constant="16" id="xRW-JQ-GoX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="averageWeekLabel" destination="sZu-dw-DAw" id="MjH-i8-run"/>
+                <outlet property="descriptionLabel" destination="Icb-Lj-ub3" id="NaO-9j-Vsa"/>
+                <outlet property="lastMonthLabel" destination="UrJ-yv-LUw" id="GcP-FZ-RcI"/>
+                <outlet property="specialView" destination="rYi-79-1wZ" id="DXh-yJ-83Z"/>
+                <outlet property="yogaInstructarLabel" destination="ylU-Y8-T1P" id="ddi-Wo-Ya0"/>
+            </connections>
+            <point key="canvasLocation" x="213.768115942029" y="256.80803571428572"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="diet_check_ic" width="16" height="16"/>
+        <image name="workout_special_avatar_ic" width="48" height="48"/>
+        <image name="workout_special_average_ic" width="23" height="23"/>
+        <image name="workout_special_month_ic" width="24" height="24"/>
+    </resources>
+</document>

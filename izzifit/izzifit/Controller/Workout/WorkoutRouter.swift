@@ -8,6 +8,11 @@
 import Foundation
 
 class WorkoutRouter: BaseRouter {
+    func pushDietDetail(id: String, idSpecialId: String) {
+        let controller = DietDetailController(id: id, idSpecialId: idSpecialId)
+        push(controller: controller)
+    }
+    
     func pushDetailWorkout(id: String, idSpecialId: String? = nil) {
         let controller = WorkoutDetailController(id: id, idSpecialId: idSpecialId)
         push(controller: controller)
@@ -32,4 +37,5 @@ class WorkoutRouter: BaseRouter {
         let controller = VideoFinishedController(attemptId: attemptId, workout: workout)
         push(controller: controller)
     }
+    
 }

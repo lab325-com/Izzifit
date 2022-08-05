@@ -22,6 +22,16 @@
 		020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D282127E887A400010122 /* FoodAddPresenter.swift */; };
 		020D282527E89FE700010122 /* AddProductToMeal.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 020D282427E89FE700010122 /* AddProductToMeal.graphql */; };
 		020D282727E8A04400010122 /* AddProductToMealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D282627E8A04400010122 /* AddProductToMealModel.swift */; };
+		020E38E4289D2B4300EDACEF /* DietDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020E38E2289D2B4300EDACEF /* DietDetailController.swift */; };
+		020E38E5289D2B4300EDACEF /* DietDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020E38E3289D2B4300EDACEF /* DietDetailController.xib */; };
+		020E38E9289D423A00EDACEF /* DietDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020E38E7289D423A00EDACEF /* DietDetailCell.swift */; };
+		020E38EA289D423A00EDACEF /* DietDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020E38E8289D423A00EDACEF /* DietDetailCell.xib */; };
+		020E38EF289D455200EDACEF /* DietDetailReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020E38ED289D455200EDACEF /* DietDetailReviewCell.swift */; };
+		020E38F0289D455200EDACEF /* DietDetailReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020E38EE289D455200EDACEF /* DietDetailReviewCell.xib */; };
+		020E38F4289D4D8100EDACEF /* DietSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020E38F2289D4D8100EDACEF /* DietSectionCell.swift */; };
+		020E38F5289D4D8100EDACEF /* DietSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020E38F3289D4D8100EDACEF /* DietSectionCell.xib */; };
+		020E38F9289D51C400EDACEF /* DietMealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020E38F7289D51C400EDACEF /* DietMealCell.swift */; };
+		020E38FA289D51C400EDACEF /* DietMealCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020E38F8289D51C400EDACEF /* DietMealCell.xib */; };
 		0218DA93283B928E000979B5 /* RemoteConfigParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218DA92283B928E000979B5 /* RemoteConfigParameters.swift */; };
 		0218DA96283B92FA000979B5 /* PaywallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218DA95283B92FA000979B5 /* PaywallScreen.swift */; };
 		021A6F4727BF8FFA0000D863 /* ProfileUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A6F4627BF8FF90000D863 /* ProfileUpdateModel.swift */; };
@@ -498,6 +508,16 @@
 		020D282127E887A400010122 /* FoodAddPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAddPresenter.swift; sourceTree = "<group>"; };
 		020D282427E89FE700010122 /* AddProductToMeal.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AddProductToMeal.graphql; sourceTree = "<group>"; };
 		020D282627E8A04400010122 /* AddProductToMealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductToMealModel.swift; sourceTree = "<group>"; };
+		020E38E2289D2B4300EDACEF /* DietDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietDetailController.swift; sourceTree = "<group>"; };
+		020E38E3289D2B4300EDACEF /* DietDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DietDetailController.xib; sourceTree = "<group>"; };
+		020E38E7289D423A00EDACEF /* DietDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietDetailCell.swift; sourceTree = "<group>"; };
+		020E38E8289D423A00EDACEF /* DietDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DietDetailCell.xib; sourceTree = "<group>"; };
+		020E38ED289D455200EDACEF /* DietDetailReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietDetailReviewCell.swift; sourceTree = "<group>"; };
+		020E38EE289D455200EDACEF /* DietDetailReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DietDetailReviewCell.xib; sourceTree = "<group>"; };
+		020E38F2289D4D8100EDACEF /* DietSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietSectionCell.swift; sourceTree = "<group>"; };
+		020E38F3289D4D8100EDACEF /* DietSectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DietSectionCell.xib; sourceTree = "<group>"; };
+		020E38F7289D51C400EDACEF /* DietMealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietMealCell.swift; sourceTree = "<group>"; };
+		020E38F8289D51C400EDACEF /* DietMealCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DietMealCell.xib; sourceTree = "<group>"; };
 		0218DA92283B928E000979B5 /* RemoteConfigParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigParameters.swift; sourceTree = "<group>"; };
 		0218DA95283B92FA000979B5 /* PaywallScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallScreen.swift; sourceTree = "<group>"; };
 		021A6F4627BF8FF90000D863 /* ProfileUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateModel.swift; sourceTree = "<group>"; };
@@ -1060,6 +1080,63 @@
 				020D282627E8A04400010122 /* AddProductToMealModel.swift */,
 			);
 			path = AddProductToMeal;
+			sourceTree = "<group>";
+		};
+		020E38E1289D2B2000EDACEF /* DietDetail */ = {
+			isa = PBXGroup;
+			children = (
+				020E38E2289D2B4300EDACEF /* DietDetailController.swift */,
+				020E38E3289D2B4300EDACEF /* DietDetailController.xib */,
+				020E38E6289D421A00EDACEF /* Cell */,
+			);
+			path = DietDetail;
+			sourceTree = "<group>";
+		};
+		020E38E6289D421A00EDACEF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				020E38EB289D453100EDACEF /* DietDetailCell */,
+				020E38F1289D4D4400EDACEF /* DietSectionCell */,
+				020E38F6289D51AC00EDACEF /* DietMealCell */,
+				020E38EC289D453900EDACEF /* DietDetailReviewCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		020E38EB289D453100EDACEF /* DietDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				020E38E7289D423A00EDACEF /* DietDetailCell.swift */,
+				020E38E8289D423A00EDACEF /* DietDetailCell.xib */,
+			);
+			path = DietDetailCell;
+			sourceTree = "<group>";
+		};
+		020E38EC289D453900EDACEF /* DietDetailReviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				020E38ED289D455200EDACEF /* DietDetailReviewCell.swift */,
+				020E38EE289D455200EDACEF /* DietDetailReviewCell.xib */,
+			);
+			path = DietDetailReviewCell;
+			sourceTree = "<group>";
+		};
+		020E38F1289D4D4400EDACEF /* DietSectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				020E38F2289D4D8100EDACEF /* DietSectionCell.swift */,
+				020E38F3289D4D8100EDACEF /* DietSectionCell.xib */,
+			);
+			path = DietSectionCell;
+			sourceTree = "<group>";
+		};
+		020E38F6289D51AC00EDACEF /* DietMealCell */ = {
+			isa = PBXGroup;
+			children = (
+				020E38F7289D51C400EDACEF /* DietMealCell.swift */,
+				020E38F8289D51C400EDACEF /* DietMealCell.xib */,
+			);
+			path = DietMealCell;
 			sourceTree = "<group>";
 		};
 		0218DA91283B9273000979B5 /* FirebaseRemote */ = {
@@ -1950,6 +2027,7 @@
 			children = (
 				02C487FB27F184E80010D4FA /* WorkoutRouter.swift */,
 				02C487FA27F184C60010D4FA /* MainWorkout */,
+				020E38E1289D2B2000EDACEF /* DietDetail */,
 				02C487F527F184770010D4FA /* WorkoutDetail */,
 				02BC128A27F3299300678305 /* WorkoutDetailMuscle */,
 				023CDC3D2805BF390056F022 /* VideoPlayer */,
@@ -3218,7 +3296,9 @@
 				0227DAAE27C66C25008AB26B /* MenuAgeController.xib in Resources */,
 				FAC340E2287CDA7D00B90943 /* menu_anim.json in Resources */,
 				020CB3DF27E9F5E200F97A76 /* RemoveProductFromMeal.graphql in Resources */,
+				020E38E5289D2B4300EDACEF /* DietDetailController.xib in Resources */,
 				025463AD27CE6E9800D433DB /* MenuFitnessController.xib in Resources */,
+				020E38F5289D4D8100EDACEF /* DietSectionCell.xib in Resources */,
 				FAA8E88A27F449060081A12A /* CaloriesWidget.graphql in Resources */,
 				0256998A28197A7500BA1535 /* 17_energy_x2.wav in Resources */,
 				02B22ABF281C0A70006AB1EA /* Map.graphql in Resources */,
@@ -3268,6 +3348,7 @@
 				02B225B927BD63FC0035CFA2 /* QuizeEmailController.xib in Resources */,
 				FAC340E3287CDA7D00B90943 /* spark_anim.json in Resources */,
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
+				020E38FA289D51C400EDACEF /* DietMealCell.xib in Resources */,
 				02B22ACD281C27D8006AB1EA /* UpgradeBuilding.graphql in Resources */,
 				02C5C4632836548000DA189C /* WidgetList.graphql in Resources */,
 				02AD738B284F6F8E00376E4C /* OrderProduct.graphql in Resources */,
@@ -3359,6 +3440,7 @@
 				02B22AC8281C18F2006AB1EA /* Spin.graphql in Resources */,
 				0268753427D8E54E00FFEA6A /* EnergyChooseActivityCell.xib in Resources */,
 				02354E8F280934CE005A8272 /* StartWorkout.graphql in Resources */,
+				020E38EA289D423A00EDACEF /* DietDetailCell.xib in Resources */,
 				02BACF1427F4579C00B7562C /* RecommendWorkouts.graphql in Resources */,
 				0256998828197A7500BA1535 /* 11_spinner_main.wav in Resources */,
 				0256999128197A7500BA1535 /* 16_coins_pack_x3.wav in Resources */,
@@ -3402,6 +3484,7 @@
 				02D066DE27BBE56700D12C5F /* QuizeAgeController.xib in Resources */,
 				FA8535362875D0D600A9137B /* coins_header.json in Resources */,
 				02ABCF4627CD0EA800E69C06 /* MenuLanguagesTitleCell.xib in Resources */,
+				020E38F0289D455200EDACEF /* DietDetailReviewCell.xib in Resources */,
 				0256998B28197A7500BA1535 /* 21_building.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3535,6 +3618,7 @@
 			files = (
 				02AB486A27E07EFB00F35EE2 /* FoodTopTitleCell.swift in Sources */,
 				0290B39327D2045400381B42 /* ShadowsView.swift in Sources */,
+				020E38E4289D2B4300EDACEF /* DietDetailController.swift in Sources */,
 				FA2794FC2861AC1200AEEA70 /* EnergyStepsCollectionCell.swift in Sources */,
 				FA1A256E283D0D0400240E28 /* PaywallSingleController.swift in Sources */,
 				02AB486427E06DEE00F35EE2 /* FoodRecomendedCell.swift in Sources */,
@@ -3590,6 +3674,7 @@
 				020CB3D727E9CA5800F97A76 /* ChooseWorkoutWidgetModel.swift in Sources */,
 				0227DAA127C63D51008AB26B /* QuizeFoodPresenter.swift in Sources */,
 				02C5C46528365E1B00DA189C /* WidgetList.swift in Sources */,
+				020E38F4289D4D8100EDACEF /* DietSectionCell.swift in Sources */,
 				0218DA96283B92FA000979B5 /* PaywallScreen.swift in Sources */,
 				0227DAB227C67179008AB26B /* MenuEmailController.swift in Sources */,
 				02BACF1827F4588100B7562C /* WorkoutByIdMainModel.swift in Sources */,
@@ -3646,6 +3731,7 @@
 				02B225AE27BD45080035CFA2 /* QuizeFoodController.swift in Sources */,
 				0227A9C12849FC3700BA29A8 /* PreOnboardingModel.swift in Sources */,
 				0227DA9F27C63A57008AB26B /* FoodGroupsModel.swift in Sources */,
+				020E38E9289D423A00EDACEF /* DietDetailCell.swift in Sources */,
 				FA2794F82861A89F00AEEA70 /* EnergyStepsCell.swift in Sources */,
 				02FAF0A627D361AE002CD678 /* EnergyDrinkWaterCell.swift in Sources */,
 				FA2794F4285CA8A900AEEA70 /* HealthKitManager.swift in Sources */,
@@ -3694,6 +3780,7 @@
 				FA6699CA281ABCF600B394E0 /* OffsetCounter.swift in Sources */,
 				023D171E27BE258A005F95C0 /* UITapGesture+Extension.swift in Sources */,
 				0249D28227B3AAAE00F265C1 /* LoginController.swift in Sources */,
+				020E38F9289D51C400EDACEF /* DietMealCell.swift in Sources */,
 				0249D28B27B3AB6300F265C1 /* AppConfigurationBridge.m in Sources */,
 				02C487F827F184A00010D4FA /* WorkoutDetailController.swift in Sources */,
 				0227DAA627C64E31008AB26B /* MenuNameController.swift in Sources */,
@@ -3703,6 +3790,7 @@
 				02BC128D27F329E200678305 /* WorkoutDetailMuscleController.swift in Sources */,
 				0273F56327D60C7A00B19449 /* EnergySleepCell.swift in Sources */,
 				0249D29E27B3D81700F265C1 /* API.swift in Sources */,
+				020E38EF289D455200EDACEF /* DietDetailReviewCell.swift in Sources */,
 				024C699F27DF61A200EE8D53 /* EnergyAddActivityCell.swift in Sources */,
 				FAB6547327FF39420057A221 /* CombinationsAwardsManager.swift in Sources */,
 				02B225B327BD5D300035CFA2 /* QuizeSportController.swift in Sources */,

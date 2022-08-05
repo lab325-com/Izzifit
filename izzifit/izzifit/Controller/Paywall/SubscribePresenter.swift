@@ -290,25 +290,24 @@ class SubscribePresenter: SubscribePresenterProtocol {
     }
     
     func retriveNotAutoProduct(id: Set<String>) {
-        if paymentsInfo.count == id.count  {
+        
+        if Set(paymentsInfo.compactMap({$0.product})) == id {
             return
         }
         view?.startLoader()
         SwiftyStoreKit.retrieveProductsInfo(id) { [weak self] results in
             if let invalidProductId = results.invalidProductIDs.first {
                 print("Invalid product identifier: \(invalidProductId)")
-                self?.view?.stopLoading()
                 return
             }
-            
+            self?.paymentsInfo.removeAll()
             for product in results.retrievedProducts {
                 if let priceString = product.localizedPrice
                     {
                     
-                    let model = PaymentsModel(product: product.productIdentifier, prettyPrice: priceString, period: "", number: 0, price: 0.0, currencySymbol: product.priceLocale.currencySymbol)
+                    let model = PaymentsModel(product: product.productIdentifier, prettyPrice: priceString, period: "", number: 0, price: product.price.doubleValue, currencySymbol: product.priceLocale.currencySymbol)
                     self?.paymentsInfo.append(model)
                 } else {
-                    self?.view?.stopLoading()
                     debugPrint(">>>>>>>>>>>>>>>>>>>incorrect product!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 }
             }
