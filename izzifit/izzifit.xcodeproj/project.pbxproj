@@ -410,6 +410,8 @@
 		FA6E8B332894028F0008F36C /* Inter-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6E8B322894028F0008F36C /* Inter-BlackItalic.ttf */; };
 		FA6E8B3728951E4E0008F36C /* PaywallCongratulationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E8B3528951E4E0008F36C /* PaywallCongratulationsController.swift */; };
 		FA6E8B3828951E4E0008F36C /* PaywallCongratulationsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6E8B3628951E4E0008F36C /* PaywallCongratulationsController.xib */; };
+		FA74A3A4289D3E2500E5800A /* MenuSubscriptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74A3A2289D3E2500E5800A /* MenuSubscriptionsController.swift */; };
+		FA74A3A5289D3E2500E5800A /* MenuSubscriptionsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA74A3A3289D3E2500E5800A /* MenuSubscriptionsController.xib */; };
 		FA7E481628859C72005AEAC1 /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7E481528859C72005AEAC1 /* MainTabBarPresenter.swift */; };
 		FA8535362875D0D600A9137B /* coins_header.json in Resources */ = {isa = PBXBuildFile; fileRef = FA8535352875D0D600A9137B /* coins_header.json */; };
 		FA85353E287707DD00A9137B /* FinishMap.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FA85353C287707DD00A9137B /* FinishMap.graphql */; };
@@ -884,6 +886,8 @@
 		FA6E8B322894028F0008F36C /* Inter-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BlackItalic.ttf"; sourceTree = "<group>"; };
 		FA6E8B3528951E4E0008F36C /* PaywallCongratulationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCongratulationsController.swift; sourceTree = "<group>"; };
 		FA6E8B3628951E4E0008F36C /* PaywallCongratulationsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaywallCongratulationsController.xib; sourceTree = "<group>"; };
+		FA74A3A2289D3E2500E5800A /* MenuSubscriptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSubscriptionsController.swift; sourceTree = "<group>"; };
+		FA74A3A3289D3E2500E5800A /* MenuSubscriptionsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuSubscriptionsController.xib; sourceTree = "<group>"; };
 		FA7E481528859C72005AEAC1 /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
 		FA8535352875D0D600A9137B /* coins_header.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coins_header.json; sourceTree = "<group>"; };
 		FA85353C287707DD00A9137B /* FinishMap.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FinishMap.graphql; sourceTree = "<group>"; };
@@ -1982,6 +1986,7 @@
 				0227DAC327C6A42D008AB26B /* MenuFood */,
 				025463A927CE6E6400D433DB /* MenuFitnessPreference */,
 				02ABCF3D27CD0D1B00E69C06 /* MenuLanguageController */,
+				FA74A3A1289D3DEC00E5800A /* MenuSubscriptions */,
 				0254639F27CE2EEA00D433DB /* MenuWriteQuestion */,
 				023CDC2A280408230056F022 /* MenuLogout */,
 				024EBC9E2840DA1000E6623F /* MenuDeleteAccount */,
@@ -2794,6 +2799,15 @@
 			path = PaywallCongratulations;
 			sourceTree = "<group>";
 		};
+		FA74A3A1289D3DEC00E5800A /* MenuSubscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				FA74A3A2289D3E2500E5800A /* MenuSubscriptionsController.swift */,
+				FA74A3A3289D3E2500E5800A /* MenuSubscriptionsController.xib */,
+			);
+			path = MenuSubscriptions;
+			sourceTree = "<group>";
+		};
 		FA8535382876FF0400A9137B /* FinishMap */ = {
 			isa = PBXGroup;
 			children = (
@@ -3277,6 +3291,7 @@
 				0298DDF228606DD900BD0234 /* SpecialWorkouts.graphql in Resources */,
 				023FBC3D27FACC8C004D0CEA /* PaywallController.xib in Resources */,
 				0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */,
+				FA74A3A5289D3E2500E5800A /* MenuSubscriptionsController.xib in Resources */,
 				0227DA9727C619F7008AB26B /* MenuCell.xib in Resources */,
 				02AB486527E06DEE00F35EE2 /* FoodRecomendedCell.xib in Resources */,
 				029EDBD3280D727A00FC8748 /* WorkoutAttemptUpdate.graphql in Resources */,
@@ -3465,7 +3480,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$SRCROOT/Scripts/Localization/loc.sh\"\n";
 		};
 		02D066AB27BBA8A800D12C5F /* RSwift */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3658,6 +3673,7 @@
 				0227A9BB2849F39E00BA29A8 /* QuizeVideoController.swift in Sources */,
 				0249D25127B3A70B00F265C1 /* SplashViewController.swift in Sources */,
 				02FAF0AE27D36D7C002CD678 /* EnergyPresenter.swift in Sources */,
+				FA74A3A4289D3E2500E5800A /* MenuSubscriptionsController.swift in Sources */,
 				02D066CB27BBBB4300D12C5F /* QuizeNameController.swift in Sources */,
 				FE1403BD27E2019C002F5819 /* ChartTableCell.swift in Sources */,
 				023CDC3A28047C930056F022 /* AvailableGoalsModel.swift in Sources */,

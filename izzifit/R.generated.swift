@@ -5046,7 +5046,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 92 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 93 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -5130,6 +5130,8 @@ struct R: Rswift.Validatable {
     static let menuLogoutCell = _R.nib._MenuLogoutCell()
     /// Nib `MenuNameController`.
     static let menuNameController = _R.nib._MenuNameController()
+    /// Nib `MenuSubscriptionsController`.
+    static let menuSubscriptionsController = _R.nib._MenuSubscriptionsController()
     /// Nib `MenuTargetWeightController`.
     static let menuTargetWeightController = _R.nib._MenuTargetWeightController()
     /// Nib `MenuWeightController`.
@@ -5558,6 +5560,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.menuNameController) instead")
     static func menuNameController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.menuNameController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MenuSubscriptionsController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.menuSubscriptionsController) instead")
+    static func menuSubscriptionsController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.menuSubscriptionsController)
     }
     #endif
 
@@ -6133,6 +6143,10 @@ struct R: Rswift.Validatable {
       return R.nib.menuNameController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func menuSubscriptionsController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.menuSubscriptionsController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func menuTargetWeightController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.menuTargetWeightController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -6432,7 +6446,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 222 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 223 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -7106,6 +7120,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let login_forgot_submit = Rswift.StringResource(key: "login_forgot_submit", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Subscriptions
+      ///
+      /// Locales: en
+      static let menu_subscriptions = Rswift.StringResource(key: "menu_subscriptions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Sun
       ///
       /// Locales: en
@@ -9877,6 +9895,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("login_forgot_submit", bundle: bundle, comment: "")
       }
 
+      /// en translation: Subscriptions
+      ///
+      /// Locales: en
+      static func menu_subscriptions(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_subscriptions", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_subscriptions"
+        }
+
+        return NSLocalizedString("menu_subscriptions", bundle: bundle, comment: "")
+      }
+
       /// en translation: Sun
       ///
       /// Locales: en
@@ -10752,6 +10785,7 @@ struct _R: Rswift.Validatable {
       try _MenuLanguageController.validate()
       try _MenuLanguagesTitleCell.validate()
       try _MenuNameController.validate()
+      try _MenuSubscriptionsController.validate()
       try _MenuTargetWeightController.validate()
       try _MenuWeightController.validate()
       try _MenuWriteQuestionController.validate()
@@ -11554,6 +11588,24 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'MenuNameController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'MenuNameController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _MenuSubscriptionsController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "MenuSubscriptionsController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'MenuSubscriptionsController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'MenuSubscriptionsController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

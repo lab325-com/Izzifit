@@ -53,6 +53,11 @@ class MenuRouter: BaseRouter {
         push(controller: controller)
     }
     
+    func pushMenuSubscripyions() {
+        let controller = MenuSubscriptionsController()
+        push(controller: controller)
+    }
+    
     func pushMenuQuiestion() {
         let controller = MenuWriteQuestionController()
         push(controller: controller)
