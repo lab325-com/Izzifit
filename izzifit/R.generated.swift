@@ -5046,12 +5046,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 93 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 91 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
-    /// Nib `BuildPopUpView`.
-    static let buildPopUpView = _R.nib._BuildPopUpView()
     /// Nib `ChartCollectionCell`.
     static let chartCollectionCell = _R.nib._ChartCollectionCell()
     /// Nib `ChartTableCell`.
@@ -5096,8 +5094,6 @@ struct R: Rswift.Validatable {
     static let foodRecomendedCell = _R.nib._FoodRecomendedCell()
     /// Nib `FoodTopTitleCell`.
     static let foodTopTitleCell = _R.nib._FoodTopTitleCell()
-    /// Nib `LevelController`.
-    static let levelController = _R.nib._LevelController()
     /// Nib `LoginController`.
     static let loginController = _R.nib._LoginController()
     /// Nib `MainTabBarController`.
@@ -5240,14 +5236,6 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.awardsTableCell) instead")
     static func awardsTableCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.awardsTableCell)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UINib(name: "BuildPopUpView", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.buildPopUpView) instead")
-    static func buildPopUpView(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.buildPopUpView)
     }
     #endif
 
@@ -5424,14 +5412,6 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.foodTopTitleCell) instead")
     static func foodTopTitleCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.foodTopTitleCell)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UINib(name: "LevelController", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.levelController) instead")
-    static func levelController(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.levelController)
     }
     #endif
 
@@ -5983,10 +5963,6 @@ struct R: Rswift.Validatable {
       return R.nib.awardsTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PolicyCell
     }
 
-    static func buildPopUpView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-      return R.nib.buildPopUpView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-    }
-
     static func chartCollectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ChartCollectionCell? {
       return R.nib.chartCollectionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ChartCollectionCell
     }
@@ -6073,10 +6049,6 @@ struct R: Rswift.Validatable {
 
     static func foodTopTitleCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FoodTopTitleCell? {
       return R.nib.foodTopTitleCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FoodTopTitleCell
-    }
-
-    static func levelController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-      return R.nib.levelController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func loginController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -10756,7 +10728,6 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct nib: Rswift.Validatable {
     static func validate() throws {
-      try _BuildPopUpView.validate()
       try _EnerdyTodayCell.validate()
       try _EnergyChooseActivityCell.validate()
       try _EnergyChooseActivityCollectionCell.validate()
@@ -10772,7 +10743,6 @@ struct _R: Rswift.Validatable {
       try _EnergyWeightCell.validate()
       try _FoodController.validate()
       try _FoodRecomendedCell.validate()
-      try _LevelController.validate()
       try _LoginController.validate()
       try _MainTabBarController.validate()
       try _MenuAgeController.validate()
@@ -10840,35 +10810,6 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PolicyCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PolicyCell
-      }
-
-      fileprivate init() {}
-    }
-
-    struct _BuildPopUpView: Rswift.NibResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "BuildPopUpView"
-
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "Unselected1Scale", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Unselected1Scale' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Unselected2Scale", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Unselected2Scale' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Unselected3Scale", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Unselected3Scale' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Unselected4Scale", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Unselected4Scale' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Unselected5Scale", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Unselected5Scale' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "backBtn", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'backBtn' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "buildPopUpBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'buildPopUpBack' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "freeHummer", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'freeHummer' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "pop1Gold", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'pop1Gold' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "pop2Gold", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'pop2Gold' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "top_view_coin_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'top_view_coin_ic' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "upgradeBtn", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'upgradeBtn' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "yellowPointer", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'yellowPointer' is used in nib 'BuildPopUpView', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
       }
 
       fileprivate init() {}
@@ -11287,29 +11228,6 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FoodTopTitleCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FoodTopTitleCell
-      }
-
-      fileprivate init() {}
-    }
-
-    struct _LevelController: Rswift.NibResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "LevelController"
-
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "deersStart", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'deersStart' is used in nib 'LevelController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "fishStart", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fishStart' is used in nib 'LevelController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "freeHummer", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'freeHummer' is used in nib 'LevelController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "goldStart", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'goldStart' is used in nib 'LevelController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "igluStart", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'igluStart' is used in nib 'LevelController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "levelBack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'levelBack' is used in nib 'LevelController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "shipStart", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'shipStart' is used in nib 'LevelController', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
       }
 
       fileprivate init() {}

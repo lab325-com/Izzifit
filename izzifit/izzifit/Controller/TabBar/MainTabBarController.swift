@@ -44,7 +44,6 @@ class MainTabBarController: BaseController {
     private lazy var workout = WorkoutController()
     private lazy var profile = ProfileController()
     private lazy var menu = MenuController()
-    private lazy var game = ArcticGameController()
     
     var onboardingView: MainGameOnboardingView? 
     private lazy var presenter = MainTabBarPresenter(view: self)
@@ -68,6 +67,7 @@ class MainTabBarController: BaseController {
         hiddenNavigationBar = true
         super.viewDidLoad()
         setup()
+    //    PreferencesManager.sharedManager.gameOnboardingDone = false
         
     }
     
@@ -292,7 +292,6 @@ class MainTabBarController: BaseController {
             self.bottomCustomTabBarLayout.constant = self.heightTabBarConstans
             self.view.layoutIfNeeded()
         }
-
         TabBarRouter(presenter: navigationController).pushMenu()
     }
 }

@@ -50,7 +50,6 @@ class GameOnboardingEnergyView: UIView {
                     fontName: "Inter-Regular",
                     lines: 0)
 
-        
         switch state {
         case .energy:   mainImgVw.image = image(img: .onboardingLightning)  ?? UIImage()
             

@@ -1245,15 +1245,30 @@ struct SetUIManager {
         
         scrollV.addSubview(contentV)
         parentView.addSubview(scrollV)
-        
-        scrollV.translatesAutoresizingMaskIntoConstraints = false
-        scrollV.widthAnchor.constraint(equalTo: parentView.widthAnchor).isActive = true
-        scrollV.heightAnchor.constraint(equalToConstant: parentView.h).isActive = true
-        scrollV.trailingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: 0).isActive = true
-        scrollV.leadingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: 0).isActive = true
-        scrollV.topAnchor.constraint(equalTo: parentView.topAnchor,constant: 0).isActive = true
-        scrollV.bottomAnchor.constraint(equalTo: parentView.bottomAnchor, constant: 35).isActive = true
-        
+         
+        let window = UIApplication.shared.windows[0]
+          let safeFrame = window.safeAreaLayoutGuide.layoutFrame
+        var topSafeAreaHeight = safeFrame.minY
+         var  bottomSafeAreaHeight = window.frame.maxY - safeFrame.maxY
+    
+        switch parentView.h {
+        case 926.0:
+            scrollV.translatesAutoresizingMaskIntoConstraints = false
+            scrollV.widthAnchor.constraint(equalTo: parentView.widthAnchor).isActive = true
+            scrollV.heightAnchor.constraint(equalToConstant: parentView.h).isActive = true
+            scrollV.trailingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: 0).isActive = true
+            scrollV.leadingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: 0).isActive = true
+            scrollV.topAnchor.constraint(equalTo: parentView.topAnchor,constant: 0).isActive = true
+            scrollV.bottomAnchor.constraint(equalTo: parentView.bottomAnchor, constant: bottomSafeAreaHeight).isActive = true
+        default:
+            scrollV.translatesAutoresizingMaskIntoConstraints = false
+            scrollV.widthAnchor.constraint(equalTo: parentView.widthAnchor).isActive = true
+            scrollV.heightAnchor.constraint(equalToConstant: parentView.h).isActive = true
+            scrollV.trailingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: 0).isActive = true
+            scrollV.leadingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: 0).isActive = true
+            scrollV.topAnchor.constraint(equalTo: parentView.topAnchor,constant: -topSafeAreaHeight).isActive = true
+            scrollV.bottomAnchor.constraint(equalTo: parentView.bottomAnchor, constant: bottomSafeAreaHeight).isActive = true
+        }
     }
 }
 
