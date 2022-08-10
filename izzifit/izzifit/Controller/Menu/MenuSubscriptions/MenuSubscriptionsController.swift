@@ -88,14 +88,28 @@ class MenuSubscriptionsController: BaseController {
         
         createPrivacyLabel()
         
+        titleLabel.text = RLocalization.menu_subscriptions_title()
+        
         currentSubView.layer.borderWidth = 2
         currentSubView.layer.borderColor = UIColor(rgb: 0xCCBEE9).cgColor
-        currentSubPerDayLabel.text = "per day"
+        currentSubPerDayLabel.text = RLocalization.menu_subscriptions_per_day()
+        currentSubActiveLabel.text = RLocalization.menu_subscriptions_active()
 
-        firstSubNameLabel.text = "One year"
-        secondSubNameLabel.text = "3 month"
-        thirdSubNameLabel.text = "1 mounh"
-        fourSubNameLabel.text = "1 week"
+        firstSubNameLabel.text = RLocalization.menu_subscriptions_one_year()
+        secondSubNameLabel.text = RLocalization.menu_subscriptions_three_mounth()
+        thirdSubNameLabel.text = RLocalization.menu_subscriptions_one_mounth()
+        fourSubNameLabel.text = RLocalization.menu_subscriptions_one_week()
+        
+        firstSubPerDayLabel.text = RLocalization.menu_subscriptions_per_day()
+        secondSubPerDayLabel.text = RLocalization.menu_subscriptions_per_day()
+        thirdSubPerDayLabel.text = RLocalization.menu_subscriptions_per_day()
+        fourSubPerDayLabel.text = RLocalization.menu_subscriptions_per_day()
+        
+        infoLabel.text = RLocalization.menu_subscriptions_purchase_info()
+        
+        unsubscribeButton.setTitle(RLocalization.menu_subscriptions_unsubscribe(), for: .normal)
+        subscribeButton.setTitle(RLocalization.menu_subscriptions_subscribe(), for: .normal)
+        restoreButton.setTitle(RLocalization.menu_subscriptions_restore(), for: .normal)
         
         firstSubView.layer.borderWidth = 2
         secondSubView.layer.borderWidth = 2
