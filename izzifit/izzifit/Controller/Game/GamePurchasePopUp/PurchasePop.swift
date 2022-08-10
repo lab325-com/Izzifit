@@ -22,7 +22,11 @@ class BuyBtn: UIButton {
         super.init(frame: .zero)
         setBackgroundImage(image(img: .greenBuyBtn), for: .normal)
         setTitle("", for: .normal)
-        titleLabel?.font = UIFont(name: "Inter-ExtraBold" , size: 13)
+        titleLabel?.font = UIFont(name: "Inter-Bold" , size: 13)
+        titleLabel?.adjustsFontSizeToFitWidth = true
+    
+       contentEdgeInsets = UIEdgeInsets(top: 0, left: 4, bottom: 0 , right: 4)
+        
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
