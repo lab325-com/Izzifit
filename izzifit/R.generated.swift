@@ -5046,7 +5046,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 90 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 91 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -5126,6 +5126,8 @@ struct R: Rswift.Validatable {
     static let menuLogoutCell = _R.nib._MenuLogoutCell()
     /// Nib `MenuNameController`.
     static let menuNameController = _R.nib._MenuNameController()
+    /// Nib `MenuSubscriptionsController`.
+    static let menuSubscriptionsController = _R.nib._MenuSubscriptionsController()
     /// Nib `MenuTargetWeightController`.
     static let menuTargetWeightController = _R.nib._MenuTargetWeightController()
     /// Nib `MenuWeightController`.
@@ -5538,6 +5540,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.menuNameController) instead")
     static func menuNameController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.menuNameController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MenuSubscriptionsController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.menuSubscriptionsController) instead")
+    static func menuSubscriptionsController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.menuSubscriptionsController)
     }
     #endif
 
@@ -6105,6 +6115,10 @@ struct R: Rswift.Validatable {
       return R.nib.menuNameController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func menuSubscriptionsController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.menuSubscriptionsController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func menuTargetWeightController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.menuTargetWeightController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -6404,7 +6418,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 222 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 234 localization keys.
     struct localizable {
       /// en translation: %d Carb
       ///
@@ -6438,6 +6452,18 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let water_widget_ml_left = Rswift.StringResource(key: "water_widget_ml_left", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: 1 month
+      ///
+      /// Locales: en
+      static let menu_subscriptions_one_mounth = Rswift.StringResource(key: "menu_subscriptions_one_mounth", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: 1 week
+      ///
+      /// Locales: en
+      static let menu_subscriptions_one_week = Rswift.StringResource(key: "menu_subscriptions_one_week", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: 3 month
+      ///
+      /// Locales: en
+      static let menu_subscriptions_three_mounth = Rswift.StringResource(key: "menu_subscriptions_three_mounth", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: 70% off
       ///
       /// Locales: en
@@ -6446,6 +6472,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let paywall_congratulation_off = Rswift.StringResource(key: "paywall_congratulation_off", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: ACTIVE
+      ///
+      /// Locales: en
+      static let menu_subscriptions_active = Rswift.StringResource(key: "menu_subscriptions_active", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Add
       ///
       /// Locales: en
@@ -6486,6 +6516,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let energy_mood_badly = Rswift.StringResource(key: "energy_mood_badly", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.
+      ///
+      /// Locales: en
+      static let menu_subscriptions_purchase_info = Rswift.StringResource(key: "menu_subscriptions_purchase_info", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.
       ///
       /// Locales: en
@@ -6901,6 +6935,10 @@ struct R: Rswift.Validatable {
       /// en translation: One year
       ///
       /// Locales: en
+      static let menu_subscriptions_one_year = Rswift.StringResource(key: "menu_subscriptions_one_year", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: One year
+      ///
+      /// Locales: en
       static let paywall_congratulation_one_year = Rswift.StringResource(key: "paywall_congratulation_one_year", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: One year
       ///
@@ -7009,6 +7047,10 @@ struct R: Rswift.Validatable {
       /// en translation: Restore Purchases
       ///
       /// Locales: en
+      static let menu_subscriptions_restore = Rswift.StringResource(key: "menu_subscriptions_restore", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Restore Purchases
+      ///
+      /// Locales: en
       static let paywall_one_time_restore = Rswift.StringResource(key: "paywall_one_time_restore", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: SM
       ///
@@ -7078,6 +7120,18 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let login_forgot_submit = Rswift.StringResource(key: "login_forgot_submit", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Subscribe
+      ///
+      /// Locales: en
+      static let menu_subscriptions_subscribe = Rswift.StringResource(key: "menu_subscriptions_subscribe", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Subscriptions
+      ///
+      /// Locales: en
+      static let menu_subscriptions = Rswift.StringResource(key: "menu_subscriptions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Subscriptions
+      ///
+      /// Locales: en
+      static let menu_subscriptions_title = Rswift.StringResource(key: "menu_subscriptions_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Sun
       ///
       /// Locales: en
@@ -7150,6 +7204,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let paywall_congratulation_unlock = Rswift.StringResource(key: "paywall_congratulation_unlock", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Unsubscribe
+      ///
+      /// Locales: en
+      static let menu_subscriptions_unsubscribe = Rswift.StringResource(key: "menu_subscriptions_unsubscribe", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Update
       ///
       /// Locales: en
@@ -7282,6 +7340,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let paywall_congratulation_subscription = Rswift.StringResource(key: "paywall_congratulation_subscription", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: per day
+      ///
+      /// Locales: en
+      static let menu_subscriptions_per_day = Rswift.StringResource(key: "menu_subscriptions_per_day", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: per year
       ///
       /// Locales: en
@@ -7431,6 +7493,51 @@ struct R: Rswift.Validatable {
         return String(format: format, locale: locale, value1)
       }
 
+      /// en translation: 1 month
+      ///
+      /// Locales: en
+      static func menu_subscriptions_one_mounth(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_subscriptions_one_mounth", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_subscriptions_one_mounth"
+        }
+
+        return NSLocalizedString("menu_subscriptions_one_mounth", bundle: bundle, comment: "")
+      }
+
+      /// en translation: 1 week
+      ///
+      /// Locales: en
+      static func menu_subscriptions_one_week(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_subscriptions_one_week", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_subscriptions_one_week"
+        }
+
+        return NSLocalizedString("menu_subscriptions_one_week", bundle: bundle, comment: "")
+      }
+
+      /// en translation: 3 month
+      ///
+      /// Locales: en
+      static func menu_subscriptions_three_mounth(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_subscriptions_three_mounth", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_subscriptions_three_mounth"
+        }
+
+        return NSLocalizedString("menu_subscriptions_three_mounth", bundle: bundle, comment: "")
+      }
+
       /// en translation: 70% off
       ///
       /// Locales: en
@@ -7459,6 +7566,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("paywall_congratulation_off", bundle: bundle, comment: "")
+      }
+
+      /// en translation: ACTIVE
+      ///
+      /// Locales: en
+      static func menu_subscriptions_active(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_subscriptions_active", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_subscriptions_active"
+        }
+
+        return NSLocalizedString("menu_subscriptions_active", bundle: bundle, comment: "")
       }
 
       /// en translation: Add
@@ -7609,6 +7731,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("energy_mood_badly", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.
+      ///
+      /// Locales: en
+      static func menu_subscriptions_purchase_info(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_subscriptions_purchase_info", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_subscriptions_purchase_info"
+        }
+
+        return NSLocalizedString("menu_subscriptions_purchase_info", bundle: bundle, comment: "")
       }
 
       /// en translation: Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.Before creating your subscriptions, make sure you know about the requirements and best practices that will help you deliver a great user experience. The guidelines below provide details on what your subscriptions need to include and how they should be presented in your app, as well as information on making changes to existing subscriptions, offering free trials, and more.
@@ -9173,6 +9310,21 @@ struct R: Rswift.Validatable {
       /// en translation: One year
       ///
       /// Locales: en
+      static func menu_subscriptions_one_year(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_subscriptions_one_year", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_subscriptions_one_year"
+        }
+
+        return NSLocalizedString("menu_subscriptions_one_year", bundle: bundle, comment: "")
+      }
+
+      /// en translation: One year
+      ///
+      /// Locales: en
       static func paywall_congratulation_one_year(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("paywall_congratulation_one_year", bundle: hostingBundle, comment: "")
@@ -9582,6 +9734,21 @@ struct R: Rswift.Validatable {
       /// en translation: Restore Purchases
       ///
       /// Locales: en
+      static func menu_subscriptions_restore(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_subscriptions_restore", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_subscriptions_restore"
+        }
+
+        return NSLocalizedString("menu_subscriptions_restore", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Restore Purchases
+      ///
+      /// Locales: en
       static func paywall_one_time_restore(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("paywall_one_time_restore", bundle: hostingBundle, comment: "")
@@ -9847,6 +10014,51 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("login_forgot_submit", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Subscribe
+      ///
+      /// Locales: en
+      static func menu_subscriptions_subscribe(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_subscriptions_subscribe", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_subscriptions_subscribe"
+        }
+
+        return NSLocalizedString("menu_subscriptions_subscribe", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Subscriptions
+      ///
+      /// Locales: en
+      static func menu_subscriptions(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_subscriptions", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_subscriptions"
+        }
+
+        return NSLocalizedString("menu_subscriptions", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Subscriptions
+      ///
+      /// Locales: en
+      static func menu_subscriptions_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_subscriptions_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_subscriptions_title"
+        }
+
+        return NSLocalizedString("menu_subscriptions_title", bundle: bundle, comment: "")
       }
 
       /// en translation: Sun
@@ -10117,6 +10329,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("paywall_congratulation_unlock", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Unsubscribe
+      ///
+      /// Locales: en
+      static func menu_subscriptions_unsubscribe(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_subscriptions_unsubscribe", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_subscriptions_unsubscribe"
+        }
+
+        return NSLocalizedString("menu_subscriptions_unsubscribe", bundle: bundle, comment: "")
       }
 
       /// en translation: Update
@@ -10618,6 +10845,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("paywall_congratulation_subscription", bundle: bundle, comment: "")
       }
 
+      /// en translation: per day
+      ///
+      /// Locales: en
+      static func menu_subscriptions_per_day(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("menu_subscriptions_per_day", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "menu_subscriptions_per_day"
+        }
+
+        return NSLocalizedString("menu_subscriptions_per_day", bundle: bundle, comment: "")
+      }
+
       /// en translation: per year
       ///
       /// Locales: en
@@ -10722,6 +10964,7 @@ struct _R: Rswift.Validatable {
       try _MenuLanguageController.validate()
       try _MenuLanguagesTitleCell.validate()
       try _MenuNameController.validate()
+      try _MenuSubscriptionsController.validate()
       try _MenuTargetWeightController.validate()
       try _MenuWeightController.validate()
       try _MenuWriteQuestionController.validate()
@@ -11472,6 +11715,24 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'MenuNameController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'MenuNameController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _MenuSubscriptionsController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "MenuSubscriptionsController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_back_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_back_ic' is used in nib 'MenuSubscriptionsController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'MenuSubscriptionsController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
