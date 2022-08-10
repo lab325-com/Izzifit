@@ -57,7 +57,7 @@ class MainGameOnboardingView: UIView {
         onboardImgVw.contentMode = .scaleAspectFill
         layer.backgroundColor = UIColor.clear.cgColor
         change(by: state)
-      
+    //    mainBtn.backgroundColor = .yellow.withAlphaComponent(0.75)
         mainBtn.addTarget(self,
                           action: #selector(btnTapped),
                           for: .touchUpInside)
@@ -168,27 +168,58 @@ class MainGameOnboardingView: UIView {
             if let levelVC = self.gameTabBar?.children[1] as? LevelController {
                     levelVC.levelView.slideAnimationView.play()
                 }
-      
+            
+            let window = UIApplication.shared.windows[0]
+              let safeFrame = window.safeAreaLayoutGuide.layoutFrame
+            var topSafeAreaHeight = safeFrame.minY
+            var  bottomSafeAreaHeight = window.frame.maxY - safeFrame.maxY
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
-                       self.onboardImgVw.image = self.image(img: .onBuildVillage)
-                       self.ui.genericlLayout(object: self.onboardImgVw,
-                                              parentView: self,
-                                              width: 228,
-                                              height: 97,
-                                              topC: 335,
-                                              centerH: 60)
-                self.onboardImgVw.shake(0.5,
-                                        x: self.w / 2 + 60,
-                                        y: 335 + 48.5)
-                
+            
+                switch self.h {
+                case 926.0:
+                    self.onboardImgVw.image = self.image(img: .onBuildVillage)
+                    self.ui.genericlLayout(object: self.onboardImgVw,
+                                           parentView: self,
+                                           width: 228,
+                                           height: 97,
+                                           topC: 335,
+                                           centerH: 58.5)
+             self.onboardImgVw.shake(0.5,
+                                     x: self.w / 2 + 58.5,
+                                     y: 335 + 48.5)
+
+                default:
+                    self.onboardImgVw.image = self.image(img: .onBuildVillage)
+                    self.ui.genericlLayout(object: self.onboardImgVw,
+                                           parentView: self,
+                                           width: 228,
+                                           height: 97,
+                                           topC: 335 - topSafeAreaHeight,
+                                           centerH: 58.5)
+                    
+             self.onboardImgVw.shake(0.5,
+                                     x: self.w/2 + 58.5,
+                                     y: (335 - topSafeAreaHeight) + 48.5)
+                }
             }
-                        
-            ui.genericlLayout(object: mainBtn,
-                             parentView: self,
-                             width: 100,
-                             height: 100,
-                             topC: 400,
-                             trailingC: 53)
+           
+            switch h {
+            case 926.0:
+                ui.genericlLayout(object: mainBtn,
+                                 parentView: self,
+                                 width:  170,
+                                 height: 138,
+                                 topC:   375,
+                                 centerH: 81.5)
+            default:
+                ui.genericlLayout(object: mainBtn,
+                                 parentView: self,
+                                 width:  170,
+                                 height: 138,
+                                 topC:   375 - topSafeAreaHeight,
+                                 centerH: 81.5)
+            }
             
         case .buildPopUp3:
             ui.genericlLayout(object: mainBtn,
