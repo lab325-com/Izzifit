@@ -17,6 +17,7 @@ enum SettingsType: Int, CaseIterable {
     case foodPreferences
     case fitnessPreferences
     case language
+    case subscriptions
     case notification
     case reminders
     case logout
@@ -42,6 +43,8 @@ enum SettingsType: Int, CaseIterable {
             return RLocalization.menu_fitness()
         case .language:
             return RLocalization.menu_language()
+        case .subscriptions:
+            return RLocalization.menu_subscriptions()
         case .notification:
             return RLocalization.menu_notification()
         case .reminders:
@@ -50,7 +53,6 @@ enum SettingsType: Int, CaseIterable {
             return ""
         }
     }
-    
 }
 
 class MenuController: BaseController {
@@ -149,7 +151,6 @@ class MenuController: BaseController {
     @IBAction func actionWriteUs(_ sender: UIButton) {
         MenuRouter(presenter: navigationController).pushMenuQuiestion()
     }
-    
 }
 
 //----------------------------------------------
@@ -208,6 +209,8 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
             MenuRouter(presenter: navigationController).pushMenuFitness()
         case .language:
             MenuRouter(presenter: navigationController).pushMenuLanguage()
+        case .subscriptions:
+            MenuRouter(presenter: navigationController).pushMenuSubscripyions()
         default:
             break
         }
