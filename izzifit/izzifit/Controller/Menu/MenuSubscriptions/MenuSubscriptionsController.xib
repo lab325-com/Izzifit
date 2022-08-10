@@ -74,26 +74,8 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_background_ic" translatesAutoresizingMaskIntoConstraints="NO" id="2qu-MI-NFV">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iS-gO-ay4">
-                    <rect key="frame" x="16" y="60" width="30" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="5fc-7a-NLH"/>
-                        <constraint firstAttribute="width" constant="30" id="70o-nB-VSP"/>
-                    </constraints>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="onboarding_back_ic"/>
-                    <connections>
-                        <action selector="actionBack:" destination="-1" eventType="touchUpInside" id="uob-YH-1Ju"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscriptions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13D-ND-XEA">
-                    <rect key="frame" x="128" y="60.5" width="158" height="29.5"/>
-                    <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="24"/>
-                    <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhz-Od-LAG">
-                    <rect key="frame" x="0.0" y="110" width="414" height="786"/>
+                    <rect key="frame" x="0.0" y="102" width="414" height="794"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBw-15-xSi">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="801"/>
@@ -111,7 +93,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZx-FV-hY4">
-                                                    <rect key="frame" x="99" y="12" width="43" height="14"/>
+                                                    <rect key="frame" x="99" y="11.5" width="43" height="14"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACTIVE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANk-P9-5B4">
                                                             <rect key="frame" x="4" y="1" width="34" height="11"/>
@@ -516,21 +498,39 @@
                         <constraint firstItem="PBw-15-xSi" firstAttribute="top" secondItem="hhz-Od-LAG" secondAttribute="top" id="oo8-3J-egj"/>
                     </constraints>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iS-gO-ay4">
+                    <rect key="frame" x="16" y="52" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="5fc-7a-NLH"/>
+                        <constraint firstAttribute="width" constant="30" id="70o-nB-VSP"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="onboarding_back_ic"/>
+                    <connections>
+                        <action selector="actionBack:" destination="-1" eventType="touchUpInside" id="uob-YH-1Ju"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscriptions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13D-ND-XEA">
+                    <rect key="frame" x="128" y="52.5" width="158" height="29.5"/>
+                    <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="24"/>
+                    <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <viewLayoutGuide key="safeArea" id="y7Y-R0-3pa"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="2qu-MI-NFV" secondAttribute="bottom" id="0F7-5b-kul"/>
-                <constraint firstItem="2qu-MI-NFV" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="2Zb-rp-jMK"/>
-                <constraint firstItem="hhz-Od-LAG" firstAttribute="top" secondItem="9iS-gO-ay4" secondAttribute="bottom" constant="20" id="5O3-ec-0ug"/>
+                <constraint firstItem="2qu-MI-NFV" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="2Zb-rp-jMK"/>
                 <constraint firstItem="13D-ND-XEA" firstAttribute="centerY" secondItem="9iS-gO-ay4" secondAttribute="centerY" id="HCG-G0-PzT"/>
                 <constraint firstAttribute="bottom" secondItem="hhz-Od-LAG" secondAttribute="bottom" id="In8-gP-x0L"/>
                 <constraint firstItem="13D-ND-XEA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="LnH-Rz-vPr"/>
-                <constraint firstItem="9iS-gO-ay4" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="MMb-j4-OIS"/>
+                <constraint firstItem="9iS-gO-ay4" firstAttribute="top" secondItem="y7Y-R0-3pa" secondAttribute="top" constant="8" id="MMb-j4-OIS"/>
                 <constraint firstItem="hhz-Od-LAG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QMw-nH-b6b"/>
-                <constraint firstItem="2qu-MI-NFV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Xob-C3-VbU"/>
+                <constraint firstItem="hhz-Od-LAG" firstAttribute="top" secondItem="13D-ND-XEA" secondAttribute="bottom" constant="20" id="XKz-Km-ezH"/>
+                <constraint firstItem="2qu-MI-NFV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Xob-C3-VbU"/>
                 <constraint firstItem="2qu-MI-NFV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZcS-H5-tN3"/>
-                <constraint firstItem="9iS-gO-ay4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="fhp-Mm-drg"/>
+                <constraint firstItem="9iS-gO-ay4" firstAttribute="leading" secondItem="y7Y-R0-3pa" secondAttribute="leading" constant="16" id="fhp-Mm-drg"/>
                 <constraint firstAttribute="trailing" secondItem="hhz-Od-LAG" secondAttribute="trailing" id="urQ-on-QgM"/>
                 <constraint firstItem="PBw-15-xSi" firstAttribute="width" secondItem="hhz-Od-LAG" secondAttribute="width" id="vKR-ZD-YSX"/>
             </constraints>

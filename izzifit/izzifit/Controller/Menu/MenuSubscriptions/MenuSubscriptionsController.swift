@@ -90,6 +90,7 @@ class MenuSubscriptionsController: BaseController {
         
         currentSubView.layer.borderWidth = 2
         currentSubView.layer.borderColor = UIColor(rgb: 0xCCBEE9).cgColor
+        currentSubPerDayLabel.text = "per day"
 
         firstSubNameLabel.text = "One year"
         secondSubNameLabel.text = "3 month"
@@ -104,7 +105,6 @@ class MenuSubscriptionsController: BaseController {
         if let subscription = KeychainService.standard.me?.Subscription, let externalId = subscription.Plan?.externalId, !externalId.isEmpty {
             activeSubView.isHidden = false
             subsStackTopConstraint.constant = 124.0
-            updateCurrentSub(externalId: externalId)
         } else {
             activeSubView.isHidden = true
             subsStackTopConstraint.constant = 16
@@ -181,18 +181,25 @@ class MenuSubscriptionsController: BaseController {
     }
     
     func updateCurrentSub(externalId: String) {
+        activeSubView.isHidden = false
+        subsStackTopConstraint.constant = 124.0
+        
         if externalId == PaywallPriceType.oneYear.productId {
             currentSubNameLabel.text = firstSubNameLabel.text
             currentSubPriceLabel.text = firstSubPriceLabel.text
+            currentSubPerDayPriceLabel.text = firstSubPerDayPriceLabel.text
         } else if externalId == PaywallPriceType.theeMonth.productId {
             currentSubNameLabel.text = secondSubNameLabel.text
             currentSubPriceLabel.text = secondSubPriceLabel.text
+            currentSubPerDayPriceLabel.text = secondSubPerDayPriceLabel.text
         } else if externalId == PaywallPriceType.oneMonth.productId {
             currentSubNameLabel.text = thirdSubNameLabel.text
             currentSubPriceLabel.text = thirdSubPriceLabel.text
+            currentSubPerDayPriceLabel.text = thirdSubPerDayPriceLabel.text
         } else {
             currentSubNameLabel.text = fourSubNameLabel.text
             currentSubPriceLabel.text = fourSubPriceLabel.text
+            currentSubPerDayPriceLabel.text = fourSubPerDayPriceLabel.text
         }
     }
     
@@ -201,6 +208,7 @@ class MenuSubscriptionsController: BaseController {
     //----------------------------------------------
     
     @IBAction func actionBack(_ sender: UIButton) {
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_close, params: ["place": place.rawValue, "screen": screen.rawValue])
         actionBack()
     }
     
@@ -264,7 +272,9 @@ class MenuSubscriptionsController: BaseController {
         presenter.restore { [weak self] result in
             guard let `self` = self else { return }
             if result {
-//                self.delegate?.paywallSuccess(controller: self)
+                if let subscription = KeychainService.standard.me?.Subscription, let externalId = subscription.Plan?.externalId, !externalId.isEmpty {
+                    self.updateCurrentSub(externalId: externalId)
+                }
                 self.dismiss(animated: true)
             }
         }
@@ -277,27 +287,34 @@ extension MenuSubscriptionsController: SubscribeOutputProtocol {
         activeSubView.isHidden = false
         subsStackView.isHidden = false
         
+        var externalId = ""
+        
         if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneYear.productId}) {
             firstSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price)
             firstSubPerDayPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price / 365)
+            externalId = info.product
         }
         
         if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.theeMonth.productId}) {
             secondSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price)
             secondSubPerDayPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", (info.price * 4) / 365)
+            externalId = info.product
         }
         
         if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneMonth.productId}) {
             thirdSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price)
             thirdSubPerDayPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", (info.price * 12) / 365)
+            externalId = info.product
         }
         
         if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.oneWeek.productId}) {
             fourSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price)
             fourSubPerDayPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", (info.price * 52) / 365)
+            externalId = info.product
         }
         
         updateSubsView()
+        updateCurrentSub(externalId: externalId)
     }
     
     func failure(error: String) {
