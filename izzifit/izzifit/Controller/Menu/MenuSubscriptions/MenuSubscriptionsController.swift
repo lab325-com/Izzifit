@@ -77,7 +77,7 @@ class MenuSubscriptionsController: BaseController {
 
         setup()
         
-        presenter.retriveProduct(id: Set([PaywallPriceType.oneYear.productId, PaywallPriceType.theeMonth.productId, PaywallPriceType.oneMonth.productId, PaywallPriceType.oneWeek.productId]))
+        presenter.retriveProduct(id: Set([PaywallPriceType.oneYear.productId, PaywallPriceType.threeMonth.productId, PaywallPriceType.oneMonth.productId, PaywallPriceType.oneWeek.productId]))
     }
     
     //----------------------------------------------
@@ -85,6 +85,7 @@ class MenuSubscriptionsController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        AnalyticsHelper.sendFirebaseEvents(events: .pay_open, params: ["place": place.rawValue, "screen": screen.rawValue])
         
         createPrivacyLabel()
         
@@ -159,7 +160,7 @@ class MenuSubscriptionsController: BaseController {
             secondSubView.backgroundColor = UIColor(rgb: 0xF1EFF5)
             thirdSubView.backgroundColor = UIColor(rgb: 0xF1EFF5)
             fourSubView.backgroundColor = UIColor(rgb: 0xF1EFF5)
-        case .theeMonth:
+        case .threeMonth:
             firstSubView.layer.borderColor = UIColor.clear.cgColor
             secondSubView.layer.borderColor = UIColor(red: 1, green: 0.258, blue: 0.659, alpha: 1).cgColor
             thirdSubView.layer.borderColor = UIColor.clear.cgColor
@@ -202,7 +203,7 @@ class MenuSubscriptionsController: BaseController {
             currentSubNameLabel.text = firstSubNameLabel.text
             currentSubPriceLabel.text = firstSubPriceLabel.text
             currentSubPerDayPriceLabel.text = firstSubPerDayPriceLabel.text
-        } else if externalId == PaywallPriceType.theeMonth.productId {
+        } else if externalId == PaywallPriceType.threeMonth.productId {
             currentSubNameLabel.text = secondSubNameLabel.text
             currentSubPriceLabel.text = secondSubPriceLabel.text
             currentSubPerDayPriceLabel.text = secondSubPerDayPriceLabel.text
@@ -259,7 +260,7 @@ class MenuSubscriptionsController: BaseController {
     }
     
     @IBAction func actionSecondSub(_ sender: UIButton) {
-        priceType = .theeMonth
+        priceType = .threeMonth
     }
     
     @IBAction func actionThirdSub(_ sender: UIButton) {
@@ -309,7 +310,7 @@ extension MenuSubscriptionsController: SubscribeOutputProtocol {
             externalId = info.product
         }
         
-        if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.theeMonth.productId}) {
+        if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.threeMonth.productId}) {
             secondSubPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", info.price)
             secondSubPerDayPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", (info.price * 4) / 365)
             externalId = info.product

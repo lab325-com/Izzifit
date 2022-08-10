@@ -145,7 +145,7 @@ class PaywallController: BaseController {
             yearPriceLabel.text = info.prettyPrice
         }
         
-        if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.theeMonth.productId}) {
+        if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.threeMonth.productId}) {
             threePeriodLabel.text = "\(info.number)\n\(info.period)"
             threeMonthPriceLabel.text = info.prettyPrice
         }
@@ -181,8 +181,8 @@ class PaywallController: BaseController {
             
             priceStackView.sendSubviewToBack(firstView)
             priceStackView.sendSubviewToBack(threeView)
-        case .theeMonth:
-            if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.theeMonth.productId}) {
+        case .threeMonth:
+            if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.threeMonth.productId}) {
                 continueButton.setTitle(info.daysTrial == nil ? "Continue" : "Try \(info.daysTrial ?? 0) days free!", for: .normal)
             }
             
@@ -210,7 +210,7 @@ class PaywallController: BaseController {
                 self.firstView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.secondView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
                 self.threeView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            case .theeMonth:
+            case .threeMonth:
                 self.firstView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.secondView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.threeView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
@@ -278,7 +278,7 @@ class PaywallController: BaseController {
     }
     
     @IBAction func actionThreeMonth(_ sender: UIButton) {
-        priceType = .theeMonth
+        priceType = .threeMonth
     }
     
     @IBAction func actionBack(_ sender: UIButton) {
@@ -327,7 +327,7 @@ extension PaywallController: SubscribeOutputProtocol {
             yearPriceLabel.text = info.prettyPrice
         }
         
-        if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.theeMonth.productId}) {
+        if let info = presenter.paymentsInfo.first(where: {$0.product == PaywallPriceType.threeMonth.productId}) {
             threePeriodLabel.text = "\(info.number)\n\(info.period)"
             threeMonthPriceLabel.text = info.prettyPrice
         }
