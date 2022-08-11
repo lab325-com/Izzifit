@@ -1269,7 +1269,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 419 images.
+  /// This `R.image` struct is generated, and contains static references to 422 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -2019,6 +2019,12 @@ struct R: Rswift.Validatable {
     static let spinBtnNormal = Rswift.ImageResource(bundle: R.hostingBundle, name: "spinBtnNormal")
     /// Image `spinBtnSelected`.
     static let spinBtnSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "spinBtnSelected")
+    /// Image `spinCancelAutoSpin`.
+    static let spinCancelAutoSpin = Rswift.ImageResource(bundle: R.hostingBundle, name: "spinCancelAutoSpin")
+    /// Image `spinHold2sec`.
+    static let spinHold2sec = Rswift.ImageResource(bundle: R.hostingBundle, name: "spinHold2sec")
+    /// Image `spinPressAutospin`.
+    static let spinPressAutospin = Rswift.ImageResource(bundle: R.hostingBundle, name: "spinPressAutospin")
     /// Image `sportsAward`.
     static let sportsAward = Rswift.ImageResource(bundle: R.hostingBundle, name: "sportsAward")
     /// Image `start_back_ic`.
@@ -4725,6 +4731,27 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "spinBtnSelected", bundle: ..., traitCollection: ...)`
     static func spinBtnSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.spinBtnSelected, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "spinCancelAutoSpin", bundle: ..., traitCollection: ...)`
+    static func spinCancelAutoSpin(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.spinCancelAutoSpin, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "spinHold2sec", bundle: ..., traitCollection: ...)`
+    static func spinHold2sec(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.spinHold2sec, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "spinPressAutospin", bundle: ..., traitCollection: ...)`
+    static func spinPressAutospin(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.spinPressAutospin, compatibleWith: traitCollection)
     }
     #endif
 

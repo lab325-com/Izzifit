@@ -14,8 +14,10 @@ class GameController: BaseController {
     private var firstLaunch = true
     private var timerSpinManager: TimerSpinManager!
     var onboardingView: MainGameOnboardingView?
+    var tapSpinCounter = 0
+    var autoSpinTimer = Timer()
+    var gestureLongTap = 0
 
-    
     override func loadView() {
         super.loadView()
         switch PreferencesManager.sharedManager.currentMapName {
@@ -24,7 +26,7 @@ class GameController: BaseController {
         case .france_map:   self.gameView = FranceGameView()
         case .none:         self.gameView = ArcticGameView()
         }
-        
+
         gameView?.frame = view.bounds
         view.addSubview(gameView ?? UIView())
     }
@@ -64,6 +66,7 @@ class GameController: BaseController {
             self.timerSpinManager.counter.combinations = GameNetworkLayer.shared.spins ?? [MapSpinsModel]()
             self.onboardingDraw()
         }
+        tapSpinCounter = 0
     }
      
     func onboardingDraw() {
@@ -172,13 +175,48 @@ class GameController: BaseController {
                     GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
                 }
             }
+            
+            tapSpinCounter += 1
+            if tapSpinCounter == 1 {
+                gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
+                gameView.spinBtn.setImage(RImage.spinHold2sec(), for:      .highlighted)
+                gameView.spinBtn.addTarget(self, action: #selector(buttonInPressed), for: .touchDown)
+                
+                let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(long))
+                longGesture.minimumPressDuration = 2
+                gameView.spinBtn.addGestureRecognizer(longGesture)
+            }
+  
             guard !PreferencesManager.sharedManager.gameOnboardingDone  else { return }
             ArcticGameView.counter += 1
             gameView.showProgress()
         }
     }
+    
+  
+    @objc func long() {
+        gestureLongTap += 1
+        guard gestureLongTap == 1 else { return }
+        if let gameView = gameView {
+            gameView.spinBtn.setImage(RImage.spinCancelAutoSpin(), for: .normal)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.autoSpinTimer = Timer.scheduledTimer(timeInterval: 5.0,
+                                           target: self,
+                                           selector: #selector(self.spinAction),
+                                           userInfo: nil,
+                                           repeats: true)
+                self.autoSpinTimer.fire()
+            }
+        }
+    }
+    
+    @objc func buttonInPressed(sender: UIButton) {
+        if let gameView = gameView { gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
+            autoSpinTimer.invalidate()
+        }
+    }
+    
 }
-
 
 //----------------------------------------------
 // MARK: - UICollectionViewDataSource
