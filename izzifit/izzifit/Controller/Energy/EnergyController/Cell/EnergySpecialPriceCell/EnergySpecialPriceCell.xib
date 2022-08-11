@@ -31,13 +31,25 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFs-Kf-9Rp">
                         <rect key="frame" x="16" y="4" width="413" height="297"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strengthening the muscles of the back and abs" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiU-Qn-B3C">
-                                <rect key="frame" x="16" y="24" width="381" height="83"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiU-Qn-B3C">
+                                <rect key="frame" x="16" y="24" width="334" height="83"/>
                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
                                 <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDf-2V-9Vc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="50" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tX2-F5-9qI">
+                                <rect key="frame" x="383" y="59" width="14" height="13.5"/>
+                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="11"/>
+                                <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy_water_flash_ic" translatesAutoresizingMaskIntoConstraints="NO" id="ZVh-Cc-xte">
+                                <rect key="frame" x="367" y="60" width="10" height="11"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="kfV-yy-Wv1"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDf-2V-9Vc">
                                 <rect key="frame" x="16" y="249" width="381" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="WfW-ju-adK"/>
@@ -48,7 +60,7 @@
                                     <color key="titleColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="actionStartWokout:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="azx-0A-2Cc"/>
+                                    <action selector="actionStartWokout:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QxO-ej-J0d"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8li-b9-kvK">
@@ -87,23 +99,38 @@
                                 <color key="textColor" red="0.396078431372549" green="0.396078431372549" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bg-Pj-0hM">
+                                <rect key="frame" x="0.0" y="0.0" width="413" height="297"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="actionStartWokout:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gBZ-04-TbX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94509803921568625" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="ZVh-Cc-xte" firstAttribute="centerY" secondItem="tX2-F5-9qI" secondAttribute="centerY" id="1zx-q3-rj5"/>
+                            <constraint firstItem="tX2-F5-9qI" firstAttribute="centerY" secondItem="qiU-Qn-B3C" secondAttribute="centerY" id="5IE-Pl-Nrs"/>
                             <constraint firstAttribute="bottom" secondItem="yDf-2V-9Vc" secondAttribute="bottom" constant="16" id="71R-8M-2ap"/>
-                            <constraint firstAttribute="trailing" secondItem="qiU-Qn-B3C" secondAttribute="trailing" constant="16" id="7qt-dx-S0X"/>
+                            <constraint firstAttribute="trailing" secondItem="tX2-F5-9qI" secondAttribute="trailing" constant="16" id="Crj-NC-kcM"/>
                             <constraint firstItem="yDf-2V-9Vc" firstAttribute="top" secondItem="WiV-bg-vGc" secondAttribute="bottom" constant="16" id="EQ8-J3-msh"/>
                             <constraint firstItem="WiV-bg-vGc" firstAttribute="leading" secondItem="VFs-Kf-9Rp" secondAttribute="leading" constant="16" id="ErY-lv-NM2"/>
                             <constraint firstItem="qiU-Qn-B3C" firstAttribute="leading" secondItem="VFs-Kf-9Rp" secondAttribute="leading" constant="16" id="JOJ-yA-dhK"/>
+                            <constraint firstItem="ZVh-Cc-xte" firstAttribute="leading" secondItem="qiU-Qn-B3C" secondAttribute="trailing" constant="17" id="KN2-oa-hvs"/>
                             <constraint firstItem="yDf-2V-9Vc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="p5N-ly-2c2" secondAttribute="bottom" constant="16" id="LIm-qv-lI4"/>
                             <constraint firstItem="p5N-ly-2c2" firstAttribute="leading" secondItem="WiV-bg-vGc" secondAttribute="trailing" constant="16" id="Noz-cB-DIx"/>
+                            <constraint firstAttribute="bottom" secondItem="9Bg-Pj-0hM" secondAttribute="bottom" id="PP0-84-GvV"/>
+                            <constraint firstItem="9Bg-Pj-0hM" firstAttribute="top" secondItem="VFs-Kf-9Rp" secondAttribute="top" id="YHh-me-ZCd"/>
                             <constraint firstItem="yDf-2V-9Vc" firstAttribute="leading" secondItem="VFs-Kf-9Rp" secondAttribute="leading" constant="16" id="aBf-NZ-2SD"/>
                             <constraint firstItem="qiU-Qn-B3C" firstAttribute="top" secondItem="VFs-Kf-9Rp" secondAttribute="top" constant="24" id="cTp-mC-Noc"/>
                             <constraint firstItem="WiV-bg-vGc" firstAttribute="top" secondItem="qiU-Qn-B3C" secondAttribute="bottom" constant="14" id="fUE-1c-Rin"/>
+                            <constraint firstItem="tX2-F5-9qI" firstAttribute="leading" secondItem="ZVh-Cc-xte" secondAttribute="trailing" constant="6" id="gMH-yA-8zc"/>
                             <constraint firstAttribute="trailing" secondItem="p5N-ly-2c2" secondAttribute="trailing" constant="16" id="iEY-Ce-5QR"/>
                             <constraint firstItem="8li-b9-kvK" firstAttribute="top" secondItem="VFs-Kf-9Rp" secondAttribute="top" id="n6O-wb-5Ie"/>
+                            <constraint firstAttribute="trailing" secondItem="9Bg-Pj-0hM" secondAttribute="trailing" id="omW-Zz-MU9"/>
                             <constraint firstItem="p5N-ly-2c2" firstAttribute="top" secondItem="WiV-bg-vGc" secondAttribute="top" id="qrT-6X-9BS"/>
                             <constraint firstAttribute="trailing" secondItem="yDf-2V-9Vc" secondAttribute="trailing" constant="16" id="ufx-bw-wJ6"/>
+                            <constraint firstItem="9Bg-Pj-0hM" firstAttribute="leading" secondItem="VFs-Kf-9Rp" secondAttribute="leading" id="v1s-i8-ViB"/>
                             <constraint firstItem="8li-b9-kvK" firstAttribute="leading" secondItem="VFs-Kf-9Rp" secondAttribute="leading" constant="18" id="wAD-gl-APh"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -135,6 +162,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="energy_water_flash_ic" width="10" height="11"/>
         <image name="placeholder_big_sport_ic" width="320" height="184"/>
     </resources>
 </document>
