@@ -1248,8 +1248,10 @@ struct SetUIManager {
          
         let window = UIApplication.shared.windows[0]
           let safeFrame = window.safeAreaLayoutGuide.layoutFrame
-        var topSafeAreaHeight = safeFrame.minY
+         var topSafeAreaHeight = safeFrame.minY
          var  bottomSafeAreaHeight = window.frame.maxY - safeFrame.maxY
+        print(topSafeAreaHeight)
+        print(bottomSafeAreaHeight)
     
         switch parentView.h {
         case 926.0:
