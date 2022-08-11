@@ -211,11 +211,13 @@ class QuizeSportController: BaseController {
             PreferencesManager.sharedManager.tempPorifle = model
             presenterProfile.profileUpdate()
             
-            if PreferencesManager.sharedManager.isStart == true {
-                OnboardingRouter(presenter: navigationController).pushProgress()
-            } else {
-                OnboardingRouter(presenter: navigationController).pushEmail()
-            }
+//            if PreferencesManager.sharedManager.isStart == true {
+//                OnboardingRouter(presenter: navigationController).pushProgress()
+//            }
+//            else {
+//                OnboardingRouter(presenter: navigationController).pushEmail()
+//            }
+            OnboardingRouter(presenter: navigationController).pushProgress()
         }
     }
     
@@ -225,11 +227,12 @@ class QuizeSportController: BaseController {
         model.setSport(nil)
         PreferencesManager.sharedManager.tempPorifle = model
         
-        if PreferencesManager.sharedManager.isStart == true {
-            OnboardingRouter(presenter: navigationController).pushProgress()
-        } else {
-            OnboardingRouter(presenter: navigationController).pushEmail()
-        }
+//        if PreferencesManager.sharedManager.isStart == true {
+//            OnboardingRouter(presenter: navigationController).pushProgress()
+//        } else {
+//            OnboardingRouter(presenter: navigationController).pushEmail()
+//        }
+        OnboardingRouter(presenter: navigationController).pushProgress()
     }
 }
 
