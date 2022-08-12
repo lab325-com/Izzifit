@@ -10,6 +10,7 @@ import UIKit
 
 protocol SpinAwardProtocol: BaseController {
     func completeAward(model: [SpinMainModel])
+    func idleSpin()
 }
 
 class GameNetworkLayer {
@@ -111,6 +112,7 @@ class GameNetworkLayer {
             view.completeAward(model: model.spin)
             view.stopLoading()
         }, failureHandler: { [weak self] error in
+            view.idleSpin()
             view.stopLoading()
         })
     }

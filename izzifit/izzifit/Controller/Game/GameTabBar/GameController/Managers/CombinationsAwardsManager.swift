@@ -32,8 +32,9 @@ struct CombinationsAwardsManager {
         // реши вопрос с обновлением энергии и вообще обновлением сущности
         
         energyLbl.text = String(Int(user.energy!))
-        spinBtn.isUserInteractionEnabled = false
-        //  spinBtn.isSelected.toggle()
+        spinBtn.tag = 1
+       // spinBtn.isUserInteractionEnabled = false
+      //  spinBtn.isSelected.toggle()
         for item in collectionView.visibleCells.indices {
             let table = ( collectionView.cellForItem(at: [0,item]) as! SlotCollectionCell).tableView
             for i in  0...2 {
@@ -49,7 +50,7 @@ struct CombinationsAwardsManager {
         runTimer()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.3) {
-            spinBtn.isUserInteractionEnabled = true
+         // spinBtn.isUserInteractionEnabled = true
             coinsLbl.text = String(user.coins!)
             energyLbl.text = String(Int(user.energy!))
         }

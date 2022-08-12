@@ -118,27 +118,76 @@ class GameTabBarController: UITabBarController {
         for (index, btn) in btns.enumerated() {
             switch index {
             case number: btn.isSelected = true
-            default: btn.isSelected = false
+            default:     btn.isSelected = false
             }
         }
     }
     
-    @objc func actionBack() { navigationController?.popViewController(animated: true) }
+    @objc func actionBack() {
+        if let gameVC = children.first as? GameController {
+            gameVC.autoSpinTimer.invalidate()
+           
+            if let gameView = gameVC.gameView{
+                if gameVC.autoSpinHasUsed {
+                gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
+                }
+
+                gameVC.gestureLongTap = 0
+                guard gameView.spinBtn.tag == 0 else { return }
+                
+            navigationController?.popViewController(animated: true)
+            }
+        }
+       }
     
     @objc func spin() {
+        
         selectedIndex = 0
         selectBtn(1)
     }
     
     @objc func build() {
-        selectedIndex = 1
-        selectBtn(2)
-        AnalyticsHelper.sendFirebaseEvents(events: .map_open)
+        if let gameVC = children.first as? GameController {
+            gameVC.autoSpinTimer.invalidate()
+            if let gameView = gameVC.gameView{
+                gameVC.autoSpinTimer.invalidate()
+                if  gameVC.autoSpinHasUsed {
+                gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
+                }
+
+                gameVC.gestureLongTap = 0
+                guard gameView.spinBtn.tag == 0 else { return }
+                selectedIndex = 1
+                selectBtn(2)
+                AnalyticsHelper.sendFirebaseEvents(events: .map_open)
+
+            }
+        } else {
+            selectedIndex = 1
+            selectBtn(2)
+            AnalyticsHelper.sendFirebaseEvents(events: .map_open)
+
+        }
     }
     
     @objc func map() {
-        selectBtn(3)
-        selectedIndex = 2
+        if let gameVC = children.first as? GameController {
+            gameVC.autoSpinTimer.invalidate()
+            if let gameView = gameVC.gameView {
+                gameVC.autoSpinTimer.invalidate()
+                if gameVC.autoSpinHasUsed {
+                gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
+                }
+               
+                gameVC.gestureLongTap = 0
+                guard gameView.spinBtn.tag == 0 else { return }
+                selectBtn(3)
+                selectedIndex = 2
+            }
+        } else {
+            selectBtn(3)
+            selectedIndex = 2
+        }
     }
     
     @objc func profile() {
@@ -150,4 +199,3 @@ class GameTabBarController: UITabBarController {
 enum MapName: String {
     case snow_map, england_map, france_map
 }
-

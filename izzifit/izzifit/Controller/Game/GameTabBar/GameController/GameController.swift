@@ -8,7 +8,7 @@
 import UIKit
 
 class GameController: BaseController {
- 
+    
     var gameView: SpinGameViewProtocol?
     private var collectionView: UICollectionView?
     private var firstLaunch = true
@@ -17,7 +17,8 @@ class GameController: BaseController {
     var tapSpinCounter = 0
     var autoSpinTimer = Timer()
     var gestureLongTap = 0
-
+    var autoSpinHasUsed = false
+    
     override func loadView() {
         super.loadView()
         switch PreferencesManager.sharedManager.currentMapName {
@@ -26,7 +27,7 @@ class GameController: BaseController {
         case .france_map:   self.gameView = FranceGameView()
         case .none:         self.gameView = ArcticGameView()
         }
-
+        
         gameView?.frame = view.bounds
         view.addSubview(gameView ?? UIView())
     }
@@ -67,8 +68,9 @@ class GameController: BaseController {
             self.onboardingDraw()
         }
         tapSpinCounter = 0
+        autoSpinHasUsed = false
     }
-     
+    
     func onboardingDraw() {
         guard !PreferencesManager.sharedManager.gameOnboardingDone else { return }
         if let tabBarVC = self.tabBarController as? GameTabBarController {
@@ -77,9 +79,9 @@ class GameController: BaseController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
                                                              delegate: self,
-                                                            gameTabBar: tabBarVC,
+                                                             gameTabBar: tabBarVC,
                                                              arcGameView: self.gameView)
-                         
+                
                 self.view.ui.genericlLayout(object: self.onboardingView!,
                                             parentView: self.gameView?.animationImgVw ?? UIImageView(),
                                             topC: 0,
@@ -112,8 +114,8 @@ class GameController: BaseController {
         gameView?.hummerBtn.isHidden = true
         gameView?.hummerCountLbl.isHidden = true
         gameView?.spinBtn.addTarget(self,
-                                   action: #selector(spinAction),
-                                   for: .touchDown)
+                                    action: #selector(spinAction),
+                                    for: .touchDown)
         setCollectionView()
     }
     
@@ -129,7 +131,7 @@ class GameController: BaseController {
         collectionView?.dataSource = self
         collectionView?.delegate = self
         collectionView?.register(SlotCollectionCell.self,
-                                forCellWithReuseIdentifier: SlotCollectionCell.id)
+                                 forCellWithReuseIdentifier: SlotCollectionCell.id)
         
         var width = CGFloat()
         var centerH = CGFloat()
@@ -149,6 +151,14 @@ class GameController: BaseController {
     }
     
     private func spinsRunOut() {
+        gestureLongTap = 0
+        if let gameView = gameView {
+            gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
+            gameView.spinBtn.tag = 0
+            autoSpinTimer.invalidate()
+        }
+        activateAutospin()
+        
         let alert = UIAlertController(title: "Congratulation",
                                       message: "You can upgrade all the buildings. The new level is coming soon.",
                                       preferredStyle: .alert)
@@ -160,24 +170,9 @@ class GameController: BaseController {
     
     // Spin Methods
     
-    @objc func spinAction() {
+    func activateAutospin() {
         if let gameView = gameView {
-            timerSpinManager.generalSpin(resultLbl: gameView.startSpinLbl,
-                                         resultStackView: gameView.resultStackView,
-                                         coinsLbl: gameView.barBackVw.coinsLbl,
-                                         energyCountLbl: gameView.barBackVw.energyCountLbl,
-                                         spinBtn: gameView.spinBtn,
-                                         showProgress: { DispatchQueue.main.async { gameView.showProgress() }}
-                                         ,spinsRunOut: spinsRunOut) {
-                let result = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
-
-                if !result, let ids = PreferencesManager.sharedManager.enegyZero?.idProducts {
-                    GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
-                }
-            }
-            
-            tapSpinCounter += 1
-            if tapSpinCounter == 1 {
+            if tapSpinCounter == 5 {
                 gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
                 gameView.spinBtn.setImage(RImage.spinHold2sec(), for:      .highlighted)
                 gameView.spinBtn.addTarget(self, action: #selector(buttonInPressed), for: .touchDown)
@@ -186,33 +181,65 @@ class GameController: BaseController {
                 longGesture.minimumPressDuration = 2
                 gameView.spinBtn.addGestureRecognizer(longGesture)
             }
-  
+        }
+    }
+    
+    @objc func spinAction() {
+        if let gameView = gameView {
+            guard gameView.spinBtn.tag == 0 else { return }
+            
+            timerSpinManager.generalSpin(resultLbl: gameView.startSpinLbl,
+                                         resultStackView: gameView.resultStackView,
+                                         coinsLbl: gameView.barBackVw.coinsLbl,
+                                         energyCountLbl: gameView.barBackVw.energyCountLbl,
+                                         spinBtn: gameView.spinBtn,
+                                         showProgress: { DispatchQueue.main.async { gameView.showProgress() }}
+                                         ,spinsRunOut: spinsRunOut) {
+                let result = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
+                
+                if !result, let ids = PreferencesManager.sharedManager.enegyZero?.idProducts {
+                    GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
+                    gestureLongTap = 0
+                    gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
+                    gameView.spinBtn.tag = 0
+                    autoSpinTimer.invalidate()
+                    activateAutospin()
+                }
+            }
+            
+            tapSpinCounter += 1
+            
             guard !PreferencesManager.sharedManager.gameOnboardingDone  else { return }
             ArcticGameView.counter += 1
             gameView.showProgress()
         }
     }
     
-  
+    
     @objc func long() {
         gestureLongTap += 1
         guard gestureLongTap == 1 else { return }
         if let gameView = gameView {
             gameView.spinBtn.setImage(RImage.spinCancelAutoSpin(), for: .normal)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.autoSpinHasUsed = true
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                guard self.gestureLongTap != 0 else { return }
                 self.autoSpinTimer = Timer.scheduledTimer(timeInterval: 5.0,
-                                           target: self,
-                                           selector: #selector(self.spinAction),
-                                           userInfo: nil,
-                                           repeats: true)
+                                                          target: self,
+                                                          selector: #selector(self.spinAction),
+                                                          userInfo: nil,
+                                                          repeats: true)
                 self.autoSpinTimer.fire()
             }
         }
     }
     
     @objc func buttonInPressed(sender: UIButton) {
-        if let gameView = gameView { gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
+        if let gameView = gameView {
+            gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
             autoSpinTimer.invalidate()
+            gestureLongTap = 0
         }
     }
     
@@ -238,40 +265,56 @@ extension GameController: UICollectionViewDelegate, UICollectionViewDataSource {
 // MARK: - SpinAwardProtocol
 //----------------------------------------------
 extension GameController: SpinAwardProtocol {
+    func idleSpin() {
+        gestureLongTap = 0
+        if let gameView = gameView {
+            gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
+            gameView.spinBtn.tag = 0
+            autoSpinTimer.invalidate()
+        }
+        activateAutospin()
+    }
+    
     func completeAward(model: [SpinMainModel]) {
         if let tupleAward = gameView?.showAwards(model: model),
            let gameView = gameView {
-        
-        var spinManager = CombinationsAwardsManager()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let spinTags = self.timerSpinManager.convertSpinTypes(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds)
+            
+            var spinManager = CombinationsAwardsManager()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                let spinTags = self.timerSpinManager.convertSpinTypes(self.timerSpinManager.counter.combinations[self.timerSpinManager.combinationCounter].spinObjectIds)
                 if let tupleResult = spinManager.recognizeSetCombinations(spinTags) {
-                spinManager.accrueBonuses(by: tupleResult.0,
-                                               homeView: gameView,
-                                               barBackVw: gameView.barBackVw,
-                                               hiddenStack: gameView.resultStackView,
-                                               awardImgVw: gameView.awardImgVw,
-                                               awardTitleLbl: gameView.awardTitleLbl,
-                                               awardCountLbl: gameView.awardCountLbl,
-                                               coinsAmount: tupleAward.coinsAward,
-                                               spinsAmount: tupleAward.spinsAward) { gameView.threeHummersCombination() }
-                gameView.showProgress()
+                    spinManager.accrueBonuses(by: tupleResult.0,
+                                              homeView: gameView,
+                                              barBackVw: gameView.barBackVw,
+                                              hiddenStack: gameView.resultStackView,
+                                              awardImgVw: gameView.awardImgVw,
+                                              awardTitleLbl: gameView.awardTitleLbl,
+                                              awardCountLbl: gameView.awardCountLbl,
+                                              coinsAmount: tupleAward.coinsAward,
+                                              spinsAmount: tupleAward.spinsAward) { gameView.threeHummersCombination() }
+                    gameView.showProgress()
                 } else {
                     spinManager.coinBag(in: spinTags,
-                                             hiddenStack: gameView.resultStackView,
-                                             awardImgVw: gameView.awardImgVw,
-                                             awardTitleLbl: gameView.awardTitleLbl,
-                                             awardCountLbl: gameView.awardCountLbl,
-                                             coinsAmount: tupleAward.coinsAward,
-                                             animateCoins: gameView.barBackVw.animateCoins(speed:))
+                                        hiddenStack: gameView.resultStackView,
+                                        awardImgVw: gameView.awardImgVw,
+                                        awardTitleLbl: gameView.awardTitleLbl,
+                                        awardCountLbl: gameView.awardCountLbl,
+                                        coinsAmount: tupleAward.coinsAward,
+                                        animateCoins: gameView.barBackVw.animateCoins(speed:))
                 }
-            let lastSpinIndex = self.timerSpinManager.counter.combinations.count - 1
-            switch self.timerSpinManager.combinationCounter {
-            case lastSpinIndex: self.timerSpinManager.combinationCounter = 0
-            default:  self.timerSpinManager.combinationCounter += 1
+                let lastSpinIndex = self.timerSpinManager.counter.combinations.count - 1
+                switch self.timerSpinManager.combinationCounter {
+                case lastSpinIndex: self.timerSpinManager.combinationCounter = 0
+                default:            self.timerSpinManager.combinationCounter += 1
+                }
+                
+                self.activateAutospin()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    gameView.spinBtn.tag = 0
+                }
             }
-        }
-        let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterSpeen)
+            let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterSpeen)
         }
     }
 }
@@ -294,7 +337,7 @@ extension GameController: PurchasePopUpProtocol {
         
         /// сделай тоже самое по англии
         if let tabBarVC = self.tabBarController as? GameTabBarController {
-           
+            
             NotificationCenter.default.post(name: Constants.Notifications.openWorkoutNotification,
                                             object: self,
                                             userInfo: nil)
@@ -322,55 +365,55 @@ extension GameController: PurchasePopUpProtocol {
 
 extension GameController: MainGameOnboardingDelegate {
     func tapBtn() {
-       
+        
         onboardingView?.removeFromSuperview()
-    
+        
         if let tabBarVC = self.tabBarController as? GameTabBarController {
             
             switch MainGameOnboardingView.stateCounter {
             case 8:
                 
                 if let gameView = gameView {
-                gameView.spinBtn.sendActions(for: .touchDown)
-                MainGameOnboardingView.stateCounter += 1
-                onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
-                                                         delegate: self,
-                                                        gameTabBar: tabBarVC,
-                                                         arcGameView: gameView)
-                     
-              view.ui.genericlLayout(object: onboardingView!,
-                                    parentView: gameView.animationImgVw,
-                                    topC: 0,
-                                    bottomC: 0,
-                                    leadingC: 0,
-                                    trailingC: 0)
-                
-               
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                    gameView.spinBtn.sendActions(for: .touchDown)
+                    MainGameOnboardingView.stateCounter += 1
+                    onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                            delegate: self,
+                                                            gameTabBar: tabBarVC,
+                                                            arcGameView: gameView)
+                    
+                    view.ui.genericlLayout(object: onboardingView!,
+                                           parentView: gameView.animationImgVw,
+                                           topC: 0,
+                                           bottomC: 0,
+                                           leadingC: 0,
+                                           trailingC: 0)
+                    
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
                         gameView.spinBtn.sendActions(for: .touchDown)
                     }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-                    gameView.spinBtn.sendActions(for: .touchDown)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+                        gameView.spinBtn.sendActions(for: .touchDown)
                     }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
-                    gameView.spinBtn.sendActions(for: .touchDown)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
+                        gameView.spinBtn.sendActions(for: .touchDown)
                     }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 20.0) {
-                    self.onboardingView?.removeFromSuperview()
-                    MainGameOnboardingView.stateCounter += 1
-                    self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
-                                                                 delegate: self,
-                                                                 gameTabBar: tabBarVC,
-                                                                 arcGameView: gameView)
-                         
-                    self.view.ui.genericlLayout(object: self.onboardingView!,
-                                                parentView: gameView.animationImgVw,
-                                                topC: 0,
-                                                bottomC: 0,
-                                                leadingC: 0,
-                                                trailingC: 0)
-                    AnalyticsHelper.sendFirebaseEvents(events: .onb_spin_ok)
-                }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 20.0) {
+                        self.onboardingView?.removeFromSuperview()
+                        MainGameOnboardingView.stateCounter += 1
+                        self.onboardingView = MainGameOnboardingView(state: MainGameOnboardingView.gameOnboardStates[MainGameOnboardingView.stateCounter],
+                                                                     delegate: self,
+                                                                     gameTabBar: tabBarVC,
+                                                                     arcGameView: gameView)
+                        
+                        self.view.ui.genericlLayout(object: self.onboardingView!,
+                                                    parentView: gameView.animationImgVw,
+                                                    topC: 0,
+                                                    bottomC: 0,
+                                                    leadingC: 0,
+                                                    trailingC: 0)
+                        AnalyticsHelper.sendFirebaseEvents(events: .onb_spin_ok)
+                    }
                 }
             case 10:
                 MainGameOnboardingView.stateCounter += 1
