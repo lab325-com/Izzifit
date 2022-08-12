@@ -5073,7 +5073,11 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+<<<<<<< HEAD
+  /// This `R.nib` struct is generated, and contains static references to 90 nibs.
+=======
   /// This `R.nib` struct is generated, and contains static references to 91 nibs.
+>>>>>>> 4a141e1b7e5dcad9d1f0045545f660ea45f537a3
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -11642,6 +11646,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'EnergySpecialPriceCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "placeholder_big_sport_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder_big_sport_ic' is used in nib 'EnergySpecialPriceCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
