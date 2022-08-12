@@ -88,7 +88,7 @@ class LevelFinishView: UIView {
         
         nextMapBtn.setBackgroundImage(image(img: .nextMapBtn), for: .normal)
         nextMapBtn.setTitle("NEXT MAP", for: .normal)
-        nextMapBtn.titleLabel?.font =                 UIFont(name: "Inter-ExtraBold" , size: 16)
+        nextMapBtn.titleLabel?.font =                 UIFont(name: "Inter-Bold" , size: 16)
         nextMapBtn.titleLabel?.layer.shadowColor =    UIColor(rgb: 0x462D16, alpha: 0.5).cgColor
         nextMapBtn.titleLabel?.layer.shadowOpacity =  1.0
         nextMapBtn.titleLabel?.layer.shadowRadius =   2.0
