@@ -197,8 +197,8 @@ class GameController: BaseController {
                                          ,spinsRunOut: spinsRunOut) {
                 let result = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .energyZero)
                 
-                if !result, let ids = PreferencesManager.sharedManager.enegyZero?.idProducts {
-                    GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, titlePopUp: "Arctic", delegate: self)
+                if !result, let ids = PreferencesManager.sharedManager.enegyZero?.idProducts { 
+                    GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, delegate: self)
                     gestureLongTap = 0
                     gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
                     gameView.spinBtn.tag = 0
@@ -206,10 +206,9 @@ class GameController: BaseController {
                     activateAutospin()
                 }
             }
-            
             tapSpinCounter += 1
             
-            guard !PreferencesManager.sharedManager.gameOnboardingDone  else { return }
+            guard !PreferencesManager.sharedManager.gameOnboardingDone else {return}
             ArcticGameView.counter += 1
             gameView.showProgress()
         }
@@ -302,11 +301,8 @@ extension GameController: SpinAwardProtocol {
                                         coinsAmount: tupleAward.coinsAward,
                                         animateCoins: gameView.barBackVw.animateCoins(speed:))
                 }
-                let lastSpinIndex = self.timerSpinManager.counter.combinations.count - 1
-                switch self.timerSpinManager.combinationCounter {
-                case lastSpinIndex: self.timerSpinManager.combinationCounter = 0
-                default:            self.timerSpinManager.combinationCounter += 1
-                }
+           
+                self.timerSpinManager.combinationCounter += 1
                 
                 self.activateAutospin()
                 

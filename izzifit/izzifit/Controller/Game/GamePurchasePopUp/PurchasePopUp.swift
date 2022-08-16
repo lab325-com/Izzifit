@@ -76,8 +76,15 @@ class PurchasePopUp: BaseController {
     // MARK: - Init
     //----------------------------------------------
     
-    init(idProducts: [InAppPurchaseType], titlePopUp: String, delegate: PurchasePopUpProtocol) {
-        self.titlePopUp = titlePopUp
+    init(idProducts: [InAppPurchaseType], delegate: PurchasePopUpProtocol) {
+        
+        switch PreferencesManager.sharedManager.currentMapName {
+        case .snow_map:    self.titlePopUp =   "Arctic"
+        case .england_map: self.titlePopUp = "England"
+        case .france_map: self.titlePopUp =  "France"
+        case .none:       self.titlePopUp =   "Arctic"
+        }
+        
         self.delegate = delegate
         self.idProducts = idProducts
         

@@ -92,7 +92,7 @@ class MapView: UIView {
         }
         
         for (index, btn) in mapBtns.enumerated() {
-            guard index == actualMapPoint.rawValue || index == (actualMapPoint.rawValue + 1) || index == (actualMapPoint.rawValue - 1) else { continue }
+            guard index <= actualMapPoint.rawValue || index == (actualMapPoint.rawValue + 1) else { continue }
             btn.isSelected = true
         }
         
