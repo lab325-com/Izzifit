@@ -1,0 +1,36 @@
+query DietPlanById($id: String!) {
+	dietPlanById(id: $id) {
+        id
+        title
+        description
+        Schedule {
+            day
+            Meals {
+                id
+                title
+                description
+                Image {
+                    id
+                    urlIosFull
+                    urlIosPrev
+                }
+                amount
+                prot
+                carbs
+                fats
+            }
+        }
+        kgLosePerWeek
+        externalId
+        isAvailable
+        energyTotal
+        kCal
+        Image {
+            id
+            urlIosFull
+            urlIosPrev
+        }
+	}
+}
+
+

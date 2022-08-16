@@ -23,26 +23,42 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVR-J3-h4R">
-                        <rect key="frame" x="16" y="0.0" width="304" height="44"/>
+                        <rect key="frame" x="16" y="0.0" width="304" height="36"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9e-hR-WKV">
-                                <rect key="frame" x="12" y="12.5" width="41.5" height="19.5"/>
+                                <rect key="frame" x="12" y="8.5" width="41.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
                                 <color key="textColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diet_arrow_ic" translatesAutoresizingMaskIntoConstraints="NO" id="RCZ-RY-861">
+                                <rect key="frame" x="280" y="15" width="11" height="6.5"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAL-8K-mwX">
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="36"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="actionSelectSection:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fii-8R-1tv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94509803921568625" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Y9e-hR-WKV" firstAttribute="centerY" secondItem="FVR-J3-h4R" secondAttribute="centerY" id="3cf-Ew-syG"/>
+                            <constraint firstItem="eAL-8K-mwX" firstAttribute="centerX" secondItem="FVR-J3-h4R" secondAttribute="centerX" id="5m7-sK-lfM"/>
+                            <constraint firstItem="eAL-8K-mwX" firstAttribute="height" secondItem="FVR-J3-h4R" secondAttribute="height" id="77c-MC-hBf"/>
+                            <constraint firstAttribute="trailing" secondItem="RCZ-RY-861" secondAttribute="trailing" constant="13" id="L2v-hX-hdL"/>
+                            <constraint firstItem="RCZ-RY-861" firstAttribute="centerY" secondItem="FVR-J3-h4R" secondAttribute="centerY" id="MXc-Kd-kde"/>
                             <constraint firstItem="Y9e-hR-WKV" firstAttribute="leading" secondItem="FVR-J3-h4R" secondAttribute="leading" constant="12" id="fjT-Ci-hmr"/>
+                            <constraint firstItem="eAL-8K-mwX" firstAttribute="centerY" secondItem="FVR-J3-h4R" secondAttribute="centerY" id="iPi-ib-snm"/>
+                            <constraint firstItem="eAL-8K-mwX" firstAttribute="width" secondItem="FVR-J3-h4R" secondAttribute="width" id="pij-hf-v00"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="FVR-J3-h4R" secondAttribute="trailing" id="ij0-2Y-hTS"/>
-                    <constraint firstAttribute="bottom" secondItem="FVR-J3-h4R" secondAttribute="bottom" id="ouc-ca-QvC"/>
+                    <constraint firstAttribute="bottom" secondItem="FVR-J3-h4R" secondAttribute="bottom" constant="8" id="ouc-ca-QvC"/>
                     <constraint firstItem="FVR-J3-h4R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="phP-I5-2y1"/>
                     <constraint firstItem="FVR-J3-h4R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="zqL-02-Zgm"/>
                 </constraints>
@@ -51,9 +67,14 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <inset key="separatorInset" minX="10000" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
+                <outlet property="arrowImage" destination="RCZ-RY-861" id="1n7-MU-qK3"/>
                 <outlet property="cornerView" destination="FVR-J3-h4R" id="ik1-Hn-tjP"/>
+                <outlet property="dayLabel" destination="Y9e-hR-WKV" id="Yyz-wg-6I3"/>
             </connections>
             <point key="canvasLocation" x="139" y="105"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="diet_arrow_ic" width="11" height="6.5"/>
+    </resources>
 </document>

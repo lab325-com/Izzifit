@@ -21,6 +21,7 @@
                 <outlet property="priceContinueView" destination="2Ph-m7-VKG" id="Zi7-ob-Mo0"/>
                 <outlet property="priceLabel" destination="fon-91-umt" id="iCf-f1-KF3"/>
                 <outlet property="separatorDiscount" destination="jtJ-Pk-Uqh" id="7uV-0r-VDX"/>
+                <outlet property="startWorkoutButton" destination="twl-C5-Oxg" id="c7M-an-Fx6"/>
                 <outlet property="tableView" destination="0KB-hu-Xwz" id="LCJ-HA-gAN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -58,6 +59,9 @@
                                     <integer key="value" value="24"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="actionStartWorkout:" destination="-1" eventType="touchUpInside" id="mBp-Gn-sQq"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ph-m7-VKG">
                             <rect key="frame" x="24" y="24" width="366" height="48"/>
@@ -87,6 +91,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7b-Aj-zBo">
                                             <rect key="frame" x="-104" y="0.0" width="366" height="48"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <connections>
+                                                <action selector="actionStartWorkout:" destination="-1" eventType="touchUpInside" id="hJ3-Ct-GU5"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

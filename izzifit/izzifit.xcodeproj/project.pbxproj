@@ -247,6 +247,12 @@
 		02ABCF4627CD0EA800E69C06 /* MenuLanguagesTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02ABCF4427CD0EA800E69C06 /* MenuLanguagesTitleCell.xib */; };
 		02AC22262800666700440DFB /* OrderCreate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02AC22252800666600440DFB /* OrderCreate.graphql */; };
 		02AC22282800677B00440DFB /* OrderCreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AC22272800677B00440DFB /* OrderCreateModel.swift */; };
+		02AD426E28A667110091DE04 /* DietDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AD426D28A667110091DE04 /* DietDetailPresenter.swift */; };
+		02AD427128A66AD90091DE04 /* DietPlans.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02AD427028A66AD90091DE04 /* DietPlans.graphql */; };
+		02AD427328A66BDE0091DE04 /* DietPlansModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AD427228A66BDE0091DE04 /* DietPlansModel.swift */; };
+		02AD427528A66C210091DE04 /* DietPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AD427428A66C210091DE04 /* DietPlanModel.swift */; };
+		02AD427828A7E0100091DE04 /* DietPlanById.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02AD427728A7E0100091DE04 /* DietPlanById.graphql */; };
+		02AD427B28A7E07D0091DE04 /* DietPlanByIdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AD427A28A7E07D0091DE04 /* DietPlanByIdModel.swift */; };
 		02AD738B284F6F8E00376E4C /* OrderProduct.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 02AD738A284F6F8E00376E4C /* OrderProduct.graphql */; };
 		02AD738E284F6FEF00376E4C /* OrderProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AD738D284F6FEF00376E4C /* OrderProductModel.swift */; };
 		02B1E71927DA003B00C9E610 /* EnergyTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1E71727DA003B00C9E610 /* EnergyTrainingCell.swift */; };
@@ -733,6 +739,12 @@
 		02ABCF4427CD0EA800E69C06 /* MenuLanguagesTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuLanguagesTitleCell.xib; sourceTree = "<group>"; };
 		02AC22252800666600440DFB /* OrderCreate.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OrderCreate.graphql; sourceTree = "<group>"; };
 		02AC22272800677B00440DFB /* OrderCreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCreateModel.swift; sourceTree = "<group>"; };
+		02AD426D28A667110091DE04 /* DietDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietDetailPresenter.swift; sourceTree = "<group>"; };
+		02AD427028A66AD90091DE04 /* DietPlans.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DietPlans.graphql; sourceTree = "<group>"; };
+		02AD427228A66BDE0091DE04 /* DietPlansModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietPlansModel.swift; sourceTree = "<group>"; };
+		02AD427428A66C210091DE04 /* DietPlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietPlanModel.swift; sourceTree = "<group>"; };
+		02AD427728A7E0100091DE04 /* DietPlanById.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DietPlanById.graphql; sourceTree = "<group>"; };
+		02AD427A28A7E07D0091DE04 /* DietPlanByIdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietPlanByIdModel.swift; sourceTree = "<group>"; };
 		02AD738A284F6F8E00376E4C /* OrderProduct.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OrderProduct.graphql; sourceTree = "<group>"; };
 		02AD738D284F6FEF00376E4C /* OrderProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProductModel.swift; sourceTree = "<group>"; };
 		02B1E71727DA003B00C9E610 /* EnergyTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyTrainingCell.swift; sourceTree = "<group>"; };
@@ -1085,6 +1097,7 @@
 		020E38E1289D2B2000EDACEF /* DietDetail */ = {
 			isa = PBXGroup;
 			children = (
+				02AD426D28A667110091DE04 /* DietDetailPresenter.swift */,
 				020E38E2289D2B4300EDACEF /* DietDetailController.swift */,
 				020E38E3289D2B4300EDACEF /* DietDetailController.xib */,
 				020E38E6289D421A00EDACEF /* Cell */,
@@ -1555,6 +1568,7 @@
 				020CB3D427E9CA2C00F97A76 /* WorkoutsWidgetMainModel.swift */,
 				02BACF1727F4588100B7562C /* WorkoutByIdMainModel.swift */,
 				FA2794E6285A058D00AEEA70 /* HealthModel.swift */,
+				02AD427428A66C210091DE04 /* DietPlanModel.swift */,
 			);
 			path = GlobalModels;
 			sourceTree = "<group>";
@@ -1627,6 +1641,8 @@
 		0249D29A27B3D78900F265C1 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+				02AD427628A7DFF80091DE04 /* DietPlanById */,
+				02AD426F28A66AC20091DE04 /* DietPlans */,
 				FAD5B29E2865A3EA00A1EF4D /* StepsWidget */,
 				0298DDF028606DAE00BD0234 /* SpecialWorkouts */,
 				02C5C4612836545D00DA189C /* WidgetList */,
@@ -2165,6 +2181,24 @@
 				02AC22272800677B00440DFB /* OrderCreateModel.swift */,
 			);
 			path = OrderCreate;
+			sourceTree = "<group>";
+		};
+		02AD426F28A66AC20091DE04 /* DietPlans */ = {
+			isa = PBXGroup;
+			children = (
+				02AD427028A66AD90091DE04 /* DietPlans.graphql */,
+				02AD427228A66BDE0091DE04 /* DietPlansModel.swift */,
+			);
+			path = DietPlans;
+			sourceTree = "<group>";
+		};
+		02AD427628A7DFF80091DE04 /* DietPlanById */ = {
+			isa = PBXGroup;
+			children = (
+				02AD427728A7E0100091DE04 /* DietPlanById.graphql */,
+				02AD427A28A7E07D0091DE04 /* DietPlanByIdModel.swift */,
+			);
+			path = DietPlanById;
 			sourceTree = "<group>";
 		};
 		02AD7389284F6F7500376E4C /* OrderProduct */ = {
@@ -3326,6 +3360,7 @@
 				020D282527E89FE700010122 /* AddProductToMeal.graphql in Resources */,
 				02BACF0C27F4407300B7562C /* WorkoutActivitiesCell.xib in Resources */,
 				FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */,
+				02AD427828A7E0100091DE04 /* DietPlanById.graphql in Resources */,
 				0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */,
 				020D282027E863DD00010122 /* FoodAddController.xib in Resources */,
 				FA6E8B332894028F0008F36C /* Inter-BlackItalic.ttf in Resources */,
@@ -3359,6 +3394,7 @@
 				023FBC3D27FACC8C004D0CEA /* PaywallController.xib in Resources */,
 				0249D29C27B3D79D00F265C1 /* Me.graphql in Resources */,
 				0227DA9727C619F7008AB26B /* MenuCell.xib in Resources */,
+				02AD427128A66AD90091DE04 /* DietPlans.graphql in Resources */,
 				02AB486527E06DEE00F35EE2 /* FoodRecomendedCell.xib in Resources */,
 				029EDBD3280D727A00FC8748 /* WorkoutAttemptUpdate.graphql in Resources */,
 				02D066EA27BC1BC900D12C5F /* QuizeWeightController.xib in Resources */,
@@ -3644,6 +3680,7 @@
 				02ABCF4527CD0EA800E69C06 /* MenuLanguagesTitleCell.swift in Sources */,
 				0227DA9927C62854008AB26B /* MenuPresenter.swift in Sources */,
 				0249D26127B3A88C00F265C1 /* UIScrollView+Extension.swift in Sources */,
+				02AD427328A66BDE0091DE04 /* DietPlansModel.swift in Sources */,
 				FA1A2568283D0C8500240E28 /* PaywallPriceType.swift in Sources */,
 				0263389027DB29AF00DC0325 /* EnergyRouter.swift in Sources */,
 				021A6F4E27BF99710000D863 /* MainTabBarController.swift in Sources */,
@@ -3680,6 +3717,7 @@
 				02BACF1827F4588100B7562C /* WorkoutByIdMainModel.swift in Sources */,
 				0273F55E27D5F7CB00B19449 /* EnergyMealsCell.swift in Sources */,
 				0263389427DB3E5100DC0325 /* ProgressCell.swift in Sources */,
+				02AD426E28A667110091DE04 /* DietDetailPresenter.swift in Sources */,
 				FE7CF8B627E48F760099682E /* PositionTableCell.swift in Sources */,
 				02A5CDBC27C3DD3300D31FB4 /* PasswordForgotRequestModel.swift in Sources */,
 				0249D22B27B3A4EF00F265C1 /* AppDelegate.swift in Sources */,
@@ -3706,6 +3744,7 @@
 				02AC22282800677B00440DFB /* OrderCreateModel.swift in Sources */,
 				02A27B59282A657400B435B0 /* AnalyticsHelper.swift in Sources */,
 				020D282227E887A400010122 /* FoodAddPresenter.swift in Sources */,
+				02AD427528A66C210091DE04 /* DietPlanModel.swift in Sources */,
 				02B22ACA281C2614006AB1EA /* SpinModel.swift in Sources */,
 				020CB3DC27E9F46600F97A76 /* UpdateProductInMealModel.swift in Sources */,
 				029EDBD5280D72B900FC8748 /* WorkoutAttemptUpdateModel.swift in Sources */,
@@ -3873,6 +3912,7 @@
 				02F01C5427D794B20066656D /* MoodWidgetModel.swift in Sources */,
 				0263389E27DB6C9A00DC0325 /* ProgressesModel.swift in Sources */,
 				FE7CF8BB27E4A7ED0099682E /* WeightTableCell.swift in Sources */,
+				02AD427B28A7E07D0091DE04 /* DietPlanByIdModel.swift in Sources */,
 				FAB65AB12848C4D700664399 /* EnglandGameController.swift in Sources */,
 				FACB1E862804325500058773 /* PointersAndTicks.swift in Sources */,
 				02BC127F27F1FBA500678305 /* WorkoutDetailPresenter.swift in Sources */,
