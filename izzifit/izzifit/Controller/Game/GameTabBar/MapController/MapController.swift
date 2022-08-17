@@ -25,7 +25,7 @@ class MapController: BaseController {
                 mapView.scrollView.setContentOffset(CGPoint(x: x, y: 2625 - (UIScreen.main.bounds.height + 248)),animated: true)
             case .france_map:
                 mapView = MapView(mapPoint: .france)
-                mapView.scrollView.setContentOffset(CGPoint(x: x, y: 2625 - (UIScreen.main.bounds.height + 200)),animated: true)
+                mapView.scrollView.setContentOffset(CGPoint(x: x, y: 2625 - (UIScreen.main.bounds.height + 300)),animated: true)
             }
             currentMapState = mapName
         }
@@ -45,12 +45,9 @@ class MapController: BaseController {
         if let mapName = PreferencesManager.sharedManager.currentMapName,
         currentMapState != mapName{
             switch mapName {
-            case .snow_map:
-                mapView.redrawMap(mapPoint: .arctic)
-            case .england_map:
-                mapView.redrawMap(mapPoint: .england)
-            case .france_map:
-                break
+            case .snow_map:  mapView.redrawMap(mapPoint: .arctic)
+            case .england_map: mapView.redrawMap(mapPoint: .england)
+            case .france_map:  mapView.redrawMap(mapPoint: .france)
             }
         }
     }

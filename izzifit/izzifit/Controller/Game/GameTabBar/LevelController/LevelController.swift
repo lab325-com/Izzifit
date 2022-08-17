@@ -363,7 +363,6 @@ extension LevelController: LevelPopUpDelegate {
 
         if !result, let ids = PreferencesManager.sharedManager.coinsZero?.idProducts {
             GameRouter(presenter: self.navigationController).presentEnergyPopUp(idProducts: ids,
-                                                                                titlePopUp: "Arctic",
                                                                                 delegate: self)
         }
     }

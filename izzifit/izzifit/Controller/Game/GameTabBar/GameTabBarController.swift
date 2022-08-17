@@ -166,7 +166,6 @@ class GameTabBarController: UITabBarController {
             selectedIndex = 1
             selectBtn(2)
             AnalyticsHelper.sendFirebaseEvents(events: .map_open)
-
         }
     }
     

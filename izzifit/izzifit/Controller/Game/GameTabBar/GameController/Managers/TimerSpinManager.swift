@@ -72,6 +72,7 @@ class TimerSpinManager {
     }
     
     func getSpeed(by index: Int) -> CGFloat {
+        guard counter.combinations.count > combinationCounter else { return 0.0 }
         let spinTag = convertSpinTypeObjectToInt(counter.combinations[combinationCounter].spinObjectIds[index])
         return counter.spiningStride(to: spinTag,
                                      from: index,
@@ -116,7 +117,6 @@ class TimerSpinManager {
             self.tables[index].layoutIfNeeded()
         } completion: { bool in
             guard self.timerCounters[index] == 3 || self.timerCounters[index] == 87 else { return }
-            // докручивать к середине
             let cells = self.tables[index].visibleCells
             if let indexPath = self.tables[index].indexPath(for: cells[1]) {
                 self.tables[index].scrollToRow(at: indexPath, at: .middle, animated: true)
@@ -137,7 +137,7 @@ class TimerSpinManager {
                      spinsRunOut: () -> (),
                      presentPaywall: () -> ()) {
         
-        guard counter.combinations.count > combinationCounter else { spinsRunOut()
+        guard counter.combinations.count != combinationCounter else { spinsRunOut()
             return }
     
         guard KeychainService.standard.me?.energy ?? 0.0 > 0.99 else { presentPaywall()
@@ -147,7 +147,6 @@ class TimerSpinManager {
         resultStackView.isHidden = true
         AudioManager.sharedManager.playSound(type: .spinTap_10)
         AnalyticsHelper.sendFirebaseEvents(events: .spin_tap)
-        // поменяй лейблы
         combinationManager.spinAction(coinsLbl: coinsLbl,
                                       energyLbl: energyCountLbl,
                                       resultLbl: resultLbl,
