@@ -3869,7 +3869,6 @@
 				0263389E27DB6C9A00DC0325 /* ProgressesModel.swift in Sources */,
 				FE7CF8BB27E4A7ED0099682E /* WeightTableCell.swift in Sources */,
 				02AD427B28A7E07D0091DE04 /* DietPlanByIdModel.swift in Sources */,
-				FAB65AB12848C4D700664399 /* EnglandGameController.swift in Sources */,
 				FACB1E862804325500058773 /* PointersAndTicks.swift in Sources */,
 				02BC127F27F1FBA500678305 /* WorkoutDetailPresenter.swift in Sources */,
 				025463B427CF784400D433DB /* MenuFitnessPresenter.swift in Sources */,
@@ -4027,7 +4026,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 65;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4067,7 +4066,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 65;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4168,7 +4167,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 65;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
