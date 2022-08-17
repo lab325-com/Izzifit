@@ -8,6 +8,17 @@
 import UIKit
 
 extension PaywallScreenType {
+    var subscribeTitle: String {
+        switch self {
+        case .variant11:
+            return "Get with 30% discount"
+        case .variant12, .variant13:
+            return "Get with 50% discount"
+        default:
+            return "Get with 30% discount"
+        }
+    }
+    
     var discountPush: UIImage? {
         switch self {
         case .variant11:
@@ -35,13 +46,26 @@ extension PaywallScreenType {
     var idPushPrice: PaywallPriceType {
         switch self {
         case .variant11:
-            return .threeMonth30FreeTrial
+            return .threeMonth30
         case .variant12:
-            return .threeMonth50FreeTrial
+            return .threeMonth50
         case .variant13:
             return .oneYear50FreeTrial
         default:
-            return .threeMonth30FreeTrial
+            return .threeMonth30
+        }
+    }
+    
+    var idPushTrial: PaywallTrialType {
+        switch self {
+        case .variant11:
+            return .threeMonth
+        case .variant12:
+            return .threeMonth
+        case .variant13:
+            return .oneYear
+        default:
+            return .threeMonth
         }
     }
     
@@ -73,7 +97,7 @@ class Paywall30Controller: BaseController {
     @IBOutlet weak var subPerDayPriceLabel: UILabel!
     
     @IBOutlet weak var subscribeButton: UIButton!
-    @IBOutlet weak var saveMoneyButton: UIButton!
+    @IBOutlet weak var startTrialButton: UIButton!
     @IBOutlet weak var restoreButton: UIButton!
     
     @IBOutlet weak var activity: UIActivityIndicatorView!
@@ -95,6 +119,7 @@ class Paywall30Controller: BaseController {
     
     let screen: PaywallScreenType
     let place: PlaceType
+    let trialPrice: PaywallTrialType
     
     //----------------------------------------------
     // MARK: - Init
@@ -106,6 +131,7 @@ class Paywall30Controller: BaseController {
         self.place = place
         
         self.priceType = screen.idPushPrice
+        self.trialPrice = screen.idPushTrial
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -139,9 +165,11 @@ class Paywall30Controller: BaseController {
         
         presenter.retriveProduct(id: Set([priceType.productId]))
         
-        saveMoneyButton.layer.cornerRadius = 24
-        saveMoneyButton.layer.borderWidth = 2
-        saveMoneyButton.layer.borderColor = UIColor(red: 0.799, green: 0.745, blue: 0.913, alpha: 1).cgColor
+        subscribeButton.setTitle(screen.subscribeTitle, for: .normal)
+        
+        startTrialButton.layer.cornerRadius = 24
+        startTrialButton.layer.borderWidth = 2
+        startTrialButton.layer.borderColor = UIColor(red: 0.799, green: 0.745, blue: 0.913, alpha: 1).cgColor
     }
     
     private func createPrivacyLabel() {
@@ -201,6 +229,16 @@ class Paywall30Controller: BaseController {
     
     @IBAction func actionSubscribe(_ sender: UIButton) {
         presenter.purchase(id: priceType.productId, screen: screen, place: place) { [weak self] result, error in
+            guard let `self` = self else { return }
+            if result {
+                self.delegate?.paywallSuccess(controller: self)
+                self.dismiss(animated: true)
+            }
+        }
+    }
+    
+    @IBAction func actionStartTrial(_ sender: UIButton) {
+        presenter.purchase(id: trialPrice.productId, screen: screen, place: place) { [weak self] result, error in
             guard let `self` = self else { return }
             if result {
                 self.delegate?.paywallSuccess(controller: self)

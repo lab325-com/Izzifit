@@ -44,8 +44,8 @@
                 <outlet property="subPerYearLabel" destination="a88-cc-Mdw" id="sJm-Yj-MA0"/>
                 <outlet property="subPriceLabel" destination="B8V-KY-11d" id="Qf0-eJ-Amb"/>
                 <outlet property="subSaveLabel" destination="4vF-uw-fun" id="pH2-K6-0I2"/>
-                <outlet property="subscribeButton" destination="gDk-1a-tIs" id="5lx-dU-d9y"/>
-                <outlet property="trialButton" destination="SGB-1e-BSo" id="IlM-ly-EXd"/>
+                <outlet property="subscribeButton" destination="SGB-1e-BSo" id="DIs-KS-l2e"/>
+                <outlet property="trialButton" destination="gDk-1a-tIs" id="4fB-oV-ju6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="wellbeingLabel" destination="QPZ-Nw-NoO" id="Oyj-vd-tYT"/>
             </connections>
@@ -284,7 +284,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="actionTrial:" destination="-1" eventType="touchUpInside" id="iPt-Ke-Il7"/>
+                                        <action selector="actionSubscribe:" destination="-1" eventType="touchUpInside" id="8tC-lk-Oal"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDk-1a-tIs">
@@ -304,7 +304,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="actionSubscribe:" destination="-1" eventType="touchUpInside" id="R4j-kp-u17"/>
+                                        <action selector="actionTrial:" destination="-1" eventType="touchUpInside" id="JqF-bU-DaK"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRq-ea-3dc">

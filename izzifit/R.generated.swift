@@ -398,7 +398,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 95 files.
+  /// This `R.file` struct is generated, and contains static references to 97 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -436,6 +436,10 @@ struct R: Rswift.Validatable {
     static let caloriesWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "CaloriesWidget", pathExtension: "graphql")
     /// Resource file `ChooseWorkoutWidgetModel.graphql`.
     static let chooseWorkoutWidgetModelGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ChooseWorkoutWidgetModel", pathExtension: "graphql")
+    /// Resource file `DietPlanById.graphql`.
+    static let dietPlanByIdGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DietPlanById", pathExtension: "graphql")
+    /// Resource file `DietPlans.graphql`.
+    static let dietPlansGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DietPlans", pathExtension: "graphql")
     /// Resource file `DoExercise.graphql`.
     static let doExerciseGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DoExercise", pathExtension: "graphql")
     /// Resource file `DrinkWater.graphql`.
@@ -696,6 +700,18 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "ChooseWorkoutWidgetModel", withExtension: "graphql")`
     static func chooseWorkoutWidgetModelGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.chooseWorkoutWidgetModelGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "DietPlanById", withExtension: "graphql")`
+    static func dietPlanByIdGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.dietPlanByIdGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "DietPlans", withExtension: "graphql")`
+    static func dietPlansGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.dietPlansGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -1269,7 +1285,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 422 images.
+  /// This `R.image` struct is generated, and contains static references to 424 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1329,6 +1345,10 @@ struct R: Rswift.Validatable {
     static let deersStart = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersStart")
     /// Image `deersThird`.
     static let deersThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "deersThird")
+    /// Image `diet_arrow_ic`.
+    static let diet_arrow_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "diet_arrow_ic")
+    /// Image `diet_check_ic`.
+    static let diet_check_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "diet_check_ic")
     /// Image `dollar`.
     static let dollar = Rswift.ImageResource(bundle: R.hostingBundle, name: "dollar")
     /// Image `doubleLightning`.
@@ -2316,6 +2336,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "deersThird", bundle: ..., traitCollection: ...)`
     static func deersThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.deersThird, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "diet_arrow_ic", bundle: ..., traitCollection: ...)`
+    static func diet_arrow_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.diet_arrow_ic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "diet_check_ic", bundle: ..., traitCollection: ...)`
+    static func diet_check_ic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.diet_check_ic, compatibleWith: traitCollection)
     }
     #endif
 
@@ -5073,7 +5107,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 91 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 96 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -5081,6 +5115,16 @@ struct R: Rswift.Validatable {
     static let chartCollectionCell = _R.nib._ChartCollectionCell()
     /// Nib `ChartTableCell`.
     static let chartTableCell = _R.nib._ChartTableCell()
+    /// Nib `DietDetailCell`.
+    static let dietDetailCell = _R.nib._DietDetailCell()
+    /// Nib `DietDetailController`.
+    static let dietDetailController = _R.nib._DietDetailController()
+    /// Nib `DietDetailReviewCell`.
+    static let dietDetailReviewCell = _R.nib._DietDetailReviewCell()
+    /// Nib `DietMealCell`.
+    static let dietMealCell = _R.nib._DietMealCell()
+    /// Nib `DietSectionCell`.
+    static let dietSectionCell = _R.nib._DietSectionCell()
     /// Nib `EnerdyTodayCell`.
     static let enerdyTodayCell = _R.nib._EnerdyTodayCell()
     /// Nib `EnergyAddActivityCell`.
@@ -5279,6 +5323,46 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.chartTableCell) instead")
     static func chartTableCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.chartTableCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "DietDetailCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.dietDetailCell) instead")
+    static func dietDetailCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.dietDetailCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "DietDetailController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.dietDetailController) instead")
+    static func dietDetailController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.dietDetailController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "DietDetailReviewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.dietDetailReviewCell) instead")
+    static func dietDetailReviewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.dietDetailReviewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "DietMealCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.dietMealCell) instead")
+    static func dietMealCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.dietMealCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "DietSectionCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.dietSectionCell) instead")
+    static func dietSectionCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.dietSectionCell)
     }
     #endif
 
@@ -5998,6 +6082,26 @@ struct R: Rswift.Validatable {
       return R.nib.chartTableCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ChartTableCell
     }
 
+    static func dietDetailCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DietDetailCell? {
+      return R.nib.dietDetailCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DietDetailCell
+    }
+
+    static func dietDetailController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.dietDetailController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func dietDetailReviewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DietDetailReviewCell? {
+      return R.nib.dietDetailReviewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DietDetailReviewCell
+    }
+
+    static func dietMealCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DietMealCell? {
+      return R.nib.dietMealCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DietMealCell
+    }
+
+    static func dietSectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DietSectionCell? {
+      return R.nib.dietSectionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DietSectionCell
+    }
+
     static func enerdyTodayCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> EnerdyTodayCell? {
       return R.nib.enerdyTodayCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EnerdyTodayCell
     }
@@ -6353,7 +6457,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 42 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 46 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AwardsTableCell`.
     static let awardsTableCell: Rswift.ReuseIdentifier<PolicyCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
@@ -6361,6 +6465,14 @@ struct R: Rswift.Validatable {
     static let chartCollectionCell: Rswift.ReuseIdentifier<ChartCollectionCell> = Rswift.ReuseIdentifier(identifier: "ChartCollectionCell")
     /// Reuse identifier `ChartTableCell`.
     static let chartTableCell: Rswift.ReuseIdentifier<ChartTableCell> = Rswift.ReuseIdentifier(identifier: "ChartTableCell")
+    /// Reuse identifier `DietDetailCell`.
+    static let dietDetailCell: Rswift.ReuseIdentifier<DietDetailCell> = Rswift.ReuseIdentifier(identifier: "DietDetailCell")
+    /// Reuse identifier `DietDetailReviewCell`.
+    static let dietDetailReviewCell: Rswift.ReuseIdentifier<DietDetailReviewCell> = Rswift.ReuseIdentifier(identifier: "DietDetailReviewCell")
+    /// Reuse identifier `DietMealCell`.
+    static let dietMealCell: Rswift.ReuseIdentifier<DietMealCell> = Rswift.ReuseIdentifier(identifier: "DietMealCell")
+    /// Reuse identifier `DietSectionCell`.
+    static let dietSectionCell: Rswift.ReuseIdentifier<DietSectionCell> = Rswift.ReuseIdentifier(identifier: "DietSectionCell")
     /// Reuse identifier `EnerdyTodayCell`.
     static let enerdyTodayCell: Rswift.ReuseIdentifier<EnerdyTodayCell> = Rswift.ReuseIdentifier(identifier: "EnerdyTodayCell")
     /// Reuse identifier `EnergyAddActivityCell`.
@@ -11306,6 +11418,10 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _DietDetailCell.validate()
+      try _DietDetailController.validate()
+      try _DietMealCell.validate()
+      try _DietSectionCell.validate()
       try _EnerdyTodayCell.validate()
       try _EnergyChooseActivityCell.validate()
       try _EnergyChooseActivityCollectionCell.validate()
@@ -11416,6 +11532,100 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ChartTableCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ChartTableCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _DietDetailCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = DietDetailCell
+
+      let bundle = R.hostingBundle
+      let identifier = "DietDetailCell"
+      let name = "DietDetailCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DietDetailCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DietDetailCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "diet_check_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'diet_check_ic' is used in nib 'DietDetailCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "workout_special_avatar_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'workout_special_avatar_ic' is used in nib 'DietDetailCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "workout_special_average_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'workout_special_average_ic' is used in nib 'DietDetailCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "workout_special_month_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'workout_special_month_ic' is used in nib 'DietDetailCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _DietDetailController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "DietDetailController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "onboarding_background_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'onboarding_background_ic' is used in nib 'DietDetailController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _DietDetailReviewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = DietDetailReviewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "DietDetailReviewCell"
+      let name = "DietDetailReviewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DietDetailReviewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DietDetailReviewCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _DietMealCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = DietMealCell
+
+      let bundle = R.hostingBundle
+      let identifier = "DietMealCell"
+      let name = "DietMealCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DietMealCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DietMealCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "placeholder_big_sport_two_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder_big_sport_two_ic' is used in nib 'DietMealCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _DietSectionCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = DietSectionCell
+
+      let bundle = R.hostingBundle
+      let identifier = "DietSectionCell"
+      let name = "DietSectionCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DietSectionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DietSectionCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "diet_arrow_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'diet_arrow_ic' is used in nib 'DietSectionCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}
