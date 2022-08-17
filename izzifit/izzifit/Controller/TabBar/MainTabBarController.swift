@@ -304,8 +304,6 @@ class MainTabBarController: BaseController {
 
 extension MainTabBarController: MainGameOnboardingDelegate {
     func tapBtn() {
-        
-        
         switch MainGameOnboardingView.stateCounter {
         case 11:
             PreferencesManager.sharedManager.gameOnboardingDone = true

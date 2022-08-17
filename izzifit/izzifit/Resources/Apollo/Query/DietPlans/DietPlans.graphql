@@ -1,0 +1,39 @@
+query DietPlans($offset: Int, $limit: Int) {
+	dietPlans(offset: $offset, limit: $limit) {
+        DietPlans {
+            id
+            title
+            description
+            Schedule {
+                day
+                Meals {
+                    id
+                    title
+                    description
+                    Image {
+                        id
+                        urlIosFull
+                        urlIosPrev
+                    }
+                    amount
+                    prot
+                    carbs
+                    fats
+                }
+            }
+            kgLosePerWeek
+            externalId
+            isAvailable
+            energyTotal
+            kCal
+            shortDescription
+            Image {
+                id
+                urlIosFull
+                urlIosPrev
+            }
+        }
+	}
+}
+
+

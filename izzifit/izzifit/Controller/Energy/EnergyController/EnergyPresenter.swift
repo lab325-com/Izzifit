@@ -58,6 +58,7 @@ class EnergyPresenter: EnergyPresenterProtocol {
     var specialPriceNotBuing: [WorkoutsWidgetMainModel] = []
     var specialPriceBuing: [WorkoutsWidgetMainModel] = []
     var chooseWorkoutWidgets: [WorkoutsWidgetMainModel] = []
+    var dietsPlanModels: [DietPlanModel] = []
     var stepsApi: [StepsModel] = []
     var steps: [CurrentStepsModel] = []
     var stepsWidget: StapsWidgetModel?
@@ -159,6 +160,16 @@ class EnergyPresenter: EnergyPresenterProtocol {
             
             let ids = model.specialWorkouts.compactMap({$0.externalId})
             self?.retriveNotAutoProduct(id: Set(ids))
+            group.leave()
+        }, failureHandler: { [weak self] error in
+            group.leave()
+            self?.view?.failure()
+        })
+        
+        group.enter()
+        let query10 = DietPlansQuery(offset: 0, limit: 5)
+        let _ = Network.shared.query(model: DietPlansModel.self, query10, controller: view, successHandler: { [weak self] model in
+            self?.dietsPlanModels = model.dietPlans.dietPlans
             group.leave()
         }, failureHandler: { [weak self] error in
             group.leave()
@@ -271,6 +282,10 @@ class EnergyPresenter: EnergyPresenterProtocol {
         let queryWeight = SaveWeightWidgetQuery()
         
         let _ = Network.shared.query(model: SaveWeightWidgetModel.self, queryWeight, controller: view, successHandler: { [weak self] model in
+            if self?.weightWidget?.energy == nil || self?.weightWidget?.energy == 0 {
+                self?.view?.showEnergyAnimation()
+            }
+            
             self?.weightWidget = model.saveWeightWidget
             self?.updateToday()
         }, failureHandler: { [weak self] error in

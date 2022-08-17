@@ -25,7 +25,6 @@ enum PlaceType: String, Codable {
     case chooseAcivity //+
     
     case push
-    
     case settings
 }
 
@@ -39,6 +38,7 @@ enum PaywallScreenType: String, Codable {
     
     case energyBuy
     case wokoutInApp
+    case dietPlan
     
     case variant11
     case variant12

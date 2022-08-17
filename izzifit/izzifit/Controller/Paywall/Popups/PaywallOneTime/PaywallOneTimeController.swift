@@ -39,7 +39,7 @@ class PaywallOneTimeController: BaseController {
     
     private lazy var presenter = SubscribePresenter(view: self)
     private var priceType: PaywallPriceType = .oneYear70
-    private var trialType: PaywallTrialType = .oneYear70
+    private var trialType: PaywallTrialType = .oneYear
     
     //----------------------------------------------
     // MARK: - Init
@@ -92,13 +92,16 @@ class PaywallOneTimeController: BaseController {
         
         createPrivacyLabel()
         
-        trialButton.setTitle(RLocalization.paywall_one_time_trial(), for: .normal)
+        
         restoreButton.setTitle(RLocalization.paywall_one_time_restore(), for: .normal)
         
-        subscribeButton.layer.borderWidth = 2
-        subscribeButton.layer.borderColor = UIColor(rgb: 0xCCBEE9, alpha: 0.3).cgColor
+        trialButton.layer.borderWidth = 2
+        trialButton.layer.borderColor = UIColor(rgb: 0xCCBEE9, alpha: 0.3).cgColor
         
         presenter.retriveProduct(id: Set([PaywallPriceType.oneYear70.productId]))
+        
+        trialButton.setTitle("Start trial without discount", for: .normal)
+        subscribeButton.setTitle("Get with 70% discount", for: .normal)
     }
     
     private func createPrivacyLabel() {
@@ -168,15 +171,13 @@ class PaywallOneTimeController: BaseController {
     }
     
     @IBAction func actionSubscribe(_ sender: UIButton) {
-//        presenter.purchase(id: priceType.productId, screen: screen, place: place) { [weak self] result, error in
-//            guard let `self` = self else { return }
-//            if result {
-//                self.delegate?.paywallSuccess(controller: self)
-//                self.dismiss(animated: true)
-//            }
-//        }
-        AnalyticsHelper.sendFirebaseEvents(events: .pay_close, params: ["place": place.rawValue, "screen": screen.rawValue])
-        self.delegate?.paywallActionBack(controller: self)
+        presenter.purchase(id: priceType.productId, screen: screen, place: place) { [weak self] result, error in
+            guard let `self` = self else { return }
+            if result {
+                self.delegate?.paywallSuccess(controller: self)
+                self.dismiss(animated: true)
+            }
+        }
     }
     
     @IBAction func actionRestore(_ sender: UIButton) {
@@ -211,7 +212,7 @@ extension PaywallOneTimeController: SubscribeOutputProtocol {
                 subPriceLabel.text = String(format: "%@%.2f", info.currencySymbol ?? "", price)
                 subFullPriceLabel.text = String(format: "%@%@", info.currencySymbol ?? "", fullPriceStr)
                 subSaveLabel.text = String(format: "%@ %@%@",  RLocalization.paywall_one_time_save(), info.currencySymbol ?? "", diffStr)
-                subscribeButton.setTitle(String(format: "%@ %@%@", RLocalization.paywall_one_time_subscribe(), info.currencySymbol ?? "", diffStr), for: .normal)
+                
             }
         default:
             return

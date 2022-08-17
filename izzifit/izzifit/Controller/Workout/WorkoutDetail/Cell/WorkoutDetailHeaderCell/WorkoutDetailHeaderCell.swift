@@ -55,6 +55,18 @@ class WorkoutDetailHeaderCell: BaseTableViewCell {
         energyLabel.text = "\(model?.energyTotal ?? 0)"
     }
     
+    func setupCell(model: DietPlanModel?) {
+        workOutImageView.kf.setImage(with: URL(string: model?.image.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_two_ic(), options: [.transition(.fade(0.25))])
+        
+        mainLabel.text = model?.title
+        
+        kCalLabel.text = "\(model?.kCal ?? 0) Kcal"
+        
+        workCountLabel.text = "7 days"
+        
+        energyLabel.text = "\(model?.energyTotal ?? 0)"
+    }
+    
     @IBAction func actionBack(_ sender: UIButton) {
         delegate?.workoutDetailHeaderBack(cell: self)
     }

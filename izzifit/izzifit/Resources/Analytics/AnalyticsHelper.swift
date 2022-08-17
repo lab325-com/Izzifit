@@ -111,6 +111,9 @@ enum FirebaseEvents: String {
     case pay_paid_mk_close
     case push_open
     
+    case pay_paid_diet_tap
+    case pay_paid_diet_close
+    case dash_paid_diet_tap
 }
 
 enum FacebookEvents: String {

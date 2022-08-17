@@ -14,7 +14,7 @@ import UIKit
 extension EnergyController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count + presenter.specialPriceBuing.count
+        return 8 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count + presenter.specialPriceBuing.count + presenter.dietsPlanModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,42 +75,48 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
             cell.setupCell(model: model, paymentInfo: presenter.paymentsInfo.first(where: {$0.product == model.externalId}))
             cell.delegate = self
             return cell
-        case 5 + presenter.specialPriceNotBuing.count:
+        case (5 + presenter.specialPriceNotBuing.count)..<(5 + presenter.specialPriceNotBuing.count + presenter.dietsPlanModels.count):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSpecialPriceIdentifier) as? EnergySpecialPriceCell else { return UITableViewCell() }
+            let model = presenter.dietsPlanModels[indexPath.row - 5 - presenter.specialPriceNotBuing.count]
+            cell.setupCell(model: model)
+            cell.delegate = self
+            return cell
+        case 5 + presenter.specialPriceNotBuing.count + presenter.dietsPlanModels.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellChooseActivity) as? EnergyChooseActivityCell else { return UITableViewCell() }
             cell.delegate = self
             cell.setupCell(models: presenter.chooseWorkoutWidgets)
             return cell
-        case 6 + presenter.specialPriceNotBuing.count:
+        case 6 + presenter.specialPriceNotBuing.count + presenter.dietsPlanModels.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSleepIdentifier) as? EnergySleepCell else { return UITableViewCell() }
             cell.delegate = self
             if let model = presenter.sleepWidget {
                 cell.setupCell(model: model)
             }
             return cell
-        case 7 + presenter.specialPriceNotBuing.count:
+        case 7 + presenter.specialPriceNotBuing.count + presenter.dietsPlanModels.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellWeightIdentifier) as? EnergyWeightCell else { return UITableViewCell() }
             cell.delegate = self
             if let model = presenter.weightWidget {
                 cell.setupCell(model: model)
             }
             return cell
-        case (8 + presenter.specialPriceNotBuing.count)..<8 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count:
+        case (8 + presenter.specialPriceNotBuing.count + presenter.dietsPlanModels.count)..<8 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count + presenter.dietsPlanModels.count:
             if presenter.workoutWidgets.count == 0 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellAddActivity) as? EnergyAddActivityCell else { return UITableViewCell() }
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellTraining) as? EnergyTrainingCell else { return UITableViewCell() }
                 cell.delegate = self
-                cell.setupCell(model: presenter.workoutWidgets[indexPath.row - 8 - presenter.specialPriceNotBuing.count])
+                cell.setupCell(model: presenter.workoutWidgets[indexPath.row - 8 - presenter.specialPriceNotBuing.count - presenter.dietsPlanModels.count])
                 return cell
             }
-        case (8 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count)..<(8 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count + presenter.specialPriceBuing.count):
+        case (8 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count + presenter.dietsPlanModels.count)..<(8 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count + presenter.specialPriceBuing.count + presenter.dietsPlanModels.count):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellSpecialPriceIdentifier) as? EnergySpecialPriceCell else { return UITableViewCell() }
-            let model = presenter.specialPriceBuing[indexPath.row - 8 - presenter.workoutWidgets.count - presenter.specialPriceNotBuing.count]
+            let model = presenter.specialPriceBuing[indexPath.row - 8 - presenter.workoutWidgets.count - presenter.specialPriceNotBuing.count - presenter.dietsPlanModels.count]
             cell.setupCell(model: model, paymentInfo: presenter.paymentsInfo.first(where: {$0.product == model.externalId}))
             cell.delegate = self
             return cell
-        case 8 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count + presenter.specialPriceBuing.count:
+        case 8 + presenter.workoutWidgets.count + presenter.specialPriceNotBuing.count + presenter.specialPriceBuing.count + presenter.dietsPlanModels.count:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellAddActivity) as? EnergyAddActivityCell else { return UITableViewCell() }
             return cell
         default:
@@ -123,7 +129,7 @@ extension EnergyController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 { return 185.0 }
         
         
-        if indexPath.row == 6 + presenter.specialPriceNotBuing.count {
+        if indexPath.row == 6 + presenter.specialPriceNotBuing.count + presenter.dietsPlanModels.count {
             return Date().isNeedSleepWidget ? tableView.rowHeight : 0
         }
 
@@ -333,6 +339,18 @@ extension EnergyController: PaywallProtocol {
 //----------------------------------------------
 
 extension EnergyController: EnergySpecialPriceCellDelegate {
+    func energySpecialDietSelect(cell: EnergySpecialPriceCell, model: DietPlanModel) {
+        guard let id = model.id, let specialID = model.externalId else {
+            return
+        }
+        
+        if !(model.isAvailable ?? false) {
+            AnalyticsHelper.sendFirebaseEvents(events: .dash_paid_diet_tap, params: ["id": specialID])
+        }
+        
+        WorkoutRouter(presenter: navigationController).pushDietDetail(id: id, idSpecialId: specialID)
+    }
+    
     
     func energySpecialPriceSelect(cell: EnergySpecialPriceCell, model: WorkoutsWidgetMainModel) {
         guard let id = model.id, let specialID = model.externalId else {
@@ -342,6 +360,7 @@ extension EnergyController: EnergySpecialPriceCellDelegate {
         if !(model.isAvailable ?? false) {
             AnalyticsHelper.sendFirebaseEvents(events: .dash_paid_mk_tap, params: ["id": specialID])
         }
+
         WorkoutRouter(presenter: navigationController).pushDetailWorkout(id: id, idSpecialId: specialID)
     }
 }

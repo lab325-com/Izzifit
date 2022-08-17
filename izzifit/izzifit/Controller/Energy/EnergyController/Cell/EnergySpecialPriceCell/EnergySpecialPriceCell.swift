@@ -10,6 +10,7 @@ import Kingfisher
 
 protocol EnergySpecialPriceCellDelegate: AnyObject {
     func energySpecialPriceSelect(cell: EnergySpecialPriceCell, model: WorkoutsWidgetMainModel)
+    func energySpecialDietSelect(cell: EnergySpecialPriceCell, model: DietPlanModel)
 }
 
 
@@ -21,9 +22,11 @@ class EnergySpecialPriceCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView!
     
     @IBOutlet weak var descriptionLabel: UILabel!
+    
     weak var delegate: EnergySpecialPriceCellDelegate?
     
     private var model: WorkoutsWidgetMainModel?
+    private var modelDiet: DietPlanModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,27 +48,25 @@ class EnergySpecialPriceCell: UITableViewCell {
     
     
     func setupCell(model: WorkoutsWidgetMainModel, paymentInfo: PaymentsModel?) {
+        self.modelDiet = nil
         self.model = model
         
         avatarImageView.kf.setImage(with: URL(string: model.Image?.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_ic(), options: [.transition(.fade(0.25))])
+
+        nameLabel.text = model.title
         
-//        let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Inter-Medium", size: 14), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x3F3E56)]
-//        let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Inter-Regular", size: 11), NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x3F3E56, alpha: 0.4)]
-//
-//        let fullString = NSMutableAttributedString(string: "\(model.title ?? "")  ", attributes: attrs1 as [NSAttributedString.Key : Any])
-//
-//        let image1Attachment = NSTextAttachment()
-//        image1Attachment.image = UIImage(named: "energy_water_flash_ic")
-//
-//        let image1String = NSAttributedString(attachment: image1Attachment)
-//
-//        fullString.append(image1String)
-//
-//        let energy = NSAttributedString(string: " \(model.energyTotal ?? 0)", attributes: attrs2 as [NSAttributedString.Key : Any])
-//        fullString.append(energy)
-//
-//        nameLabel.attributedText = fullString
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.24
+        descriptionLabel.attributedText = NSMutableAttributedString(string: model.shortDescription ?? "", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+    }
+    
+    func setupCell(model: DietPlanModel) {
+        self.model = nil
+        self.modelDiet = model
         
+        avatarImageView.kf.setImage(with: URL(string: model.image.urlIosFull ?? ""), placeholder: RImage.placeholder_big_sport_ic(), options: [.transition(.fade(0.25))])
+        
+        // draw the result in a label
         nameLabel.text = model.title
         
         let paragraphStyle = NSMutableParagraphStyle()
@@ -74,10 +75,12 @@ class EnergySpecialPriceCell: UITableViewCell {
     }
     
     @IBAction func actionStartWokout(_ sender: UIButton) {
-        guard let model = model else {
-            return
+        if let model = model {
+            delegate?.energySpecialPriceSelect(cell: self, model: model)
         }
 
-        delegate?.energySpecialPriceSelect(cell: self, model: model)
+        if let modelDiet = modelDiet {
+            delegate?.energySpecialDietSelect(cell: self, model: modelDiet)
+        }
     }
 }

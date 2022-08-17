@@ -34,7 +34,7 @@
                 <outlet property="percentImageView" destination="5dt-cG-3j2" id="mNN-U1-5Us"/>
                 <outlet property="privacyLabel" destination="rGt-c0-HYy" id="gcn-pI-2HE"/>
                 <outlet property="restoreButton" destination="jTB-J1-U5f" id="Bb4-7B-XAC"/>
-                <outlet property="saveMoneyButton" destination="6Db-V0-GIc" id="Swr-Df-QcF"/>
+                <outlet property="startTrialButton" destination="6Db-V0-GIc" id="SxR-mc-4eC"/>
                 <outlet property="subNameLabel" destination="B1a-tP-D9e" id="7iw-Wc-2fo"/>
                 <outlet property="subPerDayPriceLabel" destination="XrT-aD-wqj" id="7sW-J4-ymY"/>
                 <outlet property="subPriceLabel" destination="KxR-6d-XoV" id="Yfl-PK-OMV"/>
@@ -339,11 +339,11 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal" title="No, I don't want to save money">
+                                            <state key="normal" title="Start trial without discount">
                                                 <color key="titleColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="actionClose:" destination="-1" eventType="touchUpInside" id="wwV-ke-gKP"/>
+                                                <action selector="actionStartTrial:" destination="-1" eventType="touchUpInside" id="e86-R6-ncz"/>
                                             </connections>
                                         </button>
                                     </subviews>

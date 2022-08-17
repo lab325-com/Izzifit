@@ -37,8 +37,8 @@
                 <outlet property="subPerYearLabel" destination="4T3-E4-KeA" id="Zeh-4v-FxV"/>
                 <outlet property="subPriceLabel" destination="WcP-87-K7H" id="jkL-of-W2w"/>
                 <outlet property="subSaveLabel" destination="87h-MH-bmE" id="y6J-u4-UYF"/>
-                <outlet property="subscribeButton" destination="i2E-IJ-VdS" id="uBN-K1-J29"/>
-                <outlet property="trialButton" destination="XbY-bS-NHZ" id="nAs-7x-2QW"/>
+                <outlet property="subscribeButton" destination="XbY-bS-NHZ" id="u3e-uR-HOa"/>
+                <outlet property="trialButton" destination="i2E-IJ-VdS" id="Gia-pR-3AZ"/>
                 <outlet property="unlockLabel" destination="cke-hp-bKy" id="ojf-j3-ZSo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="wellbeingLabel" destination="NHC-HP-DQz" id="7tW-cR-g49"/>
@@ -293,7 +293,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="actionTrial:" destination="-1" eventType="touchUpInside" id="tBt-Dk-bF6"/>
+                                                <action selector="actionSubscribe:" destination="-1" eventType="touchUpInside" id="pwH-tF-J6U"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2E-IJ-VdS">
@@ -313,7 +313,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="actionSubscribe:" destination="-1" eventType="touchUpInside" id="XIS-dm-C1Q"/>
+                                                <action selector="actionTrial:" destination="-1" eventType="touchUpInside" id="nyx-t9-XBZ"/>
                                             </connections>
                                         </button>
                                     </subviews>

@@ -37,7 +37,7 @@ class PaywallCongratulationsController: BaseController {
     
     private lazy var presenter = SubscribePresenter(view: self)
     private var priceType: PaywallPriceType = .oneYear70
-    private var trialType: PaywallTrialType = .oneYear70
+    private var trialType: PaywallTrialType = .oneYear
     
     //----------------------------------------------
     // MARK: - Init
@@ -82,11 +82,11 @@ class PaywallCongratulationsController: BaseController {
         subNameLabel.text = RLocalization.paywall_congratulation_one_year()
         subPerYearLabel.text = RLocalization.paywall_congratulation_per_year()
         
-        subscribeButton.setTitle(RLocalization.paywall_congratulation_subscribe(), for: .normal)
-        trialButton.setTitle(RLocalization.paywall_congratulation_trial(), for: .normal)
+        subscribeButton.setTitle("Get fit & play with 70% off", for: .normal)
+        trialButton.setTitle("Start trial without discount", for: .normal)
         
-        subscribeButton.layer.borderWidth = 2
-        subscribeButton.layer.borderColor = UIColor(rgb: 0xC9C0ED, alpha: 0.3).cgColor
+        trialButton.layer.borderWidth = 2
+        trialButton.layer.borderColor = UIColor(rgb: 0xC9C0ED, alpha: 0.3).cgColor
     }
     
     private func createOffSaveLabel(price: String) {
@@ -128,15 +128,13 @@ class PaywallCongratulationsController: BaseController {
     }
     
     @IBAction func actionSubscribe(_ sender: UIButton) {
-//        presenter.purchase(id: priceType.productId, screen: screen, place: place) { [weak self] result, error in
-//            guard let `self` = self else { return }
-//            if result {
-//                self.delegate?.paywallSuccess(controller: self)
-//                self.dismiss(animated: true)
-//            }
-//        }
-        AnalyticsHelper.sendFirebaseEvents(events: .pay_close, params: ["place": place.rawValue, "screen": screen.rawValue])
-        self.delegate?.paywallActionBack(controller: self)
+        presenter.purchase(id: priceType.productId, screen: screen, place: place) { [weak self] result, error in
+            guard let `self` = self else { return }
+            if result {
+                self.delegate?.paywallSuccess(controller: self)
+                self.dismiss(animated: true)
+            }
+        }
     }
 }
 
