@@ -246,7 +246,7 @@ class MainTabBarController: BaseController {
     }
     
     @objc func openWorkout() {
-        tab = .workout
+        tab = .energy
     }
     
     @IBAction func actionEnergy(_ sender: UIButton) {
