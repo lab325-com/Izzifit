@@ -16,7 +16,7 @@ enum KeysPreference: String, CaseIterable {
    case  drintWaterInfoHidden = "drintWaterInfoHidden"
    case  mealsPlanInfoHidden = "mealsPlanInfoHidden"
    case  stepsInfoHidden = "stepsInfoHidden"
-   case pushOpen = "pushOpen"
+   case  pushOpen = "pushOpen"
 }
 
 class PreferencesManager : NSObject {
