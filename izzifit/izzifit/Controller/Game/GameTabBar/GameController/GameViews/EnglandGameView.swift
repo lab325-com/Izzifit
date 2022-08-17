@@ -45,6 +45,7 @@ class EnglandGameView: UIView, SpinGameViewProtocol {
     override func draw(_ rect: CGRect) {
         setUI()
         layout()
+        showAutospin()
         do { try R.validate() } catch { print(error.localizedDescription) }
     }
     

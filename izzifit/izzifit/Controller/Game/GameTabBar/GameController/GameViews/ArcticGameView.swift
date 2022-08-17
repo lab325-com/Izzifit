@@ -47,6 +47,7 @@ class ArcticGameView: UIView, SpinGameViewProtocol {
         
         setUI()
         layout()
+        showAutospin()
     }
     
     private func setUI() {

@@ -68,7 +68,7 @@ class MapView: UIView {
         }
         
         for (index, btn) in mapBtns.enumerated() {
-            guard index == mapPoint.rawValue || index == (mapPoint.rawValue + 1) || index == (mapPoint.rawValue - 1) else { continue }
+            guard index <= mapPoint.rawValue || index == (mapPoint.rawValue + 1) else { continue }
             btn.isSelected = true
             btn.setNeedsDisplay()
         }
@@ -129,8 +129,6 @@ class MapView: UIView {
         
         france_btn.setImage(image(img: .mapPoint_France_pass), for: .normal)
         france_btn.setImage(image(img: .mapPoint_France_act), for: .selected)
-        
-        
     }
     
     private func layout() {

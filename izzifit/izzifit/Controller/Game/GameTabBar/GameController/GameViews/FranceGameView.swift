@@ -43,6 +43,7 @@ class FranceGameView: UIView, SpinGameViewProtocol {
     override func draw(_ rect: CGRect) {
         setUI()
         layout()
+        showAutospin()
     }
     
     private func setUI() {

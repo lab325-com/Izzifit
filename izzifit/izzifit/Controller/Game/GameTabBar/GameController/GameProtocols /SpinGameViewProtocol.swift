@@ -30,6 +30,13 @@ extension SpinGameViewProtocol {
         get { UIImage(named: "progressActive") ?? UIImage() }
     }
     
+    func showAutospin() {
+        if PreferencesManager.sharedManager.spinsRolledCounter >= 5 {
+        spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
+        spinBtn.setImage(RImage.spinHold2sec(), for:      .highlighted)
+        }
+    }
+    
     func showProgress() {
         greenCounterLbl.text = "\(Int(KeychainService.standard.me?.energy ?? 0))/50"
         var spinsRemainder = CGFloat(KeychainService.standard.me?.energy ?? 0.0)

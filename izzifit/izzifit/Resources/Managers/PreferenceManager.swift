@@ -39,6 +39,7 @@ class PreferencesManager : NSObject {
     static let localPushs = "localPushs"
     static let gameOnboardingDone = "gameOnboardingDone"
     static let drinkWidgetShowed = "drinkWidgetShowed"
+    static let spinsRolledCounter = "spinsRolledCounter"
     
     static let drintWaterInfoHidden = "drintWaterInfoHidden"
     static let mealsPlanInfoHidden = "mealsPlanInfoHidden"
@@ -131,6 +132,15 @@ class PreferencesManager : NSObject {
         }
         set {
             userDefaults.set(newValue, forKey: PreferencesManager.isFirstRun)
+            userDefaults.synchronize()
+        }
+    }
+    var spinsRolledCounter: Int {
+        get {
+            return userDefaults.integer(forKey: PreferencesManager.spinsRolledCounter)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.spinsRolledCounter)
             userDefaults.synchronize()
         }
     }

@@ -14,7 +14,6 @@ class GameController: BaseController {
     private var firstLaunch = true
     private var timerSpinManager: TimerSpinManager!
     var onboardingView: MainGameOnboardingView?
-    var tapSpinCounter = 0
     var autoSpinTimer = Timer()
     var gestureLongTap = 0
     var autoSpinHasUsed = false
@@ -43,6 +42,7 @@ class GameController: BaseController {
             self.timerSpinManager = TimerSpinManager(collectionView: self.collectionView ?? UICollectionView(), delegate: self)
             self.timerSpinManager.counter.combinations = GameNetworkLayer.shared.spins ?? [MapSpinsModel]()
             self.onboardingDraw()
+            self.activateAutospin(firstLaunch: true)
         }
         
         AnalyticsHelper.sendFirebaseEvents(events: .spin_open)
@@ -66,8 +66,8 @@ class GameController: BaseController {
             self.timerSpinManager = TimerSpinManager(collectionView: self.collectionView ?? UICollectionView(), delegate: self)
             self.timerSpinManager.counter.combinations = GameNetworkLayer.shared.spins ?? [MapSpinsModel]()
             self.onboardingDraw()
+            self.activateAutospin(firstLaunch: true)
         }
-        tapSpinCounter = 0
         autoSpinHasUsed = false
     }
     
@@ -153,11 +153,9 @@ class GameController: BaseController {
     private func spinsRunOut() {
         gestureLongTap = 0
         if let gameView = gameView {
-            gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
             gameView.spinBtn.tag = 0
             autoSpinTimer.invalidate()
         }
-        activateAutospin()
         
         let alert = UIAlertController(title: "Congratulation",
                                       message: "You can upgrade all the buildings. The new level is coming soon.",
@@ -170,17 +168,33 @@ class GameController: BaseController {
     
     // Spin Methods
     
-    func activateAutospin() {
+    func activateAutospin(firstLaunch: Bool) {
         if let gameView = gameView {
-            if tapSpinCounter == 5 {
+            
+            switch firstLaunch {
+            case true:
+                if PreferencesManager.sharedManager.spinsRolledCounter >= 5 {
                 gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
                 gameView.spinBtn.setImage(RImage.spinHold2sec(), for:      .highlighted)
                 gameView.spinBtn.addTarget(self, action: #selector(buttonInPressed), for: .touchDown)
-                
+   
                 let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(long))
-                longGesture.minimumPressDuration = 2
+                longGesture.minimumPressDuration = 1
                 gameView.spinBtn.addGestureRecognizer(longGesture)
             }
+            case false:
+                if PreferencesManager.sharedManager.spinsRolledCounter == 5 {
+                gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
+                gameView.spinBtn.setImage(RImage.spinHold2sec(), for:      .highlighted)
+                gameView.spinBtn.addTarget(self, action: #selector(buttonInPressed), for: .touchDown)
+   
+                let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(long))
+                longGesture.minimumPressDuration = 1
+                gameView.spinBtn.addGestureRecognizer(longGesture)
+            }
+                
+            }
+   
         }
     }
     
@@ -200,15 +214,14 @@ class GameController: BaseController {
                 if !result, let ids = PreferencesManager.sharedManager.enegyZero?.idProducts { 
                     GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, delegate: self)
                     gestureLongTap = 0
-                    gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
                     gameView.spinBtn.tag = 0
                     autoSpinTimer.invalidate()
-                    activateAutospin()
                 }
             }
-            tapSpinCounter += 1
             
-            guard !PreferencesManager.sharedManager.gameOnboardingDone else {return}
+            guard !PreferencesManager.sharedManager.gameOnboardingDone else {
+                PreferencesManager.sharedManager.spinsRolledCounter += 1
+                return}
             ArcticGameView.counter += 1
             gameView.showProgress()
         }
@@ -222,7 +235,7 @@ class GameController: BaseController {
             gameView.spinBtn.setImage(RImage.spinCancelAutoSpin(), for: .normal)
             self.autoSpinHasUsed = true
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
                 guard self.gestureLongTap != 0 else { return }
                 self.autoSpinTimer = Timer.scheduledTimer(timeInterval: 5.0,
                                                           target: self,
@@ -271,7 +284,7 @@ extension GameController: SpinAwardProtocol {
             gameView.spinBtn.tag = 0
             autoSpinTimer.invalidate()
         }
-        activateAutospin()
+        activateAutospin(firstLaunch: false)
     }
     
     func completeAward(model: [SpinMainModel]) {
@@ -304,7 +317,7 @@ extension GameController: SpinAwardProtocol {
            
                 self.timerSpinManager.combinationCounter += 1
                 
-                self.activateAutospin()
+                self.activateAutospin(firstLaunch: false)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     gameView.spinBtn.tag = 0
