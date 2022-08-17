@@ -384,7 +384,14 @@ extension LevelController: PaywallProtocol {
 extension LevelController: PurchasePopUpProtocol {
     func purchasePopUpSpin(controller: PurchasePopUp) {
         if let tabBarVC = self.tabBarController as? GameTabBarController {
-            tabBarVC.spin()
+           
+            if let energy = KeychainService.standard.me?.energy {
+                 
+                switch energy{
+                case let x where x < 1.0: tabBarVC.actionBack()
+                default:  tabBarVC.spin()
+                }
+            } else { tabBarVC.actionBack()   }
         }
     }
     

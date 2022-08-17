@@ -226,8 +226,15 @@ class PurchasePop: UIView {
         
         switch purchaseTypes.first! {
         case .coins:
-            downLblText = "Or spin"
+            if let energy = KeychainService.standard.me?.energy {
+                 
+                switch energy{
+                case let x where x < 1.0:  downLblText = "Or make some fitness"
+                default:   downLblText = "Or spin"
+                }
+            } else { downLblText = "Or make some fitness" }
         case .spins:
+       
             downLblText = "Or make some fitness"
         }
         
@@ -287,7 +294,14 @@ class PurchasePop: UIView {
         var sideConstraitnConst: CGFloat
         
         switch purchaseTypes.first! {
-        case .coins: sideConstraitnConst = 90
+        case .coins:
+            if let energy = KeychainService.standard.me?.energy {
+                 
+                switch energy{
+                case let x where x < 1.0:  sideConstraitnConst = 45
+                default:  sideConstraitnConst = 90
+                }
+            } else {   sideConstraitnConst = 45 }
         case .spins: sideConstraitnConst = 45
         }
         
