@@ -10,12 +10,7 @@ import Foundation
 enum KeysPreference: String, CaseIterable {
    case  tempPorifle = "tempPorifle"
    case  foods =  "foods"
-   case  screensPaywall = "screensPaywall"
    case  afterOnboarding = "afterOnboarding"
-   case  preOnboardingRemote = "preOnboardingRemote"
-   case  enegyZero = "enegyZero"
-   case  coinsZero = "coinsZero"
-   case  localPushs = "localPushs"
    case  gameOnboardingDone = "gameOnboardingDone"
    case  drinkWidgetShowed = "drinkWidgetShowed"
    case  drintWaterInfoHidden = "drintWaterInfoHidden"
