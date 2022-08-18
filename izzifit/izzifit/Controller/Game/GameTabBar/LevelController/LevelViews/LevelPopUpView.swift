@@ -224,7 +224,16 @@ class LevelPopUpView: UIView {
         let color = UIColor(rgb: 0x6A534C)
         let attributes = [NSAttributedString.Key.font : UIFont(name: "Inter-Medium", size: 15),
                           NSAttributedString.Key.foregroundColor : color]
-        let completeText = NSMutableAttributedString(string: "Spin to get coins   ",attributes: attributes)
+        
+        var completeTextString = String()
+        if let energy = KeychainService.standard.me?.energy {
+            switch energy {
+            case let x where x < 1.0: completeTextString = "Make some fitness    "
+            default: completeTextString = "Spin to get coins    "
+            }
+        }
+        
+        let completeText = NSMutableAttributedString(string: completeTextString,attributes: attributes)
         completeText.append(imageAt)
         arrowBtn.setAttributedTitle(completeText, for: .normal)
     }
