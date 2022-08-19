@@ -1285,7 +1285,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 424 images.
+  /// This `R.image` struct is generated, and contains static references to 426 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1367,6 +1367,10 @@ struct R: Rswift.Validatable {
     static let en_moneyBag = Rswift.ImageResource(bundle: R.hostingBundle, name: "en_moneyBag")
     /// Image `en_pound`.
     static let en_pound = Rswift.ImageResource(bundle: R.hostingBundle, name: "en_pound")
+    /// Image `encourageMainImgVw`.
+    static let encourageMainImgVw = Rswift.ImageResource(bundle: R.hostingBundle, name: "encourageMainImgVw")
+    /// Image `encourageOkBtn`.
+    static let encourageOkBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "encourageOkBtn")
     /// Image `energy_arrow_back_ic`.
     static let energy_arrow_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_arrow_back_ic")
     /// Image `energy_arrow_down_ic`.
@@ -2413,6 +2417,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "en_pound", bundle: ..., traitCollection: ...)`
     static func en_pound(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.en_pound, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "encourageMainImgVw", bundle: ..., traitCollection: ...)`
+    static func encourageMainImgVw(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.encourageMainImgVw, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "encourageOkBtn", bundle: ..., traitCollection: ...)`
+    static func encourageOkBtn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.encourageOkBtn, compatibleWith: traitCollection)
     }
     #endif
 

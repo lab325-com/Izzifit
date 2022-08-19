@@ -438,6 +438,16 @@
 		FAA9DBEB27D9ECD4004A14FB /* WorkoutTypesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */; };
 		FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAA9DBEA27D9ECD4004A14FB /* WorkoutTypes.graphql */; };
 		FAA9DBEE27D9ECFF004A14FB /* WorkoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */; };
+		FAAD7E0828AE8866008FAAA9 /* EncourageAnimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD7E0728AE8866008FAAA9 /* EncourageAnimView.swift */; };
+		FAAD7E1328AF44AE008FAAA9 /* 0encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E0A28AF44AD008FAAA9 /* 0encourage.json */; };
+		FAAD7E1428AF44AE008FAAA9 /* 1encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E0B28AF44AD008FAAA9 /* 1encourage.json */; };
+		FAAD7E1528AF44AE008FAAA9 /* 6encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E0C28AF44AD008FAAA9 /* 6encourage.json */; };
+		FAAD7E1628AF44AE008FAAA9 /* 4encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E0D28AF44AD008FAAA9 /* 4encourage.json */; };
+		FAAD7E1728AF44AE008FAAA9 /* 7encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E0E28AF44AD008FAAA9 /* 7encourage.json */; };
+		FAAD7E1828AF44AE008FAAA9 /* 5encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E0F28AF44AD008FAAA9 /* 5encourage.json */; };
+		FAAD7E1928AF44AE008FAAA9 /* 8encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E1028AF44AD008FAAA9 /* 8encourage.json */; };
+		FAAD7E1A28AF44AE008FAAA9 /* 2encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E1128AF44AD008FAAA9 /* 2encourage.json */; };
+		FAAD7E1B28AF44AE008FAAA9 /* 3encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E1228AF44AD008FAAA9 /* 3encourage.json */; };
 		FAB12F9528A262E100E8F547 /* MenuSubscriptionsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB12F9428A262E100E8F547 /* MenuSubscriptionsController.xib */; };
 		FAB6547327FF39420057A221 /* CombinationsAwardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6547227FF39420057A221 /* CombinationsAwardsManager.swift */; };
 		FAB6548027FFFD480057A221 /* SlotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6547F27FFFD480057A221 /* SlotTableViewCell.swift */; };
@@ -923,6 +933,16 @@
 		FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTypesModel.swift; sourceTree = "<group>"; };
 		FAA9DBEA27D9ECD4004A14FB /* WorkoutTypes.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutTypes.graphql; sourceTree = "<group>"; };
 		FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPresenter.swift; sourceTree = "<group>"; };
+		FAAD7E0728AE8866008FAAA9 /* EncourageAnimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncourageAnimView.swift; sourceTree = "<group>"; };
+		FAAD7E0A28AF44AD008FAAA9 /* 0encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 0encourage.json; sourceTree = "<group>"; };
+		FAAD7E0B28AF44AD008FAAA9 /* 1encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1encourage.json; sourceTree = "<group>"; };
+		FAAD7E0C28AF44AD008FAAA9 /* 6encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 6encourage.json; sourceTree = "<group>"; };
+		FAAD7E0D28AF44AD008FAAA9 /* 4encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 4encourage.json; sourceTree = "<group>"; };
+		FAAD7E0E28AF44AD008FAAA9 /* 7encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 7encourage.json; sourceTree = "<group>"; };
+		FAAD7E0F28AF44AD008FAAA9 /* 5encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 5encourage.json; sourceTree = "<group>"; };
+		FAAD7E1028AF44AD008FAAA9 /* 8encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 8encourage.json; sourceTree = "<group>"; };
+		FAAD7E1128AF44AD008FAAA9 /* 2encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2encourage.json; sourceTree = "<group>"; };
+		FAAD7E1228AF44AD008FAAA9 /* 3encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 3encourage.json; sourceTree = "<group>"; };
 		FAB12F9428A262E100E8F547 /* MenuSubscriptionsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuSubscriptionsController.xib; sourceTree = "<group>"; };
 		FAB6547227FF39420057A221 /* CombinationsAwardsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinationsAwardsManager.swift; sourceTree = "<group>"; };
 		FAB6547F27FFFD480057A221 /* SlotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotTableViewCell.swift; sourceTree = "<group>"; };
@@ -2893,6 +2913,7 @@
 		FA8CC856282919450022BFE2 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				FAAD7E0928AF449A008FAAA9 /* EncouarageAnimations */,
 				FAC340DE287CDA7D00B90943 /* congrads_anim.json */,
 				FAC340DD287CDA7D00B90943 /* fun_anim.json */,
 				FAC340DB287CDA7D00B90943 /* menu_anim.json */,
@@ -2946,6 +2967,30 @@
 			path = WorkoutTypes;
 			sourceTree = "<group>";
 		};
+		FAAD7E0628AE8840008FAAA9 /* EncourageAnimView */ = {
+			isa = PBXGroup;
+			children = (
+				FAAD7E0728AE8866008FAAA9 /* EncourageAnimView.swift */,
+			);
+			path = EncourageAnimView;
+			sourceTree = "<group>";
+		};
+		FAAD7E0928AF449A008FAAA9 /* EncouarageAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				FAAD7E0A28AF44AD008FAAA9 /* 0encourage.json */,
+				FAAD7E0B28AF44AD008FAAA9 /* 1encourage.json */,
+				FAAD7E1128AF44AD008FAAA9 /* 2encourage.json */,
+				FAAD7E1228AF44AD008FAAA9 /* 3encourage.json */,
+				FAAD7E0D28AF44AD008FAAA9 /* 4encourage.json */,
+				FAAD7E0F28AF44AD008FAAA9 /* 5encourage.json */,
+				FAAD7E0C28AF44AD008FAAA9 /* 6encourage.json */,
+				FAAD7E0E28AF44AD008FAAA9 /* 7encourage.json */,
+				FAAD7E1028AF44AD008FAAA9 /* 8encourage.json */,
+			);
+			path = EncouarageAnimations;
+			sourceTree = "<group>";
+		};
 		FAB6546B27FEDF1A0057A221 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -2972,6 +3017,7 @@
 		FAB6546D27FEDF340057A221 /* GameController */ = {
 			isa = PBXGroup;
 			children = (
+				FAAD7E0628AE8840008FAAA9 /* EncourageAnimView */,
 				FAF99580289D210E00737EFA /* GameProtocols  */,
 				FAB6547E27FFFD330057A221 /* Cells */,
 				FACD1C14284790940014AFDC /* Managers */,
@@ -3303,6 +3349,7 @@
 				0268752327D8904900FFEA6A /* progress.graphql in Resources */,
 				02FAF0A727D361AE002CD678 /* EnergyDrinkWaterCell.xib in Resources */,
 				FAC340E7287CDA7D00B90943 /* spin_button_anim.json in Resources */,
+				FAAD7E1A28AF44AE008FAAA9 /* 2encourage.json in Resources */,
 				FA1BC1FC286F052700D5569F /* winner.json in Resources */,
 				02AB486B27E07EFB00F35EE2 /* FoodTopTitleCell.xib in Resources */,
 				02B225B427BD5D300035CFA2 /* QuizeSportController.xib in Resources */,
@@ -3321,6 +3368,7 @@
 				020D282527E89FE700010122 /* AddProductToMeal.graphql in Resources */,
 				02BACF0C27F4407300B7562C /* WorkoutActivitiesCell.xib in Resources */,
 				FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */,
+				FAAD7E1328AF44AE008FAAA9 /* 0encourage.json in Resources */,
 				02AD427828A7E0100091DE04 /* DietPlanById.graphql in Resources */,
 				0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */,
 				020D282027E863DD00010122 /* FoodAddController.xib in Resources */,
@@ -3335,6 +3383,7 @@
 				FA6E8B312892D68E0008F36C /* PaywallOneTimeController.xib in Resources */,
 				FA8CC858282919B80022BFE2 /* construction3.gif in Resources */,
 				029EDBD0280D3FCB00FC8748 /* VideoFinishedController.xib in Resources */,
+				FAAD7E1628AF44AE008FAAA9 /* 4encourage.json in Resources */,
 				0256999028197A7500BA1535 /* 22_complete_building.wav in Resources */,
 				02C3DD6C27BEDB46004E5C65 /* ProfileUpdate.graphql in Resources */,
 				020CB3DA27E9F43D00F97A76 /* UpdateProductInMeal.graphql in Resources */,
@@ -3343,6 +3392,7 @@
 				02DFE896285A1168005BF69B /* OnboardingSwipeContoller.xib in Resources */,
 				02B225B927BD63FC0035CFA2 /* QuizeEmailController.xib in Resources */,
 				FAC340E3287CDA7D00B90943 /* spark_anim.json in Resources */,
+				FAAD7E1428AF44AE008FAAA9 /* 1encourage.json in Resources */,
 				0249D25227B3A70B00F265C1 /* SplashViewController.xib in Resources */,
 				020E38FA289D51C400EDACEF /* DietMealCell.xib in Resources */,
 				02B22ACD281C27D8006AB1EA /* UpgradeBuilding.graphql in Resources */,
@@ -3377,6 +3427,7 @@
 				0227DAC727C6A455008AB26B /* MenuFoodController.xib in Resources */,
 				02BC128427F3007300678305 /* WorkoutDetailSectionCell.xib in Resources */,
 				02BC128927F30AC200678305 /* WorkoutDetailTrainCell.xib in Resources */,
+				FAAD7E1528AF44AE008FAAA9 /* 6encourage.json in Resources */,
 				02B3017727EB234A0045C607 /* SaveSleepQuality.graphql in Resources */,
 				02A5CDBA27C3DCFB00D31FB4 /* PasswordForgotRequest.graphql in Resources */,
 				02BACF1127F4554900B7562C /* WorkoutSpecialCell.xib in Resources */,
@@ -3401,6 +3452,7 @@
 				02021997285B456B0015CA9A /* EnergySpecialPriceCell.xib in Resources */,
 				FA1BC1FE286F110100D5569F /* confetti.json in Resources */,
 				02D066C127BBB57D00D12C5F /* Inter-Thin.ttf in Resources */,
+				FAAD7E1828AF44AE008FAAA9 /* 5encourage.json in Resources */,
 				02C3DD6627BEDA82004E5C65 /* QuizeProgressController.xib in Resources */,
 				FE7CF8BC27E4A7ED0099682E /* WeightTableCell.xib in Resources */,
 				02D5703C27E9AE4C00F14911 /* WorkoutsWidget.graphql in Resources */,
@@ -3450,12 +3502,15 @@
 				0249D23427B3A4F100F265C1 /* Assets.xcassets in Resources */,
 				0268753927D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.xib in Resources */,
 				023CDC3828047C8A0056F022 /* AvailableGoals.graphql in Resources */,
+				FAAD7E1B28AF44AE008FAAA9 /* 3encourage.json in Resources */,
 				02B225AF27BD45080035CFA2 /* QuizeFoodController.xib in Resources */,
 				0273F56C27D6513200B19449 /* MealsWidget.graphql in Resources */,
+				FAAD7E1928AF44AE008FAAA9 /* 8encourage.json in Resources */,
 				0273F56427D60C7A00B19449 /* EnergySleepCell.xib in Resources */,
 				025463BD27CFB21B00D433DB /* ToggleProductInRation.graphql in Resources */,
 				0251D24C27E2222F0098A54D /* RecentProducts.graphql in Resources */,
 				025463B027CF75BD00D433DB /* Muscles.graphql in Resources */,
+				FAAD7E1728AF44AE008FAAA9 /* 7encourage.json in Resources */,
 				FABA1DE72859F03A005ECE75 /* coin_v2.gif in Resources */,
 				FA1A256F283D0D0400240E28 /* PaywallSingleController.xib in Resources */,
 				0227A9BF2849F7F300BA29A8 /* IzziFit_coinmaster_30s.mp4 in Resources */,
@@ -3696,6 +3751,7 @@
 				0249D26927B3A92300F265C1 /* KeychainService.swift in Sources */,
 				FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */,
 				02E3F9DA2808478D006F5A99 /* CMTime+Extension.swift in Sources */,
+				FAAD7E0828AE8866008FAAA9 /* EncourageAnimView.swift in Sources */,
 				FA58DB4528880FED005D80B1 /* SocialManager.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
 				02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */,

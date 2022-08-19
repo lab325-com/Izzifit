@@ -17,6 +17,7 @@ class GameController: BaseController {
     var autoSpinTimer = Timer()
     var gestureLongTap = 0
     var autoSpinHasUsed = false
+    var encourageAnimView: EncourageAnimView?
     
     override func loadView() {
         super.loadView()
@@ -69,6 +70,10 @@ class GameController: BaseController {
             self.activateAutospin(firstLaunch: true)
         }
         autoSpinHasUsed = false
+    }
+    
+    @objc func closeEncourageView() {
+        encourageAnimView?.removeFromSuperview()
     }
     
     func onboardingDraw() {
@@ -199,6 +204,18 @@ class GameController: BaseController {
     }
     
     @objc func spinAction() {
+        if let gameView = gameView {
+            encourageAnimView = EncourageAnimView()
+            view.ui.genericlLayout(object: encourageAnimView ?? UIView(),
+                                   parentView: gameView,
+                                   topC: 0,
+                                   bottomC: 0,
+                                   leadingC: 0,
+                                   trailingC: 0)
+            encourageAnimView?.closeBtn.addTarget(self, action: #selector(closeEncourageView), for: .touchUpInside)
+            encourageAnimView?.okBtn.addTarget(self, action: #selector(closeEncourageView), for: .touchUpInside)
+        }
+        
         if let gameView = gameView {
             guard gameView.spinBtn.tag == 0 else { return }
             
