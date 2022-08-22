@@ -13,8 +13,8 @@ class EnergyRouter: BaseRouter {
         push(controller: controller)
     }
     
-    func pushFood(mealsWidget: MealsWidgetMainModel, currentMealType: MealType, delegate: FoodControllerProtocol) {
-        let controller = FoodController(mealsWidget: mealsWidget, currentMealType: currentMealType, delegate: delegate)
+    func pushFood(mealsWidget: MealsWidgetMainModel, currentMealType: MealType, dietModel: DietPlanModel?, delegate: FoodControllerProtocol) {
+        let controller = FoodController(mealsWidget: mealsWidget, currentMealType: currentMealType, dietModel: dietModel, delegate: delegate)
         push(controller: controller)
     }
     
