@@ -170,7 +170,7 @@ extension EnergyController: EnergyMealsDeleagate {
                 break
             }
             
-            EnergyRouter(presenter: navigationController).pushFood(mealsWidget: meals, currentMealType: type, delegate: self)
+            EnergyRouter(presenter: navigationController).pushFood(mealsWidget: meals, currentMealType: type, dietModel: presenter.dietsPlanModels.first, delegate: self)
         }
     }
 }

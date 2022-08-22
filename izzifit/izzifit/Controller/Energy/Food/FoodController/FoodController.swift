@@ -73,6 +73,7 @@ class FoodController: BaseController {
     
     private lazy var presenter  = FoodPresenter(view: self)
     private let mealsWidget: MealsWidgetMainModel
+    private let dietModel: DietPlanModel?
     private var currentMealType: MealType {
         didSet {
             topLabel.text = currentMealType.text
@@ -105,9 +106,10 @@ class FoodController: BaseController {
     // MARK: - Init
     //----------------------------------------------
     
-    init(mealsWidget: MealsWidgetMainModel, currentMealType: MealType, delegate: FoodControllerProtocol) {
+    init(mealsWidget: MealsWidgetMainModel, currentMealType: MealType, dietModel: DietPlanModel?, delegate: FoodControllerProtocol) {
         self.mealsWidget = mealsWidget
         self.currentMealType = currentMealType
+        self.dietModel = dietModel
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
@@ -380,13 +382,32 @@ extension FoodController: UITableViewDataSource, UITableViewDelegate {
             return nil
         } else {
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "FoodTopTitleCell") as! FoodTopTitleCell
+            
+            if let dietModel = dietModel {
+                headerView.dietView.isHidden = section == 0 ? false : true
+                headerView.cellSetup(dietModel: dietModel)
+            } else {
+                headerView.dietView.isHidden  = true
+            }
+            headerView.delegate = self
+            
             headerView.nameLabel.text = presenter.namesSections[safe: section]
             return headerView
         }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return isSearch ? 16 : 44
+        if isSearch {
+            return 16
+        } else if section == 0 {
+            if let _ = dietModel {
+                return 155
+            } else {
+                return 44
+            }
+        } else {
+            return 44
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -503,5 +524,24 @@ extension FoodController: FoodAddControllerProtocol {
         hideKeyboard()
         delegate?.foodControllerUpdate(controller: self)
         presenter.getProducts(mealTypes: currentMealType, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "")
+    }
+}
+
+//----------------------------------------------
+// MARK: - FoodTopTitleDelegate
+//----------------------------------------------
+
+
+extension FoodController: FoodTopTitleDelegate {
+    func foodTopTitleSelectDiet(cell: FoodTopTitleCell, model: DietPlanModel) {
+        guard let id = model.id, let specialID = model.externalId else {
+            return
+        }
+        
+        if !(model.isAvailable ?? false) {
+            AnalyticsHelper.sendFirebaseEvents(events: .dash_paid_diet_tap, params: ["id": specialID])
+        }
+        
+        WorkoutRouter(presenter: navigationController).pushDietDetail(id: id, idSpecialId: specialID)
     }
 }
