@@ -398,7 +398,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 97 files.
+  /// This `R.file` struct is generated, and contains static references to 99 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -464,6 +464,8 @@ struct R: Rswift.Validatable {
     static let interBoldItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-BoldItalic", pathExtension: "ttf")
     /// Resource file `Inter-ExtraBold.ttf`.
     static let interExtraBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-ExtraBold", pathExtension: "ttf")
+    /// Resource file `Inter-ExtraBoldItalic.otf`.
+    static let interExtraBoldItalicOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-ExtraBoldItalic", pathExtension: "otf")
     /// Resource file `Inter-ExtraLight.ttf`.
     static let interExtraLightTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-ExtraLight", pathExtension: "ttf")
     /// Resource file `Inter-Italic.ttf`.
@@ -570,6 +572,8 @@ struct R: Rswift.Validatable {
     static let coins_headerJson = Rswift.FileResource(bundle: R.hostingBundle, name: "coins_header", pathExtension: "json")
     /// Resource file `confetti.json`.
     static let confettiJson = Rswift.FileResource(bundle: R.hostingBundle, name: "confetti", pathExtension: "json")
+    /// Resource file `confettiEncourage.json`.
+    static let confettiEncourageJson = Rswift.FileResource(bundle: R.hostingBundle, name: "confettiEncourage", pathExtension: "json")
     /// Resource file `congrads_anim.json`.
     static let congrads_animJson = Rswift.FileResource(bundle: R.hostingBundle, name: "congrads_anim", pathExtension: "json")
     /// Resource file `construction3.gif`.
@@ -784,6 +788,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Inter-ExtraBold", withExtension: "ttf")`
     static func interExtraBoldTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.interExtraBoldTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Inter-ExtraBoldItalic", withExtension: "otf")`
+    static func interExtraBoldItalicOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.interExtraBoldItalicOtf
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -1105,6 +1115,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "confettiEncourage", withExtension: "json")`
+    static func confettiEncourageJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.confettiEncourageJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "congrads_anim", withExtension: "json")`
     static func congrads_animJson(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.congrads_animJson
@@ -1180,7 +1196,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.font` struct is generated, and contains static references to 12 fonts.
+  /// This `R.font` struct is generated, and contains static references to 13 fonts.
   struct font: Rswift.Validatable {
     /// Font `Inter-BlackItalic`.
     static let interBlackItalic = Rswift.FontResource(fontName: "Inter-BlackItalic")
@@ -1190,6 +1206,8 @@ struct R: Rswift.Validatable {
     static let interBoldItalic = Rswift.FontResource(fontName: "Inter-BoldItalic")
     /// Font `Inter-Bold`.
     static let interBold = Rswift.FontResource(fontName: "Inter-Bold")
+    /// Font `Inter-ExtraBoldItalic`.
+    static let interExtraBoldItalic = Rswift.FontResource(fontName: "Inter-ExtraBoldItalic")
     /// Font `Inter-ExtraBold`.
     static let interExtraBold = Rswift.FontResource(fontName: "Inter-ExtraBold")
     /// Font `Inter-ExtraLight`.
@@ -1230,6 +1248,11 @@ struct R: Rswift.Validatable {
     /// `UIFont(name: "Inter-ExtraBold", size: ...)`
     static func interExtraBold(size: CGFloat) -> UIKit.UIFont? {
       return UIKit.UIFont(resource: interExtraBold, size: size)
+    }
+
+    /// `UIFont(name: "Inter-ExtraBoldItalic", size: ...)`
+    static func interExtraBoldItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: interExtraBoldItalic, size: size)
     }
 
     /// `UIFont(name: "Inter-ExtraLight", size: ...)`
@@ -1273,6 +1296,7 @@ struct R: Rswift.Validatable {
       if R.font.interBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Bold' could not be loaded, is 'Inter-Bold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interBoldItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-BoldItalic' could not be loaded, is 'Inter-BoldItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interExtraBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-ExtraBold' could not be loaded, is 'Inter-ExtraBold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.interExtraBoldItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-ExtraBoldItalic' could not be loaded, is 'Inter-ExtraBoldItalic.otf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interExtraLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-ExtraLight' could not be loaded, is 'Inter-ExtraLight.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Italic' could not be loaded, is 'Inter-Italic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Light' could not be loaded, is 'Inter-Light.ttf' added to the UIAppFonts array in this targets Info.plist?") }

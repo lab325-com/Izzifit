@@ -84,8 +84,10 @@ class EncourageAnimView: UIView {
                     textColor: UIColor(rgb: 0x6A534C),
                     textAlignment: .center,
                     fontSize: 20,
-                    fontName: "Inter-Bold",
+                    fontName: "Inter-ExtraBoldItalic",
                     lines: 0)
+        
+     
         
         anim.contentMode = .scaleAspectFill
         anim.loopMode = .loop
@@ -96,6 +98,21 @@ class EncourageAnimView: UIView {
     }
     
     func layout() {
+        
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.alpha = 0.250
+      
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.layer.cornerRadius = 10
+        blurEffectView.layer.masksToBounds = true
+        
+       ui.genericlLayout(object: blurEffectView,
+                         parentView: self,
+                         width: 297,
+                         height: 348,
+                         topC: hRatio(cH:198),
+                         centerH: 0)
         
         ui.genericlLayout(object: mainImgVw,
                           parentView: self,
@@ -124,6 +141,7 @@ class EncourageAnimView: UIView {
                           topC: 34,
                           centerH: 0)
         
+        headerLabel.addCharacterSpacing(kernValue: 0)
         ui.genericlLayout(object: closeBtn,
                           parentView: self,
                           width: 40,
