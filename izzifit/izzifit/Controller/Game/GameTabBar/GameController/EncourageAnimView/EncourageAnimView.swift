@@ -37,7 +37,7 @@ class EncourageAnimView: UIView {
                             EncourageObject(name: "5encourage", topC: 60, width: 250, height: 250, header: "Great! Keep spinning!", centerH: 2),
                             EncourageObject(name: "6encourage", topC: 40, width: 240, height: 240, header: "Go for it!", centerH: 10),
                             EncourageObject(name: "7encourage", topC: 50, width: 250, height: 250, header: "You`re doing awesome!", centerH: -5),
-                            EncourageObject(name: "8encourage", topC: 0, width: 330, height: 330, header: "Nice, you`re hard player", centerH: 0)]
+                            EncourageObject(name: "8encourage", topC: 20, width: 300, height: 300, header: "Nice, you`re hard player", centerH: 0)]
     
     var mainImgVw = UIImageView()
     var headerLabel = UILabel()
@@ -71,6 +71,7 @@ class EncourageAnimView: UIView {
     }
 
     func setUI() {
+        
         layer.backgroundColor = UIColor(rgb: 0x3F3E56, alpha: 0.3).cgColor
         
         mainImgVw.image = RImage.encourageMainImgVw() ?? UIImage()

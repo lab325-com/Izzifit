@@ -20,6 +20,8 @@ class GameController: BaseController {
     var encourageAnimView: EncourageAnimView?
     var encourageCounterAutoSpin = 0
     var encourageCounterManualSpin = 0
+    
+    var encourageAutoSpinBorder = 0
     lazy private var encourageManualSpinBorder: Int = { Int(arc4random_uniform(2) + 5) }()
     
     override func loadView() {
@@ -82,6 +84,7 @@ class GameController: BaseController {
         if let tabBar = parent as? GameTabBarController { tabBar.toggleBtnInteraction() }
         if let gameView = gameView {
             gameView.spinBtn.tag = 0
+            buttonInPressed()
             // enable tabBar
         }
     }
@@ -167,6 +170,8 @@ class GameController: BaseController {
     
     private func spinsRunOut() {
         gestureLongTap = 0
+        buttonInPressed()
+        
         if let gameView = gameView {
             gameView.spinBtn.tag = 0
             autoSpinTimer.invalidate()
@@ -215,12 +220,13 @@ class GameController: BaseController {
     
     func showEncourage() {
         
-        guard encourageCounterManualSpin == encourageManualSpinBorder else { return }
+        guard encourageCounterManualSpin == encourageManualSpinBorder || encourageCounterAutoSpin == 14  else { return }
         // DisableTabbar
         
         if let tabBar = parent as? GameTabBarController { tabBar.toggleBtnInteraction()
             
             encourageCounterManualSpin = 0
+            encourageCounterAutoSpin = 0
             if let gameView = gameView {
                 gameView.spinBtn.tag = 1
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) { [self] in
@@ -242,8 +248,12 @@ class GameController: BaseController {
 
         if let gameView = gameView {
             guard gameView.spinBtn.tag == 0 else { return }
-            encourageCounterManualSpin += 1
-            timerSpinManager.generalSpin(resultLbl: gameView.startSpinLbl,
+            switch gestureLongTap {
+            case 0:   encourageCounterManualSpin += 1
+            default:  encourageCounterAutoSpin += 1
+            }
+            
+                        timerSpinManager.generalSpin(resultLbl: gameView.startSpinLbl,
                                          resultStackView: gameView.resultStackView,
                                          coinsLbl: gameView.barBackVw.coinsLbl,
                                          energyCountLbl: gameView.barBackVw.energyCountLbl,
@@ -254,9 +264,8 @@ class GameController: BaseController {
                 
                 if !result, let ids = PreferencesManager.sharedManager.enegyZero?.idProducts { 
                     GameRouter(presenter: navigationController).presentEnergyPopUp(idProducts: ids, delegate: self)
-                    gestureLongTap = 0
                     gameView.spinBtn.tag = 0
-                    autoSpinTimer.invalidate()
+                    buttonInPressed()
                 }
             }
             
@@ -272,6 +281,7 @@ class GameController: BaseController {
     @objc func long() {
         gestureLongTap += 1
         guard gestureLongTap == 1 else { return }
+        encourageCounterManualSpin = 0
         if let gameView = gameView {
             gameView.spinBtn.setImage(RImage.spinCancelAutoSpin(), for: .normal)
             self.autoSpinHasUsed = true
@@ -288,7 +298,7 @@ class GameController: BaseController {
         }
     }
     
-    @objc func buttonInPressed(sender: UIButton) {
+    @objc func buttonInPressed() {
         if let gameView = gameView {
             gameView.spinBtn.setImage(RImage.spinPressAutospin(), for: .normal)
             autoSpinTimer.invalidate()
@@ -364,6 +374,14 @@ extension GameController: SpinAwardProtocol {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     gameView.spinBtn.tag = 0
                     self.showEncourage()
+                    
+                    switch self.encourageCounterAutoSpin {
+                    case 14:
+                            self.autoSpinTimer.invalidate()
+                            self.showEncourage()
+                    default: break
+                    }
+                    
                 }
             }
             let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterSpeen)
