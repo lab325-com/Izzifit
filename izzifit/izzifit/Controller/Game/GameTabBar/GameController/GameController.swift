@@ -18,6 +18,9 @@ class GameController: BaseController {
     var gestureLongTap = 0
     var autoSpinHasUsed = false
     var encourageAnimView: EncourageAnimView?
+    var encourageCounterAutoSpin = 0
+    var encourageCounterManualSpin = 0
+    lazy private var encourageManualSpinBorder: Int = { Int(arc4random_uniform(2) + 5) }()
     
     override func loadView() {
         super.loadView()
@@ -70,10 +73,17 @@ class GameController: BaseController {
             self.activateAutospin(firstLaunch: true)
         }
         autoSpinHasUsed = false
+        encourageCounterAutoSpin = 0
+        encourageCounterManualSpin = 0
     }
     
     @objc func closeEncourageView() {
         encourageAnimView?.removeFromSuperview()
+        if let tabBar = parent as? GameTabBarController { tabBar.toggleBtnInteraction() }
+        if let gameView = gameView {
+            gameView.spinBtn.tag = 0
+            // enable tabBar
+        }
     }
     
     func onboardingDraw() {
@@ -203,22 +213,36 @@ class GameController: BaseController {
         }
     }
     
-    @objc func spinAction() {
-        if let gameView = gameView {
-            encourageAnimView = EncourageAnimView()
-            view.ui.genericlLayout(object: encourageAnimView ?? UIView(),
-                                   parentView: gameView,
-                                   topC: 0,
-                                   bottomC: 0,
-                                   leadingC: 0,
-                                   trailingC: 0)
-            encourageAnimView?.closeBtn.addTarget(self, action: #selector(closeEncourageView), for: .touchUpInside)
-            encourageAnimView?.okBtn.addTarget(self, action: #selector(closeEncourageView), for: .touchUpInside)
-        }
+    func showEncourage() {
         
+        guard encourageCounterManualSpin == encourageManualSpinBorder else { return }
+        // DisableTabbar
+        
+        if let tabBar = parent as? GameTabBarController { tabBar.toggleBtnInteraction()
+            
+            encourageCounterManualSpin = 0
+            if let gameView = gameView {
+                gameView.spinBtn.tag = 1
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) { [self] in
+                    encourageAnimView = EncourageAnimView()
+                    view.ui.genericlLayout(object: encourageAnimView ?? UIView(),
+                                           parentView: tabBar.view,
+                                           topC: 0,
+                                           bottomC: 0,
+                                           leadingC: 0,
+                                           trailingC: 0)
+                    encourageAnimView?.closeBtn.addTarget(self, action: #selector(closeEncourageView), for: .touchUpInside)
+                    encourageAnimView?.okBtn.addTarget(self, action: #selector(closeEncourageView), for: .touchUpInside)
+                }
+            }
+        }
+    }
+    
+    @objc func spinAction() {
+
         if let gameView = gameView {
             guard gameView.spinBtn.tag == 0 else { return }
-            
+            encourageCounterManualSpin += 1
             timerSpinManager.generalSpin(resultLbl: gameView.startSpinLbl,
                                          resultStackView: gameView.resultStackView,
                                          coinsLbl: gameView.barBackVw.coinsLbl,
@@ -302,6 +326,7 @@ extension GameController: SpinAwardProtocol {
             autoSpinTimer.invalidate()
         }
         activateAutospin(firstLaunch: false)
+        showEncourage()
     }
     
     func completeAward(model: [SpinMainModel]) {
@@ -338,6 +363,7 @@ extension GameController: SpinAwardProtocol {
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     gameView.spinBtn.tag = 0
+                    self.showEncourage()
                 }
             }
             let _ = PaywallRouter(presenter: navigationController).presentPaywall(delegate: self, place: .afterSpeen)
