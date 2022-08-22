@@ -426,7 +426,7 @@ extension LevelController: MainGameOnboardingDelegate {
 
         if let tabBarVC = self.tabBarController as? GameTabBarController {
         switch MainGameOnboardingView.stateCounter {
-        case 1,4: levelView.stateBtns[2].sendActions(for: .touchUpInside)
+        case 1,4:  levelView.stateBtns[2].sendActions(for: .touchUpInside)
         case 2, 5: buildPopUpVw!.upgradeBtn.sendActions(for: .touchUpInside)
         case 7: tabBarVC.spin()
             onboardingView!.removeFromSuperview()
