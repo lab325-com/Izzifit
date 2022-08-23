@@ -11479,6 +11479,7 @@ struct _R: Rswift.Validatable {
       try _EnergyWeightCell.validate()
       try _FoodController.validate()
       try _FoodRecomendedCell.validate()
+      try _FoodTopTitleCell.validate()
       try _LoginController.validate()
       try _MainTabBarController.validate()
       try _MenuAgeController.validate()
@@ -12050,7 +12051,7 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _FoodTopTitleCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+    struct _FoodTopTitleCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
       typealias ReusableType = FoodTopTitleCell
 
       let bundle = R.hostingBundle
@@ -12059,6 +12060,12 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FoodTopTitleCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FoodTopTitleCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'FoodTopTitleCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}

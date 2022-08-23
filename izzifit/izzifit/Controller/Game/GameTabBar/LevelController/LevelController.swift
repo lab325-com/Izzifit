@@ -14,7 +14,16 @@ class LevelController: BaseController {
     private var finishLevelPopUp:   LevelFinishView?
     
     var player = PlayerModel()
-    let animation = UIImageView()
+//    let animation = UIImageView()
+    
+    var animations: [UIImageView] = {
+        var array = [UIImageView]()
+        for i in 0...4 {
+            let imgVw = UIImageView()
+            array.append(imgVw)
+        }
+        return array
+    }()
     private var pointers = PointersAndTicks()
     var onboardingView: MainGameOnboardingView?
     
@@ -195,9 +204,8 @@ class LevelController: BaseController {
     
     @objc func upgradeBuilding(sender: UIButton) {
    
-        for btn in levelView.stateBtns {
-            btn.isUserInteractionEnabled.toggle()
-        }
+        levelView.stateBtns[sender.tag].isUserInteractionEnabled = false
+        
         
         var buildingName = String()
         
@@ -216,11 +224,13 @@ class LevelController: BaseController {
         buildPopUpVw.removeFromSuperview()
         view.layoutIfNeeded()
         
-        animation.prepareAnimation(name: "construction3", loopRepeated: true)
-        animation.isHidden = false
-        
+        self.animations[sender.tag].prepareAnimation(name: "construction3", loopRepeated: true)
+        self.animations[sender.tag].isHidden = false
+       
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) { [self] in
-            self.animation.removeFromSuperview()
+          //  self.animation.removeFromSuperview()
+            self.animations[sender.tag].removeFromSuperview()
+            
             
             var price = Int()
             var buildType: BuildingType
@@ -264,9 +274,7 @@ class LevelController: BaseController {
             case .none: break
             }
             
-            for btn in levelView.stateBtns {
-                btn.isUserInteractionEnabled.toggle()
-            }
+            levelView.stateBtns[sender.tag].isUserInteractionEnabled = true
      
             levelView.barBackVw.prevCoins = KeychainService.standard.me?.coins ?? 0
             GameNetworkLayer.shared.upgradeBuild(buildingId: buildingId,
@@ -275,7 +283,7 @@ class LevelController: BaseController {
             } completion: { self.succesBuildings()
                 self.levelView.barBackVw.runNumbers(isCoins: true,
                                      duration: 3,
-                                    startValue:  self.levelView.barBackVw.prevCoins,
+                                     startValue:  self.levelView.barBackVw.prevCoins,
                                      endValue: KeychainService.standard.me?.coins ?? 0)
             }
         }
@@ -342,14 +350,15 @@ class LevelController: BaseController {
                                              action: #selector(closePopUp),
                                              for: .touchUpInside)
         
-        view.ui.genericlLayout(object: animation,
+        animations[sender.tag].isHidden = true
+        
+        view.ui.genericlLayout(object: animations[sender.tag],
                                parentView: sender,
                                width: 200,
                                height: 200,
                                centerV: 0,
                                centerH: 0)
         
-        animation.isHidden = true
         view.layoutIfNeeded()
     }
 }
