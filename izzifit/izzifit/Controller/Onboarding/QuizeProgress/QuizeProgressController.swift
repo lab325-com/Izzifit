@@ -79,6 +79,7 @@ class QuizeProgressController: BaseController {
 
 extension QuizeProgressController: QuizeProgressOutputProtocol {
     func success() {
+        AnalyticsHelper.sendFirebaseEvents(events: .quiz_finish)
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) { [weak self] in
             guard let `self` = self else { return }
             if PreferencesManager.sharedManager.preOnboardingRemote?.afterPogess == true, let screen =  PreferencesManager.sharedManager.preOnboardingRemote?.screen {
@@ -113,6 +114,7 @@ extension QuizeProgressController: PaywallProtocol {
     }
     
     func paywallSuccess(controller: BaseController) {
+        
         RootRouter.sharedInstance.loadMain(toWindow: RootRouter.sharedInstance.window!)
     }
 }

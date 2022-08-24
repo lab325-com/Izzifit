@@ -93,7 +93,7 @@ class QuizeProgressPresenter: QuizeProgressPresenterProtocol {
         let mutation = ProfileUpdateMutation(record: profileUpdateInput)
         
         let _ = Network.shared.mutation(model: ProfileUpdateModel.self, mutation, controller: view, successHandler: { [weak self] model in
-            AnalyticsHelper.sendFirebaseEvents(events: .quiz_finish)
+            
             if let _ = profile.weight, let _ = profile.targetWeight {
                 PreferencesManager.sharedManager.tempPorifle.weight = nil
                 PreferencesManager.sharedManager.tempPorifle.targetWeight = nil
