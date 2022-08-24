@@ -398,7 +398,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 99 files.
+  /// This `R.file` struct is generated, and contains static references to 100 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -436,6 +436,8 @@ struct R: Rswift.Validatable {
     static let caloriesWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "CaloriesWidget", pathExtension: "graphql")
     /// Resource file `ChooseWorkoutWidgetModel.graphql`.
     static let chooseWorkoutWidgetModelGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ChooseWorkoutWidgetModel", pathExtension: "graphql")
+    /// Resource file `CreateProductReq.graphql`.
+    static let createProductReqGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "CreateProductReq", pathExtension: "graphql")
     /// Resource file `DietPlanById.graphql`.
     static let dietPlanByIdGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DietPlanById", pathExtension: "graphql")
     /// Resource file `DietPlans.graphql`.
@@ -704,6 +706,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "ChooseWorkoutWidgetModel", withExtension: "graphql")`
     static func chooseWorkoutWidgetModelGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.chooseWorkoutWidgetModelGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "CreateProductReq", withExtension: "graphql")`
+    static func createProductReqGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.createProductReqGraphql
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -5149,7 +5157,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 96 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 97 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -5201,6 +5209,8 @@ struct R: Rswift.Validatable {
     static let energyWeightCell = _R.nib._EnergyWeightCell()
     /// Nib `FoodAddController`.
     static let foodAddController = _R.nib._FoodAddController()
+    /// Nib `FoodAddProductCell`.
+    static let foodAddProductCell = _R.nib._FoodAddProductCell()
     /// Nib `FoodController`.
     static let foodController = _R.nib._FoodController()
     /// Nib `FoodRecomendedCell`.
@@ -5541,6 +5551,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.foodAddController) instead")
     static func foodAddController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.foodAddController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "FoodAddProductCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.foodAddProductCell) instead")
+    static func foodAddProductCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.foodAddProductCell)
     }
     #endif
 
@@ -6212,6 +6230,10 @@ struct R: Rswift.Validatable {
       return R.nib.foodAddController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func foodAddProductCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FoodAddProductCell? {
+      return R.nib.foodAddProductCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FoodAddProductCell
+    }
+
     static func foodController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.foodController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -6499,7 +6521,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 46 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 47 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AwardsTableCell`.
     static let awardsTableCell: Rswift.ReuseIdentifier<PolicyCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
@@ -6541,6 +6563,8 @@ struct R: Rswift.Validatable {
     static let energyTrainingCell: Rswift.ReuseIdentifier<EnergyTrainingCell> = Rswift.ReuseIdentifier(identifier: "EnergyTrainingCell")
     /// Reuse identifier `EnergyWeightCell`.
     static let energyWeightCell: Rswift.ReuseIdentifier<EnergyWeightCell> = Rswift.ReuseIdentifier(identifier: "EnergyWeightCell")
+    /// Reuse identifier `FoodAddProductCell`.
+    static let foodAddProductCell: Rswift.ReuseIdentifier<FoodAddProductCell> = Rswift.ReuseIdentifier(identifier: "FoodAddProductCell")
     /// Reuse identifier `FoodRecomendedCell`.
     static let foodRecomendedCell: Rswift.ReuseIdentifier<FoodRecomendedCell> = Rswift.ReuseIdentifier(identifier: "FoodRecomendedCell")
     /// Reuse identifier `FoodTopTitleCell`.
@@ -12003,6 +12027,20 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _FoodAddProductCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = FoodAddProductCell
+
+      let bundle = R.hostingBundle
+      let identifier = "FoodAddProductCell"
+      let name = "FoodAddProductCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FoodAddProductCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FoodAddProductCell
       }
 
       fileprivate init() {}

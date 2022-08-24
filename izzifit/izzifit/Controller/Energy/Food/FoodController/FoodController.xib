@@ -19,13 +19,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodController" customModule="izzifit" customModuleProvider="target">
             <connections>
-                <outlet property="addProductButton" destination="11n-8P-dxA" id="r9e-eW-aaZ"/>
-                <outlet property="addProductView" destination="AVz-QQ-nYd" id="Otp-ra-Xd2"/>
                 <outlet property="allLabel" destination="FGx-qS-muT" id="fJV-cw-rmA"/>
                 <outlet property="allView" destination="eL7-yD-tAr" id="5vd-HA-OZE"/>
                 <outlet property="arrowDownImageView" destination="30u-3e-h9Q" id="2nv-lq-cti"/>
+                <outlet property="backButton" destination="TYT-7f-bu2" id="gCF-zh-Gac"/>
                 <outlet property="bottomPickerLayout" destination="pH3-p5-odc" id="qUb-Bb-CPA"/>
-                <outlet property="bottomViewConstraint" destination="Gqp-lp-RXJ" id="PYw-Gf-CEx"/>
+                <outlet property="bottomViewConstraint" destination="DXD-Mo-VYG" id="dcc-sS-L2v"/>
+                <outlet property="breakFastView" destination="ktR-K2-7MO" id="efU-Uk-vc2"/>
                 <outlet property="carbsGLabel" destination="MZ8-LL-4jY" id="3Hm-f5-uZ6"/>
                 <outlet property="carbsGLeftLabel" destination="baM-3Z-ciL" id="o4c-4w-GBw"/>
                 <outlet property="carbsLabel" destination="KwV-fV-Z8Z" id="ord-UR-lRM"/>
@@ -35,6 +35,7 @@
                 <outlet property="fatsGLeftLabel" destination="mHA-Jo-S5y" id="WTl-z7-B2w"/>
                 <outlet property="fatsLabel" destination="ZGg-mV-hhi" id="KA3-TL-aqr"/>
                 <outlet property="fatsView" destination="1Es-Cr-fbD" id="8w0-dl-HfO"/>
+                <outlet property="layoutTopBackButton" destination="9uw-qZ-ehl" id="gAl-u5-wqs"/>
                 <outlet property="pickerView" destination="cr1-V1-dCo" id="kn8-lw-F0k"/>
                 <outlet property="proteinGrammLabel" destination="ZP7-8R-9xQ" id="MVh-iE-Zef"/>
                 <outlet property="proteinView" destination="oLO-Dj-pi7" id="upb-nh-A2Q"/>
@@ -491,48 +492,6 @@
                         <outlet property="delegate" destination="-1" id="krJ-x5-VSA"/>
                     </connections>
                 </pickerView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVz-QQ-nYd">
-                    <rect key="frame" x="0.0" y="701" width="414" height="161"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ANO-8A-tFG">
-                            <rect key="frame" x="16" y="24" width="382" height="113"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11n-8P-dxA">
-                                    <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="48" id="PID-T3-Eab"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="Add your own product">
-                                        <color key="titleColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="24"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="addOwnProduct:" destination="-1" eventType="touchUpInside" id="mma-dP-hld"/>
-                                    </connections>
-                                </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We will check the correctness of your product and add it to our base" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvG-gE-TlO">
-                                    <rect key="frame" x="0.0" y="72" width="382" height="41"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                        </stackView>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstItem="ANO-8A-tFG" firstAttribute="top" secondItem="AVz-QQ-nYd" secondAttribute="top" constant="24" id="Omi-oB-yrJ"/>
-                        <constraint firstAttribute="bottom" secondItem="ANO-8A-tFG" secondAttribute="bottom" constant="24" id="i72-Gv-a6Y"/>
-                        <constraint firstAttribute="trailing" secondItem="ANO-8A-tFG" secondAttribute="trailing" constant="16" id="kcm-WP-hyT"/>
-                        <constraint firstItem="ANO-8A-tFG" firstAttribute="leading" secondItem="AVz-QQ-nYd" secondAttribute="leading" constant="16" id="qg5-EA-Nrv"/>
-                    </constraints>
-                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngj-Ys-oJo">
                     <rect key="frame" x="142.5" y="58" width="129.5" height="34"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -546,11 +505,10 @@
             <constraints>
                 <constraint firstItem="yIf-nP-C8A" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="47Q-Id-AOf"/>
                 <constraint firstItem="NKC-fL-YB9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8il-lp-wzh"/>
-                <constraint firstItem="TYT-7f-bu2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="9uw-qZ-ehl"/>
+                <constraint firstItem="TYT-7f-bu2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" priority="999" constant="16" id="9uw-qZ-ehl"/>
                 <constraint firstItem="dt6-Ya-DKx" firstAttribute="centerY" secondItem="ktR-K2-7MO" secondAttribute="centerY" id="DKP-59-ooz"/>
                 <constraint firstAttribute="bottom" secondItem="yIf-nP-C8A" secondAttribute="bottom" id="DXD-Mo-VYG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CE8-Tw-CF0" secondAttribute="trailing" id="ErL-O8-CV8"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="AVz-QQ-nYd" secondAttribute="bottom" priority="999" id="Gqp-lp-RXJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="V5D-Ps-I6q" secondAttribute="trailing" constant="16" id="HEF-DM-7na"/>
                 <constraint firstItem="NKC-fL-YB9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="IJd-co-nN1"/>
                 <constraint firstItem="gTf-2M-9On" firstAttribute="centerX" secondItem="c3K-Hi-dQl" secondAttribute="centerX" id="ILd-0I-Gvw"/>
@@ -562,7 +520,6 @@
                 <constraint firstItem="CE8-Tw-CF0" firstAttribute="top" secondItem="V5D-Ps-I6q" secondAttribute="bottom" id="OEn-5Z-Chd"/>
                 <constraint firstItem="ktR-K2-7MO" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="PFR-jE-vet"/>
                 <constraint firstItem="TYT-7f-bu2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="QKE-Vf-2zM"/>
-                <constraint firstItem="AVz-QQ-nYd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Rd2-6L-d2j"/>
                 <constraint firstItem="wdK-Bc-Hqj" firstAttribute="top" secondItem="gTf-2M-9On" secondAttribute="bottom" id="ScH-Eu-iVb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yIf-nP-C8A" secondAttribute="trailing" id="Vzb-oA-XuO"/>
                 <constraint firstItem="gTf-2M-9On" firstAttribute="width" secondItem="c3K-Hi-dQl" secondAttribute="width" id="YKU-E7-Pjz"/>
@@ -575,7 +532,6 @@
                 <constraint firstItem="Ngj-Ys-oJo" firstAttribute="height" secondItem="ktR-K2-7MO" secondAttribute="height" id="e5s-bs-Ebw"/>
                 <constraint firstAttribute="bottom" secondItem="NKC-fL-YB9" secondAttribute="bottom" id="eRD-1f-akV"/>
                 <constraint firstItem="ktR-K2-7MO" firstAttribute="centerY" secondItem="TYT-7f-bu2" secondAttribute="centerY" id="fsa-Xa-Tg7"/>
-                <constraint firstItem="AVz-QQ-nYd" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="g5E-Lj-0Ml"/>
                 <constraint firstItem="c3K-Hi-dQl" firstAttribute="top" secondItem="ktR-K2-7MO" secondAttribute="bottom" constant="16" id="hKF-za-6Jl"/>
                 <constraint firstItem="cr1-V1-dCo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ioi-aR-2jw"/>
                 <constraint firstItem="CE8-Tw-CF0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="jwn-lk-ZcS"/>

@@ -48,9 +48,7 @@ class FoodController: BaseController {
     @IBOutlet weak var stackSearch: UIStackView!
     
     @IBOutlet weak var shadowSearchView: ShadowView!
-    @IBOutlet weak var addProductButton: UIButton!
     
-    @IBOutlet weak var addProductView: UIView!
     @IBOutlet weak var searchTypeScroll: UIScrollView!
     @IBOutlet weak var stackProteinView: UIStackView!
     
@@ -64,12 +62,17 @@ class FoodController: BaseController {
     @IBOutlet weak var fatsView: UIView!
     @IBOutlet weak var carbsView: UIView!
     
+    @IBOutlet weak var layoutTopBackButton: NSLayoutConstraint!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var breakFastView: UIStackView!
+    
     //----------------------------------------------
     // MARK: - Property
     //----------------------------------------------
     
     private let foodIdentifier = String(describing: FoodRecomendedCell.self)
     private let foodTopTitleIdentifier = String(describing: FoodTopTitleCell.self)
+    private let foodAddProductIdentifier = String(describing: FoodAddProductCell.self)
     
     private lazy var presenter  = FoodPresenter(view: self)
     private let mealsWidget: MealsWidgetMainModel
@@ -138,16 +141,13 @@ class FoodController: BaseController {
         topLabel.text = currentMealType.text
         presenter.getProducts(mealTypes: currentMealType, mealId: mealsWidget.meals?.first(where: {$0?.type == currentMealType})??.id ?? "")
         
-        addProductButton.layer.borderWidth = 2
-        addProductButton.layer.borderColor = UIColor(red: 0.8, green: 0.745, blue: 0.914, alpha: 1).cgColor
-        
         searchLabel.text = RLocalization.food_search()
-        
         
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
         
         tableView.register(UINib(nibName: foodIdentifier, bundle: nil), forCellReuseIdentifier: foodIdentifier)
+        tableView.register(UINib(nibName: foodAddProductIdentifier, bundle: nil), forCellReuseIdentifier: foodAddProductIdentifier)
         tableView.register(UINib(nibName: foodTopTitleIdentifier, bundle: nil), forHeaderFooterViewReuseIdentifier: foodTopTitleIdentifier)
         
         pickerView.selectRow(MealType.allCases.firstIndex(where: {$0 == currentMealType}) ?? 0, inComponent: 0, animated: false)
@@ -155,7 +155,6 @@ class FoodController: BaseController {
         searchView.layer.borderWidth = 1
         
         setupSerach(isActive: false)
-        
     }
     
     private func updateLabels() {
@@ -285,6 +284,15 @@ class FoodController: BaseController {
         }
     }
     
+    private func topView(hidden: Bool) {
+        UIView.animate(withDuration: 0.3) {
+            self.backButton.alpha = hidden ? 0.0 : 1.0
+            self.breakFastView.alpha = hidden ? 0.0 : 1.0
+            self.layoutTopBackButton.constant = hidden ? -40 : 16
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     //----------------------------------------------
     // MARK: - IBAction
     //----------------------------------------------
@@ -303,10 +311,6 @@ class FoodController: BaseController {
     
     @IBAction func actionTypeEat(_ sender: UIButton) {
         updateTypeEat()
-    }
-    
-    @IBAction func addOwnProduct(_ sender: UIButton) {
-        EnergyRouter(presenter: navigationController).pushWriteToUs()
     }
     
     @IBAction func textFieldChangeAction(_ sender: UITextField) {
@@ -355,17 +359,23 @@ extension FoodController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isSearch ? presenter.searchProducts.count : presenter.sections[section]?.count ?? 0
+        return isSearch ? presenter.searchProducts.count + 1 : presenter.sections[section]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isSearch {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.foodIdentifier) as? FoodRecomendedCell else { return    UITableViewCell() }
-            cell.delegate = self
-            if let model = presenter.searchProducts[safe: indexPath.row] {
-                cell.setupCell(model: model, isActive: false, isHiddenBottom: presenter.searchProducts[safe: indexPath.row + 1] == nil ? true : false)
+            if presenter.searchProducts.count == indexPath.row {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: self.foodAddProductIdentifier) as? FoodAddProductCell else { return    UITableViewCell() }
+                cell.delegate = self
+                return cell
+            } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: self.foodIdentifier) as? FoodRecomendedCell else { return    UITableViewCell() }
+                cell.delegate = self
+                if let model = presenter.searchProducts[safe: indexPath.row] {
+                    cell.setupCell(model: model, isActive: false, isHiddenBottom: presenter.searchProducts[safe: indexPath.row + 1] == nil ? true : false)
+                }
+                return cell
             }
-            return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: self.foodIdentifier) as? FoodRecomendedCell else { return    UITableViewCell() }
             cell.delegate = self
@@ -460,7 +470,7 @@ extension FoodController: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension FoodController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        //addProductView.isHidden = false
+        topView(hidden: true)
         AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_food_search)
         stackProteinView.isHidden = true
         searchTypeScroll.isHidden = false
@@ -469,7 +479,7 @@ extension FoodController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        addProductView.isHidden = true
+        topView(hidden: false)
         stackProteinView.isHidden = false
         searchTypeScroll.isHidden = true
         
@@ -543,5 +553,15 @@ extension FoodController: FoodTopTitleDelegate {
         }
         
         WorkoutRouter(presenter: navigationController).pushDietDetail(id: id, idSpecialId: specialID)
+    }
+}
+
+//----------------------------------------------
+// MARK: - FoodAddProductDelegate
+//----------------------------------------------
+
+extension FoodController: FoodAddProductDelegate {
+    func addProduct(cell: FoodAddProductCell) {
+        EnergyRouter(presenter: navigationController).pushWriteToUs()
     }
 }

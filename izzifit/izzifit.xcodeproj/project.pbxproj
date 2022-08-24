@@ -200,6 +200,11 @@
 		027BFB472844B2AB0008E241 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BFB462844B2AB0008E241 /* GradientView.swift */; };
 		02825160285899790059BD17 /* LocalPushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0282515F285899790059BD17 /* LocalPushManager.swift */; };
 		0282516228589C9C0059BD17 /* LocalPushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0282516128589C9C0059BD17 /* LocalPushModel.swift */; };
+		028B3CC328B4E59700D587FA /* FoodAddProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028B3CC128B4E59700D587FA /* FoodAddProductCell.swift */; };
+		028B3CC428B4E59700D587FA /* FoodAddProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 028B3CC228B4E59700D587FA /* FoodAddProductCell.xib */; };
+		028B3CC728B5114E00D587FA /* CreateProductReq.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 028B3CC628B5114E00D587FA /* CreateProductReq.graphql */; };
+		028B3CC928B5118A00D587FA /* CreateProductReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028B3CC828B5118A00D587FA /* CreateProductReqModel.swift */; };
+		028B3CCB28B511F400D587FA /* WriteToUsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028B3CCA28B511F400D587FA /* WriteToUsPresenter.swift */; };
 		028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C02834EE5100F3D148 /* AdSupport.framework */; };
 		028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C22834EE5C00F3D148 /* iAd.framework */; };
 		028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C42834EE6300F3D148 /* AdServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -700,6 +705,11 @@
 		027BFB462844B2AB0008E241 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		0282515F285899790059BD17 /* LocalPushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPushManager.swift; sourceTree = "<group>"; };
 		0282516128589C9C0059BD17 /* LocalPushModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPushModel.swift; sourceTree = "<group>"; };
+		028B3CC128B4E59700D587FA /* FoodAddProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAddProductCell.swift; sourceTree = "<group>"; };
+		028B3CC228B4E59700D587FA /* FoodAddProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodAddProductCell.xib; sourceTree = "<group>"; };
+		028B3CC628B5114E00D587FA /* CreateProductReq.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CreateProductReq.graphql; sourceTree = "<group>"; };
+		028B3CC828B5118A00D587FA /* CreateProductReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductReqModel.swift; sourceTree = "<group>"; };
+		028B3CCA28B511F400D587FA /* WriteToUsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteToUsPresenter.swift; sourceTree = "<group>"; };
 		028EE3C02834EE5100F3D148 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		028EE3C22834EE5C00F3D148 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		028EE3C42834EE6300F3D148 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
@@ -1380,6 +1390,7 @@
 		0239712127E1CD3B0087113A /* WriteToUsController */ = {
 			isa = PBXGroup;
 			children = (
+				028B3CCA28B511F400D587FA /* WriteToUsPresenter.swift */,
 				0239712227E1CD6E0087113A /* WriteToUsController.swift */,
 				0239712327E1CD6E0087113A /* WriteToUsController.xib */,
 			);
@@ -1972,6 +1983,24 @@
 			path = MealsWidget;
 			sourceTree = "<group>";
 		};
+		028B3CC028B4E57C00D587FA /* FoodAddProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				028B3CC128B4E59700D587FA /* FoodAddProductCell.swift */,
+				028B3CC228B4E59700D587FA /* FoodAddProductCell.xib */,
+			);
+			path = FoodAddProductCell;
+			sourceTree = "<group>";
+		};
+		028B3CC528B5112E00D587FA /* CreateProductReq */ = {
+			isa = PBXGroup;
+			children = (
+				028B3CC628B5114E00D587FA /* CreateProductReq.graphql */,
+				028B3CC828B5118A00D587FA /* CreateProductReqModel.swift */,
+			);
+			path = CreateProductReq;
+			sourceTree = "<group>";
+		};
 		0290B39127D2044500381B42 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -2133,6 +2162,7 @@
 			children = (
 				02AB486727E07EE200F35EE2 /* FoodTopTitleCell */,
 				02AB486627E06DF400F35EE2 /* FoodRecomendedCell */,
+				028B3CC028B4E57C00D587FA /* FoodAddProductCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2278,6 +2308,7 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				028B3CC528B5112E00D587FA /* CreateProductReq */,
 				FA8535382876FF0400A9137B /* FinishMap */,
 				FAD5B2972864A26100A1EF4D /* SaveSteps */,
 				02AD7389284F6F7500376E4C /* OrderProduct */,
@@ -3440,6 +3471,7 @@
 				02BC128927F30AC200678305 /* WorkoutDetailTrainCell.xib in Resources */,
 				FAAD7E1528AF44AE008FAAA9 /* 6encourage.json in Resources */,
 				02B3017727EB234A0045C607 /* SaveSleepQuality.graphql in Resources */,
+				028B3CC728B5114E00D587FA /* CreateProductReq.graphql in Resources */,
 				02A5CDBA27C3DCFB00D31FB4 /* PasswordForgotRequest.graphql in Resources */,
 				02BACF1127F4554900B7562C /* WorkoutSpecialCell.xib in Resources */,
 				02E9047B27F5A0E8008CFFB4 /* WorkoutExercisesDetailCell.xib in Resources */,
@@ -3538,6 +3570,7 @@
 				02F01C5227D794450066656D /* MoodWidget.graphql in Resources */,
 				0227DA9D27C63A3B008AB26B /* FoodGroups.graphql in Resources */,
 				02DC28A2289A940B0040A968 /* WorkoutReviewCell.xib in Resources */,
+				028B3CC428B4E59700D587FA /* FoodAddProductCell.xib in Resources */,
 				0227A9BC2849F39E00BA29A8 /* QuizeVideoController.xib in Resources */,
 				0290B39A27D2340800381B42 /* EnerdyTodayCell.xib in Resources */,
 				0273F55A27D5F08E00B19449 /* EnergyMoodCell.xib in Resources */,
@@ -3693,6 +3726,7 @@
 				02B22AC1281C0B3D006AB1EA /* MapModel.swift in Sources */,
 				FA1A2573283D0D0D00240E28 /* PaywallMultiplyController.swift in Sources */,
 				FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */,
+				028B3CCB28B511F400D587FA /* WriteToUsPresenter.swift in Sources */,
 				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
 				0263388D27DB299600DC0325 /* EnergyProgressController.swift in Sources */,
 				0268752927D8C90100FFEA6A /* EnergyWeightCell.swift in Sources */,
@@ -3812,6 +3846,7 @@
 				0249D25127B3A70B00F265C1 /* SplashViewController.swift in Sources */,
 				02FAF0AE27D36D7C002CD678 /* EnergyPresenter.swift in Sources */,
 				FA74A3A4289D3E2500E5800A /* MenuSubscriptionsController.swift in Sources */,
+				028B3CC928B5118A00D587FA /* CreateProductReqModel.swift in Sources */,
 				02D066CB27BBBB4300D12C5F /* QuizeNameController.swift in Sources */,
 				FE1403BD27E2019C002F5819 /* ChartTableCell.swift in Sources */,
 				023CDC3A28047C930056F022 /* AvailableGoalsModel.swift in Sources */,
@@ -3884,6 +3919,7 @@
 				023D171C27BE1D4D005F95C0 /* AuthRouter.swift in Sources */,
 				02DFE89A285A154A005BF69B /* OnboardingSwipeCell.swift in Sources */,
 				FEE119BF27E9B9270058EE6D /* MoodTableCell.swift in Sources */,
+				028B3CC328B4E59700D587FA /* FoodAddProductCell.swift in Sources */,
 				02E9047127F59E56008CFFB4 /* WorkoutExercisesCell.swift in Sources */,
 				02B225C227BD7D4D0035CFA2 /* MeModel.swift in Sources */,
 				02BE9430284F34F4006D361B /* GameRouter.swift in Sources */,
