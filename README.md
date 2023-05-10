@@ -1,0 +1,1 @@
+Tired of hard exercises and would rather have some fun? We are on your side, and, thus, created a new type of fitness app, IzziFit. With izziFit, you can add fun to your exercises and turn your workouts into games. Release your energy and go for an epic win!
