@@ -2,7 +2,7 @@
 //  WorkoutSpecialCell.swift
 //  izzifit
 //
-//  Created by Andrey S on 30.03.2022.
+//  Created by mob325 on 30.03.2022.
 //
 
 import UIKit

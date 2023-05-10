@@ -2,7 +2,7 @@
 //  CGFloat+Extension.swift
 //  izzifit
 //
-//  Created by O l e h on 24.05.2022.
+//  Created by mob325 on 24.05.2022.
 //
 
 import UIKit

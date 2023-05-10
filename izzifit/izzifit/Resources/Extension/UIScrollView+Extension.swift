@@ -2,7 +2,7 @@
 //  UIScrollView+Extension.swift
 //  Lill
 //
-//  Created by Andrey S on 27.11.2021.
+//  Created by mob325 on 27.11.2021.
 //
 
 import Foundation

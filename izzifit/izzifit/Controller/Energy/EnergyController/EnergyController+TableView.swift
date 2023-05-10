@@ -2,7 +2,7 @@
 //  EnergyController+TableView.swift
 //  izzifit
 //
-//  Created by Andrey S on 18.05.2022.
+//  Created by mob325 on 18.05.2022.
 //
 
 import UIKit

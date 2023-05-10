@@ -2,7 +2,7 @@
 //  GameBarBackView.swift
 //  izzifit
 //
-//  Created by O l e h on 17.05.2022.
+//  Created by mob325 on 17.05.2022.
 
 import UIKit
 import Lottie

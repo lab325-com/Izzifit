@@ -2,7 +2,7 @@
 //  EnergyUpdateWeightController.swift
 //  izzifit
 //
-//  Created by Andrey S on 25.03.2022.
+//  Created by mob325 on 25.03.2022.
 //
 
 import UIKit

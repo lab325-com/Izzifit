@@ -2,7 +2,7 @@
 //  RankModel.swift
 //  izzifit
 //
-//  Created by O l e h on 23.03.2022.
+//  Created by mob325 on 23.03.2022.
 //
 
 import Foundation

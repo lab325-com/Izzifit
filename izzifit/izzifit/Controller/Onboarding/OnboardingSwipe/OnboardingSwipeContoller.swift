@@ -2,7 +2,7 @@
 //  OnboardingSwipeContoller.swift
 //  izzifit
 //
-//  Created by Andrey S on 15.06.2022.
+//  Created by mob325 on 15.06.2022.
 //
 
 import UIKit
@@ -101,7 +101,7 @@ extension OnboardingSwipeContoller: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  cellIdentifier, for: indexPath) as! OnboardingSwipeCell
         cell.setupCell(model: OnboardingSwipeModel.models[indexPath.row])
         return cell
-        
+    
     }
 }
 

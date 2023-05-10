@@ -2,7 +2,7 @@
 //  CMTime+Extension.swift
 //  izzifit
 //
-//  Created by Andrey S on 14.04.2022.
+//  Created by mob325 on 14.04.2022.
 //
 
 import AVFoundation

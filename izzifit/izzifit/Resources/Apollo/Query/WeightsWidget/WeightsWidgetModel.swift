@@ -2,7 +2,7 @@
 //  WeightsWidgetModel.swift
 //  izzifit
 //
-//  Created by O l e h on 31.03.2022.
+//  Created by mob325 on 31.03.2022.
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  CaloriesWidgetModel.swift
 //  izzifit
 //
-//  Created by O l e h on 30.03.2022.
+//  Created by mob325 on 30.03.2022.
 //
 
 import Foundation

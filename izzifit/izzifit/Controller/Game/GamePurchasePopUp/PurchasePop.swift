@@ -2,7 +2,7 @@
 //  PurchasePop.swift
 //  izzifit
 //
-//  Created by O l e h on 08.06.2022.
+//  Created by mob325 on 08.06.2022.
 //
 
 import UIKit

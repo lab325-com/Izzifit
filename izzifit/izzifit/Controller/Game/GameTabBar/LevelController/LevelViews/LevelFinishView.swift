@@ -2,7 +2,7 @@
 //  LevelFinishView.swift
 //  izzifit
 //
-//  Created by O l e h on 01.07.2022.
+//  Created by mob325 on 01.07.2022.
 //
 
 import UIKit

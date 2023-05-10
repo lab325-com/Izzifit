@@ -2,7 +2,7 @@
 //  TabBarRouter.swift
 //  izzifit
 //
-//  Created by Andrey S on 22.02.2022.
+//  Created by mob325 on 22.02.2022.
 //
 
 import Foundation

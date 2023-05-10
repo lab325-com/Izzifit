@@ -2,7 +2,7 @@
 //  Date+Extension.swift
 //  izzifit
 //
-//  Created by Andrey S on 12.03.2022.
+//  Created by mob325 on 12.03.2022.
 //
 
 import Foundation

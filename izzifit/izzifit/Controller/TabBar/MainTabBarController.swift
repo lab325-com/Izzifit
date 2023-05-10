@@ -2,7 +2,7 @@
 //  MainTabBarController.swift
 //  izzifit
 //
-//  Created by Andrey S on 18.02.2022.
+//  Created by mob325 on 18.02.2022.
 //
 
 import UIKit

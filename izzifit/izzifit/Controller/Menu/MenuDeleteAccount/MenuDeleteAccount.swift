@@ -2,7 +2,7 @@
 //  MenuDeleteAccount.swift
 //  izzifit
 //
-//  Created by Andrey S on 27.05.2022.
+//  Created by mob325 on 27.05.2022.
 //
 
 import UIKit

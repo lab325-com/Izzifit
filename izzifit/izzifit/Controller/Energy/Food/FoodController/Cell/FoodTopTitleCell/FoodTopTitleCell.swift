@@ -2,7 +2,7 @@
 //  FoodTopTitleCell.swift
 //  izzifit
 //
-//  Created by Andrey S on 15.03.2022.
+//  Created by mob325 on 15.03.2022.
 //
 
 import UIKit

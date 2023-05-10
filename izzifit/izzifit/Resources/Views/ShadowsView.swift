@@ -2,7 +2,7 @@
 //  ShadowsView.swift
 //  izzifit
 //
-//  Created by Andrey S on 04.03.2022.
+//  Created by mob325 on 04.03.2022.
 //
 
 import UIKit

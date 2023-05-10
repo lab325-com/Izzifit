@@ -2,7 +2,7 @@
 //  UIImageView+Extension.swift
 //  izzifit
 //
-//  Created by O l e h on 25.05.2022.
+//  Created by mob325 on 25.05.2022.
 //
 
 import UIKit

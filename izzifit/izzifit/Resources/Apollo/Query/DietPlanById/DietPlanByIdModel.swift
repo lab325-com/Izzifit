@@ -2,7 +2,7 @@
 //  DietPlanByIdModel.swift
 //  izzifit
 //
-//  Created by Andrey S on 13.08.2022.
+//  Created by mob325 on 13.08.2022.
 //
 
 import Foundation

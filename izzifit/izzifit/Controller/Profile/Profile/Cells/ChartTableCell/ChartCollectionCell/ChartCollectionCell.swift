@@ -2,7 +2,7 @@
 //  ChartCollectionCell.swift
 //  izzifit
 //
-//  Created by Oleh Study on 16.03.2022.
+//  Created by mob325 on 16.03.2022.
 //
 
 import UIKit

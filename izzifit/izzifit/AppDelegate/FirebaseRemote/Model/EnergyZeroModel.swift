@@ -2,7 +2,7 @@
 //  EnergyZeroModel.swift
 //  izzifit
 //
-//  Created by Andrey S on 10.06.2022.
+//  Created by mob325 on 10.06.2022.
 //
 
 import Foundation

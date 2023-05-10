@@ -2,7 +2,7 @@
 //  VideoNotFinished.swift
 //  izzifit
 //
-//  Created by Andrey S on 15.04.2022.
+//  Created by mob325 on 15.04.2022.
 //
 
 import UIKit

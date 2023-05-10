@@ -2,7 +2,7 @@
 //  MenuFoodSwitchCell.swift
 //  izzifit
 //
-//  Created by Andrey S on 28.02.2022.
+//  Created by mob325 on 28.02.2022.
 //
 
 import UIKit

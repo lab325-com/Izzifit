@@ -2,7 +2,7 @@
 //  WeightTableCell.swift
 //  izzifit
 //
-//  Created by Oleh Study on 18.03.2022.
+//  Created by mob325 on 18.03.2022.
 //
 
 import UIKit

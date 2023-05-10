@@ -175,6 +175,7 @@ class BaseController: UIViewController, NVActivityIndicatorViewable {
 extension BaseController {
     @objc func keyboardWillHideMain(_ notification : Notification) {
         isShowKeyboard = false
+        
         if let bootomConstant = bottomViewConstraint {
             bootomConstant.constant = correctionHideKeyboard
             keyboardHeight = 0

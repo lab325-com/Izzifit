@@ -2,7 +2,7 @@
 //  PreOnboardingModel.swift
 //  izzifit
 //
-//  Created by Andrey S on 03.06.2022.
+//  Created by mob325 on 03.06.2022.
 //
 
 import Foundation

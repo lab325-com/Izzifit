@@ -2,7 +2,7 @@
 //  OrderProductModel.swift
 //  izzifit
 //
-//  Created by Andrey S on 07.06.2022.
+//  Created by mob325 on 07.06.2022.
 //
 
 import Foundation

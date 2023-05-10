@@ -2,7 +2,7 @@
 //  AudioManager.swift
 //  izzifit
 //
-//  Created by Andrey S on 27.04.2022.
+//  Created by mob325 on 27.04.2022.
 //
 
 import Foundation

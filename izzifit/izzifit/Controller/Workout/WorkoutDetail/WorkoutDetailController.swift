@@ -2,7 +2,7 @@
 //  WorkoutDetailController.swift
 //  izzifit
 //
-//  Created by Andrey S on 28.03.2022.
+//  Created by mob325 on 28.03.2022.
 //
 
 import UIKit

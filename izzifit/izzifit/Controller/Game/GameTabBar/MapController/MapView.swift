@@ -2,7 +2,7 @@
 //  MapView.swift
 //  izzifit
 //
-//  Created by O l e h on 03.06.2022.
+//  Created by mob325 on 03.06.2022.
 //
 
 import UIKit

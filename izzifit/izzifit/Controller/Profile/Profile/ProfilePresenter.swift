@@ -2,7 +2,7 @@
 //  ProfilePresenter.swift
 //  izzifit
 //
-//  Created by O l e h on 24.03.2022.
+//  Created by mob325 on 24.03.2022.
 //
 
 // Стягиваешь схему перед каждым новым запросом

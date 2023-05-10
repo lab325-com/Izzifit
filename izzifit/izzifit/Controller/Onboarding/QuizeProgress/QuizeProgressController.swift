@@ -2,7 +2,7 @@
 //  QuizeProgressController.swift
 //  izzifit
 //
-//  Created by Andrey S on 17.02.2022.
+//  Created by mob325 on 17.02.2022.
 //
 
 import UIKit

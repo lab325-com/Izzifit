@@ -2,7 +2,7 @@
 //  MenuFitnessController.swift
 //  izzifit
 //
-//  Created by Andrey S on 01.03.2022.
+//  Created by mob325 on 01.03.2022.
 //
 
 import UIKit
