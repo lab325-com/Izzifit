@@ -170,7 +170,7 @@ extension EnergyController: EnergyMealsDeleagate {
                 break
             }
             
-            EnergyRouter(presenter: navigationController).pushFood(mealsWidget: meals, currentMealType: type, delegate: self)
+            EnergyRouter(presenter: navigationController).pushFood(mealsWidget: meals, currentMealType: type, dietModel: presenter.dietsPlanModels.first, delegate: self)
         }
     }
 }
@@ -205,12 +205,15 @@ extension EnergyController: EnergyDrinkWaterProtocol {
                 tabBarVC.onboardingView = MainGameOnboardingView(state: .finalPopUp,
                                                                  delegate: tabBarVC)
                 
-                view.ui.genericlLayout(object: tabBarVC.onboardingView!,
-                                       parentView: tabBarVC.view,
-                                       topC: 0,
-                                       bottomC: 0,
-                                       leadingC: 0,
-                                       trailingC: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    self.view.ui.genericlLayout(object: tabBarVC.onboardingView!,
+                                           parentView: tabBarVC.view,
+                                           topC: 0,
+                                           bottomC: 0,
+                                           leadingC: 0,
+                                           trailingC: 0)
+                }
+         
             } else {
                 PreferencesManager.sharedManager.gameOnboardingDone = true
                 MainGameOnboardingView.stateCounter = 0

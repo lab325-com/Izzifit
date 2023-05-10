@@ -1370,6 +1370,59 @@ public final class AskQuestionMutation: GraphQLMutation {
   }
 }
 
+public final class CreateProductRequestMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation CreateProductRequest($name: String!, $description: String!) {
+      createProductRequest(name: $name, description: $description)
+    }
+    """
+
+  public let operationName: String = "CreateProductRequest"
+
+  public var name: String
+  public var description: String
+
+  public init(name: String, description: String) {
+    self.name = name
+    self.description = description
+  }
+
+  public var variables: GraphQLMap? {
+    return ["name": name, "description": description]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("createProductRequest", arguments: ["name": GraphQLVariable("name"), "description": GraphQLVariable("description")], type: .scalar(Bool.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(createProductRequest: Bool? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "createProductRequest": createProductRequest])
+    }
+
+    public var createProductRequest: Bool? {
+      get {
+        return resultMap["createProductRequest"] as? Bool
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "createProductRequest")
+      }
+    }
+  }
+}
+
 public final class DoExerciseMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =

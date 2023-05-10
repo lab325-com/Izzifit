@@ -398,7 +398,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 97 files.
+  /// This `R.file` struct is generated, and contains static references to 100 files.
   struct file {
     /// Resource file `10_spin_tap.wav`.
     static let _spin_tapWav = Rswift.FileResource(bundle: R.hostingBundle, name: "10_spin_tap", pathExtension: "wav")
@@ -436,6 +436,8 @@ struct R: Rswift.Validatable {
     static let caloriesWidgetGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "CaloriesWidget", pathExtension: "graphql")
     /// Resource file `ChooseWorkoutWidgetModel.graphql`.
     static let chooseWorkoutWidgetModelGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "ChooseWorkoutWidgetModel", pathExtension: "graphql")
+    /// Resource file `CreateProductReq.graphql`.
+    static let createProductReqGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "CreateProductReq", pathExtension: "graphql")
     /// Resource file `DietPlanById.graphql`.
     static let dietPlanByIdGraphql = Rswift.FileResource(bundle: R.hostingBundle, name: "DietPlanById", pathExtension: "graphql")
     /// Resource file `DietPlans.graphql`.
@@ -464,6 +466,8 @@ struct R: Rswift.Validatable {
     static let interBoldItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-BoldItalic", pathExtension: "ttf")
     /// Resource file `Inter-ExtraBold.ttf`.
     static let interExtraBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-ExtraBold", pathExtension: "ttf")
+    /// Resource file `Inter-ExtraBoldItalic.otf`.
+    static let interExtraBoldItalicOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-ExtraBoldItalic", pathExtension: "otf")
     /// Resource file `Inter-ExtraLight.ttf`.
     static let interExtraLightTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Inter-ExtraLight", pathExtension: "ttf")
     /// Resource file `Inter-Italic.ttf`.
@@ -570,6 +574,8 @@ struct R: Rswift.Validatable {
     static let coins_headerJson = Rswift.FileResource(bundle: R.hostingBundle, name: "coins_header", pathExtension: "json")
     /// Resource file `confetti.json`.
     static let confettiJson = Rswift.FileResource(bundle: R.hostingBundle, name: "confetti", pathExtension: "json")
+    /// Resource file `confettiEncourage.json`.
+    static let confettiEncourageJson = Rswift.FileResource(bundle: R.hostingBundle, name: "confettiEncourage", pathExtension: "json")
     /// Resource file `congrads_anim.json`.
     static let congrads_animJson = Rswift.FileResource(bundle: R.hostingBundle, name: "congrads_anim", pathExtension: "json")
     /// Resource file `construction3.gif`.
@@ -703,6 +709,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "CreateProductReq", withExtension: "graphql")`
+    static func createProductReqGraphql(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.createProductReqGraphql
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "DietPlanById", withExtension: "graphql")`
     static func dietPlanByIdGraphql(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.dietPlanByIdGraphql
@@ -784,6 +796,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Inter-ExtraBold", withExtension: "ttf")`
     static func interExtraBoldTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.interExtraBoldTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Inter-ExtraBoldItalic", withExtension: "otf")`
+    static func interExtraBoldItalicOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.interExtraBoldItalicOtf
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -1105,6 +1123,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "confettiEncourage", withExtension: "json")`
+    static func confettiEncourageJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.confettiEncourageJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "congrads_anim", withExtension: "json")`
     static func congrads_animJson(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.congrads_animJson
@@ -1180,7 +1204,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.font` struct is generated, and contains static references to 12 fonts.
+  /// This `R.font` struct is generated, and contains static references to 13 fonts.
   struct font: Rswift.Validatable {
     /// Font `Inter-BlackItalic`.
     static let interBlackItalic = Rswift.FontResource(fontName: "Inter-BlackItalic")
@@ -1190,6 +1214,8 @@ struct R: Rswift.Validatable {
     static let interBoldItalic = Rswift.FontResource(fontName: "Inter-BoldItalic")
     /// Font `Inter-Bold`.
     static let interBold = Rswift.FontResource(fontName: "Inter-Bold")
+    /// Font `Inter-ExtraBoldItalic`.
+    static let interExtraBoldItalic = Rswift.FontResource(fontName: "Inter-ExtraBoldItalic")
     /// Font `Inter-ExtraBold`.
     static let interExtraBold = Rswift.FontResource(fontName: "Inter-ExtraBold")
     /// Font `Inter-ExtraLight`.
@@ -1230,6 +1256,11 @@ struct R: Rswift.Validatable {
     /// `UIFont(name: "Inter-ExtraBold", size: ...)`
     static func interExtraBold(size: CGFloat) -> UIKit.UIFont? {
       return UIKit.UIFont(resource: interExtraBold, size: size)
+    }
+
+    /// `UIFont(name: "Inter-ExtraBoldItalic", size: ...)`
+    static func interExtraBoldItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: interExtraBoldItalic, size: size)
     }
 
     /// `UIFont(name: "Inter-ExtraLight", size: ...)`
@@ -1273,6 +1304,7 @@ struct R: Rswift.Validatable {
       if R.font.interBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Bold' could not be loaded, is 'Inter-Bold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interBoldItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-BoldItalic' could not be loaded, is 'Inter-BoldItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interExtraBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-ExtraBold' could not be loaded, is 'Inter-ExtraBold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.interExtraBoldItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-ExtraBoldItalic' could not be loaded, is 'Inter-ExtraBoldItalic.otf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interExtraLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-ExtraLight' could not be loaded, is 'Inter-ExtraLight.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Italic' could not be loaded, is 'Inter-Italic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.interLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Inter-Light' could not be loaded, is 'Inter-Light.ttf' added to the UIAppFonts array in this targets Info.plist?") }
@@ -1285,7 +1317,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 424 images.
+  /// This `R.image` struct is generated, and contains static references to 426 images.
   struct image {
     /// Image `MoodChartBack`.
     static let moodChartBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "MoodChartBack")
@@ -1367,6 +1399,10 @@ struct R: Rswift.Validatable {
     static let en_moneyBag = Rswift.ImageResource(bundle: R.hostingBundle, name: "en_moneyBag")
     /// Image `en_pound`.
     static let en_pound = Rswift.ImageResource(bundle: R.hostingBundle, name: "en_pound")
+    /// Image `encourageMainImgVw`.
+    static let encourageMainImgVw = Rswift.ImageResource(bundle: R.hostingBundle, name: "encourageMainImgVw")
+    /// Image `encourageOkBtn`.
+    static let encourageOkBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "encourageOkBtn")
     /// Image `energy_arrow_back_ic`.
     static let energy_arrow_back_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "energy_arrow_back_ic")
     /// Image `energy_arrow_down_ic`.
@@ -2413,6 +2449,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "en_pound", bundle: ..., traitCollection: ...)`
     static func en_pound(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.en_pound, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "encourageMainImgVw", bundle: ..., traitCollection: ...)`
+    static func encourageMainImgVw(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.encourageMainImgVw, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "encourageOkBtn", bundle: ..., traitCollection: ...)`
+    static func encourageOkBtn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.encourageOkBtn, compatibleWith: traitCollection)
     }
     #endif
 
@@ -5107,7 +5157,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 96 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 97 nibs.
   struct nib {
     /// Nib `AwardsTableCell`.
     static let awardsTableCell = _R.nib._AwardsTableCell()
@@ -5159,6 +5209,8 @@ struct R: Rswift.Validatable {
     static let energyWeightCell = _R.nib._EnergyWeightCell()
     /// Nib `FoodAddController`.
     static let foodAddController = _R.nib._FoodAddController()
+    /// Nib `FoodAddProductCell`.
+    static let foodAddProductCell = _R.nib._FoodAddProductCell()
     /// Nib `FoodController`.
     static let foodController = _R.nib._FoodController()
     /// Nib `FoodRecomendedCell`.
@@ -5499,6 +5551,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.foodAddController) instead")
     static func foodAddController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.foodAddController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "FoodAddProductCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.foodAddProductCell) instead")
+    static func foodAddProductCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.foodAddProductCell)
     }
     #endif
 
@@ -6170,6 +6230,10 @@ struct R: Rswift.Validatable {
       return R.nib.foodAddController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func foodAddProductCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FoodAddProductCell? {
+      return R.nib.foodAddProductCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FoodAddProductCell
+    }
+
     static func foodController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.foodController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -6457,7 +6521,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 46 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 47 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AwardsTableCell`.
     static let awardsTableCell: Rswift.ReuseIdentifier<PolicyCell> = Rswift.ReuseIdentifier(identifier: "AwardsTableCell")
@@ -6499,6 +6563,8 @@ struct R: Rswift.Validatable {
     static let energyTrainingCell: Rswift.ReuseIdentifier<EnergyTrainingCell> = Rswift.ReuseIdentifier(identifier: "EnergyTrainingCell")
     /// Reuse identifier `EnergyWeightCell`.
     static let energyWeightCell: Rswift.ReuseIdentifier<EnergyWeightCell> = Rswift.ReuseIdentifier(identifier: "EnergyWeightCell")
+    /// Reuse identifier `FoodAddProductCell`.
+    static let foodAddProductCell: Rswift.ReuseIdentifier<FoodAddProductCell> = Rswift.ReuseIdentifier(identifier: "FoodAddProductCell")
     /// Reuse identifier `FoodRecomendedCell`.
     static let foodRecomendedCell: Rswift.ReuseIdentifier<FoodRecomendedCell> = Rswift.ReuseIdentifier(identifier: "FoodRecomendedCell")
     /// Reuse identifier `FoodTopTitleCell`.
@@ -11437,6 +11503,7 @@ struct _R: Rswift.Validatable {
       try _EnergyWeightCell.validate()
       try _FoodController.validate()
       try _FoodRecomendedCell.validate()
+      try _FoodTopTitleCell.validate()
       try _LoginController.validate()
       try _MainTabBarController.validate()
       try _MenuAgeController.validate()
@@ -11965,6 +12032,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _FoodAddProductCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = FoodAddProductCell
+
+      let bundle = R.hostingBundle
+      let identifier = "FoodAddProductCell"
+      let name = "FoodAddProductCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FoodAddProductCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FoodAddProductCell
+      }
+
+      fileprivate init() {}
+    }
+
     struct _FoodController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "FoodController"
@@ -12008,7 +12089,7 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _FoodTopTitleCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+    struct _FoodTopTitleCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
       typealias ReusableType = FoodTopTitleCell
 
       let bundle = R.hostingBundle
@@ -12017,6 +12098,12 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FoodTopTitleCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FoodTopTitleCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "energy_water_flash_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'energy_water_flash_ic' is used in nib 'FoodTopTitleCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}

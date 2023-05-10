@@ -95,6 +95,8 @@ class FoodAddController: BaseController {
     //----------------------------------------------
     
     private func setup() {
+        grammTextField.text = "\(model.amount ?? 0)"
+        
         mainTitleLabel.text = model.name
         
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))

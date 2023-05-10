@@ -336,16 +336,7 @@ class MainGameOnboardingView: UIView {
             
         case .spinBtn:
         
-            onboardImgVw.image = image(img: .onSpinButton)
-                                ui.genericlLayout(object: onboardImgVw,
-                                                  parentView: arcGameView?.progressImgVw ?? self,
-                                                  width: 251,
-                                                  height: 116,
-                                                  centerV: 10,
-                                                  centerH: 10)
-            onboardImgVw.shake(0.5,
-                               x: w/2 - 125,
-                               y: 18)
+  
             
             ui.genericlLayout(object: mainBtn,
                               parentView:  gameTabBar?.view ?? self,
@@ -353,6 +344,18 @@ class MainGameOnboardingView: UIView {
                               height: h*0.088,
                               topC: h/4.51 + h*0.498 + 17,
                               centerH: 0)
+            
+            onboardImgVw.image = image(img: .onSpinButton)
+            ui.genericlLayout(object: onboardImgVw,
+                              parentView: mainBtn,
+                              width: 251,
+                              height: 116,
+                              bottomC: 62,
+                              centerH: 0)
+            onboardImgVw.shake(0.5,
+                               x: w/2 - 80,
+                               y: -30)
+            
             
             arcGameView?.spinBtn.isUserInteractionEnabled = false
             

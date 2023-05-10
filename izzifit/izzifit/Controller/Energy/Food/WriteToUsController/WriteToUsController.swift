@@ -32,7 +32,7 @@ class WriteToUsController: BaseController {
     // MARK: - Property
     //----------------------------------------------
     
-    private lazy var presenter = MenuWriteQuestionPresenter(view: self)
+    private lazy var presenter = WriteToUsPresenter(view: self)
     
     //----------------------------------------------
     // MARK: - Life cycle
@@ -116,9 +116,9 @@ class WriteToUsController: BaseController {
     }
     
     @IBAction func actionSend(_ sender: UIButton) {
-        if mainTextView.text.count > 0 {
-            guard let email = KeychainService.standard.me?.email else { return }
-            presenter.sendQuestion(email: email, message: mainTextView.text)
+        if mainTextView.text.count > 0, textFieldProductName.text!.count > 0 {
+            AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_food_add)
+            presenter.sendProduct(name: textFieldProductName.text!, description: mainTextView.text)
         }
     }
 }
@@ -163,11 +163,12 @@ extension WriteToUsController: UITextFieldDelegate {
 }
 
 //----------------------------------------------
-// MARK: - MenuWriteQuestionOutputProtocol
+// MARK: - WriteToUsOutputProtocol
 //----------------------------------------------
 
-extension WriteToUsController: MenuWriteQuestionOutputProtocol {
+extension WriteToUsController: WriteToUsOutputProtocol {
     func success() {
+        AnalyticsHelper.sendFirebaseEvents(events: .dash_meal_food_add_true)
         actionBack()
     }
     

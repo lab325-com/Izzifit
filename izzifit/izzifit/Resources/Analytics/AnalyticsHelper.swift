@@ -73,6 +73,7 @@ enum FirebaseEvents: String {
     case dash_meal_food_search
     case dash_meal_food_true
     case dash_meal_food_add
+    case dash_meal_food_add_true
     case dash_meal_fodd_add_own
     case dash_steps_tap
     

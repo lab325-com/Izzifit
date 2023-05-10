@@ -200,6 +200,11 @@
 		027BFB472844B2AB0008E241 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BFB462844B2AB0008E241 /* GradientView.swift */; };
 		02825160285899790059BD17 /* LocalPushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0282515F285899790059BD17 /* LocalPushManager.swift */; };
 		0282516228589C9C0059BD17 /* LocalPushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0282516128589C9C0059BD17 /* LocalPushModel.swift */; };
+		028B3CC328B4E59700D587FA /* FoodAddProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028B3CC128B4E59700D587FA /* FoodAddProductCell.swift */; };
+		028B3CC428B4E59700D587FA /* FoodAddProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 028B3CC228B4E59700D587FA /* FoodAddProductCell.xib */; };
+		028B3CC728B5114E00D587FA /* CreateProductReq.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 028B3CC628B5114E00D587FA /* CreateProductReq.graphql */; };
+		028B3CC928B5118A00D587FA /* CreateProductReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028B3CC828B5118A00D587FA /* CreateProductReqModel.swift */; };
+		028B3CCB28B511F400D587FA /* WriteToUsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028B3CCA28B511F400D587FA /* WriteToUsPresenter.swift */; };
 		028EE3C12834EE5100F3D148 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C02834EE5100F3D148 /* AdSupport.framework */; };
 		028EE3C32834EE5C00F3D148 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C22834EE5C00F3D148 /* iAd.framework */; };
 		028EE3C52834EE6300F3D148 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028EE3C42834EE6300F3D148 /* AdServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -407,6 +412,8 @@
 		FA3F6394289002F50003FA5A /* FranceGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F6393289002F50003FA5A /* FranceGameView.swift */; };
 		FA42CC00283CE52700C6C959 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */; };
 		FA45FD71285C585F00F80ACD /* GameAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45FD70285C585F00F80ACD /* GameAnimationProtocol.swift */; };
+		FA46B22828B3AFBF002AF1E4 /* Inter-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA46B22728B3AFB6002AF1E4 /* Inter-ExtraBoldItalic.otf */; };
+		FA46B22A28B3B41A002AF1E4 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46B22928B3B41A002AF1E4 /* UILabel + Extension.swift */; };
 		FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */; };
 		FA51A360288E443D00241CEA /* DisplayLinkEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51A35F288E443D00241CEA /* DisplayLinkEntity.swift */; };
 		FA58DB432887FFA5005D80B1 /* PaywallTrialType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58DB422887FFA4005D80B1 /* PaywallTrialType.swift */; };
@@ -438,6 +445,17 @@
 		FAA9DBEB27D9ECD4004A14FB /* WorkoutTypesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */; };
 		FAA9DBEC27D9ECD4004A14FB /* WorkoutTypes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FAA9DBEA27D9ECD4004A14FB /* WorkoutTypes.graphql */; };
 		FAA9DBEE27D9ECFF004A14FB /* WorkoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */; };
+		FAAD7E0828AE8866008FAAA9 /* EncourageAnimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD7E0728AE8866008FAAA9 /* EncourageAnimView.swift */; };
+		FAAD7E1528AF44AE008FAAA9 /* 6encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E0C28AF44AD008FAAA9 /* 6encourage.json */; };
+		FAAD7E1628AF44AE008FAAA9 /* 4encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E0D28AF44AD008FAAA9 /* 4encourage.json */; };
+		FAAD7E1828AF44AE008FAAA9 /* 5encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E0F28AF44AD008FAAA9 /* 5encourage.json */; };
+		FAAD7E1928AF44AE008FAAA9 /* 8encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E1028AF44AD008FAAA9 /* 8encourage.json */; };
+		FAAD7E1B28AF44AE008FAAA9 /* 3encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E1228AF44AD008FAAA9 /* 3encourage.json */; };
+		FAAD7E1D28AF9D15008FAAA9 /* confettiEncourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E1C28AF9D14008FAAA9 /* confettiEncourage.json */; };
+		FAAD7E2128AF9F66008FAAA9 /* 1encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E2028AF9F65008FAAA9 /* 1encourage.json */; };
+		FAAD7E2328AFA508008FAAA9 /* 2encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E2228AFA508008FAAA9 /* 2encourage.json */; };
+		FAAD7E2528AFA605008FAAA9 /* 0encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E2428AFA605008FAAA9 /* 0encourage.json */; };
+		FAAD7E2728AFA8A4008FAAA9 /* 7encourage.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAD7E2628AFA8A3008FAAA9 /* 7encourage.json */; };
 		FAB12F9528A262E100E8F547 /* MenuSubscriptionsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB12F9428A262E100E8F547 /* MenuSubscriptionsController.xib */; };
 		FAB6547327FF39420057A221 /* CombinationsAwardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6547227FF39420057A221 /* CombinationsAwardsManager.swift */; };
 		FAB6548027FFFD480057A221 /* SlotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6547F27FFFD480057A221 /* SlotTableViewCell.swift */; };
@@ -687,6 +705,11 @@
 		027BFB462844B2AB0008E241 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		0282515F285899790059BD17 /* LocalPushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPushManager.swift; sourceTree = "<group>"; };
 		0282516128589C9C0059BD17 /* LocalPushModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPushModel.swift; sourceTree = "<group>"; };
+		028B3CC128B4E59700D587FA /* FoodAddProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAddProductCell.swift; sourceTree = "<group>"; };
+		028B3CC228B4E59700D587FA /* FoodAddProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodAddProductCell.xib; sourceTree = "<group>"; };
+		028B3CC628B5114E00D587FA /* CreateProductReq.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CreateProductReq.graphql; sourceTree = "<group>"; };
+		028B3CC828B5118A00D587FA /* CreateProductReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductReqModel.swift; sourceTree = "<group>"; };
+		028B3CCA28B511F400D587FA /* WriteToUsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteToUsPresenter.swift; sourceTree = "<group>"; };
 		028EE3C02834EE5100F3D148 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		028EE3C22834EE5C00F3D148 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		028EE3C42834EE6300F3D148 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
@@ -892,6 +915,8 @@
 		FA3F6393289002F50003FA5A /* FranceGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranceGameView.swift; sourceTree = "<group>"; };
 		FA42CBFF283CE52700C6C959 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		FA45FD70285C585F00F80ACD /* GameAnimationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAnimationProtocol.swift; sourceTree = "<group>"; };
+		FA46B22728B3AFB6002AF1E4 /* Inter-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
+		FA46B22928B3B41A002AF1E4 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		FA47D02C27FACFB3007E47B9 /* TrigonometryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometryManager.swift; sourceTree = "<group>"; };
 		FA51A35F288E443D00241CEA /* DisplayLinkEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLinkEntity.swift; sourceTree = "<group>"; };
 		FA58DB422887FFA4005D80B1 /* PaywallTrialType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallTrialType.swift; sourceTree = "<group>"; };
@@ -923,6 +948,17 @@
 		FAA9DBE927D9ECD4004A14FB /* WorkoutTypesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTypesModel.swift; sourceTree = "<group>"; };
 		FAA9DBEA27D9ECD4004A14FB /* WorkoutTypes.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorkoutTypes.graphql; sourceTree = "<group>"; };
 		FAA9DBED27D9ECFF004A14FB /* WorkoutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPresenter.swift; sourceTree = "<group>"; };
+		FAAD7E0728AE8866008FAAA9 /* EncourageAnimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncourageAnimView.swift; sourceTree = "<group>"; };
+		FAAD7E0C28AF44AD008FAAA9 /* 6encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 6encourage.json; sourceTree = "<group>"; };
+		FAAD7E0D28AF44AD008FAAA9 /* 4encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 4encourage.json; sourceTree = "<group>"; };
+		FAAD7E0F28AF44AD008FAAA9 /* 5encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 5encourage.json; sourceTree = "<group>"; };
+		FAAD7E1028AF44AD008FAAA9 /* 8encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 8encourage.json; sourceTree = "<group>"; };
+		FAAD7E1228AF44AD008FAAA9 /* 3encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 3encourage.json; sourceTree = "<group>"; };
+		FAAD7E1C28AF9D14008FAAA9 /* confettiEncourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confettiEncourage.json; sourceTree = "<group>"; };
+		FAAD7E2028AF9F65008FAAA9 /* 1encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1encourage.json; sourceTree = "<group>"; };
+		FAAD7E2228AFA508008FAAA9 /* 2encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2encourage.json; sourceTree = "<group>"; };
+		FAAD7E2428AFA605008FAAA9 /* 0encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 0encourage.json; sourceTree = "<group>"; };
+		FAAD7E2628AFA8A3008FAAA9 /* 7encourage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 7encourage.json; sourceTree = "<group>"; };
 		FAB12F9428A262E100E8F547 /* MenuSubscriptionsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuSubscriptionsController.xib; sourceTree = "<group>"; };
 		FAB6547227FF39420057A221 /* CombinationsAwardsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinationsAwardsManager.swift; sourceTree = "<group>"; };
 		FAB6547F27FFFD480057A221 /* SlotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotTableViewCell.swift; sourceTree = "<group>"; };
@@ -1354,6 +1390,7 @@
 		0239712127E1CD3B0087113A /* WriteToUsController */ = {
 			isa = PBXGroup;
 			children = (
+				028B3CCA28B511F400D587FA /* WriteToUsPresenter.swift */,
 				0239712227E1CD6E0087113A /* WriteToUsController.swift */,
 				0239712327E1CD6E0087113A /* WriteToUsController.xib */,
 			);
@@ -1525,6 +1562,7 @@
 				0290B39427D212CA00381B42 /* UIView+Extension.swift */,
 				02E3F9D92808478D006F5A99 /* CMTime+Extension.swift */,
 				FA65F4F8283E238C00F2427C /* UIImageView+Extension.swift */,
+				FA46B22928B3B41A002AF1E4 /* UILabel + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1945,6 +1983,24 @@
 			path = MealsWidget;
 			sourceTree = "<group>";
 		};
+		028B3CC028B4E57C00D587FA /* FoodAddProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				028B3CC128B4E59700D587FA /* FoodAddProductCell.swift */,
+				028B3CC228B4E59700D587FA /* FoodAddProductCell.xib */,
+			);
+			path = FoodAddProductCell;
+			sourceTree = "<group>";
+		};
+		028B3CC528B5112E00D587FA /* CreateProductReq */ = {
+			isa = PBXGroup;
+			children = (
+				028B3CC628B5114E00D587FA /* CreateProductReq.graphql */,
+				028B3CC828B5118A00D587FA /* CreateProductReqModel.swift */,
+			);
+			path = CreateProductReq;
+			sourceTree = "<group>";
+		};
 		0290B39127D2044500381B42 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -2106,6 +2162,7 @@
 			children = (
 				02AB486727E07EE200F35EE2 /* FoodTopTitleCell */,
 				02AB486627E06DF400F35EE2 /* FoodRecomendedCell */,
+				028B3CC028B4E57C00D587FA /* FoodAddProductCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2251,6 +2308,7 @@
 		02B225BC27BD7AD00035CFA2 /* Mutation */ = {
 			isa = PBXGroup;
 			children = (
+				028B3CC528B5112E00D587FA /* CreateProductReq */,
 				FA8535382876FF0400A9137B /* FinishMap */,
 				FAD5B2972864A26100A1EF4D /* SaveSteps */,
 				02AD7389284F6F7500376E4C /* OrderProduct */,
@@ -2522,6 +2580,7 @@
 		02D066B427BBB54200D12C5F /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				FA46B22728B3AFB6002AF1E4 /* Inter-ExtraBoldItalic.otf */,
 				FA6E8B322894028F0008F36C /* Inter-BlackItalic.ttf */,
 				02D066BC27BBB57D00D12C5F /* Inter-Black.ttf */,
 				02D066BB27BBB57C00D12C5F /* Inter-Bold.ttf */,
@@ -2893,6 +2952,7 @@
 		FA8CC856282919450022BFE2 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				FAAD7E0928AF449A008FAAA9 /* EncouarageAnimations */,
 				FAC340DE287CDA7D00B90943 /* congrads_anim.json */,
 				FAC340DD287CDA7D00B90943 /* fun_anim.json */,
 				FAC340DB287CDA7D00B90943 /* menu_anim.json */,
@@ -2946,6 +3006,31 @@
 			path = WorkoutTypes;
 			sourceTree = "<group>";
 		};
+		FAAD7E0628AE8840008FAAA9 /* EncourageAnimView */ = {
+			isa = PBXGroup;
+			children = (
+				FAAD7E0728AE8866008FAAA9 /* EncourageAnimView.swift */,
+			);
+			path = EncourageAnimView;
+			sourceTree = "<group>";
+		};
+		FAAD7E0928AF449A008FAAA9 /* EncouarageAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				FAAD7E2428AFA605008FAAA9 /* 0encourage.json */,
+				FAAD7E2028AF9F65008FAAA9 /* 1encourage.json */,
+				FAAD7E2228AFA508008FAAA9 /* 2encourage.json */,
+				FAAD7E1228AF44AD008FAAA9 /* 3encourage.json */,
+				FAAD7E0D28AF44AD008FAAA9 /* 4encourage.json */,
+				FAAD7E0F28AF44AD008FAAA9 /* 5encourage.json */,
+				FAAD7E0C28AF44AD008FAAA9 /* 6encourage.json */,
+				FAAD7E2628AFA8A3008FAAA9 /* 7encourage.json */,
+				FAAD7E1028AF44AD008FAAA9 /* 8encourage.json */,
+				FAAD7E1C28AF9D14008FAAA9 /* confettiEncourage.json */,
+			);
+			path = EncouarageAnimations;
+			sourceTree = "<group>";
+		};
 		FAB6546B27FEDF1A0057A221 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -2972,6 +3057,7 @@
 		FAB6546D27FEDF340057A221 /* GameController */ = {
 			isa = PBXGroup;
 			children = (
+				FAAD7E0628AE8840008FAAA9 /* EncourageAnimView */,
 				FAF99580289D210E00737EFA /* GameProtocols  */,
 				FAB6547E27FFFD330057A221 /* Cells */,
 				FACD1C14284790940014AFDC /* Managers */,
@@ -3295,6 +3381,7 @@
 				025463AD27CE6E9800D433DB /* MenuFitnessController.xib in Resources */,
 				020E38F5289D4D8100EDACEF /* DietSectionCell.xib in Resources */,
 				FAA8E88A27F449060081A12A /* CaloriesWidget.graphql in Resources */,
+				FA46B22828B3AFBF002AF1E4 /* Inter-ExtraBoldItalic.otf in Resources */,
 				0256998A28197A7500BA1535 /* 17_energy_x2.wav in Resources */,
 				02B22ABF281C0A70006AB1EA /* Map.graphql in Resources */,
 				02F0C18227EDBDDB005DE3E2 /* EnergyUpdateWeightController.xib in Resources */,
@@ -3310,8 +3397,10 @@
 				02D066E327BBEBA000D12C5F /* QuizeHeightController.xib in Resources */,
 				02DFE89B285A154A005BF69B /* OnboardingSwipeCell.xib in Resources */,
 				0256998E28197A7500BA1535 /* 14_coins_x3.wav in Resources */,
+				FAAD7E2728AFA8A4008FAAA9 /* 7encourage.json in Resources */,
 				0263389527DB3E5100DC0325 /* ProgressCell.xib in Resources */,
 				02ABCF3927CCF74C00E69C06 /* Products.graphql in Resources */,
+				FAAD7E2328AFA508008FAAA9 /* 2encourage.json in Resources */,
 				02D066BF27BBB57D00D12C5F /* Inter-ExtraBold.ttf in Resources */,
 				FABA1DE32859F02F005ECE75 /* ray.gif in Resources */,
 				FA6628A327F184C200FBB946 /* Moods.graphql in Resources */,
@@ -3323,6 +3412,7 @@
 				FA62C54C27F5B46000AC463A /* WeightsWidget.graphql in Resources */,
 				02AD427828A7E0100091DE04 /* DietPlanById.graphql in Resources */,
 				0249D23727B3A4F100F265C1 /* LaunchScreen.storyboard in Resources */,
+				FAAD7E1D28AF9D15008FAAA9 /* confettiEncourage.json in Resources */,
 				020D282027E863DD00010122 /* FoodAddController.xib in Resources */,
 				FA6E8B332894028F0008F36C /* Inter-BlackItalic.ttf in Resources */,
 				02D066CC27BBBB4300D12C5F /* QuizeNameController.xib in Resources */,
@@ -3335,6 +3425,7 @@
 				FA6E8B312892D68E0008F36C /* PaywallOneTimeController.xib in Resources */,
 				FA8CC858282919B80022BFE2 /* construction3.gif in Resources */,
 				029EDBD0280D3FCB00FC8748 /* VideoFinishedController.xib in Resources */,
+				FAAD7E1628AF44AE008FAAA9 /* 4encourage.json in Resources */,
 				0256999028197A7500BA1535 /* 22_complete_building.wav in Resources */,
 				02C3DD6C27BEDB46004E5C65 /* ProfileUpdate.graphql in Resources */,
 				020CB3DA27E9F43D00F97A76 /* UpdateProductInMeal.graphql in Resources */,
@@ -3372,12 +3463,15 @@
 				02A5CDC327C4247300D31FB4 /* QuizeFoodCell.xib in Resources */,
 				02D066C627BBB57D00D12C5F /* Inter-SemiBold.ttf in Resources */,
 				02FAF0AC27D36CE0002CD678 /* DrinkWidget.graphql in Resources */,
+				FAAD7E2528AFA605008FAAA9 /* 0encourage.json in Resources */,
 				0227DAA727C64E31008AB26B /* MenuNameController.xib in Resources */,
 				0256998C28197A7500BA1535 /* 18_energy_x3.wav in Resources */,
 				0227DAC727C6A455008AB26B /* MenuFoodController.xib in Resources */,
 				02BC128427F3007300678305 /* WorkoutDetailSectionCell.xib in Resources */,
 				02BC128927F30AC200678305 /* WorkoutDetailTrainCell.xib in Resources */,
+				FAAD7E1528AF44AE008FAAA9 /* 6encourage.json in Resources */,
 				02B3017727EB234A0045C607 /* SaveSleepQuality.graphql in Resources */,
+				028B3CC728B5114E00D587FA /* CreateProductReq.graphql in Resources */,
 				02A5CDBA27C3DCFB00D31FB4 /* PasswordForgotRequest.graphql in Resources */,
 				02BACF1127F4554900B7562C /* WorkoutSpecialCell.xib in Resources */,
 				02E9047B27F5A0E8008CFFB4 /* WorkoutExercisesDetailCell.xib in Resources */,
@@ -3401,6 +3495,7 @@
 				02021997285B456B0015CA9A /* EnergySpecialPriceCell.xib in Resources */,
 				FA1BC1FE286F110100D5569F /* confetti.json in Resources */,
 				02D066C127BBB57D00D12C5F /* Inter-Thin.ttf in Resources */,
+				FAAD7E1828AF44AE008FAAA9 /* 5encourage.json in Resources */,
 				02C3DD6627BEDA82004E5C65 /* QuizeProgressController.xib in Resources */,
 				FE7CF8BC27E4A7ED0099682E /* WeightTableCell.xib in Resources */,
 				02D5703C27E9AE4C00F14911 /* WorkoutsWidget.graphql in Resources */,
@@ -3441,6 +3536,7 @@
 				02BACF1427F4579C00B7562C /* RecommendWorkouts.graphql in Resources */,
 				0256998828197A7500BA1535 /* 11_spinner_main.wav in Resources */,
 				0256999128197A7500BA1535 /* 16_coins_pack_x3.wav in Resources */,
+				FAAD7E2128AF9F66008FAAA9 /* 1encourage.json in Resources */,
 				FABA1DE62859F03A005ECE75 /* coin_v3.gif in Resources */,
 				02D066C427BBB57D00D12C5F /* Inter-Bold.ttf in Resources */,
 				0256998928197A7500BA1535 /* 15_coins_pack_x2.wav in Resources */,
@@ -3450,8 +3546,10 @@
 				0249D23427B3A4F100F265C1 /* Assets.xcassets in Resources */,
 				0268753927D8E6B700FFEA6A /* EnergyChooseActivityCollectionCell.xib in Resources */,
 				023CDC3828047C8A0056F022 /* AvailableGoals.graphql in Resources */,
+				FAAD7E1B28AF44AE008FAAA9 /* 3encourage.json in Resources */,
 				02B225AF27BD45080035CFA2 /* QuizeFoodController.xib in Resources */,
 				0273F56C27D6513200B19449 /* MealsWidget.graphql in Resources */,
+				FAAD7E1928AF44AE008FAAA9 /* 8encourage.json in Resources */,
 				0273F56427D60C7A00B19449 /* EnergySleepCell.xib in Resources */,
 				025463BD27CFB21B00D433DB /* ToggleProductInRation.graphql in Resources */,
 				0251D24C27E2222F0098A54D /* RecentProducts.graphql in Resources */,
@@ -3472,6 +3570,7 @@
 				02F01C5227D794450066656D /* MoodWidget.graphql in Resources */,
 				0227DA9D27C63A3B008AB26B /* FoodGroups.graphql in Resources */,
 				02DC28A2289A940B0040A968 /* WorkoutReviewCell.xib in Resources */,
+				028B3CC428B4E59700D587FA /* FoodAddProductCell.xib in Resources */,
 				0227A9BC2849F39E00BA29A8 /* QuizeVideoController.xib in Resources */,
 				0290B39A27D2340800381B42 /* EnerdyTodayCell.xib in Resources */,
 				0273F55A27D5F08E00B19449 /* EnergyMoodCell.xib in Resources */,
@@ -3627,6 +3726,7 @@
 				02B22AC1281C0B3D006AB1EA /* MapModel.swift in Sources */,
 				FA1A2573283D0D0D00240E28 /* PaywallMultiplyController.swift in Sources */,
 				FA1761B127DA1F60002881BB /* WorkoutActivitiesCell.swift in Sources */,
+				028B3CCB28B511F400D587FA /* WriteToUsPresenter.swift in Sources */,
 				02F2D94227D0BF9100E9FB68 /* AskQuestionModel.swift in Sources */,
 				0263388D27DB299600DC0325 /* EnergyProgressController.swift in Sources */,
 				0268752927D8C90100FFEA6A /* EnergyWeightCell.swift in Sources */,
@@ -3696,6 +3796,7 @@
 				0249D26927B3A92300F265C1 /* KeychainService.swift in Sources */,
 				FA47D02D27FACFB3007E47B9 /* TrigonometryManager.swift in Sources */,
 				02E3F9DA2808478D006F5A99 /* CMTime+Extension.swift in Sources */,
+				FAAD7E0828AE8866008FAAA9 /* EncourageAnimView.swift in Sources */,
 				FA58DB4528880FED005D80B1 /* SocialManager.swift in Sources */,
 				FEE119C527E9D1520058EE6D /* PolicyCell.swift in Sources */,
 				02C487FC27F184E80010D4FA /* WorkoutRouter.swift in Sources */,
@@ -3745,10 +3846,12 @@
 				0249D25127B3A70B00F265C1 /* SplashViewController.swift in Sources */,
 				02FAF0AE27D36D7C002CD678 /* EnergyPresenter.swift in Sources */,
 				FA74A3A4289D3E2500E5800A /* MenuSubscriptionsController.swift in Sources */,
+				028B3CC928B5118A00D587FA /* CreateProductReqModel.swift in Sources */,
 				02D066CB27BBBB4300D12C5F /* QuizeNameController.swift in Sources */,
 				FE1403BD27E2019C002F5819 /* ChartTableCell.swift in Sources */,
 				023CDC3A28047C930056F022 /* AvailableGoalsModel.swift in Sources */,
 				0268752527D890F000FFEA6A /* TodayProgressModel.swift in Sources */,
+				FA46B22A28B3B41A002AF1E4 /* UILabel + Extension.swift in Sources */,
 				025463A827CE404F00D433DB /* ToggleProductInRationModel.swift in Sources */,
 				0268752F27D8CCB700FFEA6A /* SaveWeightWidgetModel.swift in Sources */,
 				02D066CE27BBC41800D12C5F /* OnboardingRouter.swift in Sources */,
@@ -3816,6 +3919,7 @@
 				023D171C27BE1D4D005F95C0 /* AuthRouter.swift in Sources */,
 				02DFE89A285A154A005BF69B /* OnboardingSwipeCell.swift in Sources */,
 				FEE119BF27E9B9270058EE6D /* MoodTableCell.swift in Sources */,
+				028B3CC328B4E59700D587FA /* FoodAddProductCell.swift in Sources */,
 				02E9047127F59E56008CFFB4 /* WorkoutExercisesCell.swift in Sources */,
 				02B225C227BD7D4D0035CFA2 /* MeModel.swift in Sources */,
 				02BE9430284F34F4006D361B /* GameRouter.swift in Sources */,
@@ -4026,7 +4130,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 70;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4046,7 +4150,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -4066,7 +4170,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 70;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4086,7 +4190,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -4167,7 +4271,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = izzifit/izzifit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 70;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J544E3RJX6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4187,7 +4291,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgtech.izzifit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

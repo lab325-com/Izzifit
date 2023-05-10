@@ -1,0 +1,3 @@
+mutation CreateProductRequest($name: String!, $description: String!) {
+    createProductRequest(name: $name, description: $description)
+}
