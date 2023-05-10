@@ -1,0 +1,6 @@
+query Progress {
+	progress {
+        createdAt
+        progress
+    }
+}

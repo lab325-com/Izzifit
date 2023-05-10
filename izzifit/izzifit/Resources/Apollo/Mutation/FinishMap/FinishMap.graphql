@@ -1,0 +1,3 @@
+mutation FinishMap($mapId: String) {
+    finishMap(mapId: $mapId)
+}

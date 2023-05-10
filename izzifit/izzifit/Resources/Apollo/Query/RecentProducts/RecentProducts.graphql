@@ -1,0 +1,18 @@
+query RecentProducts {
+    recentProducts {
+        Image {
+            id
+            urlIosFull
+            urlIosPrev
+        }
+        ProductSources {
+            amount
+            name
+        }
+        amount
+        id
+        isToggled
+        measure
+        name
+    }
+}

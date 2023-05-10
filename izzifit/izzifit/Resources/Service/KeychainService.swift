@@ -133,6 +133,15 @@ extension KeychainService {
             self.set(newValue, forKey: .newAuthToken)
         }
     }
+    
+    var me: MeMainModel? {
+        get {
+            return self.model(forKey: .meModel)
+        }
+        set {
+            self.set(newValue, forKey: .meModel)
+        }
+    }
 }
 
 // MARK: - Key[enum]
@@ -140,5 +149,6 @@ extension KeychainService {
     
     enum Key: String {
         case newAuthToken = "ArchiveNewAuthModel"
+        case meModel = "ArchiveMeModel"
     }
 }

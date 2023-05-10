@@ -1,0 +1,10 @@
+query WeightsWidget($from: Date, $to: Date) {
+    weightsWidget(from: $from, to: $to) {
+    Weights {
+         createdAt
+         weight
+        }
+    measure
+    targetWeight
+    }
+}

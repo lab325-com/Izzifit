@@ -1,0 +1,3 @@
+mutation DrinkWater($cupsCount: Int!) {
+    drinkWater(cupsCount: $cupsCount)
+}

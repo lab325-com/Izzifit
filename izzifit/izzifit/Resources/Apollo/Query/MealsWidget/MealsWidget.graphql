@@ -1,0 +1,28 @@
+query MealsWidget($date: Date!) {
+    mealsWidget(date: $date) {
+        energy
+        energyTotal
+        Meals {
+            eatenAt
+            id
+            Products {
+                Image {
+                    id
+                    urlIosFull
+                    urlIosPrev
+                }
+                amount
+                id
+                measure
+                name
+            }
+            type
+        }
+        Sources {
+            donePercents
+            left
+            name
+            needed
+        }
+    }
+}

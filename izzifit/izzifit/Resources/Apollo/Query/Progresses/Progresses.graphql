@@ -1,0 +1,6 @@
+query Progresses($from: Date!, $to: Date!) {
+    progresses(from: $from, to: $to) {
+        createdAt
+        progress
+    }
+}

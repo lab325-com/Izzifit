@@ -1,0 +1,23 @@
+query RecommendWorkouts {
+    recommendWorkouts {
+        Image {
+            id
+            urlIosFull
+        }
+        duration {
+            hours
+            minutes
+            seconds
+        }
+        energy
+        energyTotal
+        id
+        isAvailable
+        isFinished
+        description
+        title
+        totalExercises
+        totalFinishedExercises
+    }
+}
+

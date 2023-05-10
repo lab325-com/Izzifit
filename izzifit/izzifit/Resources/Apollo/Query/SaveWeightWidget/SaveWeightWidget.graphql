@@ -1,0 +1,10 @@
+query SaveWeightWidget {
+    saveWeightWidget {
+        energy
+        energyTotal
+        measure
+        targetWeight
+        weight
+        createdAt
+    }
+}

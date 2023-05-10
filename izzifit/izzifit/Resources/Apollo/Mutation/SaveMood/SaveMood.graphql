@@ -1,0 +1,4 @@
+mutation SaveMood($mood: MoodType!) {
+    saveMood(mood: $mood)
+}
+

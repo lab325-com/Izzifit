@@ -22,7 +22,7 @@ class Network {
         
         return ApolloClient(networkTransport: requestChainTransport,
                             store: store)
-    }()
+    }() 
     
     func mutation<T: GraphQLMutation, Model: Codable>(model type: Model.Type,
                                                       _ mutation: T,
@@ -41,7 +41,8 @@ class Network {
                     debugPrint("Failure! Error: \(error)")
                     if queryResult.errors?.first?.message == "Not authenticated" {
                         KeychainService.standard.removeAll()
-                        RootRouter.sharedInstance.loadLogin(toWindow: RootRouter.sharedInstance.window!)
+                        PreferencesManager.sharedManager.deleteAcc()
+                        RootRouter.sharedInstance.loadStart(toWindow: RootRouter.sharedInstance.window!)
                     }
                     if let message = queryResult.errors?.first?.message {
                         controller?.view?.makeToast(message)
@@ -77,7 +78,8 @@ class Network {
                     debugPrint("Failure! Error: \(error)")
                     if queryResult.errors?.first?.message == "Not authenticated" {
                         KeychainService.standard.removeAll()
-                        RootRouter.sharedInstance.loadLogin(toWindow: RootRouter.sharedInstance.window!)
+                        PreferencesManager.sharedManager.deleteAcc()
+                        RootRouter.sharedInstance.loadStart(toWindow: RootRouter.sharedInstance.window!)
                     }
                     if let message = queryResult.errors?.first?.message {
                         controller?.view?.makeToast(message)
@@ -113,7 +115,8 @@ class Network {
                     debugPrint("Failure! Error: \(error)")
                     if queryResult.errors?.first?.message == "Not authenticated" {
                         KeychainService.standard.removeAll()
-                        RootRouter.sharedInstance.loadLogin(toWindow: RootRouter.sharedInstance.window!)
+                        PreferencesManager.sharedManager.deleteAcc()
+                        RootRouter.sharedInstance.loadStart(toWindow: RootRouter.sharedInstance.window!)
                     }
                     if let message = queryResult.errors?.first?.message {
                         controller?.view?.makeToast(message)
@@ -241,16 +244,16 @@ extension Network {
             response: HTTPResponse<Operation>?,
             completion: @escaping (Result<GraphQLResult<Operation.Data>, Error>) -> Void) {
                 
-                //                guard let token = KeychainService.standard.newAuthToken else {
-                //                    chain.handleErrorAsync(UserError.noUserLoggedIn,
-                //                                           request: request,
-                //                                           response: response,
-                //                                           completion: completion)
-                //                    return
-                //                }
+//                                guard let token = KeychainService.standard.newAuthToken else {
+//                                    chain.handleErrorAsync(UserError.noUserLoggedIn,
+//                                                           request: request,
+//                                                           response: response,
+//                                                           completion: completion)
+//                                    return
+//                                }
                 
                 // If we've gotten here, there is a token!
-                // if token.isExpired == true {
+         //        if token.isExpired == true {
                 // Call an async method to renew the token
                 //                UserManager.shared.renewToken { [weak self] tokenRenewResult in
                 //                    guard let self = self else {
@@ -275,13 +278,13 @@ extension Network {
                 //                                                completion: completion)
                 //                    }
                 //                }
-                //   } else {
+               //    } else {
                 self.addTokenAndProceed(KeychainService.standard.newAuthToken,
                                         to: request,
                                         chain: chain,
                                         response: response,
                                         completion: completion)
-                // }
+              //  }
             }
     }
     
@@ -323,7 +326,7 @@ extension Network {
         private lazy var webSocketTransport: WebSocketTransport = {
             let url = URL(string: AppConfiguration.shared.wssName)!
             let request = URLRequest(url: url)
-            let webSocketClient = WebSocket(request: request)
+            let webSocketClient = WebSocket(request: request, protocol: .graphql_transport_ws)
             let authPayload = ["Authorization": "Bearer \(KeychainService.standard.newAuthToken?.token ?? "")"]
             return WebSocketTransport(websocket: webSocketClient, connectingPayload: authPayload)
         }()

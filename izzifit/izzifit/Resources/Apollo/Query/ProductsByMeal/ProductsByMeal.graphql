@@ -1,0 +1,18 @@
+query ProductsByMeal($mealId: String!) {
+    productsByMeal(mealId: $mealId) {
+        Image {
+            id
+            urlIosFull
+            urlIosPrev
+        }
+        ProductSources {
+            amount
+            name
+        }
+        amount
+        id
+        isToggled
+        measure
+        name
+    }
+}

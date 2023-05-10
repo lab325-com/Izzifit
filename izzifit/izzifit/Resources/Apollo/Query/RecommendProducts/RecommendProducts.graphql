@@ -1,0 +1,18 @@
+query RecommendProducts($mealType: MealType!) {
+    recommendProducts(mealType: $mealType) {
+        Image {
+            id
+            urlIosFull
+            urlIosPrev
+        }
+        ProductSources {
+            amount
+            name
+        }
+        amount
+        id
+        isToggled
+        measure
+        name
+    }
+}

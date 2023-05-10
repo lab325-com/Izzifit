@@ -1,0 +1,3 @@
+mutation UpgradeBuilding($buildingId: String!) {
+    upgradeBuilding(buildingId: $buildingId)
+}

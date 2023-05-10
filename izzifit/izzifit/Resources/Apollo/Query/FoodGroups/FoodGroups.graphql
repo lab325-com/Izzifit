@@ -1,0 +1,13 @@
+query FoodGroups {
+	foodGroups {
+        Image {
+            id
+            urlIosFull
+            urlIosPrev
+        }
+        id
+        name
+	}
+}
+
+

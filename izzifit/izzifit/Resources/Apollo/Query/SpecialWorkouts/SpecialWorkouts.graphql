@@ -1,0 +1,26 @@
+query SpecialWorkouts {
+    specialWorkouts {
+        Image {
+            id
+            urlIosFull
+            urlIosPrev
+        }
+        duration {
+            hours
+            minutes
+            seconds
+        }
+        energy
+        energyTotal
+        id
+        isAvailable
+        isFinished
+        shortDescription
+        description
+        title
+        totalExercises
+        totalFinishedExercises
+        isSpecial
+        externalId
+    }
+}

@@ -1,0 +1,3 @@
+mutation OrderCreate($order: OrderCreateInputRecord!, $paymentSystem: PaymentSystemName!) {
+    orderCreate(order: $order, paymentSystem: $paymentSystem)
+}

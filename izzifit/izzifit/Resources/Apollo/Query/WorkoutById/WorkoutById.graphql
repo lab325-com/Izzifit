@@ -1,0 +1,55 @@
+query WorkoutById($id: String!) {
+    workoutById(id: $id) {
+        ExerciseGroups {
+            Exercises {
+                Image {
+                    id
+                    urlIosFull
+                }
+                Video {
+                    id
+                    url
+                }
+                description
+                duration {
+                    hours
+                    minutes
+                    seconds
+                }
+                id
+                isFinished
+                isRest
+                title
+                rapes
+            }
+            id
+            title
+        }
+        Image {
+            id
+            urlIosFull
+        }
+        Muscles {
+            id
+            isToggled
+            name
+        }
+        description
+        duration {
+            hours
+            minutes
+            seconds
+        }
+        energy
+        energyTotal
+        id
+        isAvailable
+        isFinished
+        description
+        kCal
+        title
+        totalExercises
+        totalFinishedExercises
+    }
+}
+

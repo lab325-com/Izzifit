@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainTabBarController" customModule="izzifit" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomCustomTabBarLayout" destination="wyl-ku-7BD" id="zIj-yc-0nn"/>
+                <outlet property="containerEnergyView" destination="WNt-O1-eAf" id="4AK-bV-eWe"/>
+                <outlet property="containerMenuView" destination="b0J-Rb-5cC" id="NdR-3A-c21"/>
+                <outlet property="containerProfileView" destination="vht-gD-zSx" id="Hbn-a4-UFQ"/>
+                <outlet property="containerWorkoutView" destination="n6x-QE-BRy" id="afc-Z1-aGP"/>
+                <outlet property="mainTabBarVw" destination="YxE-sx-cP6" id="XPf-g1-ngU"/>
+                <outlet property="selectWorkoutLayout" destination="734-NM-gLy" id="M4g-BA-Yeb"/>
+                <outlet property="selectedEnergyLayout" destination="7ZO-aF-SOS" id="cvG-2E-5rF"/>
+                <outlet property="selectedMenuLayout" destination="0JN-R7-pbZ" id="AuF-9d-zXA"/>
+                <outlet property="selectedProfileLayout" destination="wzS-ve-URZ" id="xQO-IB-Jhe"/>
+                <outlet property="selectedView" destination="hFS-tn-2Ae" id="sFn-RO-5ue"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNt-O1-eAf">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
+                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n6x-QE-BRy">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
+                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vht-gD-zSx">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
+                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0J-Rb-5cC">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
+                    <color key="backgroundColor" systemColor="systemYellowColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxE-sx-cP6" customClass="ShadowView" customModule="izzifit" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="812" width="414" height="84"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NQz-Rf-fsS">
+                            <rect key="frame" x="16" y="0.0" width="382" height="84"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjY-Ws-lzw">
+                                    <rect key="frame" x="0.0" y="0.0" width="76.5" height="84"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="tab_bar_energy_ic"/>
+                                    <connections>
+                                        <action selector="actionEnergy:" destination="-1" eventType="touchUpInside" id="ZyO-JU-43b"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYg-5N-Spb">
+                                    <rect key="frame" x="76.5" y="0.0" width="76.5" height="84"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="tab_bar_workout_ic"/>
+                                    <connections>
+                                        <action selector="actionWorkout:" destination="-1" eventType="touchUpInside" id="R2e-Dy-wuj"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBE-g0-S5X">
+                                    <rect key="frame" x="153" y="0.0" width="76" height="84"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emR-W6-4jD">
+                                    <rect key="frame" x="229" y="0.0" width="76.5" height="84"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="tab_bar_profile_ic"/>
+                                    <connections>
+                                        <action selector="actionProfile:" destination="-1" eventType="touchUpInside" id="tfn-d6-cVt"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DX3-c5-CpP">
+                                    <rect key="frame" x="305.5" y="0.0" width="76.5" height="84"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="tab_bar_menu_ic"/>
+                                    <connections>
+                                        <action selector="actionMenu:" destination="-1" eventType="touchUpInside" id="yIG-Qv-hM2"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="84" id="Lkl-MI-Lmx"/>
+                        <constraint firstItem="NQz-Rf-fsS" firstAttribute="top" secondItem="YxE-sx-cP6" secondAttribute="top" id="YV7-3I-d3z"/>
+                        <constraint firstAttribute="trailing" secondItem="NQz-Rf-fsS" secondAttribute="trailing" constant="16" id="hML-XD-5Fb"/>
+                        <constraint firstItem="NQz-Rf-fsS" firstAttribute="leading" secondItem="YxE-sx-cP6" secondAttribute="leading" constant="16" id="jaR-eR-kqW"/>
+                        <constraint firstAttribute="bottom" secondItem="NQz-Rf-fsS" secondAttribute="bottom" id="ka1-Q1-eM4"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" red="0.39215686274509803" green="0.44313725490196076" blue="0.47058823529411764" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFS-tn-2Ae">
+                    <rect key="frame" x="42" y="814" width="24" height="2"/>
+                    <color key="backgroundColor" red="1" green="0.25882352941176467" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="0EX-Wd-qxG"/>
+                        <constraint firstAttribute="height" constant="2" id="HZh-EA-gxI"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDe-5W-WQK">
+                    <rect key="frame" x="169" y="798" width="76" height="76"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9H-cN-cbp">
+                            <rect key="frame" x="8" y="8" width="60" height="60"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="tab_bar_fun_ic"/>
+                            <connections>
+                                <action selector="actionGame:" destination="-1" eventType="touchUpInside" id="36j-dq-tFS"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="v9H-cN-cbp" secondAttribute="bottom" constant="8" id="GED-PB-dlS"/>
+                        <constraint firstAttribute="height" constant="76" id="HYP-rN-zt9"/>
+                        <constraint firstAttribute="width" constant="76" id="e9T-76-JXE"/>
+                        <constraint firstAttribute="trailing" secondItem="v9H-cN-cbp" secondAttribute="trailing" constant="8" id="gcg-G0-DQ4"/>
+                        <constraint firstItem="v9H-cN-cbp" firstAttribute="leading" secondItem="LDe-5W-WQK" secondAttribute="leading" constant="8" id="kQq-Bp-Mxf"/>
+                        <constraint firstItem="v9H-cN-cbp" firstAttribute="top" secondItem="LDe-5W-WQK" secondAttribute="top" constant="8" id="w5Y-8F-Fq3"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="38"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemRedColor"/>
+            <constraints>
+                <constraint firstItem="hFS-tn-2Ae" firstAttribute="centerX" secondItem="DX3-c5-CpP" secondAttribute="centerX" priority="250" id="0JN-R7-pbZ"/>
+                <constraint firstItem="LDe-5W-WQK" firstAttribute="centerX" secondItem="bBE-g0-S5X" secondAttribute="centerX" id="4rN-bQ-7Pk"/>
+                <constraint firstItem="n6x-QE-BRy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5X9-9O-i7F"/>
+                <constraint firstItem="WNt-O1-eAf" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="5c1-9c-MCc"/>
+                <constraint firstItem="YxE-sx-cP6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5os-Ha-ufD"/>
+                <constraint firstItem="hFS-tn-2Ae" firstAttribute="centerX" secondItem="hYg-5N-Spb" secondAttribute="centerX" priority="250" id="734-NM-gLy"/>
+                <constraint firstItem="hFS-tn-2Ae" firstAttribute="centerX" secondItem="fjY-Ws-lzw" secondAttribute="centerX" priority="750" id="7ZO-aF-SOS"/>
+                <constraint firstItem="LDe-5W-WQK" firstAttribute="centerY" secondItem="bBE-g0-S5X" secondAttribute="centerY" constant="-18" id="7cR-nd-2w5"/>
+                <constraint firstItem="YxE-sx-cP6" firstAttribute="top" secondItem="n6x-QE-BRy" secondAttribute="bottom" id="DhK-ZF-2v4"/>
+                <constraint firstItem="WNt-O1-eAf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XY1-wR-2gW"/>
+                <constraint firstItem="YxE-sx-cP6" firstAttribute="top" secondItem="b0J-Rb-5cC" secondAttribute="bottom" id="Z4Q-S0-Nyq"/>
+                <constraint firstItem="n6x-QE-BRy" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="bAZ-sP-9DN"/>
+                <constraint firstItem="YxE-sx-cP6" firstAttribute="top" secondItem="WNt-O1-eAf" secondAttribute="bottom" id="cXa-CI-5ZQ"/>
+                <constraint firstItem="vht-gD-zSx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="eBa-SF-j7z"/>
+                <constraint firstItem="WNt-O1-eAf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gz2-pF-SdK"/>
+                <constraint firstItem="b0J-Rb-5cC" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="inr-sM-28z"/>
+                <constraint firstItem="n6x-QE-BRy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jR8-bb-6hV"/>
+                <constraint firstItem="vht-gD-zSx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nH2-0P-4Xy"/>
+                <constraint firstItem="hFS-tn-2Ae" firstAttribute="top" secondItem="YxE-sx-cP6" secondAttribute="top" constant="2" id="pg3-iH-zeU"/>
+                <constraint firstItem="b0J-Rb-5cC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pjG-Ct-8Jh"/>
+                <constraint firstItem="b0J-Rb-5cC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tu2-Vr-hdu"/>
+                <constraint firstItem="YxE-sx-cP6" firstAttribute="top" secondItem="vht-gD-zSx" secondAttribute="bottom" id="wa6-IQ-twE"/>
+                <constraint firstAttribute="bottom" secondItem="YxE-sx-cP6" secondAttribute="bottom" id="wyl-ku-7BD"/>
+                <constraint firstItem="hFS-tn-2Ae" firstAttribute="centerX" secondItem="emR-W6-4jD" secondAttribute="centerX" priority="250" id="wzS-ve-URZ"/>
+                <constraint firstItem="vht-gD-zSx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xgW-I8-yrp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YxE-sx-cP6" secondAttribute="trailing" id="xys-o2-mqn"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="72.991071428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tab_bar_energy_ic" width="32" height="32"/>
+        <image name="tab_bar_fun_ic" width="60" height="60"/>
+        <image name="tab_bar_menu_ic" width="32" height="32"/>
+        <image name="tab_bar_profile_ic" width="32" height="32"/>
+        <image name="tab_bar_workout_ic" width="32" height="32"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

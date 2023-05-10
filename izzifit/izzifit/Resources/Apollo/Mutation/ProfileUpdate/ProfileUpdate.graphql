@@ -1,0 +1,42 @@
+mutation ProfileUpdate($record: ProfileUpdateInput!) {
+    profileUpdate(record: $record) {
+        age
+        coins
+        darkTheme
+        doSport
+        email
+        weightMeasure
+        energy
+        fitnessPreference
+        gender
+        goal
+        growth
+        id
+        name
+        notifications
+        reminders
+        showOnBoarding
+        weight
+        targetWeight
+        FoodGroup {
+            Image {
+                id
+                urlIosFull
+                urlIosPrev
+            }
+            id
+            name
+        }
+        Avatar {
+            id
+            url
+        }
+        Subscription {
+            id
+            Plan {
+                externalId
+            }
+            expiresAt
+        }
+    }
+}

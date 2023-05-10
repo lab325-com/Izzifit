@@ -24,16 +24,22 @@ class BaseController: UIViewController, NVActivityIndicatorViewable {
     /// property to keyboard settings
     var isShowKeyboard = false
     var correctionKeyboard: CGFloat = 0.0
+    var correctionHideKeyboard: CGFloat = 0.0
     var keyboardHeight: CGFloat = 0.0
     var isNeedBottomPagging = true
     var addTapOnScreen = true
     var setupBackButton = true
+    var needSoundTap = true
     
     //----------------------------------------------
     // MARK: - Life cycle
     //----------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if needSoundTap {
+            addActionSound()
+        }
         
         navigationController?.navigationItem.hidesBackButton = true
         
@@ -82,6 +88,13 @@ class BaseController: UIViewController, NVActivityIndicatorViewable {
             }
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+    }
+    
     
     func setCustomNavigationTitle(_ text: String) {
         let navLabel = UILabel()
@@ -147,7 +160,7 @@ class BaseController: UIViewController, NVActivityIndicatorViewable {
         let size = CGSize(width: 50, height: 50)
         let allTypes = NVActivityIndicatorType.allCases
         
-        startAnimating(size, message: "", type: allTypes.randomElement() ?? .orbit, fadeInAnimation: nil)
+        startAnimating(size, message: "", type: .lineScalePulseOutRapid, color: UIColor(rgb: 0xFF42A8), fadeInAnimation: nil)
     }
     
     func stopLoading() {
@@ -162,8 +175,9 @@ class BaseController: UIViewController, NVActivityIndicatorViewable {
 extension BaseController {
     @objc func keyboardWillHideMain(_ notification : Notification) {
         isShowKeyboard = false
+        
         if let bootomConstant = bottomViewConstraint {
-            bootomConstant.constant = 0
+            bootomConstant.constant = correctionHideKeyboard
             keyboardHeight = 0
             UIView.animate(withDuration: 0.4, animations: { () -> Void in
                 self.view.layoutIfNeeded()
@@ -204,5 +218,41 @@ extension BaseController {
                 self.view.layoutIfNeeded()
             })
         }
+    }
+}
+
+//----------------------------------------------
+// MARK: - Audio
+//----------------------------------------------
+
+extension BaseController {
+    func addActionSound(){
+        for view in self.view.subviews as [UIView] {
+            if let btn = view as? UIButton {
+                btn.addTarget(self, action: #selector(playTapInButton), for: .touchUpInside)
+            }
+        }
+    }
+    
+    @objc func playTapInButton() {
+        AudioManager.sharedManager.playSound()
+    }
+}
+
+//----------------------------------------------
+// MARK: - Alert
+//----------------------------------------------
+
+extension BaseController {
+    func showAlert(message: String, router: @escaping () -> ()) {
+        let alert = UIAlertController(title: "Sorry",
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            router()
+        }
+        alert.addAction(okAction)
+        present(alert,animated: true)
     }
 }

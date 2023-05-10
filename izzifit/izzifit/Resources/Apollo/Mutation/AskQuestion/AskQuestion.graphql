@@ -1,0 +1,3 @@
+mutation AskQuestion($email: String!, $question: String!) {
+    askQuestion(email: $email, question: $question)
+}

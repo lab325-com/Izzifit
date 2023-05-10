@@ -2,10 +2,22 @@
 //  PreferenceManager.swift
 //  Hark
 //
-//  Created by Andrey S on 06.01.2022.
+//  Created by mob325 on 06.01.2022.
 //
 
 import Foundation
+
+enum KeysPreference: String, CaseIterable {
+   case  tempPorifle = "tempPorifle"
+   case  foods =  "foods"
+   case  afterOnboarding = "afterOnboarding"
+   case  gameOnboardingDone = "gameOnboardingDone"
+   case  drinkWidgetShowed = "drinkWidgetShowed"
+   case  drintWaterInfoHidden = "drintWaterInfoHidden"
+   case  mealsPlanInfoHidden = "mealsPlanInfoHidden"
+   case  stepsInfoHidden = "stepsInfoHidden"
+   case  pushOpen = "pushOpen"
+}
 
 class PreferencesManager : NSObject {
     
@@ -14,6 +26,25 @@ class PreferencesManager : NSObject {
     
     //MARK: - Keys
     static let isFirstRun = "isFirstRun"
+    //static let isStart = "isStart"
+    static let tempPorifle = "tempPorifle"
+    static let foods =  "foods"
+    //static let widgetList = "widgetList"
+    static let screensPaywall = "screensPaywall"
+    static let afterOnboarding = "afterOnboarding"
+    static let preOnboardingRemote = "preOnboardingRemote"
+    static let enegyZero = "enegyZero"
+    static let coinsZero = "coinsZero"
+    static let fcmToken = "fcmToken"
+    static let localPushs = "localPushs"
+    static let gameOnboardingDone = "gameOnboardingDone"
+    static let drinkWidgetShowed = "drinkWidgetShowed"
+    static let spinsRolledCounter = "spinsRolledCounter"
+    
+    static let drintWaterInfoHidden = "drintWaterInfoHidden"
+    static let mealsPlanInfoHidden = "mealsPlanInfoHidden"
+    static let stepsInfoHidden = "stepsInfoHidden"
+    static let pushOpen = "pushOpen"
     
     var userDefaults: UserDefaults
     
@@ -103,5 +134,191 @@ class PreferencesManager : NSObject {
             userDefaults.set(newValue, forKey: PreferencesManager.isFirstRun)
             userDefaults.synchronize()
         }
+    }
+    var spinsRolledCounter: Int {
+        get {
+            return userDefaults.integer(forKey: PreferencesManager.spinsRolledCounter)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.spinsRolledCounter)
+            userDefaults.synchronize()
+        }
+    }
+    
+//    var isStart: Bool {
+//        get {
+//            return userDefaults.bool(forKey: PreferencesManager.isStart)
+//        }
+//        set {
+//            userDefaults.set(newValue, forKey: PreferencesManager.isStart)
+//            userDefaults.synchronize()
+//        }
+//    }
+    
+    var tempPorifle: TempProfileModel {
+        get {
+            return self.model(forKey: PreferencesManager.tempPorifle) ?? TempProfileModel(name: nil)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.tempPorifle)
+        }
+    }
+    
+    var foods: [FoodGroupModel]? {
+        get {
+            return self.models(forKey: PreferencesManager.foods)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.foods)
+        }
+    }
+    
+//    var widgetList: [WidgetEntityType] {
+//        get {
+//            return self.models(forKey: PreferencesManager.widgetList) ?? []
+//        }
+//        set {
+//            self.set(newValue, forKey: PreferencesManager.widgetList)
+//        }
+//    }
+    
+    var screensPaywall: [ScreensPaywallModel] {
+        get {
+            return self.models(forKey: PreferencesManager.screensPaywall) ?? []
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.screensPaywall)
+        }
+    }
+    
+    var preOnboardingRemote: PreVideoOnboardingModel? {
+        get {
+            return self.model(forKey: PreferencesManager.preOnboardingRemote)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.preOnboardingRemote)
+        }
+    }
+    
+    var enegyZero: ZeroPopUModel? {
+        get {
+            return self.model(forKey: PreferencesManager.enegyZero)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.enegyZero)
+        }
+    }
+    
+    var coinsZero: ZeroPopUModel? {
+        get {
+            return self.model(forKey: PreferencesManager.coinsZero)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.coinsZero)
+        }
+    }
+    
+    var afterOnboarding: Bool {
+        get {
+            return userDefaults.bool(forKey: PreferencesManager.afterOnboarding)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.afterOnboarding)
+            userDefaults.synchronize()
+        }
+    }
+    
+    var stepsInfoHidden: Bool {
+        get {
+            return userDefaults.bool(forKey: PreferencesManager.stepsInfoHidden)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.stepsInfoHidden)
+            userDefaults.synchronize()
+        }
+    }
+    
+    var mealsPlanInfoHidden: Bool {
+        get {
+            return userDefaults.bool(forKey: PreferencesManager.mealsPlanInfoHidden)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.mealsPlanInfoHidden)
+            userDefaults.synchronize()
+        }
+    }
+    
+    var drintWaterInfoHidden: Bool {
+        get {
+            return userDefaults.bool(forKey: PreferencesManager.drintWaterInfoHidden)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.drintWaterInfoHidden)
+            userDefaults.synchronize()
+        }
+    }
+    
+    var gameOnboardingDone: Bool {
+        get {
+            return userDefaults.bool(forKey: PreferencesManager.gameOnboardingDone)
+        }
+        set {
+            userDefaults.set(newValue, forKey: PreferencesManager.gameOnboardingDone)
+            userDefaults.synchronize()
+        }
+    }
+
+    var currentMapName: MapName? {
+            get {
+                return MapName(rawValue: userDefaults.string(forKey: "currentMapName") ?? "snow_map") ?? nil
+            }
+            set {
+                userDefaults.set(newValue?.rawValue, forKey: "currentMapName")
+                userDefaults.synchronize()
+            }
+        }
+
+    var localPushs: [LocalPushModel] {
+        get {
+            return self.models(forKey: PreferencesManager.localPushs) ?? []
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.localPushs)
+        }
+    }
+    
+    var fcmToken: String? {
+        get {
+            return self.model(forKey: PreferencesManager.fcmToken)
+        }
+        set {
+            self.set(newValue, forKey: PreferencesManager.fcmToken)
+        }
+    }
+    
+    var hummerCount: Int {
+        get {
+            UserDefaults.standard.integer(forKey: "hummerCount")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "hummerCount")
+        }
+    }
+    
+    var pushOpen: ParsingEvent? {
+        get {
+            return ParsingEvent(rawValue: UserDefaults.standard.string(forKey: PreferencesManager.pushOpen) ?? "")
+        }
+        set {
+            userDefaults.set(newValue?.rawValue, forKey: PreferencesManager.pushOpen)
+            userDefaults.synchronize()
+        }
+    }
+    
+    func deleteAcc() {
+        for key in KeysPreference.allCases {
+            userDefaults.removeObject(forKey: key.rawValue)
+        }
+        tempPorifle =  TempProfileModel(name: nil)
     }
 }

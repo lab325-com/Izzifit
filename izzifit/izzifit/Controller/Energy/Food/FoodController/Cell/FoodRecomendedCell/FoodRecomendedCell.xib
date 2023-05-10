@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Medium.ttf">
+            <string>Inter-Medium</string>
+        </array>
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FoodRecomendedCell" rowHeight="64" id="KGk-i7-Jjw" customClass="FoodRecomendedCell" customModule="izzifit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="362" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="362" height="64"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_food_two_ic" translatesAutoresizingMaskIntoConstraints="NO" id="I9x-VX-arB">
+                        <rect key="frame" x="16" y="8" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="CjG-lP-ntZ"/>
+                            <constraint firstAttribute="width" constant="40" id="rxs-1L-rNz"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3K-Ur-jlf">
+                        <rect key="frame" x="72" y="8" width="33" height="19.5"/>
+                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
+                        <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="eJE-qu-ioT">
+                        <rect key="frame" x="72" y="32.5" width="187.5" height="15"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Prot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzA-7u-ko3">
+                                <rect key="frame" x="0.0" y="0.0" width="34.5" height="15"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.53701470822704078" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Fats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANj-Rc-isG">
+                                <rect key="frame" x="58.5" y="0.0" width="35.5" height="15"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.53701470819999997" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="1111111111111 Carb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ck4-PL-L6X">
+                                <rect key="frame" x="118" y="0.0" width="69.5" height="15"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.53701470819999997" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqK-N2-amS">
+                        <rect key="frame" x="322" y="16" width="24" height="24"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="energy_meals_add_ic"/>
+                        <connections>
+                            <action selector="addProduct:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="91t-Rr-vEB"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JB5-QQ-58d">
+                        <rect key="frame" x="72" y="0.0" width="290" height="1"/>
+                        <color key="backgroundColor" red="0.24705882352941178" green="0.24313725490196078" blue="0.33725490196078434" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="RTX-vw-M8u"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="100 g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="he6-ap-TdF">
+                        <rect key="frame" x="269.5" y="19.5" width="36.5" height="17"/>
+                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                        <color key="textColor" red="0.2470588235" green="0.24313725489999999" blue="0.33725490200000002" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="he6-ap-TdF" firstAttribute="centerY" secondItem="sqK-N2-amS" secondAttribute="centerY" id="DNd-w3-PD1"/>
+                    <constraint firstAttribute="trailing" secondItem="JB5-QQ-58d" secondAttribute="trailing" id="Gea-BQ-Dgj"/>
+                    <constraint firstItem="eJE-qu-ioT" firstAttribute="top" secondItem="Z3K-Ur-jlf" secondAttribute="bottom" constant="5" id="IqB-Hu-nVR"/>
+                    <constraint firstItem="Z3K-Ur-jlf" firstAttribute="top" secondItem="I9x-VX-arB" secondAttribute="top" id="MYL-Hz-zay"/>
+                    <constraint firstAttribute="trailing" secondItem="sqK-N2-amS" secondAttribute="trailing" constant="16" id="Sat-qF-fLG"/>
+                    <constraint firstItem="I9x-VX-arB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Xcz-rj-G1R"/>
+                    <constraint firstItem="sqK-N2-amS" firstAttribute="centerY" secondItem="I9x-VX-arB" secondAttribute="centerY" id="Xzk-QR-0Na"/>
+                    <constraint firstItem="eJE-qu-ioT" firstAttribute="leading" secondItem="Z3K-Ur-jlf" secondAttribute="leading" id="c89-sC-XFT"/>
+                    <constraint firstItem="he6-ap-TdF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eJE-qu-ioT" secondAttribute="trailing" constant="10" id="gOo-9f-BVe"/>
+                    <constraint firstAttribute="bottom" secondItem="JB5-QQ-58d" secondAttribute="bottom" id="jZr-HW-HDa"/>
+                    <constraint firstAttribute="bottom" secondItem="I9x-VX-arB" secondAttribute="bottom" constant="8" id="n4G-4S-hOH"/>
+                    <constraint firstItem="sqK-N2-amS" firstAttribute="leading" secondItem="he6-ap-TdF" secondAttribute="trailing" constant="16" id="o0d-Uq-kwQ"/>
+                    <constraint firstItem="I9x-VX-arB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="oKP-hP-Va8"/>
+                    <constraint firstItem="Z3K-Ur-jlf" firstAttribute="leading" secondItem="I9x-VX-arB" secondAttribute="trailing" constant="16" id="rXF-LZ-yCP"/>
+                    <constraint firstItem="JB5-QQ-58d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="72" id="y5U-P5-9jf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <inset key="separatorInset" minX="10000" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="addButton" destination="sqK-N2-amS" id="NXe-JN-x4o"/>
+                <outlet property="avatarImageView" destination="I9x-VX-arB" id="HoF-U7-027"/>
+                <outlet property="bottomView" destination="JB5-QQ-58d" id="Ro9-41-yQI"/>
+                <outlet property="carbsLabel" destination="ck4-PL-L6X" id="Vdu-yM-9by"/>
+                <outlet property="fatsLabel" destination="ANj-Rc-isG" id="25N-fU-0qN"/>
+                <outlet property="grammLabel" destination="he6-ap-TdF" id="AHC-K4-TaR"/>
+                <outlet property="nameLabel" destination="Z3K-Ur-jlf" id="RWa-aj-Pf5"/>
+                <outlet property="protLabel" destination="uzA-7u-ko3" id="5G2-6d-gbP"/>
+            </connections>
+            <point key="canvasLocation" x="168.11594202898553" y="106.47321428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="energy_meals_add_ic" width="24" height="24"/>
+        <image name="placeholder_food_two_ic" width="40" height="40"/>
+    </resources>
+</document>

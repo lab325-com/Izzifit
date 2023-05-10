@@ -1,0 +1,18 @@
+query Products($search: String, $foodGroupId: Int, $sourceIds: [Int], $onlyToggled: Boolean) {
+	products(search: $search, foodGroupId: $foodGroupId, sourceIds: $sourceIds, onlyToggled: $onlyToggled) {
+        Image {
+            id
+            urlIosFull
+            urlIosPrev
+        }
+        ProductSources {
+            amount
+            name
+        }
+        amount
+        id
+        isToggled
+        measure
+        name
+	}
+}

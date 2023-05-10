@@ -1,0 +1,24 @@
+query ChooseWorkoutWidget($date: Date) {
+    chooseWorkoutWidget(date: $date) {
+        Image {
+            id
+            urlIosFull
+            urlIosPrev
+        }
+        duration {
+            hours
+            minutes
+            seconds
+        }
+        energy
+        energyTotal
+        id
+        isAvailable
+        isFinished
+        shortDescription
+        description
+        title
+        totalExercises
+        totalFinishedExercises
+    }
+}
